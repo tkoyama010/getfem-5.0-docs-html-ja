@@ -8,8 +8,8 @@
     
     <title>GetFEM++ in action ... &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,16 +20,16 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../underscore.js"></script>
+    <script type="text/javascript" src="../doctools.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="next" title="Matlab source code for the tripod" href="tripod_source.html" />
     <link rel="prev" title="GetFEM++ Mailing Lists" href="../lists.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../icon.png" />
  
 
   </head>
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="../lists.html" title="GetFEM++ Mailing Lists"
              accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  
@@ -62,12 +62,12 @@
 <span id="screenshots"></span><h1>GetFEM++ in action ...<a class="headerlink" href="#getfem-in-action" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="generic-mesh-handling">
 <h2>Generic mesh handling<a class="headerlink" href="#generic-mesh-handling" title="Permalink to this headline">¶</a></h2>
-<p>The first images illustrate the general mesh handling of getfem. The <a class="reference external" href="../_static/strange.mesh_fem">mesh description</a>
+<p>The first images illustrate the general mesh handling of getfem. The <a class="reference external" href="../strange.mesh_fem">mesh description</a>
 is hand-made, and involves many different element types and convex types, as you can see
 (the mesh, and a random function interpolated on the mesh):</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../_static/strangemesh.png"><img alt="im1" src="../_images/strangemesh_small.png" /></a>
- <a class="reference external image-reference" href="../_static/strangernd.png"><img alt="im2" src="../_images/strangernd_small.png" /></a>
+<strong><a class="reference external image-reference" href="../strangemesh.png"><img alt="im1" src="../_images/strangemesh_small.png" /></a>
+ <a class="reference external image-reference" href="../strangernd.png"><img alt="im2" src="../_images/strangernd_small.png" /></a>
 </strong></p><p>The mesh is 3D. There is a quadrangle, a curved quadrangle/triangle, a kind of curved
 prism and hexahedron, and a very curved (geometrical transformation of degree 3)
 quadrangle.</p>
@@ -80,7 +80,7 @@ computed on a P2 FEM (i.e. P2 isoparametric FEM). Below is the Von Mises stress,
 represented on the deformed tripod. The source code of this example uses the matlab
 interface, and can be found here: <a class="reference internal" href="tripod_source.html#tripod-source"><em>Matlab source code for the tripod</em></a>.</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../_static/tripodvonmiseswithmesh.png"><img alt="im-tri" src="../_images/tripodvonmiseswithmesh_small.png" /></a>
+<strong><a class="reference external image-reference" href="../tripodvonmiseswithmesh.png"><img alt="im-tri" src="../_images/tripodvonmiseswithmesh_small.png" /></a>
 </strong></p><p>If you want to see what is inside the tripod, download the following animation (mpeg-4
 movie, 6MB, 45secs) <a class="reference external" href="http://download.gna.org/getfem/misc/tripod_slice.avi">tripod_slice.avi</a></p>
 </div>
@@ -91,11 +91,11 @@ and the solution is computed on a mixed P2+/P1 FEM (P2 with a cubic bubble for t
 velocity field, and discontinuous P1 for the pressure field). The source code is here:
 <a class="reference internal" href="stokes-source.html#stokes-source"><em>Matlab source code for the Stokes equation example</em></a>.</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../_static/tube.png"><img alt="im-sto" src="../_images/tube_small.png" /></a>
+<strong><a class="reference external image-reference" href="../tube.png"><img alt="im-sto" src="../_images/tube_small.png" /></a>
 </strong></p><p>The next example is still the Stokes problem, inside a 3D cylindrical tank. The picture show the norm of the fluid velocity, with some streamlines.
 3D tank</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../_static/cuve_3D_streamlines.png"><img alt="im-cuve" src="../_images/cuve_3D_streamlines_small.png" /></a>
+<strong><a class="reference external image-reference" href="../cuve_3D_streamlines.png"><img alt="im-cuve" src="../_images/cuve_3D_streamlines_small.png" /></a>
 </strong></p></div>
 <div class="section" id="helmholtz-equation">
 <h2>Helmholtz equation<a class="headerlink" href="#helmholtz-equation" title="Permalink to this headline">¶</a></h2>
@@ -180,7 +180,7 @@ images correspond to a 3D case.</p>
 <p>This image comes from the application developped by Konstantinos Poulios
 which is freely available at <a class="reference external" href="http://sourceforge.net/projects/gggears/"><a class="reference external" href="http://sourceforge.net/projects/gggears/">http://sourceforge.net/projects/gggears/</a></a>. It is based on <em>GetFEM++</em> and is intended to be a tool for easy, almost automatic, creation and calculation of gear transmissions.</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../_static/gear.png"><img alt="im-gear" src="../_images/gear.png" /></a>
+<strong><a class="reference external image-reference" href="../gear.png"><img alt="im-gear" src="../_images/gear.png" /></a>
 </strong></p></div>
 </div>
 
@@ -191,7 +191,7 @@ which is freely available at <a class="reference external" href="http://sourcefo
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">Table Of Contents</a></h3>
   <ul>
@@ -267,7 +267,7 @@ which is freely available at <a class="reference external" href="http://sourcefo
         <li class="right" >
           <a href="../lists.html" title="GetFEM++ Mailing Lists"
              >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  
