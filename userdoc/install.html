@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to install &mdash; GetFEM++</title>
+    
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="GetFEM++" href="../index.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="next" title="Linear algebra procedures" href="linalg.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="linalg.html" title="Linear algebra procedures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="how-to-install">
+<span id="ud-install"></span><h1>How to install<a class="headerlink" href="#how-to-install" title="Permalink to this headline">¶</a></h1>
+<p>Since we use standard <em>GNU</em> tools, the installation of the <em>GetFEM++</em> library is
+somewhat standard.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If you want to build binaries from svn to get the latest changes,
+improvements, bugfixes, new bugs, etc. It requires an svn client,
+automake, and libtool.</li>
+<li>If you want to build <em>Python</em> <em>getfem-interface</em>, it requires the python
+development files (Python.h etc.) to be available (package
+<tt class="docutils literal"><span class="pre">python-all-dev</span></tt> in debian distribution), and also the <em>numpy</em> and <em>scipy</em>
+packages to be installed (package <tt class="docutils literal"><span class="pre">python-numpy</span></tt> and <tt class="docutils literal"><span class="pre">python-scipy</span></tt>
+in debian
+distribution). In case of troubles with a non-<em>GNU</em> compiler,
+gcc/g++ (&gt;= 4.8) should be a safe solution (package
+<tt class="docutils literal"><span class="pre">build-essential</span></tt> in debian distribution).</li>
+<li>If you want mesh generation, it requires the package qhull
+installed on your system (package <tt class="docutils literal"><span class="pre">libqhull-dev</span></tt> in debian
+distribution).</li>
+<li>If you want to use MUMPS linear sparse solver instead of SUPERLU, you
+need to  install the sequential version of MUMPS on your system
+(or the parallel one if you intend to use the parallel version of <em>GetFEM++</em>).</li>
+</ul>
+</div>
+<div class="section" id="download-sources">
+<h2>Download sources<a class="headerlink" href="#download-sources" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to get <em>GetFEM++</em>, either as a compressed package (stable
+release) or via anonymous svn access (unstable releases).</p>
+<p>The latest stable release of <em>GetFEM++</em> is getfem-5.0.tar.gz you can download <a class="reference external" href="http://download.gna.org/getfem/stable/getfem-5.0.tar.gz">here</a>.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">download package:</p>
+<blockquote>
+<div><p>$ wget <a class="reference external" href="http://download.gna.org/getfem/stable/getfem">http://download.gna.org/getfem/stable/getfem</a>-5.0.tar.gz</p>
+</div></blockquote>
+</li>
+<li><p class="first">unpack:</p>
+<blockquote>
+<div><p>$ tar xzf getfem-5.0.tar.gz</p>
+</div></blockquote>
+</li>
+<li><p class="first">and go to the root directory of <em>GetFEM++</em>:</p>
+<blockquote>
+<div><p>$ cd getfem-5.0/</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>The latest unstable releases is:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">checkout over SVN protocol (TCP 3690):</p>
+<div class="highlight-c++"><pre>$ svn co svn://svn.gna.org/svn/getfem/trunk/getfem getfem</pre>
+</div>
+</li>
+<li><p class="first">or checkout over HTTP protocol (TCP 80):</p>
+<div class="highlight-c++"><pre>$ svn co http://svn.gna.org/svn/getfem/trunk/getfem getfem</pre>
+</div>
+</li>
+<li><p class="first">go to the root directory of <em>GetFEM++</em>:</p>
+<div class="highlight-c++"><pre>$ cd getfem/</pre>
+</div>
+</li>
+<li><p class="first">and run <tt class="docutils literal"><span class="pre">autogen.sh</span></tt> script:</p>
+<div class="highlight-c++"><pre>$ bash autogen.sh</pre>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="compiling">
+<h2>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">¶</a></h2>
+<p>Configure with:</p>
+<div class="highlight-c++"><pre>$ ./configure</pre>
+</div>
+<p>then start the compilation with:</p>
+<div class="highlight-c++"><pre>$ make</pre>
+</div>
+<p>and finally install with:</p>
+<div class="highlight-c++"><pre>$ make install</pre>
+</div>
+<div class="section" id="configure-options">
+<h3>Configure Options<a class="headerlink" href="#configure-options" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">If you want to use a different compiler than the one chosen
+automatically by the <tt class="docutils literal"><span class="pre">./configure</span></tt> script, just specify its
+name on the command line:</p>
+<div class="highlight-c++"><pre>$ ./configure CXX=mycompiler</pre>
+</div>
+</li>
+<li><p class="first">If you want to use a specific <strong>BLAS</strong> library, you may have to
+supply the necessary link flags and libs to the configure script
+with:</p>
+<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS="-L/path/to/lib -lfoo -lbar ....etc"</pre>
+</div>
+<p>for example:</p>
+<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS="-L/usr/lib/sse2/atlas -lblas"</pre>
+</div>
+</li>
+<li><p class="first">If you want to set the prefix directory where to install the library
+you can use the <tt class="docutils literal"><span class="pre">--prefix</span></tt> option (the default prefix directory is
+<tt class="docutils literal"><span class="pre">/usr/local</span></tt>):</p>
+<div class="highlight-c++"><pre>$ ./configure --prefix=my_dest_dir</pre>
+</div>
+</li>
+<li><p class="first">If you want build <em>Python</em> <em>getfem-interface</em>, use <tt class="docutils literal"><span class="pre">--enable-python=yes</span></tt> option.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<ul class="last simple">
+<li>you should not use a different compiler than the one that was used
+for <em>GetFEM++</em>.</li>
+<li>you should have built the <em>GetFEM++</em> static library (i.e. do not use
+<tt class="docutils literal"><span class="pre">./configure</span> <span class="pre">--disable-static</span></tt> when building <em>GetFEM++</em>).</li>
+<li>On linux/x86_64 platforms, a mandatory option when building <em>GetFEM++</em>
+(and any static library linked to them) is the <tt class="docutils literal"><span class="pre">--with-pic</span></tt>
+option of their <tt class="docutils literal"><span class="pre">./configure</span></tt> script.</li>
+</ul>
+</div>
+</li>
+</ul>
+<p>Note that there are other options to the configure script. A
+<tt class="docutils literal"><span class="pre">./configure</span> <span class="pre">--help</span></tt> will list them. Most important ones are
+<tt class="docutils literal"><span class="pre">--enable-matlab</span></tt>, <tt class="docutils literal"><span class="pre">--enable-python</span></tt> and <tt class="docutils literal"><span class="pre">--enable-scilab</span></tt>
+to build the <em>getfem-interface</em>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <p class="logo"><a href="../index.html">
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+  </a></p>
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to install</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#download-sources">Download sources</a></li>
+<li><a class="reference internal" href="#compiling">Compiling</a><ul>
+<li><a class="reference internal" href="#configure-options">Configure Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="linalg.html"
+                        title="next chapter">Linear algebra procedures</a></p>            <h3>Download</h3>
+            <p><a href="../download.html">Download GetFEM++ </a></p>
+	    <h3>Main documentations</h3>
+	    <ul>
+              
+	      <li><a href="index.html">GetFEM++ User documentation</a></li>
+              <li><a href="../python/index.html">Python Interface</a></li>
+	      <li><a href="../matlab/index.html">Matlab Interface</a></li>
+	      <li><a href="../scilab/index.html">Scilab Interface</a></li>
+	      <li><a href="../gmm/index.html"> Gmm++</a></li>
+	      <li><a href="../project/index.html"> GetFEM++ project</a></li>
+            </ul>
+
+            <h3>Other resources</h3>
+            <ul>
+              <li><a href="../screenshots/shots.html">Screenshots</a></li>
+              <li><a href="../links.html">Related links</a></li>
+	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
+              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+              
+              
+            </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="linalg.html" title="Linear algebra procedures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; GetFEM++</title>
+    
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="GetFEM++" href="../index.html" />
+    <link rel="up" title="SciLab Interface" href="index.html" />
+    <link rel="next" title="GetFEM++ organization" href="scilabgf.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="scilabgf.html" title="GetFEM++ organization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">SciLab Interface</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<span id="sci-install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The installation of the <em>SciLab</em> <em>GetFEM++</em> toolbox can be somewhat tricky, since it combines a
+C++ compiler, libraries and <em>SciLab</em> interaction. In case of troubles with a
+non-GNU compiler, gcc/g++ (&gt;= 4.8) should be a safe solution.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<ul class="last simple">
+<li>The minimal <em>SciLab</em> release is the 5.2.2.</li>
+<li>you should have built the <em>GetFEM++</em> static library (i.e. do not use <tt class="docutils literal"><span class="pre">./configure</span>
+<span class="pre">--disable-static</span></tt> when building <em>GetFEM++</em>). On linux/x86_64 platforms, a
+mandatory option when building <em>GetFEM++</em> and <em>getfem-interface</em> toolbox (and any static library linked
+to them) is the <tt class="docutils literal"><span class="pre">--with-pic</span></tt> option of their <tt class="docutils literal"><span class="pre">./configure</span></tt> script.</li>
+<li>you should have use the <tt class="docutils literal"><span class="pre">--enable-scilab</span></tt> option to configure the <em>GetFEM++</em> sources (i.e. <tt class="docutils literal"><span class="pre">./configure</span> <span class="pre">--enable-scilab</span></tt> ...)</li>
+</ul>
+</div>
+<p>You may also use <tt class="docutils literal"><span class="pre">--with-scilab-toolbox-dir=toolbox_dir</span></tt> to change the default toolbox installation directory (<tt class="docutils literal"><span class="pre">gfdest_dir/getfem_toolbox</span></tt>). Use <tt class="docutils literal"><span class="pre">./configure</span> <span class="pre">--help</span></tt> for more options.</p>
+<p>With this, since the Scilab interface is contained into the <em>GetFEM++</em> sources (in the directory interface/src) you can compile both the <em>GetFEM++</em> library and the Scilab interface by</p>
+<div class="highlight-bash"><div class="highlight"><pre>make
+</pre></div>
+</div>
+<p>Optionally, you can install it with</p>
+<div class="highlight-bash"><div class="highlight"><pre>make install
+</pre></div>
+</div>
+<p>If you want to use a different compiler than the one chosen automatically by the <tt class="docutils literal"><span class="pre">./configure</span></tt> script, just specify its name on the command line: <tt class="docutils literal"><span class="pre">./configure</span> <span class="pre">CXX=mycompiler</span></tt>.</p>
+<p>Once getfem is compiled:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Go to the scilab getfem++ interface install directory (interface/src/scilab if the installation is not done)</li>
+<li>launch scilab</li>
+<li>load the getfem++ toolbox with:
+<tt class="docutils literal"><span class="pre">exec</span> <span class="pre">loader.sce;</span></tt></li>
+<li>You can try to launch a demo with:
+<tt class="docutils literal"><span class="pre">cd</span> <span class="pre">demos;</span></tt>
+<tt class="docutils literal"><span class="pre">exec</span> <span class="pre">demo_static_contact.sce;</span></tt></li>
+</ul>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <p class="logo"><a href="../index.html">
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+  </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scilabgf.html"
+                        title="next chapter"><em>GetFEM++</em> organization</a></p>            <h3>Download</h3>
+            <p><a href="../download.html">Download GetFEM++ </a></p>
+	    <h3>Main documentations</h3>
+	    <ul>
+              
+	      <li><a href="../userdoc/index.html">GetFEM++ User documentation</a></li>
+              <li><a href="../python/index.html">Python Interface</a></li>
+	      <li><a href="../matlab/index.html">Matlab Interface</a></li>
+	      <li><a href="index.html">Scilab Interface</a></li>
+	      <li><a href="../gmm/index.html"> Gmm++</a></li>
+	      <li><a href="../project/index.html"> GetFEM++ project</a></li>
+            </ul>
+
+            <h3>Other resources</h3>
+            <ul>
+              <li><a href="../screenshots/shots.html">Screenshots</a></li>
+              <li><a href="../links.html">Related links</a></li>
+	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
+              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+              
+              
+            </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="scilabgf.html" title="GetFEM++ organization"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" >SciLab Interface</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The high-level generic assembly module in GetFEM++ &mdash; GetFEM++</title>
+    
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="GetFEM++" href="../index.html" />
+    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
+    <link rel="next" title="The low-level generic assembly module in GetFEM++" href="libdesc_low_gen_assemb.html" />
+    <link rel="prev" title="Level-set module" href="libdesc_levelset.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="libdesc_low_gen_assemb.html" title="The low-level generic assembly module in GetFEM++"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="libdesc_levelset.html" title="Level-set module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-high-level-generic-assembly-module-in-gf">
+<span id="dp-libdesc-high-assemb"></span><h1>The high-level generic assembly module in <em>GetFEM++</em><a class="headerlink" href="#the-high-level-generic-assembly-module-in-gf" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The high level generic assembly language of <em>GetFEM++</em> is a key module which allows to describe weak formulation of partial differential equation problems.</p>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">File(s)</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_generic_assembly.cc</span></tt></td>
+<td>In order not to export all the internal of the generic assembly, all is implemented in a single file</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="a-few-implementation-details">
+<h2>A few implementation details<a class="headerlink" href="#a-few-implementation-details" title="Permalink to this headline">¶</a></h2>
+<p>The assembly string is transformed in an assembly tree by a set of function in <tt class="file docutils literal"><span class="pre">src/getfem_generic_assembly.cc</span></tt>. The process has 4 steps:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Lexical analysis with the procedure <tt class="docutils literal"><span class="pre">ga_get_token</span></tt>.</li>
+<li>Syntax analysis and transformation into a syntax tree by <tt class="docutils literal"><span class="pre">ga_read_string</span></tt>.</li>
+<li>Semantic analysis, simplification (pre-computation) of constant expressions and enrichment of the tree.</li>
+<li>Symbolic (automatic) differentiation.</li>
+<li>Compilation in a sequence of instructions with optimization not to evaluate several time the same expression.</li>
+<li>Execution of the sequence of instructions and assembly.</li>
+</ul>
+</div></blockquote>
+<p>These steps are performed only once at the beginning of the assembly. The final tree is evaluated on each Gauss point of each element after compilation.</p>
+</div>
+<div class="section" id="predefined-functions">
+<h2>Predefined functions<a class="headerlink" href="#predefined-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Some predefined scalar functions are available in <em>GetFEM++</em> generic assembly langage in order to describe a weak formulation (or also to make basic algebraic computations). This is limited to scalar functions of one or two arguments. Due to the automatic differentiation used to obtain the tangent system of described problems, the derivative each function have to be available. The principle retained is the following: For each predefined function is available:</dt>
+<dd><ul class="first last simple">
+<li>A C++ function which computes the value given the argument(s).</li>
+<li>The support of the function in the first each argument in term of a
+(possibly infinite) interval (this is for simplification of expressions).</li>
+<li>The string corresponding of the derivative in terms of already known
+functions</li>
+</ul>
+</dd>
+</dl>
+<p>A new predefined function is easy to add. See init_predefined_functions() in file <tt class="file docutils literal"><span class="pre">src/getfem_generic_assembly.cc</span></tt>. + describe how to give the derivative ...</p>
+</div>
+<div class="section" id="state">
+<h2>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h2>
+<p>Stable.</p>
+</div>
+<div class="section" id="perspectives">
+<h2>Perspectives<a class="headerlink" href="#perspectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Is a certain extension to complex data possible ?</li>
+<li>More simplifications</li>
+<li>Integation of a tool allowing to compute inter-elements quantities (for a posteriori estimate for instance).</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <p class="logo"><a href="../index.html">
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+  </a></p>
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The high-level generic assembly module in <em>GetFEM++</em></a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#a-few-implementation-details">A few implementation details</a></li>
+<li><a class="reference internal" href="#predefined-functions">Predefined functions</a></li>
+<li><a class="reference internal" href="#state">State</a></li>
+<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="libdesc_levelset.html"
+                        title="previous chapter">Level-set module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="libdesc_low_gen_assemb.html"
+                        title="next chapter">The low-level generic assembly module in <em>GetFEM++</em></a></p>            <h3>Download</h3>
+            <p><a href="../download.html">Download GetFEM++ </a></p>
+	    <h3>Main documentations</h3>
+	    <ul>
+              
+	      <li><a href="../userdoc/index.html">GetFEM++ User documentation</a></li>
+              <li><a href="../python/index.html">Python Interface</a></li>
+	      <li><a href="../matlab/index.html">Matlab Interface</a></li>
+	      <li><a href="../scilab/index.html">Scilab Interface</a></li>
+	      <li><a href="../gmm/index.html"> Gmm++</a></li>
+	      <li><a href="index.html"> GetFEM++ project</a></li>
+            </ul>
+
+            <h3>Other resources</h3>
+            <ul>
+              <li><a href="../screenshots/shots.html">Screenshots</a></li>
+              <li><a href="../links.html">Related links</a></li>
+	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
+              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+              
+              
+            </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="libdesc_low_gen_assemb.html" title="The low-level generic assembly module in GetFEM++"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="libdesc_levelset.html" title="Level-set module"
+             >previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
+          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; GetFEM++</title>
+    
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="GetFEM++" href="../index.html" />
+    <link rel="up" title="Python Interface" href="index.html" />
+    <link rel="next" title="Preliminary" href="pre.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pre.html" title="Preliminary"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U"><em>Python</em> Interface</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<span id="ud-install-python"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>For the parallel version of the interface, see also <a class="reference internal" href="../userdoc/parallel.html#ud-parallel"><em>MPI Parallelization of GetFEM++</em></a>.</p>
+<div class="section" id="in-a-debian-ubuntu-system">
+<h2>In a Debian/Ubuntu system<a class="headerlink" href="#in-a-debian-ubuntu-system" title="Permalink to this headline">¶</a></h2>
+<p>GetFEM++ packages are available in the official repositories of Debian
+and Ubuntu distributions.</p>
+<p>Information about the GetFEM++ versions available in different Debian
+releases can be found e.g. at</p>
+<p><a class="reference external" href="https://packages.debian.org/source/sid/getfem++">https://packages.debian.org/source/sid/getfem++</a></p>
+<p>and with respect to different Ubuntu releases at</p>
+<p><a class="reference external" href="https://launchpad.net/ubuntu/+source/getfem++">https://launchpad.net/ubuntu/+source/getfem++</a></p>
+<p>GetFEM++ including its python interface can be installed from a terminal
+by executing <tt class="docutils literal"><span class="pre">aptitude</span> <span class="pre">update</span></tt> and <tt class="docutils literal"><span class="pre">aptitude</span> <span class="pre">install</span> <span class="pre">python-getfem++</span></tt>.</p>
+</div>
+<div class="section" id="in-a-general-unix-linux-based-systems">
+<h2>In a general unix/linux based systems<a class="headerlink" href="#in-a-general-unix-linux-based-systems" title="Permalink to this headline">¶</a></h2>
+<p>Since we use standard <em>GNU</em> tools, the installation of the <em>Python</em> <em>GetFEM++</em> is
+somewhat standard.</p>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<p>It requires the python developpement files (python.h etc.) to be available
+(package <cite>python-all-dev</cite> in debian distribution), and also the numpy and scipy
+packages to be installed (package <cite>python-numpy</cite> and <cite>python-scipy</cite> in debian distribution).
+In case of troubles with a non-GNU compiler, gcc/g++ (&gt;= 4.8) should be a
+safe solution (package <cite>build-essential</cite> in debian distribution).</p>
+<p>If you want mesh generation, it requires the package qhull installed on
+your system (package <cite>libqhull-dev</cite> in debian distribution).</p>
+<p>If you want to build binaries from svn to get the latest changes,
+improvements, bugfixes, new bugs, etc. It requires an svn client,
+automake, autoconf and libtool.</p>
+<p>If you want to use MUMPS linear sparse solver instead of SUPERLU, you need to install the sequential version of MUMPS (or the parallel one if you intend to use the parallel version of <em>GetFEM++</em>).</p>
+</div>
+<div class="section" id="download-sources">
+<h3>Download sources<a class="headerlink" href="#download-sources" title="Permalink to this headline">¶</a></h3>
+<p>There are two ways to get <em>GetFEM++</em>, either as a compressed package (stable
+release) or via anonymous svn access (unstable releases).</p>
+<p>The latest stable release of <em>GetFEM++</em> is getfem++-5.0.tar.gz</p>
+<ul>
+<li><p class="first">download package:</p>
+<blockquote>
+<div><p>wget <a class="reference external" href="http://download.gna.org/getfem/stable/getfem++">http://download.gna.org/getfem/stable/getfem++</a>-5.0.tar.gz</p>
+</div></blockquote>
+</li>
+<li><p class="first">unpack:</p>
+<blockquote>
+<div><p>tar xzf getfem++-5.0.tar.gz</p>
+</div></blockquote>
+</li>
+<li><p class="first">and go to the root directory of getfem:</p>
+<blockquote>
+<div><p>cd getfem++-5.0</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The latest unstable releases is:</p>
+<ul>
+<li><p class="first">checkout over SVN protocol (TCP 3690):</p>
+<div class="highlight-python"><pre>svn co svn://svn.gna.org/svn/getfem/trunk getfem</pre>
+</div>
+</li>
+<li><p class="first">or checkout over HTTP protocol (TCP 80):</p>
+<div class="highlight-python"><pre>svn co http://svn.gna.org/svn/getfem/trunk getfem</pre>
+</div>
+</li>
+<li><p class="first">go to the root directory of getfem:</p>
+<div class="highlight-python"><pre>cd getfem/getfem++</pre>
+</div>
+</li>
+<li><p class="first">and run <tt class="docutils literal"><span class="pre">autogen.sh</span></tt> script:</p>
+<div class="highlight-python"><pre>bash autogen.sh</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="compilling">
+<h3>Compilling<a class="headerlink" href="#compilling" title="Permalink to this headline">¶</a></h3>
+<p>Configure with:</p>
+<div class="highlight-python"><pre>./configure --enable-python=yes</pre>
+</div>
+<p>If you want to use a specific <strong>BLAS</strong> library, you may have to supply the
+necessary link flags and libs to the configure script, for example with:</p>
+<div class="highlight-python"><pre>./configure --enable-python=yes BLAS_LIBS="-L/usr/lib/sse2/atlas -lblas"</pre>
+</div>
+<p>More specific instruccions can be found in the README* files of the
+distribution.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<ul class="last simple">
+<li>you should not use a different compiler than the one that was used
+for <em>GetFEM++</em>.</li>
+<li>you should have built the <em>GetFEM++</em> static library (i.e. do not use
+<tt class="docutils literal"><span class="pre">./configure</span> <span class="pre">--disable-static</span></tt> when building <em>GetFEM++</em>).</li>
+<li>On linux/x86_64 platforms, a mandatory option when building <em>GetFEM++</em> (and
+any static library linked to them) is the <tt class="docutils literal"><span class="pre">--with-pic</span></tt> option of
+their <tt class="docutils literal"><span class="pre">./configure</span></tt> script.</li>
+</ul>
+</div>
+<p>Then start the compilation with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">make</span>
+</pre></div>
+</div>
+<p>and finally install with:</p>
+<div class="highlight-python"><pre>make install</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <p class="logo"><a href="../index.html">
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+  </a></p>
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#in-a-debian-ubuntu-system">In a Debian/Ubuntu system</a></li>
+<li><a class="reference internal" href="#in-a-general-unix-linux-based-systems">In a general unix/linux based systems</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#download-sources">Download sources</a></li>
+<li><a class="reference internal" href="#compilling">Compilling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pre.html"
+                        title="next chapter">Preliminary</a></p>            <h3>Download</h3>
+            <p><a href="../download.html">Download GetFEM++ </a></p>
+	    <h3>Main documentations</h3>
+	    <ul>
+              
+	      <li><a href="../userdoc/index.html">GetFEM++ User documentation</a></li>
+              <li><a href="index.html">Python Interface</a></li>
+	      <li><a href="../matlab/index.html">Matlab Interface</a></li>
+	      <li><a href="../scilab/index.html">Scilab Interface</a></li>
+	      <li><a href="../gmm/index.html"> Gmm++</a></li>
+	      <li><a href="../project/index.html"> GetFEM++ project</a></li>
+            </ul>
+
+            <h3>Other resources</h3>
+            <ul>
+              <li><a href="../screenshots/shots.html">Screenshots</a></li>
+              <li><a href="../links.html">Related links</a></li>
+	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
+              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+              
+              
+            </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pre.html" title="Preliminary"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+
+          <li><a href="index.html" ><em>Python</em> Interface</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+    </div>
+  </body>
+</html>

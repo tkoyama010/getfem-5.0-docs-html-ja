@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing the matlab interface for getfem 4.0.0 on snow leopard. &mdash; GetFEM++</title>
+    
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="GetFEM++" href="../index.html" />
+    <link rel="next" title="Python Interface" href="../python/index.html" />
+    <link rel="prev" title="GetFEM++ OO-commands" href="oocmd.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+ 
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../python/index.html" title="Python Interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="oocmd.html" title="GetFEM++ OO-commands"
+             accesskey="P">previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+ 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installing-the-matlab-interface-for-getfem-4-0-0-on-snow-leopard">
+<span id="mlab-install-mac"></span><h1>Installing the matlab interface for getfem 4.0.0 on snow leopard.<a class="headerlink" href="#installing-the-matlab-interface-for-getfem-4-0-0-on-snow-leopard" title="Permalink to this headline">¶</a></h1>
+<p>The MATLAB version considered here is a recent one (2009b).</p>
+<p>This matlab version requires some specific flags to be used when building getfem. These flags are displayed when I run &#8220;mex -v&#8221;:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">CFLAGS</span> <span class="o">=</span> -fno-common -no-cpp-precomp -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min<span class="o">=</span>10.5  -fexceptions
+<span class="nv">CXXFLAGS</span> <span class="o">=</span> -fno-common -no-cpp-precomp -fexceptions -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min<span class="o">=</span>10.5
+</pre></div>
+</div>
+<p>Those that are important here are the arch one (you need to build a binary for the same architecture than the matlab one (ppc, ppc64, i386, x86_64)). The -isysroot and the -mmacos-min-version are used to linked against the same system library versions than matlab.</p>
+<p>If you want to install qhull (in order to use the levelset stuff),
+you need to install it first. This is optional:</p>
+<div class="highlight-bash"><div class="highlight"><pre>----------------------------QHULL INSTALL <span class="o">(</span>optional<span class="o">)</span>
+Build qhull: You need to use the same options that are used <span class="k">for </span>building getfem:
+
+<span class="nb">cd </span>qhull-2010.1/src
+make <span class="nv">CCOPTS1</span><span class="o">=</span><span class="s2">&quot;-O2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5&quot;</span>
+
+<span class="c"># Now install it into a standard location so that getfem configure will detect qhull</span>
+
+sudo mkdir /usr/include/qhull/
+sudo install *.h /usr/include/qhull/
+sudo install libqhull.a /usr/lib/
+sudo mkdir /Developer/SDKs/MacOSX10.5.sdk/usr/include/qhull/
+sudo install *.h /Developer/SDKs/MacOSX10.5.sdk/usr/include/qhull/
+sudo install libqhull.a /Developer/SDKs/MacOSX10.5.sdk/usr/lib/
+---------------------------END OF QHULL INSTALL
+</pre></div>
+</div>
+<p>Hence I will pass them to the ./configure script:</p>
+<div class="highlight-bash"><div class="highlight"><pre>./configure --enable-matlab <span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;-arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5&quot;</span> <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5&quot;</span> --with-matlab-toolbox-dir<span class="o">=</span><span class="nv">$HOME</span>/matlab/getfem
+</pre></div>
+</div>
+<p>Which should end with an encouraging:</p>
+<div class="highlight-bash"><div class="highlight"><pre>Lapack library found : -llapack
+---------------------------------------
+Ready to build getfem
+  building MATLAB interface: YES
+  building PYTHON interface: NO <span class="o">(</span>requires numpy<span class="o">)</span>
+---------------------------------------
+</pre></div>
+</div>
+<p>But if you look at the output of the configure script, and if you happen to use the same matlab version than me, you might see:</p>
+<div class="highlight-bash"><div class="highlight"><pre>checking <span class="k">for </span>mex... mex
+checking <span class="k">for </span>matlab path...  /Applications/MATLAB_R2009b.app
+checking <span class="k">for </span>mex extension...  .mexmaci
+grep: /Applications/MATLAB_R2009b.app/extern/src/mexversion.c: No such file or directory
+Matlab release is : R
+</pre></div>
+</div>
+<p>Obviously the configure script failed to recognize the matlab version number...</p>
+<p>You now need to edit two files in order to be able to build the getfem toolbox without error:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Open src/getfem_interpolated_fem.cc , and replace &#8220;uint&#8221; by &#8220;unsigned&#8221; on line 260 and 295</li>
+<li>open interface/src/matlab/gfm_common.h and add
+#define MATLAB_RELEASE 2009
+at the top of the file</li>
+</ul>
+</div></blockquote>
+<p>Now launch the compilation (I&#8217;m putting -j2 because I have a dual-core):</p>
+<div class="highlight-bash"><div class="highlight"><pre>make -j2
+</pre></div>
+</div>
+<p>It will take a long time to complete (20 minutes)
+in order to install the toolbox, just create a directory for it, for example in</p>
+<div class="highlight-bash"><div class="highlight"><pre>mkdir -p <span class="nv">$HOME</span>/matlab/getfem
+</pre></div>
+</div>
+<p>and copy all files into it (the &#8220;make install&#8221; does not work, unfortunately):</p>
+<div class="highlight-bash"><div class="highlight"><pre>cp -pr interface/src/matlab/* <span class="nv">$HOME</span>/matlab/getfem
+</pre></div>
+</div>
+<p>remove the assert.m which is useless.</p>
+<p>now launch Matlab. In order to be able to use the toolbox, add it to your matlab path:</p>
+<div class="highlight-bash"><div class="highlight"><pre>&gt;&gt; addpath<span class="o">(</span><span class="s1">&#39;~/matlab/getfem&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Test that the mex file loads correctly:</p>
+<div class="highlight-bash"><div class="highlight"><pre>&gt;&gt; gf_workspace<span class="o">(</span><span class="s1">&#39;stats&#39;</span><span class="o">)</span>
+message from <span class="o">[</span>gf_workspace<span class="o">]</span>:
+Workspace 0 <span class="o">[</span>main -- 0 objects<span class="o">]</span>
+</pre></div>
+</div>
+<p>Go to the getfem test directory for matlab:</p>
+<div class="highlight-bash"><div class="highlight"><pre>&gt;&gt; <span class="nb">cd </span>interface/tests/matlab
+</pre></div>
+</div>
+<p>And try the various tests:</p>
+<div class="highlight-bash"><div class="highlight"><pre>&gt;&gt; demo_laplacian
+&gt;&gt; demo_tripod
+etc..
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <p class="logo"><a href="../index.html">
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+  </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="oocmd.html"
+                        title="previous chapter"><em>GetFEM++</em> OO-commands</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../python/index.html"
+                        title="next chapter"><em>Python</em> Interface</a></p>            <h3>Download</h3>
+            <p><a href="../download.html">Download GetFEM++ </a></p>
+	    <h3>Main documentations</h3>
+	    <ul>
+              
+	      <li><a href="../userdoc/index.html">GetFEM++ User documentation</a></li>
+              <li><a href="../python/index.html">Python Interface</a></li>
+	      <li><a href="index.html">Matlab Interface</a></li>
+	      <li><a href="../scilab/index.html">Scilab Interface</a></li>
+	      <li><a href="../gmm/index.html"> Gmm++</a></li>
+	      <li><a href="../project/index.html"> GetFEM++ project</a></li>
+            </ul>
+
+            <h3>Other resources</h3>
+            <ul>
+              <li><a href="../screenshots/shots.html">Screenshots</a></li>
+              <li><a href="../links.html">Related links</a></li>
+	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
+              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+              
+              
+            </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../python/index.html" title="Python Interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="oocmd.html" title="GetFEM++ OO-commands"
+             >previous</a> |</li>
+        <li><a href="http://gna.org/projects/getfem" <img src="../_static/icon.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li></a>
+        <li><a href="../index.html">GetFEM++</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+    </div>
+  </body>
+</html>
