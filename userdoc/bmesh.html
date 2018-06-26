@@ -154,7 +154,7 @@ of a simplex of dimension <tt class="docutils literal"><span class="pre">N-1</sp
 <p>The order of the points in the array of points is not important for simplices
 (except if you care about the orientation of your simplices). For other elements, it is important to respect the vertex order shown in <a class="reference internal" href="#ud-fig-elem"><em>Vertex numeration for usual first order elements</em></a> (first order elements).</p>
 <div class="figure align-center" id="ud-fig-elem">
-<a class="reference internal image-reference" href="../_images/getfemuserelem.png"><img alt="../_images/getfemuserelem.png" src="../_images/getfemuserelem.png" style="width: 15cm;" /></a>
+<a class="reference internal image-reference" href="../images/getfemuserelem.png"><img alt="../images/getfemuserelem.png" src="../images/getfemuserelem.png" style="width: 15cm;" /></a>
 <p class="caption">Vertex numeration for usual first order elements</p>
 </div>
 <p>Note that a general rule, including for higher order transformations, is that the vertex numeration follows the one of the corresponding Lagrange finite element method (see  <a class="reference internal" href="appendixA.html#ud-appendixa"><em>Appendix A. Finite element method list</em></a>).</p>
@@ -200,7 +200,7 @@ origin of the mesh, <tt class="docutils literal"><span class="pre">ivect</span><
 build the parallelepiped domain, <tt class="docutils literal"><span class="pre">iref</span></tt> is an iterator on an array of <tt class="docutils literal"><span class="pre">N</span></tt>
 integers representing the number of division on each direction.</p>
 <p>For instance, to build a mesh with tetrahedrons for a unit cube with
-<img class="math" src="../_images/math/5717220d94fa98a1569df1652d5f96051c44a031.png" alt="10\times~10\times~10" style="vertical-align: -1px"/> cells one can write:</p>
+<img class="math" src="../images/math/5717220d94fa98a1569df1652d5f96051c44a031.png" alt="10\times~10\times~10" style="vertical-align: -1px"/> cells one can write:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">mesh</span> <span class="n">mymesh</span><span class="p">;</span>
 <span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span> <span class="n">org</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">bgeot</span><span class="o">::</span><span class="n">base_small_vector</span><span class="o">&gt;</span> <span class="n">vect</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -506,7 +506,7 @@ print it to the standard output:</p>
 <h2>Face numbering<a class="headerlink" href="#face-numbering" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The numeration of faces on usual elements is given in figure <a class="reference internal" href="#ud-fig-elemf"><em>faces numeration for usual elements</em></a>.</p>
 <div class="figure align-center" id="ud-fig-elemf">
-<a class="reference internal image-reference" href="../_images/getfemuserelemf.png"><img alt="../_images/getfemuserelemf.png" src="../_images/getfemuserelemf.png" style="width: 12cm;" /></a>
+<a class="reference internal image-reference" href="../images/getfemuserelemf.png"><img alt="../images/getfemuserelemf.png" src="../images/getfemuserelemf.png" style="width: 12cm;" /></a>
 <p class="caption">faces numeration for usual elements</p>
 </div>
 <p>Note that, while the convexes and the points are globally numbered in a <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt>

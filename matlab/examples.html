@@ -66,14 +66,14 @@
 <div class="section" id="a-step-by-step-basic-example">
 <span id="mlab-laplacianexample"></span><h2>A step-by-step basic example<a class="headerlink" href="#a-step-by-step-basic-example" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This example shows the basic usage of getfem, on the über-canonical problem above
-all others: solving the <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">Laplacian</span></tt>, <img class="math" src="../_images/math/9d8850362727d1a8a9e76c4d0cc31f56efe39292.png" alt="-\Delta u = f" style="vertical-align: -4px"/> on a square,
-with the Dirichlet condition <img class="math" src="../_images/math/204955570f9d78fc69195a1d6bec6aa58aa45f2e.png" alt="u = g(x)" style="vertical-align: -4px"/> on the domain boundary. You can find
+all others: solving the <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">Laplacian</span></tt>, <img class="math" src="../images/math/9d8850362727d1a8a9e76c4d0cc31f56efe39292.png" alt="-\Delta u = f" style="vertical-align: -4px"/> on a square,
+with the Dirichlet condition <img class="math" src="../images/math/204955570f9d78fc69195a1d6bec6aa58aa45f2e.png" alt="u = g(x)" style="vertical-align: -4px"/> on the domain boundary. You can find
 the <strong>m-file</strong> of this example under the name <strong>demo_step_by_step.m</strong> in the
 directory <tt class="docutils literal"><span class="pre">interface/tests/matlab/</span></tt> of the <em>GetFEM++</em> distribution.</p>
 <p>The first step is to <strong>create a mesh</strong>. It is possible to create simple structured meshes or unstructured meshes for simple geometries (see <tt class="docutils literal"><span class="pre">gf_mesh('generate',</span> <span class="pre">mesher_object</span> <span class="pre">mo,</span> <span class="pre">scalar</span> <span class="pre">h))</span></tt>) or to rely on an external mesher (see <tt class="docutils literal"><span class="pre">gf_mesh('import',</span> <span class="pre">string</span>
 <span class="pre">FORMAT,</span> <span class="pre">string</span> <span class="pre">FILENAME))</span></tt>).  For this example, we
 just consider a regular <strong>cartesian mesh</strong> whose nodes are
-<img class="math" src="../_images/math/1d8e8e3b20248b84a1b1f24425f487099d4224ce.png" alt="\{x_{i=0\ldots10,j=0..10}=(i/10,j/10)\}" style="vertical-align: -6px"/>:</p>
+<img class="math" src="../images/math/1d8e8e3b20248b84a1b1f24425f487099d4224ce.png" alt="\{x_{i=0\ldots10,j=0..10}=(i/10,j/10)\}" style="vertical-align: -6px"/>:</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="c">% creation of a simple cartesian mesh</span>
 <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="p">=</span> <span class="n">gf_mesh</span><span class="p">(</span><span class="s">&#39;cartesian&#39;</span><span class="p">,[</span><span class="mi">0</span><span class="p">:.</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">:.</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">]);</span>
 <span class="n">m</span> <span class="p">=</span>
@@ -105,10 +105,10 @@ of FEM:</p>
 </div>
 <p>The first instruction builds a new gfMeshFem object, the second argument specifies
 that this object will be used to interpolate scalar fields (since the unknown
-<img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is a scalar field). The second instruction assigns the <img class="math" src="../_images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> FEM
+<img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is a scalar field). The second instruction assigns the <img class="math" src="../images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> FEM
 to every convex (each basis function is a polynomial of degree 4, remember that
-<img class="math" src="../_images/math/71a51cfdab1b554669a9b87471779e3f41b49b0c.png" alt="P^k\Rightarrow" style="vertical-align: -1px"/> polynomials of degree <img class="math" src="../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/>, while
-<img class="math" src="../_images/math/40c3965a7783a37bc20ea0ff3df05605ed1ee20e.png" alt="Q^k\Rightarrow" style="vertical-align: -4px"/> polynomials of degree <img class="math" src="../_images/math/b8ea7ee8a282949fd853a01537ec7a2b55e56f75.png" alt="2k" style="vertical-align: 0px"/>). As <img class="math" src="../_images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> is a
+<img class="math" src="../images/math/71a51cfdab1b554669a9b87471779e3f41b49b0c.png" alt="P^k\Rightarrow" style="vertical-align: -1px"/> polynomials of degree <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/>, while
+<img class="math" src="../images/math/40c3965a7783a37bc20ea0ff3df05605ed1ee20e.png" alt="Q^k\Rightarrow" style="vertical-align: -4px"/> polynomials of degree <img class="math" src="../images/math/b8ea7ee8a282949fd853a01537ec7a2b55e56f75.png" alt="2k" style="vertical-align: 0px"/>). As <img class="math" src="../images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> is a
 polynomial FEM, you can view the expression of its basis functions on the
 reference convex:</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">gf_fem_get</span><span class="p">(</span><span class="n">gf_fem</span><span class="p">(</span><span class="s">&#39;FEM_QK(2,2)&#39;</span><span class="p">),</span> <span class="s">&#39;poly_str&#39;</span><span class="p">);</span>
@@ -192,9 +192,9 @@ considered (linear elasticity, laplacian, etc), handling of a set of contraints,
 Dirichlet condition, addition of a source term to the right hand side etc. The
 global tangent matrix and its right hand side are stored in the &#8220;<span class="target" id="index-4"></span><tt class="xref std std-envvar docutils literal"><span class="pre">model</span></tt>&#8221;
 structure.</p>
-<p>Let us build a problem with an easy solution: <img class="math" src="../_images/math/3803b1b108897a7a96f9be40bc119f9fc5232945.png" alt="u=x(x-1)y(y-1)+x^5" style="vertical-align: -4px"/>, then we
-have <img class="math" src="../_images/math/ca2814fc860136302e0f912015bceeedc2d78564.png" alt="\Delta u=2(x^2+y^2)-2(x+y)+20x^3" style="vertical-align: -4px"/> (the FEM won&#8217;t be able to catch the
-exact solution since we use a <img class="math" src="../_images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> method).</p>
+<p>Let us build a problem with an easy solution: <img class="math" src="../images/math/3803b1b108897a7a96f9be40bc119f9fc5232945.png" alt="u=x(x-1)y(y-1)+x^5" style="vertical-align: -4px"/>, then we
+have <img class="math" src="../images/math/ca2814fc860136302e0f912015bceeedc2d78564.png" alt="\Delta u=2(x^2+y^2)-2(x+y)+20x^3" style="vertical-align: -4px"/> (the FEM won&#8217;t be able to catch the
+exact solution since we use a <img class="math" src="../images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> method).</p>
 <p>We start with an empty real model:</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="c">% empty real model</span>
 <span class="o">&gt;&gt;</span> <span class="n">md</span> <span class="p">=</span> <span class="n">gf_model</span><span class="p">(</span><span class="s">&#39;real&#39;</span><span class="p">);</span>
@@ -207,9 +207,9 @@ unknown of the system on the finite element method <cite>mf</cite> by:</p>
 <span class="o">&gt;&gt;</span> <span class="n">gf_model_set</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s">&#39;add fem variable&#39;</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="n">mf</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Now, we add a &#8220;generic elliptic&#8221; brick, which handles <img class="math" src="../_images/math/421698cfd92ae92ecf46ef69aa4c2c5132c2ee25.png" alt="-\nabla\cdot(A:\nabla
-u) = \ldots" style="vertical-align: -4px"/> problems, where <img class="math" src="../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A" style="vertical-align: 0px"/> can be a scalar field, a matrix field, or
-an order 4 tensor field. By default, <img class="math" src="../_images/math/f18428217dcd07944b2adbebcafd0978587a770a.png" alt="A=1" style="vertical-align: -1px"/>. We add it on our main variable
+<p>Now, we add a &#8220;generic elliptic&#8221; brick, which handles <img class="math" src="../images/math/421698cfd92ae92ecf46ef69aa4c2c5132c2ee25.png" alt="-\nabla\cdot(A:\nabla
+u) = \ldots" style="vertical-align: -4px"/> problems, where <img class="math" src="../images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A" style="vertical-align: 0px"/> can be a scalar field, a matrix field, or
+an order 4 tensor field. By default, <img class="math" src="../images/math/f18428217dcd07944b2adbebcafd0978587a770a.png" alt="A=1" style="vertical-align: -1px"/>. We add it on our main variable
 <tt class="docutils literal"><span class="pre">u</span></tt> with:</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="c">% add generic elliptic brick on &quot;u&quot;</span>
 <span class="o">&gt;&gt;</span> <span class="n">gf_model_set</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s">&#39;add Laplacian brick&#39;</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">);</span>
@@ -226,8 +226,8 @@ an order 4 tensor field. By default, <img class="math" src="../_images/math/f184
 Dirichlet condition. The third one add a Dirichlet condition to the variable <tt class="docutils literal"><span class="pre">u</span></tt>
 on the boundary number <tt class="docutils literal"><span class="pre">42</span></tt>. The dirichlet condition is imposed with lagrange
 multipliers. Another possibility is to use a penalization. A gfMeshFem argument is
-also required, as the Dirichlet condition <img class="math" src="../_images/math/042c6e5c286ed5f65fe3269bb42836f8080fb818.png" alt="u=g" style="vertical-align: -4px"/> is imposed in a weak form
-<img class="math" src="../_images/math/61ba2a5213522391534194d6b421d073797e6827.png" alt="\int_\Gamma u(x)v(x) = \int_\Gamma g(x)v(x) ~ \forall v" style="vertical-align: -6px"/> where <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is
+also required, as the Dirichlet condition <img class="math" src="../images/math/042c6e5c286ed5f65fe3269bb42836f8080fb818.png" alt="u=g" style="vertical-align: -4px"/> is imposed in a weak form
+<img class="math" src="../images/math/61ba2a5213522391534194d6b421d073797e6827.png" alt="\int_\Gamma u(x)v(x) = \int_\Gamma g(x)v(x) ~ \forall v" style="vertical-align: -6px"/> where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is
 taken in the space of multipliers given by here by <tt class="docutils literal"><span class="pre">mf</span></tt>.</p>
 <div class="topic">
 <p class="topic-title first">Remark:</p>
@@ -440,7 +440,7 @@ toolbox distribution.</p>
 </div>
 <p>Here is the final figure, displaying the <span class="target" id="index-5"></span><tt class="xref std std-envvar docutils literal"><span class="pre">Von</span> <span class="pre">Mises</span></tt> stress:</p>
 <div class="figure align-center" id="malb-fig-tripod-vm">
-<a class="reference internal image-reference" href="../_images/tripodvonmiseswithmesh.png"><img alt="../_images/tripodvonmiseswithmesh.png" src="../_images/tripodvonmiseswithmesh.png" style="width: 300pt;" /></a>
+<a class="reference internal image-reference" href="../images/tripodvonmiseswithmesh.png"><img alt="../images/tripodvonmiseswithmesh.png" src="../images/tripodvonmiseswithmesh.png" style="width: 300pt;" /></a>
 <p class="caption">deformed tripod</p>
 </div>
 </div>
@@ -476,9 +476,9 @@ disp(sprintf(&#x27;linear system solved in \%.2f sec&#x27;, cputime-t0));
 U=(N*UU).&#x27;+U0;</pre>
 </div>
 <p>In <em>getfem-interface</em>, the assembly of vectors, and matrices is done via the <tt class="docutils literal"><span class="pre">gf_asm</span></tt>
-function. The Dirichlet condition <img class="math" src="../_images/math/0a8209de9a11595e255d5043a87420c5e234e20f.png" alt="u(x) = r(x)" style="vertical-align: -4px"/> is handled in the weak form
-<img class="math" src="../_images/math/877672265d6936a421dd14e46f28a716c12fb47d.png" alt="\int (h(x)u(x)).v(x) = \int r(x).v(x)\quad \forall v" style="vertical-align: -6px"/> (where <img class="math" src="../_images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)" style="vertical-align: -4px"/>
-is a <img class="math" src="../_images/math/77d7104f34af16053b63ce7cfa87265d915c6105.png" alt="3\times3" style="vertical-align: 0px"/> matrix field &#8211; here it is constant and equal to the
+function. The Dirichlet condition <img class="math" src="../images/math/0a8209de9a11595e255d5043a87420c5e234e20f.png" alt="u(x) = r(x)" style="vertical-align: -4px"/> is handled in the weak form
+<img class="math" src="../images/math/877672265d6936a421dd14e46f28a716c12fb47d.png" alt="\int (h(x)u(x)).v(x) = \int r(x).v(x)\quad \forall v" style="vertical-align: -6px"/> (where <img class="math" src="../images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)" style="vertical-align: -4px"/>
+is a <img class="math" src="../images/math/77d7104f34af16053b63ce7cfa87265d915c6105.png" alt="3\times3" style="vertical-align: 0px"/> matrix field &#8211; here it is constant and equal to the
 identity). The reduced system <tt class="docutils literal"><span class="pre">KK</span> <span class="pre">UU</span> <span class="pre">=</span> <span class="pre">FF</span></tt> is then built via the elimination of
 Dirichlet constraints from the original system. Note that it might be more
 efficient (and simpler) to deal with Dirichlet condition via a penalization

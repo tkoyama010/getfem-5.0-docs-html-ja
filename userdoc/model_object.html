@@ -79,7 +79,7 @@ dofs. If the model is nonlinear, this will be the tangent linear system. There a
 complex number or real numbers. The default is false for a model dealing with real
 numbers.</p>
 <div class="figure align-center" id="ud-fig-syslin">
-<img alt="../_images/getfemuserlinearsys.png" src="../_images/getfemuserlinearsys.png" />
+<img alt="../images/getfemuserlinearsys.png" src="../images/getfemuserlinearsys.png" />
 <p class="caption">The (tangent) linear system</p>
 </div>
 <p>There are different kinds of variables/data in the model. The variables are the
@@ -87,8 +87,8 @@ unknown of the model. They will be (generally) computed by solving the (tangent)
 linear system built by the model. Generally, the model will have several
 variables. Each variable has a certain size (number of degrees of freedom) and the
 different variables are sorted in alphanumeric order to form the global unknown
-(<img class="math" src="../_images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> in Fig. <a class="reference internal" href="#ud-fig-syslin"><em>The (tangent) linear system</em></a>). Each variable will be associated to an
-interval <img class="math" src="../_images/math/95876ba30e85990efbf432dd4acce472e5ed85d5.png" alt="I = [n_1, n_2]" style="vertical-align: -5px"/> which will represent the degrees of freedom
+(<img class="math" src="../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> in Fig. <a class="reference internal" href="#ud-fig-syslin"><em>The (tangent) linear system</em></a>). Each variable will be associated to an
+interval <img class="math" src="../images/math/95876ba30e85990efbf432dd4acce472e5ed85d5.png" alt="I = [n_1, n_2]" style="vertical-align: -5px"/> which will represent the degrees of freedom
 indices corresponding to this variable in the global system. The model stores also
 some data (in the same format as the variables). The difference between data
 and variables is that data is not an unknown of the model. The value of the
@@ -96,10 +96,10 @@ data should be provided. In some cases (nonlinear models) some variables can be
 considered as some data for certain terms. Variables and data are of two kinds.
 They can have a fixed size, or they can depend on a finite element method (be the
 d.o.f. of a finite element method).</p>
-<p>For instance, in the situation described in Fig. <a class="reference internal" href="#ud-fig-syslin"><em>The (tangent) linear system</em></a>, there are four variables in the model, namely <img class="math" src="../_images/math/cea8ffbc94d641e6d087b7af3d0930d00ad86fa9.png" alt="X, Y, V" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W" style="vertical-align: 0px"/>. The role of
+<p>For instance, in the situation described in Fig. <a class="reference internal" href="#ud-fig-syslin"><em>The (tangent) linear system</em></a>, there are four variables in the model, namely <img class="math" src="../images/math/cea8ffbc94d641e6d087b7af3d0930d00ad86fa9.png" alt="X, Y, V" style="vertical-align: -4px"/> and <img class="math" src="../images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W" style="vertical-align: 0px"/>. The role of
 the model object will be to assemble the linear system, i.e. to fill the sub
-matrices corresponding to each variable (<img class="math" src="../_images/math/1625382e7a9f674c0d784e6f6ee1416173cdb36a.png" alt="R_{X,X}, R_{Y,Y}, R_{V,V}" style="vertical-align: -6px"/>, and
-<img class="math" src="../_images/math/33987c4d1de4952f9d8f30169b776381f2648740.png" alt="R_{W,W}" style="vertical-align: -6px"/>) and the coupling terms between two variables (<img class="math" src="../_images/math/cbfb0803eb85cce07162f4e0a769dce030c0e425.png" alt="R_{X,Y},
+matrices corresponding to each variable (<img class="math" src="../images/math/1625382e7a9f674c0d784e6f6ee1416173cdb36a.png" alt="R_{X,X}, R_{Y,Y}, R_{V,V}" style="vertical-align: -6px"/>, and
+<img class="math" src="../images/math/33987c4d1de4952f9d8f30169b776381f2648740.png" alt="R_{W,W}" style="vertical-align: -6px"/>) and the coupling terms between two variables (<img class="math" src="../images/math/cbfb0803eb85cce07162f4e0a769dce030c0e425.png" alt="R_{X,Y},
 R_{X,V}, R_{W,V}, \cdots" style="vertical-align: -6px"/>). This different contributions will be given by the
 different bricks added to the model.</p>
 <p>The main useful methods on a <cite>model</cite> object are</p>
@@ -246,15 +246,15 @@ version. A computation of the tangent system have to be done first.</p>
 aims to represent some integral terms in a weak formulation of a PDE model. The
 model object will contain a list of bricks. All the terms described by the brick
 will be finally assembled to build the linear system to be solved (the tangent
-linear system for a nonlinear problem). For instance if a term <img class="math" src="../_images/math/ac517564187407fe83e4d6f7c980030ac8aef437.png" alt="\Delta u" style="vertical-align: 0px"/> is
-present on the pde model (Laplacian of <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>) then the weak formulation will
-contain the term <img class="math" src="../_images/math/b5e8582c9f05668061f189df8979ab4eaf6bc420.png" alt="\int_{\Omega}\nabla u\cdot\nabla v\ dx" style="vertical-align: -6px"/>, where <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/>
-is the test function corresponding to <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>. Then the role of the
-corresponding brick is to assemble the term <img class="math" src="../_images/math/32cdca9f89509da0f7301971b1595bdd099b3835.png" alt="\int_{\Omega}\nabla\varphi_i
-\cdot\nabla\varphi_j\ dx" style="vertical-align: -6px"/>, where <img class="math" src="../_images/math/87686aa0f5136421c8415c7169adcb308e36c7a8.png" alt="\varphi_i" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/d41fca1e2de11eadb57f7dbbcf8bb44ab85d088d.png" alt="\varphi_j" style="vertical-align: -6px"/> are the
-shape functions of the finite element method describing <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>. This term will
+linear system for a nonlinear problem). For instance if a term <img class="math" src="../images/math/ac517564187407fe83e4d6f7c980030ac8aef437.png" alt="\Delta u" style="vertical-align: 0px"/> is
+present on the pde model (Laplacian of <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>) then the weak formulation will
+contain the term <img class="math" src="../images/math/b5e8582c9f05668061f189df8979ab4eaf6bc420.png" alt="\int_{\Omega}\nabla u\cdot\nabla v\ dx" style="vertical-align: -6px"/>, where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/>
+is the test function corresponding to <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>. Then the role of the
+corresponding brick is to assemble the term <img class="math" src="../images/math/32cdca9f89509da0f7301971b1595bdd099b3835.png" alt="\int_{\Omega}\nabla\varphi_i
+\cdot\nabla\varphi_j\ dx" style="vertical-align: -6px"/>, where <img class="math" src="../images/math/87686aa0f5136421c8415c7169adcb308e36c7a8.png" alt="\varphi_i" style="vertical-align: -4px"/> and <img class="math" src="../images/math/d41fca1e2de11eadb57f7dbbcf8bb44ab85d088d.png" alt="\varphi_j" style="vertical-align: -6px"/> are the
+shape functions of the finite element method describing <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>. This term will
 be added by the model object to the global linear system on a diagonal block
-corresponding to the variable <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>. The only role of the brick is thus to
+corresponding to the variable <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>. The only role of the brick is thus to
 call the corresponding assembly procedure when the model object asks for it. The
 construction of a brick for such a linear term is thus very simple.</p>
 <p>Basically, the brick object will derive from the object <tt class="docutils literal"><span class="pre">virtual_brick</span></tt> defined
@@ -383,19 +383,19 @@ integration of the brick to the model.</p>
 condition thanks to the use of a Lagrange multiplier. The Dirichlet condition is
 of the form</p>
 <div class="math">
-<p><img src="../_images/math/7a47716f1abe5f52c8709969c545855b15eba370.png" alt="u = u_D \text{ on } \Gamma,"/></p>
-</div><p>where <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is the variable, <img class="math" src="../_images/math/64f650be582a1056128d1394c1bc9141f7e2d839.png" alt="u_D" style="vertical-align: -3px"/> is a given value and <img class="math" src="../_images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/>
+<p><img src="../images/math/7a47716f1abe5f52c8709969c545855b15eba370.png" alt="u = u_D \text{ on } \Gamma,"/></p>
+</div><p>where <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is the variable, <img class="math" src="../images/math/64f650be582a1056128d1394c1bc9141f7e2d839.png" alt="u_D" style="vertical-align: -3px"/> is a given value and <img class="math" src="../images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/>
 is a part on the boundary of the considered domain. The weak terms corresponding
 to this condition prescribed with a Lagrange multiplier are</p>
 <div class="math">
-<p><img src="../_images/math/c84c280611629635cd6d7b8cec131e21269845a9.png" alt="\int_{\Gamma} u \mu\ d\Gamma = \int_{\Gamma} u_D \mu\ d\Gamma, \forall \mu \in M,"/></p>
-</div><p>where <img class="math" src="../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> is an appropriate multiplier space. The contributions to the
+<p><img src="../images/math/c84c280611629635cd6d7b8cec131e21269845a9.png" alt="\int_{\Gamma} u \mu\ d\Gamma = \int_{\Gamma} u_D \mu\ d\Gamma, \forall \mu \in M,"/></p>
+</div><p>where <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> is an appropriate multiplier space. The contributions to the
 global linear system can be viewed in Fig. <a class="reference internal" href="#ud-fig-syslindir"><em>Contributions of the simple Dirichlet brick</em></a>. The matrix
-<img class="math" src="../_images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> is the &#8220;mass matrix&#8221; between the finite element space of the variable
-<img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> and the finite element space of the multiplier <img class="math" src="../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu" style="vertical-align: -4px"/>.
-<img class="math" src="../_images/math/637e8f50a7c1c2b086bc912e5a4ed9248dd17304.png" alt="L_{u}" style="vertical-align: -3px"/> is the right hand side corresponding to the data <img class="math" src="../_images/math/64f650be582a1056128d1394c1bc9141f7e2d839.png" alt="u_D" style="vertical-align: -3px"/>.</p>
+<img class="math" src="../images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> is the &#8220;mass matrix&#8221; between the finite element space of the variable
+<img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> and the finite element space of the multiplier <img class="math" src="../images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu" style="vertical-align: -4px"/>.
+<img class="math" src="../images/math/637e8f50a7c1c2b086bc912e5a4ed9248dd17304.png" alt="L_{u}" style="vertical-align: -3px"/> is the right hand side corresponding to the data <img class="math" src="../images/math/64f650be582a1056128d1394c1bc9141f7e2d839.png" alt="u_D" style="vertical-align: -3px"/>.</p>
 <div class="figure align-center" id="ud-fig-syslindir">
-<a class="reference internal image-reference" href="../_images/getfemuserlinsysDir.png"><img alt="../_images/getfemuserlinsysDir.png" src="../_images/getfemuserlinsysDir.png" style="width: 7cm;" /></a>
+<a class="reference internal image-reference" href="../images/getfemuserlinsysDir.png"><img alt="../images/getfemuserlinsysDir.png" src="../images/getfemuserlinsysDir.png" style="width: 7cm;" /></a>
 <p class="caption">Contributions of the simple Dirichlet brick</p>
 </div>
 <p>The brick can be defined as follows:</p>

@@ -68,8 +68,8 @@
 elliptic term depends both on the variable and a given coefficient. This
 corresponds to a term:</p>
 <div class="math">
-<p><img src="../_images/math/494aaf177f610442cfa3676f66ce926798586e0f.png" alt="-\text{div}(a\nabla u),"/></p>
-</div><p>where <img class="math" src="../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a" style="vertical-align: 0px"/> is the coefficient and <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> the variable. The coefficient can
+<p><img src="../images/math/494aaf177f610442cfa3676f66ce926798586e0f.png" alt="-\text{div}(a\nabla u),"/></p>
+</div><p>where <img class="math" src="../images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a" style="vertical-align: 0px"/> is the coefficient and <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> the variable. The coefficient can
 be a scalar, a matrix or an order four tensor. The variable can be vector valued
 or not. This means that the brick treats several different situations. If the
 coefficient is a scalar or a matrix and the variable is vector valued then the
@@ -87,7 +87,7 @@ is:</p>
 </pre></div>
 </div>
 <p>that adds an elliptic term relatively to the variable <tt class="docutils literal"><span class="pre">varname</span></tt> of the model
-with a constant coefficient equal to <img class="math" src="../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> (a Laplacian term). This
+with a constant coefficient equal to <img class="math" src="../images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> (a Laplacian term). This
 corresponds to the Laplace operator. <tt class="docutils literal"><span class="pre">mim</span></tt> is the integration method which will
 be used to compute the term. <tt class="docutils literal"><span class="pre">region</span></tt> is an optional region number. If it is
 omitted, it is assumed that the term will be computed on the whole mesh. The
@@ -101,10 +101,10 @@ result of the function is the brick index in the model.</p>
 linear anisotropic elasticity can be obtained with a tensor data. When an order
 four tensor is used, the corresponding weak term is the following</p>
 <div class="math">
-<p><img src="../_images/math/c70c39c8c42f5321b7e50c9c139f7dd11b652f53.png" alt="\int_{\Omega} \sum_{i,j,k,l} a_{i,j,k,l}\partial_i u_j \partial_k v_l dx"/></p>
-</div><p>where <img class="math" src="../_images/math/34a5ba912141171ad416444385a83fc912b4b6e1.png" alt="a_{i,j,k,l}" style="vertical-align: -6px"/> is the order four tensor and <img class="math" src="../_images/math/25ee658fc5ee9b34ede580b498f134be039ed723.png" alt="\partial_i u_j" style="vertical-align: -6px"/> is
-the partial derivative with respect to the <img class="math" src="../_images/math/ffbd55597272a9914166c5dd1e71a5d23d842ddd.png" alt="i^{th}" style="vertical-align: 0px"/> variable of the
-component <img class="math" src="../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/> of the unknown <img class="math" src="../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/>. <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is the test function.
+<p><img src="../images/math/c70c39c8c42f5321b7e50c9c139f7dd11b652f53.png" alt="\int_{\Omega} \sum_{i,j,k,l} a_{i,j,k,l}\partial_i u_j \partial_k v_l dx"/></p>
+</div><p>where <img class="math" src="../images/math/34a5ba912141171ad416444385a83fc912b4b6e1.png" alt="a_{i,j,k,l}" style="vertical-align: -6px"/> is the order four tensor and <img class="math" src="../images/math/25ee658fc5ee9b34ede580b498f134be039ed723.png" alt="\partial_i u_j" style="vertical-align: -6px"/> is
+the partial derivative with respect to the <img class="math" src="../images/math/ffbd55597272a9914166c5dd1e71a5d23d842ddd.png" alt="i^{th}" style="vertical-align: 0px"/> variable of the
+component <img class="math" src="../images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/> of the unknown <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/>. <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is the test function.
 However, for linear isotropic elasticity, a more adapted brick is available (see
 below).</p>
 <p>The brick has a working complex version.</p>

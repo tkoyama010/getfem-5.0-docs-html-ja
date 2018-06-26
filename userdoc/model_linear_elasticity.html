@@ -66,22 +66,22 @@
 <span id="ud-model-linear-elasticity"></span><span id="index-0"></span><h1>Isotropic linearized elasticity brick<a class="headerlink" href="#isotropic-linearized-elasticity-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>This brick represents a term</p>
 <div class="math">
-<p><img src="../_images/math/bcb442724759cfaebfdd0d3fc693a63ec08b6691.png" alt="-div(\sigma) = \ldots"/></p>
+<p><img src="../images/math/bcb442724759cfaebfdd0d3fc693a63ec08b6691.png" alt="-div(\sigma) = \ldots"/></p>
 </div><p>with</p>
 <div class="math">
-<p><img src="../_images/math/b90c2f0c03811fe930bdd8254a45eddcd11cc899.png" alt="\sigma &amp;= \lambda\mbox{tr}(\varepsilon(u))I + 2\mu\varepsilon(u) \\
+<p><img src="../images/math/b90c2f0c03811fe930bdd8254a45eddcd11cc899.png" alt="\sigma &amp;= \lambda\mbox{tr}(\varepsilon(u))I + 2\mu\varepsilon(u) \\
 \varepsilon(u) &amp;= (\nabla u + \nabla u^T)/2"/></p>
-</div><p><img class="math" src="../_images/math/6805fcc41ae33ab73370b02dd5b944c212328b92.png" alt="\varepsilon(u)" style="vertical-align: -4px"/> is the small strain tensor, <img class="math" src="../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> is the stress
-tensor, <img class="math" src="../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu" style="vertical-align: -4px"/> are the Lamé coefficients. This represents
+</div><p><img class="math" src="../images/math/6805fcc41ae33ab73370b02dd5b944c212328b92.png" alt="\varepsilon(u)" style="vertical-align: -4px"/> is the small strain tensor, <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> is the stress
+tensor, <img class="math" src="../images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/> and <img class="math" src="../images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu" style="vertical-align: -4px"/> are the Lamé coefficients. This represents
 the system of linearized isotropic elasticity. It can also be used with
-<img class="math" src="../_images/math/ab8ccbedc8ad9dd3e5fb8e654b94ee38f70f19e9.png" alt="\lambda=0" style="vertical-align: 0px"/> together with the linear incompressible brick to build the
+<img class="math" src="../images/math/ab8ccbedc8ad9dd3e5fb8e654b94ee38f70f19e9.png" alt="\lambda=0" style="vertical-align: 0px"/> together with the linear incompressible brick to build the
 Stokes problem.</p>
-<p>Let us recall that the relation between the Lamé coefficients an Young modulus <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> and Poisson ratio <img class="math" src="../_images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> is</p>
+<p>Let us recall that the relation between the Lamé coefficients an Young modulus <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> and Poisson ratio <img class="math" src="../images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> is</p>
 <div class="math">
-<p><img src="../_images/math/f3f47d0da92c187424ddf6fe6a0be013c9a69926.png" alt="\lambda = \Frac{E\nu}{(1+\nu)(1-2\nu)}, ~~~ \mu = \Frac{E}{2(1+\nu)},"/></p>
+<p><img src="../images/math/f3f47d0da92c187424ddf6fe6a0be013c9a69926.png" alt="\lambda = \Frac{E\nu}{(1+\nu)(1-2\nu)}, ~~~ \mu = \Frac{E}{2(1+\nu)},"/></p>
 </div><p>except for the plane stress approximation (2D model) where</p>
 <div class="math">
-<p><img src="../_images/math/5729fb1245bb76bc4ee07711662dce2204e109ec.png" alt="\lambda^* = \Frac{E\nu}{(1-\nu^2)}, ~~~ \mu = \Frac{E}{2(1+\nu)},"/></p>
+<p><img src="../images/math/5729fb1245bb76bc4ee07711662dce2204e109ec.png" alt="\lambda^* = \Frac{E\nu}{(1-\nu^2)}, ~~~ \mu = \Frac{E}{2(1+\nu)},"/></p>
 </div><p>The function which adds this brick to a model and parametrized with the Lamé coefficients is:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind_brick</span> <span class="o">=</span> <span class="n">getfem</span><span class="o">::</span><span class="n">add_isotropic_linearized_elasticity_brick</span>
             <span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">data_lambda</span><span class="p">,</span> <span class="n">data_mu</span><span class="p">,</span>
@@ -124,7 +124,7 @@ the displacement field stored in <tt class="docutils literal"><span class="pre">
 <p>This brick adds a linear incompressibility condition (or a nearly incompressible
 condition) in a problem of type:</p>
 <div class="math">
-<p><img src="../_images/math/2ee33b5cf9b3fdb796d5bf93f018e648e3fd07c2.png" alt="\mbox{div}(u) = 0,\quad (\mbox{ or } \mbox{div}(u) = \varepsilon p)"/></p>
+<p><img src="../images/math/2ee33b5cf9b3fdb796d5bf93f018e648e3fd07c2.png" alt="\mbox{div}(u) = 0,\quad (\mbox{ or } \mbox{div}(u) = \varepsilon p)"/></p>
 </div><p>This constraint is enforced with Lagrange multipliers representing the pressure,
 introduced in a mixed formulation.</p>
 <p>The function adding this incompressibility condition is:</p>
@@ -138,8 +138,8 @@ prescribed, <tt class="docutils literal"><span class="pre">multname_pressure</sp
 scalar fem representing the multiplier (the pressure) and <tt class="docutils literal"><span class="pre">dataexpr_penal_coeff</span></tt>
 is an optional penalization coefficient for the nearly incompressible condition.</p>
 <p>In nearly incompressible homogeneous linearized elasticity, one has
-<img class="math" src="../_images/math/f2c8e52b049ec8b471ddd97abe1d5fc3e12c6278.png" alt="\varepsilon = 1 / \lambda" style="vertical-align: -5px"/> where <img class="math" src="../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/> is one of the Lamé
-coefficient and <img class="math" src="../_images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon" style="vertical-align: 0px"/> the penalization coefficient.</p>
+<img class="math" src="../images/math/f2c8e52b049ec8b471ddd97abe1d5fc3e12c6278.png" alt="\varepsilon = 1 / \lambda" style="vertical-align: -5px"/> where <img class="math" src="../images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/> is one of the Lamé
+coefficient and <img class="math" src="../images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon" style="vertical-align: 0px"/> the penalization coefficient.</p>
 <p>For instance, the following program defines a Stokes problem with a source term
 and an homogeneous Dirichlet condition on boundary 0. <tt class="docutils literal"><span class="pre">mf_u</span></tt>, <tt class="docutils literal"><span class="pre">mf_data</span></tt> and
 <tt class="docutils literal"><span class="pre">mf_p</span></tt> have to be valid finite element description on the same mesh. <tt class="docutils literal"><span class="pre">mim</span></tt>

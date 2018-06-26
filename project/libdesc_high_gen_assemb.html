@@ -139,29 +139,29 @@ order two test functions (tangent term).</li>
 </ul>
 <p>For example, the assembly tree for the assembly string &#8220;a*Grad_Test2_u.Grad_Test_u&#8221; for the stiffness matrix of a Laplacian problem can be represented as follows with its assembly tensors at each node:</p>
 <div class="figure align-center" id="dp-fig-tree-laplace-tan">
-<a class="reference internal image-reference" href="../_images/tree_simple_laplace_tan.png"><img alt="../_images/tree_simple_laplace_tan.png" src="../_images/tree_simple_laplace_tan.png" style="width: 581.25px; height: 323.25px;" /></a>
+<a class="reference internal image-reference" href="../images/tree_simple_laplace_tan.png"><img alt="../images/tree_simple_laplace_tan.png" src="../images/tree_simple_laplace_tan.png" style="width: 581.25px; height: 323.25px;" /></a>
 </div>
 </div>
 <div class="section" id="assembly-tensors">
 <h2>Assembly tensors<a class="headerlink" href="#assembly-tensors" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Assembly tensors are represented on each node by a <tt class="docutils literal"><span class="pre">bgeot::tensor&lt;double&gt;</span></tt> object. However, there is a specific structure in <tt class="file docutils literal"><span class="pre">src/getfem_generic_assembly.cc</span></tt> for assembly tensors because there is several format of assembly tensors :</p>
 <ul>
-<li><p class="first">Normal tensor. The first and second indices may represent the test function local indices if the node represent a first or second order term. Remember that in <em>GetFEM++</em> all tensors are stored with a Fortran order. This means that for instance a for a <img class="math" src="../_images/math/fc97bd8c8a807bb46f8a711a4b5960235f116360.png" alt="N\times P\times Q" style="vertical-align: -4px"/> tensor one has <tt class="docutils literal"><span class="pre">t(i,</span> <span class="pre">j,</span> <span class="pre">k)</span> <span class="pre">=</span> <span class="pre">t[i</span> <span class="pre">+</span> <span class="pre">j*N</span> <span class="pre">+</span> <span class="pre">k*N*P]</span></tt>.</p>
+<li><p class="first">Normal tensor. The first and second indices may represent the test function local indices if the node represent a first or second order term. Remember that in <em>GetFEM++</em> all tensors are stored with a Fortran order. This means that for instance a for a <img class="math" src="../images/math/fc97bd8c8a807bb46f8a711a4b5960235f116360.png" alt="N\times P\times Q" style="vertical-align: -4px"/> tensor one has <tt class="docutils literal"><span class="pre">t(i,</span> <span class="pre">j,</span> <span class="pre">k)</span> <span class="pre">=</span> <span class="pre">t[i</span> <span class="pre">+</span> <span class="pre">j*N</span> <span class="pre">+</span> <span class="pre">k*N*P]</span></tt>.</p>
 </li>
 <li><p class="first">Copied tensor. When a node is detected to have exactly the same expression compared to an already compiled one, the assembly tensor will contain a pointer to the assembly tensor of the already compiled node. The consequence is that no unnecessary copy is made.</p>
 </li>
 <li><p class="first">Sparse tensor with a listed sparsity. When working with a vector field, the finite element method is applied on each component. This results on vector base functions having only one nonzero component and some components are duplicated. The tensor are fully represented because it would be difficul to gain in efficiency with that kind of small sparse tensor format. However, some operation can be optimized with the knoledge of a certain sparsity (and duplication). This can change the order of complexity of a reduction. In order to allows this gain in efficiency, the tensor are labellised with some known sparsity format (vectorisation and format coming from operation applied on vectorized tensors). This results in a certain number of sparsity formats that are listed below:</p>
 <ul>
 <li><p class="first">1: Vectorized base sparsity format: The tensor represent a vectorized
-value. Each value of the condensed tensor is repeated on <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>
+value. Each value of the condensed tensor is repeated on <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>
 components of the vectorized tensor. The mesh dimensions is denoted
-<img class="math" src="../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/>. For instance if <img class="math" src="../_images/math/87686aa0f5136421c8415c7169adcb308e36c7a8.png" alt="\varphi_i" style="vertical-align: -4px"/> are the <img class="math" src="../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> local
+<img class="math" src="../images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/>. For instance if <img class="math" src="../images/math/87686aa0f5136421c8415c7169adcb308e36c7a8.png" alt="\varphi_i" style="vertical-align: -4px"/> are the <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> local
 base functions on an element and the evaluation is on a Gauss point
-<img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x" style="vertical-align: 0px"/>, then the non vectorized tensor is
-<img class="math" src="../_images/math/6b07d616edcb7ef12e9533bed584034af94f0620.png" alt="\bar{t}(i) = \varphi_i(x)" style="vertical-align: -4px"/> and the vectorized one is
-<img class="math" src="../_images/math/446df8a10795ffd4dfed4bfa73f3ebb1cf67887e.png" alt="t(j,k) = \varphi_{j/Q}(x) \delta_{k, j \mbox{ mod } Q}" style="vertical-align: -9px"/>
-where <img class="math" src="../_images/math/6e618d44cdd1b76e4df35a7bc9ebd5524f56c49f.png" alt="j/M" style="vertical-align: -5px"/> is the integer division. For <img class="math" src="../_images/math/c310f710722cb94897f7c38d39ca8bae7bc0ccb5.png" alt="M=2" style="vertical-align: 0px"/>,
-<img class="math" src="../_images/math/ff477eb98ac5cc2250dafa9252424e4f03028524.png" alt="Q=2" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/62cbee4f6fd50f986cc39275a4e09aff1d2200a7.png" alt="N=3" style="vertical-align: 0px"/> the components of the two tensors are
+<img class="math" src="../images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x" style="vertical-align: 0px"/>, then the non vectorized tensor is
+<img class="math" src="../images/math/6b07d616edcb7ef12e9533bed584034af94f0620.png" alt="\bar{t}(i) = \varphi_i(x)" style="vertical-align: -4px"/> and the vectorized one is
+<img class="math" src="../images/math/446df8a10795ffd4dfed4bfa73f3ebb1cf67887e.png" alt="t(j,k) = \varphi_{j/Q}(x) \delta_{k, j \mbox{ mod } Q}" style="vertical-align: -9px"/>
+where <img class="math" src="../images/math/6e618d44cdd1b76e4df35a7bc9ebd5524f56c49f.png" alt="j/M" style="vertical-align: -5px"/> is the integer division. For <img class="math" src="../images/math/c310f710722cb94897f7c38d39ca8bae7bc0ccb5.png" alt="M=2" style="vertical-align: 0px"/>,
+<img class="math" src="../images/math/ff477eb98ac5cc2250dafa9252424e4f03028524.png" alt="Q=2" style="vertical-align: -4px"/> and <img class="math" src="../images/math/62cbee4f6fd50f986cc39275a4e09aff1d2200a7.png" alt="N=3" style="vertical-align: 0px"/> the components of the two tensors are
 represented in the following table</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -174,11 +174,11 @@ represented in the following table</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img class="math" src="../_images/math/6b07d616edcb7ef12e9533bed584034af94f0620.png" alt="\bar{t}(i) = \varphi_i(x)" style="vertical-align: -4px"/></td>
-<td><img class="math" src="../_images/math/196581fca061d38a98db82b897e3987f1c86d20d.png" alt="t(j,k) = \varphi_{j/Q}(x) \delta_{k, (j \mbox{ mod } Q)}" style="vertical-align: -9px"/></td>
+<tr class="row-even"><td><img class="math" src="../images/math/6b07d616edcb7ef12e9533bed584034af94f0620.png" alt="\bar{t}(i) = \varphi_i(x)" style="vertical-align: -4px"/></td>
+<td><img class="math" src="../images/math/196581fca061d38a98db82b897e3987f1c86d20d.png" alt="t(j,k) = \varphi_{j/Q}(x) \delta_{k, (j \mbox{ mod } Q)}" style="vertical-align: -9px"/></td>
 </tr>
-<tr class="row-odd"><td><img class="math" src="../_images/math/3a1c8a2ef3e84de33b5bdfcc23e32110d51ab1de.png" alt="[\varphi_0(x), \varphi_1(x)]" style="vertical-align: -5px"/></td>
-<td><img class="math" src="../_images/math/409e5f5710cfc6e5d84610e3b6abfe03b490695b.png" alt="[\varphi_0(x), 0, \varphi_1(x), 0, 0, \varphi_0(x), 0, \varphi_1(x)]" style="vertical-align: -5px"/></td>
+<tr class="row-odd"><td><img class="math" src="../images/math/3a1c8a2ef3e84de33b5bdfcc23e32110d51ab1de.png" alt="[\varphi_0(x), \varphi_1(x)]" style="vertical-align: -5px"/></td>
+<td><img class="math" src="../images/math/409e5f5710cfc6e5d84610e3b6abfe03b490695b.png" alt="[\varphi_0(x), 0, \varphi_1(x), 0, 0, \varphi_0(x), 0, \varphi_1(x)]" style="vertical-align: -5px"/></td>
 </tr>
 </tbody>
 </table>
@@ -195,10 +195,10 @@ represented in the following table</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img class="math" src="../_images/math/184f1b13a9306b0471b9342d2efd4a7dd5966ad2.png" alt="\bar{t}(i,j) = \partial_j\varphi_i(x)" style="vertical-align: -6px"/></td>
-<td><img class="math" src="../_images/math/6c80b39211b6e273475f7cb1375045ab4065252e.png" alt="t(k,l,m) = \partial_m\varphi_{k/Q}(x) \delta_{l, (m \mbox{ mod } Q)}" style="vertical-align: -9px"/></td>
+<tr class="row-even"><td><img class="math" src="../images/math/184f1b13a9306b0471b9342d2efd4a7dd5966ad2.png" alt="\bar{t}(i,j) = \partial_j\varphi_i(x)" style="vertical-align: -6px"/></td>
+<td><img class="math" src="../images/math/6c80b39211b6e273475f7cb1375045ab4065252e.png" alt="t(k,l,m) = \partial_m\varphi_{k/Q}(x) \delta_{l, (m \mbox{ mod } Q)}" style="vertical-align: -9px"/></td>
 </tr>
-<tr class="row-odd"><td><img class="math" src="../_images/math/5c098f045361872866b59fff5fb6a308a047ee1a.png" alt="[\partial_0\varphi_0(x), \partial_0\varphi_1(x)," style="vertical-align: -5px"/> <img class="math" src="../_images/math/c29bb2bcc243a4771105480d2ef8d607d0875731.png" alt="\partial_1\varphi_0(x), \partial_1\varphi_1(x)," style="vertical-align: -4px"/> <img class="math" src="../_images/math/a1f6b79689ebe648a93b0e090547169354c3f228.png" alt="\partial_2\varphi_0(x), \partial_2\varphi_1(x)]" style="vertical-align: -5px"/></td>
+<tr class="row-odd"><td><img class="math" src="../images/math/5c098f045361872866b59fff5fb6a308a047ee1a.png" alt="[\partial_0\varphi_0(x), \partial_0\varphi_1(x)," style="vertical-align: -5px"/> <img class="math" src="../images/math/c29bb2bcc243a4771105480d2ef8d607d0875731.png" alt="\partial_1\varphi_0(x), \partial_1\varphi_1(x)," style="vertical-align: -4px"/> <img class="math" src="../images/math/a1f6b79689ebe648a93b0e090547169354c3f228.png" alt="\partial_2\varphi_0(x), \partial_2\varphi_1(x)]" style="vertical-align: -5px"/></td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -207,9 +207,9 @@ represented in the following table</p>
 <li><p class="first">3: Hessian condensed format</p>
 </li>
 <li><p class="first">10: Vectorized mass: the tensor represent a scalar product of two
-vectorised base functions. This means a tensor <img class="math" src="../_images/math/b7b3f46d049750b33446ef29407305f607221023.png" alt="t(\cdot,\cdot)" style="vertical-align: -4px"/>
-where <img class="math" src="../_images/math/fdd6d8a4b13897b5e9079af24d99b2c1a649ffe7.png" alt="t(i*Q+k, j*Q+l) = 0" style="vertical-align: -4px"/> for <img class="math" src="../_images/math/7fbae26633ee7a308593b4dc810bbc8cb88e764f.png" alt="k \ne l" style="vertical-align: -4px"/> and
-<img class="math" src="../_images/math/de4fb9a34d83f82a8ba41b6573d2bdd81ed88a42.png" alt="t(i*Q+k, j*Q+k)" style="vertical-align: -4px"/> are equals for <img class="math" src="../_images/math/0137039df48d9c7006809fad34bfc571b60b4f3f.png" alt="0 \le k &lt; Q" style="vertical-align: -4px"/>.</p>
+vectorised base functions. This means a tensor <img class="math" src="../images/math/b7b3f46d049750b33446ef29407305f607221023.png" alt="t(\cdot,\cdot)" style="vertical-align: -4px"/>
+where <img class="math" src="../images/math/fdd6d8a4b13897b5e9079af24d99b2c1a649ffe7.png" alt="t(i*Q+k, j*Q+l) = 0" style="vertical-align: -4px"/> for <img class="math" src="../images/math/7fbae26633ee7a308593b4dc810bbc8cb88e764f.png" alt="k \ne l" style="vertical-align: -4px"/> and
+<img class="math" src="../images/math/de4fb9a34d83f82a8ba41b6573d2bdd81ed88a42.png" alt="t(i*Q+k, j*Q+k)" style="vertical-align: -4px"/> are equals for <img class="math" src="../images/math/0137039df48d9c7006809fad34bfc571b60b4f3f.png" alt="0 \le k &lt; Q" style="vertical-align: -4px"/>.</p>
 </li>
 </ul>
 </li>

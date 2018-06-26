@@ -82,8 +82,8 @@ term for a scalar FEM is done with the following excerpt of code:</p>
 <p>The first instructions declare the object, and set the data that it will use: a
 <cite>mesh_im</cite> object which holds the integration methods, two <cite>mesh_fem</cite> objects, the input data
 <tt class="docutils literal"><span class="pre">F</span></tt>, and the destination vector <tt class="docutils literal"><span class="pre">B</span></tt>.</p>
-<p>The input data is the vector <img class="math" src="../_images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/>, defined on <tt class="docutils literal"><span class="pre">mfdata</span></tt>. One wants to
-evaluate <img class="math" src="../_images/math/2a2e3c206d0e57c4f94f2b33119fce066ee89555.png" alt="\sum_{j} f_j (\int_\Omega \phi^i \psi^j)" style="vertical-align: -8px"/>. The instruction must be
+<p>The input data is the vector <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/>, defined on <tt class="docutils literal"><span class="pre">mfdata</span></tt>. One wants to
+evaluate <img class="math" src="../images/math/2a2e3c206d0e57c4f94f2b33119fce066ee89555.png" alt="\sum_{j} f_j (\int_\Omega \phi^i \psi^j)" style="vertical-align: -8px"/>. The instruction must be
 seen as something that will be executed for each convex <tt class="docutils literal"><span class="pre">cv</span></tt> of the mesh. The
 terms <tt class="docutils literal"><span class="pre">#1</span></tt> and <tt class="docutils literal"><span class="pre">#2</span></tt> refer to the first <cite>mesh_fem</cite> and the second one (i.e. <tt class="docutils literal"><span class="pre">mf</span></tt>
 and <tt class="docutils literal"><span class="pre">mfdata</span></tt>).  The instruction <tt class="docutils literal"><span class="pre">Z=data(#2);</span></tt> means that for each convex, the
@@ -98,10 +98,10 @@ of freedom of the current convex with respect to the first (<tt class="docutils 
 <p>The right hand side <tt class="docutils literal"><span class="pre">comp(Base(#1).Base(#2))(:,j).Z(j)</span></tt> contains two operations.
 The first one is a computation of a tensor on the convex:
 <tt class="docutils literal"><span class="pre">comp(Base(#1).Base(#2))</span></tt> is evaluated as a 2-dimensions tensor,
-<img class="math" src="../_images/math/02425f28820e111e74f67b09c2ed97af3e200e91.png" alt="\int\phi^i \psi^j" style="vertical-align: -6px"/>, for all degrees of freedom <img class="math" src="../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i" style="vertical-align: 0px"/> of <tt class="docutils literal"><span class="pre">mf</span></tt> and
-<img class="math" src="../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/> of <tt class="docutils literal"><span class="pre">mfdata</span></tt> attached to the current convex. The next part is a
-reduction operation, <tt class="docutils literal"><span class="pre">C(:,j).Z(j)</span></tt>: each named index (here <img class="math" src="../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/>) is summed,
-i.e. the result is <img class="math" src="../_images/math/53d92e17e478e36bc7c7c3648425a50e73ad81d9.png" alt="\sum_j c_{i,j} z_j" style="vertical-align: -8px"/>.</p>
+<img class="math" src="../images/math/02425f28820e111e74f67b09c2ed97af3e200e91.png" alt="\int\phi^i \psi^j" style="vertical-align: -6px"/>, for all degrees of freedom <img class="math" src="../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i" style="vertical-align: 0px"/> of <tt class="docutils literal"><span class="pre">mf</span></tt> and
+<img class="math" src="../images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/> of <tt class="docutils literal"><span class="pre">mfdata</span></tt> attached to the current convex. The next part is a
+reduction operation, <tt class="docutils literal"><span class="pre">C(:,j).Z(j)</span></tt>: each named index (here <img class="math" src="../images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/>) is summed,
+i.e. the result is <img class="math" src="../images/math/53d92e17e478e36bc7c7c3648425a50e73ad81d9.png" alt="\sum_j c_{i,j} z_j" style="vertical-align: -8px"/>.</p>
 <p>The integration method used inside <tt class="docutils literal"><span class="pre">comp(Base(#1).Base(#2))</span></tt> is taken from
 <tt class="docutils literal"><span class="pre">mim</span></tt>. If you need to use integration methods from another <cite>mesh_im</cite> object, you can
 specify it as the first argument of <tt class="docutils literal"><span class="pre">comp</span></tt>, for example <tt class="docutils literal"><span class="pre">comp(\%2,</span>
@@ -126,17 +126,17 @@ that the result is symmetric (if this is not done, some round-off errors may
 cancel the symmetricity, and the assembly will be a little bit slower). Next, the
 <tt class="docutils literal"><span class="pre">comp</span></tt> part evaluates a 7D tensor,</p>
 <div class="math">
-<p><img src="../_images/math/1a0f2ef86f64fc744959d5ec2748a297c7cfefce.png" alt="\int\partial_k\varphi^{i}_{j}\partial_n\varphi^l_m\psi^p,"/></p>
-</div><p>where <img class="math" src="../_images/math/677d3579b632acd0e5e6fd39e47b3d46a2ae6493.png" alt="\varphi^i_j" style="vertical-align: -8px"/> is a <img class="math" src="../_images/math/f281d2d3dff2b15548ab8351979787651cf79f54.png" alt="jth" style="vertical-align: -4px"/> component of the <img class="math" src="../_images/math/efc66c8b3a3779f27f0927b47a901b0b1c6d5315.png" alt="ith" style="vertical-align: 0px"/> base
-function of <tt class="docutils literal"><span class="pre">mf</span></tt> and <img class="math" src="../_images/math/703bc8604f06ff55b92c606c79b6621c03c61057.png" alt="\psi^p" style="vertical-align: -4px"/> is a (scalar) base function of the second
+<p><img src="../images/math/1a0f2ef86f64fc744959d5ec2748a297c7cfefce.png" alt="\int\partial_k\varphi^{i}_{j}\partial_n\varphi^l_m\psi^p,"/></p>
+</div><p>where <img class="math" src="../images/math/677d3579b632acd0e5e6fd39e47b3d46a2ae6493.png" alt="\varphi^i_j" style="vertical-align: -8px"/> is a <img class="math" src="../images/math/f281d2d3dff2b15548ab8351979787651cf79f54.png" alt="jth" style="vertical-align: -4px"/> component of the <img class="math" src="../images/math/efc66c8b3a3779f27f0927b47a901b0b1c6d5315.png" alt="ith" style="vertical-align: 0px"/> base
+function of <tt class="docutils literal"><span class="pre">mf</span></tt> and <img class="math" src="../images/math/703bc8604f06ff55b92c606c79b6621c03c61057.png" alt="\psi^p" style="vertical-align: -4px"/> is a (scalar) base function of the second
 <cite>mesh_fem</cite>. Since we want to assemble</p>
 <div class="math">
-<p><img src="../_images/math/338c27bd3aa16e4bee7516b032088bf3a674b05b.png" alt="\int a(x).\nabla\phi^i.\nabla\phi^j,
+<p><img src="../images/math/338c27bd3aa16e4bee7516b032088bf3a674b05b.png" alt="\int a(x).\nabla\phi^i.\nabla\phi^j,
 \quad\text{with}\quad
 a(x)=\sum_p a^p \psi^p(x),"/></p>
 </div><p>the reduction is:</p>
 <div class="math">
-<p><img src="../_images/math/95320980d6e4dba608192a367551a52cd852734a.png" alt="\sum_{j,k,p}\left(
+<p><img src="../images/math/95320980d6e4dba608192a367551a52cd852734a.png" alt="\sum_{j,k,p}\left(
 \int \partial_k\varphi^{i}_{j} \partial_k\varphi^m_j \psi^p
 \right)a^p"/></p>
 </div><p>In the <tt class="docutils literal"><span class="pre">comp</span></tt> function, <tt class="docutils literal"><span class="pre">vGrad</span></tt> was used instead of <tt class="docutils literal"><span class="pre">Grad</span></tt> since we said
@@ -149,7 +149,7 @@ advantage to work in both vector and scalar case.</p>
 convex. For an assembly over a boundary just call <tt class="docutils literal"><span class="pre">assem.assembly(rg)</span></tt>, where
 <tt class="docutils literal"><span class="pre">rg</span></tt> is a <tt class="docutils literal"><span class="pre">getfem::mesh_region</span></tt> object.  <tt class="docutils literal"><span class="pre">rg</span></tt> might also be a number, in that case the mesh
 region taken into account is <tt class="docutils literal"><span class="pre">mim.linked_mesh().region(rg)</span></tt>.</p>
-<p>The third example shows how to compute the <img class="math" src="../_images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> norm of a scalar or vector
+<p>The third example shows how to compute the <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> norm of a scalar or vector
 field on a mesh boundary:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">assem</span><span class="p">.</span><span class="n">push_im</span><span class="p">(</span><span class="n">mim</span><span class="p">);</span>
 <span class="n">assem</span><span class="p">.</span><span class="n">push_mf</span><span class="p">(</span><span class="n">mf</span><span class="p">);</span>
@@ -163,7 +163,7 @@ field on a mesh boundary:</p>
 </div>
 <p>This one is easy to read. When <tt class="docutils literal"><span class="pre">assembly</span></tt> returns, <tt class="docutils literal"><span class="pre">v[0]</span></tt> will contain</p>
 <div class="math">
-<p><img src="../_images/math/f6f88ddcacd5030b5c9568bebbca9d617afb0bb0.png" alt="\sum_{i,j,k}\left(\int_{boundary} u_i \varphi^{i}_{k} u_j \varphi^j_k \right)"/></p>
+<p><img src="../images/math/f6f88ddcacd5030b5c9568bebbca9d617afb0bb0.png" alt="\sum_{i,j,k}\left(\int_{boundary} u_i \varphi^{i}_{k} u_j \varphi^j_k \right)"/></p>
 </div><p>The fourth and last example shows an (sub-optimal) assembly of the linear
 elasticity problem with a complete Hooke tensor:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">assem</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;h=data$1(qdim(#1),qdim(#1),qdim(#1),qdim(#1),#2);&quot;</span>
@@ -174,18 +174,18 @@ elasticity problem with a complete Hooke tensor:</p>
 </div>
 <p>The original equations are:</p>
 <div class="math">
-<p><img src="../_images/math/aa5a5f06f7b23d0b9c4599a5068f83dcf47fcfdf.png" alt="\int\varepsilon(\varphi^i):\sigma(\phi^j),
+<p><img src="../images/math/aa5a5f06f7b23d0b9c4599a5068f83dcf47fcfdf.png" alt="\int\varepsilon(\varphi^i):\sigma(\phi^j),
 \quad\text{with}\quad
 \sigma(u)_{ij}=\sum_{kl} h_{ijkl}(x) \varepsilon_{kl}(u)"/></p>
-</div><p>where <img class="math" src="../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> is the Hooke tensor, and <img class="math" src="../_images/math/9e89270aa29dd200d6388cdaf4b31cb721b62ba8.png" alt=":" style="vertical-align: 0px"/> means the scalar product
-between matrices. Since we assume it is not constant, <img class="math" src="../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> is given on the
-second <cite>mesh_fem</cite>: <img class="math" src="../_images/math/00458f29e5e2fc5e5fdcd26d61cef27920ff29db.png" alt="h_{ijkl}(x)=\sum_p h_{ijkl}^p \psi^p" style="vertical-align: -8px"/>. Hence the first line
+</div><p>where <img class="math" src="../images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> is the Hooke tensor, and <img class="math" src="../images/math/9e89270aa29dd200d6388cdaf4b31cb721b62ba8.png" alt=":" style="vertical-align: 0px"/> means the scalar product
+between matrices. Since we assume it is not constant, <img class="math" src="../images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> is given on the
+second <cite>mesh_fem</cite>: <img class="math" src="../images/math/00458f29e5e2fc5e5fdcd26d61cef27920ff29db.png" alt="h_{ijkl}(x)=\sum_p h_{ijkl}^p \psi^p" style="vertical-align: -8px"/>. Hence the first line
 declares that the first data &#8220;pushed&#8221; is indeed a five-dimensions tensor, the
 first fourth ones being all equal to the target dimension of the first <cite>mesh_fem</cite>, and
 the last one being equal to the number of degrees of freedom of the second <cite>mesh_fem</cite>.
 The <tt class="docutils literal"><span class="pre">comp</span></tt> part still computes the same 7D tensor than for the vector Laplacian
 case. From this tensor, one evaluates
-<img class="math" src="../_images/math/bb2f13727922cacb774b1a3255eaefe68179ff98.png" alt="\varepsilon(\varphi^i)_{jk}\varepsilon(\phi^l)_{mn}\psi^p" style="vertical-align: -6px"/> via
+<img class="math" src="../images/math/bb2f13727922cacb774b1a3255eaefe68179ff98.png" alt="\varepsilon(\varphi^i)_{jk}\varepsilon(\phi^l)_{mn}\psi^p" style="vertical-align: -6px"/> via
 permutations, and finally the expression is reduced against the hook tensor.</p>
 <div class="section" id="available-operations-inside-the-comp-command">
 <h2>available operations inside the <tt class="docutils literal"><span class="pre">comp</span></tt> command<a class="headerlink" href="#available-operations-inside-the-comp-command" title="このヘッドラインへのパーマリンク">¶</a></h2>

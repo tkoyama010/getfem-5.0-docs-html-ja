@@ -108,9 +108,9 @@ The constructor to define a new <tt class="docutils literal"><span class="pre">g
 <p>where <tt class="docutils literal"><span class="pre">mesh</span></tt> is a valid mesh of type <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt>, <tt class="docutils literal"><span class="pre">degree</span></tt> is the degree of the
 polynomials (1 is the default value), and <tt class="docutils literal"><span class="pre">with_secondary</span></tt> is a boolean whose
 default value is false. The secondary level-set is used to represent
-fractures (if <img class="math" src="../_images/math/2751d79d3bbfb34440d68c685fe6ba7414951749.png" alt="p(x)" style="vertical-align: -4px"/> is the primary level-set function and
-<img class="math" src="../_images/math/9703e10f151c26e976f124951c28a2dac5f1884d.png" alt="s(x)" style="vertical-align: -4px"/> is the secondary level-set function, the crack is defined
-by <img class="math" src="../_images/math/127697818cf6924311e6c66824483814e2371986.png" alt="p(x) = 0" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/8bab1ded935b2f7819ec84828a0a424291292b05.png" alt="s(x) \leq 0" style="vertical-align: -4px"/>: the role of the secondary
+fractures (if <img class="math" src="../images/math/2751d79d3bbfb34440d68c685fe6ba7414951749.png" alt="p(x)" style="vertical-align: -4px"/> is the primary level-set function and
+<img class="math" src="../images/math/9703e10f151c26e976f124951c28a2dac5f1884d.png" alt="s(x)" style="vertical-align: -4px"/> is the secondary level-set function, the crack is defined
+by <img class="math" src="../images/math/127697818cf6924311e6c66824483814e2371986.png" alt="p(x) = 0" style="vertical-align: -4px"/> and <img class="math" src="../images/math/8bab1ded935b2f7819ec84828a0a424291292b05.png" alt="s(x) \leq 0" style="vertical-align: -4px"/>: the role of the secondary
 is to delimit the crack).</p>
 <p>Each level-set function is defined by a <cite>mesh_fem</cite> <tt class="docutils literal"><span class="pre">mf</span></tt> and the dof values
 over this <cite>mesh_fem</cite>, in a vector. The object <tt class="docutils literal"><span class="pre">getfem::level_set</span></tt> contains a <cite>mesh_fem</cite> and the
@@ -158,11 +158,11 @@ following:</p>
 <p>where <tt class="docutils literal"><span class="pre">mls</span></tt> is an object of type <tt class="docutils literal"><span class="pre">getfem::mesh_level_set</span></tt>, <tt class="docutils literal"><span class="pre">where</span></tt> is an enum for which
 possible values are</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_INSIDE</span></tt> (integrate over <img class="math" src="../_images/math/1d5f1bf8b0957bad8f36357986123d5fb9ec18c3.png" alt="p(x)&lt;0" style="vertical-align: -4px"/>),</li>
-<li><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_OUTSIDE</span></tt> (integrate over <img class="math" src="../_images/math/23032d8e77f22acd2f25c48537cd4862465f86f3.png" alt="p(x)&gt;0" style="vertical-align: -4px"/>),</li>
+<li><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_INSIDE</span></tt> (integrate over <img class="math" src="../images/math/1d5f1bf8b0957bad8f36357986123d5fb9ec18c3.png" alt="p(x)&lt;0" style="vertical-align: -4px"/>),</li>
+<li><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_OUTSIDE</span></tt> (integrate over <img class="math" src="../images/math/23032d8e77f22acd2f25c48537cd4862465f86f3.png" alt="p(x)&gt;0" style="vertical-align: -4px"/>),</li>
 <li><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_ALL</span></tt>,</li>
-<li><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_BOUNDARY</span></tt> (integrate over <img class="math" src="../_images/math/43407f6a2b5d524f6e57c70c914ef7dca7d505b3.png" alt="p(x)=0" style="vertical-align: -4px"/>
-and <img class="math" src="../_images/math/70869d2e94a911e3cb2c044071bd452005bfa39c.png" alt="s(x)\leq 0" style="vertical-align: -4px"/>)</li>
+<li><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_BOUNDARY</span></tt> (integrate over <img class="math" src="../images/math/43407f6a2b5d524f6e57c70c914ef7dca7d505b3.png" alt="p(x)=0" style="vertical-align: -4px"/>
+and <img class="math" src="../images/math/70869d2e94a911e3cb2c044071bd452005bfa39c.png" alt="s(x)\leq 0" style="vertical-align: -4px"/>)</li>
 </ul>
 <p>The argument <tt class="docutils literal"><span class="pre">regular_im</span></tt> should be of type <tt class="docutils literal"><span class="pre">pintegration_method</span></tt>, and will be
 the integration method applied on each sub-simplex of the composite integration

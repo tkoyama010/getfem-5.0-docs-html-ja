@@ -146,15 +146,15 @@ method can be retrieved thanks to the following functions:</p>
 <p>A non exhaustive list (see <a class="reference internal" href="appendixA.html#ud-appendixa"><em>Appendix A. Finite element method list</em></a> or <tt class="file docutils literal"><span class="pre">getfem/getfem_fem.h</span></tt> for
 exhaustive lists) of finite element methods is given by:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">&quot;FEM_PK(n,k)&quot;</span></tt>: Classical <img class="math" src="../_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> methods on simplexes of dimension <tt class="docutils literal"><span class="pre">n</span></tt>
+<li><tt class="docutils literal"><span class="pre">&quot;FEM_PK(n,k)&quot;</span></tt>: Classical <img class="math" src="../images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> methods on simplexes of dimension <tt class="docutils literal"><span class="pre">n</span></tt>
 with degree <tt class="docutils literal"><span class="pre">k</span></tt> polynomials.</li>
-<li><tt class="docutils literal"><span class="pre">&quot;FEM_QK(n,k)&quot;</span></tt>: Classical <img class="math" src="../_images/math/4ca81821dd88dc67ea4df97840e93fa7710af178.png" alt="Q_K" style="vertical-align: -4px"/> methods on parallelepiped of dimension
-<tt class="docutils literal"><span class="pre">n</span></tt>. Tensorial product of degree <tt class="docutils literal"><span class="pre">k</span></tt> <img class="math" src="../_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> method on the segment.</li>
+<li><tt class="docutils literal"><span class="pre">&quot;FEM_QK(n,k)&quot;</span></tt>: Classical <img class="math" src="../images/math/4ca81821dd88dc67ea4df97840e93fa7710af178.png" alt="Q_K" style="vertical-align: -4px"/> methods on parallelepiped of dimension
+<tt class="docutils literal"><span class="pre">n</span></tt>. Tensorial product of degree <tt class="docutils literal"><span class="pre">k</span></tt> <img class="math" src="../images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> method on the segment.</li>
 <li><tt class="docutils literal"><span class="pre">&quot;FEM_PK_PRISM(n,k)&quot;</span></tt>: Classical methods on prism of dimension <tt class="docutils literal"><span class="pre">n</span></tt>.
-Tensorial product of two degree <tt class="docutils literal"><span class="pre">k</span></tt> <img class="math" src="../_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> method.</li>
+Tensorial product of two degree <tt class="docutils literal"><span class="pre">k</span></tt> <img class="math" src="../images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> method.</li>
 <li><tt class="docutils literal"><span class="pre">&quot;FEM_PRODUCT(a,b)&quot;</span></tt>: Tensorial product of the two polynomial finite element
 method <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt>.</li>
-<li><tt class="docutils literal"><span class="pre">&quot;FEM_PK_DISCONTINUOUS(n,k)&quot;</span></tt>: discontinuous <img class="math" src="../_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> methods on simplexes
+<li><tt class="docutils literal"><span class="pre">&quot;FEM_PK_DISCONTINUOUS(n,k)&quot;</span></tt>: discontinuous <img class="math" src="../images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> methods on simplexes
 of dimension <tt class="docutils literal"><span class="pre">n</span></tt> with degree <tt class="docutils literal"><span class="pre">k</span></tt> polynomials.</li>
 </ul>
 <p>An alternative way to obtain a Lagrange polynomial fem suitable for a given
@@ -203,7 +203,7 @@ geometric transformation is to use:</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For instance if one needs to have a description of a <img class="math" src="../_images/math/a5b0256a78d58b6d5f7a53400b19e7747d2983fa.png" alt="P_1" style="vertical-align: -4px"/> finite element
+<p>For instance if one needs to have a description of a <img class="math" src="../images/math/a5b0256a78d58b6d5f7a53400b19e7747d2983fa.png" alt="P_1" style="vertical-align: -4px"/> finite element
 method on a triangle, the way to set it is:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mf</span><span class="p">.</span><span class="n">set_finite_element</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">getfem</span><span class="o">::</span><span class="n">fem_descriptor</span><span class="p">(</span><span class="s">&quot;FEM_PK(2, 1)&quot;</span><span class="p">));</span>
 </pre></div>
@@ -220,22 +220,22 @@ particular method directly on a set of element, passing to
 <div class="section" id="second-level-the-optional-vectorization-tensorization">
 <h2>Second level: the optional &#8220;vectorization/tensorization&#8221;<a class="headerlink" href="#second-level-the-optional-vectorization-tensorization" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>If the finite element represents an unknown which is a vector field, the method <tt class="docutils literal"><span class="pre">mf.set_qdim(Q)</span></tt> allows set the target dimension for the definition of the
-target dimension <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>.</p>
-<p>If the target dimension <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> is set to a value different of <img class="math" src="../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/>, the
-scalar FEMs (such as <img class="math" src="../_images/math/76ebaba4ae3d5c911d6e31ad855d502ad88d48a6.png" alt="P_k" style="vertical-align: -3px"/> fems etc.) are automatically &#8220;vectorized&#8221; from
-the <cite>mesh_fem</cite> object point of view, i.e. each scalar degree of freedom appears <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>
-times in order to represent the <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> components of the vector field. If an
+target dimension <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>.</p>
+<p>If the target dimension <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> is set to a value different of <img class="math" src="../images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/>, the
+scalar FEMs (such as <img class="math" src="../images/math/76ebaba4ae3d5c911d6e31ad855d502ad88d48a6.png" alt="P_k" style="vertical-align: -3px"/> fems etc.) are automatically &#8220;vectorized&#8221; from
+the <cite>mesh_fem</cite> object point of view, i.e. each scalar degree of freedom appears <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>
+times in order to represent the <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> components of the vector field. If an
 intrinsically vectorial element is used, the target dimension of the <tt class="docutils literal"><span class="pre">fem</span></tt> and
 the one of the <cite>mesh_fem</cite> object have to match. To sum it up,</p>
 <ul>
-<li><p class="first">if the fem of the <img class="math" src="../_images/math/efc66c8b3a3779f27f0927b47a901b0b1c6d5315.png" alt="ith" style="vertical-align: 0px"/> element is intrinsically a vector FEM, then:</p>
+<li><p class="first">if the fem of the <img class="math" src="../images/math/efc66c8b3a3779f27f0927b47a901b0b1c6d5315.png" alt="ith" style="vertical-align: 0px"/> element is intrinsically a vector FEM, then:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mf</span><span class="p">.</span><span class="n">get_qdim</span><span class="p">()</span> <span class="o">==</span> <span class="n">mf</span><span class="p">.</span><span class="n">fem_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">target_dim</span><span class="p">()</span>
 <span class="o">&amp;&amp;</span>
 <span class="n">mf</span><span class="p">.</span><span class="n">nb_dof_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">mf</span><span class="p">.</span><span class="n">fem_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">nb_dof</span><span class="p">()</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">if the fem has a <tt class="docutils literal"><span class="pre">target_dim</span></tt> equal to <img class="math" src="../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/>, then:</p>
+<li><p class="first">if the fem has a <tt class="docutils literal"><span class="pre">target_dim</span></tt> equal to <img class="math" src="../images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/>, then:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mf</span><span class="p">.</span><span class="n">nb_dof_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">mf</span><span class="p">.</span><span class="n">get_qdim</span><span class="p">()</span><span class="o">*</span><span class="n">mf</span><span class="p">.</span><span class="n">fem_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">nb_dof</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -325,14 +325,14 @@ the correspondence between basic and reduced dofs.</p>
 <div class="section" id="third-level-the-optional-linear-transformation-or-reduction">
 <h2>Third level: the optional linear transformation (or reduction)<a class="headerlink" href="#third-level-the-optional-linear-transformation-or-reduction" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>As described above, it is possible to provide two matrices, a reduction matrix
-<img class="math" src="../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/> and an extension matrix <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> which will describe a linear
-transformation of the degrees of freedom. If <img class="math" src="../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V" style="vertical-align: 0px"/> is the vector of basic
-degrees of freedom, then <img class="math" src="../_images/math/3197502f6ef4e156633670cbaee70126f5583377.png" alt="U=RV" style="vertical-align: 0px"/> will be the vector of reduced degrees of
-freedom. Contrarily, given a vector <img class="math" src="../_images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> of reduced dof, <img class="math" src="../_images/math/8134be80f5a2d7944e4e2e3acb9d86d00978e4b2.png" alt="V=EU" style="vertical-align: 0px"/> will
-correspond to a vector of basic dof. In simle cases, <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> will be simply the
-transpose of <img class="math" src="../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/>. NOTE that every line of the extension matrix should be
+<img class="math" src="../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/> and an extension matrix <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> which will describe a linear
+transformation of the degrees of freedom. If <img class="math" src="../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V" style="vertical-align: 0px"/> is the vector of basic
+degrees of freedom, then <img class="math" src="../images/math/3197502f6ef4e156633670cbaee70126f5583377.png" alt="U=RV" style="vertical-align: 0px"/> will be the vector of reduced degrees of
+freedom. Contrarily, given a vector <img class="math" src="../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> of reduced dof, <img class="math" src="../images/math/8134be80f5a2d7944e4e2e3acb9d86d00978e4b2.png" alt="V=EU" style="vertical-align: 0px"/> will
+correspond to a vector of basic dof. In simle cases, <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> will be simply the
+transpose of <img class="math" src="../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/>. NOTE that every line of the extension matrix should be
 sparse. Otherwise, each assembled matrix will be plain !</p>
-<p>A natural condition is that <img class="math" src="../_images/math/13214624f5d40113208f77bbd9eebeefc1933aab.png" alt="RE = I" style="vertical-align: 0px"/> where <img class="math" src="../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I" style="vertical-align: 0px"/> is the identity matrix.</p>
+<p>A natural condition is that <img class="math" src="../images/math/13214624f5d40113208f77bbd9eebeefc1933aab.png" alt="RE = I" style="vertical-align: 0px"/> where <img class="math" src="../images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I" style="vertical-align: 0px"/> is the identity matrix.</p>
 <dl class="function">
 <dt id="mf.nb_dof">
 <tt class="descclassname">mf.</tt><tt class="descname">nb_dof</tt><big>(</big><big>)</big><a class="headerlink" href="#mf.nb_dof" title="この定義へのパーマリンク">¶</a></dt>
@@ -350,13 +350,13 @@ Otherwise it will return the number of basic degrees of freedom.</p>
 <dl class="function">
 <dt id="mf.reduction_matrix">
 <tt class="descclassname">mf.</tt><tt class="descname">reduction_matrix</tt><big>(</big><big>)</big><a class="headerlink" href="#mf.reduction_matrix" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>return a const reference to the reduction matrix <img class="math" src="../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/>.</p>
+<dd><p>return a const reference to the reduction matrix <img class="math" src="../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="mf.extension_matrix">
 <tt class="descclassname">mf.</tt><tt class="descname">extension_matrix</tt><big>(</big><big>)</big><a class="headerlink" href="#mf.extension_matrix" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>return a const reference to the extension matrix <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/>.</p>
+<dd><p>return a const reference to the extension matrix <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -369,7 +369,7 @@ use.</p>
 <dl class="function">
 <dt id="mf.set_reduction">
 <tt class="descclassname">mf.</tt><tt class="descname">set_reduction</tt><big>(</big><em>b</em><big>)</big><a class="headerlink" href="#mf.set_reduction" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Where <img class="math" src="../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> is a boolean. Cancel the reduction if <img class="math" src="../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> is false and
+<dd><p>Where <img class="math" src="../images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> is a boolean. Cancel the reduction if <img class="math" src="../images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> is false and
 validate it if <tt class="docutils literal"><span class="pre">b</span></tt> is true. If <tt class="docutils literal"><span class="pre">b</span></tt> is true, the extension and reduction
 matrices have to be set previously.</p>
 </dd></dl>
@@ -390,7 +390,7 @@ dofs present in <tt class="docutils literal"><span class="pre">idof</span></tt>.
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">const</span> <span class="n">mesh_fem</span> <span class="o">&amp;</span><span class="n">getfem</span><span class="o">::</span><span class="n">classical_mesh_fem</span><span class="p">(</span><span class="k">const</span> <span class="n">getfem</span><span class="o">::</span><span class="n">mesh</span> <span class="o">&amp;</span><span class="n">mymesh</span><span class="p">,</span> <span class="n">dim_type</span> <span class="n">K</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>to get a classical polynomial <cite>mesh_fem</cite> of order <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K" style="vertical-align: 0px"/> on the given <tt class="docutils literal"><span class="pre">mymesh</span></tt>.
+<p>to get a classical polynomial <cite>mesh_fem</cite> of order <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K" style="vertical-align: 0px"/> on the given <tt class="docutils literal"><span class="pre">mymesh</span></tt>.
 The returned <cite>mesh_fem</cite> will be destroyed automatically when its linked mesh is
 destroyed. All the <cite>mesh_fem</cite> built by this function are stored in a cache, which means
 that calling this function twice with the same arguments will return the same <cite>mesh_fem</cite>

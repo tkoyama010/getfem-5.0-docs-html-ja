@@ -66,10 +66,10 @@
 <span id="ud-model-fourier-robin"></span><span id="index-0"></span><h1>Fourier-Robin brick<a class="headerlink" href="#fourier-robin-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>This brick can be used to add boundary conditions of Fourier-Robin type like:</p>
 <div class="math">
-<p><img src="../_images/math/0e0a9bbc3fb0d2ad98b86e9f0b06b25d41797ab1.png" alt="\frac{\partial u}{\partial \nu} = Qu"/></p>
+<p><img src="../images/math/0e0a9bbc3fb0d2ad98b86e9f0b06b25d41797ab1.png" alt="\frac{\partial u}{\partial \nu} = Qu"/></p>
 </div><p>for scalar problems, or</p>
 <div class="math">
-<p><img src="../_images/math/6eed5b58f1ea8d0f8eec7fdb5afd5f130f0cdcb7.png" alt="\sigma\cdot \nu = Qu"/></p>
+<p><img src="../images/math/6eed5b58f1ea8d0f8eec7fdb5afd5f130f0cdcb7.png" alt="\sigma\cdot \nu = Qu"/></p>
 </div><p>for linearized elasticity problems. <tt class="docutils literal"><span class="pre">Q</span></tt> is a scalar field in the scalar case or
 a matrix field in the vectorial case. This brick works for both real or complex
 terms in scalar or vectorial problems.</p>
@@ -78,7 +78,7 @@ terms in scalar or vectorial problems.</p>
 </pre></div>
 </div>
 <p>where <tt class="docutils literal"><span class="pre">dataexpr</span></tt> is the data of the model which represents the coefficient
-<img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>.  It can be an arbitrary valid expression of the weak form language (except for the complex version for which it should be a data of the model)</p>
+<img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>.  It can be an arbitrary valid expression of the weak form language (except for the complex version for which it should be a data of the model)</p>
 <p>Note that an additional right hand side can be added with a source term brick.</p>
 </div>
 

@@ -66,8 +66,8 @@
 <span id="ud-model-helmholtz"></span><span id="index-0"></span><h1>Helmholtz brick<a class="headerlink" href="#helmholtz-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>This brick represents the complex or real Helmholtz problem:</p>
 <div class="math">
-<p><img src="../_images/math/98f1263a87879913934e1acfc913680baa8c9e63.png" alt="\Delta u + k^2 u = \ldots"/></p>
-</div><p>where <img class="math" src="../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> the wave number is a real or complex value. For a complex
+<p><img src="../images/math/98f1263a87879913934e1acfc913680baa8c9e63.png" alt="\Delta u + k^2 u = \ldots"/></p>
+</div><p>where <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> the wave number is a real or complex value. For a complex
 version, a complex model has to be used (see <tt class="file docutils literal"><span class="pre">tests/helmholtz.cc</span></tt>).</p>
 <p>The function adding a Helmholtz brick to a model is:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">add_Helmholtz_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">dataexpr</span><span class="p">,</span> <span class="n">region</span><span class="p">);</span>

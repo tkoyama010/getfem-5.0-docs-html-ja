@@ -75,7 +75,7 @@ green triangles). Information about green triangles (in Figure
 <a class="reference internal" href="#ud-fig-refine"><em>Example of Bank refinement in 2D</em></a>) is stored on the mesh object to gather them for further
 refinements (see <a class="reference internal" href="../biblio.html#bank1983" id="id2">[bank1983]</a>).</p>
 <div class="figure align-center" id="ud-fig-refine">
-<a class="reference internal image-reference" href="../_images/getfemuserrefine.png"><img alt="../_images/getfemuserrefine.png" src="../_images/getfemuserrefine.png" style="width: 7cm;" /></a>
+<a class="reference internal image-reference" href="../images/getfemuserrefine.png"><img alt="../images/getfemuserrefine.png" src="../images/getfemuserrefine.png" style="width: 7cm;" /></a>
 <p class="caption">Example of Bank refinement in 2D</p>
 </div>
 <p>Mesh refinement is most of the time coupled with an <em>a posteriori</em> error
@@ -92,12 +92,12 @@ vector in which the error estimate is computed for each element of the mesh, and
 <p>This basic error estimate is only valid for order two problems and just compute
 the sum of the jump in normal derivative across the elements on each edge (for
 two-dimensional problems) or each face (for three-dimensional problems). This
-means that for each face <img class="math" src="../_images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e" style="vertical-align: 0px"/> of the mesh the following quantity is
+means that for each face <img class="math" src="../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e" style="vertical-align: 0px"/> of the mesh the following quantity is
 computed:</p>
 <div class="math">
-<p><img src="../_images/math/ce936de0228eaf54fab078cf5077b29d939c8a91.png" alt="\int_e |\hspace{0.01em}[\hspace{-0.12em}[
+<p><img src="../images/math/ce936de0228eaf54fab078cf5077b29d939c8a91.png" alt="\int_e |\hspace{0.01em}[\hspace{-0.12em}[
 \partial_n u ]\hspace{-0.12em}]\hspace{0.01em}|^2 d \Gamma,"/></p>
-</div><p>where <img class="math" src="../_images/math/6b7fb647f0e5a51f94021fd1faafab264e4b66bf.png" alt="[\hspace{-0.12em}[\partial_n u]\hspace{-0.12em}]" style="vertical-align: -5px"/> is the jump of the normal derivative. Then, the error estimate for a given element is the sum of the computed quantities on each internal face multiplied by the element diameter. This basic error estimate can be taken as a model for more elaborated ones. It uses the high-level generic assembly and the <tt class="docutils literal"><span class="pre">neighbour_elt</span></tt> interpolate transformation (see <a class="reference internal" href="gasm_high.html#ud-gasm-high-inter-elt-disc"><em>Evaluating discontinuities across inter-element edges/faces</em></a>).</p>
+</div><p>where <img class="math" src="../images/math/6b7fb647f0e5a51f94021fd1faafab264e4b66bf.png" alt="[\hspace{-0.12em}[\partial_n u]\hspace{-0.12em}]" style="vertical-align: -5px"/> is the jump of the normal derivative. Then, the error estimate for a given element is the sum of the computed quantities on each internal face multiplied by the element diameter. This basic error estimate can be taken as a model for more elaborated ones. It uses the high-level generic assembly and the <tt class="docutils literal"><span class="pre">neighbour_elt</span></tt> interpolate transformation (see <a class="reference internal" href="gasm_high.html#ud-gasm-high-inter-elt-disc"><em>Evaluating discontinuities across inter-element edges/faces</em></a>).</p>
 </div>
 
 

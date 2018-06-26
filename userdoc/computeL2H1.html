@@ -62,9 +62,9 @@
           <div class="body">
             
   <div class="section" id="compute-and-norms">
-<span id="ud-computel2h1"></span><h1>Compute <img class="math" src="../_images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms<a class="headerlink" href="#compute-and-norms" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="ud-computel2h1"></span><h1>Compute <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms<a class="headerlink" href="#compute-and-norms" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>The file <tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt> defines the functions to compute
-<img class="math" src="../_images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms of a solution. The following functions compute
+<img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms of a solution. The following functions compute
 the different norms:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_L2_norm</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 <span class="n">getfem</span><span class="o">::</span><span class="n">asm_H1_semi_norm</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
@@ -81,7 +81,7 @@ following function than to interpolate one <cite>mesh_fem</cite> on another:</p>
 <span class="n">getfem</span><span class="o">::</span><span class="n">asm_H1_dist</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf1</span><span class="p">,</span> <span class="n">U1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">U2</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>These functions return the <img class="math" src="../_images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms of <img class="math" src="../_images/math/e5e61a187d97e3cd689f897873604a26dff53950.png" alt="u_1-u_2" style="vertical-align: -4px"/>.</p>
+<p>These functions return the <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms of <img class="math" src="../images/math/e5e61a187d97e3cd689f897873604a26dff53950.png" alt="u_1-u_2" style="vertical-align: -4px"/>.</p>
 </div>
 
 

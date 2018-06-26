@@ -122,7 +122,7 @@ the dimension of the convex (<tt class="docutils literal"><span class="pre">p-&g
 the description of a face and the eventual reference to a more basic description
 (used for the description of geometric transformations).</p>
 <div class="figure align-center" id="dp-fig-elem">
-<a class="reference internal image-reference" href="../_images/getfemelemelem.png"><img alt="../_images/getfemelemelem.png" src="../_images/getfemelemelem.png" style="width: 1003.2px; height: 853.2px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemelemelem.png"><img alt="../images/getfemelemelem.png" src="../images/getfemelemelem.png" style="width: 1003.2px; height: 853.2px;" /></a>
 <p class="caption">usual elements</p>
 </div>
 </div>
@@ -161,8 +161,8 @@ Lagrange grid.</p>
 </dd></dl>
 
 <p>The vertices correspond to the classical vertices for such reference element. For
-instance the vertices for the triangle are <img class="math" src="../_images/math/c4b86f54134d69cad8793688a431aa907aaf2698.png" alt="(0, 0)" style="vertical-align: -4px"/>, <img class="math" src="../_images/math/754e946d1a160f767f0f61cbd9460401c2d1c17f.png" alt="(1, 0)" style="vertical-align: -4px"/> and
-<img class="math" src="../_images/math/6457ca2dcd40dc21d9aa0db18c66bbac9af4d899.png" alt="(0, 1)" style="vertical-align: -4px"/>. It corresponds to the configuration shown in Figure
+instance the vertices for the triangle are <img class="math" src="../images/math/c4b86f54134d69cad8793688a431aa907aaf2698.png" alt="(0, 0)" style="vertical-align: -4px"/>, <img class="math" src="../images/math/754e946d1a160f767f0f61cbd9460401c2d1c17f.png" alt="(1, 0)" style="vertical-align: -4px"/> and
+<img class="math" src="../images/math/6457ca2dcd40dc21d9aa0db18c66bbac9af4d899.png" alt="(0, 1)" style="vertical-align: -4px"/>. It corresponds to the configuration shown in Figure
 <a class="reference internal" href="#dp-fig-elem"><em>usual elements</em></a></p>
 <p>If <tt class="docutils literal"><span class="pre">p</span></tt> is of type <tt class="docutils literal"><span class="pre">bgeot::pconvex_ref</span></tt> then <tt class="docutils literal"><span class="pre">p-&gt;structure()</span></tt> is the corresponding convex
 structure. Thus for instance <tt class="docutils literal"><span class="pre">p-&gt;structure()-&gt;nb_points()</span></tt> gives the number of
@@ -190,40 +190,40 @@ files <tt class="file docutils literal"><span class="pre">bgeot_poly.h</span></t
 <div class="section" id="geometric-transformations">
 <span id="dp-transgeo"></span><h2>Geometric transformations<a class="headerlink" href="#geometric-transformations" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-center" id="dp-fig-transgeo">
-<a class="reference internal image-reference" href="../_images/getfemtransgeo.png"><img alt="../_images/getfemtransgeo.png" src="../_images/getfemtransgeo.png" style="width: 896.4px; height: 431.4px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemtransgeo.png"><img alt="../images/getfemtransgeo.png" src="../images/getfemtransgeo.png" style="width: 896.4px; height: 431.4px;" /></a>
 <p class="caption">geometric transformation</p>
 </div>
 <p>A geometric transformation is a polynomial application:</p>
 <div class="math">
-<p><img src="../_images/math/6da7a5ef1d4faacfeec17e7c5d6280cc1984c023.png" alt="\tau : \widehat{T} \subset \Reel^P \longrightarrow T \subset \Reel^N,"/></p>
-</div><p>which maps the reference element <img class="math" src="../_images/math/ab3da9205a52f44a4d132b33deb60f99456bf730.png" alt="\widehat{T}" style="vertical-align: 0px"/> to the real element <img class="math" src="../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T" style="vertical-align: 0px"/>. The
+<p><img src="../images/math/6da7a5ef1d4faacfeec17e7c5d6280cc1984c023.png" alt="\tau : \widehat{T} \subset \Reel^P \longrightarrow T \subset \Reel^N,"/></p>
+</div><p>which maps the reference element <img class="math" src="../images/math/ab3da9205a52f44a4d132b33deb60f99456bf730.png" alt="\widehat{T}" style="vertical-align: 0px"/> to the real element <img class="math" src="../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T" style="vertical-align: 0px"/>. The
 geometric nodes are denoted:</p>
 <div class="math">
-<p><img src="../_images/math/962a21010e155a5142e812a3380bd07d806214f6.png" alt="g^i, i = 0, \ldots, n_g - 1."/></p>
-</div><p>The geometric transformation is described thanks to a <img class="math" src="../_images/math/76d1c2d79ef0f681a6ec4d928761c7d894519e1d.png" alt="n_g" style="vertical-align: -6px"/> components
+<p><img src="../images/math/962a21010e155a5142e812a3380bd07d806214f6.png" alt="g^i, i = 0, \ldots, n_g - 1."/></p>
+</div><p>The geometric transformation is described thanks to a <img class="math" src="../images/math/76d1c2d79ef0f681a6ec4d928761c7d894519e1d.png" alt="n_g" style="vertical-align: -6px"/> components
 polynomial vector (In fact, as an extention, non polynomial geometric
 transformation can also be supported by <em>GetFEM++</em>, but this is very rarely used)</p>
 <div class="math">
-<p><img src="../_images/math/0547643e6c9872843dce00cf21d8024c3688ec92.png" alt="{\cal N}(\widehat{x}),"/></p>
+<p><img src="../images/math/0547643e6c9872843dce00cf21d8024c3688ec92.png" alt="{\cal N}(\widehat{x}),"/></p>
 </div><p>such that</p>
 <div class="math">
-<p><img src="../_images/math/8e7714993b9bbf388a2ba796157bdb488a1c6fa3.png" alt="\tau(\widehat{x}) = \sum_{i = 0}^{n_g - 1}{\cal N}_i(\widehat{x}) g^i."/></p>
+<p><img src="../images/math/8e7714993b9bbf388a2ba796157bdb488a1c6fa3.png" alt="\tau(\widehat{x}) = \sum_{i = 0}^{n_g - 1}{\cal N}_i(\widehat{x}) g^i."/></p>
 </div><p>Denoting</p>
 <div class="math">
-<p><img src="../_images/math/a7e7fb0dcc86a320f074f89baa72cf01a99d90de.png" alt="G = (g^0; g^1; ...; g^{n_g - 1}),"/></p>
-</div><p>the <img class="math" src="../_images/math/ed207dcc3ba0b0575e21b489803da0326a2383e6.png" alt="N\times n_g" style="vertical-align: -6px"/> matrix containing of all the geometric nodes, one has</p>
+<p><img src="../images/math/a7e7fb0dcc86a320f074f89baa72cf01a99d90de.png" alt="G = (g^0; g^1; ...; g^{n_g - 1}),"/></p>
+</div><p>the <img class="math" src="../images/math/ed207dcc3ba0b0575e21b489803da0326a2383e6.png" alt="N\times n_g" style="vertical-align: -6px"/> matrix containing of all the geometric nodes, one has</p>
 <div class="math">
-<p><img src="../_images/math/eb1b33e1c230d224671f26eb5da84ec6e8226ef9.png" alt="\fbox{$\tau(\widehat{x}) = G\cdot{\cal N}(\widehat{x})$.}"/></p>
-</div><p>The derivative of <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> is then</p>
+<p><img src="../images/math/eb1b33e1c230d224671f26eb5da84ec6e8226ef9.png" alt="\fbox{$\tau(\widehat{x}) = G\cdot{\cal N}(\widehat{x})$.}"/></p>
+</div><p>The derivative of <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> is then</p>
 <div class="math">
-<p><img src="../_images/math/0eb9a71e84149f36e1043e312985c63f5e2672a6.png" alt="\fbox{$K(\widehat{x}) := \nabla\tau(\widehat{x}) = G\cdot\nabla {\cal N}(\widehat{x})$,}"/></p>
-</div><p>where <img class="math" src="../_images/math/7b2f69f32ae2570401c8d699ddfc1fbe4945694e.png" alt="K(\widehat{x}) = \nabla\tau(\widehat{x})" style="vertical-align: -4px"/> is a <img class="math" src="../_images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> matrix and
-<img class="math" src="../_images/math/24c2d0eb20838c936036f5720d0d74a123a741a8.png" alt="\nabla {\cal N}(\widehat{x})" style="vertical-align: -4px"/> a <img class="math" src="../_images/math/358f30fe59a4c42466c8e7f6b4f3d28a272f0f9a.png" alt="n_g\times P" style="vertical-align: -6px"/> matrix. The (transposed)
-pseudo-inverse of <img class="math" src="../_images/math/3fe66acc0b4361b4c37f856223c8d6448cf346dc.png" alt="\nabla\tau(\widehat{x})" style="vertical-align: -4px"/> is a <img class="math" src="../_images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> matrix denoted
-<img class="math" src="../_images/math/ed95f4f62239f9aa2580eff710f7ed6de10756d9.png" alt="B(\widehat{x})" style="vertical-align: -4px"/>:</p>
+<p><img src="../images/math/0eb9a71e84149f36e1043e312985c63f5e2672a6.png" alt="\fbox{$K(\widehat{x}) := \nabla\tau(\widehat{x}) = G\cdot\nabla {\cal N}(\widehat{x})$,}"/></p>
+</div><p>where <img class="math" src="../images/math/7b2f69f32ae2570401c8d699ddfc1fbe4945694e.png" alt="K(\widehat{x}) = \nabla\tau(\widehat{x})" style="vertical-align: -4px"/> is a <img class="math" src="../images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> matrix and
+<img class="math" src="../images/math/24c2d0eb20838c936036f5720d0d74a123a741a8.png" alt="\nabla {\cal N}(\widehat{x})" style="vertical-align: -4px"/> a <img class="math" src="../images/math/358f30fe59a4c42466c8e7f6b4f3d28a272f0f9a.png" alt="n_g\times P" style="vertical-align: -6px"/> matrix. The (transposed)
+pseudo-inverse of <img class="math" src="../images/math/3fe66acc0b4361b4c37f856223c8d6448cf346dc.png" alt="\nabla\tau(\widehat{x})" style="vertical-align: -4px"/> is a <img class="math" src="../images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> matrix denoted
+<img class="math" src="../images/math/ed95f4f62239f9aa2580eff710f7ed6de10756d9.png" alt="B(\widehat{x})" style="vertical-align: -4px"/>:</p>
 <div class="math">
-<p><img src="../_images/math/5855d3b641397cd540972930e7fcab8ae0181d83.png" alt="\fbox{$B(\widehat{x}) := K(\widehat{x})(K(\widehat{x})^T K(\widehat{x}))^{-1}$,}"/></p>
-</div><p>Of course, when <img class="math" src="../_images/math/78e70bfd3dbf21ca233e317f93de89829726f28a.png" alt="P=N" style="vertical-align: 0px"/>, one has <img class="math" src="../_images/math/8ecdc6050bedc6555fac9c95af9b9eaf6a6c0b64.png" alt="B(\widehat{x})=K(\widehat{x})^{-T}" style="vertical-align: -4px"/>.</p>
+<p><img src="../images/math/5855d3b641397cd540972930e7fcab8ae0181d83.png" alt="\fbox{$B(\widehat{x}) := K(\widehat{x})(K(\widehat{x})^T K(\widehat{x}))^{-1}$,}"/></p>
+</div><p>Of course, when <img class="math" src="../images/math/78e70bfd3dbf21ca233e317f93de89829726f28a.png" alt="P=N" style="vertical-align: 0px"/>, one has <img class="math" src="../images/math/8ecdc6050bedc6555fac9c95af9b9eaf6a6c0b64.png" alt="B(\widehat{x})=K(\widehat{x})^{-T}" style="vertical-align: -4px"/>.</p>
 <p>Pointers on a descriptor of a geometric transformation can be obtained by the
 following function defined in the file <tt class="file docutils literal"><span class="pre">bgeot_geometric_trans.h</span></tt>:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">bgeot</span><span class="o">::</span><span class="n">pgeometric_trans</span> <span class="n">pgt</span> <span class="o">=</span> <span class="n">bgeot</span><span class="o">::</span><span class="n">geometric_trans_descriptor</span><span class="p">(</span><span class="s">&quot;name of trans&quot;</span><span class="p">);</span>
@@ -256,31 +256,31 @@ meshes with parallelograms.</p>
 <div class="section" id="finite-element-methods-description">
 <h2>Finite element methods description<a class="headerlink" href="#finite-element-methods-description" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>A finite element method is defined on a reference element
-<img class="math" src="../_images/math/490a15b156acbdecf8468727082d599e5894f16b.png" alt="\widehat{T}\subset\Reel^P" style="vertical-align: -1px"/> by a set of <img class="math" src="../_images/math/caeb5d2509f928e766cde7df78f6d0d4769392e6.png" alt="n_d" style="vertical-align: -3px"/> nodes <img class="math" src="../_images/math/606264c4db7d91ea583bdde39d2b6ca07d6b8f54.png" alt="a^i" style="vertical-align: 0px"/> and
+<img class="math" src="../images/math/490a15b156acbdecf8468727082d599e5894f16b.png" alt="\widehat{T}\subset\Reel^P" style="vertical-align: -1px"/> by a set of <img class="math" src="../images/math/caeb5d2509f928e766cde7df78f6d0d4769392e6.png" alt="n_d" style="vertical-align: -3px"/> nodes <img class="math" src="../images/math/606264c4db7d91ea583bdde39d2b6ca07d6b8f54.png" alt="a^i" style="vertical-align: 0px"/> and
 corresponding base functions</p>
 <div class="math">
-<p><img src="../_images/math/3e41ea818131cce5267066868358ebfbe694b9fd.png" alt="(\widehat{\varphi})^i : \widehat{T}\subset\Reel^P \longrightarrow \Reel^Q"/></p>
+<p><img src="../images/math/3e41ea818131cce5267066868358ebfbe694b9fd.png" alt="(\widehat{\varphi})^i : \widehat{T}\subset\Reel^P \longrightarrow \Reel^Q"/></p>
 </div><p>Denoting</p>
 <div class="math">
-<p><img src="../_images/math/8df930d62407f9b5e47e82d39f6f3355fbb5863d.png" alt="\psi^i(x) = (\widehat{\varphi})^i(\widehat{x}) = (\widehat{\varphi})^i(\tau^{-1}(x)),"/></p>
+<p><img src="../images/math/8df930d62407f9b5e47e82d39f6f3355fbb5863d.png" alt="\psi^i(x) = (\widehat{\varphi})^i(\widehat{x}) = (\widehat{\varphi})^i(\tau^{-1}(x)),"/></p>
 </div><p>a supplementary linear transformation is allowed for the real base function</p>
 <div class="math">
-<p><img src="../_images/math/6c548f37b34f5cafe76d6ee4c81b68f07a542e0b.png" alt="\varphi^i(x) = \sum_{j = 0}^{n_d - 1} M_{ij} \psi^j(x),"/></p>
-</div><p>where <img class="math" src="../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> is a <img class="math" src="../_images/math/9604d8fac882dcb7a91527f78ef65b36ef7d6cce.png" alt="n_d \times n_d" style="vertical-align: -3px"/> matrix possibly depending on the
+<p><img src="../images/math/6c548f37b34f5cafe76d6ee4c81b68f07a542e0b.png" alt="\varphi^i(x) = \sum_{j = 0}^{n_d - 1} M_{ij} \psi^j(x),"/></p>
+</div><p>where <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> is a <img class="math" src="../images/math/9604d8fac882dcb7a91527f78ef65b36ef7d6cce.png" alt="n_d \times n_d" style="vertical-align: -3px"/> matrix possibly depending on the
 geometric transformation (i.e. on the real element). For basic elements as
 Lagrange elements this matrix is the identity matrix (it is simply ignored). In
-this case, we will say that the element is <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/>-equivalent.</p>
+this case, we will say that the element is <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/>-equivalent.</p>
 <p>This approach allows to define hermite elements (Argyris for instance) in a
 generic way, even with non linear transformations (i.e. mainly for curved
-boundaries). We denote <img class="math" src="../_images/math/6edcce0428afc0e565a8fc6dd596a310f141e0c3.png" alt="[\widehat{\varphi}(\widehat{x})]" style="vertical-align: -5px"/> the <img class="math" src="../_images/math/6816da20503916e6789565a06b93264b1651941f.png" alt="n_d \times Q" style="vertical-align: -4px"/> matrix
-whose ith line is <img class="math" src="../_images/math/3535e17235ffaa14e8f8722a8da85be9753c4e0c.png" alt="(\widehat{\varphi})^i(\widehat{x})" style="vertical-align: -4px"/>. Whis this notation, for a function is
+boundaries). We denote <img class="math" src="../images/math/6edcce0428afc0e565a8fc6dd596a310f141e0c3.png" alt="[\widehat{\varphi}(\widehat{x})]" style="vertical-align: -5px"/> the <img class="math" src="../images/math/6816da20503916e6789565a06b93264b1651941f.png" alt="n_d \times Q" style="vertical-align: -4px"/> matrix
+whose ith line is <img class="math" src="../images/math/3535e17235ffaa14e8f8722a8da85be9753c4e0c.png" alt="(\widehat{\varphi})^i(\widehat{x})" style="vertical-align: -4px"/>. Whis this notation, for a function is
 defined by</p>
 <div class="math">
-<p><img src="../_images/math/bca41f66ba8f602efc6b316b980fd0d286a29092.png" alt="f(x) = \sum_{i = 0}^{n_d - 1} \alpha_i \varphi^i(x),"/></p>
+<p><img src="../images/math/bca41f66ba8f602efc6b316b980fd0d286a29092.png" alt="f(x) = \sum_{i = 0}^{n_d - 1} \alpha_i \varphi^i(x),"/></p>
 </div><p>one has</p>
 <div class="math">
-<p><img src="../_images/math/e6a403771cca9a9438d81a0d561519961c5c0a63.png" alt="\fbox{$f(\tau(\widehat{x})) = \alpha^T M [\widehat{\varphi}(\widehat{x})]$,}"/></p>
-</div><p>where <img class="math" src="../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha" style="vertical-align: 0px"/> is the vector whose ith component is <img class="math" src="../_images/math/7e46fc708bb0d019ec0b54d24b166024d6c146ff.png" alt="\alpha_i" style="vertical-align: -3px"/>.</p>
+<p><img src="../images/math/e6a403771cca9a9438d81a0d561519961c5c0a63.png" alt="\fbox{$f(\tau(\widehat{x})) = \alpha^T M [\widehat{\varphi}(\widehat{x})]$,}"/></p>
+</div><p>where <img class="math" src="../images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha" style="vertical-align: 0px"/> is the vector whose ith component is <img class="math" src="../images/math/7e46fc708bb0d019ec0b54d24b166024d6c146ff.png" alt="\alpha_i" style="vertical-align: -3px"/>.</p>
 <p>A certain number of description of classical finite element method are defined in
 the file <tt class="file docutils literal"><span class="pre">getfem_fem.h</span></tt>. See <a class="reference internal" href="../userdoc/appendixA.html#ud-appendixa"><em>Appendix A. Finite element method list</em></a> for an exhaustive list of
 available finite element methods.</p>

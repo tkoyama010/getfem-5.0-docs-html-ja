@@ -237,7 +237,7 @@ size is equal to the dimension of the unkown u. This matrix is
 stored in &lt;literal&gt;H&lt;/literal&gt;, one column per dof in &lt;literal&gt;mf_d&lt;/literal&gt;, each column containing
 the values of the matrix h stored in fortran order:</p>
 <div class="math">
-<p><img src="../_images/math/9b5694292f5f77f871c880e75f9ce117f221f60c.png" alt="&lt;literal&gt;H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]&lt;/literal&gt;"/></p>
+<p><img src="../images/math/9b5694292f5f77f871c880e75f9ce117f221f60c.png" alt="&lt;literal&gt;H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]&lt;/literal&gt;"/></p>
 </div><p>if u is a 2D vector field.</p>
 <p>Of course, if the unknown is a scalar field, you just have to set
 &lt;literal&gt;H = ones(1, N)&lt;/literal&gt;, where N is the number of dof of &lt;literal&gt;mf_d&lt;/literal&gt;.</p>

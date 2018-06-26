@@ -69,13 +69,13 @@
                             <span class="n">region</span> <span class="o">=</span> <span class="n">size_type</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>adds a bilaplacian brick on the variable <cite>varname</cite> and on the mesh region <cite>region</cite>. This represent a term <img class="math" src="../_images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/>. where <img class="math" src="../_images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/> is a coefficient determined by <cite>dataname</cite> which could be constant or described on a f.e.m. The corresponding weak form is <img class="math" src="../_images/math/369464e75e59e5a1e16eabc2a3221bdc97acd76c.png" alt="\int D(x)\Delta u(x) \Delta v(x) dx" style="vertical-align: -6px"/>.</p>
+<p>adds a bilaplacian brick on the variable <cite>varname</cite> and on the mesh region <cite>region</cite>. This represent a term <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/>. where <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/> is a coefficient determined by <cite>dataname</cite> which could be constant or described on a f.e.m. The corresponding weak form is <img class="math" src="../images/math/369464e75e59e5a1e16eabc2a3221bdc97acd76c.png" alt="\int D(x)\Delta u(x) \Delta v(x) dx" style="vertical-align: -6px"/>.</p>
 <p>For the Kirchhoff-Love plate model, the weak form is a bit different (and more stable than the previous one). the function to add that term is</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span> <span class="n">add_bilaplacian_brick_KL</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">dataname1</span><span class="p">,</span> <span class="n">dataname2</span><span class="p">,</span>
                                <span class="n">region</span> <span class="o">=</span> <span class="n">size_type</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>It adds a bilaplacian brick on the variable <cite>varname</cite> and on the mesh region <cite>region</cite>. This represent a term <img class="math" src="../_images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/> where <img class="math" src="../_images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/>
+<p>It adds a bilaplacian brick on the variable <cite>varname</cite> and on the mesh region <cite>region</cite>. This represent a term <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/> where <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/>
 is a the flexion modulus determined by <cite>dataname1</cite>. The term is
 integrated by part following a Kirchhoff-Love plate model
 with <cite>dataname2</cite> the poisson ratio.</p>
@@ -85,7 +85,7 @@ with <cite>dataname2</cite> the poisson ratio.</p>
 </pre></div>
 </div>
 <p>which adds a normal derivative source term brick
-<img class="math" src="../_images/math/4ade589871ce41d3b7211682dc6dc5349bdf6784.png" alt="F = \int b.\partial_n v" style="vertical-align: -6px"/> on the variable <cite>varname</cite> and on the
+<img class="math" src="../images/math/4ade589871ce41d3b7211682dc6dc5349bdf6784.png" alt="F = \int b.\partial_n v" style="vertical-align: -6px"/> on the variable <cite>varname</cite> and on the
 mesh region <cite>region</cite>. It updates the right hand side of the linear
 system. <cite>dataname</cite> represents <cite>b</cite> and <cite>varname</cite> represents <cite>v</cite>.</p>
 <p>A Neumann term can be added thanks to the following bricks</p>
@@ -113,9 +113,9 @@ its divergence.</p>
 </div>
 <p>These bricks add a Dirichlet condition on the normal derivative of the variable
 <cite>varname</cite> and on the mesh region <cite>region</cite> (which should be a boundary.
-The general form is <img class="math" src="../_images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/>
-where <img class="math" src="../_images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> is the right hand side for the Dirichlet condition (0 for
-homogeneous conditions) and <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is in a space of multipliers
+The general form is <img class="math" src="../images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/>
+where <img class="math" src="../images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> is the right hand side for the Dirichlet condition (0 for
+homogeneous conditions) and <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is in a space of multipliers
 defined by the variable <cite>multname</cite> (first version) or defined on the finite element method <cite>mf_mult</cite> (second version) or simply on a Lagrange finite element method of degree <cite>degree</cite> (third version) on the part of boundary determined
 by <cite>region</cite>. <cite>dataname</cite> is an optional parameter which represents
 the right hand side of the Dirichlet condition.

@@ -120,7 +120,7 @@ gf_asm(&#x27;generic&#x27;, mim, 2, &#x27;A*Grad_Test2_u.Grad_Test_u&#x27;, -1, 
 <dt id="getfem.asm_laplacian">
 <tt class="descname">asm_laplacian</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>a</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_laplacian" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Laplacian problem.</p>
-<p><img class="math" src="../_images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
+<p><img class="math" src="../images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -128,8 +128,8 @@ gf_asm(&#x27;generic&#x27;, mim, 2, &#x27;A*Grad_Test2_u.Grad_Test_u&#x27;, -1, 
 <dt id="getfem.asm_linear_elasticity">
 <tt class="descname">asm_linear_elasticity</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>lambda_d</em>, <em>mu_d</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_linear_elasticity" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembles of the matrix for the linear (isotropic) elasticity problem.</p>
-<p><img class="math" src="../_images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
-with <img class="math" src="../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
+<p><img class="math" src="../images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
+with <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -172,7 +172,7 @@ tuple of vec objects (incompressible right hand side).</p>
 <dt id="getfem.asm_helmholtz">
 <tt class="descname">asm_helmholtz</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>k</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_helmholtz" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Helmholtz problem.</p>
-<p><img class="math" src="../_images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
+<p><img class="math" src="../images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -180,7 +180,7 @@ tuple of vec objects (incompressible right hand side).</p>
 <dt id="getfem.asm_bilaplacian">
 <tt class="descname">asm_bilaplacian</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>a</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_bilaplacian" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Bilaplacian problem.</p>
-<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -188,7 +188,7 @@ tuple of vec objects (incompressible right hand side).</p>
 <dt id="getfem.asm_bilaplacian_KL">
 <tt class="descname">asm_bilaplacian_KL</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>a</em>, <em>nu</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_bilaplacian_KL" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Bilaplacian problem with Kirchhoff-Love formulation.</p>
-<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -221,7 +221,7 @@ size is equal to the dimension of the unkown u. This matrix is
 stored in <cite>H</cite>, one column per dof in <cite>mf_d</cite>, each column containing
 the values of the matrix h stored in fortran order:</p>
 <div class="math">
-<p><img src="../_images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
+<p><img src="../images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
 </div><p>if u is a 2D vector field.</p>
 <p>Of course, if the unknown is a scalar field, you just have to set
 <cite>H = ones(1, N)</cite>, where N is the number of dof of <cite>mf_d</cite>.</p>
