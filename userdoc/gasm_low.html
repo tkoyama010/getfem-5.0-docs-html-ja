@@ -8,46 +8,47 @@
     
     <title>Compute arbitrary terms - low-level generic assembly procedures &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="Some Standard assembly procedures (low-level generic assembly)" href="asm.html" />
     <link rel="prev" title="Compute arbitrary terms - high-level generic assembly procedures" href="gasm_high.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="asm.html" title="Some Standard assembly procedures (low-level generic assembly)"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,8 +62,8 @@
           <div class="body">
             
   <div class="section" id="compute-arbitrary-terms-low-level-generic-assembly-procedures">
-<span id="ud-gasm-low"></span><span id="index-0"></span><h1>Compute arbitrary terms - low-level generic assembly procedures<a class="headerlink" href="#compute-arbitrary-terms-low-level-generic-assembly-procedures" title="Permalink to this headline">¶</a></h1>
-<p>This section present the first version of generic assembly procedure which has been implemented in <em>GetFEM++</em>. It is quite a low-level one. It allows to easily make the assembly of arbitrary matrices in the linear case. In the nonlinear case, some special &#8220;non_linear_term&#8221; object have to be implemented, which could be a bit tricky and obliges to use very low-level internal tools of <em>GetFEM++</em>. The high-level generic assembly has been developped to circumvent these difficulties (see <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures</em></a>).</p>
+<span id="ud-gasm-low"></span><span id="index-0"></span><h1>Compute arbitrary terms - low-level generic assembly procedures<a class="headerlink" href="#compute-arbitrary-terms-low-level-generic-assembly-procedures" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This section present the first version of generic assembly procedure which has been implemented in <em>GetFEM++</em>. It allows to easily make the assembly of arbitrary matrices in the linear case. In the nonlinear case, some special &#8220;non_linear_term&#8221; object have to be implemented, which could be a bit tricky and obliges to use very low-level internal tools of <em>GetFEM++</em>. The high-level generic assembly has been developped to circumvent these difficulties (see <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures</em></a>).</p>
 <p>As it can be seen in the file <tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt>, all the
 previous assembly procedures use a <tt class="docutils literal"><span class="pre">getfem::generic_assembly</span></tt> object and provide it an adequate
 description of what must be done. For example, the assembly of a volumic source
@@ -187,7 +188,7 @@ case. From this tensor, one evaluates
 <img class="math" src="../_images/math/bb2f13727922cacb774b1a3255eaefe68179ff98.png" alt="\varepsilon(\varphi^i)_{jk}\varepsilon(\phi^l)_{mn}\psi^p" style="vertical-align: -6px"/> via
 permutations, and finally the expression is reduced against the hook tensor.</p>
 <div class="section" id="available-operations-inside-the-comp-command">
-<h2>available operations inside the <tt class="docutils literal"><span class="pre">comp</span></tt> command<a class="headerlink" href="#available-operations-inside-the-comp-command" title="Permalink to this headline">¶</a></h2>
+<h2>available operations inside the <tt class="docutils literal"><span class="pre">comp</span></tt> command<a class="headerlink" href="#available-operations-inside-the-comp-command" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">Base(#i)</span></tt>: evaluate the value of the base functions of the <em>ith</em> <cite>mesh_fem</cite></li>
 <li><tt class="docutils literal"><span class="pre">Grad(#i)</span></tt>: evaluate the value of the gradient of the base functions of the
@@ -203,7 +204,7 @@ objects.</li>
 geometric transformation of the current convex.</li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">ノート</p>
 <p class="last">you may reference any data object inside the <tt class="docutils literal"><span class="pre">comp</span></tt> command, and perform
 reductions inside the <tt class="docutils literal"><span class="pre">comp()</span></tt>. This feature is mostly interesting for
 speeding up assembly of nonlinear terms (see the file
@@ -211,7 +212,7 @@ speeding up assembly of nonlinear terms (see the file
 </div>
 </div>
 <div class="section" id="others-operations">
-<h2>others operations<a class="headerlink" href="#others-operations" title="Permalink to this headline">¶</a></h2>
+<h2>others operations<a class="headerlink" href="#others-operations" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Slices may be mixed with reduction operations <tt class="docutils literal"><span class="pre">t(:,4,i,i)</span></tt> takes a slice at
 index 4 of the second dimension, and reduces the diagonal of dimension 3 and 4.
 <em>Please note that index numbers for slices start at 1 and not 0 !!</em></p>
@@ -235,9 +236,9 @@ matrix, one can use <tt class="docutils literal"><span class="pre">data$2</span>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Compute arbitrary terms - low-level generic assembly procedures</a><ul>
 <li><a class="reference internal" href="#available-operations-inside-the-comp-command">available operations inside the <tt class="docutils literal"><span class="pre">comp</span></tt> command</a></li>
@@ -246,12 +247,12 @@ matrix, one can use <tt class="docutils literal"><span class="pre">data$2</span>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="gasm_high.html"
-                        title="previous chapter">Compute arbitrary terms - high-level generic assembly procedures</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Compute arbitrary terms - high-level generic assembly procedures</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="asm.html"
-                        title="next chapter">Some Standard assembly procedures (low-level generic assembly)</a></p>            <h3>Download</h3>
+                        title="次の章へ">Some Standard assembly procedures (low-level generic assembly)</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -268,21 +269,20 @@ matrix, one can use <tt class="docutils literal"><span class="pre">data$2</span>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -291,18 +291,18 @@ matrix, one can use <tt class="docutils literal"><span class="pre">data$2</span>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="asm.html" title="Some Standard assembly procedures (low-level generic assembly)"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -310,7 +310,7 @@ matrix, one can use <tt class="docutils literal"><span class="pre">data$2</span>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,46 +8,47 @@
     
     <title>The FEM description in GetFEM++ &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Description of the Project" href="index.html" />
     <link rel="next" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="prev" title="How to contribute" href="contribute.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="prev" title="How to contribute / Git repository on Savannah" href="contribute.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="libdesc.html" title="Description of the different parts of the library"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="contribute.html" title="How to contribute"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+          <a href="contribute.html" title="How to contribute / Git repository on Savannah"
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,13 +62,13 @@
           <div class="body">
             
   <div class="section" id="the-fem-description-in-gf">
-<span id="dp-femdesc"></span><h1>The FEM description in <em>GetFEM++</em><a class="headerlink" href="#the-fem-description-in-gf" title="Permalink to this headline">¶</a></h1>
+<span id="dp-femdesc"></span><h1>The FEM description in <em>GetFEM++</em><a class="headerlink" href="#the-fem-description-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>The aim of this section is to briefly introduce the FEM description in <em>GetFEM++</em>
 mainly in order to fix the notation used in the rest of the document (definition
 of element, reference element, geometric transformation, gradient of the
 geometric transformation ...).</p>
 <div class="section" id="convex-structures">
-<h2>Convex structures<a class="headerlink" href="#convex-structures" title="Permalink to this headline">¶</a></h2>
+<h2>Convex structures<a class="headerlink" href="#convex-structures" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Finite element methods are defined on small convex domains called elements. The
 simplest element on which a finite element method can be defined is a segment
 (simplex of dimension 1), other possibilities are triangles, tetrahedrons
@@ -83,13 +84,13 @@ be declared with the type <tt class="docutils literal"><span class="pre">bgeot::
 elements:</p>
 <dl class="function">
 <dt id="bgeot::simplex_structure">
-<tt class="descclassname">bgeot::</tt><tt class="descname">simplex_structure</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::simplex_structure" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bgeot::</tt><tt class="descname">simplex_structure</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::simplex_structure" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>description of a simplex of dimension <tt class="docutils literal"><span class="pre">d</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="bgeot::parallelepiped_structure">
-<tt class="descclassname">bgeot::</tt><tt class="descname">parallelepiped_structure</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::parallelepiped_structure" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bgeot::</tt><tt class="descname">parallelepiped_structure</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::parallelepiped_structure" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>description of a parallelepiped of dimension <tt class="docutils literal"><span class="pre">d</span></tt>.</p>
 </dd></dl>
 
@@ -100,8 +101,8 @@ elements:</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="bgeot::prism_structure">
-<tt class="descclassname">bgeot::</tt><tt class="descname">prism_structure</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::prism_structure" title="Permalink to this definition">¶</a></dt>
+<dt id="bgeot::prism_P1_structure">
+<tt class="descclassname">bgeot::</tt><tt class="descname">prism_P1_structure</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::prism_P1_structure" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>description of a prism of dimension <tt class="docutils literal"><span class="pre">d</span></tt></p>
 </dd></dl>
 
@@ -121,12 +122,12 @@ the dimension of the convex (<tt class="docutils literal"><span class="pre">p-&g
 the description of a face and the eventual reference to a more basic description
 (used for the description of geometric transformations).</p>
 <div class="figure align-center" id="dp-fig-elem">
-<a class="reference internal image-reference" href="../_images/getfemelemelem.png"><img alt="../_images/getfemelemelem.png" src="../_images/getfemelemelem.png" style="width: 361.2px; height: 307.2px;" /></a>
+<a class="reference internal image-reference" href="../_images/getfemelemelem.png"><img alt="../_images/getfemelemelem.png" src="../_images/getfemelemelem.png" style="width: 1003.2px; height: 853.2px;" /></a>
 <p class="caption">usual elements</p>
 </div>
 </div>
 <div class="section" id="convexes-of-reference">
-<h2>Convexes of reference<a class="headerlink" href="#convexes-of-reference" title="Permalink to this headline">¶</a></h2>
+<h2>Convexes of reference<a class="headerlink" href="#convexes-of-reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>A convex of reference is a particular real element, i.e. a structure of convex
 with a list of vertices. It describes the particular element from which a finite
 element method is defined. In the file <tt class="file docutils literal"><span class="pre">bgeot_convex_ref.h</span></tt> the object
@@ -136,7 +137,7 @@ descriptor.</p>
 <p>The following functions build the descriptions:</p>
 <dl class="function">
 <dt id="bgeot::simplex_of_reference">
-<tt class="descclassname">bgeot::</tt><tt class="descname">simplex_of_reference</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::simplex_of_reference" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bgeot::</tt><tt class="descname">simplex_of_reference</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::simplex_of_reference" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>description of the simplex of reference of dimension <tt class="docutils literal"><span class="pre">d</span></tt>.</p>
 </dd></dl>
 
@@ -149,13 +150,13 @@ Lagrange grid.</p>
 
 <dl class="function">
 <dt id="bgeot::convex_ref_product">
-<tt class="descclassname">bgeot::</tt><tt class="descname">convex_ref_product</tt><big>(</big>pconvex_ref<em>&nbsp;a</em>, pconvex_ref<em>&nbsp;b</em><big>)</big><a class="headerlink" href="#bgeot::convex_ref_product" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bgeot::</tt><tt class="descname">convex_ref_product</tt><big>(</big>pconvex_ref<em>&nbsp;a</em>, pconvex_ref<em>&nbsp;b</em><big>)</big><a class="headerlink" href="#bgeot::convex_ref_product" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>description of the direct product of two convexes of reference.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="bgeot::parallelepiped_of_reference">
-<tt class="descclassname">bgeot::</tt><tt class="descname">parallelepiped_of_reference</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::parallelepiped_of_reference" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bgeot::</tt><tt class="descname">parallelepiped_of_reference</tt><big>(</big>dim_type<em>&nbsp;d</em><big>)</big><a class="headerlink" href="#bgeot::parallelepiped_of_reference" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>description of the parallelepiped of reference of dimension <tt class="docutils literal"><span class="pre">d</span></tt>.</p>
 </dd></dl>
 
@@ -174,7 +175,7 @@ Other functions can be found in <tt class="file docutils literal"><span class="p
 <tt class="file docutils literal"><span class="pre">bgeot_convex.h</span></tt>.</p>
 </div>
 <div class="section" id="shape-function-type">
-<h2>Shape function type<a class="headerlink" href="#shape-function-type" title="Permalink to this headline">¶</a></h2>
+<h2>Shape function type<a class="headerlink" href="#shape-function-type" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Most of the time the shape functions of finite element methods are polynomials,
 at least on the convex of reference. But, the possibility is given to have other
 types of elements. It is possible to define other kind of base functions such as
@@ -187,9 +188,9 @@ and must have a method to compute the derivtive with respect to the ith variable
 files <tt class="file docutils literal"><span class="pre">bgeot_poly.h</span></tt> and <tt class="file docutils literal"><span class="pre">bgeot_poly_composite.h</span></tt>.</p>
 </div>
 <div class="section" id="geometric-transformations">
-<span id="dp-transgeo"></span><h2>Geometric transformations<a class="headerlink" href="#geometric-transformations" title="Permalink to this headline">¶</a></h2>
+<span id="dp-transgeo"></span><h2>Geometric transformations<a class="headerlink" href="#geometric-transformations" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-center" id="dp-fig-transgeo">
-<a class="reference internal image-reference" href="../_images/getfemtransgeo.png"><img alt="../_images/getfemtransgeo.png" src="../_images/getfemtransgeo.png" style="width: 322.8px; height: 155.4px;" /></a>
+<a class="reference internal image-reference" href="../_images/getfemtransgeo.png"><img alt="../_images/getfemtransgeo.png" src="../_images/getfemtransgeo.png" style="width: 896.4px; height: 431.4px;" /></a>
 <p class="caption">geometric transformation</p>
 </div>
 <p>A geometric transformation is a polynomial application:</p>
@@ -253,7 +254,7 @@ meshes with parallelograms.</p>
 </ul>
 </div>
 <div class="section" id="finite-element-methods-description">
-<h2>Finite element methods description<a class="headerlink" href="#finite-element-methods-description" title="Permalink to this headline">¶</a></h2>
+<h2>Finite element methods description<a class="headerlink" href="#finite-element-methods-description" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>A finite element method is defined on a reference element
 <img class="math" src="../_images/math/490a15b156acbdecf8468727082d599e5894f16b.png" alt="\widehat{T}\subset\Reel^P" style="vertical-align: -1px"/> by a set of <img class="math" src="../_images/math/caeb5d2509f928e766cde7df78f6d0d4769392e6.png" alt="n_d" style="vertical-align: -3px"/> nodes <img class="math" src="../_images/math/606264c4db7d91ea583bdde39d2b6ca07d6b8f54.png" alt="a^i" style="vertical-align: 0px"/> and
 corresponding base functions</p>
@@ -300,9 +301,9 @@ method.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">The FEM description in <em>GetFEM++</em></a><ul>
 <li><a class="reference internal" href="#convex-structures">Convex structures</a></li>
@@ -314,12 +315,12 @@ method.</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="contribute.html"
-                        title="previous chapter">How to contribute</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">How to contribute / Git repository on Savannah</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc.html"
-                        title="next chapter">Description of the different parts of the library</a></p>            <h3>Download</h3>
+                        title="次の章へ">Description of the different parts of the library</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -336,21 +337,20 @@ method.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -359,18 +359,18 @@ method.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="libdesc.html" title="Description of the different parts of the library"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
-          <a href="contribute.html" title="How to contribute"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+          <a href="contribute.html" title="How to contribute / Git repository on Savannah"
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -378,7 +378,7 @@ method.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,46 +8,47 @@
     
     <title>MeshIm &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="MeshImData" href="cmdref_MeshImData.html" />
     <link rel="prev" title="MeshFem" href="cmdref_MeshFem.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_MeshImData.html" title="MeshImData"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_MeshFem.html" title="MeshFem"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,11 +63,11 @@
           <div class="body">
             
   <div class="section" id="meshim">
-<h1>MeshIm<a class="headerlink" href="#meshim" title="Permalink to this headline">¶</a></h1>
+<h1>MeshIm<a class="headerlink" href="#meshim" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt id="getfem.MeshIm">
-<em class="property">class </em><tt class="descname">MeshIm</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.MeshIm" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetFEM MeshIm object</p>
+<em class="property">class </em><tt class="descname">MeshIm</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.MeshIm" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>GeFEM MeshIm object</p>
 <p>This object represents an integration method defined on a whole mesh (an 
 potentialy on its boundaries).</p>
 <p>General constructor for MeshIm objects</p>
@@ -121,14 +122,14 @@ with these arguments.</p>
 </ul>
 <dl class="method">
 <dt id="getfem.MeshIm.adapt">
-<tt class="descname">adapt</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.adapt" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">adapt</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.adapt" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>For a MeshIm levelset object only. Adapt the integration methods to a
 change of the levelset function.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.MeshIm.char">
-<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.char" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.char" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Output a string description of the MeshIm.</p>
 <p>By default, it does not include the description of the linked
 Mesh object.</p>
@@ -136,20 +137,20 @@ Mesh object.</p>
 
 <dl class="method">
 <dt id="getfem.MeshIm.convex_index">
-<tt class="descname">convex_index</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.convex_index" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">convex_index</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.convex_index" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of convexes who have a integration method.</p>
 <p>Convexes who have the dummy IM_NONE method are not listed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.MeshIm.display">
-<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.display" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.display" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>displays a short summary for a MeshIm object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.MeshIm.eltm">
-<tt class="descname">eltm</tt><big>(</big><em>em</em>, <em>cv</em>, <em>f=None</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.eltm" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">eltm</tt><big>(</big><em>em</em>, <em>cv</em>, <em>f=None</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.eltm" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the elementary matrix (or tensor) integrated on the convex <cite>cv</cite>.</p>
 <p><strong>WARNING</strong></p>
 <p>Be sure that the fem used for the construction of <cite>em</cite> is compatible
@@ -160,7 +161,7 @@ is integrated on the face <cite>f</cite> of <cite>cv</cite> instead of the whole
 
 <dl class="method">
 <dt id="getfem.MeshIm.im_nodes">
-<tt class="descname">im_nodes</tt><big>(</big><em>CVids=None</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.im_nodes" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">im_nodes</tt><big>(</big><em>CVids=None</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.im_nodes" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the coordinates of the integration points, with their weights.</p>
 <p><cite>CVids</cite> may be a list of convexes, or a list of convex faces, such
 as returned by Mesh.region()</p>
@@ -173,7 +174,7 @@ integration methods!).</p>
 
 <dl class="method">
 <dt id="getfem.MeshIm.integ">
-<tt class="descname">integ</tt><big>(</big><em>CVids=None</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.integ" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">integ</tt><big>(</big><em>CVids=None</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.integ" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return a list of integration methods used by the MeshIm.</p>
 <p><cite>I</cite> is an array of all Integ objects found in the convexes
 given in <cite>CVids</cite>. If <cite>CV2I</cite> was supplied as an output argument, it
@@ -186,26 +187,26 @@ in <cite>CV2I</cite> set to -1.</p>
 
 <dl class="method">
 <dt id="getfem.MeshIm.linked_mesh">
-<tt class="descname">linked_mesh</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.linked_mesh" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">linked_mesh</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.linked_mesh" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Returns a reference to the Mesh object linked to <cite>mim</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.MeshIm.memsize">
-<tt class="descname">memsize</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.memsize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">memsize</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.MeshIm.memsize" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the amount of memory (in bytes) used by the MeshIm object.</p>
 <p>The result does not take into account the linked Mesh object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.MeshIm.save">
-<tt class="descname">save</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.save" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">save</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.save" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Saves a MeshIm in a text file (and optionaly its linked mesh object).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.MeshIm.set_integ">
-<tt class="descname">set_integ</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.set_integ" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">set_integ</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.MeshIm.set_integ" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: MeshIm.set_integ(self,{Integ im|int im_degree}[, ivec CVids])</p>
 <p>Set the integration method.</p>
 <p>Assign an integration method to all convexes whose #ids are
@@ -230,14 +231,14 @@ be used.)</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_MeshFem.html"
-                        title="previous chapter">MeshFem</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">MeshFem</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_MeshImData.html"
-                        title="next chapter">MeshImData</a></p>            <h3>Download</h3>
+                        title="次の章へ">MeshImData</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -254,21 +255,20 @@ be used.)</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -277,18 +277,18 @@ be used.)</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_MeshImData.html" title="MeshImData"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_MeshFem.html" title="MeshFem"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -297,7 +297,7 @@ be used.)</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

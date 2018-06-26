@@ -8,46 +8,47 @@
     
     <title>Basic linear algebra operations &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Gmm++ Library" href="index.html" />
     <link rel="next" title="Solving triangular systems" href="triangular.html" />
     <link rel="prev" title="Miscellaneous methods" href="misc.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="triangular.html" title="Solving triangular systems"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="misc.html" title="Miscellaneous methods"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,10 +62,10 @@
           <div class="body">
             
   <div class="section" id="basic-linear-algebra-operations">
-<span id="gmm-blas"></span><h1>Basic linear algebra operations<a class="headerlink" href="#basic-linear-algebra-operations" title="Permalink to this headline">¶</a></h1>
+<span id="gmm-blas"></span><h1>Basic linear algebra operations<a class="headerlink" href="#basic-linear-algebra-operations" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>The same choice has been made as in MTL to provide basic operations as functions not as operators. The advantages are that it is clearer to see where are the linear algebra operations in the program and the programming of optimized basic linear operations is greatly simplified.</p>
 <div class="section" id="scale-and-scaled">
-<h2>scale and scaled<a class="headerlink" href="#scale-and-scaled" title="Permalink to this headline">¶</a></h2>
+<h2>scale and scaled<a class="headerlink" href="#scale-and-scaled" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><tt class="docutils literal"><span class="pre">gmm::scale</span></tt> is used to multiply a vector or a matrix with a scalar factor:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">scale</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">);</span>  <span class="c1">// V * 10.0 ---&gt; V</span>
 </pre></div>
@@ -76,31 +77,31 @@
 <p>print to the standard output the vector <tt class="docutils literal"><span class="pre">V</span></tt> multiplied by <tt class="docutils literal"><span class="pre">10.0</span></tt> without changing <tt class="docutils literal"><span class="pre">V</span></tt>.</p>
 </div>
 <div class="section" id="transposition">
-<h2>transposition<a class="headerlink" href="#transposition" title="Permalink to this headline">¶</a></h2>
+<h2>transposition<a class="headerlink" href="#transposition" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><tt class="docutils literal"><span class="pre">gmm::transposed(M)</span></tt> gives a possibily modifiable reference on the transposed matrix of <tt class="docutils literal"><span class="pre">M</span></tt>.</p>
 </div>
 <div class="section" id="imaginary-and-real-part">
-<h2>imaginary and real part<a class="headerlink" href="#imaginary-and-real-part" title="Permalink to this headline">¶</a></h2>
+<h2>imaginary and real part<a class="headerlink" href="#imaginary-and-real-part" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>For a complex matrix <tt class="docutils literal"><span class="pre">M</span></tt> or a complex vector <tt class="docutils literal"><span class="pre">V</span></tt>,
 <tt class="docutils literal"><span class="pre">gmm::real_part(M)</span></tt>, <tt class="docutils literal"><span class="pre">gmm::real_part(V)</span></tt>, <tt class="docutils literal"><span class="pre">gmm::imag_part(M)</span></tt> or <tt class="docutils literal"><span class="pre">gmm::imag_part(V)</span></tt> give a possibily modifiable reference on the real or imaginary part of the matrix or vector (for instance <tt class="docutils literal"><span class="pre">gmm::clear(gmm::imag_part(M))</span></tt> will set to zero the imaginary part of a matrix <tt class="docutils literal"><span class="pre">M</span></tt>). These functions cannot be applied to real matrices or vectors.</p>
 </div>
 <div class="section" id="conjugate">
-<h2>conjugate<a class="headerlink" href="#conjugate" title="Permalink to this headline">¶</a></h2>
+<h2>conjugate<a class="headerlink" href="#conjugate" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>For a matrix <tt class="docutils literal"><span class="pre">M</span></tt> or a vector <tt class="docutils literal"><span class="pre">V</span></tt>,
 <tt class="docutils literal"><span class="pre">gmm::conjugated(M)</span></tt> and <tt class="docutils literal"><span class="pre">gmm::conjugated(V)</span></tt> give a constant reference on the conjugated vector or matrix. Of course, for a real vectors this has no effect (and no cost at all). Note : <tt class="docutils literal"><span class="pre">gmm::conjugated(M)</span></tt> transposes the matrix <tt class="docutils literal"><span class="pre">M</span></tt> so that this is the hermitian conjugate of <tt class="docutils literal"><span class="pre">M</span></tt>. If you need only the conjugate of each component you have to use both transposition and conjugate with <tt class="docutils literal"><span class="pre">gmm::conjugated(gmm::transposed(M))</span></tt> or equivalently  <tt class="docutils literal"><span class="pre">gmm::transposed(gmm::conjugated(M))</span></tt>.</p>
 </div>
 <div class="section" id="add">
-<h2>add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h2>
+<h2>add<a class="headerlink" href="#add" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>addition of vectors or matrices. It is alway possible to mix different type of vector or matrices in the operations. The following operations are valid:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">V1</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">wsvector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">V2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">clear</span><span class="p">(</span><span class="n">V1</span><span class="p">);</span>
 <span class="p">...</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="n">V1</span><span class="p">,</span> <span class="n">V2</span><span class="p">);</span> <span class="c1">// V1 + V2 --&gt; V2</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">V2</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">gmm</span><span class="o">::</span><span class="n">vref</span><span class="p">(</span><span class="n">V2</span><span class="p">);</span>
 
 <span class="n">gmm</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="n">V1</span><span class="p">,</span> <span class="n">gmm</span><span class="o">::</span><span class="n">scaled</span><span class="p">(</span><span class="n">V2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="n">V2</span><span class="p">);</span> <span class="c1">// V1 - 2.0 * V2 --&gt; V2</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">V2</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">gmm</span><span class="o">::</span><span class="n">vref</span><span class="p">(</span><span class="n">V2</span><span class="p">);</span>
 
 <span class="n">gmm</span><span class="o">::</span><span class="n">row_matrix</span><span class="o">&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">M1</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">col_matrix</span><span class="o">&lt;</span> <span class="n">gmm</span><span class="o">::</span><span class="n">wsvector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">M2</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
@@ -112,7 +113,7 @@
 <p>IMPORTANT : all the vectors have to have the same size, no resize will be automatically done. If a vector has not the good size, an error will be thrown.</p>
 </div>
 <div class="section" id="mult">
-<h2>mult<a class="headerlink" href="#mult" title="Permalink to this headline">¶</a></h2>
+<h2>mult<a class="headerlink" href="#mult" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Matrix-vector or matrix-matrix multiplication. Again, all the matrices and vectors have to have the good size. The following operations are valid:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">V1</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">wsvector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">V2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
@@ -141,7 +142,7 @@
 </div>
 </div>
 <div class="section" id="norms">
-<h2>norms<a class="headerlink" href="#norms" title="Permalink to this headline">¶</a></h2>
+<h2>norms<a class="headerlink" href="#norms" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">vect_norm1</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>  <span class="c1">// sum of the modulus of the components of vector V.</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">vect_norm2</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>  <span class="c1">// Euclidean norm of vector V.</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">vect_dist2</span><span class="p">(</span><span class="n">V1</span><span class="p">,</span> <span class="n">V2</span><span class="p">)</span>  <span class="c1">// Euclidean distance between V1 and V2.</span>
@@ -155,11 +156,11 @@
 </div>
 </div>
 <div class="section" id="trace">
-<h2>trace<a class="headerlink" href="#trace" title="Permalink to this headline">¶</a></h2>
+<h2>trace<a class="headerlink" href="#trace" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><tt class="docutils literal"><span class="pre">gmm::mat_trace(M)</span></tt> gives the trace of matrix <tt class="docutils literal"><span class="pre">M</span></tt>.</p>
 </div>
 <div class="section" id="scalar-product">
-<h2>scalar product<a class="headerlink" href="#scalar-product" title="Permalink to this headline">¶</a></h2>
+<h2>scalar product<a class="headerlink" href="#scalar-product" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div>for vectors only, <tt class="docutils literal"><span class="pre">gmm::vect_sp(V1,</span> <span class="pre">V2)</span></tt> gives the scalar product between <tt class="docutils literal"><span class="pre">V1</span></tt> and <tt class="docutils literal"><span class="pre">V2</span></tt>. For complex vectors, this do not conjugate <tt class="docutils literal"><span class="pre">V1</span></tt>, you can use <tt class="docutils literal"><span class="pre">gmm::vect_sp(V1,</span> <span class="pre">gmm::conjugated(V2))</span></tt> or <tt class="docutils literal"><span class="pre">gmm::vect_hp(V1,</span> <span class="pre">V2)</span></tt> which is equivalent.</div></blockquote>
 </div>
@@ -172,9 +173,9 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Basic linear algebra operations</a><ul>
 <li><a class="reference internal" href="#scale-and-scaled">scale and scaled</a></li>
@@ -190,12 +191,12 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="misc.html"
-                        title="previous chapter">Miscellaneous methods</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Miscellaneous methods</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="triangular.html"
-                        title="next chapter">Solving triangular systems</a></p>            <h3>Download</h3>
+                        title="次の章へ">Solving triangular systems</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -212,21 +213,20 @@
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -235,18 +235,18 @@
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="triangular.html" title="Solving triangular systems"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="misc.html" title="Miscellaneous methods"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -254,7 +254,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

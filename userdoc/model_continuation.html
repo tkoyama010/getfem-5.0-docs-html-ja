@@ -8,46 +8,47 @@
     
     <title>Numerical continuation and bifurcation &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="Finite strain Elasticity bricks" href="model_nonlinear_elasticity.html" />
     <link rel="prev" title="Large sliding/large deformation contact with friction bricks" href="model_contact_friction_large_sliding.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="model_nonlinear_elasticity.html" title="Finite strain Elasticity bricks"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="model_contact_friction_large_sliding.html" title="Large sliding/large deformation contact with friction bricks"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,7 +62,7 @@
           <div class="body">
             
   <div class="section" id="numerical-continuation-and-bifurcation">
-<span id="ud-model-continuation"></span><span id="index-0"></span><h1>Numerical continuation and bifurcation<a class="headerlink" href="#numerical-continuation-and-bifurcation" title="Permalink to this headline">¶</a></h1>
+<span id="ud-model-continuation"></span><span id="index-0"></span><h1>Numerical continuation and bifurcation<a class="headerlink" href="#numerical-continuation-and-bifurcation" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Let an algebraic problem coming from discretisation of a FEM-model can be
 written in the form</p>
 <div class="math">
@@ -69,7 +70,7 @@ written in the form</p>
 </div><p>In what follows, we shall suppose that the model depends on an additional scalar
 parameter <img class="math" src="../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/> so that <img class="math" src="../_images/math/da0855516adb19f81825c9c353246f63e620546b.png" alt="F(U) = F(U, \lambda)" style="vertical-align: -4px"/>.</p>
 <div class="section" id="numerical-continuation">
-<h2>Numerical continuation<a class="headerlink" href="#numerical-continuation" title="Permalink to this headline">¶</a></h2>
+<h2>Numerical continuation<a class="headerlink" href="#numerical-continuation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Methods of numerical continuation serve for tracing solutions of the system</p>
 <div class="math">
 <p><img src="../_images/math/0e089bb21988c0e2f71b90ca5a35bed72ea88a01.png" alt="F(U, \lambda) = 0, \quad F\colon \mathbb{R}^{N} \times \mathbb{R} \to \mathbb{R}^{N}."/></p>
@@ -163,7 +164,7 @@ is significantly smaller than 1 for <img class="math" src="../_images/math/f73f7
 <img class="math" src="../_images/math/05bd5a5343ffbfebcd845f330498dcd9122f6d3f.png" alt="Y_{j} + r \tilde{h} \tilde{T}" style="vertical-align: -6px"/> appears in the other sub-domain for
 <img class="math" src="../_images/math/e56ae32936fcacf98172aa9a82636ed9444a7081.png" alt="\tilde{h}" style="vertical-align: 0px"/> larger than some positive threshold, and, for such values,
 <img class="math" src="../_images/math/240878dc37add9e36d26c1f1f98a9a31f4788857.png" alt="\frac{\lvert T_{+}^{\top} \tilde{T}\rvert}{\lVert T_{+} \rVert \lVert \tilde{T} \rVert}" style="vertical-align: -12px"/>
-is close to 1 for <img class="math" src="../_images/math/23127da850b1ab3bf7a6d2106bd9bbd411b240ae.png" alt="T_{+}" style="vertical-align: -4px"/> with
+is close to 1 for <img class="math" src="../_images/math/23127da850b1ab3bf7a6d2106bd9bbd411b240ae.png" alt="T_{+}" style="vertical-align: -5px"/> with
 <img class="math" src="../_images/math/9e7391fee20747aa6edb15e9935ef553a21f2ee6.png" alt="\nabla F(Y_{j} + r \tilde{h} \tilde{T}) T_{+} = 0" style="vertical-align: -6px"/>.</p>
 <p>This suggests the following procedure for selecting the desired direction of
 <img class="math" src="../_images/math/913b227df2f9261075348880fb4dc35a967892eb.png" alt="\tilde{T}" style="vertical-align: 0px"/>: Increase the values of <img class="math" src="../_images/math/e56ae32936fcacf98172aa9a82636ed9444a7081.png" alt="\tilde{h}" style="vertical-align: 0px"/> successively from
@@ -194,7 +195,7 @@ traces the solution set of the problem</p>
 </ol>
 </div>
 <div class="section" id="detection-of-limit-points">
-<h2>Detection of limit points<a class="headerlink" href="#detection-of-limit-points" title="Permalink to this headline">¶</a></h2>
+<h2>Detection of limit points<a class="headerlink" href="#detection-of-limit-points" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>When tracing solutions of the system <img class="math" src="../_images/math/348c83d8675f5ae221b77896532e9e5709f8e4cc.png" alt="F(U,\lambda) = 0" style="vertical-align: -4px"/>, one may be
 interested in <em>limit points</em> (also called fold or turning points), where the
 number of solutions with the same value of <img class="math" src="../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/> changes. These points
@@ -214,7 +215,7 @@ can be detected by a sign change of a test function <img class="math" src="../_i
 </div>
 </div>
 <div class="section" id="numerical-bifurcation">
-<h2>Numerical bifurcation<a class="headerlink" href="#numerical-bifurcation" title="Permalink to this headline">¶</a></h2>
+<h2>Numerical bifurcation<a class="headerlink" href="#numerical-bifurcation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>A point <img class="math" src="../_images/math/269372464e500719da00a76c126c8a9b6cbdce94.png" alt="\bar{Y}" style="vertical-align: 0px"/> is called a <em>bifurcation point</em> of the system
 <img class="math" src="../_images/math/861ece295ea0fc7a11bc8fe2dbdc99becd8c8aeb.png" alt="F(Y) = 0" style="vertical-align: -4px"/> if <img class="math" src="../_images/math/25f56fdacb33c55e22e46772d39d374c5123a656.png" alt="F(\bar{Y}) = 0" style="vertical-align: -4px"/> and two or more distinct solution
 curves pass through it. The following result gives a test for <em>smooth</em>
@@ -362,7 +363,7 @@ employed previously and <img class="math" src="../_images/math/f6c2d59b9c6a098ee
 <a class="reference internal" href="../biblio.html#li-re2015hal" id="id9">[Li-Re2015hal]</a>.</p>
 </div>
 <div class="section" id="approximation-of-solution-curves-of-a-model">
-<h2>Approximation of solution curves of a model<a class="headerlink" href="#approximation-of-solution-curves-of-a-model" title="Permalink to this headline">¶</a></h2>
+<h2>Approximation of solution curves of a model<a class="headerlink" href="#approximation-of-solution-curves-of-a-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The numerical continuation is defined in <tt class="docutils literal"><span class="pre">getfem/getfem_continuation.h</span></tt>. In
 order to use it, one has to set it up via the corresponding object first:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">cont_struct_getfem_model</span> <span class="n">S</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">,</span> <span class="n">sfac</span><span class="p">,</span> <span class="n">ls</span><span class="p">,</span> <span class="n">h_init</span><span class="p">,</span> <span class="n">h_max</span><span class="p">,</span> <span class="n">h_min</span><span class="p">,</span> <span class="n">h_inc</span><span class="p">,</span> <span class="n">h_dec</span><span class="p">,</span>
@@ -442,9 +443,9 @@ non-smooth tools.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Numerical continuation and bifurcation</a><ul>
 <li><a class="reference internal" href="#numerical-continuation">Numerical continuation</a></li>
@@ -455,12 +456,12 @@ non-smooth tools.</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_contact_friction_large_sliding.html"
-                        title="previous chapter">Large sliding/large deformation contact with friction bricks</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Large sliding/large deformation contact with friction bricks</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="model_nonlinear_elasticity.html"
-                        title="next chapter">Finite strain Elasticity bricks</a></p>            <h3>Download</h3>
+                        title="次の章へ">Finite strain Elasticity bricks</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -477,21 +478,20 @@ non-smooth tools.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -500,18 +500,18 @@ non-smooth tools.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="model_nonlinear_elasticity.html" title="Finite strain Elasticity bricks"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="model_contact_friction_large_sliding.html" title="Large sliding/large deformation contact with friction bricks"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -519,7 +519,7 @@ non-smooth tools.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

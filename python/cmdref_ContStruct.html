@@ -8,46 +8,47 @@
     
     <title>ContStruct &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="CvStruct" href="cmdref_CvStruct.html" />
     <link rel="prev" title="API reference" href="cmdref.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_CvStruct.html" title="CvStruct"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref.html" title="API reference"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,11 +63,11 @@
           <div class="body">
             
   <div class="section" id="contstruct">
-<h1>ContStruct<a class="headerlink" href="#contstruct" title="Permalink to this headline">¶</a></h1>
+<h1>ContStruct<a class="headerlink" href="#contstruct" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt id="getfem.ContStruct">
-<em class="property">class </em><tt class="descname">ContStruct</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.ContStruct" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetFEM ContStruct object</p>
+<em class="property">class </em><tt class="descname">ContStruct</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.ContStruct" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>GeFEM ContStruct object</p>
 <p>This object serves for storing parameters and data used in numerical
 continuation of solution branches of models (for more details about
 continuation see the GetFEM++ user documentation).</p>
@@ -227,7 +228,7 @@ continuation process (residual values etc.).</p>
 </ul>
 <dl class="method">
 <dt id="getfem.ContStruct.Moore_Penrose_continuation">
-<tt class="descname">Moore_Penrose_continuation</tt><big>(</big><em>solution</em>, <em>parameter</em>, <em>tangent_sol</em>, <em>tangent_par</em>, <em>h</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.Moore_Penrose_continuation" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">Moore_Penrose_continuation</tt><big>(</big><em>solution</em>, <em>parameter</em>, <em>tangent_sol</em>, <em>tangent_par</em>, <em>h</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.Moore_Penrose_continuation" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Compute one step of the Moore-Penrose continuation: Take the point
 given by <cite>solution</cite> and <cite>parameter</cite>, the tangent given by <cite>tangent_sol</cite>
 and <cite>tangent_par</cite>, and the step size <cite>h</cite>. Return a new point on the
@@ -240,7 +241,7 @@ NOTE: The new point need not to be saved in the model in the end!</p>
 
 <dl class="method">
 <dt id="getfem.ContStruct.bifurcation_test_function">
-<tt class="descname">bifurcation_test_function</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.bifurcation_test_function" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">bifurcation_test_function</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.bifurcation_test_function" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the last value of the bifurcation test function and eventaully
 the whole calculated graph when passing between different sub-domains
 of differentiability.</p>
@@ -248,7 +249,7 @@ of differentiability.</p>
 
 <dl class="method">
 <dt id="getfem.ContStruct.char">
-<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.char" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.char" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Output a (unique) string representation of the ContStruct.</p>
 <p>This can be used for performing comparisons between two
 different ContStruct objects.
@@ -257,19 +258,19 @@ This function is to be completed.</p>
 
 <dl class="method">
 <dt id="getfem.ContStruct.compute_tangent">
-<tt class="descname">compute_tangent</tt><big>(</big><em>solution</em>, <em>parameter</em>, <em>tangent_sol</em>, <em>tangent_par</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.compute_tangent" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">compute_tangent</tt><big>(</big><em>solution</em>, <em>parameter</em>, <em>tangent_sol</em>, <em>tangent_par</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.compute_tangent" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Compute and return an updated tangent.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.ContStruct.display">
-<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.display" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.display" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Display a short summary for a ContStruct object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.ContStruct.init_Moore_Penrose_continuation">
-<tt class="descname">init_Moore_Penrose_continuation</tt><big>(</big><em>solution</em>, <em>parameter</em>, <em>init_dir</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.init_Moore_Penrose_continuation" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">init_Moore_Penrose_continuation</tt><big>(</big><em>solution</em>, <em>parameter</em>, <em>init_dir</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.init_Moore_Penrose_continuation" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Initialise the Moore-Penrose continuation: Return a unit tangent to
 the solution curve at the point given by <cite>solution</cite> and <cite>parameter</cite>,
 and an initial step size for the continuation. Orientation of the
@@ -279,25 +280,25 @@ sign of <cite>init_dir</cite>.</p>
 
 <dl class="method">
 <dt id="getfem.ContStruct.init_step_size">
-<tt class="descname">init_step_size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.init_step_size" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">init_step_size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.init_step_size" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return an initial step size for continuation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.ContStruct.max_step_size">
-<tt class="descname">max_step_size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.max_step_size" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">max_step_size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.max_step_size" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the maximum step size for continuation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.ContStruct.min_step_size">
-<tt class="descname">min_step_size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.min_step_size" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">min_step_size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.min_step_size" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the minimum step size for continuation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.ContStruct.non_smooth_bifurcation_test">
-<tt class="descname">non_smooth_bifurcation_test</tt><big>(</big><em>solution1</em>, <em>parameter1</em>, <em>tangent_sol1</em>, <em>tangent_par1</em>, <em>solution2</em>, <em>parameter2</em>, <em>tangent_sol2</em>, <em>tangent_par2</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.non_smooth_bifurcation_test" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">non_smooth_bifurcation_test</tt><big>(</big><em>solution1</em>, <em>parameter1</em>, <em>tangent_sol1</em>, <em>tangent_par1</em>, <em>solution2</em>, <em>parameter2</em>, <em>tangent_sol2</em>, <em>tangent_par2</em><big>)</big><a class="headerlink" href="#getfem.ContStruct.non_smooth_bifurcation_test" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Test for a non-smooth bifurcation point between the point given by
 <cite>solution1</cite> and <cite>parameter1</cite> with the tangent given by <cite>tangent_sol1</cite>
 and <cite>tangent_par1</cite> and the point given by <cite>solution2</cite> and <cite>parameter2</cite>
@@ -306,7 +307,7 @@ with the tangent given by <cite>tangent_sol2</cite> and <cite>tangent_par2</cite
 
 <dl class="method">
 <dt id="getfem.ContStruct.sing_data">
-<tt class="descname">sing_data</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.sing_data" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sing_data</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.sing_data" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return a singular point (<cite>X</cite>, <cite>gamma</cite>) stored in the ContStruct object and a
 couple of arrays (<cite>T_X</cite>, <cite>T_gamma</cite>) of tangents to all located solution
 branches that emanate from there.</p>
@@ -314,13 +315,13 @@ branches that emanate from there.</p>
 
 <dl class="method">
 <dt id="getfem.ContStruct.step_size_decrement">
-<tt class="descname">step_size_decrement</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.step_size_decrement" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">step_size_decrement</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.step_size_decrement" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the decrement ratio of the step size for continuation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.ContStruct.step_size_increment">
-<tt class="descname">step_size_increment</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.step_size_increment" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">step_size_increment</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.ContStruct.step_size_increment" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the increment ratio of the step size for continuation.</p>
 </dd></dl>
 
@@ -335,14 +336,14 @@ branches that emanate from there.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref.html"
-                        title="previous chapter">API reference</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">API reference</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_CvStruct.html"
-                        title="next chapter">CvStruct</a></p>            <h3>Download</h3>
+                        title="次の章へ">CvStruct</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -359,21 +360,20 @@ branches that emanate from there.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -382,18 +382,18 @@ branches that emanate from there.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_CvStruct.html" title="CvStruct"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref.html" title="API reference"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -402,7 +402,7 @@ branches that emanate from there.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,46 +8,47 @@
     
     <title>Additional Markup Constructs &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Documenting" href="index.html" />
     <link rel="next" title="Differences to the LaTeX markup" href="fromlatex.html" />
     <link rel="prev" title="reStructuredText Primer" href="rest.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="fromlatex.html" title="Differences to the LaTeX markup"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="rest.html" title="reStructuredText Primer"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,18 +62,18 @@
           <div class="body">
             
   <div class="section" id="additional-markup-constructs">
-<h1>Additional Markup Constructs<a class="headerlink" href="#additional-markup-constructs" title="Permalink to this headline">¶</a></h1>
+<h1>Additional Markup Constructs<a class="headerlink" href="#additional-markup-constructs" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Sphinx adds a lot of new directives and interpreted text roles to standard reST
 markup.  This section contains the reference material for these facilities.
 Documentation for &#8220;standard&#8221; reST constructs is not included here, though
 they are used in the Python documentation.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">ノート</p>
 <p class="last">This is just an overview of Sphinx&#8217; extended markup capabilities; full
 coverage can be found in <a class="reference external" href="http://sphinx.pocoo.org/contents.html">its own documentation</a>.</p>
 </div>
 <div class="section" id="meta-information-markup">
-<h2>Meta-information markup<a class="headerlink" href="#meta-information-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Meta-information markup<a class="headerlink" href="#meta-information-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <dl class="describe">
 <dt>
 <tt class="descname">sectionauthor</tt></dt>
@@ -89,7 +90,7 @@ keep track of contributions.</p>
 
 </div>
 <div class="section" id="module-specific-markup">
-<h2>Module-specific markup<a class="headerlink" href="#module-specific-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Module-specific markup<a class="headerlink" href="#module-specific-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The markup described in this section is used to provide information about a
 module being documented.  Each module should be documented in its own file.
 Normally this markup appears after the title heading of that file; a typical
@@ -132,14 +133,14 @@ of a piece of documentation.  It too does not result in any output currently.</p
 </dd></dl>
 
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">ノート</p>
 <p class="last">It is important to make the section title of a module-describing file
 meaningful since that value will be inserted in the table-of-contents trees
 in overview files.</p>
 </div>
 </div>
 <div class="section" id="information-units">
-<h2>Information units<a class="headerlink" href="#information-units" title="Permalink to this headline">¶</a></h2>
+<h2>Information units<a class="headerlink" href="#information-units" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>There are a number of directives used to describe specific features provided by
 modules.  Each directive requires one or more signatures to provide basic
 information about what is being described, and the content should be the
@@ -162,9 +163,9 @@ index entries more informative.</p>
 <p>The directives are:</p>
 <dl class="describe">
 <dt>
-<tt class="descname">cfunction</tt></dt>
+<tt class="descname">c:function</tt></dt>
 <dd><p>Describes a C function. The signature should be given as in C, e.g.:</p>
-<div class="highlight-rest"><div class="highlight"><pre><span class="p">..</span> <span class="ow">cfunction</span><span class="p">::</span> PyObject<span class="ge">* PyType_GenericAlloc(PyTypeObject *</span>type, Py_ssize_t nitems)
+<div class="highlight-rest"><div class="highlight"><pre><span class="p">..</span> <span class="ow">c:function</span><span class="p">::</span> PyObject<span class="ge">* PyType_GenericAlloc(PyTypeObject *</span>type, Py_ssize_t nitems)
 </pre></div>
 </div>
 <p>This is also used to describe function-like preprocessor macros.  The names
@@ -308,7 +309,7 @@ used, for example, to describe the directives in this document. Example:</p>
 
 </div>
 <div class="section" id="showing-code-examples">
-<h2>Showing code examples<a class="headerlink" href="#showing-code-examples" title="Permalink to this headline">¶</a></h2>
+<h2>Showing code examples<a class="headerlink" href="#showing-code-examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Examples of Python source code or interactive sessions are represented using
 standard reST literal blocks.  They are started by a <tt class="docutils literal"><span class="pre">::</span></tt> at the end of the
 preceding paragraph and delimited by indentation.</p>
@@ -361,7 +362,7 @@ an external file containing only plain text.  The file may be included using the
 include files should be placed in the <tt class="docutils literal"><span class="pre">Doc/includes</span></tt> subdirectory.</p>
 </div>
 <div class="section" id="inline-markup">
-<h2>Inline markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Inline markup<a class="headerlink" href="#inline-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>As said before, Sphinx uses interpreted text roles to insert semantic markup in
 documents.</p>
 <p>Names of local variables, such as function/method arguments, are an exception,
@@ -675,7 +676,7 @@ this text is a hyperlink to an online copy of the specified RFC.</p>
 the standard reST markup for that purpose.</p>
 </div>
 <div class="section" id="cross-linking-markup">
-<span id="doc-ref-role"></span><h2>Cross-linking markup<a class="headerlink" href="#cross-linking-markup" title="Permalink to this headline">¶</a></h2>
+<span id="doc-ref-role"></span><h2>Cross-linking markup<a class="headerlink" href="#cross-linking-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>To support cross-referencing to arbitrary sections in the documentation, the
 standard reST labels are &#8220;abused&#8221; a bit: Every label must precede a section
 title; and every label name must be unique throughout the entire documentation
@@ -695,7 +696,7 @@ It refers to the section itself, see <span class="na">:ref:</span><span class="n
 <p>The <tt class="docutils literal"><span class="pre">:ref:</span></tt> invocation is replaced with the section title.</p>
 </div>
 <div class="section" id="paragraph-level-markup">
-<h2>Paragraph-level markup<a class="headerlink" href="#paragraph-level-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Paragraph-level markup<a class="headerlink" href="#paragraph-level-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>These directives create short paragraphs and can be used inside information
 units as well as normal text:</p>
 <dl class="describe">
@@ -789,7 +790,7 @@ table of contents node.  It is currently used for the &#8220;Footnotes&#8221; ca
 
 </div>
 <div class="section" id="table-of-contents-markup">
-<h2>Table-of-contents markup<a class="headerlink" href="#table-of-contents-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Table-of-contents markup<a class="headerlink" href="#table-of-contents-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Since reST does not have facilities to interconnect several documents, or split
 documents into multiple output files, Sphinx uses a custom directive to add
 relations between the single files the documentation is made of, as well as
@@ -832,7 +833,7 @@ standard navigation.</p>
 
 </div>
 <div class="section" id="index-generating-markup">
-<h2>Index-generating markup<a class="headerlink" href="#index-generating-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Index-generating markup<a class="headerlink" href="#index-generating-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Sphinx automatically creates index entries from all information units (like
 functions, classes or attributes) like discussed before.</p>
 <p>However, there is also an explicit directive available, to make the index more
@@ -876,7 +877,7 @@ notation:</p>
 <p>This creates four index entries.</p>
 </div>
 <div class="section" id="grammar-production-displays">
-<h2>Grammar production displays<a class="headerlink" href="#grammar-production-displays" title="Permalink to this headline">¶</a></h2>
+<h2>Grammar production displays<a class="headerlink" href="#grammar-production-displays" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Special markup is available for displaying the productions of a formal grammar.
 The markup is simple and does not attempt to model all aspects of BNF (or any
 derived forms), but provides enough to allow context-free grammars to be
@@ -911,7 +912,7 @@ don&#8217;t have to escape <tt class="docutils literal"><span class="pre">*</spa
 </div>
 </div>
 <div class="section" id="substitutions">
-<h2>Substitutions<a class="headerlink" href="#substitutions" title="Permalink to this headline">¶</a></h2>
+<h2>Substitutions<a class="headerlink" href="#substitutions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The documentation system provides three substitutions that are defined by default.
 They are set in the build configuration file <tt class="file docutils literal"><span class="pre">conf.py</span></tt>.</p>
 <dl class="describe">
@@ -954,9 +955,9 @@ file is not found.  This one only emits a warning.</td></tr>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Additional Markup Constructs</a><ul>
 <li><a class="reference internal" href="#meta-information-markup">Meta-information markup</a></li>
@@ -974,12 +975,12 @@ file is not found.  This one only emits a warning.</td></tr>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="rest.html"
-                        title="previous chapter">reStructuredText Primer</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">reStructuredText Primer</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="fromlatex.html"
-                        title="next chapter">Differences to the LaTeX markup</a></p>            <h3>Download</h3>
+                        title="次の章へ">Differences to the LaTeX markup</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -996,21 +997,20 @@ file is not found.  This one only emits a warning.</td></tr>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -1019,18 +1019,18 @@ file is not found.  This one only emits a warning.</td></tr>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="fromlatex.html" title="Differences to the LaTeX markup"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="rest.html" title="reStructuredText Primer"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -1038,7 +1038,7 @@ file is not found.  This one only emits a warning.</td></tr>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

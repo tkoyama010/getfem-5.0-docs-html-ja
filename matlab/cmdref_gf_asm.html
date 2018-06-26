@@ -8,46 +8,47 @@
     
     <title>gf_asm &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_compute" href="cmdref_gf_compute.html" />
     <link rel="prev" title="Command reference" href="cmdref.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_compute.html" title="gf_compute"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,36 +63,35 @@
           <div class="body">
             
   <div class="section" id="gf-asm">
-<h1>gf_asm<a class="headerlink" href="#gf-asm" title="Permalink to this headline">¶</a></h1>
+<h1>gf_asm<a class="headerlink" href="#gf-asm" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>{...} = gf_asm('generic', mesh_im mim, int order, string expression, int region, [model model,] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], ...)
-M = gf_asm('mass matrix', mesh_im mim, mesh_fem mf1[, mesh_fem mf2[, int region]])
-L = gf_asm('laplacian', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
-Le = gf_asm('linear elasticity', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec lambda_d, vec mu_d[, int region])
-TRHS = gf_asm('nonlinear elasticity', mesh_im mim, mesh_fem mf_u, vec U, string law, mesh_fem mf_d, mat params, {'tangent matrix'|'rhs'|'incompressible tangent matrix', mesh_fem mf_p, vec P|'incompressible rhs', mesh_fem mf_p, vec P})
-{K, B} = gf_asm('stokes', mesh_im mim, mesh_fem mf_u, mesh_fem mf_p, mesh_fem mf_d, vec nu[, int region])
-A = gf_asm('helmholtz', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec k[, int region])
-A = gf_asm('bilaplacian', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
-A = gf_asm('bilaplacian KL', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a, vec nu[, int region])
-V = gf_asm('volumic source', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec fd[, int region])
-B = gf_asm('boundary source', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec G)
-{HH, RR} = gf_asm('dirichlet', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat H, vec R [, scalar threshold])
-Q = gf_asm('boundary qu term',int boundary_num, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat q)
-gf_asm('define function', string name, int nb_args, string expression[, string expression_derivative_t[, string expression_derivative_u]])
-gf_asm('undefine function', string name)
-gf_asm('define linear hardening function', string name, scalar sigma_y0, scalar H, ... [string 'Frobenius'])
-gf_asm('define Ramberg Osgood hardening function', string name, scalar sigma_ref, {scalar eps_ref | scalar E, scalar alpha}, scalar n[, string 'Frobenius'])
-gf_asm('expression analysis', string expression [, {@tm mesh | mesh_im mim}] [, der_order] [, model model] [, string varname, int is_variable[, {mesh_fem mf | mesh_imd mimd}], ...])
-{...} = gf_asm('volumic' [,CVLST], expr [, mesh_ims, mesh_fems, data...])
-{...} = gf_asm('boundary', int bnum, string expr [, mesh_im mim, mesh_fem mf, data...])
-Mi = gf_asm('interpolation matrix', mesh_fem mf, {mesh_fem mfi | vec pts})
-Me = gf_asm('extrapolation matrix',mesh_fem mf,  {mesh_fem mfe | vec pts})
-B = gf_asm('integral contact Uzawa projection', int bnum, mesh_im mim, mesh_fem mf_u, vec U, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_obstacle, vec obstacle, scalar r [, {scalar coeff | mesh_fem mf_coeff, vec coeff} [, int option[, scalar alpha, vec W]]])
-B = gf_asm('level set normal source term', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_levelset, vec levelset)
-M = gf_asm('lsneuman matrix', mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
-M = gf_asm('nlsgrad matrix', mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
-M = gf_asm('stabilization patch matrix', @tm mesh, mesh_fem mf,  mesh_im mim, real ratio, real h)
-{Q, G, H, R, F} = gf_asm('pdetool boundary conditions', mf_u, mf_d, b, e[, f_expr])</pre>
+<div class="highlight-python"><pre>{...} = gf_asm(&#x27;generic&#x27;, mesh_im mim, int order, string expression, int region, [model model,] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], ...)
+M = gf_asm(&#x27;mass matrix&#x27;, mesh_im mim, mesh_fem mf1[, mesh_fem mf2[, int region]])
+L = gf_asm(&#x27;laplacian&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
+Le = gf_asm(&#x27;linear elasticity&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec lambda_d, vec mu_d[, int region])
+TRHS = gf_asm(&#x27;nonlinear elasticity&#x27;, mesh_im mim, mesh_fem mf_u, vec U, string law, mesh_fem mf_d, mat params, {&#x27;tangent matrix&#x27;|&#x27;rhs&#x27;|&#x27;incompressible tangent matrix&#x27;, mesh_fem mf_p, vec P|&#x27;incompressible rhs&#x27;, mesh_fem mf_p, vec P})
+A = gf_asm(&#x27;helmholtz&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec k[, int region])
+A = gf_asm(&#x27;bilaplacian&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
+A = gf_asm(&#x27;bilaplacian KL&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a, vec nu[, int region])
+V = gf_asm(&#x27;volumic source&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec fd[, int region])
+B = gf_asm(&#x27;boundary source&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec G)
+{HH, RR} = gf_asm(&#x27;dirichlet&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat H, vec R [, scalar threshold])
+Q = gf_asm(&#x27;boundary qu term&#x27;,int boundary_num, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat q)
+gf_asm(&#x27;define function&#x27;, string name, int nb_args, string expression[, string expression_derivative_t[, string expression_derivative_u]])
+gf_asm(&#x27;undefine function&#x27;, string name)
+gf_asm(&#x27;define linear hardening function&#x27;, string name, scalar sigma_y0, scalar H, ... [string &#x27;Frobenius&#x27;])
+gf_asm(&#x27;define Ramberg Osgood hardening function&#x27;, string name, scalar sigma_ref, {scalar eps_ref | scalar E, scalar alpha}, scalar n[, string &#x27;Frobenius&#x27;])
+gf_asm(&#x27;expression analysis&#x27;, string expression [, {@tm mesh | mesh_im mim}] [, der_order] [, model model] [, string varname, int is_variable[, {mesh_fem mf | mesh_imd mimd}], ...])
+{...} = gf_asm(&#x27;volumic&#x27; [,CVLST], expr [, mesh_ims, mesh_fems, data...])
+{...} = gf_asm(&#x27;boundary&#x27;, int bnum, string expr [, mesh_im mim, mesh_fem mf, data...])
+Mi = gf_asm(&#x27;interpolation matrix&#x27;, mesh_fem mf, {mesh_fem mfi | vec pts})
+Me = gf_asm(&#x27;extrapolation matrix&#x27;,mesh_fem mf,  {mesh_fem mfe | vec pts})
+B = gf_asm(&#x27;integral contact Uzawa projection&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, vec U, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_obstacle, vec obstacle, scalar r [, {scalar coeff | mesh_fem mf_coeff, vec coeff} [, int option[, scalar alpha, vec W]]])
+B = gf_asm(&#x27;level set normal source term&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_levelset, vec levelset)
+M = gf_asm(&#x27;lsneuman matrix&#x27;, mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
+M = gf_asm(&#x27;nlsgrad matrix&#x27;, mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
+M = gf_asm(&#x27;stabilization patch matrix&#x27;, @tm mesh, mesh_fem mf,  mesh_im mim, real ratio, real h)
+{Q, G, H, R, F} = gf_asm(&#x27;pdetool boundary conditions&#x27;, mf_u, mf_d, b, e[, f_expr])</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -136,14 +136,14 @@ in the call of the function (the degrees of freedom of the first
 variable, then of the second, and so on). If a model is provided,
 all degrees of freedom of the model will be counted first.</p>
 <p>For example, the L2 norm of a vector field &#8220;u&#8221; can be computed with:</p>
-<div class="highlight-python"><pre>gf_compute('L2 norm') or with the square root of:
+<div class="highlight-python"><pre>gf_compute(&#x27;L2 norm&#x27;) or with the square root of:
 
-gf_asm('generic', mim, 0, 'u.u', -1, 'u', 1, mf, U);</pre>
+gf_asm(&#x27;generic&#x27;, mim, 0, &#x27;u.u&#x27;, -1, &#x27;u&#x27;, 1, mf, U);</pre>
 </div>
 <p>The nonhomogeneous Laplacian stiffness matrix of a scalar field can be evaluated with:</p>
-<div class="highlight-python"><pre>gf_asm('laplacian', mim, mf, mf_data, A) or equivalently with:
+<div class="highlight-python"><pre>gf_asm(&#x27;laplacian&#x27;, mim, mf, mf_data, A) or equivalently with:
 
-gf_asm('generic', mim, 2, 'A*Grad_Test2_u.Grad_Test_u', -1, 'u', 1, mf, U, 'A', 0, mf_data, A);</pre>
+gf_asm(&#x27;generic&#x27;, mim, 2, &#x27;A*Grad_Test2_u.Grad_Test_u&#x27;, -1, &#x27;u&#x27;, 1, mf, U, &#x27;A&#x27;, 0, mf_data, A);</pre>
 </div>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">gf_asm('mass</span> <span class="pre">matrix',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf1[,</span> <span class="pre">mesh_fem</span> <span class="pre">mf2[,</span> <span class="pre">int</span> <span class="pre">region]])</span></tt></p>
@@ -185,33 +185,21 @@ coefficient less (C2 = 0). By default, its compressible version is used.</li>
 This law has 3 parameters, called lambda, mu and gamma, with
 gamma chosen such that gamma is in ]-lambda/2-mu, -mu[.</li>
 </ul>
-<p>Te parameters of the material law are described on the mesh_fem <cite>mf_d</cite>.
-Te matrix <cite>params</cite> should have <cite>nbdof(mf_d)</cite> columns, each row
-crrespounds to a parameter.</p>
-<p>Te last argument selects what is to be built: either the tangent
-mtrix, or the right hand side. If the incompressibility is
-cnsidered, it should be followed by a mesh_fem <cite>mf_p</cite>, for the
-pession.</p>
-<p>Rturn a spmat object (tangent matrix), vec object (right hand
-sde), tuple of spmat objects (incompressible tangent matrix), or
-tple of vec objects (incompressible right hand side).</p>
-</div></blockquote>
-<p><tt class="docutils literal"><span class="pre">{K,</span> <span class="pre">B}</span> <span class="pre">=</span> <span class="pre">gf_asm('stokes',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_p,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">nu[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
-<blockquote>
-<div><p>Assembly of matrices for the Stokes problem.</p>
-<p><img class="math" src="../_images/math/094c551f04b9883a77811ccbe9f178a1bb8759de.png" alt="-\nu(x)\Delta u + \nabla p = 0" style="vertical-align: -4px"/>
-<img class="math" src="../_images/math/ed815e38c8efdc15f2d11ece2fe82d6d897ad6d1.png" alt="\nabla\cdot u  = 0" style="vertical-align: -1px"/>
-with <img class="math" src="../_images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> (<cite>nu</cite>), the fluid&#8217;s dynamic viscosity.</p>
-<p>On output, <cite>K</cite> is the usual linear elasticity stiffness matrix with
-<img class="math" src="../_images/math/53c7339d56c15f4d9d487c60d2a36ec60755c2ba.png" alt="\lambda = 0" style="vertical-align: 0px"/> and
-<img class="math" src="../_images/math/d17c5a0810982fdf3a645f536a7faca3244f9c9d.png" alt="2\mu = \nu" style="vertical-align: -4px"/>. <cite>B</cite> is a matrix
-corresponding to <img class="math" src="../_images/math/01d84849ae3d9e32c735060054de7ad2797f3acb.png" alt="\int p\nabla\cdot\phi" style="vertical-align: -6px"/>.</p>
-<p><cite>K</cite> and <cite>B</cite> are spmat object&#8217;s.</p>
+<p>The parameters of the material law are described on the mesh_fem <cite>mf_d</cite>.
+The matrix <cite>params</cite> should have <cite>nbdof(mf_d)</cite> columns, each row
+correspounds to a parameter.</p>
+<p>The last argument selects what is to be built: either the tangent
+matrix, or the right hand side. If the incompressibility is
+considered, it should be followed by a mesh_fem <cite>mf_p</cite>, for the
+pression.</p>
+<p>Return a spmat object (tangent matrix), vec object (right hand
+side), tuple of spmat objects (incompressible tangent matrix), or
+tuple of vec objects (incompressible right hand side).</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('helmholtz',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">k[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Helmholtz problem.</p>
-<p><img class="math" src="../_images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -1px"/> = 0,  with <cite>k</cite> complex scalar.</p>
+<p><img class="math" src="../_images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('bilaplacian',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">a[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
@@ -314,14 +302,14 @@ For details about the syntax of assembly expressions, please refer
 to the getfem user manual (or look at the file getfem_assembling.h
 in the getfem++ sources).</p>
 <p>For example, the L2 norm of a field can be computed with:</p>
-<div class="highlight-python"><pre>gf_compute('L2 norm') or with the square root of:
+<div class="highlight-python"><pre>gf_compute(&#x27;L2 norm&#x27;) or with the square root of:
 
-gf_asm('volumic','u=data(#1); V()+=u(i).u(j).comp(Base(#1).Base(#1))(i,j)',mim,mf,U)</pre>
+gf_asm(&#x27;volumic&#x27;,&#x27;u=data(#1); V()+=u(i).u(j).comp(Base(#1).Base(#1))(i,j)&#x27;,mim,mf,U)</pre>
 </div>
 <p>The Laplacian stiffness matrix can be evaluated with:</p>
-<div class="highlight-python"><pre>gf_asm('laplacian',mim, mf, mf_data, A) or equivalently with:
+<div class="highlight-python"><pre>gf_asm(&#x27;laplacian&#x27;,mim, mf, mf_data, A) or equivalently with:
 
-gf_asm('volumic','a=data(#2);M(#1,#1)+=sym(comp(Grad(#1).Grad(#1).Base(#2))(:,i,:,i,j).a(j))', mim,mf,mf_data,A);</pre>
+gf_asm(&#x27;volumic&#x27;,&#x27;a=data(#2);M(#1,#1)+=sym(comp(Grad(#1).Grad(#1).Base(#2))(:,i,:,i,j).a(j))&#x27;, mim,mf,mf_data,A);</pre>
 </div>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">{...}</span> <span class="pre">=</span> <span class="pre">gf_asm('boundary',</span> <span class="pre">int</span> <span class="pre">bnum,</span> <span class="pre">string</span> <span class="pre">expr</span> <span class="pre">[,</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf,</span> <span class="pre">data...])</span></tt></p>
@@ -399,14 +387,14 @@ ones returned by the function ASSEMB from PDETOOL.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref.html"
-                        title="previous chapter">Command reference</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Command reference</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_compute.html"
-                        title="next chapter">gf_compute</a></p>            <h3>Download</h3>
+                        title="次の章へ">gf_compute</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -423,21 +411,20 @@ ones returned by the function ASSEMB from PDETOOL.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -446,18 +433,18 @@ ones returned by the function ASSEMB from PDETOOL.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_compute.html" title="gf_compute"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -466,7 +453,7 @@ ones returned by the function ASSEMB from PDETOOL.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

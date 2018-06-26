@@ -8,46 +8,47 @@
     
     <title>Some Standard assembly procedures (low-level generic assembly) &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="Interpolation of arbitary quantities" href="interMM.html" />
     <link rel="prev" title="Compute arbitrary terms - low-level generic assembly procedures" href="gasm_low.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="interMM.html" title="Interpolation of arbitary quantities"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="gasm_low.html" title="Compute arbitrary terms - low-level generic assembly procedures"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,14 +62,14 @@
           <div class="body">
             
   <div class="section" id="some-standard-assembly-procedures-low-level-generic-assembly">
-<span id="ud-asm"></span><h1>Some Standard assembly procedures (low-level generic assembly)<a class="headerlink" href="#some-standard-assembly-procedures-low-level-generic-assembly" title="Permalink to this headline">¶</a></h1>
+<span id="ud-asm"></span><h1>Some Standard assembly procedures (low-level generic assembly)<a class="headerlink" href="#some-standard-assembly-procedures-low-level-generic-assembly" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Procedures defined in the file <tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt> allow the
 assembly of stiffness matrices, mass matrices and boundary conditions for a few
 amount of classical partial differential equation problems. All the procedures
 have vectors and matrices template parameters in order to be used with any matrix library.</p>
 <p>CAUTION: The assembly procedures do not clean the matrix/vector at the begining of the assembly in order to keep the possibility to perform several assembly operations on the same matrix/vector. Consequently, one has to clean the matrix/vector before the first assembly operation.</p>
 <div class="section" id="laplacian-poisson-problem">
-<h2>Laplacian (Poisson) problem<a class="headerlink" href="#laplacian-poisson-problem" title="Permalink to this headline">¶</a></h2>
+<h2>Laplacian (Poisson) problem<a class="headerlink" href="#laplacian-poisson-problem" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>An assembling procedure is defined to solve the problem:</p>
 <div class="math">
 <p><img src="../_images/math/9eab1497126644ec5269ee26529f868d38ce090e.png" alt="-\mbox{div}(a(x)\cdot\mbox{grad}(u(x))) &amp;= f(x)\ \mbox{ in }\Omega,  \\
@@ -184,7 +185,7 @@ representing a <img class="math" src="../_images/math/5033ce098377400f3ddb583c88
 of <tt class="docutils literal"><span class="pre">mfdata</span></tt>.</p>
 </div>
 <div class="section" id="linear-elasticity-problem">
-<h2>Linear Elasticity problem<a class="headerlink" href="#linear-elasticity-problem" title="Permalink to this headline">¶</a></h2>
+<h2>Linear Elasticity problem<a class="headerlink" href="#linear-elasticity-problem" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The following function assembles the stiffness matrix for linear elasticity:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_stiffness_matrix_for_linear_elasticity</span><span class="p">(</span><span class="n">SM</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mfu</span><span class="p">,</span>
                                                    <span class="n">mfd</span><span class="p">,</span> <span class="n">LAMBDA</span><span class="p">,</span> <span class="n">MU</span><span class="p">);</span>
@@ -198,7 +199,7 @@ equal to <tt class="docutils literal"><span class="pre">mfu</span></tt>) describ
 coefficient are defined, <tt class="docutils literal"><span class="pre">LAMBDA</span></tt> and <tt class="docutils literal"><span class="pre">MU</span></tt> are vectors of the values of Lamé
 coefficients on each degree of freedom of <tt class="docutils literal"><span class="pre">mfd</span></tt>.</p>
 <div class="admonition caution">
-<p class="first admonition-title">Caution</p>
+<p class="first admonition-title">ご用心</p>
 <p class="last">Linear elasticity problem is a vectorial problem, so the target dimension of
 <tt class="docutils literal"><span class="pre">mfu</span></tt> (see <tt class="docutils literal"><span class="pre">mf.set_qdim(Q)</span></tt>) should be the same as the dimension of the
 mesh.</p>
@@ -207,7 +208,7 @@ mesh.</p>
 as in previous section can be used.</p>
 </div>
 <div class="section" id="stokes-problem-with-mixed-finite-element-method">
-<h2>Stokes Problem with mixed finite element method<a class="headerlink" href="#stokes-problem-with-mixed-finite-element-method" title="Permalink to this headline">¶</a></h2>
+<h2>Stokes Problem with mixed finite element method<a class="headerlink" href="#stokes-problem-with-mixed-finite-element-method" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The assembly of the mixed term <img class="math" src="../_images/math/c6c5b7802cd0348ac145c55f590e3c92e9101318.png" alt="B = - \int p\nabla.v" style="vertical-align: -6px"/> is done with:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_stokes_B</span><span class="p">(</span><span class="n">MATRIX</span> <span class="o">&amp;</span><span class="n">B</span><span class="p">,</span> <span class="k">const</span> <span class="n">mesh_im</span> <span class="o">&amp;</span><span class="n">mim</span><span class="p">,</span>
                      <span class="k">const</span> <span class="n">mesh_fem</span> <span class="o">&amp;</span><span class="n">mf_u</span><span class="p">,</span> <span class="k">const</span> <span class="n">mesh_fem</span> <span class="o">&amp;</span><span class="n">mf_p</span><span class="p">);</span>
@@ -215,7 +216,7 @@ as in previous section can be used.</p>
 </div>
 </div>
 <div class="section" id="assembling-a-mass-matrix">
-<h2>Assembling a mass matrix<a class="headerlink" href="#assembling-a-mass-matrix" title="Permalink to this headline">¶</a></h2>
+<h2>Assembling a mass matrix<a class="headerlink" href="#assembling-a-mass-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Assembly of a mass matrix between two finite elements:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_mass_matrix</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mf1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">);</span>
 </pre></div>
@@ -235,9 +236,9 @@ as in previous section can be used.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Some Standard assembly procedures (low-level generic assembly)</a><ul>
 <li><a class="reference internal" href="#laplacian-poisson-problem">Laplacian (Poisson) problem</a></li>
@@ -248,12 +249,12 @@ as in previous section can be used.</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="gasm_low.html"
-                        title="previous chapter">Compute arbitrary terms - low-level generic assembly procedures</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Compute arbitrary terms - low-level generic assembly procedures</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="interMM.html"
-                        title="next chapter">Interpolation of arbitary quantities</a></p>            <h3>Download</h3>
+                        title="次の章へ">Interpolation of arbitary quantities</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -270,21 +271,20 @@ as in previous section can be used.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -293,18 +293,18 @@ as in previous section can be used.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="interMM.html" title="Interpolation of arbitary quantities"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="gasm_low.html" title="Compute arbitrary terms - low-level generic assembly procedures"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -312,7 +312,7 @@ as in previous section can be used.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

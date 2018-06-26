@@ -8,46 +8,47 @@
     
     <title>The model tools for the integration of transient problems &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="The model description and basic model bricks" href="model.html" />
     <link rel="next" title="Small sliding contact with friction bricks" href="model_contact_friction.html" />
     <link rel="prev" title="Mindlin-Reissner plate model" href="model_Mindlin_plate.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="model_contact_friction.html" title="Small sliding contact with friction bricks"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="model_Mindlin_plate.html" title="Mindlin-Reissner plate model"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,20 +63,20 @@
           <div class="body">
             
   <div class="section" id="the-model-tools-for-the-integration-of-transient-problems">
-<span id="ud-model-time-integration"></span><span id="index-0"></span><h1>The model tools for the integration of transient problems<a class="headerlink" href="#the-model-tools-for-the-integration-of-transient-problems" title="Permalink to this headline">¶</a></h1>
+<span id="ud-model-time-integration"></span><span id="index-0"></span><h1>The model tools for the integration of transient problems<a class="headerlink" href="#the-model-tools-for-the-integration-of-transient-problems" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Although time integration scheme can be written directly using the model object by describing the problem to be solved at each iteration, the model object furnishes some basic tools to facilitate the writing of such schemes. These tools are based on the following basic principles:</p>
 <ul>
 <li><p class="first">The original variables of the model represent the state of the system to be solved at the current time step (say step n). This is the case even for a middle point scheme, mainly because if one needs to apply different schemes to different variables of the system, all variable should describe the system at a unique time step.</p>
 </li>
 <li><p class="first">Some data are added to the model to represent the state of the system at previous time steps. For classical one-step schemes (for the moment, only one-step schemes are provided), only the previous time step is stored. For instance if <cite>u</cite> is a variable (thus represented at step n), <cite>Previous_u</cite> will be the data representing the state of the variable at the previous time step (step n-1). Eventually, for future extension to multi-step methods, <cite>Previous2_u</cite> may represent the variable at time step n-2.</p>
 </li>
-<li><p class="first">Some intermediate variables are added to the model to represent the time derivative (and the second order time derivative for second order problem). For instance, if <cite>u</cite> is a variable, <cite>Dot_u</cite> will represent the first order time derivative of <cite>u</cite> and <cite>Dot2_u</cite> the second order one. One can refer to these variables in the model to add a brick on it or to use it in the generic assembly language. However, these are not considered to be independent variables, they will be linked to their corresponding original variable (in an affine way) by the time integration scheme. Most of the schemes need also the time derivative at the previous time step and add the data <cite>Previous_Dot_u</cite> and possibly <cite>Previous_Dot2_u</cite> to the model.</p>
+<li><p class="first">Some intermediate variables are added to the model to represent the time derivative (and the second order time derivative for second order problem). For instance, if <cite>u</cite> is a variable, <cite>Dot_u</cite> will represent the first order time derivative of <cite>u</cite> and <cite>Dot2_u</cite> the second order one. One can refer to these variables in the model to add a brick on it or to use it in the weak form language. However, these are not considered to be independent variables, they will be linked to their corresponding original variable (in an affine way) by the time integration scheme. Most of the schemes need also the time derivative at the previous time step and add the data <cite>Previous_Dot_u</cite> and possibly <cite>Previous_Dot2_u</cite> to the model.</p>
 </li>
 <li><p class="first">A different time integration scheme can be applied on each variable of the model. Note that most of the time, multiplier variable and more generally variables for which no time derivative is used do not need a time integration scheme.</p>
 </li>
-<li><p class="first">The data <cite>t</cite> represent the time parameter and can be used (either in the generic assembly or as parameter of some bricks). Before the assembly of the system, the data <cite>t</cite> is automatically updated to the time step <cite>n</cite>.</p>
+<li><p class="first">The data <cite>t</cite> represent the time parameter and can be used (either in the weak form language or as parameter of some bricks). Before the assembly of the system, the data <cite>t</cite> is automatically updated to the time step <cite>n</cite>.</p>
 </li>
-<li><p class="first">The problem to be solved at each iteration correspond to the formulation of the transient problem in its natural (weak) formulation in which the velocity and the acceleration are expressed by the intermediate variables introduced. For instance, the translation into the high level generic assembly language of the problem</p>
+<li><p class="first">The problem to be solved at each iteration correspond to the formulation of the transient problem in its natural (weak) formulation in which the velocity and the acceleration are expressed by the intermediate variables introduced. For instance, the translation into the weak form language of the problem</p>
 <div class="math">
 <p><img src="../_images/math/d03a88c4039f01cbcef74da11bb8016c922b7a81.png" alt="\dot{u}(t,x) - \Delta u(t,x) = \sin(t)"/></p>
 </div><p>can simply be:</p>
@@ -90,7 +91,7 @@
 </li>
 </ul>
 <div class="section" id="the-implicit-theta-method-for-first-order-problems">
-<h2>The implicit theta-method for first-order problems<a class="headerlink" href="#the-implicit-theta-method-for-first-order-problems" title="Permalink to this headline">¶</a></h2>
+<h2>The implicit theta-method for first-order problems<a class="headerlink" href="#the-implicit-theta-method-for-first-order-problems" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>For a problem which reads</p>
 <div class="math">
 <p><img src="../_images/math/9816ecd4794bfd9bf675a6ba838aded52fc75c49.png" alt="M\dot{U} = F(U)"/></p>
@@ -126,7 +127,7 @@ The addition of this scheme to a variable is to be done thanks to:</p>
 </div>
 </div>
 <div class="section" id="precomputation-of-velocity-acceleration">
-<span id="precomp-time-der-section"></span><h2>Precomputation of velocity/acceleration<a class="headerlink" href="#precomputation-of-velocity-acceleration" title="Permalink to this headline">¶</a></h2>
+<span id="precomp-time-der-section"></span><h2>Precomputation of velocity/acceleration<a class="headerlink" href="#precomputation-of-velocity-acceleration" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Most of the time integration schemes (except, for instance, the backward Euler scheme) needs the pre-computation of the first or second order time derivative before the initial time step (for instance <img class="math" src="../_images/math/590184fd3f8152c481b2abd2ce7c3a9219864038.png" alt="V^0" style="vertical-align: 0px"/> for the theta-method for first order problems, <img class="math" src="../_images/math/5d169d7327b5ffb476ced5cd415c41e21e121198.png" alt="A^0" style="vertical-align: 0px"/> for second order problems ...).</p>
 <p>The choice is let to the user to either initialize these derivative or to ask to the model to automatically approximate them.</p>
 <p>The method used (for the moment) to approximate the supplementary derivatives may be explained in the example of the solve of</p>
@@ -141,7 +142,7 @@ The addition of this scheme to a variable is to be done thanks to:</p>
 <p>allows to perform automatically the approximation of the initial time derivative. The parameter <cite>ddt</cite> corresponds to the small time step used to perform the aproximation. Typically, <cite>dtt = dt/20</cite> could be used where  <cite>dt</cite> is the time step used to approximate the transient problem (see the example below).</p>
 </div>
 <div class="section" id="the-implicit-theta-method-for-second-order-problems">
-<h2>The implicit theta-method for second-order problems<a class="headerlink" href="#the-implicit-theta-method-for-second-order-problems" title="Permalink to this headline">¶</a></h2>
+<h2>The implicit theta-method for second-order problems<a class="headerlink" href="#the-implicit-theta-method-for-second-order-problems" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>For a problem which reads</p>
 <div class="math">
 <p><img src="../_images/math/873a5f513053a4c9f887843d46a84d398a23664a.png" alt="M\ddot{U} = F(U)"/></p>
@@ -181,7 +182,7 @@ A^n = \frac{U^n - U^{n-1}}{\theta^2 dt^2} - \frac{1}{\theta^2dt}V^{n-1} - \frac{
 </div>
 </div>
 <div class="section" id="the-implicit-newmark-scheme-for-second-order-problems">
-<h2>The implicit Newmark scheme for second order problems<a class="headerlink" href="#the-implicit-newmark-scheme-for-second-order-problems" title="Permalink to this headline">¶</a></h2>
+<h2>The implicit Newmark scheme for second order problems<a class="headerlink" href="#the-implicit-newmark-scheme-for-second-order-problems" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>For a problem which reads</p>
 <div class="math">
 <p><img src="../_images/math/873a5f513053a4c9f887843d46a84d398a23664a.png" alt="M\ddot{U} = F(U)"/></p>
@@ -217,9 +218,9 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
 </div>
 </div>
 <div class="section" id="transient-terms">
-<h2>Transient terms<a class="headerlink" href="#transient-terms" title="Permalink to this headline">¶</a></h2>
+<h2>Transient terms<a class="headerlink" href="#transient-terms" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>As it has been explained in previous sections, some intermediate variables are added to the model in order to represent the time derivative of the variables on which the scheme is applied. Once again, if &#8220;u&#8221; is such a variable, &#8220;Dot_u&#8221; will represent the time derivative of &#8220;u&#8221; approximated by the used scheme.</p>
-<p>This also mean that &#8220;Dot_u&#8221; (and &#8220;Dot2_u&#8221; in order two in time problems) can be used to express the transient terms. In the high level generic assembly language, the term:</p>
+<p>This also mean that &#8220;Dot_u&#8221; (and &#8220;Dot2_u&#8221; in order two in time problems) can be used to express the transient terms. In the weak form language, the term:</p>
 <div class="math">
 <p><img src="../_images/math/320eba831d4a50912746187672a4f913b0c11365.png" alt="\int_{\Omega} \dot{u} v dx"/></p>
 </div><p>can be simply expressed by:</p>
@@ -239,7 +240,7 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
 <p>when applied to an order two transient elasticity problem.</p>
 </div>
 <div class="section" id="computation-on-the-sequence-of-time-steps">
-<h2>Computation on the sequence of time steps<a class="headerlink" href="#computation-on-the-sequence-of-time-steps" title="Permalink to this headline">¶</a></h2>
+<h2>Computation on the sequence of time steps<a class="headerlink" href="#computation-on-the-sequence-of-time-steps" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Typically, the solve on the different time steps will take the following form:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">scalar_type</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">;</span> <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// time loop</span>
 
@@ -261,11 +262,11 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
 <p>is needed between two time step since it will copy the current value of the variables (<cite>u</cite> and <cite>Dot_u</cite> for instance) to the previous ones (<cite>Pevious_u</cite> and <cite>Previous_Dot_u</cite>).</p>
 </div>
 <div class="section" id="boundary-conditions">
-<h2>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<h2>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Standard boundary conditions can of course be applied normally to the different variables of the unknown. By default, applying Dirichlet, Neumann or contact boundary conditions to the unknown simply means that the conditions are prescribed on the variable at the current time step n.</p>
 </div>
 <div class="section" id="small-example-heat-equation">
-<h2>Small example: heat equation<a class="headerlink" href="#small-example-heat-equation" title="Permalink to this headline">¶</a></h2>
+<h2>Small example: heat equation<a class="headerlink" href="#small-example-heat-equation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The complete compilable program corresponds to the test program <tt class="file docutils literal"><span class="pre">tests/heat_equation.cc</span></tt> of <em>GetFEM++</em> distribution. See also <tt class="file docutils literal"><span class="pre">/interface/tests/matlab/demo_wave_equation.m</span></tt> for an example of order two in time problem with the Matlab interface.</p>
 <p>Assuming that <cite>mf_u</cite> and <cite>mim</cite> are valid finite element and integration methods defined on a valid mesh, the following code will perform the approximation of the evolution of the temperature on the mesh assuming a unitary diffusion coefficient:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">model</span> <span class="n">model</span><span class="p">;</span>
@@ -315,19 +316,19 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
 </div>
 </div>
 <div class="section" id="implicit-explicit-some-terms">
-<h2>Implicit/explicit some terms<a class="headerlink" href="#implicit-explicit-some-terms" title="Permalink to this headline">¶</a></h2>
+<h2>Implicit/explicit some terms<a class="headerlink" href="#implicit-explicit-some-terms" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>...</p>
 </div>
 <div class="section" id="explicit-schemes">
-<h2>Explicit schemes<a class="headerlink" href="#explicit-schemes" title="Permalink to this headline">¶</a></h2>
+<h2>Explicit schemes<a class="headerlink" href="#explicit-schemes" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>...</p>
 </div>
 <div class="section" id="time-step-adaptation">
-<h2>Time step adaptation<a class="headerlink" href="#time-step-adaptation" title="Permalink to this headline">¶</a></h2>
+<h2>Time step adaptation<a class="headerlink" href="#time-step-adaptation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>...</p>
 </div>
 <div class="section" id="quasi-static-problems">
-<h2>Quasi-static problems<a class="headerlink" href="#quasi-static-problems" title="Permalink to this headline">¶</a></h2>
+<h2>Quasi-static problems<a class="headerlink" href="#quasi-static-problems" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>...</p>
 </div>
 </div>
@@ -339,9 +340,9 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">The model tools for the integration of transient problems</a><ul>
 <li><a class="reference internal" href="#the-implicit-theta-method-for-first-order-problems">The implicit theta-method for first-order problems</a></li>
@@ -360,12 +361,12 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_Mindlin_plate.html"
-                        title="previous chapter">Mindlin-Reissner plate model</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Mindlin-Reissner plate model</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="model_contact_friction.html"
-                        title="next chapter">Small sliding contact with friction bricks</a></p>            <h3>Download</h3>
+                        title="次の章へ">Small sliding contact with friction bricks</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -382,21 +383,20 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -405,18 +405,18 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="model_contact_friction.html" title="Small sliding contact with friction bricks"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="model_Mindlin_plate.html" title="Mindlin-Reissner plate model"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -425,7 +425,7 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

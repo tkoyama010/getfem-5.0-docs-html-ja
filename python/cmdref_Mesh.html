@@ -8,46 +8,47 @@
     
     <title>Mesh &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="MeshFem" href="cmdref_MeshFem.html" />
     <link rel="prev" title="LevelSet" href="cmdref_LevelSet.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_MeshFem.html" title="MeshFem"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_LevelSet.html" title="LevelSet"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,11 +63,11 @@
           <div class="body">
             
   <div class="section" id="mesh">
-<h1>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h1>
+<h1>Mesh<a class="headerlink" href="#mesh" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt id="getfem.Mesh">
-<em class="property">class </em><tt class="descname">Mesh</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetFEM Mesh object</p>
+<em class="property">class </em><tt class="descname">Mesh</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>GeFEM Mesh object</p>
 <p>This object is able to store any element in any dimension even if you mix
 elements with different dimensions.</p>
 <p>General constructor for Mesh objects</p>
@@ -76,6 +77,9 @@ Create a new empty mesh.</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">Mesh('cartesian',</span> <span class="pre">vec</span> <span class="pre">X[,</span> <span class="pre">vec</span> <span class="pre">Y[,</span> <span class="pre">vec</span> <span class="pre">Z,..]])</span></tt>
 Build quickly a regular mesh of quadrangles, cubes, etc.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">Mesh('pyramidal',</span> <span class="pre">vec</span> <span class="pre">X[,</span> <span class="pre">vec</span> <span class="pre">Y[,</span> <span class="pre">vec</span> <span class="pre">Z,..]])</span></tt>
+Build quickly a regular mesh of pyramids, etc.</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">Mesh('cartesian</span> <span class="pre">Q1',</span> <span class="pre">vec</span> <span class="pre">X,</span> <span class="pre">vec</span> <span class="pre">Y[,</span> <span class="pre">vec</span> <span class="pre">Z,..])</span></tt>
 Build quickly a regular mesh of quadrangles, cubes, etc. with
@@ -136,6 +140,7 @@ Import a mesh.</p>
 <ul class="simple">
 <li>&#8216;gmsh&#8217; for a mesh created with <cite>Gmsh</cite></li>
 <li>&#8216;gid&#8217; for a mesh created with <cite>GiD</cite></li>
+<li>&#8216;cdb&#8217; for a mesh created with <cite>ANSYS</cite></li>
 <li>&#8216;am_fmt&#8217; for a mesh created with <cite>EMC2</cite></li>
 </ul>
 </li>
@@ -162,7 +167,7 @@ to manipulate geometric primitives in order to desribe the geometry.</p>
 </ul>
 <dl class="method">
 <dt id="getfem.Mesh.add_convex">
-<tt class="descname">add_convex</tt><big>(</big><em>GT</em>, <em>PTS</em><big>)</big><a class="headerlink" href="#getfem.Mesh.add_convex" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">add_convex</tt><big>(</big><em>GT</em>, <em>PTS</em><big>)</big><a class="headerlink" href="#getfem.Mesh.add_convex" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a new convex into the mesh.</p>
 <p>The convex structure (triangle, prism,...) is given by <cite>GT</cite>
 (obtained with GeoTrans(&#8216;...&#8217;)), and its points are given by
@@ -174,7 +179,7 @@ to Fortran ordering).</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.add_point">
-<tt class="descname">add_point</tt><big>(</big><em>PTS</em><big>)</big><a class="headerlink" href="#getfem.Mesh.add_point" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">add_point</tt><big>(</big><em>PTS</em><big>)</big><a class="headerlink" href="#getfem.Mesh.add_point" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Insert new points in the mesh and return their #ids.</p>
 <p><cite>PTS</cite> should be an <tt class="docutils literal"><span class="pre">nxm</span></tt> matrix , where <tt class="docutils literal"><span class="pre">n</span></tt> is the mesh
 dimension, and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of points that will be
@@ -188,7 +193,7 @@ points.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.adjacent_face">
-<tt class="descname">adjacent_face</tt><big>(</big><em>cvid</em>, <em>fid</em><big>)</big><a class="headerlink" href="#getfem.Mesh.adjacent_face" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">adjacent_face</tt><big>(</big><em>cvid</em>, <em>fid</em><big>)</big><a class="headerlink" href="#getfem.Mesh.adjacent_face" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return convex face of the neighbour element if it exists.
 If the convex have more than one neighbour
 relativley to the face <tt class="docutils literal"><span class="pre">f</span></tt> (think to bar elements in 3D for instance),
@@ -197,37 +202,37 @@ return the first face found.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.boundaries">
-<tt class="descname">boundaries</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.boundaries" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">boundaries</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.boundaries" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>DEPRECATED FUNCTION. Use &#8216;regions&#8217; instead.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.boundary">
-<tt class="descname">boundary</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.boundary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">boundary</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.boundary" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>DEPRECATED FUNCTION. Use &#8216;region&#8217; instead.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.char">
-<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.char" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.char" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Output a string description of the mesh.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.convex_area">
-<tt class="descname">convex_area</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.convex_area" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">convex_area</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.convex_area" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return an estimate of the area of each convex.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.convex_radius">
-<tt class="descname">convex_radius</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.convex_radius" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">convex_radius</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.convex_radius" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return an estimate of the radius of each convex.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.curved_edges">
-<tt class="descname">curved_edges</tt><big>(</big><em>N</em>, <em>CVLST=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.curved_edges" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">curved_edges</tt><big>(</big><em>N</em>, <em>CVLST=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.curved_edges" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>[OBSOLETE FUNCTION! will be removed in a future release]</p>
 <p>More sophisticated version of Mesh.edges() designed for
 curved elements. This one will return N (N&gt;=2) points of the
@@ -241,7 +246,7 @@ contain the convex number associated with each edge.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.cvid">
-<tt class="descname">cvid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.cvid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cvid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.cvid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of all convex #id.</p>
 <p>Note that their numbering is not supposed to be contiguous from
 0 to Mesh.nbcvs()-1,
@@ -252,7 +257,7 @@ numbering.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.cvid_from_pid">
-<tt class="descname">cvid_from_pid</tt><big>(</big><em>PIDs</em>, <em>share=False</em><big>)</big><a class="headerlink" href="#getfem.Mesh.cvid_from_pid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cvid_from_pid</tt><big>(</big><em>PIDs</em>, <em>share=False</em><big>)</big><a class="headerlink" href="#getfem.Mesh.cvid_from_pid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Search convex #ids related with the point #ids given in <cite>PIDs</cite>.</p>
 <p>If <cite>share=False</cite>, search convex whose vertex #ids are in <cite>PIDs</cite>.
 If <cite>share=True</cite>, search convex #ids that share the point #ids
@@ -262,7 +267,7 @@ empty).</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.cvstruct">
-<tt class="descname">cvstruct</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.cvstruct" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cvstruct</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.cvstruct" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return an array of the convex structures.</p>
 <p>If <cite>CVIDs</cite> is not given, all convexes are considered. Each convex
 structure is listed once in <cite>S</cite>, and <cite>CV2S</cite> maps the convexes
@@ -271,7 +276,7 @@ indice in <cite>CVIDs</cite> to the indice of its structure in <cite>S</cite>.</
 
 <dl class="method">
 <dt id="getfem.Mesh.del_convex">
-<tt class="descname">del_convex</tt><big>(</big><em>CVIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.del_convex" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">del_convex</tt><big>(</big><em>CVIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.del_convex" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Remove one or more convexes from the mesh.</p>
 <p><cite>CVIDs</cite> should contain the convexes #ids, such as the ones
 returned by the &#8216;add convex&#8217; command.</p>
@@ -279,7 +284,7 @@ returned by the &#8216;add convex&#8217; command.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.del_convex_of_dim">
-<tt class="descname">del_convex_of_dim</tt><big>(</big><em>DIMs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.del_convex_of_dim" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">del_convex_of_dim</tt><big>(</big><em>DIMs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.del_convex_of_dim" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Remove all convexes of dimension listed in <cite>DIMs</cite>.</p>
 <p>For example; <tt class="docutils literal"><span class="pre">Mesh.del_convex_of_dim([1,2])</span></tt> remove
 all line segments, triangles and quadrangles.</p>
@@ -287,7 +292,7 @@ all line segments, triangles and quadrangles.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.del_point">
-<tt class="descname">del_point</tt><big>(</big><em>PIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.del_point" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">del_point</tt><big>(</big><em>PIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.del_point" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Removes one or more points from the mesh.</p>
 <p><cite>PIDs</cite> should contain the point #ids, such as the one returned by
 the &#8216;add point&#8217; command.</p>
@@ -295,31 +300,31 @@ the &#8216;add point&#8217; command.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.delete_boundary">
-<tt class="descname">delete_boundary</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.delete_boundary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">delete_boundary</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.delete_boundary" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>DEPRECATED FUNCTION. Use &#8216;delete region&#8217; instead.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.delete_region">
-<tt class="descname">delete_region</tt><big>(</big><em>RIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.delete_region" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">delete_region</tt><big>(</big><em>RIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.delete_region" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Remove the regions whose #ids are listed in <cite>RIDs</cite></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.dim">
-<tt class="descname">dim</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.dim" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">dim</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.dim" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Get the dimension of the mesh (2 for a 2D mesh, etc).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.display">
-<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.display" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.display" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>displays a short summary for a Mesh object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.edges">
-<tt class="descname">edges</tt><big>(</big><em>CVLST=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.edges" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">edges</tt><big>(</big><em>CVLST=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.edges" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: [E,C] = Mesh.edges(self [, CVLST][, &#8216;merge&#8217;])</p>
 <p>[OBSOLETE FUNCTION! will be removed in a future release]</p>
 <p>Return the list of edges of mesh M for the convexes listed in the
@@ -335,7 +340,7 @@ associated with each edge.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.export_to_dx">
-<tt class="descname">export_to_dx</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.export_to_dx" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">export_to_dx</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.export_to_dx" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: Mesh.export_to_dx(self, string filename, ... [,&#8217;ascii&#8217;][,&#8217;append&#8217;][,&#8217;as&#8217;,string name,[,&#8217;serie&#8217;,string serie_name]][,&#8217;edges&#8217;])</p>
 <p>Exports a mesh to an OpenDX file.</p>
 <p>See also MeshFem.export_to_dx(), Slice.export_to_dx().</p>
@@ -343,14 +348,14 @@ associated with each edge.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.export_to_pos">
-<tt class="descname">export_to_pos</tt><big>(</big><em>filename</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.export_to_pos" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">export_to_pos</tt><big>(</big><em>filename</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.export_to_pos" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Exports a mesh to a POS file .</p>
 <p>See also MeshFem.export_to_pos(), Slice.export_to_pos().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.export_to_vtk">
-<tt class="descname">export_to_vtk</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.export_to_vtk" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">export_to_vtk</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.export_to_vtk" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: Mesh.export_to_vtk(self, string filename, ... [,&#8217;ascii&#8217;][,&#8217;quality&#8217;])</p>
 <p>Exports a mesh to a VTK file .</p>
 <p>If &#8216;quality&#8217; is specified, an estimation of the quality of each
@@ -360,7 +365,7 @@ convex will be written to the file.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.extend_region">
-<tt class="descname">extend_region</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.extend_region" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">extend_region</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.extend_region" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Extends the region identified by the region number <cite>rnum</cite> to include
 the set of convexes or/and convex faces provided in the matrix
 <cite>CVFIDs</cite>, see also <tt class="docutils literal"><span class="pre">Mesh.(set</span> <span class="pre">region)</span></tt>.</p>
@@ -368,7 +373,7 @@ the set of convexes or/and convex faces provided in the matrix
 
 <dl class="method">
 <dt id="getfem.Mesh.faces_from_cvid">
-<tt class="descname">faces_from_cvid</tt><big>(</big><em>CVIDs=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.faces_from_cvid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">faces_from_cvid</tt><big>(</big><em>CVIDs=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Mesh.faces_from_cvid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: CVFIDs = Mesh.faces_from_cvid(self[, ivec CVIDs][, &#8216;merge&#8217;])</p>
 <p>Return a list of convex faces from a list of convex #id.</p>
 <p><cite>CVFIDs</cite> is a two-rows matrix, the first row lists convex #ids,
@@ -379,7 +384,7 @@ argument &#8216;merge&#8217; merges faces shared by the convex of <cite>CVIDs</c
 
 <dl class="method">
 <dt id="getfem.Mesh.faces_from_pid">
-<tt class="descname">faces_from_pid</tt><big>(</big><em>PIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.faces_from_pid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">faces_from_pid</tt><big>(</big><em>PIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.faces_from_pid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the convex faces whose vertex #ids are in <cite>PIDs</cite>.</p>
 <p><cite>CVFIDs</cite> is a two-rows matrix, the first row lists convex #ids,
 and the second lists face numbers (local number in the convex).
@@ -389,14 +394,14 @@ listed in <cite>PIDs</cite>.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.geotrans">
-<tt class="descname">geotrans</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.geotrans" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">geotrans</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.geotrans" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Returns an array of the geometric transformations.</p>
 <p>See also Mesh.cvstruct().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.inner_faces">
-<tt class="descname">inner_faces</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.inner_faces" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">inner_faces</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.inner_faces" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the set of faces shared at least by two elements in CVIDs.
 Each face is represented only once and is arbitrarily chosen
 between the two neighbour elements.</p>
@@ -404,25 +409,25 @@ between the two neighbour elements.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.max_cvid">
-<tt class="descname">max_cvid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.max_cvid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">max_cvid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.max_cvid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the maximum #id of all convexes in the mesh (see &#8216;max pid&#8217;).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.max_pid">
-<tt class="descname">max_pid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.max_pid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">max_pid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.max_pid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the maximum #id of all points in the mesh (see &#8216;max cvid&#8217;).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.memsize">
-<tt class="descname">memsize</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.memsize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">memsize</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.memsize" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the amount of memory (in bytes) used by the mesh.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.merge">
-<tt class="descname">merge</tt><big>(</big><em>m2</em>, <em>tol=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.merge" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">merge</tt><big>(</big><em>m2</em>, <em>tol=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.merge" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Merge with the Mesh <cite>m2</cite>.</p>
 <p>Overlapping points, within a tolerance radius <cite>tol</cite>, will not be
 duplicated. If <cite>m2</cite> is a MeshFem object, its linked mesh will be used.</p>
@@ -430,19 +435,19 @@ duplicated. If <cite>m2</cite> is a MeshFem object, its linked mesh will be used
 
 <dl class="method">
 <dt id="getfem.Mesh.nbcvs">
-<tt class="descname">nbcvs</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.nbcvs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">nbcvs</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.nbcvs" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Get the number of convexes of the mesh.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.nbpts">
-<tt class="descname">nbpts</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.nbpts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">nbpts</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.nbpts" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Get the number of points of the mesh.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.normal_of_face">
-<tt class="descname">normal_of_face</tt><big>(</big><em>cv</em>, <em>f</em>, <em>nfpt=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.normal_of_face" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">normal_of_face</tt><big>(</big><em>cv</em>, <em>f</em>, <em>nfpt=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.normal_of_face" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Evaluates the normal of convex <cite>cv</cite>, face <cite>f</cite> at the <cite>nfpt</cite> point of the face.</p>
 <p>If <cite>nfpt</cite> is not specified, then the normal is evaluated at each
 geometrical node of the face.</p>
@@ -450,7 +455,7 @@ geometrical node of the face.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.normal_of_faces">
-<tt class="descname">normal_of_faces</tt><big>(</big><em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.normal_of_faces" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">normal_of_faces</tt><big>(</big><em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.normal_of_faces" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Evaluates (at face centers) the normals of convexes.</p>
 <p><cite>CVFIDs</cite> is supposed a two-rows matrix, the first row lists convex
 #ids, and the second lists face numbers (local number in the convex).</p>
@@ -458,7 +463,7 @@ geometrical node of the face.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.optimize_structure">
-<tt class="descname">optimize_structure</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.optimize_structure" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">optimize_structure</tt><big>(</big><em>with_renumbering=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.optimize_structure" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Reset point and convex numbering.</p>
 <p>After optimisation, the points (resp. convexes) will
 be consecutively numbered from <tt class="docutils literal"><span class="pre">0</span></tt> to
@@ -467,13 +472,13 @@ be consecutively numbered from <tt class="docutils literal"><span class="pre">0<
 
 <dl class="method">
 <dt id="getfem.Mesh.orphaned_pid">
-<tt class="descname">orphaned_pid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.orphaned_pid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">orphaned_pid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.orphaned_pid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Search point #id which are not linked to a convex.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.outer_faces">
-<tt class="descname">outer_faces</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.outer_faces" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">outer_faces</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.outer_faces" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the set of faces not shared by two elements.</p>
 <p>The output <cite>CVFIDs</cite> is a two-rows matrix, the first row lists
 convex #ids, and the second one lists face numbers (local number
@@ -485,7 +490,7 @@ listed in <cite>CVIDs</cite>.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.outer_faces_in_box">
-<tt class="descname">outer_faces_in_box</tt><big>(</big><em>pmin</em>, <em>pmax</em>, <em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.outer_faces_in_box" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">outer_faces_in_box</tt><big>(</big><em>pmin</em>, <em>pmax</em>, <em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.outer_faces_in_box" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the set of faces not shared by two convexes and lying within the box defined by the corner points <cite>pmin</cite> and <cite>pmax</cite>.</p>
 <p>The output <cite>CVFIDs</cite> is a two-rows matrix, the first row lists convex
 #ids, and the second one lists face numbers (local number in the
@@ -495,7 +500,7 @@ the convex set defined by the #ids listed in <cite>CVIDs</cite>.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.outer_faces_with_direction">
-<tt class="descname">outer_faces_with_direction</tt><big>(</big><em>v</em>, <em>angle</em>, <em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.outer_faces_with_direction" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">outer_faces_with_direction</tt><big>(</big><em>v</em>, <em>angle</em>, <em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.outer_faces_with_direction" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the set of faces not shared by two convexes and with a mean outward vector lying within an angle <cite>angle</cite> (in radians) from vector <cite>v</cite>.</p>
 <p>The output <cite>CVFIDs</cite> is a two-rows matrix, the first row lists convex
 #ids, and the second one lists face numbers (local number in the
@@ -505,7 +510,7 @@ the convex set defined by the #ids listed in <cite>CVIDs</cite>.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.pid">
-<tt class="descname">pid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.pid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pid</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.pid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of points #id of the mesh.</p>
 <p>Note that their numbering is not supposed to be contiguous from
 0 to Mesh.nbpts()-1,
@@ -516,7 +521,7 @@ numbering.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.pid_from_coords">
-<tt class="descname">pid_from_coords</tt><big>(</big><em>PTS</em>, <em>radius=0</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_from_coords" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pid_from_coords</tt><big>(</big><em>PTS</em>, <em>radius=0</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_from_coords" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Search point #id whose coordinates are listed in <cite>PTS</cite>.</p>
 <p><cite>PTS</cite> is an array containing a list of point coordinates. On
 return, <cite>PIDs</cite> is a vector containing points
@@ -526,7 +531,7 @@ which where not found in the mesh.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.pid_from_cvid">
-<tt class="descname">pid_from_cvid</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_from_cvid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pid_from_cvid</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_from_cvid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the points attached to each convex of the mesh.</p>
 <p>If <cite>CVIDs</cite> is omitted, all the convexes will be considered
 (equivalent to <cite>CVIDs = Mesh.max_cvid()</cite>). <cite>IDx</cite> is a
@@ -542,14 +547,14 @@ their point list will be empty.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.pid_in_cvids">
-<tt class="descname">pid_in_cvids</tt><big>(</big><em>CVIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_in_cvids" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pid_in_cvids</tt><big>(</big><em>CVIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_in_cvids" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Search point #id listed in <cite>CVIDs</cite>.</p>
 <p><cite>PIDs</cite> is a vector containing points #id.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.pid_in_faces">
-<tt class="descname">pid_in_faces</tt><big>(</big><em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_in_faces" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pid_in_faces</tt><big>(</big><em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_in_faces" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Search point #id listed in <cite>CVFIDs</cite>.</p>
 <p><cite>CVFIDs</cite> is a two-rows matrix, the first row lists convex #ids,
 and the second lists face numbers. On return, <cite>PIDs</cite> is a
@@ -558,14 +563,14 @@ vector containing points #id.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.pid_in_regions">
-<tt class="descname">pid_in_regions</tt><big>(</big><em>RIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_in_regions" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pid_in_regions</tt><big>(</big><em>RIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pid_in_regions" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Search point #id listed in <cite>RIDs</cite>.</p>
 <p><cite>PIDs</cite> is a vector containing points #id.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.pts">
-<tt class="descname">pts</tt><big>(</big><em>PIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pts</tt><big>(</big><em>PIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pts" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of point coordinates of the mesh.</p>
 <p>Each column of the returned matrix contains the coordinates of one
 point. If the optional argument <cite>PIDs</cite> was given, only the points
@@ -580,7 +585,7 @@ points.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.pts_from_cvid">
-<tt class="descname">pts_from_cvid</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pts_from_cvid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pts_from_cvid</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.pts_from_cvid" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Search point listed in <cite>CVID</cite>.</p>
 <p>If <cite>CVIDs</cite> is omitted, all the convexes will be considered
 (equivalent to <cite>CVIDs = Mesh.max_cvid()</cite>). <cite>IDx</cite> is a
@@ -596,13 +601,13 @@ their point list will be empty.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.quality">
-<tt class="descname">quality</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.quality" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">quality</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.quality" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return an estimation of the quality of each convex (<img class="math" src="../_images/math/4848977db0728a3f8db6284069c8701b21a3b745.png" alt="0 \leq Q \leq 1" style="vertical-align: -4px"/>).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.refine">
-<tt class="descname">refine</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.refine" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">refine</tt><big>(</big><em>CVIDs=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.refine" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Use a Bank strategy for mesh refinement.</p>
 <p>If <cite>CVIDs</cite> is not given, the whole mesh is refined. Note
 that the regions, and the finite element methods and
@@ -612,7 +617,7 @@ to this mesh will be automagically refined.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.region">
-<tt class="descname">region</tt><big>(</big><em>RIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">region</tt><big>(</big><em>RIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of convexes/faces on the regions <cite>RIDs</cite>.</p>
 <p><cite>CVFIDs</cite> is a two-rows matrix, the first row lists convex #ids,
 and the second lists face numbers (local number in the convex).
@@ -622,51 +627,51 @@ regions).</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.region_intersect">
-<tt class="descname">region_intersect</tt><big>(</big><em>r1</em>, <em>r2</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region_intersect" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">region_intersect</tt><big>(</big><em>r1</em>, <em>r2</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region_intersect" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Replace the region number <cite>r1</cite> with its intersection with region number <cite>r2</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.region_merge">
-<tt class="descname">region_merge</tt><big>(</big><em>r1</em>, <em>r2</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region_merge" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">region_merge</tt><big>(</big><em>r1</em>, <em>r2</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region_merge" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Merge region number <cite>r2</cite> into region number <cite>r1</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.region_subtract">
-<tt class="descname">region_subtract</tt><big>(</big><em>r1</em>, <em>r2</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region_subtract" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">region_subtract</tt><big>(</big><em>r1</em>, <em>r2</em><big>)</big><a class="headerlink" href="#getfem.Mesh.region_subtract" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Replace the region number <cite>r1</cite> with its difference with region
 number <cite>r2</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.regions">
-<tt class="descname">regions</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.regions" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">regions</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Mesh.regions" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of valid regions stored in the mesh.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.save">
-<tt class="descname">save</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#getfem.Mesh.save" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">save</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#getfem.Mesh.save" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Save the mesh object to an ascii file.</p>
 <p>This mesh can be restored with Mesh(&#8216;load&#8217;, filename).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.set_boundary">
-<tt class="descname">set_boundary</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.set_boundary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">set_boundary</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.set_boundary" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>DEPRECATED FUNCTION. Use &#8216;region&#8217; instead.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.set_pts">
-<tt class="descname">set_pts</tt><big>(</big><em>PTS</em><big>)</big><a class="headerlink" href="#getfem.Mesh.set_pts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">set_pts</tt><big>(</big><em>PTS</em><big>)</big><a class="headerlink" href="#getfem.Mesh.set_pts" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Replace the coordinates of the mesh points with those given in <cite>PTS</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.set_region">
-<tt class="descname">set_region</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.set_region" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">set_region</tt><big>(</big><em>rnum</em>, <em>CVFIDs</em><big>)</big><a class="headerlink" href="#getfem.Mesh.set_region" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assigns the region number <cite>rnum</cite> to the set of convexes or/and convex
 faces provided in the matrix <cite>CVFIDs</cite>.</p>
 <p>The first row of <cite>CVFIDs</cite> contains convex #ids, and the second row
@@ -679,7 +684,7 @@ the corresponding set of convex.</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.transform">
-<tt class="descname">transform</tt><big>(</big><em>T</em><big>)</big><a class="headerlink" href="#getfem.Mesh.transform" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">transform</tt><big>(</big><em>T</em><big>)</big><a class="headerlink" href="#getfem.Mesh.transform" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Applies the matrix <cite>T</cite> to each point of the mesh.</p>
 <p>Note that <cite>T</cite> is not required to be a <tt class="docutils literal"><span class="pre">NxN</span></tt> matrix (with
 <tt class="docutils literal"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">Mesh.dim()</span></tt>). Hence it is possible to transform
@@ -688,13 +693,13 @@ a 2D mesh into a 3D one (and reciprocally).</p>
 
 <dl class="method">
 <dt id="getfem.Mesh.translate">
-<tt class="descname">translate</tt><big>(</big><em>V</em><big>)</big><a class="headerlink" href="#getfem.Mesh.translate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">translate</tt><big>(</big><em>V</em><big>)</big><a class="headerlink" href="#getfem.Mesh.translate" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Translates each point of the mesh from <cite>V</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Mesh.triangulated_surface">
-<tt class="descname">triangulated_surface</tt><big>(</big><em>Nrefine</em>, <em>CVLIST=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.triangulated_surface" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">triangulated_surface</tt><big>(</big><em>Nrefine</em>, <em>CVLIST=None</em><big>)</big><a class="headerlink" href="#getfem.Mesh.triangulated_surface" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>[DEPRECATED FUNCTION! will be removed in a future release]</p>
 <p>Similar function to Mesh.curved_edges() : split (if
 necessary, i.e. if the geometric transformation if non-linear)
@@ -713,14 +718,14 @@ each face into sub-triangles and return their coordinates in T
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_LevelSet.html"
-                        title="previous chapter">LevelSet</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">LevelSet</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_MeshFem.html"
-                        title="next chapter">MeshFem</a></p>            <h3>Download</h3>
+                        title="次の章へ">MeshFem</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -737,21 +742,20 @@ each face into sub-triangles and return their coordinates in T
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -760,18 +764,18 @@ each face into sub-triangles and return their coordinates in T
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_MeshFem.html" title="MeshFem"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_LevelSet.html" title="LevelSet"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -780,7 +784,7 @@ each face into sub-triangles and return their coordinates in T
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

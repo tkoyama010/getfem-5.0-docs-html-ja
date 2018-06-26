@@ -8,46 +8,47 @@
     
     <title>Appendix B. Cubature method list &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="References" href="../biblio.html" />
     <link rel="prev" title="Appendix A. Finite element method list" href="appendixA.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="../biblio.html" title="References"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="appendixA.html" title="Appendix A. Finite element method list"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,7 +62,7 @@
           <div class="body">
             
   <div class="section" id="appendix-b-cubature-method-list">
-<span id="ud-appendixb"></span><h1>Appendix B. Cubature method list<a class="headerlink" href="#appendix-b-cubature-method-list" title="Permalink to this headline">¶</a></h1>
+<span id="ud-appendixb"></span><h1>Appendix B. Cubature method list<a class="headerlink" href="#appendix-b-cubature-method-list" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>The integration methods are of two kinds. Exact integrations of polynomials and
 approximated integrations (cubature formulas) of any function. The exact
 integration can only be used if all the elements are polynomial and if the
@@ -74,7 +75,7 @@ geometric transformation is linear.</p>
 <p>The program <tt class="docutils literal"><span class="pre">integration</span></tt> located in the <tt class="docutils literal"><span class="pre">tests</span></tt> directory lists and checks
 the degree of each integration method.</p>
 <div class="section" id="exact-integration-methods">
-<h2>Exact Integration methods<a class="headerlink" href="#exact-integration-methods" title="Permalink to this headline">¶</a></h2>
+<h2>Exact Integration methods<a class="headerlink" href="#exact-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><em>GetFEM++</em> furnishes a set of exact integration methods. This means that polynomials are integrated exactly. However, their use is (very) limited and not recommended. The use of exact integration methods is limited to the low-level generic assembly for polynomial <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/>-equivalent elements with linear transformations and for linear terms. It is not possible to use them in the high-level generic assembly.</p>
 <p>The list of available exact integration methods is the following</p>
 <blockquote>
@@ -113,14 +114,14 @@ on such elements are
 nonlinear and the exact integration cannot be used.</p>
 </div>
 <div class="section" id="newton-cotes-integration-methods">
-<h2>Newton cotes Integration methods<a class="headerlink" href="#newton-cotes-integration-methods" title="Permalink to this headline">¶</a></h2>
+<h2>Newton cotes Integration methods<a class="headerlink" href="#newton-cotes-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Newton cotes integration of order <tt class="docutils literal"><span class="pre">K</span></tt> on simplices, parallelepipeds
 and prisms
 are denoted by <tt class="docutils literal"><span class="pre">&quot;IM_NC(N,K)&quot;</span></tt>, <tt class="docutils literal"><span class="pre">&quot;IM_NC_PARALLELEPIPED(N,K)&quot;</span></tt> and
 <tt class="docutils literal"><span class="pre">&quot;IM_NC_PRISM(N,K)&quot;</span></tt> respectively.</p>
 </div>
 <div class="section" id="gauss-integration-methods-on-dimension-1">
-<h2>Gauss Integration methods on dimension 1<a class="headerlink" href="#gauss-integration-methods-on-dimension-1" title="Permalink to this headline">¶</a></h2>
+<h2>Gauss Integration methods on dimension 1<a class="headerlink" href="#gauss-integration-methods-on-dimension-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Gauss-Legendre integration on the segment of order
 <tt class="docutils literal"><span class="pre">K</span></tt> (with <tt class="docutils literal"><span class="pre">K/2+1</span></tt> points)
 are denoted by <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS1D(K)&quot;</span></tt>. Gauss-Lobatto-Legendre integration on the
@@ -130,7 +131,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <tt class="docutils literal"><span class="pre">&quot;FEM_PK_GAUSSLOBATTO1D(K/2)&quot;</span></tt> to perform mass-lumping.</p>
 </div>
 <div class="section" id="gauss-integration-methods-on-dimension-2">
-<h2>Gauss Integration methods on dimension 2<a class="headerlink" href="#gauss-integration-methods-on-dimension-2" title="Permalink to this headline">¶</a></h2>
+<h2>Gauss Integration methods on dimension 2<a class="headerlink" href="#gauss-integration-methods-on-dimension-2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><table border="1" class="docutils">
 <caption>Integration methods on dimension 2</caption>
@@ -148,7 +149,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img alt="../_images/getfemlistintmethodtriangle1.png" class="first last" src="../_images/getfemlistintmethodtriangle1.png" />
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtriangle1.png"><img alt="../_images/getfemlistintmethodtriangle1.png" src="../_images/getfemlistintmethodtriangle1.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td>(1/3, 1/3)</td>
 <td>1/2</td>
@@ -156,7 +157,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">1 point, order 1.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><img alt="../_images/getfemlistintmethodtriangle2.png" class="first last" src="../_images/getfemlistintmethodtriangle2.png" />
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtriangle2.png"><img alt="../_images/getfemlistintmethodtriangle2.png" src="../_images/getfemlistintmethodtriangle2.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(1/6,  1/6)</p>
 <p>(2/3,  1/6)</p>
@@ -188,7 +189,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img alt="../_images/getfemlistintmethodtriangle3.png" class="first last" src="../_images/getfemlistintmethodtriangle3.png" />
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtriangle3.png"><img alt="../_images/getfemlistintmethodtriangle3.png" src="../_images/getfemlistintmethodtriangle3.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(1/3, 1/3)</p>
 <p>(1/5, 1/5)</p>
@@ -204,7 +205,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">4 points, order 3.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><img alt="../_images/getfemlistintmethodtriangle4.png" class="first last" src="../_images/getfemlistintmethodtriangle4.png" />
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtriangle4.png"><img alt="../_images/getfemlistintmethodtriangle4.png" src="../_images/getfemlistintmethodtriangle4.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(a, a)</p>
 <p>(1-2a, a)</p>
@@ -228,7 +229,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <img class="math" src="../_images/math/416e4e6355ba53f52763222242f2abbad9b32155.png" alt="d=0.054975871827661" style="vertical-align: -1px"/></p>
 </td>
 </tr>
-<tr class="row-even"><td><img alt="../_images/getfemlistintmethodtriangle5.png" class="first last" src="../_images/getfemlistintmethodtriangle5.png" />
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtriangle5.png"><img alt="../_images/getfemlistintmethodtriangle5.png" src="../_images/getfemlistintmethodtriangle5.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(1/3, 1/3)</p>
 <p>(a, a)</p>
@@ -254,7 +255,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <img class="math" src="../_images/math/0ab99e6f8f9fe6ccf3b8c922fb07fb0f0cabc84e.png" alt="d = 31/240 - c" style="vertical-align: -5px"/></p>
 </td>
 </tr>
-<tr class="row-odd"><td><img alt="../_images/getfemlistintmethodtriangle6.png" class="first last" src="../_images/getfemlistintmethodtriangle6.png" />
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtriangle6.png"><img alt="../_images/getfemlistintmethodtriangle6.png" src="../_images/getfemlistintmethodtriangle6.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(a, a)</p>
 <p>(1-2a, a)</p>
@@ -311,7 +312,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img alt="../_images/getfemlistintmethodtriangle7.png" class="first last" src="../_images/getfemlistintmethodtriangle7.png" />
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtriangle7.png"><img alt="../_images/getfemlistintmethodtriangle7.png" src="../_images/getfemlistintmethodtriangle7.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(a, a)</p>
 <p>(b, a)</p>
@@ -384,7 +385,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">(see <a class="reference internal" href="../biblio.html#encyclopcubature" id="id4">[EncyclopCubature]</a>)</p>
 </td>
 </tr>
-<tr class="row-odd"><td><img alt="../_images/getfemlistintmethodquad2.png" class="first last" src="../_images/getfemlistintmethodquad2.png" />
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodquad2.png"><img alt="../_images/getfemlistintmethodquad2.png" src="../_images/getfemlistintmethodquad2.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(<img class="math" src="../_images/math/5a36a173a5dcbb1961a42ef4987a0a5d104edcf4.png" alt="1/2+\sqrt{1/6}, 1/2" style="vertical-align: -6px"/>)</p>
 <p class="last">(<img class="math" src="../_images/math/3459fa66a730c704f0992952cb1b7f833d81de08.png" alt="(1/2-\sqrt{1/24}, 1/2\pm\sqrt{1/8}" style="vertical-align: -6px"/>)</p>
@@ -414,7 +415,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img alt="../_images/getfemlistintmethodquad3.png" class="first last" src="../_images/getfemlistintmethodquad3.png" />
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodquad3.png"><img alt="../_images/getfemlistintmethodquad3.png" src="../_images/getfemlistintmethodquad3.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(<img class="math" src="../_images/math/9d488c0a527f52c14d179873aa2ae7277dfb0226.png" alt="1/2\pm\sqrt{1/6}, 1/2" style="vertical-align: -6px"/>)</p>
 <p class="last">(<img class="math" src="../_images/math/864587ab2ca5023bfb1d2de435aad90d16cdd463.png" alt="1/2, 1/2\pm\sqrt{1/6}" style="vertical-align: -6px"/>)</p>
@@ -426,7 +427,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">4 points, order 3</p>
 </td>
 </tr>
-<tr class="row-odd"><td><img alt="../_images/getfemlistintmethodquad5.png" class="first last" src="../_images/getfemlistintmethodquad5.png" />
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodquad5.png"><img alt="../_images/getfemlistintmethodquad5.png" src="../_images/getfemlistintmethodquad5.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(<img class="math" src="../_images/math/757f0acca96e814cfd1cd22edbbcd4b4da9d2147.png" alt="1/2, 1/2" style="vertical-align: -5px"/>)</p>
 <p>(<img class="math" src="../_images/math/d28bc910a1ac24d0b3e379e42cee3fc00f5fa7eb.png" alt="1/2 \pm \sqrt{7/30}, 1/2" style="vertical-align: -6px"/>)</p>
@@ -473,7 +474,7 @@ of two <img class="math" src="../_images/math/2eb0587f6e11a24013ee03f3f8275a93e9
 <tt class="docutils literal"><span class="pre">IM_GAUSS_PARALLELEPIPED(2,4)</span></tt> can integrate exactly that product ...</p>
 </div>
 <div class="section" id="gauss-integration-methods-on-dimension-3">
-<h2>Gauss Integration methods on dimension 3<a class="headerlink" href="#gauss-integration-methods-on-dimension-3" title="Permalink to this headline">¶</a></h2>
+<h2>Gauss Integration methods on dimension 3<a class="headerlink" href="#gauss-integration-methods-on-dimension-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><table border="1" class="docutils">
 <caption>Integration methods on dimension 3</caption>
@@ -491,7 +492,7 @@ of two <img class="math" src="../_images/math/2eb0587f6e11a24013ee03f3f8275a93e9
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img alt="../_images/getfemlistintmethodtetrahedron1.png" class="first last" src="../_images/getfemlistintmethodtetrahedron1.png" />
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtetrahedron1.png"><img alt="../_images/getfemlistintmethodtetrahedron1.png" src="../_images/getfemlistintmethodtetrahedron1.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td>(1/4, 1/4, 1/4)</td>
 <td>1/6</td>
@@ -499,7 +500,7 @@ of two <img class="math" src="../_images/math/2eb0587f6e11a24013ee03f3f8275a93e9
 <p class="last">1 point, order 1</p>
 </td>
 </tr>
-<tr class="row-odd"><td><img alt="../_images/getfemlistintmethodtetrahedron2.png" class="first last" src="../_images/getfemlistintmethodtetrahedron2.png" />
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtetrahedron2.png"><img alt="../_images/getfemlistintmethodtetrahedron2.png" src="../_images/getfemlistintmethodtetrahedron2.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first"><img class="math" src="../_images/math/5465f584091b2f27f495cbdfb19c751a0e56b0b1.png" alt="(a, a, a)" style="vertical-align: -4px"/></p>
 <p><img class="math" src="../_images/math/0c8d2f6faa4d30e89caaff681846a8aa0616aa2b.png" alt="(a, b, a)" style="vertical-align: -4px"/></p>
@@ -535,7 +536,7 @@ of two <img class="math" src="../_images/math/2eb0587f6e11a24013ee03f3f8275a93e9
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img alt="../_images/getfemlistintmethodtetrahedron3.png" class="first last" src="../_images/getfemlistintmethodtetrahedron3.png" />
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtetrahedron3.png"><img alt="../_images/getfemlistintmethodtetrahedron3.png" src="../_images/getfemlistintmethodtetrahedron3.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first">(1/4, 1/4, 1/4)</p>
 <p>(1/6, 1/6, 1/6)</p>
@@ -553,7 +554,7 @@ of two <img class="math" src="../_images/math/2eb0587f6e11a24013ee03f3f8275a93e9
 <p class="last">5 points, order 3</p>
 </td>
 </tr>
-<tr class="row-odd"><td><img alt="../_images/getfemlistintmethodtetrahedron5.png" class="first last" src="../_images/getfemlistintmethodtetrahedron5.png" />
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/getfemlistintmethodtetrahedron5.png"><img alt="../_images/getfemlistintmethodtetrahedron5.png" src="../_images/getfemlistintmethodtetrahedron5.png" style="width: 248.5px; height: 243.0px;" /></a>
 </td>
 <td><p class="first"><img class="math" src="../_images/math/cc698fec672491f4a673778447b6e778d437d189.png" alt="(1/4, 1/4, 1/4)" style="vertical-align: -5px"/></p>
 <p><img class="math" src="../_images/math/5465f584091b2f27f495cbdfb19c751a0e56b0b1.png" alt="(a, a, a)" style="vertical-align: -4px"/></p>
@@ -654,17 +655,21 @@ of two <img class="math" src="../_images/math/2eb0587f6e11a24013ee03f3f8275a93e9
 </div></blockquote>
 </div>
 <div class="section" id="direct-product-of-integration-methods">
-<h2>Direct product of integration methods<a class="headerlink" href="#direct-product-of-integration-methods" title="Permalink to this headline">¶</a></h2>
+<h2>Direct product of integration methods<a class="headerlink" href="#direct-product-of-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>You can use <tt class="docutils literal"><span class="pre">&quot;IM_PRODUCT(IM1,</span> <span class="pre">IM2)&quot;</span></tt> to produce integration methods on
 quadrilateral or prisms. It gives the direct product of two integration methods.
 For instance <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(2,k)&quot;</span></tt> is an alias for
 <tt class="docutils literal"><span class="pre">&quot;IM_PRODUCT(IM_GAUSS1D(2,k),IM_GAUSS1D(2,k))&quot;</span></tt> and can be use instead of the
 <tt class="docutils literal"><span class="pre">&quot;IM_QUAD&quot;</span></tt> integrations.</p>
 </div>
+<div class="section" id="specific-integration-methods">
+<h2>Specific integration methods<a class="headerlink" href="#specific-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>For pyramidal elements, <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID(im)&quot;</span></tt> provides an integration method corresponding to the transformation of an integration <tt class="docutils literal"><span class="pre">im</span></tt> from a hexahedron (for instance <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(3,5)&quot;</span></tt>) onto a pyramid. It is a singular integration method specically adapted to rational fraction shape functions of the pyramidal elements.</p>
+</div>
 <div class="section" id="composite-integration-methods">
-<h2>Composite integration methods<a class="headerlink" href="#composite-integration-methods" title="Permalink to this headline">¶</a></h2>
+<h2>Composite integration methods<a class="headerlink" href="#composite-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-center" id="ud-fig-triangle-compcinq">
-<a class="reference internal image-reference" href="../_images/getfemlistintmethodtriangle2comp.png"><img alt="../_images/getfemlistintmethodtriangle2comp.png" src="../_images/getfemlistintmethodtriangle2comp.png" style="width: 174.3px; height: 170.1px;" /></a>
+<a class="reference internal image-reference" href="../_images/getfemlistintmethodtriangle2comp.png"><img alt="../_images/getfemlistintmethodtriangle2comp.png" src="../_images/getfemlistintmethodtriangle2comp.png" style="width: 347.9px; height: 340.2px;" /></a>
 <p class="caption">Composite method <tt class="docutils literal"><span class="pre">&quot;IM_STRUCTURED_COMPOSITE(IM_TRIANGLE(2),</span> <span class="pre">3)&quot;</span></tt></p>
 </div>
 <p>Use <tt class="docutils literal"><span class="pre">&quot;IM_STRUCTURED_COMPOSITE(IM1,</span> <span class="pre">S)&quot;</span></tt> to copy <tt class="docutils literal"><span class="pre">IM1</span></tt> on an element with <tt class="docutils literal"><span class="pre">S</span></tt>
@@ -676,6 +681,7 @@ basic method <tt class="docutils literal"><span class="pre">IM1</span></tt> with
 not defined on the boundary of sub-elements).</p>
 <p>For the HCT element, it is advised to use the <tt class="docutils literal"><span class="pre">&quot;IM_HCT_COMPOSITE(im)&quot;</span></tt> composite
 integration (which split the original triangle into 3 sub-triangles).</p>
+<p>For pyramidal elements, <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID_COMPOSITE(im)&quot;</span></tt> provides an integration method ase on the decomposition of the pyramid into two tetrahedrons (<tt class="docutils literal"><span class="pre">im</span></tt> should be an integration method on a tetrahedron). Note that the integraton method <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID(im)&quot;</span></tt> where <tt class="docutils literal"><span class="pre">im</span></tt> is an integration method on an hexahedron, should be prefered.</p>
 </div>
 </div>
 
@@ -686,9 +692,9 @@ integration (which split the original triangle into 3 sub-triangles).</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Appendix B. Cubature method list</a><ul>
 <li><a class="reference internal" href="#exact-integration-methods">Exact Integration methods</a></li>
@@ -697,17 +703,18 @@ integration (which split the original triangle into 3 sub-triangles).</p>
 <li><a class="reference internal" href="#gauss-integration-methods-on-dimension-2">Gauss Integration methods on dimension 2</a></li>
 <li><a class="reference internal" href="#gauss-integration-methods-on-dimension-3">Gauss Integration methods on dimension 3</a></li>
 <li><a class="reference internal" href="#direct-product-of-integration-methods">Direct product of integration methods</a></li>
+<li><a class="reference internal" href="#specific-integration-methods">Specific integration methods</a></li>
 <li><a class="reference internal" href="#composite-integration-methods">Composite integration methods</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="appendixA.html"
-                        title="previous chapter">Appendix A. Finite element method list</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Appendix A. Finite element method list</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="../biblio.html"
-                        title="next chapter">References</a></p>            <h3>Download</h3>
+                        title="次の章へ">References</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -724,21 +731,20 @@ integration (which split the original triangle into 3 sub-triangles).</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -747,18 +753,18 @@ integration (which split the original triangle into 3 sub-triangles).</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="../biblio.html" title="References"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="appendixA.html" title="Appendix A. Finite element method list"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -766,7 +772,7 @@ integration (which split the original triangle into 3 sub-triangles).</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

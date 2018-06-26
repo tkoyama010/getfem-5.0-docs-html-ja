@@ -8,46 +8,47 @@
     
     <title>Examples &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="MatLab Interface" href="index.html" />
     <link rel="next" title="Draw Command reference" href="plotcmdref.html" />
     <link rel="prev" title="GetFEM++ organization" href="mlabgf.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="plotcmdref.html" title="Draw Command reference"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="mlabgf.html" title="GetFEM++ organization"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,9 +62,9 @@
           <div class="body">
             
   <div class="section" id="examples">
-<span id="mlab-examples"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<span id="mlab-examples"></span><h1>Examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="a-step-by-step-basic-example">
-<span id="mlab-laplacianexample"></span><h2>A step-by-step basic example<a class="headerlink" href="#a-step-by-step-basic-example" title="Permalink to this headline">¶</a></h2>
+<span id="mlab-laplacianexample"></span><h2>A step-by-step basic example<a class="headerlink" href="#a-step-by-step-basic-example" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This example shows the basic usage of getfem, on the über-canonical problem above
 all others: solving the <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">Laplacian</span></tt>, <img class="math" src="../_images/math/9d8850362727d1a8a9e76c4d0cc31f56efe39292.png" alt="-\Delta u = f" style="vertical-align: -4px"/> on a square,
 with the Dirichlet condition <img class="math" src="../_images/math/204955570f9d78fc69195a1d6bec6aa58aa45f2e.png" alt="u = g(x)" style="vertical-align: -4px"/> on the domain boundary. You can find
@@ -259,7 +260,7 @@ system which was solved). It is extracted, a display into a <em>MatLab</em> figu
 </div>
 </div>
 <div class="section" id="another-laplacian-with-exact-solution">
-<h2>Another Laplacian with exact solution<a class="headerlink" href="#another-laplacian-with-exact-solution" title="Permalink to this headline">¶</a></h2>
+<h2>Another Laplacian with exact solution<a class="headerlink" href="#another-laplacian-with-exact-solution" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This is the <tt class="file docutils literal"><span class="pre">tests/matlab/demo_laplacian.m</span></tt> example.</p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="c">% trace on;</span>
 <span class="n">gf_workspace</span><span class="p">(</span><span class="s">&#39;clear all&#39;</span><span class="p">);</span>
@@ -319,7 +320,7 @@ system which was solved). It is extracted, a display into a <em>MatLab</em> figu
 </div>
 </div>
 <div class="section" id="linear-and-non-linear-elasticity">
-<h2>Linear and non-linear elasticity<a class="headerlink" href="#linear-and-non-linear-elasticity" title="Permalink to this headline">¶</a></h2>
+<h2>Linear and non-linear elasticity<a class="headerlink" href="#linear-and-non-linear-elasticity" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This example uses a mesh that was generated with <a class="reference external" href="http://gid.cimne.upc.es">GiD</a>. The object is meshed
 with quadratic tetrahedrons. You can find the <tt class="docutils literal"><span class="pre">m-file</span></tt> of this example under
 the name <tt class="file docutils literal"><span class="pre">demo_tripod.m</span></tt> in the directory <tt class="file docutils literal"><span class="pre">tests/matlab</span></tt> of the
@@ -444,35 +445,35 @@ toolbox distribution.</p>
 </div>
 </div>
 <div class="section" id="avoiding-the-bricks-framework">
-<h2>Avoiding the bricks framework<a class="headerlink" href="#avoiding-the-bricks-framework" title="Permalink to this headline">¶</a></h2>
+<h2>Avoiding the bricks framework<a class="headerlink" href="#avoiding-the-bricks-framework" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The model bricks are very convenient, as they hide most of the details of the
 assembly of the final linear systems. However it is also possible to stay at a
 lower level, and handle the assembly of linear systems, and their resolution,
 directly in <em>MatLab</em>. For example, the demonstration <tt class="file docutils literal"><span class="pre">demo_tripod_alt.m</span></tt> is
 very similar to the <tt class="file docutils literal"><span class="pre">demo_tripod.m</span></tt> except that the assembly is explicit:</p>
-<div class="highlight-matlab"><pre>nbd=get(mfd, 'nbdof');
-F = gf_asm('boundary_source', 1, mim, mfu, mfd, repmat([0;-10;0],1,nbd));
-K = gf_asm('linear_elasticity', mim, mfu, mfd, ...
+<div class="highlight-matlab"><pre>nbd=get(mfd, &#x27;nbdof&#x27;);
+F = gf_asm(&#x27;boundary_source&#x27;, 1, mim, mfu, mfd, repmat([0;-10;0],1,nbd));
+K = gf_asm(&#x27;linear_elasticity&#x27;, mim, mfu, mfd, ...
            lambda*ones(1,nbd),mu*ones(1,nbd));
 
 % handle Dirichlet condition
-[H,R]=gf_asm('dirichlet', 2, mim, mfu, mfd, repmat(eye(3),[1,1,nbd]), zeros(3, nbd));
-[N,U0]=gf_spmat_get(H, 'dirichlet_nullspace', R);
-KK=N'*K*N;
-FF=N'*F;
+[H,R]=gf_asm(&#x27;dirichlet&#x27;, 2, mim, mfu, mfd, repmat(eye(3),[1,1,nbd]), zeros(3, nbd));
+[N,U0]=gf_spmat_get(H, &#x27;dirichlet_nullspace&#x27;, R);
+KK=N&#x27;*K*N;
+FF=N&#x27;*F;
 % solve ...
-disp('solving...'); t0 = cputime;
+disp(&#x27;solving...&#x27;); t0 = cputime;
 lsolver = 1 % change this to compare the different solvers
 if (lsolver == 1),     % conjugate gradient
-  P=gfPrecond('ildlt',KK);
-  UU=gf_linsolve('cg',KK,FF,P,'noisy','res',1e-9);
+  P=gfPrecond(&#x27;ildlt&#x27;,KK);
+  UU=gf_linsolve(&#x27;cg&#x27;,KK,FF,P,&#x27;noisy&#x27;,&#x27;res&#x27;,1e-9);
 elseif (lsolver == 2), % superlu
-  UU=gf_linsolve('superlu',KK,FF);
-else                   % the matlab "slash" operator
+  UU=gf_linsolve(&#x27;superlu&#x27;,KK,FF);
+else                   % the matlab &quot;slash&quot; operator
   UU=KK \ FF;
 end;
-disp(sprintf('linear system solved in \%.2f sec', cputime-t0));
-U=(N*UU).'+U0;</pre>
+disp(sprintf(&#x27;linear system solved in \%.2f sec&#x27;, cputime-t0));
+U=(N*UU).&#x27;+U0;</pre>
 </div>
 <p>In <em>getfem-interface</em>, the assembly of vectors, and matrices is done via the <tt class="docutils literal"><span class="pre">gf_asm</span></tt>
 function. The Dirichlet condition <img class="math" src="../_images/math/0a8209de9a11595e255d5043a87420c5e234e20f.png" alt="u(x) = r(x)" style="vertical-align: -4px"/> is handled in the weak form
@@ -484,7 +485,7 @@ efficient (and simpler) to deal with Dirichlet condition via a penalization
 technique.</p>
 </div>
 <div class="section" id="other-examples">
-<h2>Other examples<a class="headerlink" href="#other-examples" title="Permalink to this headline">¶</a></h2>
+<h2>Other examples<a class="headerlink" href="#other-examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>the <tt class="file docutils literal"><span class="pre">demo_refine.m</span></tt> script shows a simple 2D or 3D bar whose extremity is
 clamped. An adaptative refinement is used to obtain a better approximation in
@@ -512,7 +513,7 @@ order FEMs.</li>
 </ul>
 </div>
 <div class="section" id="using-matlab-object-oriented-features">
-<h2>Using Matlab Object-Oriented features<a class="headerlink" href="#using-matlab-object-oriented-features" title="Permalink to this headline">¶</a></h2>
+<h2>Using Matlab Object-Oriented features<a class="headerlink" href="#using-matlab-object-oriented-features" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The basic functions of the <em>GetFEM++</em> toolbox do not use any advanced <em>MatLab</em> features
 (except that the handles to getfem objects are stored in a small <em>MatLab</em>
 structure). But the toolbox comes with a set of <em>MatLab</em> objects, which encapsulate
@@ -551,9 +552,9 @@ extra-functionalities, but to have a better integration of the toolbox with
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Examples</a><ul>
 <li><a class="reference internal" href="#a-step-by-step-basic-example">A step-by-step basic example</a></li>
@@ -566,12 +567,12 @@ extra-functionalities, but to have a better integration of the toolbox with
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="mlabgf.html"
-                        title="previous chapter"><em>GetFEM++</em> organization</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ"><em>GetFEM++</em> organization</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="plotcmdref.html"
-                        title="next chapter">Draw Command reference</a></p>            <h3>Download</h3>
+                        title="次の章へ">Draw Command reference</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -588,21 +589,20 @@ extra-functionalities, but to have a better integration of the toolbox with
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -611,18 +611,18 @@ extra-functionalities, but to have a better integration of the toolbox with
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="plotcmdref.html" title="Draw Command reference"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="mlabgf.html" title="GetFEM++ organization"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -630,7 +630,7 @@ extra-functionalities, but to have a better integration of the toolbox with
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

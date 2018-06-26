@@ -8,46 +8,47 @@
     
     <title>gf_cont_struct_get &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_cvstruct_get" href="cmdref_gf_cvstruct_get.html" />
     <link rel="prev" title="gf_cont_struct" href="cmdref_gf_cont_struct.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_cvstruct_get.html" title="gf_cvstruct_get"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_gf_cont_struct.html" title="gf_cont_struct"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,21 +63,21 @@
           <div class="body">
             
   <div class="section" id="gf-cont-struct-get">
-<h1>gf_cont_struct_get<a class="headerlink" href="#gf-cont-struct-get" title="Permalink to this headline">¶</a></h1>
+<h1>gf_cont_struct_get<a class="headerlink" href="#gf-cont-struct-get" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>h = gf_cont_struct_get(cont_struct CS, 'init step size')
-h = gf_cont_struct_get(cont_struct CS, 'min step size')
-h = gf_cont_struct_get(cont_struct CS, 'max step size')
-h = gf_cont_struct_get(cont_struct CS, 'step size decrement')
-h = gf_cont_struct_get(cont_struct CS, 'step size increment')
-[vec tangent_sol, scalar tangent_par] = gf_cont_struct_get(cont_struct CS, 'compute tangent', vec solution, scalar parameter, vec tangent_sol, scalar tangent_par)
-E = gf_cont_struct_get(cont_struct CS, 'init Moore-Penrose continuation', vec solution, scalar parameter, scalar init_dir)
-E = gf_cont_struct_get(cont_struct CS, 'Moore-Penrose continuation', vec solution, scalar parameter, vec tangent_sol, scalar tangent_par, scalar h)
-t = gf_cont_struct_get(cont_struct CS, 'non-smooth bifurcation test', vec solution1, scalar parameter1, vec tangent_sol1, scalar tangent_par1, vec solution2, scalar parameter2, vec tangent_sol2, scalar tangent_par2)
-t = gf_cont_struct_get(cont_struct CS, 'bifurcation test function')
-{X, gamma, T_X, T_gamma} = gf_cont_struct_get(cont_struct CS, 'sing_data')
-s = gf_cont_struct_get(cont_struct CS, 'char')
-gf_cont_struct_get(cont_struct CS, 'display')</pre>
+<div class="highlight-python"><pre>h = gf_cont_struct_get(cont_struct CS, &#x27;init step size&#x27;)
+h = gf_cont_struct_get(cont_struct CS, &#x27;min step size&#x27;)
+h = gf_cont_struct_get(cont_struct CS, &#x27;max step size&#x27;)
+h = gf_cont_struct_get(cont_struct CS, &#x27;step size decrement&#x27;)
+h = gf_cont_struct_get(cont_struct CS, &#x27;step size increment&#x27;)
+[vec tangent_sol, scalar tangent_par] = gf_cont_struct_get(cont_struct CS, &#x27;compute tangent&#x27;, vec solution, scalar parameter, vec tangent_sol, scalar tangent_par)
+E = gf_cont_struct_get(cont_struct CS, &#x27;init Moore-Penrose continuation&#x27;, vec solution, scalar parameter, scalar init_dir)
+E = gf_cont_struct_get(cont_struct CS, &#x27;Moore-Penrose continuation&#x27;, vec solution, scalar parameter, vec tangent_sol, scalar tangent_par, scalar h)
+t = gf_cont_struct_get(cont_struct CS, &#x27;non-smooth bifurcation test&#x27;, vec solution1, scalar parameter1, vec tangent_sol1, scalar tangent_par1, vec solution2, scalar parameter2, vec tangent_sol2, scalar tangent_par2)
+t = gf_cont_struct_get(cont_struct CS, &#x27;bifurcation test function&#x27;)
+{X, gamma, T_X, T_gamma} = gf_cont_struct_get(cont_struct CS, &#x27;sing_data&#x27;)
+s = gf_cont_struct_get(cont_struct CS, &#x27;char&#x27;)
+gf_cont_struct_get(cont_struct CS, &#x27;display&#x27;)</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -155,14 +156,14 @@ This function is to be completed.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_cont_struct.html"
-                        title="previous chapter">gf_cont_struct</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">gf_cont_struct</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_cvstruct_get.html"
-                        title="next chapter">gf_cvstruct_get</a></p>            <h3>Download</h3>
+                        title="次の章へ">gf_cvstruct_get</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -179,21 +180,20 @@ This function is to be completed.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -202,18 +202,18 @@ This function is to be completed.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_cvstruct_get.html" title="gf_cvstruct_get"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_gf_cont_struct.html" title="gf_cont_struct"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -222,7 +222,7 @@ This function is to be completed.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

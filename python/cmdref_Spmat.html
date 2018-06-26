@@ -8,46 +8,47 @@
     
     <title>Spmat &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="Module asm" href="cmdref_Module asm.html" />
     <link rel="prev" title="Slice" href="cmdref_Slice.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_Module asm.html" title="Module asm"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_Slice.html" title="Slice"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,11 +63,11 @@
           <div class="body">
             
   <div class="section" id="spmat">
-<h1>Spmat<a class="headerlink" href="#spmat" title="Permalink to this headline">¶</a></h1>
+<h1>Spmat<a class="headerlink" href="#spmat" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt id="getfem.Spmat">
-<em class="property">class </em><tt class="descname">Spmat</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.Spmat" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetFEM Spmat object</p>
+<em class="property">class </em><tt class="descname">Spmat</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.Spmat" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>GeFEM Spmat object</p>
 <p>Create a new sparse matrix in getfem++ format. These sparse matrix can be stored as CSC (compressed column
 sparse), which is the format used by Matlab, or they can be stored as WSC
 (internal format to getfem). The CSC matrices are not writable (it would
@@ -118,21 +119,21 @@ Read a sparse matrix from an Harwell-Boeing or a Matrix-Market file
 </ul>
 <dl class="method">
 <dt id="getfem.Spmat.add">
-<tt class="descname">add</tt><big>(</big><em>I</em>, <em>J</em>, <em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.add" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">add</tt><big>(</big><em>I</em>, <em>J</em>, <em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.add" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add <cite>V</cite> to the sub-matrix &#8216;M(I,J)&#8217;.</p>
 <p><cite>V</cite> might be a sparse matrix or a full matrix.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.assign">
-<tt class="descname">assign</tt><big>(</big><em>I</em>, <em>J</em>, <em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.assign" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">assign</tt><big>(</big><em>I</em>, <em>J</em>, <em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.assign" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Copy V into the sub-matrix &#8216;M(I,J)&#8217;.</p>
 <p><cite>V</cite> might be a sparse matrix or a full matrix.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.char">
-<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.char" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.char" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Output a (unique) string representation of the Spmat.</p>
 <p>This can be used to perform comparisons between two
 different Spmat objects.
@@ -141,7 +142,7 @@ This function is to be completed.</p>
 
 <dl class="method">
 <dt id="getfem.Spmat.clear">
-<tt class="descname">clear</tt><big>(</big><em>I=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Spmat.clear" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">clear</tt><big>(</big><em>I=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Spmat.clear" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: Spmat.clear(self[, list I[, list J]])</p>
 <p>Erase the non-zero entries of the matrix.</p>
 <p>The optional arguments <cite>I</cite> and <cite>J</cite> may be specified to clear a
@@ -150,40 +151,40 @@ sub-matrix instead of the entire matrix.</p>
 
 <dl class="method">
 <dt id="getfem.Spmat.conjugate">
-<tt class="descname">conjugate</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.conjugate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">conjugate</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.conjugate" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Conjugate each element of the matrix.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.csc_ind">
-<tt class="descname">csc_ind</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.csc_ind" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">csc_ind</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.csc_ind" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the two usual index arrays of CSC storage.</p>
 <p>If <cite>M</cite> is not stored as a CSC matrix, it is converted into CSC.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.csc_val">
-<tt class="descname">csc_val</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.csc_val" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">csc_val</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.csc_val" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the array of values of all non-zero entries of <cite>M</cite>.</p>
 <p>If <cite>M</cite> is not stored as a CSC matrix, it is converted into CSC.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.determinant">
-<tt class="descname">determinant</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.determinant" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">determinant</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.determinant" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>returns the matrix determinant calculated using MUMPS.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.diag">
-<tt class="descname">diag</tt><big>(</big><em>E=None</em><big>)</big><a class="headerlink" href="#getfem.Spmat.diag" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">diag</tt><big>(</big><em>E=None</em><big>)</big><a class="headerlink" href="#getfem.Spmat.diag" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the diagonal of <cite>M</cite> as a vector.</p>
 <p>If <cite>E</cite> is used, return the sub-diagonals whose ranks are given in E.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.dirichlet_nullspace">
-<tt class="descname">dirichlet_nullspace</tt><big>(</big><em>R</em><big>)</big><a class="headerlink" href="#getfem.Spmat.dirichlet_nullspace" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">dirichlet_nullspace</tt><big>(</big><em>R</em><big>)</big><a class="headerlink" href="#getfem.Spmat.dirichlet_nullspace" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Solve the dirichlet conditions <cite>M.U=R</cite>.</p>
 <p>A solution <cite>U0</cite> which has a minimum L2-norm is returned, with a
 sparse matrix <cite>N</cite> containing an orthogonal basis of the kernel of
@@ -196,13 +197,13 @@ should be solved on this subspace): the initial problem</p>
 
 <dl class="method">
 <dt id="getfem.Spmat.display">
-<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.display" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.display" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>displays a short summary for a Spmat object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.full">
-<tt class="descname">full</tt><big>(</big><em>I=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Spmat.full" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">full</tt><big>(</big><em>I=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Spmat.full" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: Sm = Spmat.full(self[, list I[, list J]])</p>
 <p>Return a full (sub-)matrix.</p>
 <p>The optional arguments <cite>I</cite> and <cite>J</cite>, are the sub-intervals for the
@@ -211,26 +212,26 @@ rows and columns that are to be extracted.</p>
 
 <dl class="method">
 <dt id="getfem.Spmat.is_complex">
-<tt class="descname">is_complex</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.is_complex" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">is_complex</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.is_complex" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return 1 if the matrix contains complex values.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.mult">
-<tt class="descname">mult</tt><big>(</big><em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.mult" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mult</tt><big>(</big><em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.mult" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Product of the sparse matrix <cite>M</cite> with a vector <cite>V</cite>.</p>
 <p>For matrix-matrix multiplications, see Spmat(&#8216;mult&#8217;).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.nnz">
-<tt class="descname">nnz</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.nnz" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">nnz</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.nnz" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the number of non-null values stored in the sparse matrix.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.save">
-<tt class="descname">save</tt><big>(</big><em>format</em>, <em>filename</em><big>)</big><a class="headerlink" href="#getfem.Spmat.save" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">save</tt><big>(</big><em>format</em>, <em>filename</em><big>)</big><a class="headerlink" href="#getfem.Spmat.save" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Export the sparse matrix.</p>
 <p>the format of the file may be &#8216;hb&#8217; for Harwell-Boeing, or &#8216;mm&#8217;
 for Matrix-Market.</p>
@@ -238,13 +239,13 @@ for Matrix-Market.</p>
 
 <dl class="method">
 <dt id="getfem.Spmat.scale">
-<tt class="descname">scale</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#getfem.Spmat.scale" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">scale</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#getfem.Spmat.scale" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Multiplies the matrix by a scalar value <cite>v</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.set_diag">
-<tt class="descname">set_diag</tt><big>(</big><em>D</em>, <em>E=None</em><big>)</big><a class="headerlink" href="#getfem.Spmat.set_diag" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">set_diag</tt><big>(</big><em>D</em>, <em>E=None</em><big>)</big><a class="headerlink" href="#getfem.Spmat.set_diag" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Change the diagonal (or sub-diagonals) of the matrix.</p>
 <p>If <cite>E</cite> is given, <cite>D</cite> might be a matrix and each column of <cite>E</cite> will
 contain the sub-diagonal number that will be filled with the
@@ -253,53 +254,53 @@ corresponding column of <cite>D</cite>.</p>
 
 <dl class="method">
 <dt id="getfem.Spmat.size">
-<tt class="descname">size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.size" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">size</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.size" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return a vector where <cite>ni</cite> and <cite>nj</cite> are the dimensions of the matrix.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.storage">
-<tt class="descname">storage</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.storage" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">storage</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.storage" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the storage type currently used for the matrix.</p>
 <p>The storage is returned as a string, either &#8216;CSC&#8217; or &#8216;WSC&#8217;.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.tmult">
-<tt class="descname">tmult</tt><big>(</big><em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.tmult" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tmult</tt><big>(</big><em>V</em><big>)</big><a class="headerlink" href="#getfem.Spmat.tmult" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Product of <cite>M</cite> transposed (conjugated if <cite>M</cite> is complex) with the
 vector <cite>V</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.to_complex">
-<tt class="descname">to_complex</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.to_complex" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_complex</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.to_complex" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Store complex numbers.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.to_csc">
-<tt class="descname">to_csc</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.to_csc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_csc</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.to_csc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Convert the matrix to CSC storage.</p>
 <p>CSC storage is recommended for matrix-vector multiplications.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.to_wsc">
-<tt class="descname">to_wsc</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.to_wsc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_wsc</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.to_wsc" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Convert the matrix to WSC storage.</p>
 <p>Read and write operation are quite fast with WSC storage.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.transconj">
-<tt class="descname">transconj</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.transconj" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">transconj</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.transconj" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Transpose and conjugate the matrix.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Spmat.transpose">
-<tt class="descname">transpose</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.transpose" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">transpose</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Spmat.transpose" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Transpose the matrix.</p>
 </dd></dl>
 
@@ -314,14 +315,14 @@ vector <cite>V</cite>.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_Slice.html"
-                        title="previous chapter">Slice</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Slice</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_Module asm.html"
-                        title="next chapter">Module asm</a></p>            <h3>Download</h3>
+                        title="次の章へ">Module asm</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -338,21 +339,20 @@ vector <cite>V</cite>.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -361,18 +361,18 @@ vector <cite>V</cite>.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_Module asm.html" title="Module asm"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_Slice.html" title="Slice"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -381,7 +381,7 @@ vector <cite>V</cite>.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

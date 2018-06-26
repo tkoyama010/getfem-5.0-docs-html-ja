@@ -8,46 +8,47 @@
     
     <title>Draw Command reference &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="SciLab Interface" href="index.html" />
     <link rel="next" title="Command reference" href="cmdref.html" />
     <link rel="prev" title="GetFEM++ organization" href="scilabgf.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="scilabgf.html" title="GetFEM++ organization"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,9 +62,9 @@
           <div class="body">
             
   <div class="section" id="draw-command-reference">
-<span id="scilab-plotcmdref"></span><h1>Draw Command reference<a class="headerlink" href="#draw-command-reference" title="Permalink to this headline">¶</a></h1>
+<span id="scilab-plotcmdref"></span><h1>Draw Command reference<a class="headerlink" href="#draw-command-reference" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="gf-colormap">
-<h2>gf_colormap<a class="headerlink" href="#gf-colormap" title="Permalink to this headline">¶</a></h2>
+<h2>gf_colormap<a class="headerlink" href="#gf-colormap" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>Synopsis</strong></p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="n">c</span><span class="p">=</span><span class="n">gf_colormap</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
@@ -75,7 +76,7 @@ name can be: &#8216;tripod&#8217;, &#8216;chouette&#8217;, &#8216;froid&#8217;, 
 or &#8216;earth&#8217;.</div></blockquote>
 </div>
 <div class="section" id="gf-plot">
-<h2>gf_plot<a class="headerlink" href="#gf-plot" title="Permalink to this headline">¶</a></h2>
+<h2>gf_plot<a class="headerlink" href="#gf-plot" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>Synopsis</strong></p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="p">[</span><span class="n">hsurf</span><span class="p">,</span> <span class="n">hcontour</span><span class="p">,</span> <span class="n">hquiver</span><span class="p">,</span> <span class="n">hmesh</span><span class="p">,</span> <span class="n">hdefmesh</span><span class="p">]=</span><span class="n">gf_plot</span><span class="p">(</span><span class="n">mesh_fem</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="c">...)</span>
 
@@ -126,7 +127,7 @@ dof) labels.</p>
 </div></blockquote>
 </div>
 <div class="section" id="gf-plot-1d">
-<h2>gf_plot_1D<a class="headerlink" href="#gf-plot-1d" title="Permalink to this headline">¶</a></h2>
+<h2>gf_plot_1D<a class="headerlink" href="#gf-plot-1d" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>Synopsis</strong></p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="n">gf_plot_1D</span><span class="p">(</span><span class="n">mesh_fem</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="c">...)</span>
 
@@ -143,7 +144,7 @@ dof) labels.</p>
 <div>This function plots a 1D finite element field.</div></blockquote>
 </div>
 <div class="section" id="gf-plot-mesh">
-<h2>gf_plot_mesh<a class="headerlink" href="#gf-plot-mesh" title="Permalink to this headline">¶</a></h2>
+<h2>gf_plot_mesh<a class="headerlink" href="#gf-plot-mesh" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>Synopsis</strong></p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="n">gf_plot_mesh</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="c">...)</span>
 
@@ -176,7 +177,7 @@ dof) labels.</p>
 </div></blockquote>
 </div>
 <div class="section" id="gf-plot-slice">
-<h2>gf_plot_slice<a class="headerlink" href="#gf-plot-slice" title="Permalink to this headline">¶</a></h2>
+<h2>gf_plot_slice<a class="headerlink" href="#gf-plot-slice" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><strong>Synopsis</strong></p>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="n">gf_plot_slice</span><span class="p">(</span><span class="n">sl</span><span class="p">,</span> <span class="c">...)</span>
 
@@ -258,9 +259,9 @@ dof) labels.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Draw Command reference</a><ul>
 <li><a class="reference internal" href="#gf-colormap">gf_colormap</a></li>
@@ -272,12 +273,12 @@ dof) labels.</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="scilabgf.html"
-                        title="previous chapter"><em>GetFEM++</em> organization</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ"><em>GetFEM++</em> organization</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref.html"
-                        title="next chapter">Command reference</a></p>            <h3>Download</h3>
+                        title="次の章へ">Command reference</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -294,21 +295,20 @@ dof) labels.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -317,18 +317,18 @@ dof) labels.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="scilabgf.html" title="GetFEM++ organization"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -336,7 +336,7 @@ dof) labels.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

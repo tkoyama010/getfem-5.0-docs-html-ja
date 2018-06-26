@@ -8,46 +8,47 @@
     
     <title>reStructuredText Primer &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Documenting" href="index.html" />
     <link rel="next" title="Additional Markup Constructs" href="markup.html" />
     <link rel="prev" title="Style Guide" href="style.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="markup.html" title="Additional Markup Constructs"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="style.html" title="Style Guide"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,25 +62,25 @@
           <div class="body">
             
   <div class="section" id="restructuredtext-primer">
-<h1>reStructuredText Primer<a class="headerlink" href="#restructuredtext-primer" title="Permalink to this headline">¶</a></h1>
+<h1>reStructuredText Primer<a class="headerlink" href="#restructuredtext-primer" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>This section is a brief introduction to reStructuredText (reST) concepts and
 syntax, intended to provide authors with enough information to author documents
 productively.  Since reST was designed to be a simple, unobtrusive markup
 language, this will not take too long.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
+<p class="first admonition-title">参考</p>
 <p class="last">The authoritative <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText User
 Documentation</a>.</p>
 </div>
 <div class="section" id="paragraphs">
-<h2>Paragraphs<a class="headerlink" href="#paragraphs" title="Permalink to this headline">¶</a></h2>
+<h2>Paragraphs<a class="headerlink" href="#paragraphs" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The paragraph is the most basic block in a reST document.  Paragraphs are simply
 chunks of text separated by one or more blank lines.  As in Python, indentation
 is significant in reST, so all lines of the same paragraph must be left-aligned
 to the same level of indentation.</p>
 </div>
 <div class="section" id="inline-markup">
-<h2>Inline markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Inline markup<a class="headerlink" href="#inline-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The standard reST inline markup is quite simple: use</p>
 <ul class="simple">
 <li>one asterisk: <tt class="docutils literal"><span class="pre">*text*</span></tt> for emphasis (italics),</li>
@@ -102,7 +103,7 @@ provide semantic markup and cross-referencing of identifiers, as described in
 the appropriate section.  The general syntax is <tt class="docutils literal"><span class="pre">:rolename:`content`</span></tt>.</p>
 </div>
 <div class="section" id="lists-and-quotes">
-<h2>Lists and Quotes<a class="headerlink" href="#lists-and-quotes" title="Permalink to this headline">¶</a></h2>
+<h2>Lists and Quotes<a class="headerlink" href="#lists-and-quotes" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>List markup is natural: just place an asterisk at the start of a paragraph and
 indent properly.  The same goes for numbered lists; they can also be
 autonumbered using a <tt class="docutils literal"><span class="pre">#</span></tt> sign:</p>
@@ -142,7 +143,7 @@ next term
 paragraphs.</p>
 </div>
 <div class="section" id="source-code">
-<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2>Source Code<a class="headerlink" href="#source-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Literal code blocks are introduced by ending a paragraph with the special marker
 <tt class="docutils literal"><span class="pre">::</span></tt>.  The literal block must be indented:</p>
 <div class="highlight-rest"><div class="highlight"><pre>This is a normal text paragraph. The next paragraph is a code sample<span class="se">::</span>
@@ -167,21 +168,21 @@ colon.</li>
 rendered as &#8220;The next paragraph is a code sample:&#8221;.</p>
 </div>
 <div class="section" id="hyperlinks">
-<h2>Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permalink to this headline">¶</a></h2>
+<h2>Hyperlinks<a class="headerlink" href="#hyperlinks" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="external-links">
-<h3>External links<a class="headerlink" href="#external-links" title="Permalink to this headline">¶</a></h3>
+<h3>External links<a class="headerlink" href="#external-links" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Use <tt class="docutils literal"><span class="pre">`Link</span> <span class="pre">text</span> <span class="pre">&lt;http://target&gt;`_</span></tt> for inline web links.  If the link text
 should be the web address, you don&#8217;t need special markup at all, the parser
 finds links and mail addresses in ordinary text.</p>
 </div>
 <div class="section" id="internal-links">
-<h3>Internal links<a class="headerlink" href="#internal-links" title="Permalink to this headline">¶</a></h3>
+<h3>Internal links<a class="headerlink" href="#internal-links" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Internal linking is done via a special reST role, see the section on specific
 markup, <a class="reference internal" href="markup.html#doc-ref-role"><em>Cross-linking markup</em></a>.</p>
 </div>
 </div>
 <div class="section" id="sections">
-<h2>Sections<a class="headerlink" href="#sections" title="Permalink to this headline">¶</a></h2>
+<h2>Sections<a class="headerlink" href="#sections" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Section headers are created by underlining (and optionally overlining) the
 section title with a punctuation character, at least as long as the text:</p>
 <div class="highlight-rest"><div class="highlight"><pre><span class="gh">=================</span>
@@ -202,7 +203,7 @@ Python documentation, we use this convention:</p>
 </ul>
 </div>
 <div class="section" id="explicit-markup">
-<h2>Explicit Markup<a class="headerlink" href="#explicit-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Explicit Markup<a class="headerlink" href="#explicit-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>&#8220;Explicit markup&#8221; is used in reST for most constructs that need special
 handling, such as footnotes, specially-highlighted paragraphs, comments, and
 generic directives.</p>
@@ -213,7 +214,7 @@ paragraphs.  This may all sound a bit complicated, but it is intuitive enough
 when you write it.)</p>
 </div>
 <div class="section" id="directives">
-<h2>Directives<a class="headerlink" href="#directives" title="Permalink to this headline">¶</a></h2>
+<h2>Directives<a class="headerlink" href="#directives" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>A directive is a generic block of explicit markup.  Besides roles, it is one of
 the extension mechanisms of reST, and Sphinx makes heavy use of it.</p>
 <p>Basically, a directive consists of a name, arguments, options and content. (Keep
@@ -234,7 +235,7 @@ arguments and indicated by the colons).</p>
 directive start.</p>
 </div>
 <div class="section" id="footnotes">
-<h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h2>
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>For footnotes, use <tt class="docutils literal"><span class="pre">[#]_</span></tt> to mark the footnote location, and add the footnote
 body at the bottom of the document after a &#8220;Footnotes&#8221; rubric heading, like so:</p>
 <div class="highlight-rest"><div class="highlight"><pre>Lorem ipsum <span class="s">[#]_</span> dolor sit amet ... <span class="s">[#]_</span>
@@ -248,12 +249,12 @@ body at the bottom of the document after a &#8220;Footnotes&#8221; rubric headin
 <p>You can also explicitly number the footnotes for better context.</p>
 </div>
 <div class="section" id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<h2>Comments<a class="headerlink" href="#comments" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Every explicit markup block which isn&#8217;t a valid markup construct (like the
 footnotes above) is regarded as a comment.</p>
 </div>
 <div class="section" id="source-encoding">
-<h2>Source encoding<a class="headerlink" href="#source-encoding" title="Permalink to this headline">¶</a></h2>
+<h2>Source encoding<a class="headerlink" href="#source-encoding" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Since the easiest way to include special characters like em dashes or copyright
 signs in reST is to directly write them as Unicode characters, one has to
 specify an encoding:</p>
@@ -261,7 +262,7 @@ specify an encoding:</p>
 documents written from them will be in that encoding as well.</p>
 </div>
 <div class="section" id="gotchas">
-<h2>Gotchas<a class="headerlink" href="#gotchas" title="Permalink to this headline">¶</a></h2>
+<h2>Gotchas<a class="headerlink" href="#gotchas" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>There are some problems one commonly runs into while authoring reST documents:</p>
 <ul class="simple">
 <li><strong>Separation of inline markup:</strong> As said above, inline markup spans must be
@@ -278,9 +279,9 @@ an escaped space to get around that.</li>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">reStructuredText Primer</a><ul>
 <li><a class="reference internal" href="#paragraphs">Paragraphs</a></li>
@@ -303,12 +304,12 @@ an escaped space to get around that.</li>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="style.html"
-                        title="previous chapter">Style Guide</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Style Guide</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="markup.html"
-                        title="next chapter">Additional Markup Constructs</a></p>            <h3>Download</h3>
+                        title="次の章へ">Additional Markup Constructs</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -325,21 +326,20 @@ an escaped space to get around that.</li>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -348,18 +348,18 @@ an escaped space to get around that.</li>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="markup.html" title="Additional Markup Constructs"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="style.html" title="Style Guide"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -367,7 +367,7 @@ an escaped space to get around that.</li>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

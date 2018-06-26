@@ -8,46 +8,47 @@
     
     <title>Export and view a solution &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="A pure convection method" href="convect.html" />
     <link rel="prev" title="Compute derivatives" href="computeD.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="convect.html" title="A pure convection method"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="computeD.html" title="Compute derivatives"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,7 +62,7 @@
           <div class="body">
             
   <div class="section" id="export-and-view-a-solution">
-<span id="ud-export"></span><h1>Export and view a solution<a class="headerlink" href="#export-and-view-a-solution" title="Permalink to this headline">¶</a></h1>
+<span id="ud-export"></span><h1>Export and view a solution<a class="headerlink" href="#export-and-view-a-solution" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>There are essentially four ways to view the result of getfem computations:</p>
 <ul class="simple">
 <li>Matlab, with the matlab-interface.</li>
@@ -71,7 +72,7 @@
 </ul>
 <p>The objects that can be exported are, <cite>mesh</cite>, <cite>mesh_fem</cite> objects, and <cite>stored_mesh_slice</cite>.</p>
 <div class="section" id="saving-mesh-and-mesh-fem-objects-for-the-matlab-interface">
-<h2>Saving mesh and mesh_fem objects for the Matlab interface<a class="headerlink" href="#saving-mesh-and-mesh-fem-objects-for-the-matlab-interface" title="Permalink to this headline">¶</a></h2>
+<h2>Saving mesh and mesh_fem objects for the Matlab interface<a class="headerlink" href="#saving-mesh-and-mesh-fem-objects-for-the-matlab-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>If you have installed the Matlab interface, you can simply use
 <tt class="docutils literal"><span class="pre">mesh_fem::write_to_file</span></tt> and save the solution as a plain text file, and then,
 load them into Matlab. For example, supposing you have a solution <tt class="docutils literal"><span class="pre">U</span></tt> on a <cite>mesh_fem</cite>
@@ -97,7 +98,7 @@ either a <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt>
 <p>Examples of use can be found in the examples of the tests directory.</p>
 </div>
 <div class="section" id="producing-mesh-slices">
-<span id="ud-export-slices"></span><h2>Producing mesh slices<a class="headerlink" href="#producing-mesh-slices" title="Permalink to this headline">¶</a></h2>
+<span id="ud-export-slices"></span><h2>Producing mesh slices<a class="headerlink" href="#producing-mesh-slices" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><em>GetFEM++</em> provides &#8220;slicers&#8221; objects which are dedicated to generating post-treatment
 data from meshes and solutions. These slicers, defined in the file
 <tt class="file docutils literal"><span class="pre">getfem/getfem_mesh_slicers.h</span></tt> take a <cite>mesh</cite> (and sometimes a <cite>mesh_fem</cite> with a
@@ -114,25 +115,25 @@ slicer. Example of slicers are (some of them use a <tt class="docutils literal">
 reference to a <cite>mesh_fem</cite> <tt class="docutils literal"><span class="pre">mf</span></tt> and a field <tt class="docutils literal"><span class="pre">U</span></tt> on this <cite>mesh_fem</cite>).</p>
 <dl class="function">
 <dt id="getfem::slicer_none">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_none</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem::slicer_none" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_none</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem::slicer_none" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>empty slicer.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_boundary">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_boundary</tt><big>(</big>const mesh<em>&nbsp;&amp;m</em>, ldots<big>)</big><a class="headerlink" href="#getfem::slicer_boundary" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_boundary</tt><big>(</big>const mesh<em>&nbsp;&amp;m</em>, ldots<big>)</big><a class="headerlink" href="#getfem::slicer_boundary" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>extract the boundary of a mesh.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_apply_deformation">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_apply_deformation</tt><big>(</big>mesh_slice_cv_dof_data_base<em>&nbsp;&amp;</em><big>)</big><a class="headerlink" href="#getfem::slicer_apply_deformation" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_apply_deformation</tt><big>(</big>mesh_slice_cv_dof_data_base<em>&nbsp;&amp;</em><big>)</big><a class="headerlink" href="#getfem::slicer_apply_deformation" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>apply a deformation to the mesh , the deformation field is defined on a <cite>mesh_fem</cite>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_half_space">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_half_space</tt><big>(</big>base_node<em>&nbsp;x0</em>, base_node<em>&nbsp;n</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_half_space" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_half_space</tt><big>(</big>base_node<em>&nbsp;x0</em>, base_node<em>&nbsp;n</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_half_space" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>cut the mesh with a half space (if <tt class="docutils literal"><span class="pre">orient</span></tt> = -1 or +1), or a plane (if
 <tt class="docutils literal"><span class="pre">orient</span></tt> = 0), <tt class="docutils literal"><span class="pre">x0</span></tt> being a node of the plane, and <tt class="docutils literal"><span class="pre">n</span></tt> being a normal
 of the plane.</p>
@@ -140,21 +141,21 @@ of the plane.</p>
 
 <dl class="function">
 <dt id="getfem::slicer_sphere">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_sphere</tt><big>(</big>base_node<em>&nbsp;x0</em>, scalar_type<em>&nbsp;R</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_sphere" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_sphere</tt><big>(</big>base_node<em>&nbsp;x0</em>, scalar_type<em>&nbsp;R</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_sphere" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>cut with the interior (<tt class="docutils literal"><span class="pre">orient``=-1),</span> <span class="pre">boundary</span> <span class="pre">(``orient``=0)</span> <span class="pre">or</span> <span class="pre">exterior</span>
 <span class="pre">(``orient``=+1)</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">sphere</span> <span class="pre">of</span> <span class="pre">center</span> <span class="pre">``x0</span></tt> and radius <tt class="docutils literal"><span class="pre">R</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_cylinder">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_cylinder</tt><big>(</big>base_node<em>&nbsp;x0</em>, base_node<em>&nbsp;x1</em>, scalar_type<em>&nbsp;R</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_cylinder" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_cylinder</tt><big>(</big>base_node<em>&nbsp;x0</em>, base_node<em>&nbsp;x1</em>, scalar_type<em>&nbsp;R</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_cylinder" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>slice with the interior/boundary/exterior of a cylinder of axis <tt class="docutils literal"><span class="pre">(x0,x1)</span></tt>
 and radius <tt class="docutils literal"><span class="pre">R</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_isovalues">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_isovalues</tt><big>(</big>const mesh_slice_cv_dof_data_base&amp;<em>&nbsp;mfU</em>, scalar_type<em>&nbsp;val</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_isovalues" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_isovalues</tt><big>(</big>const mesh_slice_cv_dof_data_base&amp;<em>&nbsp;mfU</em>, scalar_type<em>&nbsp;val</em>, int<em>&nbsp;orient</em><big>)</big><a class="headerlink" href="#getfem::slicer_isovalues" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>cut with the isosurface defined by the scalar field <tt class="docutils literal"><span class="pre">mfU</span></tt> and <tt class="docutils literal"><span class="pre">val</span></tt>.
 Keep only simplices where :<img class="math" src="../_images/math/2e5f9e06669a1c1c85b934397f5e92c898ab2e5e.png" alt="u(x)&lt;val" style="vertical-align: -4px"/> (<tt class="docutils literal"><span class="pre">orient``=-1),</span> <span class="pre">:math:`u(x)=val`</span>
 <span class="pre">(``orient=0</span></tt> or <img class="math" src="../_images/math/acd59ce65b9d4716be5bde79220cc50461532d10.png" alt="u(x)&gt;val" style="vertical-align: -4px"/>.</p>
@@ -162,38 +163,38 @@ Keep only simplices where :<img class="math" src="../_images/math/2e5f9e06669a1c
 
 <dl class="function">
 <dt id="getfem::slicer_mesh_with_mesh">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_mesh_with_mesh</tt><big>(</big>const mesh&amp;<em>&nbsp;m2</em><big>)</big><a class="headerlink" href="#getfem::slicer_mesh_with_mesh" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_mesh_with_mesh</tt><big>(</big>const mesh&amp;<em>&nbsp;m2</em><big>)</big><a class="headerlink" href="#getfem::slicer_mesh_with_mesh" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>cut the convexes with the convexes of the mesh <tt class="docutils literal"><span class="pre">m2</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_union">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_union</tt><big>(</big>const slicer_action<em>&nbsp;&amp;sA</em>, const slicer_action<em>&nbsp;&amp;sB</em><big>)</big><a class="headerlink" href="#getfem::slicer_union" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_union</tt><big>(</big>const slicer_action<em>&nbsp;&amp;sA</em>, const slicer_action<em>&nbsp;&amp;sB</em><big>)</big><a class="headerlink" href="#getfem::slicer_union" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>merges the output of two slicer operations.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_intersect">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_intersect</tt><big>(</big>slicer_action<em>&nbsp;&amp;sA</em>, slicer_action<em>&nbsp;&amp;sB</em><big>)</big><a class="headerlink" href="#getfem::slicer_intersect" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_intersect</tt><big>(</big>slicer_action<em>&nbsp;&amp;sA</em>, slicer_action<em>&nbsp;&amp;sB</em><big>)</big><a class="headerlink" href="#getfem::slicer_intersect" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>intersect the output of two slicer operations.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_complementary">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_complementary</tt><big>(</big>slicer_action<em>&nbsp;&amp;s</em><big>)</big><a class="headerlink" href="#getfem::slicer_complementary" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_complementary</tt><big>(</big>slicer_action<em>&nbsp;&amp;s</em><big>)</big><a class="headerlink" href="#getfem::slicer_complementary" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>return the complementary of a slicer operation.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_build_edges_mesh">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_build_edges_mesh</tt><big>(</big>mesh&amp;<em>&nbsp;edges_m</em><big>)</big><a class="headerlink" href="#getfem::slicer_build_edges_mesh" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_build_edges_mesh</tt><big>(</big>mesh&amp;<em>&nbsp;edges_m</em><big>)</big><a class="headerlink" href="#getfem::slicer_build_edges_mesh" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>slicer whose side-effect is to build the mesh <tt class="docutils literal"><span class="pre">edges_m</span></tt> with the edges of
 the sliced mesh.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getfem::slicer_build_mesh">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_build_mesh</tt><big>(</big>mesh<em>&nbsp;&amp;m</em><big>)</big><a class="headerlink" href="#getfem::slicer_build_mesh" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_build_mesh</tt><big>(</big>mesh<em>&nbsp;&amp;m</em><big>)</big><a class="headerlink" href="#getfem::slicer_build_mesh" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>in some (rare) occasions , it might be useful to build a mesh from a slice.
 Note however that there is absolutely no guaranty that the mesh will be
 conformal (although it is often the case).</p>
@@ -201,7 +202,7 @@ conformal (although it is often the case).</p>
 
 <dl class="function">
 <dt id="getfem::slicer_build_stored_mesh_slice">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_build_stored_mesh_slice</tt><big>(</big>stored_mesh_slice&amp;<em>&nbsp;sl</em><big>)</big><a class="headerlink" href="#getfem::slicer_build_stored_mesh_slice" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_build_stored_mesh_slice</tt><big>(</big>stored_mesh_slice&amp;<em>&nbsp;sl</em><big>)</big><a class="headerlink" href="#getfem::slicer_build_stored_mesh_slice" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>record the output of the slicing operation into a <cite>stored_mesh_slice</cite> object. Note that it
 is often more convenient to use the <tt class="docutils literal"><span class="pre">stored_mesh_slice::build(...)</span></tt> method to
 achieve the same result.</p>
@@ -209,7 +210,7 @@ achieve the same result.</p>
 
 <dl class="function">
 <dt id="getfem::slicer_explode">
-<tt class="descclassname">getfem::</tt><tt class="descname">slicer_explode</tt><big>(</big>c<big>)</big><a class="headerlink" href="#getfem::slicer_explode" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">getfem::</tt><tt class="descname">slicer_explode</tt><big>(</big>c<big>)</big><a class="headerlink" href="#getfem::slicer_explode" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>shrink or expand each convex with respect to its gravity center.</p>
 </dd></dl>
 
@@ -253,7 +254,7 @@ result into a <cite>stored_mesh_slice</cite>):</p>
 <tt class="docutils literal"><span class="pre">getfem::vtk_export</span></tt>, <tt class="docutils literal"><span class="pre">getfem::dx_export</span></tt> and <tt class="docutils literal"><span class="pre">getfem::pos_export</span></tt>.</p>
 </div>
 <div class="section" id="exporting-m-mf-or-slices-to-vtk">
-<h2>Exporting <cite>mesh</cite>, <cite>mesh_fem</cite> or slices to VTK<a class="headerlink" href="#exporting-m-mf-or-slices-to-vtk" title="Permalink to this headline">¶</a></h2>
+<h2>Exporting <cite>mesh</cite>, <cite>mesh_fem</cite> or slices to VTK<a class="headerlink" href="#exporting-m-mf-or-slices-to-vtk" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>First, it is important to know the limitation of VTK data files: each file can
 contain only one mesh, with at most one scalar field and one vector field and one
 tensor field on this mesh (in that order). VTK files can handle data on segment,
@@ -288,7 +289,7 @@ of <tt class="docutils literal"><span class="pre">mfu</span></tt> to a VTK eleme
 greater than 2, there will be a loss of precision for higher degree FEMs.</p>
 </div>
 <div class="section" id="exporting-m-mf-or-slices-to-opendx">
-<h2>Exporting <cite>mesh</cite>, <cite>mesh_fem</cite> or slices to OpenDX<a class="headerlink" href="#exporting-m-mf-or-slices-to-opendx" title="Permalink to this headline">¶</a></h2>
+<h2>Exporting <cite>mesh</cite>, <cite>mesh_fem</cite> or slices to OpenDX<a class="headerlink" href="#exporting-m-mf-or-slices-to-opendx" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The OpenDX data file is more versatile than the VTK one. It is able to store more
 that one mesh, any number of fields on these meshes etc. However, it does only
 handle elements of degree 1 and 0 (segments, triangles, tetrahedrons, quadrangles
@@ -352,9 +353,9 @@ exported (into another OpenDX mesh). In this example, you have access in OpenDX 
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Export and view a solution</a><ul>
 <li><a class="reference internal" href="#saving-mesh-and-mesh-fem-objects-for-the-matlab-interface">Saving mesh and mesh_fem objects for the Matlab interface</a></li>
@@ -365,12 +366,12 @@ exported (into another OpenDX mesh). In this example, you have access in OpenDX 
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="computeD.html"
-                        title="previous chapter">Compute derivatives</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Compute derivatives</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="convect.html"
-                        title="next chapter">A pure convection method</a></p>            <h3>Download</h3>
+                        title="次の章へ">A pure convection method</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -387,21 +388,20 @@ exported (into another OpenDX mesh). In this example, you have access in OpenDX 
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -410,18 +410,18 @@ exported (into another OpenDX mesh). In this example, you have access in OpenDX 
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="convect.html" title="A pure convection method"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="computeD.html" title="Compute derivatives"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -429,7 +429,7 @@ exported (into another OpenDX mesh). In this example, you have access in OpenDX 
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

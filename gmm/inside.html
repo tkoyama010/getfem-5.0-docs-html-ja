@@ -8,46 +8,47 @@
     
     <title>Deeper inside Gmm++ &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Gmm++ Library" href="index.html" />
     <link rel="next" title="How to disable verifications" href="noverif.html" />
     <link rel="prev" title="First steps with Gmm++" href="first-step.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="noverif.html" title="How to disable verifications"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="first-step.html" title="First steps with Gmm++"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,9 +62,9 @@
           <div class="body">
             
   <div class="section" id="deeper-inside-gmm">
-<span id="gmm-inside"></span><h1>Deeper inside <em>Gmm++</em><a class="headerlink" href="#deeper-inside-gmm" title="Permalink to this headline">¶</a></h1>
+<span id="gmm-inside"></span><h1>Deeper inside <em>Gmm++</em><a class="headerlink" href="#deeper-inside-gmm" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="the-linalg-traits-structure">
-<h2>The linalg_traits structure<a class="headerlink" href="#the-linalg-traits-structure" title="Permalink to this headline">¶</a></h2>
+<h2>The linalg_traits structure<a class="headerlink" href="#the-linalg-traits-structure" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The major principle of <em>Gmm++</em> is that each vector and matrix type has a corresponding structure (which is never instantiated) named <tt class="docutils literal"><span class="pre">linalg_traits</span></tt> containing all informations on it. For instance, the component <tt class="docutils literal"><span class="pre">linalg_type</span></tt> of this structure is set to <tt class="docutils literal"><span class="pre">abstract_vector</span></tt> or <tt class="docutils literal"><span class="pre">abstract_matrix</span></tt> if the corresponding type represent a vector or a matrix. If <tt class="docutils literal"><span class="pre">V</span></tt> is an interfaced type of vector and <tt class="docutils literal"><span class="pre">M</span></tt> an interface type of matrix, it is possible to access to this component with:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">typename</span> <span class="n">gmm</span><span class="o">::</span><span class="n">linalg_traits</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;::</span><span class="n">linalg_type</span> <span class="p">...</span>  <span class="c1">// should be abstract_vector</span>
 <span class="k">typename</span> <span class="n">gmm</span><span class="o">::</span><span class="n">linalg_traits</span><span class="o">&lt;</span><span class="n">M</span><span class="o">&gt;::</span><span class="n">linalg_type</span> <span class="p">...</span>  <span class="c1">// should be abstract_matrix</span>
@@ -102,12 +103,12 @@ gmm::linalg_traits&lt;V&gt;::do_clear(v) --&gt; make a clear on the vector
 
 gmm::linalg_traits&lt;V&gt;::access(o, it, ite, i) --&gt; return the ith component or a
                                         reference on the ith component. o is a
-                                        pointer o type ``origin_type *'' or
-                                        ``const origin_type *''.
+                                        pointer o type ``origin_type *&#x27;&#x27; or
+                                        ``const origin_type *&#x27;&#x27;.
 
 gmm::linalg_traits&lt;V&gt;::clear(o, it, ite) --&gt; clear the vector. o is a
-                                        pointer o type ``origin_type *'' or
-                                        ``const origin_type *''.</pre>
+                                        pointer o type ``origin_type *&#x27;&#x27; or
+                                        ``const origin_type *&#x27;&#x27;.</pre>
 </div>
 <p>and for a matrix type:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">typename</span> <span class="n">gmm</span><span class="o">::</span><span class="n">linalg_traits</span><span class="o">&lt;</span><span class="n">M</span><span class="o">&gt;::</span><span class="n">value_type</span>     <span class="o">--&gt;</span> <span class="n">type</span> <span class="n">of</span> <span class="n">the</span> <span class="n">components</span> <span class="n">of</span> <span class="n">the</span>
@@ -162,7 +163,7 @@ gmm::linalg_traits&lt;V&gt;::clear(o, it, ite) --&gt; clear the vector. o is a
 <p>This is this structure you have to fill in to interface a new vector or matrix type. You can see some examples in <tt class="docutils literal"><span class="pre">gmm/gmm_interface.h</span></tt> . Most of the generic algorithms are in <tt class="docutils literal"><span class="pre">gmm/gmm_blas.h</span></tt> .</p>
 </div>
 <div class="section" id="how-to-iterate-on-the-components-of-a-vector">
-<h2>How to iterate on the components of a vector<a class="headerlink" href="#how-to-iterate-on-the-components-of-a-vector" title="Permalink to this headline">¶</a></h2>
+<h2>How to iterate on the components of a vector<a class="headerlink" href="#how-to-iterate-on-the-components-of-a-vector" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Here is an example which accumulate the components of a vector. It is assumed that <tt class="docutils literal"><span class="pre">V</span></tt> is a vector type and <tt class="docutils literal"><span class="pre">v</span></tt> an instantiated vector:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">typename</span> <span class="n">gmm</span><span class="o">::</span><span class="n">linalg_traits</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">r</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// scalar in which we accumulate</span>
 <span class="k">typename</span> <span class="n">gmm</span><span class="o">::</span><span class="n">linalg_traits</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">vect_const_begin</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="c1">// beginning</span>
@@ -197,7 +198,7 @@ while (it1 != ite1 &amp;&amp; it2 != ite2) \{  // loops on the components
 <p>This algorithm use the fact that indices are increasing in a sparse vector. This code will not work for dense vectors because dense vector iterators do not have the method <tt class="docutils literal"><span class="pre">it.index()</span></tt>.</p>
 </div>
 <div class="section" id="how-to-iterate-on-a-matrix">
-<h2>How to iterate on a matrix<a class="headerlink" href="#how-to-iterate-on-a-matrix" title="Permalink to this headline">¶</a></h2>
+<h2>How to iterate on a matrix<a class="headerlink" href="#how-to-iterate-on-a-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>You can iterate on the rows of a matrix if it is not a column major matrix and on the columns of a matrix if it is not a row major matrix (the type <tt class="docutils literal"><span class="pre">gmm::dense_matrix&lt;T&gt;</span></tt> has is sub orientation type as col_and_rox, so you can iterate on both rows and columns).</p>
 <p>If you need not to be optimal, you can use a basic loop like that:</p>
 <div class="highlight-c++"><pre>for (size_t i = 0; i &lt; gmm::mat_nrows(m); ++i) \{
@@ -205,7 +206,7 @@ while (it1 != ite1 &amp;&amp; it2 != ite2) \{  // loops on the components
 
   ...
 
-  std::cout &lt;&lt; "norm of row " &lt;&lt; i &lt;&lt; " : " &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
+  std::cout &lt;&lt; &quot;norm of row &quot; &lt;&lt; i &lt;&lt; &quot; : &quot; &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
 \}</pre>
 </div>
 <p>But you can also use iterators, like that:</p>
@@ -218,12 +219,12 @@ for (; it != ite; ++it) \{
 
   ...
 
-  std::cout &lt;&lt; "norm of row " &lt;&lt; i &lt;&lt; " : " &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
+  std::cout &lt;&lt; &quot;norm of row &quot; &lt;&lt; i &lt;&lt; &quot; : &quot; &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
 \}</pre>
 </div>
 </div>
 <div class="section" id="how-to-make-your-algorithm-working-on-all-type-of-matrices">
-<h2>How to make your algorithm working on all type of matrices<a class="headerlink" href="#how-to-make-your-algorithm-working-on-all-type-of-matrices" title="Permalink to this headline">¶</a></h2>
+<h2>How to make your algorithm working on all type of matrices<a class="headerlink" href="#how-to-make-your-algorithm-working-on-all-type-of-matrices" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>For this, you will generally have to specialize it. For instance, let us take a look at the code for <tt class="docutils literal"><span class="pre">gmm::nnz</span></tt> which count the number of stored components (in fact, the real <tt class="docutils literal"><span class="pre">gmm::nnz</span></tt> algorithm is specialized in most of the cases so that it does not count the components one by one):</p>
 <div class="highlight-c++"><pre>template &lt;class L&gt; inline size_type nnz(const L&amp; l) \{
   return nnz(l, typename linalg_traits&lt;L&gt;::linalg_type());
@@ -267,9 +268,9 @@ template &lt;class L&gt; inline size_type nnz(const L&amp; l, col_major) \{
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Deeper inside <em>Gmm++</em></a><ul>
 <li><a class="reference internal" href="#the-linalg-traits-structure">The linalg_traits structure</a></li>
@@ -280,12 +281,12 @@ template &lt;class L&gt; inline size_type nnz(const L&amp; l, col_major) \{
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="first-step.html"
-                        title="previous chapter">First steps with <em>Gmm++</em></a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">First steps with <em>Gmm++</em></a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="noverif.html"
-                        title="next chapter">How to disable verifications</a></p>            <h3>Download</h3>
+                        title="次の章へ">How to disable verifications</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -302,21 +303,20 @@ template &lt;class L&gt; inline size_type nnz(const L&amp; l, col_major) \{
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -325,18 +325,18 @@ template &lt;class L&gt; inline size_type nnz(const L&amp; l, col_major) \{
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="noverif.html" title="How to disable verifications"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="first-step.html" title="First steps with Gmm++"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -344,7 +344,7 @@ template &lt;class L&gt; inline size_type nnz(const L&amp; l, col_major) \{
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

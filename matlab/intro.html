@@ -8,46 +8,47 @@
     
     <title>Introduction &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="MatLab Interface" href="index.html" />
     <link rel="next" title="Installation" href="install.html" />
     <link rel="prev" title="MatLab Interface" href="index.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="install.html" title="Installation"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="MatLab Interface"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,15 +62,15 @@
           <div class="body">
             
   <div class="section" id="introduction">
-<span id="mlab-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<span id="mlab-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>This guide provides a reference about the <em>MatLab</em> interface of <em>GetFEM++</em>.
-For a complete  reference of <em>GetFEM++</em>, please report to the <a class="reference external" href="http://download.gna.org/getfem/html/homepage/index.html">specific guides</a>,
+For a complete  reference of <em>GetFEM++</em>, please report to the <a class="reference external" href="http://getfem.org/index.html">specific guides</a>,
 but you should be able to use the <em>getfem-interface</em>&#8216;s without any particular knowledge
 of the <em>GetFEM++</em> internals, although a basic knowledge about Finite Elements
 is required. This documentation is however not self contained. You should in
-particular refer to the <a class="reference external" href="http://download.gna.org/getfem/html/homepage/userdoc/index.html">user documentation</a> to have a more extensive
+particular refer to the <a class="reference external" href="http://getfem.org/userdoc/index.html">user documentation</a> to have a more extensive
 description of the structures algorithms and concepts used.</p>
-<p>Copyright © 2004-2015 <em>GetFEM++</em> project.</p>
+<p>Copyright © 2004-2018 <em>GetFEM++</em> project.</p>
 <p>The text of the <em>GetFEM++</em> website and the documentations are available for modification and reuse under the terms of the <a class="reference external" href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a></p>
 <p>GetFEM++  is  free software;  you  can  redistribute  it  and/or modify it
 under  the  terms  of the  GNU  Lesser General Public License as published
@@ -92,14 +93,14 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter"><em>MatLab</em> Interface</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ"><em>MatLab</em> Interface</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="install.html"
-                        title="next chapter">Installation</a></p>            <h3>Download</h3>
+                        title="次の章へ">Installation</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -116,21 +117,20 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -139,18 +139,18 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="install.html" title="Installation"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="MatLab Interface"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -158,7 +158,7 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

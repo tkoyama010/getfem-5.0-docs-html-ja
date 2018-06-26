@@ -8,46 +8,47 @@
     
     <title>Nitsche’s method for dirichlet and contact boundary conditions &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="The model description and basic model bricks" href="model.html" />
     <link rel="next" title="Constraint brick" href="model_constraint.html" />
     <link rel="prev" title="Example of a complete Poisson problem" href="model_poisson.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="model_constraint.html" title="Constraint brick"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="model_poisson.html" title="Example of a complete Poisson problem"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,7 +63,7 @@
           <div class="body">
             
   <div class="section" id="nitsche-s-method-for-dirichlet-and-contact-boundary-conditions">
-<span id="ud-model-nitsche"></span><span id="index-0"></span><h1>Nitsche&#8217;s method for dirichlet and contact boundary conditions<a class="headerlink" href="#nitsche-s-method-for-dirichlet-and-contact-boundary-conditions" title="Permalink to this headline">¶</a></h1>
+<span id="ud-model-nitsche"></span><span id="index-0"></span><h1>Nitsche&#8217;s method for dirichlet and contact boundary conditions<a class="headerlink" href="#nitsche-s-method-for-dirichlet-and-contact-boundary-conditions" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><em>GetFEM++</em> provides a generic implementation of Nitche&#8217;s method which allows to account for Dirichlet type or contact with friction boundary conditions in a weak sense without the use of Lagrange multipliers.
 The method is very attractive because it transforms a Dirichlet boundary condition into a weak term similar to a Neumann boundary condition.
 However, this advantage is at the cost that the implementation of Nitche&#8217;s method is model dependent, since it requires an approximation of the corresponding Neumann term.
@@ -79,7 +80,7 @@ If <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e8241
 Of course, in that case <img class="math" src="../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G" style="vertical-align: 0px"/> also depends on some material parameters.
 If additionally a mixed incompressibility brick is added with a variable <img class="math" src="../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p" style="vertical-align: -4px"/> denoting the pressure, the Neumann term on <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> will depend on <img class="math" src="../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p" style="vertical-align: -4px"/> in the following way:
 <img class="math" src="../_images/math/d86b21367551594f334d22d49ba06474e117dcd2.png" alt="G = \sigma(u)n - pn" style="vertical-align: -4px"/></p>
-<p>In order to allow a generic implementation in which the brick imposing Nitsche&#8217;s method will work for every partial differential term applied to the concerned variables, each brick adding a partial differential term to a model is required to give its expression via an assembly string (high generic assembly language).</p>
+<p>In order to allow a generic implementation in which the brick imposing Nitsche&#8217;s method will work for every partial differential term applied to the concerned variables, each brick adding a partial differential term to a model is required to give its expression via an assembly string (weak form language).</p>
 <p>These expressions are utilized in a special method of the model object:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">expr</span> <span class="o">=</span> <span class="n">md</span><span class="p">.</span><span class="n">Neumann_term</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span>
 </pre></div>
@@ -89,7 +90,7 @@ Of course it is required that all volumic bricks were added to the model prior t
 The derivation of the Neumann term works only for second order partial differential equations.
 A generic implementation for higher order pde would be more complicated.</p>
 <div class="section" id="generic-nitsche-s-method-for-a-dirichlet-condition">
-<h2>Generic Nitsche&#8217;s method for a Dirichlet condition<a class="headerlink" href="#generic-nitsche-s-method-for-a-dirichlet-condition" title="Permalink to this headline">¶</a></h2>
+<h2>Generic Nitsche&#8217;s method for a Dirichlet condition<a class="headerlink" href="#generic-nitsche-s-method-for-a-dirichlet-condition" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Assume that the variable <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is considered and that one wants to prescribe the condition</p>
 <div class="math">
 <p><img src="../_images/math/af8a9cace8d147acbcb1f1e6e5c82c5262018bc7.png" alt="Hu = g"/></p>
@@ -116,8 +117,7 @@ Note that, in standard situations, except for <img class="math" src="../_images/
 <p>This function adds a Dirichlet condition on the variable <cite>varname</cite> and the mesh
 region <cite>region</cite>. This region should be a boundary. <cite>Neumannterm</cite>
 is the expression of the Neumann term (obtained by the Green formula)
-described as an expression of the high-level
-generic assembly language. This term can be obtained with
+described as an expression of the weak form language. This term can be obtained with
 md.Neumann_term(varname, region) once all volumic bricks have
 been added to the model. The Dirichlet
 condition is prescribed with Nitsche&#8217;s method. <cite>dataname</cite> is the optional
@@ -143,8 +143,7 @@ even for nonlinear problems. Returns the brick index in the model.</p>
 (or tensor) valued variable <cite>varname</cite> and the mesh region <cite>region</cite>.
 This region should be a boundary. <cite>Neumannterm</cite>
 is the expression of the Neumann term (obtained by the Green formula)
-described as an expression of the high-level
-generic assembly language. This term can be obtained with
+described as an expression of the weak form language. This term can be obtained with
 md.Neumann_term(varname, region) once all volumic bricks have
 been added to the model. The Dirichlet
 condition is prescribed with Nitsche&#8217;s method. <cite>dataname</cite> is the optional
@@ -171,8 +170,7 @@ This version is for vector field. It prescribes a condition
 <img class="math" src="../_images/math/a334eafb8cd5c12626424244a2fb439a21d01884.png" alt="Hu = r" style="vertical-align: 0px"/> where <img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> is a matrix field. The region should be a
 boundary. This region should be a boundary. <cite>Neumannterm</cite>
 is the expression of the Neumann term (obtained by the Green formula)
-described as an expression of the high-level
-generic assembly language. This term can be obtained with
+described as an expression of the weak form language. This term can be obtained with
 md.Neumann_term(varname, region) once all volumic bricks have
 been added to the model. The Dirichlet
 condition is prescribed with Nitsche&#8217;s method.
@@ -192,7 +190,7 @@ or described on a scalar fem. Returns the brick index in the model.
 (This brick is not fully tested)</p>
 </div>
 <div class="section" id="generic-nitsche-s-method-for-contact-with-friction-condition">
-<span id="nitsche-contact-small-def-section"></span><h2>Generic Nitsche&#8217;s method for contact with friction condition<a class="headerlink" href="#generic-nitsche-s-method-for-contact-with-friction-condition" title="Permalink to this headline">¶</a></h2>
+<span id="nitsche-contact-small-def-section"></span><h2>Generic Nitsche&#8217;s method for contact with friction condition<a class="headerlink" href="#generic-nitsche-s-method-for-contact-with-friction-condition" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>We describe here the use of Nitsch&#8217;s method to prescribe a contact with Coulomb friction condition in the small deformations framework. This corresponds to a weak integral contact condition which as some similarity with the ones which use Lagrange multipliers describe in the corresponding section, see <a class="reference internal" href="model_contact_friction.html#weak-integral-contact-section"><em>Weak integral contact condition</em></a></p>
 <p>In order to simplify notations, let use denote by <img class="math" src="../_images/math/1b1c8c93b807434f64886431d72e352a1fb98594.png" alt="P_{n,\mathscr{F}}" style="vertical-align: -6px"/> the following map which corresponds to a couple of projections:</p>
 <div class="math">
@@ -210,8 +208,7 @@ or described on a scalar fem. Returns the brick index in the model.
 friction on the variable
 <cite>varname_u</cite> and the mesh boundary <cite>region</cite>.  <cite>Neumannterm</cite>
 is the expression of the Neumann term (obtained by the Green formula)
-described as an expression of the high-level
-generic assembly language. This term can be obtained with
+described as an expression of the weak form language. This term can be obtained with
 md.Neumann_term(varname, region) once all volumic bricks have
 been added to the model. The contact condition
 is prescribed with Nitsche&#8217;s method. The rigid obstacle should
@@ -225,7 +222,7 @@ method which is conditionnaly coercive for  <cite>gamma0</cite> small.
 inconditionnaly coercive. <cite>theta = 0</cite> is the simplest method
 for which the second derivative of the Neumann term is not necessary.
 The optional parameter <cite>dataexpr_friction_coeff</cite> is the friction
-coefficient which could be any expression of the assembly language.
+coefficient which could be any expression of the weak form language.
 Returns the brick index in the model.:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">add_Nitsche_contact_with_rigid_obstacle_brick</span>
 <span class="p">(</span><span class="n">model</span> <span class="o">&amp;</span><span class="n">md</span><span class="p">,</span> <span class="k">const</span> <span class="n">mesh_im</span> <span class="o">&amp;</span><span class="n">mim</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">varname_u</span><span class="p">,</span>
@@ -248,9 +245,9 @@ Returns the brick index in the model.:</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Nitsche&#8217;s method for dirichlet and contact boundary conditions</a><ul>
 <li><a class="reference internal" href="#generic-nitsche-s-method-for-a-dirichlet-condition">Generic Nitsche&#8217;s method for a Dirichlet condition</a></li>
@@ -259,12 +256,12 @@ Returns the brick index in the model.:</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_poisson.html"
-                        title="previous chapter">Example of a complete Poisson problem</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Example of a complete Poisson problem</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="model_constraint.html"
-                        title="next chapter">Constraint brick</a></p>            <h3>Download</h3>
+                        title="次の章へ">Constraint brick</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -281,21 +278,20 @@ Returns the brick index in the model.:</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -304,18 +300,18 @@ Returns the brick index in the model.:</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="model_constraint.html" title="Constraint brick"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="model_poisson.html" title="Example of a complete Poisson problem"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -324,7 +320,7 @@ Returns the brick index in the model.:</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,46 +8,47 @@
     
     <title>gf_model_get &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_model_set" href="cmdref_gf_model_set.html" />
     <link rel="prev" title="gf_model" href="cmdref_gf_model.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_model_set.html" title="gf_model_set"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_gf_model.html" title="gf_model"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,48 +63,53 @@
           <div class="body">
             
   <div class="section" id="gf-model-get">
-<h1>gf_model_get<a class="headerlink" href="#gf-model-get" title="Permalink to this headline">¶</a></h1>
+<h1>gf_model_get<a class="headerlink" href="#gf-model-get" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>b = gf_model_get(model M, 'is_complex')
-T = gf_model_get(model M, 'nbdof')
-dt = gf_model_get(model M, 'get time step')
-t = gf_model_get(model M, 'get time')
-T = gf_model_get(model M, 'tangent_matrix')
-gf_model_get(model M, 'rhs')
-gf_model_get(model M, 'brick term rhs', int ind_brick[, int ind_term, int sym, int ind_iter])
-z = gf_model_get(model M, 'memsize')
-gf_model_get(model M, 'variable list')
-gf_model_get(model M, 'brick list')
-gf_model_get(model M, 'list residuals')
-V = gf_model_get(model M, 'variable', string name)
-V = gf_model_get(model M, 'interpolation', string expr, {mesh_fem mf | mesh_imd mimd | vec pts,  mesh m}[, int region[, int extrapolation[, int rg_source]]])
-V = gf_model_get(model M, 'local_projection', mesh_im mim, string expr, mesh_fem mf[, int region])
-mf = gf_model_get(model M, 'mesh fem of variable', string name)
-name = gf_model_get(model M, 'mult varname Dirichlet', int ind_brick)
-I = gf_model_get(model M, 'interval of variable', string varname)
-V = gf_model_get(model M, 'from variables')
-gf_model_get(model M, 'assembly'[, string option])
-{nbit, converged} = gf_model_get(model M, 'solve'[, ...])
-gf_model_get(model M, 'test tangent matrix'[, scalar EPS[, int NB[, scalar scale]]])
-gf_model_get(model M, 'test tangent matrix term', string varname1, string varname2[, scalar EPS[, int NB[, scalar scale]]])
-expr = gf_model_get(model M, 'Neumann term', string varname, int region)
-V = gf_model_get(model M, 'compute isotropic linearized Von Mises or Tresca', string varname, string dataname_lambda, string dataname_mu, mesh_fem mf_vm[, string version])
-V = gf_model_get(model M, 'compute isotropic linearized Von Mises pstrain', string varname, string data_E, string data_nu, mesh_fem mf_vm)
-V = gf_model_get(model M, 'compute isotropic linearized Von Mises pstress', string varname, string data_E, string data_nu, mesh_fem mf_vm)
-V = gf_model_get(model M, 'compute Von Mises or Tresca', string varname, string lawname, string dataname, mesh_fem mf_vm[, string version])
-V = gf_model_get(model M, 'compute finite strain elasticity Von Mises',  string lawname, string varname, string params, mesh_fem mf_vm[, int region])
-V = gf_model_get(model M, 'compute second Piola Kirchhoff tensor', string varname, string lawname, string dataname, mesh_fem mf_sigma)
-gf_model_get(model M, 'elastoplasticity next iter', mesh_im mim, string varname, string previous_dep_name, string projname, string datalambda, string datamu, string datathreshold, string datasigma)
-V = gf_model_get(model M, 'compute elastoplasticity Von Mises or Tresca', string datasigma, mesh_fem mf_vm[, string version])
-V = gf_model_get(model M, 'compute plastic part', mesh_im mim, mesh_fem mf_pl, string varname, string previous_dep_name, string projname, string datalambda, string datamu, string datathreshold, string datasigma)
-gf_model_get(model M, 'finite strain elastoplasticity next iter', mesh_im mim ,string dispname, string multname, string pressname, string lawname, string param1, string param2, string param3, string param4, string param5)
-V = gf_model_get(model M, 'compute finite strain elastoplasticity Von Mises', mesh_im mim ,string dispname, string multname, string pressname, string lawname, string param1, string param2, string param3, string param4, string param5, mesh_fem mf_vm, ... [string 'assemble'])
-V = gf_model_get(model M, 'sliding data group name of large sliding contact brick', int indbrick)
-V = gf_model_get(model M, 'displacement group name of large sliding contact brick', int indbrick)
-V = gf_model_get(model M, 'transformation name of large sliding contact brick', int indbrick)
-M = gf_model_get(model M, 'matrix term', int ind_brick, int ind_term)
-s = gf_model_get(model M, 'char')
-gf_model_get(model M, 'display')</pre>
+<div class="highlight-python"><pre>b = gf_model_get(model M, &#x27;is_complex&#x27;)
+T = gf_model_get(model M, &#x27;nbdof&#x27;)
+dt = gf_model_get(model M, &#x27;get time step&#x27;)
+t = gf_model_get(model M, &#x27;get time&#x27;)
+T = gf_model_get(model M, &#x27;tangent_matrix&#x27;)
+gf_model_get(model M, &#x27;rhs&#x27;)
+gf_model_get(model M, &#x27;brick term rhs&#x27;, int ind_brick[, int ind_term, int sym, int ind_iter])
+z = gf_model_get(model M, &#x27;memsize&#x27;)
+gf_model_get(model M, &#x27;variable list&#x27;)
+gf_model_get(model M, &#x27;brick list&#x27;)
+gf_model_get(model M, &#x27;list residuals&#x27;)
+V = gf_model_get(model M, &#x27;variable&#x27;, string name)
+V = gf_model_get(model M, &#x27;interpolation&#x27;, string expr, {mesh_fem mf | mesh_imd mimd | vec pts,  mesh m}[, int region[, int extrapolation[, int rg_source]]])
+V = gf_model_get(model M, &#x27;local_projection&#x27;, mesh_im mim, string expr, mesh_fem mf[, int region])
+mf = gf_model_get(model M, &#x27;mesh fem of variable&#x27;, string name)
+name = gf_model_get(model M, &#x27;mult varname Dirichlet&#x27;, int ind_brick)
+I = gf_model_get(model M, &#x27;interval of variable&#x27;, string varname)
+V = gf_model_get(model M, &#x27;from variables&#x27;)
+gf_model_get(model M, &#x27;assembly&#x27;[, string option])
+{nbit, converged} = gf_model_get(model M, &#x27;solve&#x27;[, ...])
+gf_model_get(model M, &#x27;test tangent matrix&#x27;[, scalar EPS[, int NB[, scalar scale]]])
+gf_model_get(model M, &#x27;test tangent matrix term&#x27;, string varname1, string varname2[, scalar EPS[, int NB[, scalar scale]]])
+expr = gf_model_get(model M, &#x27;Neumann term&#x27;, string varname, int region)
+V = gf_model_get(model M, &#x27;compute isotropic linearized Von Mises or Tresca&#x27;, string varname, string dataname_lambda, string dataname_mu, mesh_fem mf_vm[, string version])
+V = gf_model_get(model M, &#x27;compute isotropic linearized Von Mises pstrain&#x27;, string varname, string data_E, string data_nu, mesh_fem mf_vm)
+V = gf_model_get(model M, &#x27;compute isotropic linearized Von Mises pstress&#x27;, string varname, string data_E, string data_nu, mesh_fem mf_vm)
+V = gf_model_get(model M, &#x27;compute Von Mises or Tresca&#x27;, string varname, string lawname, string dataname, mesh_fem mf_vm[, string version])
+V = gf_model_get(model M, &#x27;compute finite strain elasticity Von Mises&#x27;,  string lawname, string varname, string params, mesh_fem mf_vm[, int region])
+V = gf_model_get(model M, &#x27;compute second Piola Kirchhoff tensor&#x27;, string varname, string lawname, string dataname, mesh_fem mf_sigma)
+gf_model_get(model M, &#x27;elastoplasticity next iter&#x27;, mesh_im mim, string varname, string previous_dep_name, string projname, string datalambda, string datamu, string datathreshold, string datasigma)
+gf_model_get(model M, &#x27;small strain elastoplasticity next iter&#x27;, mesh_im mim,  string lawname, string unknowns_type [, string varnames, ...] [, string params, ...] [, string theta = &#x27;1&#x27; [, string dt = &#x27;timestep&#x27;]] [, int region = -1])
+V = gf_model_get(model M, &#x27;small strain elastoplasticity Von Mises&#x27;, mesh_im mim, mesh_fem mf_vm, string lawname, string unknowns_type [, string varnames, ...] [, string params, ...] [, string theta = &#x27;1&#x27; [, string dt = &#x27;timestep&#x27;]] [, int region])
+V = gf_model_get(model M, &#x27;compute elastoplasticity Von Mises or Tresca&#x27;, string datasigma, mesh_fem mf_vm[, string version])
+V = gf_model_get(model M, &#x27;compute plastic part&#x27;, mesh_im mim, mesh_fem mf_pl, string varname, string previous_dep_name, string projname, string datalambda, string datamu, string datathreshold, string datasigma)
+gf_model_get(model M, &#x27;finite strain elastoplasticity next iter&#x27;, mesh_im mim, string lawname, string unknowns_type, [, string varnames, ...] [, string params, ...] [, int region = -1])
+V = gf_model_get(model M, &#x27;compute finite strain elastoplasticity Von Mises&#x27;, mesh_im mim, mesh_fem mf_vm, string lawname, string unknowns_type, [, string varnames, ...] [, string params, ...] [, int region = -1])
+V = gf_model_get(model M, &#x27;sliding data group name of large sliding contact brick&#x27;, int indbrick)
+V = gf_model_get(model M, &#x27;displacement group name of large sliding contact brick&#x27;, int indbrick)
+V = gf_model_get(model M, &#x27;transformation name of large sliding contact brick&#x27;, int indbrick)
+V = gf_model_get(model M, &#x27;sliding data group name of Nitsche large sliding contact brick&#x27;, int indbrick)
+V = gf_model_get(model M, &#x27;displacement group name of Nitsche large sliding contact brick&#x27;, int indbrick)
+V = gf_model_get(model M, &#x27;transformation name of Nitsche large sliding contact brick&#x27;, int indbrick)
+M = gf_model_get(model M, &#x27;matrix term&#x27;, int ind_brick, int ind_term)
+s = gf_model_get(model M, &#x27;char&#x27;)
+gf_model_get(model M, &#x27;display&#x27;)</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -340,13 +346,35 @@ vector field described on a finite element method for variable
 coefficients.</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'elastoplasticity</span> <span class="pre">next</span> <span class="pre">iter',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">varname,</span> <span class="pre">string</span> <span class="pre">previous_dep_name,</span> <span class="pre">string</span> <span class="pre">projname,</span> <span class="pre">string</span> <span class="pre">datalambda,</span> <span class="pre">string</span> <span class="pre">datamu,</span> <span class="pre">string</span> <span class="pre">datathreshold,</span> <span class="pre">string</span> <span class="pre">datasigma)</span></tt></p>
 <blockquote>
-<div>Compute and save the stress constraints sigma for other hypothetical iterations.
+<div>Used with the old (obsolete) elastoplasticity brick to pass from an
+iteration to the next one.
+Compute and save the stress constraints sigma for the next iterations.
 &#8216;mim&#8217; is the integration method to use for the computation.
 &#8216;varname&#8217; is the main variable of the problem.
 &#8216;previous_dep_name&#8217; represents the displacement at the previous time step.
 &#8216;projname&#8217; is the type of projection to use. For the moment it could only be &#8216;Von Mises&#8217; or &#8216;VM&#8217;.
 &#8216;datalambda&#8217; and &#8216;datamu&#8217; are the Lame coefficients of the material.
 &#8216;datasigma&#8217; is a vector which will contain the new stress constraints values.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'small</span> <span class="pre">strain</span> <span class="pre">elastoplasticity</span> <span class="pre">next</span> <span class="pre">iter',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span>&nbsp; <span class="pre">string</span> <span class="pre">lawname,</span> <span class="pre">string</span> <span class="pre">unknowns_type</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">varnames,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">params,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">theta</span> <span class="pre">=</span> <span class="pre">'1'</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">dt</span> <span class="pre">=</span> <span class="pre">'timestep']]</span> <span class="pre">[,</span> <span class="pre">int</span> <span class="pre">region</span> <span class="pre">=</span> <span class="pre">-1])</span></tt></p>
+<blockquote>
+<div>Function that allows to pass from a time step to another for the
+small strain plastic brick. The parameters have to be exactly the
+same than the one of <cite>add_small_strain_elastoplasticity_brick</cite>,
+so see the documentation of this function for the explanations.
+Basically, this brick computes the plastic strain
+and the plastic multiplier and stores them for the next step.
+Additionaly, it copies the computed displacement to the data
+that stores the displacement of the previous time step (typically
+&#8216;u&#8217; to &#8216;Previous_u&#8217;). It has to be called before any use of
+<cite>compute_small_strain_elastoplasticity_Von_Mises</cite>.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'small</span> <span class="pre">strain</span> <span class="pre">elastoplasticity</span> <span class="pre">Von</span> <span class="pre">Mises',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_vm,</span> <span class="pre">string</span> <span class="pre">lawname,</span> <span class="pre">string</span> <span class="pre">unknowns_type</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">varnames,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">params,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">theta</span> <span class="pre">=</span> <span class="pre">'1'</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">dt</span> <span class="pre">=</span> <span class="pre">'timestep']]</span> <span class="pre">[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
+<blockquote>
+<div>This function computes the Von Mises stress field with respect to
+a small strain elastoplasticity term, approximated on <cite>mf_vm</cite>,
+and stores the result into <cite>VM</cite>.  All other parameters have to be
+exactly the same as for <cite>add_small_strain_elastoplasticity_brick</cite>.
+Remember that <cite>small_strain_elastoplasticity_next_iter</cite> has to be called
+before any call of this function.</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'compute</span> <span class="pre">elastoplasticity</span> <span class="pre">Von</span> <span class="pre">Mises</span> <span class="pre">or</span> <span class="pre">Tresca',</span> <span class="pre">string</span> <span class="pre">datasigma,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_vm[,</span> <span class="pre">string</span> <span class="pre">version])</span></tt></p>
 <blockquote>
 <div>Compute on <cite>mf_vm</cite> the Von-Mises or the Tresca stress of a field for plasticity and return it into the vector V.
@@ -356,28 +384,19 @@ coefficients.</div></blockquote>
 <blockquote>
 <div>Compute on <cite>mf_pl</cite> the plastic part and return it into the vector V.
 <cite>datasigma</cite> is a vector which contains the stress constraints values supported by the mesh.</div></blockquote>
-<p><tt class="docutils literal"><span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'finite</span> <span class="pre">strain</span> <span class="pre">elastoplasticity</span> <span class="pre">next</span> <span class="pre">iter',</span> <span class="pre">mesh_im</span> <span class="pre">mim</span> <span class="pre">,string</span> <span class="pre">dispname,</span> <span class="pre">string</span> <span class="pre">multname,</span> <span class="pre">string</span> <span class="pre">pressname,</span> <span class="pre">string</span> <span class="pre">lawname,</span> <span class="pre">string</span> <span class="pre">param1,</span> <span class="pre">string</span> <span class="pre">param2,</span> <span class="pre">string</span> <span class="pre">param3,</span> <span class="pre">string</span> <span class="pre">param4,</span> <span class="pre">string</span> <span class="pre">param5)</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'finite</span> <span class="pre">strain</span> <span class="pre">elastoplasticity</span> <span class="pre">next</span> <span class="pre">iter',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">lawname,</span> <span class="pre">string</span> <span class="pre">unknowns_type,</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">varnames,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">params,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">int</span> <span class="pre">region</span> <span class="pre">=</span> <span class="pre">-1])</span></tt></p>
 <blockquote>
-<div>Update the state variables for the finite strain elastoplasticity brick.
-<cite>mim</cite> is the integration method to use for the computation.
-<cite>dispname</cite> is the displacement variable.
-<cite>multname</cite> is the plastic multiplier.
-<cite>pressname</cite> is an optional pressure multiplier for a mixed
-displacement pressure formulation, otherwise it is an
-empty string.
-<cite>lawname</cite> is the name of the plasticity model (for the moment it can
-only be the name Simo_Miehe)
-For the Simo_Miehe model:
-<cite>params1</cite> is the bulk modulus,
-<cite>params2</cite> is the shear modulus,
-<cite>params3</cite> is the name of a user defined function expressing isotropic
-hardening in terms of the Frobenius norms of the strain
-and stress tensors.
-<cite>params4</cite> is the name of the plastic strain variable (which is updated).
-<cite>params5</cite> is the name of the vector field for storing all non-repeated
-components of the inverse plastic right Cauchy-Green tensor
-(which is updated).</div></blockquote>
-<p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'compute</span> <span class="pre">finite</span> <span class="pre">strain</span> <span class="pre">elastoplasticity</span> <span class="pre">Von</span> <span class="pre">Mises',</span> <span class="pre">mesh_im</span> <span class="pre">mim</span> <span class="pre">,string</span> <span class="pre">dispname,</span> <span class="pre">string</span> <span class="pre">multname,</span> <span class="pre">string</span> <span class="pre">pressname,</span> <span class="pre">string</span> <span class="pre">lawname,</span> <span class="pre">string</span> <span class="pre">param1,</span> <span class="pre">string</span> <span class="pre">param2,</span> <span class="pre">string</span> <span class="pre">param3,</span> <span class="pre">string</span> <span class="pre">param4,</span> <span class="pre">string</span> <span class="pre">param5,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_vm,</span> <span class="pre">...</span> <span class="pre">[string</span> <span class="pre">'assemble'])</span></tt></p>
+<div>Function that allows to pass from a time step to another for the
+finite strain plastic brick. The parameters have to be exactly the
+same than the one of <cite>add_finite_strain_elastoplasticity_brick</cite>,
+so see the documentation of this function for the explanations.
+Basically, this brick computes the plastic strain
+and the plastic multiplier and stores them for the next step.
+For the Simo-Miehe law which is currently the only one implemented,
+this function updates the state variables defined in the last two
+entries of <cite>varnames</cite>, and resets the plastic multiplier field given
+as the second entry of <cite>varnames</cite>.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'compute</span> <span class="pre">finite</span> <span class="pre">strain</span> <span class="pre">elastoplasticity</span> <span class="pre">Von</span> <span class="pre">Mises',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_vm,</span> <span class="pre">string</span> <span class="pre">lawname,</span> <span class="pre">string</span> <span class="pre">unknowns_type,</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">varnames,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">params,</span> <span class="pre">...]</span> <span class="pre">[,</span> <span class="pre">int</span> <span class="pre">region</span> <span class="pre">=</span> <span class="pre">-1])</span></tt></p>
 <blockquote>
 <div>Compute on <cite>mf_vm</cite> the Von-Mises or the Tresca stress of a field for plasticity and return it into the vector V.
 The first input parameters ar as in the function &#8216;finite strain elastoplasticity next iter&#8217;.</div></blockquote>
@@ -390,6 +409,18 @@ sliding data for an existing large sliding contact brick.</div></blockquote>
 <div>Gives the name of the group of variables corresponding to the
 sliding data for an existing large sliding contact brick.</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'transformation</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">large</span> <span class="pre">sliding</span> <span class="pre">contact</span> <span class="pre">brick',</span> <span class="pre">int</span> <span class="pre">indbrick)</span></tt></p>
+<blockquote>
+<div>Gives the name of the group of variables corresponding to the
+sliding data for an existing large sliding contact brick.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'sliding</span> <span class="pre">data</span> <span class="pre">group</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">Nitsche</span> <span class="pre">large</span> <span class="pre">sliding</span> <span class="pre">contact</span> <span class="pre">brick',</span> <span class="pre">int</span> <span class="pre">indbrick)</span></tt></p>
+<blockquote>
+<div>Gives the name of the group of variables corresponding to the
+sliding data for an existing large sliding contact brick.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'displacement</span> <span class="pre">group</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">Nitsche</span> <span class="pre">large</span> <span class="pre">sliding</span> <span class="pre">contact</span> <span class="pre">brick',</span> <span class="pre">int</span> <span class="pre">indbrick)</span></tt></p>
+<blockquote>
+<div>Gives the name of the group of variables corresponding to the
+sliding data for an existing large sliding contact brick.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_model_get(model</span> <span class="pre">M,</span> <span class="pre">'transformation</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">Nitsche</span> <span class="pre">large</span> <span class="pre">sliding</span> <span class="pre">contact</span> <span class="pre">brick',</span> <span class="pre">int</span> <span class="pre">indbrick)</span></tt></p>
 <blockquote>
 <div>Gives the name of the group of variables corresponding to the
 sliding data for an existing large sliding contact brick.</div></blockquote>
@@ -416,14 +447,14 @@ This function is to be completed.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_model.html"
-                        title="previous chapter">gf_model</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">gf_model</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_model_set.html"
-                        title="next chapter">gf_model_set</a></p>            <h3>Download</h3>
+                        title="次の章へ">gf_model_set</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -440,21 +471,20 @@ This function is to be completed.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -463,18 +493,18 @@ This function is to be completed.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_model_set.html" title="gf_model_set"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_gf_model.html" title="gf_model"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -483,7 +513,7 @@ This function is to be completed.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

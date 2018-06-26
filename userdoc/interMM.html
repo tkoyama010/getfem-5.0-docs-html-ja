@@ -8,46 +8,47 @@
     
     <title>Interpolation of arbitary quantities &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="Incorporate new finite element methods in GetFEM++" href="ifem.html" />
     <link rel="prev" title="Some Standard assembly procedures (low-level generic assembly)" href="asm.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="ifem.html" title="Incorporate new finite element methods in GetFEM++"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="asm.html" title="Some Standard assembly procedures (low-level generic assembly)"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,10 +62,10 @@
           <div class="body">
             
   <div class="section" id="interpolation-of-arbitary-quantities">
-<span id="ud-intermm"></span><h1>Interpolation of arbitary quantities<a class="headerlink" href="#interpolation-of-arbitary-quantities" title="Permalink to this headline">¶</a></h1>
+<span id="ud-intermm"></span><h1>Interpolation of arbitary quantities<a class="headerlink" href="#interpolation-of-arbitary-quantities" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Once a solution has been computed, it is quite easy to extract any quantity of interest on it with the interpolation functions for instance for post-treatment.</p>
 <div class="section" id="basic-interpolation">
-<h2>Basic interpolation<a class="headerlink" href="#basic-interpolation" title="Permalink to this headline">¶</a></h2>
+<h2>Basic interpolation<a class="headerlink" href="#basic-interpolation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The file <tt class="file docutils literal"><span class="pre">getfem/getfem_interpolation.h</span></tt> defines the function
 <tt class="docutils literal"><span class="pre">getfem::interpolation(...)</span></tt> to interpolate a solution from a given mesh/finite
 element method on another mesh and/or another Lagrange finite element method:</p>
@@ -98,9 +99,9 @@ the interpolation is done with a simple matrix multiplication:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="interpolation-based-on-the-high-level-generic-assembly-langage">
-<h2>Interpolation based on the high-level generic assembly langage<a class="headerlink" href="#interpolation-based-on-the-high-level-generic-assembly-langage" title="Permalink to this headline">¶</a></h2>
-<p>It is possible to extract some arbitraries expressions on possibly several fields thanks to the high-level generic assembly langage and the interpolation functions.</p>
+<div class="section" id="interpolation-based-on-the-high-level-weak-form-language">
+<h2>Interpolation based on the high-level weak form language<a class="headerlink" href="#interpolation-based-on-the-high-level-weak-form-language" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>It is possible to extract some arbitrary expressions on possibly several fields thanks to the weak form language and the interpolation functions.</p>
 <p>This is specially dedicated to the model object (but it can also be used with a ga_workspace object). For instance if <tt class="docutils literal"><span class="pre">md</span></tt> is a valid object containing some defined variables <tt class="docutils literal"><span class="pre">u</span></tt> (vectorial) and <tt class="docutils literal"><span class="pre">p</span></tt> (scalar), one can interpolate on a Lagrange finite element method an expression such as <tt class="docutils literal"><span class="pre">p*Trace(Grad_u)</span></tt>. The resulting expression can be scalar, vectorial or tensorial. The size of the resulting vector is automatically adapted.</p>
 <p>The high-level generic interpolation functions are defined in the file <tt class="file docutils literal"><span class="pre">getfem/getfem_generic_assembly.h</span></tt>.</p>
 <p>There is different interpolation functions corresponding to the interpolation on a Lagrange fem on the same mesh, the interpolation on a cloud on points or on a <tt class="docutils literal"><span class="pre">getfem::im_data</span></tt> object.</p>
@@ -134,23 +135,23 @@ the interpolation is done with a simple matrix multiplication:</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Interpolation of arbitary quantities</a><ul>
 <li><a class="reference internal" href="#basic-interpolation">Basic interpolation</a></li>
-<li><a class="reference internal" href="#interpolation-based-on-the-high-level-generic-assembly-langage">Interpolation based on the high-level generic assembly langage</a></li>
+<li><a class="reference internal" href="#interpolation-based-on-the-high-level-weak-form-language">Interpolation based on the high-level weak form language</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="asm.html"
-                        title="previous chapter">Some Standard assembly procedures (low-level generic assembly)</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Some Standard assembly procedures (low-level generic assembly)</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="ifem.html"
-                        title="next chapter">Incorporate new finite element methods in <em>GetFEM++</em></a></p>            <h3>Download</h3>
+                        title="次の章へ">Incorporate new finite element methods in <em>GetFEM++</em></a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -167,21 +168,20 @@ the interpolation is done with a simple matrix multiplication:</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -190,18 +190,18 @@ the interpolation is done with a simple matrix multiplication:</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="ifem.html" title="Incorporate new finite element methods in GetFEM++"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="asm.html" title="Some Standard assembly procedures (low-level generic assembly)"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -209,7 +209,7 @@ the interpolation is done with a simple matrix multiplication:</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

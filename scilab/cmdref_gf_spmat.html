@@ -8,46 +8,47 @@
     
     <title>gf_spmat &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_spmat_get" href="cmdref_gf_spmat_get.html" />
     <link rel="prev" title="gf_slice_set" href="cmdref_gf_slice_set.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_spmat_get.html" title="gf_spmat_get"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_gf_slice_set.html" title="gf_slice_set"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,15 +63,15 @@
           <div class="body">
             
   <div class="section" id="gf-spmat">
-<h1>gf_spmat<a class="headerlink" href="#gf-spmat" title="Permalink to this headline">¶</a></h1>
+<h1>gf_spmat<a class="headerlink" href="#gf-spmat" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>SM = gf_spmat('empty', int m [, int n])
-SM = gf_spmat('copy', mat K [,  I [,  J]])
-SM = gf_spmat('identity', int n)
-SM = gf_spmat('mult', spmat A, spmat B)
-SM = gf_spmat('add', spmat A, spmat B)
-SM = gf_spmat('diag', mat D [, ivec E [, int n [,int m]]])
-SM = gf_spmat('load','hb'|'harwell-boeing'|'mm'|'matrix-market', string filename)</pre>
+<div class="highlight-python"><pre>SM = gf_spmat(&#x27;empty&#x27;, int m [, int n])
+SM = gf_spmat(&#x27;copy&#x27;, mat K [,  I [,  J]])
+SM = gf_spmat(&#x27;identity&#x27;, int n)
+SM = gf_spmat(&#x27;mult&#x27;, spmat A, spmat B)
+SM = gf_spmat(&#x27;add&#x27;, spmat A, spmat B)
+SM = gf_spmat(&#x27;diag&#x27;, mat D [, ivec E [, int n [,int m]]])
+SM = gf_spmat(&#x27;load&#x27;,&#x27;hb&#x27;|&#x27;harwell-boeing&#x27;|&#x27;mm&#x27;|&#x27;matrix-market&#x27;, string filename)</pre>
 </div>
 <p><strong>Description :</strong></p>
 <p>General constructor for spmat objects.</p>
@@ -99,7 +100,7 @@ matrices to CSC).</p>
 <blockquote>
 <div><p>Duplicate a matrix &lt;literal&gt;K&lt;/literal&gt; (which might be a spmat). If index &lt;literal&gt;I&lt;/literal&gt; and/or &lt;literal&gt;J&lt;/literal&gt; are given, the matrix will
 be a submatrix of &lt;literal&gt;K&lt;/literal&gt;. For example:</p>
-<div class="highlight-python"><pre>m = gf_spmat('copy', sprand(50,50,.1), 1:40, [6 7 8 3 10])</pre>
+<div class="highlight-python"><pre>m = gf_spmat(&#x27;copy&#x27;, sprand(50,50,.1), 1:40, [6 7 8 3 10])</pre>
 </div>
 <p>will return a 40x5 matrix.</p>
 </div></blockquote>
@@ -134,14 +135,14 @@ filled with the corresponding column of &lt;literal&gt;D&lt;/literal&gt;.</div><
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_slice_set.html"
-                        title="previous chapter">gf_slice_set</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">gf_slice_set</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_spmat_get.html"
-                        title="next chapter">gf_spmat_get</a></p>            <h3>Download</h3>
+                        title="次の章へ">gf_spmat_get</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -158,21 +159,20 @@ filled with the corresponding column of &lt;literal&gt;D&lt;/literal&gt;.</div><
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -181,18 +181,18 @@ filled with the corresponding column of &lt;literal&gt;D&lt;/literal&gt;.</div><
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_gf_spmat_get.html" title="gf_spmat_get"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_gf_slice_set.html" title="gf_slice_set"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -201,7 +201,7 @@ filled with the corresponding column of &lt;literal&gt;D&lt;/literal&gt;.</div><
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,46 +8,47 @@
     
     <title>Slice &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="Spmat" href="cmdref_Spmat.html" />
     <link rel="prev" title="Precond" href="cmdref_Precond.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_Spmat.html" title="Spmat"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_Precond.html" title="Precond"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,11 +63,11 @@
           <div class="body">
             
   <div class="section" id="slice">
-<h1>Slice<a class="headerlink" href="#slice" title="Permalink to this headline">¶</a></h1>
+<h1>Slice<a class="headerlink" href="#slice" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt id="getfem.Slice">
-<em class="property">class </em><tt class="descname">Slice</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetFEM Slice object</p>
+<em class="property">class </em><tt class="descname">Slice</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>GeFEM Slice object</p>
 <p>Creation of a mesh slice. Mesh slices are very similar to a
 P1-discontinuous MeshFem on which interpolation is very fast. The slice is
 built from a mesh object, and a description of the slicing operation, for
@@ -134,8 +135,8 @@ Returns the union of slicing operations.</p>
 </li>
 <li><p class="first">(&#8216;intersection&#8217;, SLICEOP1, SLICEOP2) :
 Returns the intersection of slicing operations, for example:</p>
-<div class="highlight-python"><pre>sl = Slice((intersection',('planar',+1,[[0],[0],[0]],[[0],[0],[1]]),
-                           ('isovalues',-1,mf2,u2,0)),mf,u,5)</pre>
+<div class="highlight-python"><pre>sl = Slice((intersection&#x27;,(&#x27;planar&#x27;,+1,[[0],[0],[0]],[[0],[0],[1]]),
+                           (&#x27;isovalues&#x27;,-1,mf2,u2,0)),mf,u,5)</pre>
 </div>
 </li>
 <li><p class="first">(&#8216;comp&#8217;, SLICEOP) :
@@ -167,13 +168,13 @@ from a text file.</p>
 </ul>
 <dl class="method">
 <dt id="getfem.Slice.area">
-<tt class="descname">area</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.area" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">area</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.area" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the area of the slice.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.char">
-<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.char" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.char" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Output a (unique) string representation of the Slice.</p>
 <p>This can be used to perform comparisons between two
 different Slice objects.
@@ -182,25 +183,25 @@ This function is to be completed.</p>
 
 <dl class="method">
 <dt id="getfem.Slice.cvs">
-<tt class="descname">cvs</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.cvs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cvs</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.cvs" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of convexes of the original mesh contained in the slice.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.dim">
-<tt class="descname">dim</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.dim" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">dim</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.dim" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the dimension of the slice (2 for a 2D mesh, etc..).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.display">
-<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.display" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.display" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>displays a short summary for a Slice object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.edges">
-<tt class="descname">edges</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.edges" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">edges</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.edges" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the edges of the linked mesh contained in the slice.</p>
 <p><cite>P</cite> contains the list of all edge vertices, <cite>E1</cite> contains
 the indices of each mesh edge in <cite>P</cite>, and <cite>E2</cite> contains the
@@ -210,7 +211,7 @@ This function is useless except for post-processing purposes.</p>
 
 <dl class="method">
 <dt id="getfem.Slice.export_to_dx">
-<tt class="descname">export_to_dx</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_dx" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">export_to_dx</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_dx" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: Slice.export_to_dx(self, string filename, ...)</p>
 <p>Export a slice to OpenDX.</p>
 <p>Following the <cite>filename</cite>, you may use any of the following
@@ -234,7 +235,7 @@ followed by an optional name.</li>
 
 <dl class="method">
 <dt id="getfem.Slice.export_to_pos">
-<tt class="descname">export_to_pos</tt><big>(</big><em>filename</em>, <em>name=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_pos" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">export_to_pos</tt><big>(</big><em>filename</em>, <em>name=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_pos" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: Slice.export_to_pos(self, string filename[, string name][[,MeshFem mf1], mat U1, string nameU1[[,MeshFem mf1], mat U2, string nameU2,...])</p>
 <p>Export a slice to Gmsh.</p>
 <p>More than one dataset may be written, just list them.
@@ -247,13 +248,13 @@ Each dataset consists of either:</p>
 
 <dl class="method">
 <dt id="getfem.Slice.export_to_pov">
-<tt class="descname">export_to_pov</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_pov" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">export_to_pov</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_pov" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Export a the triangles of the slice to POV-RAY.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.export_to_vtk">
-<tt class="descname">export_to_vtk</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_vtk" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">export_to_vtk</tt><big>(</big><em>filename</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Slice.export_to_vtk" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Synopsis: Slice.export_to_vtk(self, string filename, ...)</p>
 <p>Export a slice to VTK.</p>
 <p>Following the <cite>filename</cite>, you may use any of the following options:</p>
@@ -281,7 +282,7 @@ U2, &#8216;second_dataset&#8217;)</li>
 
 <dl class="method">
 <dt id="getfem.Slice.interpolate_convex_data">
-<tt class="descname">interpolate_convex_data</tt><big>(</big><em>Ucv</em><big>)</big><a class="headerlink" href="#getfem.Slice.interpolate_convex_data" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">interpolate_convex_data</tt><big>(</big><em>Ucv</em><big>)</big><a class="headerlink" href="#getfem.Slice.interpolate_convex_data" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Interpolate data given on each convex of the mesh to the slice nodes.</p>
 <p>The input array <cite>Ucv</cite> may have any number of dimensions, but its
 last dimension should be equal to Mesh.max_cvid().</p>
@@ -290,32 +291,32 @@ last dimension should be equal to Mesh.max_cvid().</p>
 
 <dl class="method">
 <dt id="getfem.Slice.linked_mesh">
-<tt class="descname">linked_mesh</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.linked_mesh" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">linked_mesh</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.linked_mesh" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the mesh on which the slice was taken.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.memsize">
-<tt class="descname">memsize</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.memsize" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">memsize</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.memsize" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the amount of memory (in bytes) used by the slice object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.mesh">
-<tt class="descname">mesh</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.mesh" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mesh</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.mesh" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the mesh on which the slice was taken
 (identical to &#8216;linked mesh&#8217;)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.nbpts">
-<tt class="descname">nbpts</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.nbpts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">nbpts</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.nbpts" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the number of points in the slice.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.nbsplxs">
-<tt class="descname">nbsplxs</tt><big>(</big><em>dim=None</em><big>)</big><a class="headerlink" href="#getfem.Slice.nbsplxs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">nbsplxs</tt><big>(</big><em>dim=None</em><big>)</big><a class="headerlink" href="#getfem.Slice.nbsplxs" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the number of simplexes in the slice.</p>
 <p>Since the slice may contain points (simplexes of dim 0), segments
 (simplexes of dimension 1), triangles etc., the result is a vector
@@ -325,13 +326,13 @@ is used.</p>
 
 <dl class="method">
 <dt id="getfem.Slice.pts">
-<tt class="descname">pts</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.pts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">pts</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.Slice.pts" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of point coordinates.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.Slice.set_pts">
-<tt class="descname">set_pts</tt><big>(</big><em>P</em><big>)</big><a class="headerlink" href="#getfem.Slice.set_pts" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">set_pts</tt><big>(</big><em>P</em><big>)</big><a class="headerlink" href="#getfem.Slice.set_pts" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Replace the points of the slice.</p>
 <p>The new points <cite>P</cite> are stored in the columns the matrix. Note that
 you can use the function to apply a deformation to a slice, or to
@@ -341,7 +342,7 @@ required to be equal to Slice.dim()).</p>
 
 <dl class="method">
 <dt id="getfem.Slice.splxs">
-<tt class="descname">splxs</tt><big>(</big><em>dim</em><big>)</big><a class="headerlink" href="#getfem.Slice.splxs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">splxs</tt><big>(</big><em>dim</em><big>)</big><a class="headerlink" href="#getfem.Slice.splxs" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return the list of simplexes of dimension <cite>dim</cite>.</p>
 <p>On output, S has &#8216;dim+1&#8217; rows, each column contains the point
 numbers of a simplex.  The vector <cite>CV2S</cite> can be used to find the
@@ -361,14 +362,14 @@ gives the list of simplexes for the fourth convex.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_Precond.html"
-                        title="previous chapter">Precond</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Precond</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_Spmat.html"
-                        title="next chapter">Spmat</a></p>            <h3>Download</h3>
+                        title="次の章へ">Spmat</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -385,21 +386,20 @@ gives the list of simplexes for the fourth convex.</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -408,18 +408,18 @@ gives the list of simplexes for the fourth convex.</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_Spmat.html" title="Spmat"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_Precond.html" title="Precond"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -428,7 +428,7 @@ gives the list of simplexes for the fourth convex.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

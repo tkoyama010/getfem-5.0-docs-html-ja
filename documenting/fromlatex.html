@@ -8,46 +8,47 @@
     
     <title>Differences to the LaTeX markup &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Documenting" href="index.html" />
     <link rel="next" title="Glossary" href="../glossary.html" />
     <link rel="prev" title="Additional Markup Constructs" href="markup.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="../glossary.html" title="Glossary"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="markup.html" title="Additional Markup Constructs"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,7 +62,7 @@
           <div class="body">
             
   <div class="section" id="differences-to-the-latex-markup">
-<h1>Differences to the LaTeX markup<a class="headerlink" href="#differences-to-the-latex-markup" title="Permalink to this headline">¶</a></h1>
+<h1>Differences to the LaTeX markup<a class="headerlink" href="#differences-to-the-latex-markup" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Though the markup language is different, most of the concepts and markup types
 of the old LaTeX docs have been kept &#8211; environments as reST directives, inline
 commands as reST roles and so forth.</p>
@@ -70,7 +71,7 @@ differences in the markup languages, partly due to improvements in Sphinx.  This
 section lists these differences, in order to give those familiar with the old
 format a quick overview of what they might run into.</p>
 <div class="section" id="inline-markup">
-<h2>Inline markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<h2>Inline markup<a class="headerlink" href="#inline-markup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>These changes have been made to inline markup:</p>
 <ul>
 <li><p class="first"><strong>Cross-reference roles</strong></p>
@@ -157,7 +158,7 @@ Example: <tt class="docutils literal"><span class="pre">:file:`C:\\Temp\\my.tmp`
 </ul>
 </div>
 <div class="section" id="information-units">
-<h2>Information units<a class="headerlink" href="#information-units" title="Permalink to this headline">¶</a></h2>
+<h2>Information units<a class="headerlink" href="#information-units" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Information units (<em>...desc</em> environments) have been made reST directives.
 These changes to information units should be noted:</p>
 <ul>
@@ -165,7 +166,7 @@ These changes to information units should be noted:</p>
 <p>&#8220;desc&#8221; has been removed from every name.  Additionally, these directives have
 new names:</p>
 <div class="line-block">
-<div class="line"><em>cfunction</em> (previously <em>cfuncdesc</em>)</div>
+<div class="line"><em>c:function</em> (previously <em>cfuncdesc</em>)</div>
 <div class="line"><em>cmacro</em> (previously <em>csimplemacrodesc</em>)</div>
 <div class="line"><em>exception</em> (previously <em>excdesc</em>)</div>
 <div class="line"><em>function</em> (previously <em>funcdesc</em>)</div>
@@ -227,7 +228,7 @@ used to document things that are not covered by the other units:</p>
 </ul>
 </div>
 <div class="section" id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<h2>Structure<a class="headerlink" href="#structure" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The LaTeX docs were split in several toplevel manuals.  Now, all files are part
 of the same documentation tree, as indicated by the <em>toctree</em> directives in the
 sources (though individual output formats may choose to split them up into parts
@@ -258,9 +259,9 @@ moved to <tt class="file docutils literal"><span class="pre">using/mac.rst</span
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Differences to the LaTeX markup</a><ul>
 <li><a class="reference internal" href="#inline-markup">Inline markup</a></li>
@@ -270,12 +271,12 @@ moved to <tt class="file docutils literal"><span class="pre">using/mac.rst</span
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="markup.html"
-                        title="previous chapter">Additional Markup Constructs</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Additional Markup Constructs</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="../glossary.html"
-                        title="next chapter">Glossary</a></p>            <h3>Download</h3>
+                        title="次の章へ">Glossary</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -292,21 +293,20 @@ moved to <tt class="file docutils literal"><span class="pre">using/mac.rst</span
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -315,18 +315,18 @@ moved to <tt class="file docutils literal"><span class="pre">using/mac.rst</span
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="../glossary.html" title="Glossary"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="markup.html" title="Additional Markup Constructs"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -334,7 +334,7 @@ moved to <tt class="file docutils literal"><span class="pre">using/mac.rst</span
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

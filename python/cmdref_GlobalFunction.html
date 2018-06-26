@@ -8,46 +8,47 @@
     
     <title>GlobalFunction &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="Integ" href="cmdref_Integ.html" />
     <link rel="prev" title="GeoTrans" href="cmdref_GeoTrans.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="cmdref_Integ.html" title="Integ"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_GeoTrans.html" title="GeoTrans"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,11 +63,11 @@
           <div class="body">
             
   <div class="section" id="globalfunction">
-<h1>GlobalFunction<a class="headerlink" href="#globalfunction" title="Permalink to this headline">¶</a></h1>
+<h1>GlobalFunction<a class="headerlink" href="#globalfunction" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt id="getfem.GlobalFunction">
-<em class="property">class </em><tt class="descname">GlobalFunction</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetFEM GlobalFunction object</p>
+<em class="property">class </em><tt class="descname">GlobalFunction</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>GeFEM GlobalFunction object</p>
 <p>Global function object is represented by three functions:</p>
 <blockquote>
 <div><ul class="simple">
@@ -95,7 +96,7 @@ Create a add of two global functions.</li>
 </ul>
 <dl class="method">
 <dt id="getfem.GlobalFunction.char">
-<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.char" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">char</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.char" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Output a (unique) string representation of the GlobalFunction.</p>
 <p>This can be used to perform comparisons between two
 different GlobalFunction objects.
@@ -104,13 +105,13 @@ This function is to be completed.</p>
 
 <dl class="method">
 <dt id="getfem.GlobalFunction.display">
-<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.display" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">display</tt><big>(</big><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.display" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>displays a short summary for a GlobalFunction object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="getfem.GlobalFunction.grad">
-<tt class="descname">grad</tt><big>(</big><em>PTs</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.grad" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">grad</tt><big>(</big><em>PTs</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.grad" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return <cite>grad</cite> function evaluation in <cite>PTs</cite> (column points).</p>
 <p>On return, each column of <cite>GRADs</cite> is of the
 form [Gx,Gy].</p>
@@ -118,7 +119,7 @@ form [Gx,Gy].</p>
 
 <dl class="method">
 <dt id="getfem.GlobalFunction.hess">
-<tt class="descname">hess</tt><big>(</big><em>PTs</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.hess" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">hess</tt><big>(</big><em>PTs</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.hess" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return <cite>hess</cite> function evaluation in <cite>PTs</cite> (column points).</p>
 <p>On return, each column of <cite>HESSs</cite> is of the
 form [Hxx,Hxy,Hyx,Hyy].</p>
@@ -126,7 +127,7 @@ form [Hxx,Hxy,Hyx,Hyy].</p>
 
 <dl class="method">
 <dt id="getfem.GlobalFunction.val">
-<tt class="descname">val</tt><big>(</big><em>PTs</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.val" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">val</tt><big>(</big><em>PTs</em><big>)</big><a class="headerlink" href="#getfem.GlobalFunction.val" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Return <cite>val</cite> function evaluation in <cite>PTs</cite> (column points).</p>
 </dd></dl>
 
@@ -141,14 +142,14 @@ form [Hxx,Hxy,Hyx,Hyy].</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_GeoTrans.html"
-                        title="previous chapter">GeoTrans</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">GeoTrans</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="cmdref_Integ.html"
-                        title="next chapter">Integ</a></p>            <h3>Download</h3>
+                        title="次の章へ">Integ</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -165,21 +166,20 @@ form [Hxx,Hxy,Hyx,Hyy].</p>
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -188,18 +188,18 @@ form [Hxx,Hxy,Hyx,Hyy].</p>
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="cmdref_Integ.html" title="Integ"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="cmdref_GeoTrans.html" title="GeoTrans"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -208,7 +208,7 @@ form [Hxx,Hxy,Hyx,Hyy].</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

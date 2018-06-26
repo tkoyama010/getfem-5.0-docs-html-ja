@@ -8,41 +8,42 @@
     
     <title>GetFEM++ Documentation contents &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="getfem.css" type="text/css" />
-    <link rel="stylesheet" href="pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="underscore.js"></script>
-    <script type="text/javascript" src="doctools.js"></script>
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="author" title="About these documents" href="about.html" />
-    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="about.html" />
+    <link rel="copyright" title="著作権" href="copyright.html" />
     <link rel="top" title="GetFEM++" href="index.html" />
     <link rel="next" title="User Documentation" href="userdoc/index.html" />
-    <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <link rel="shortcut icon" type="image/png" href="_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="userdoc/index.html" title="User Documentation"
-             accesskey="N">next</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="icon.png" alt=""
+             accesskey="N">次へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="index.html">GetFEM++</a> &raquo;</li>
  
@@ -55,17 +56,12 @@
           <div class="body">
             
   <div class="section" id="getfem-documentation-contents">
-<h1>GetFEM++ Documentation contents<a class="headerlink" href="#getfem-documentation-contents" title="Permalink to this headline">¶</a></h1>
+<h1>GetFEM++ Documentation contents<a class="headerlink" href="#getfem-documentation-contents" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="userdoc/index.html">User Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="userdoc/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="userdoc/install.html">How to install</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="userdoc/install.html#requirements">Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="userdoc/install.html#download-sources">Download sources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="userdoc/install.html#compiling">Compiling</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="userdoc/install.html">How to install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="userdoc/linalg.html">Linear algebra procedures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="userdoc/parallel.html">MPI Parallelization of <em>GetFEM++</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/parallel.html#state-of-progress-of-gf-mpi-parallelization">State of progress of <em>GetFEM++</em> MPI parallelization</a></li>
@@ -99,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="userdoc/rmesh.html">Mesh refinement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="userdoc/gasm_high.html">Compute arbitrary terms - high-level generic assembly procedures</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#differences-in-execution-time-between-high-and-low-level-generic-assembly">Differences in execution time between high and low level generic assembly</a></li>
-<li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#overview-of-the-assembly-language-syntax">Overview of the assembly language syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#overview-of-the-weak-form-language-syntax">Overview of the weak form language syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#some-basic-examples">Some basic examples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#derivation-order-and-symbolic-differentiation">Derivation order and symbolic differentiation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#c-call-of-the-assembly">C++ Call of the assembly</a></li>
@@ -127,10 +123,14 @@
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#trace-deviator-sym-and-skew-operators">Trace, Deviator, Sym and Skew operators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#nonlinear-operators">Nonlinear operators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#macro-definition">Macro definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#explicit-differentiation">Explicit Differentiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#explicit-gradient">Explicit Gradient</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#interpolate-transformations">Interpolate transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#element-extrapolation-transformation">Element extrapolation transformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#evaluating-discontinuities-across-inter-element-edges-faces">Evaluating discontinuities across inter-element edges/faces</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#elementary-transformations">Elementary transformations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#xfem-discontinuity-evaluation-with-mesh-fem-level-set">Xfem discontinuity evaluation (with mesh_fem_level_set)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/gasm_high.html#storage-of-sub-expressions-in-a-getfem-im-data-object-during-assembly">Storage of sub-expressions in a getfem::im_data object during assembly</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="userdoc/gasm_low.html">Compute arbitrary terms - low-level generic assembly procedures</a><ul>
@@ -147,7 +147,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="userdoc/interMM.html">Interpolation of arbitary quantities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/interMM.html#basic-interpolation">Basic interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="userdoc/interMM.html#interpolation-based-on-the-high-level-generic-assembly-langage">Interpolation based on the high-level generic assembly langage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/interMM.html#interpolation-based-on-the-high-level-weak-form-language">Interpolation based on the high-level weak form language</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="userdoc/ifem.html">Incorporate new finite element methods in <em>GetFEM++</em></a></li>
@@ -223,7 +223,6 @@
 <li class="toctree-l3"><a class="reference internal" href="userdoc/model_plasticity_small_strain.html#theoretical-background">Theoretical background</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/model_plasticity_small_strain.html#flow-rule-integration">Flow rule integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/model_plasticity_small_strain.html#some-classical-laws">Some classical laws</a></li>
-<li class="toctree-l3"><a class="reference internal" href="userdoc/model_plasticity_small_strain.html#some-classical-modelizations">Some classical modelizations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/model_plasticity_small_strain.html#elasto-plasticity-bricks">Elasto-plasticity bricks</a></li>
 </ul>
 </li>
@@ -236,7 +235,7 @@
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#classical-lagrange-elements-on-simplices">Classical <img class="math" src="_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> Lagrange elements on simplices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#classical-lagrange-elements-on-other-geometries">Classical Lagrange elements on other geometries</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#elements-with-hierarchical-basis">Elements with hierarchical basis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#classical-vectorial-elements">Classical vectorial elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#classical-vector-elements">Classical vector elements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#specific-elements-in-dimension-1">Specific elements in dimension 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#specific-elements-in-dimension-2">Specific elements in dimension 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixA.html#specific-elements-in-dimension-3">Specific elements in dimension 3</a></li>
@@ -249,6 +248,7 @@
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixB.html#gauss-integration-methods-on-dimension-2">Gauss Integration methods on dimension 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixB.html#gauss-integration-methods-on-dimension-3">Gauss Integration methods on dimension 3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixB.html#direct-product-of-integration-methods">Direct product of integration methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdoc/appendixB.html#specific-integration-methods">Specific integration methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="userdoc/appendixB.html#composite-integration-methods">Composite integration methods</a></li>
 </ul>
 </li>
@@ -278,7 +278,16 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="project/index.html">Description of the Project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="project/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project/contribute.html">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/contribute.html">How to contribute / Git repository on Savannah</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="project/contribute.html#how-to-get-the-sources">How to get the sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project/contribute.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project/contribute.html#locally-commit-your-changes">Locally commit your changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project/contribute.html#push-you-changes-in-the-savannah-repository">Push you changes in the Savannah repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project/contribute.html#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf">Ask for an admin to merge your modifications to the master branch of <em>GetFEM++</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project/contribute.html#merge-modifications-done-by-other-contributors">Merge modifications done by other contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project/contribute.html#some-useful-git-commands">Some useful git commands</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="project/femdesc.html">The FEM description in <em>GetFEM++</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="project/femdesc.html#convex-structures">Convex structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="project/femdesc.html#convexes-of-reference">Convexes of reference</a></li>
@@ -381,7 +390,6 @@
 <li class="toctree-l1"><a class="reference internal" href="matlab/index.html"><em>MatLab</em> Interface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="matlab/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matlab/install.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matlab/install_on_mac.html">Installing the matlab interface for getfem 4.0.0 on snow leopard.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matlab/pre.html">Preliminary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matlab/mlabgf.html"><em>GetFEM++</em> organization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="matlab/mlabgf.html#functions">Functions</a></li>
@@ -461,14 +469,9 @@
 <li class="toctree-l2"><a class="reference internal" href="matlab/oocmd.html"><em>GetFEM++</em> OO-commands</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="matlab/install_on_mac.html">Installing the matlab interface for getfem 4.0.0 on snow leopard.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/index.html"><em>Python</em> Interface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/install.html">Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="python/install.html#in-a-debian-ubuntu-system">In a Debian/Ubuntu system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/install.html#in-a-general-unix-linux-based-systems">In a general unix/linux based systems</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="python/install.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/pre.html">Preliminary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/pygf.html"><em>Python</em> <em>GetFEM++</em> interface</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/pygf.html#introduction">Introduction</a></li>
@@ -590,7 +593,35 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="install/install_linux.html">How to install from sources on Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/install_linux.html#download-sources">Download sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install_linux.html#compiling">Compiling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/install_linux.html#configure-options">Configure Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install_linux.html#scilab-interface">Scilab interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install_linux.html#matlab-interface">Matlab interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install/install_mac.html">How to install from sources on MacOS X</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/install_mac.html#download-sources">Download sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install_mac.html#compiling">Compiling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/install_mac.html#configure-options">Configure Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install_mac.html#matlab-interface">Matlab interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install_mac.html#scilab-interface">Scilab interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install/install_windows.html">How to install <em>GetFEM++</em> from sources on Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/install_windows.html#build-with-the-python-interface">Build with the Python interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install_windows.html#build-with-the-matlab-interface">Build with the Matlab interface</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="whatsnew/index.html">What&#8217;s New in GetFEM++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="whatsnew/5.3.html">What&#8217;s New in <em>GetFEM++</em> 5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatsnew/5.2.html">What&#8217;s New in <em>GetFEM++</em> 5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatsnew/5.1.html">What&#8217;s New in <em>GetFEM++</em> 5.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatsnew/5.0.html">What&#8217;s New in <em>GetFEM++</em> 5.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatsnew/4.3.html">What&#8217;s New in <em>GetFEM++</em> 4.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatsnew/4.2.html">What&#8217;s New in <em>GetFEM++</em> 4.2</a></li>
@@ -658,7 +689,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting Bugs in GetFEM++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Legal information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">History and License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="links.html">Some related links</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="links.html#jean-garrigues-courses-in-french">Jean Garrigues courses (in french)</a></li>
@@ -666,7 +697,7 @@
 <li class="toctree-l2"><a class="reference internal" href="links.html#mumps-a-multifrontal-massively-parallel-sparse-direct-solver">MUMPS: a MUltifrontal Massively Parallel sparse direct Solver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="links.html#superlu-sparse-gaussian-elimination-on-high-performance-computers">SuperLu: Sparse Gaussian Elimination on High Performance Computers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="links.html#some-project-using-getfem-and-or-gmm">Some project using GetFEM++ and/or Gmm++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="links.html#some-publications-based-on-getfem-and-or-gmm">Some publications based on GetFEM++ and/or Gmm++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#examples-of-publications-based-on-getfem">Examples of publications based on GetFEM++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="links.html#an-evaluation-of-gmm-performance">An evaluation of Gmm++ performance</a></li>
 </ul>
 </li>
@@ -699,11 +730,11 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="index.html">
-    <img class="logo" src="logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h4>Next topic</h4>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="userdoc/index.html"
-                        title="next chapter">User Documentation</a></p>            <h3>Download</h3>
+                        title="次の章へ">User Documentation</a></p>            <h3>Download</h3>
             <p><a href="download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -720,21 +751,20 @@
             <ul>
               <li><a href="screenshots/shots.html">Screenshots</a></li>
               <li><a href="links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -743,22 +773,22 @@
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="userdoc/index.html" title="User Documentation"
-             >next</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="icon.png" alt=""
+             >次へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="index.html">GetFEM++</a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,46 +8,47 @@
     
     <title>ALE Support for object having a large rigid body motion &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.0',
+        VERSION:     '5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../jquery.js"></script>
-    <script type="text/javascript" src="../underscore.js"></script>
-    <script type="text/javascript" src="../doctools.js"></script>
-    <link rel="shortcut icon" href="../favicon.ico"/>
-    <link rel="author" title="About these documents" href="../about.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="Appendix A. Finite element method list" href="appendixA.html" />
     <link rel="prev" title="Small strain plasticity" href="model_plasticity_small_strain.html" />
-    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
         <li class="right" >
           <a href="appendixA.html" title="Appendix A. Finite element method list"
-             accesskey="N">next</a> |</li>
+             accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="model_plasticity_small_strain.html" title="Small strain plasticity"
-             accesskey="P">previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             accesskey="P">前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -61,12 +62,12 @@
           <div class="body">
             
   <div class="section" id="ale-support-for-object-having-a-large-rigid-body-motion">
-<span id="ud-model-ale-rotating"></span><span id="index-0"></span><h1>ALE Support for object having a large rigid body motion<a class="headerlink" href="#ale-support-for-object-having-a-large-rigid-body-motion" title="Permalink to this headline">¶</a></h1>
+<span id="ud-model-ale-rotating"></span><span id="index-0"></span><h1>ALE Support for object having a large rigid body motion<a class="headerlink" href="#ale-support-for-object-having-a-large-rigid-body-motion" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="ale-terms-for-rotating-objects">
-<h2>ALE terms for rotating objects<a class="headerlink" href="#ale-terms-for-rotating-objects" title="Permalink to this headline">¶</a></h2>
+<h2>ALE terms for rotating objects<a class="headerlink" href="#ale-terms-for-rotating-objects" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This section present a set of bricks facilitating the use of an ALE formulation for rotating bodies having a rotational symmetry (typically a train wheel).</p>
 <div class="section" id="theoretical-background">
-<h3>Theoretical background<a class="headerlink" href="#theoretical-background" title="Permalink to this headline">¶</a></h3>
+<h3>Theoretical background<a class="headerlink" href="#theoretical-background" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>This strategy consists in adopting an intermediary description between an Eulerian and a Lagrangian ones for a rotating body having a rotational symmetry. This intermediary description consist in a rotating axes with respect to the reference configuration. See for instance <a class="reference internal" href="../biblio.html#dr-la-ek2014" id="id1">[Dr-La-Ek2014]</a> and <a class="reference internal" href="../biblio.html#nackenhorst2004" id="id2">[Nackenhorst2004]</a>.</p>
 <p>It is supposed that the considered body is submitted approximately to a rigid body motion</p>
 <div class="math">
@@ -122,7 +123,7 @@ A = \left(\begin{array}{ccc}
 
 \Frac{\partial^2 u}{\partial t^2} = \Frac{\partial^2 \bar{u}}{\partial t^2} + 2\dot{\theta} \nabla\Frac{\partial \bar{u}}{\partial t}A \bar{X} +  \dot{\theta}^2\mbox{div}(((I_d + \nabla\bar{u})A \bar{X}) \otimes (A \bar{X}) )  + \ddot{\theta} (I_d + \nabla\bar{u}) A \bar{X}  + \ddot{Z}(t)."/></p>
 </div><div class="section" id="weak-formulation-of-the-transient-terms">
-<h4>Weak formulation of the transient terms<a class="headerlink" href="#weak-formulation-of-the-transient-terms" title="Permalink to this headline">¶</a></h4>
+<h4>Weak formulation of the transient terms<a class="headerlink" href="#weak-formulation-of-the-transient-terms" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Assuming <img class="math" src="../_images/math/21d611700a85513f5444067a3199a0aa1e4e1d89.png" alt="\rho^0" style="vertical-align: -4px"/> the density in the reference configuration having a rotation symmetry, the term corresponding to acceleration in the weak formulation reads (with <img class="math" src="../_images/math/9c403ce4255e7099ca6f6d6d5c1b7c97840b08be.png" alt="v(X) = \bar{v}(\bar{X})" style="vertical-align: -4px"/> a test function):</p>
 <div class="math">
 <p><img src="../_images/math/26bec020092e79cf6d8b094e61a18ecdba5819c0.png" alt="\int_{\Omega^0} \rho^0 \Frac{\partial^2 u}{\partial t^2}\cdot vdX =
@@ -148,7 +149,7 @@ A = \left(\begin{array}{ccc}
 </div>
 </div>
 <div class="section" id="the-available-bricks">
-<h3>The available bricks ...<a class="headerlink" href="#the-available-bricks" title="Permalink to this headline">¶</a></h3>
+<h3>The available bricks ...<a class="headerlink" href="#the-available-bricks" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>To be adapted</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span> <span class="n">getfem</span><span class="o">::</span><span class="n">brick_name</span><span class="p">(</span><span class="n">parmeters</span><span class="p">);</span>
 </pre></div>
@@ -157,10 +158,10 @@ A = \left(\begin{array}{ccc}
 </div>
 </div>
 <div class="section" id="ale-terms-for-a-uniformly-translated-part-of-an-object">
-<h2>ALE terms for a uniformly translated part of an object<a class="headerlink" href="#ale-terms-for-a-uniformly-translated-part-of-an-object" title="Permalink to this headline">¶</a></h2>
+<h2>ALE terms for a uniformly translated part of an object<a class="headerlink" href="#ale-terms-for-a-uniformly-translated-part-of-an-object" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This section present a set of bricks facilitating the use of an ALE formulation for an object being potentialy infinite in one direction and which whose part of interests (on which the computation is considered) is translated uniformly in that direction (typically a bar).</p>
 <div class="section" id="id3">
-<h3>Theoretical background<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>Theoretical background<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Let us consider an object whose reference configuration <img class="math" src="../_images/math/46805f58e61f7ea97f37b8e496b947bac0fa1a92.png" alt="\Omega^0 \in \R^{d}" style="vertical-align: -1px"/> is infinite in the direction <img class="math" src="../_images/math/459b08d5235f417c69f0cc0c2d473a4739abdb1f.png" alt="E_1" style="vertical-align: -4px"/>, i.e. <img class="math" src="../_images/math/847b7fa2b3ee50d82f9975740f1a0840aef6eba7.png" alt="\Omega^0 = \R \times \omega^0" style="vertical-align: -1px"/> where <img class="math" src="../_images/math/b3a5c7189284fbdb98309367de0b1436392faf9c.png" alt="\omega^0 \in \R^{d-1}" style="vertical-align: -1px"/>. At a time <img class="math" src="../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t" style="vertical-align: 0px"/>, only a &#8220;windows&#8221; of this object is considered</p>
 <div class="math">
 <p><img src="../_images/math/cf4189dd14a254e0ba084420778107bf5a135822.png" alt="\Omega^{0t} = (\alpha + z(t), \beta + z(t)) \times \omega^0"/></p>
@@ -168,7 +169,7 @@ A = \left(\begin{array}{ccc}
 <p>If <img class="math" src="../_images/math/6b7e14293d2e77a847881ddef55a38af0b106a27.png" alt="\varphi(t, X)" style="vertical-align: -4px"/> is the deformation of the body which maps the reference configuration <img class="math" src="../_images/math/189fed92fbd6b0d71dc3c1347ec5de77e879241c.png" alt="\Omega^0" style="vertical-align: 0px"/> to the deformed configuration <img class="math" src="../_images/math/f71d06d762a6c84475cc4a89a032b5f41fef60b1.png" alt="\Omega_t" style="vertical-align: -3px"/> at time <img class="math" src="../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t" style="vertical-align: 0px"/>, the ALE description consists in considering the intermediary reference configuration</p>
 <div class="math">
 <p><img src="../_images/math/8f06bcc19b092f13c242504a0dcbfbbfb679e02b.png" alt="\bar{\Omega}^{0} = (\alpha, \beta) \times \omega^0"/></p>
-</div><p>and <img class="math" src="../_images/math/49e488cb0a066a98440dfc21e598fbd39d704537.png" alt="\bar{\varphi}(t, X) : \R_+ \times \bar{\Omega}^{0} \rightarrow \R^d" style="vertical-align: -4px"/> defined by</p>
+</div><p>and <img class="math" src="../_images/math/49e488cb0a066a98440dfc21e598fbd39d704537.png" alt="\bar{\varphi}(t, X) : \R_+ \times \bar{\Omega}^{0} \rightarrow \R^d" style="vertical-align: -5px"/> defined by</p>
 <div class="math">
 <p><img src="../_images/math/f5748ae2ba5ec1e2534c6820ed73f5512327e327.png" alt="\bar{\varphi}(t,\bar{X}) = \varphi(t,X), ~~~\mbox{ with } \bar{X} = X - Z(t),"/></p>
 </div><p>where <img class="math" src="../_images/math/a11c1211cb1e01415d1ea5d271154fd6e1c8ae49.png" alt="Z(t) = z(t)E_1" style="vertical-align: -4px"/>. The interest of <img class="math" src="../_images/math/d7a9c3b85bfe52fe34771de38fa9fc10d8bca0e5.png" alt="\bar{\Omega}^{0}" style="vertical-align: 0px"/> is of course to be time independant. Of course, some special boundary conditions have to be defined on <img class="math" src="../_images/math/69c674e61bd0e95a8ed1a62e2561958b7f2faca4.png" alt="\{\alpha\} \times \omega^0" style="vertical-align: -5px"/> and <img class="math" src="../_images/math/1ea0bbcc85eefbae781e040e69fb4201ad97d0fe.png" alt="\{\beta\} \times \omega^0" style="vertical-align: -5px"/> (absorbing or periodic boundary conditions) in order to approximate the fact that the body is infinite.</p>
@@ -184,7 +185,7 @@ A = \left(\begin{array}{ccc}
 
 \Frac{\partial^2 \varphi}{\partial t^2} = \Frac{\partial^2 \bar{u}}{\partial t^2} - \nabla\Frac{\partial \bar{u}}{\partial t}\dot{Z} + \Frac{\partial^2 \bar{u}}{\partial \dot{Z}^2} - \nabla\bar{u}\ddot{Z}."/></p>
 </div><div class="section" id="id4">
-<h4>Weak formulation of the transient terms<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<h4>Weak formulation of the transient terms<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Assuming <img class="math" src="../_images/math/21d611700a85513f5444067a3199a0aa1e4e1d89.png" alt="\rho^0" style="vertical-align: -4px"/> the density in the reference being invariant with the considered translation, the term corresponding to acceleration in the weak formulation reads (with <img class="math" src="../_images/math/9c403ce4255e7099ca6f6d6d5c1b7c97840b08be.png" alt="v(X) = \bar{v}(\bar{X})" style="vertical-align: -4px"/> a test function and after integration by part):</p>
 <div class="math">
 <p><img src="../_images/math/1dc082af058f709906f9045f7ce784d63250601c.png" alt="\int_{\Omega^0} \rho^0 \Frac{\partial^2 u}{\partial t^2}\cdot vdX =
@@ -203,9 +204,9 @@ A = \left(\begin{array}{ccc}
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
-  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ALE Support for object having a large rigid body motion</a><ul>
 <li><a class="reference internal" href="#ale-terms-for-rotating-objects">ALE terms for rotating objects</a><ul>
@@ -227,12 +228,12 @@ A = \left(\begin{array}{ccc}
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
+  <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_plasticity_small_strain.html"
-                        title="previous chapter">Small strain plasticity</a></p>
-  <h4>Next topic</h4>
+                        title="前の章へ">Small strain plasticity</a></p>
+  <h4>次のトピックへ</h4>
   <p class="topless"><a href="appendixA.html"
-                        title="next chapter">Appendix A. Finite element method list</a></p>            <h3>Download</h3>
+                        title="次の章へ">Appendix A. Finite element method list</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -249,21 +250,20 @@ A = \left(\begin{array}{ccc}
             <ul>
               <li><a href="../screenshots/shots.html">Screenshots</a></li>
               <li><a href="../links.html">Related links</a></li>
-	      <li><a href="http://home.gna.org/getfem/getfem_faq.html">FAQs</a></li>
-              <li><a href="https://gna.org">Hosted by GNA! </a></li>
+	      <li><a href="https://savannah.nongnu.org/projects/getfem">Hosted by Savannah </a></li>
               
               
             </ul>
 <div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
+  <h3>クイック検索</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
     <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+    モジュール、クラス、または関数名を入力してください
     </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
@@ -272,18 +272,18 @@ A = \left(\begin{array}{ccc}
       <div class="clearer"></div>
     </div>
     <div class="related">
-      <h3>Navigation</h3>
+      <h3>ナビゲーション</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
         <li class="right" >
           <a href="appendixA.html" title="Appendix A. Finite element method list"
-             >next</a> |</li>
+             >次へ</a> |</li>
         <li class="right" >
           <a href="model_plasticity_small_strain.html" title="Small strain plasticity"
-             >previous</a> |</li>
-        <li><a href="http://gna.org/projects/getfem" <img src="../icon.png" alt=""
+             >前へ</a> |</li>
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -291,7 +291,7 @@ A = \left(\begin{array}{ccc}
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2015 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
     </div>
   </body>
 </html>
