@@ -103,12 +103,12 @@ gmm::linalg_traits&lt;V&gt;::do_clear(v) --&gt; make a clear on the vector
 
 gmm::linalg_traits&lt;V&gt;::access(o, it, ite, i) --&gt; return the ith component or a
                                         reference on the ith component. o is a
-                                        pointer o type ``origin_type *&#x27;&#x27; or
-                                        ``const origin_type *&#x27;&#x27;.
+                                        pointer o type ``origin_type *'' or
+                                        ``const origin_type *''.
 
 gmm::linalg_traits&lt;V&gt;::clear(o, it, ite) --&gt; clear the vector. o is a
-                                        pointer o type ``origin_type *&#x27;&#x27; or
-                                        ``const origin_type *&#x27;&#x27;.</pre>
+                                        pointer o type ``origin_type *'' or
+                                        ``const origin_type *''.</pre>
 </div>
 <p>and for a matrix type:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">typename</span> <span class="n">gmm</span><span class="o">::</span><span class="n">linalg_traits</span><span class="o">&lt;</span><span class="n">M</span><span class="o">&gt;::</span><span class="n">value_type</span>     <span class="o">--&gt;</span> <span class="n">type</span> <span class="n">of</span> <span class="n">the</span> <span class="n">components</span> <span class="n">of</span> <span class="n">the</span>
@@ -206,7 +206,7 @@ while (it1 != ite1 &amp;&amp; it2 != ite2) \{  // loops on the components
 
   ...
 
-  std::cout &lt;&lt; &quot;norm of row &quot; &lt;&lt; i &lt;&lt; &quot; : &quot; &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
+  std::cout &lt;&lt; "norm of row " &lt;&lt; i &lt;&lt; " : " &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
 \}</pre>
 </div>
 <p>But you can also use iterators, like that:</p>
@@ -219,7 +219,7 @@ for (; it != ite; ++it) \{
 
   ...
 
-  std::cout &lt;&lt; &quot;norm of row &quot; &lt;&lt; i &lt;&lt; &quot; : &quot; &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
+  std::cout &lt;&lt; "norm of row " &lt;&lt; i &lt;&lt; " : " &lt;&lt; vect_norm2(row) &lt;&lt; std::endl;
 \}</pre>
 </div>
 </div>

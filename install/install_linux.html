@@ -134,10 +134,10 @@ is build by default.</p>
 <li><p class="first">If you want to use a specific <strong>BLAS</strong> library, you may have to
 supply the necessary link flags and libs to the configure script
 with:</p>
-<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS=&quot;-L/path/to/lib -lfoo -lbar ....etc&quot;</pre>
+<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS="-L/path/to/lib -lfoo -lbar ....etc"</pre>
 </div>
 <p>for example:</p>
-<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS=&quot;-L/usr/lib/sse2/atlas -lblas&quot;</pre>
+<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS="-L/usr/lib/sse2/atlas -lblas"</pre>
 </div>
 </li>
 <li><p class="first">If you want to set the prefix directory where to install the library
@@ -245,7 +245,7 @@ environment variable to the directory containing the <tt class="docutils literal
 </ul>
 <p>A very classical problem at this step is the incompatibility of the C and C++ libraries used by Matlab. Matlab is distributed with its own libc and libstdc++ libraries. An error message of the following type occurs when one tries to use a command of the interface:</p>
 <div class="highlight-c++"><pre>/usr/local/matlab14-SP3/bin/glnxa64/../../sys/os/??/libgcc_s.so.1:
-version `GCC_?.?&#x27; not found (required by .../gf_matlab.mex??).</pre>
+version `GCC_?.?' not found (required by .../gf_matlab.mex??).</pre>
 </div>
 <p>In order to fix this problem one has to enforce Matlab to load the C and C++ libraries of the system. There is two possibilities to do this. The most radical is to delete the C and C++ libraries distributed along with Matlab (if you have administrator privileges ...!) for instance with:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mv</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">matlab14</span><span class="o">-</span><span class="n">SP3</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">os</span><span class="o">/??/</span><span class="n">libgcc_s</span><span class="p">.</span><span class="n">so</span><span class="mf">.1</span> <span class="n">libgcc_s</span><span class="p">.</span><span class="n">so</span><span class="mf">.1</span><span class="n">_old</span>

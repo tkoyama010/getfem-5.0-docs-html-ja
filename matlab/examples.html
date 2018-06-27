@@ -451,29 +451,29 @@ assembly of the final linear systems. However it is also possible to stay at a
 lower level, and handle the assembly of linear systems, and their resolution,
 directly in <em>MatLab</em>. For example, the demonstration <tt class="file docutils literal"><span class="pre">demo_tripod_alt.m</span></tt> is
 very similar to the <tt class="file docutils literal"><span class="pre">demo_tripod.m</span></tt> except that the assembly is explicit:</p>
-<div class="highlight-matlab"><pre>nbd=get(mfd, &#x27;nbdof&#x27;);
-F = gf_asm(&#x27;boundary_source&#x27;, 1, mim, mfu, mfd, repmat([0;-10;0],1,nbd));
-K = gf_asm(&#x27;linear_elasticity&#x27;, mim, mfu, mfd, ...
+<div class="highlight-matlab"><pre>nbd=get(mfd, 'nbdof');
+F = gf_asm('boundary_source', 1, mim, mfu, mfd, repmat([0;-10;0],1,nbd));
+K = gf_asm('linear_elasticity', mim, mfu, mfd, ...
            lambda*ones(1,nbd),mu*ones(1,nbd));
 
 % handle Dirichlet condition
-[H,R]=gf_asm(&#x27;dirichlet&#x27;, 2, mim, mfu, mfd, repmat(eye(3),[1,1,nbd]), zeros(3, nbd));
-[N,U0]=gf_spmat_get(H, &#x27;dirichlet_nullspace&#x27;, R);
-KK=N&#x27;*K*N;
-FF=N&#x27;*F;
+[H,R]=gf_asm('dirichlet', 2, mim, mfu, mfd, repmat(eye(3),[1,1,nbd]), zeros(3, nbd));
+[N,U0]=gf_spmat_get(H, 'dirichlet_nullspace', R);
+KK=N'*K*N;
+FF=N'*F;
 % solve ...
-disp(&#x27;solving...&#x27;); t0 = cputime;
+disp('solving...'); t0 = cputime;
 lsolver = 1 % change this to compare the different solvers
 if (lsolver == 1),     % conjugate gradient
-  P=gfPrecond(&#x27;ildlt&#x27;,KK);
-  UU=gf_linsolve(&#x27;cg&#x27;,KK,FF,P,&#x27;noisy&#x27;,&#x27;res&#x27;,1e-9);
+  P=gfPrecond('ildlt',KK);
+  UU=gf_linsolve('cg',KK,FF,P,'noisy','res',1e-9);
 elseif (lsolver == 2), % superlu
-  UU=gf_linsolve(&#x27;superlu&#x27;,KK,FF);
-else                   % the matlab &quot;slash&quot; operator
+  UU=gf_linsolve('superlu',KK,FF);
+else                   % the matlab "slash" operator
   UU=KK \ FF;
 end;
-disp(sprintf(&#x27;linear system solved in \%.2f sec&#x27;, cputime-t0));
-U=(N*UU).&#x27;+U0;</pre>
+disp(sprintf('linear system solved in \%.2f sec', cputime-t0));
+U=(N*UU).'+U0;</pre>
 </div>
 <p>In <em>getfem-interface</em>, the assembly of vectors, and matrices is done via the <tt class="docutils literal"><span class="pre">gf_asm</span></tt>
 function. The Dirichlet condition <img class="math" src="../images/math/0a8209de9a11595e255d5043a87420c5e234e20f.png" alt="u(x) = r(x)" style="vertical-align: -4px"/> is handled in the weak form

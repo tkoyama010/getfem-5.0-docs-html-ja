@@ -65,33 +65,33 @@
   <div class="section" id="gf-asm">
 <h1>gf_asm<a class="headerlink" href="#gf-asm" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>{...} = gf_asm(&#x27;generic&#x27;, mesh_im mim, int order, string expression, int region, [model model,] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], ...)
-M = gf_asm(&#x27;mass matrix&#x27;, mesh_im mim, mesh_fem mf1[, mesh_fem mf2[, int region]])
-L = gf_asm(&#x27;laplacian&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
-Le = gf_asm(&#x27;linear elasticity&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec lambda_d, vec mu_d[, int region])
-TRHS = gf_asm(&#x27;nonlinear elasticity&#x27;, mesh_im mim, mesh_fem mf_u, vec U, string law, mesh_fem mf_d, mat params, {&#x27;tangent matrix&#x27;|&#x27;rhs&#x27;|&#x27;incompressible tangent matrix&#x27;, mesh_fem mf_p, vec P|&#x27;incompressible rhs&#x27;, mesh_fem mf_p, vec P})
-A = gf_asm(&#x27;helmholtz&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec k[, int region])
-A = gf_asm(&#x27;bilaplacian&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
-A = gf_asm(&#x27;bilaplacian KL&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a, vec nu[, int region])
-V = gf_asm(&#x27;volumic source&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec fd[, int region])
-B = gf_asm(&#x27;boundary source&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec G)
-{HH, RR} = gf_asm(&#x27;dirichlet&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat H, vec R [, scalar threshold])
-Q = gf_asm(&#x27;boundary qu term&#x27;,int boundary_num, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat q)
-gf_asm(&#x27;define function&#x27;, string name, int nb_args, string expression[, string expression_derivative_t[, string expression_derivative_u]])
-gf_asm(&#x27;undefine function&#x27;, string name)
-gf_asm(&#x27;define linear hardening function&#x27;, string name, scalar sigma_y0, scalar H, ... [string &#x27;Frobenius&#x27;])
-gf_asm(&#x27;define Ramberg Osgood hardening function&#x27;, string name, scalar sigma_ref, {scalar eps_ref | scalar E, scalar alpha}, scalar n[, string &#x27;Frobenius&#x27;])
-gf_asm(&#x27;expression analysis&#x27;, string expression [, {@tm mesh | mesh_im mim}] [, der_order] [, model model] [, string varname, int is_variable[, {mesh_fem mf | mesh_imd mimd}], ...])
-{...} = gf_asm(&#x27;volumic&#x27; [,CVLST], expr [, mesh_ims, mesh_fems, data...])
-{...} = gf_asm(&#x27;boundary&#x27;, int bnum, string expr [, mesh_im mim, mesh_fem mf, data...])
-Mi = gf_asm(&#x27;interpolation matrix&#x27;, mesh_fem mf, {mesh_fem mfi | vec pts})
-Me = gf_asm(&#x27;extrapolation matrix&#x27;,mesh_fem mf,  {mesh_fem mfe | vec pts})
-B = gf_asm(&#x27;integral contact Uzawa projection&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, vec U, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_obstacle, vec obstacle, scalar r [, {scalar coeff | mesh_fem mf_coeff, vec coeff} [, int option[, scalar alpha, vec W]]])
-B = gf_asm(&#x27;level set normal source term&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_levelset, vec levelset)
-M = gf_asm(&#x27;lsneuman matrix&#x27;, mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
-M = gf_asm(&#x27;nlsgrad matrix&#x27;, mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
-M = gf_asm(&#x27;stabilization patch matrix&#x27;, @tm mesh, mesh_fem mf,  mesh_im mim, real ratio, real h)
-{Q, G, H, R, F} = gf_asm(&#x27;pdetool boundary conditions&#x27;, mf_u, mf_d, b, e[, f_expr])</pre>
+<div class="highlight-python"><pre>{...} = gf_asm('generic', mesh_im mim, int order, string expression, int region, [model model,] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], ...)
+M = gf_asm('mass matrix', mesh_im mim, mesh_fem mf1[, mesh_fem mf2[, int region]])
+L = gf_asm('laplacian', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
+Le = gf_asm('linear elasticity', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec lambda_d, vec mu_d[, int region])
+TRHS = gf_asm('nonlinear elasticity', mesh_im mim, mesh_fem mf_u, vec U, string law, mesh_fem mf_d, mat params, {'tangent matrix'|'rhs'|'incompressible tangent matrix', mesh_fem mf_p, vec P|'incompressible rhs', mesh_fem mf_p, vec P})
+A = gf_asm('helmholtz', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec k[, int region])
+A = gf_asm('bilaplacian', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
+A = gf_asm('bilaplacian KL', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a, vec nu[, int region])
+V = gf_asm('volumic source', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec fd[, int region])
+B = gf_asm('boundary source', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec G)
+{HH, RR} = gf_asm('dirichlet', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat H, vec R [, scalar threshold])
+Q = gf_asm('boundary qu term',int boundary_num, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat q)
+gf_asm('define function', string name, int nb_args, string expression[, string expression_derivative_t[, string expression_derivative_u]])
+gf_asm('undefine function', string name)
+gf_asm('define linear hardening function', string name, scalar sigma_y0, scalar H, ... [string 'Frobenius'])
+gf_asm('define Ramberg Osgood hardening function', string name, scalar sigma_ref, {scalar eps_ref | scalar E, scalar alpha}, scalar n[, string 'Frobenius'])
+gf_asm('expression analysis', string expression [, {@tm mesh | mesh_im mim}] [, der_order] [, model model] [, string varname, int is_variable[, {mesh_fem mf | mesh_imd mimd}], ...])
+{...} = gf_asm('volumic' [,CVLST], expr [, mesh_ims, mesh_fems, data...])
+{...} = gf_asm('boundary', int bnum, string expr [, mesh_im mim, mesh_fem mf, data...])
+Mi = gf_asm('interpolation matrix', mesh_fem mf, {mesh_fem mfi | vec pts})
+Me = gf_asm('extrapolation matrix',mesh_fem mf,  {mesh_fem mfe | vec pts})
+B = gf_asm('integral contact Uzawa projection', int bnum, mesh_im mim, mesh_fem mf_u, vec U, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_obstacle, vec obstacle, scalar r [, {scalar coeff | mesh_fem mf_coeff, vec coeff} [, int option[, scalar alpha, vec W]]])
+B = gf_asm('level set normal source term', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_levelset, vec levelset)
+M = gf_asm('lsneuman matrix', mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
+M = gf_asm('nlsgrad matrix', mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
+M = gf_asm('stabilization patch matrix', @tm mesh, mesh_fem mf,  mesh_im mim, real ratio, real h)
+{Q, G, H, R, F} = gf_asm('pdetool boundary conditions', mf_u, mf_d, b, e[, f_expr])</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -136,14 +136,14 @@ in the call of the function (the degrees of freedom of the first
 variable, then of the second, and so on). If a model is provided,
 all degrees of freedom of the model will be counted first.</p>
 <p>For example, the L2 norm of a vector field &#8220;u&#8221; can be computed with:</p>
-<div class="highlight-python"><pre>gf_compute(&#x27;L2 norm&#x27;) or with the square root of:
+<div class="highlight-python"><pre>gf_compute('L2 norm') or with the square root of:
 
-gf_asm(&#x27;generic&#x27;, mim, 0, &#x27;u.u&#x27;, -1, &#x27;u&#x27;, 1, mf, U);</pre>
+gf_asm('generic', mim, 0, 'u.u', -1, 'u', 1, mf, U);</pre>
 </div>
 <p>The nonhomogeneous Laplacian stiffness matrix of a scalar field can be evaluated with:</p>
-<div class="highlight-python"><pre>gf_asm(&#x27;laplacian&#x27;, mim, mf, mf_data, A) or equivalently with:
+<div class="highlight-python"><pre>gf_asm('laplacian', mim, mf, mf_data, A) or equivalently with:
 
-gf_asm(&#x27;generic&#x27;, mim, 2, &#x27;A*Grad_Test2_u.Grad_Test_u&#x27;, -1, &#x27;u&#x27;, 1, mf, U, &#x27;A&#x27;, 0, mf_data, A);</pre>
+gf_asm('generic', mim, 2, 'A*Grad_Test2_u.Grad_Test_u', -1, 'u', 1, mf, U, 'A', 0, mf_data, A);</pre>
 </div>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">gf_asm('mass</span> <span class="pre">matrix',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf1[,</span> <span class="pre">mesh_fem</span> <span class="pre">mf2[,</span> <span class="pre">int</span> <span class="pre">region]])</span></tt></p>
@@ -302,14 +302,14 @@ For details about the syntax of assembly expressions, please refer
 to the getfem user manual (or look at the file getfem_assembling.h
 in the getfem++ sources).</p>
 <p>For example, the L2 norm of a field can be computed with:</p>
-<div class="highlight-python"><pre>gf_compute(&#x27;L2 norm&#x27;) or with the square root of:
+<div class="highlight-python"><pre>gf_compute('L2 norm') or with the square root of:
 
-gf_asm(&#x27;volumic&#x27;,&#x27;u=data(#1); V()+=u(i).u(j).comp(Base(#1).Base(#1))(i,j)&#x27;,mim,mf,U)</pre>
+gf_asm('volumic','u=data(#1); V()+=u(i).u(j).comp(Base(#1).Base(#1))(i,j)',mim,mf,U)</pre>
 </div>
 <p>The Laplacian stiffness matrix can be evaluated with:</p>
-<div class="highlight-python"><pre>gf_asm(&#x27;laplacian&#x27;,mim, mf, mf_data, A) or equivalently with:
+<div class="highlight-python"><pre>gf_asm('laplacian',mim, mf, mf_data, A) or equivalently with:
 
-gf_asm(&#x27;volumic&#x27;,&#x27;a=data(#2);M(#1,#1)+=sym(comp(Grad(#1).Grad(#1).Base(#2))(:,i,:,i,j).a(j))&#x27;, mim,mf,mf_data,A);</pre>
+gf_asm('volumic','a=data(#2);M(#1,#1)+=sym(comp(Grad(#1).Grad(#1).Base(#2))(:,i,:,i,j).a(j))', mim,mf,mf_data,A);</pre>
 </div>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">{...}</span> <span class="pre">=</span> <span class="pre">gf_asm('boundary',</span> <span class="pre">int</span> <span class="pre">bnum,</span> <span class="pre">string</span> <span class="pre">expr</span> <span class="pre">[,</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf,</span> <span class="pre">data...])</span></tt></p>

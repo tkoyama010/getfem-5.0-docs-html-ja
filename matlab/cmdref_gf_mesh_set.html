@@ -65,25 +65,25 @@
   <div class="section" id="gf-mesh-set">
 <h1>gf_mesh_set<a class="headerlink" href="#gf-mesh-set" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>PIDs = gf_mesh_set(mesh M, &#x27;pts&#x27;, mat PTS)
-PIDs = gf_mesh_set(mesh M, &#x27;add point&#x27;, mat PTS)
-gf_mesh_set(mesh M, &#x27;del point&#x27;, ivec PIDs)
-CVIDs = gf_mesh_set(mesh M, &#x27;add convex&#x27;, geotrans GT, mat PTS)
-gf_mesh_set(mesh M, &#x27;del convex&#x27;, mat CVIDs)
-gf_mesh_set(mesh M, &#x27;del convex of dim&#x27;, ivec DIMs)
-gf_mesh_set(mesh M, &#x27;translate&#x27;, vec V)
-gf_mesh_set(mesh M, &#x27;transform&#x27;, mat T)
-gf_mesh_set(mesh M, &#x27;boundary&#x27;, int rnum, mat CVFIDs)
-gf_mesh_set(mesh M, &#x27;region&#x27;, int rnum, mat CVFIDs)
-gf_mesh_set(mesh M, &#x27;extend region&#x27;, int rnum, mat CVFIDs)
-gf_mesh_set(mesh M, &#x27;region intersect&#x27;, int r1, int r2)
-gf_mesh_set(mesh M, &#x27;region merge&#x27;, int r1, int r2)
-gf_mesh_set(mesh M, &#x27;region subtract&#x27;, int r1, int r2)
-gf_mesh_set(mesh M, &#x27;delete boundary&#x27;, int rnum, mat CVFIDs)
-gf_mesh_set(mesh M, &#x27;delete region&#x27;, ivec RIDs)
-gf_mesh_set(mesh M, &#x27;merge&#x27;, mesh m2[, scalar  tol])
-gf_mesh_set(mesh M, &#x27;optimize structure&#x27;[, int with_renumbering])
-gf_mesh_set(mesh M, &#x27;refine&#x27;[, ivec CVIDs])</pre>
+<div class="highlight-python"><pre>PIDs = gf_mesh_set(mesh M, 'pts', mat PTS)
+PIDs = gf_mesh_set(mesh M, 'add point', mat PTS)
+gf_mesh_set(mesh M, 'del point', ivec PIDs)
+CVIDs = gf_mesh_set(mesh M, 'add convex', geotrans GT, mat PTS)
+gf_mesh_set(mesh M, 'del convex', mat CVIDs)
+gf_mesh_set(mesh M, 'del convex of dim', ivec DIMs)
+gf_mesh_set(mesh M, 'translate', vec V)
+gf_mesh_set(mesh M, 'transform', mat T)
+gf_mesh_set(mesh M, 'boundary', int rnum, mat CVFIDs)
+gf_mesh_set(mesh M, 'region', int rnum, mat CVFIDs)
+gf_mesh_set(mesh M, 'extend region', int rnum, mat CVFIDs)
+gf_mesh_set(mesh M, 'region intersect', int r1, int r2)
+gf_mesh_set(mesh M, 'region merge', int r1, int r2)
+gf_mesh_set(mesh M, 'region subtract', int r1, int r2)
+gf_mesh_set(mesh M, 'delete boundary', int rnum, mat CVFIDs)
+gf_mesh_set(mesh M, 'delete region', ivec RIDs)
+gf_mesh_set(mesh M, 'merge', mesh m2[, scalar  tol])
+gf_mesh_set(mesh M, 'optimize structure'[, int with_renumbering])
+gf_mesh_set(mesh M, 'refine'[, ivec CVIDs])</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>

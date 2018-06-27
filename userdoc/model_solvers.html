@@ -73,7 +73,7 @@ can also be taken as an example to build your own solver. It is defined in
 </div>
 <p>where <tt class="docutils literal"><span class="pre">md</span></tt> is the model object and <tt class="docutils literal"><span class="pre">iter</span></tt> is an iteration object from <em>Gmm++</em>.
 See also the next section for an example of use.</p>
-<p>Note that <em>SuperLU</em> is used as a default linear solver on &#8220;small&#8221; problems. You can also link <em>MUMPS</em> with <em>GetFEM++</em> (see section <a class="reference internal" href="linalg.html#ud-linalg"><em>Linear algebra procedures</em></a>) and use the parallel version. For nonlinear problems, A Newton method (also called Newton-Raphson method) is used.</p>
+<p>Note that <em>SuperLU</em> is used as a default linear solver on &#8220;small&#8221; problems. You can also link <em>MUMPS</em> with <em>GetFEM++</em> (see section <a class="reference internal" href="linalg.html#ud-linalg"><em>線形代数プロセス</em></a>) and use the parallel version. For nonlinear problems, A Newton method (also called Newton-Raphson method) is used.</p>
 <p>Note also that it is possible to disable some variables
 (with the method md.disable_variable(varname) of the model object) in order to
 solve the problem only with respect to a subset of variables (the

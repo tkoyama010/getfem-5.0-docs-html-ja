@@ -164,12 +164,12 @@ without the interfaces.  Download the last released version of <em>GetFEM++</em>
 git current version, however, it necessitates the additional installation
 of m4, autoconf, automake and libtool). Then, untar the package, enter into
 the source directory of <em>GetFEM++</em> with Msys and compile with:</p>
-<div class="highlight-c++"><pre>$ ./configure --with-blas=&quot;-lblas -lgfortran&quot;
+<div class="highlight-c++"><pre>$ ./configure --with-blas="-lblas -lgfortran"
 $ cd superlu
 $ make
 $ cp .libs/libsuperlu.a /usr/local/lib
 $ cd ..
-$ ./configure --with-blas=&quot;-lblas -lgfortran&quot; --disable-superlu
+$ ./configure --with-blas="-lblas -lgfortran" --disable-superlu
 $ make
 $ make check</pre>
 </div>
@@ -193,7 +193,7 @@ a system installation)</p>
 <li><p class="first">close an re-open a windows command shell and msys</p>
 </li>
 <li><p class="first">run again:</p>
-<div class="highlight-c++"><pre>$ ./configure --with-blas=&quot;-lblas -lgfortran&quot; --disable-superlu</pre>
+<div class="highlight-c++"><pre>$ ./configure --with-blas="-lblas -lgfortran" --disable-superlu</pre>
 </div>
 <p>Python should be detected and the Python interface prepared to be built.</p>
 </li>
@@ -228,14 +228,14 @@ However, for the Matlab interface, Numpy and Scipy are not required.</p>
 <li><p class="first">In the source top directory of <em>GetFEM++</em>, add the file <tt class="docutils literal"><span class="pre">gnumex.opts</span></tt>
 with the following lines (to be adapted):</p>
 <div class="highlight-c++"><pre>#!/bin/sh
-MATLAB_ROOT=&quot;c:\Program Files\MATLAB\R20???&quot;
+MATLAB_ROOT="c:\Program Files\MATLAB\R20???"
 MATLAB_RELEASE=14
-MATLAB_INC_DIR=&quot;$MATLAB_ROOT\extern\include&quot;
+MATLAB_INC_DIR="$MATLAB_ROOT\extern\include"
 MEXOPTS=c:\path_to_mexopts\mexopts.bat</pre>
 </div>
 </li>
 <li><p class="first">Re-run the configure script and compile with:</p>
-<div class="highlight-c++"><pre>$ ./configure --with-blas=&quot;-lblas -lgfortran&quot; --disable-superlu --enable-matlab
+<div class="highlight-c++"><pre>$ ./configure --with-blas="-lblas -lgfortran" --disable-superlu --enable-matlab
 $ make</pre>
 </div>
 <p>The Matlab interface should be compiled without error. If there is some
@@ -245,7 +245,7 @@ command building the interface.</p>
 </li>
 <li><p class="first">Once the interface is properly compiled, you can lauch Matlab, add the
 path of the compiled interface (on the matlab command line) with:</p>
-<div class="highlight-c++"><pre>add_path(&#x27;c:\msys\home\login\getfem-5.?\interface/tests/matlab&#x27;)</pre>
+<div class="highlight-c++"><pre>add_path('c:\msys\home\login\getfem-5.?\interface/tests/matlab')</pre>
 </div>
 <p>and try the demo matlab programs of the interface in
 <tt class="docutils literal"><span class="pre">interface\tests\matlab</span></tt>. In order not to have to call the <tt class="docutils literal"><span class="pre">addpath</span></tt>

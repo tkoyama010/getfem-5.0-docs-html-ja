@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; GetFEM++</title>
+    <title>イントロダクション &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -29,7 +29,7 @@
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="User Documentation" href="index.html" />
-    <link rel="next" title="How to install" href="install.html" />
+    <link rel="next" title="インストール方法" href="install.html" />
     <link rel="prev" title="User Documentation" href="index.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
@@ -43,7 +43,7 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="install.html" title="How to install"
+          <a href="install.html" title="インストール方法"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="User Documentation"
@@ -62,55 +62,17 @@
           <div class="body">
             
   <div class="section" id="introduction">
-<span id="ud-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The <em>GetFEM++</em> project focuses on the development of a generic and
-efficient <em>C++</em> library for finite element methods elementary
-computations. The goal is to provide a library allowing the
-computation of any elementary matrix (even for mixed finite element
-methods) on the largest class of methods and elements, and for
-arbitrary dimension (i.e. not only 2D and 3D problems).</p>
-<p>It offers a complete separation between integration methods (exact or
-approximated), geometric transformations (linear or not) and finite
-element methods of arbitrary degrees. It can really relieve a more
-integrated finite element code of technical difficulties of
-elementary computations.</p>
-<p>Examples of available finite element method are : Pk on simplices in
-arbitrary degrees and dimensions, Qk on parallelepipeds, P1, P2 with
-bubble functions, Hermite elements, elements with hierarchic basis
-(for multigrid methods for instance), discontinuous Pk or Qk, XFem,
-Argyris, HCT, Raviart-Thomas, etc.</p>
-<p>The addition of a new finite element method is straightforward. Its
-description on the reference element must be provided (in most of the
-cases, this is the description of the basis functions, and nothing
-more). Extensions are provided for Hermite elements, piecewise
-polynomial, non-polynomial and vectorial elements, XFem.</p>
-<p>The library also includes the usual tools for finite elements such as
-assembly procedures for classical PDEs, interpolation methods,
-computation of norms, mesh operations, boundary conditions,
-post-processing tools such as extraction of slices from a mesh, etc.</p>
-<p><em>GetFEM++</em> can be used to build very general finite elements codes, where
-the finite elements, integration methods, dimension of the meshes,
-are just some parameters that can be changed very easily, thus
-allowing a large spectrum of experimentations. Numerous examples are
-available in the <tt class="docutils literal"><span class="pre">tests</span></tt> directory of the distribution.</p>
-<p><em>GetFEM++</em> has only a (very) experimental meshing procedure (and produces regular meshes), hence it is generally
-necessary to import meshes. Imports formats currently known by <em>GetFEM++</em>
-are <em>GiD</em>, <em>Gmsh</em> and <em>emc2</em> mesh files. However, given a mesh, it
-is possible to refine it automatically.</p>
+<span id="ud-intro"></span><h1>イントロダクション<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><em>GetFEM++</em> プロジェクトは、一般的で効率的な有限要素法の基本計算のための <em>C++</em> ライブラリです。目的は最大級の手法と要素、そして任意の次元（つまり、2次元と3次元の問題に限らず）について任意の基本行列の計算（混合型有限要素法の場合でも）を可能にするライブラリを提供することです。</p>
+<p>このライブラリでは、積分法（厳密または近似）、幾何変換（線形または非線形）、および任意の次元の有限要素法が完全に分離されています。 それにより、基本な計算が技術的に困難なより統合された有限要素法コーディングを楽にすることができます。</p>
+<p>利用可能な有限要素法は、任意の次数と次元の単純なPk、平行六面体のQk、気泡関数を持つP1、P2、エルミート要素、階層ベースの要素（例えばマルチグリッド法の場合）、不連続なPkまたはQk、XFem、 Argyris、HCT、Raviart-Thomasなどです。</p>
+<p>新しい有限要素法を追加するのは簡単です。 参照要素に関する記述が必要にないます（ほとんどの場合、これは基底関数の説明であり、それ以上は必要ありません）。 拡張機能としてエルミート要素、区分的多項式、非多項式およびベクトル要素、XFemが提供されています。</p>
+<p>ライブラリには、古典的な偏微分方程式の組み立て手順、補間法、ノルムの計算、メッシュ操作、境界条件、メッシュからのスライスの抽出などのポスト処理ツールなど、有限要素法用の通常のツールも含まれています。</p>
+<p><em>GetFEM++</em> はとても一般的な有限要素コードを作成するために使用できます。有限要素、積分法、メッシュの次元は、非常に簡単に変更できるいくつかのパラメータであり、したがって実験の幅が広がります。多数の例が、配布物の <tt class="docutils literal"><span class="pre">tests</span></tt> ディレクトリにあります。</p>
+<p><em>GetFEM++</em> は（非常に）実験的なメッシュ化手順しか持たず（そして通常のメッシュを生成します）、メッシュはインポートするのが一般的です。 <em>GetFEM++</em> で現在知られているインポート形式は、 <em>GiD</em> 、 <em>Gmsh</em> および <em>emc2</em> メッシュファイルです。 ただし、メッシュを指定すると、自動的に修正することができます。</p>
 <p>Copyright © 2004-2018 <em>GetFEM++</em> project.</p>
-<p>The text of the <em>GetFEM++</em> website and the documentations are available for modification and reuse under the terms of the <a class="reference external" href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a></p>
-<p>GetFEM++  is  free software;  you  can  redistribute  it  and/or modify it
-under  the  terms  of the  GNU  Lesser General Public License as published
-by  the  Free Software Foundation;  either version 3 of the License,  or
-(at your option) any later version along with the GCC Runtime Library
-Exception either version 3.1 or (at your option) any later version.
-This program  is  distributed  in  the  hope  that it will be useful,  but
-WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or  FITNESS  FOR  A PARTICULAR PURPOSE.  See the GNU Lesser General Public
-License and GCC Runtime Library Exception for more details.
-You  should  have received a copy of the GNU Lesser General Public License
-along  with  this program;  if not, write to the Free Software Foundation,
-Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.</p>
+<p><em>GetFEM++</em> のウェブサイトのテキストとドキュメントは、 GNU Free Documentation License の条件の下で変更および再利用することができます。</p>
+<p>このライブラリはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行されたGNU 劣等一般公衆利用許諾契約書(バージョン3のライセンス、または（あなたのオプションで）いずれかのそれ以降のバージョンを、GCCランタイムライブラリ例外とともに、バージョン3.1または（あなたのオプションで）いずれかのそれ以降のバージョンに置き換えてください。)の定める条件の下で再頒布または改変することができます。このライブラリは有用であることを願って頒布されますが、 <em>全くの無保証</em> です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 劣等一般公衆利用許諾契約書をご覧ください。あなたはこのライブラリと共に、GNU 劣等一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先は the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA)。</p>
 </div>
 
 
@@ -127,7 +89,7 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.</p>
                         title="前の章へ">User Documentation</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="install.html"
-                        title="次の章へ">How to install</a></p>            <h3>Download</h3>
+                        title="次の章へ">インストール方法</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -172,7 +134,7 @@ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="install.html" title="How to install"
+          <a href="install.html" title="インストール方法"
              >次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="User Documentation"

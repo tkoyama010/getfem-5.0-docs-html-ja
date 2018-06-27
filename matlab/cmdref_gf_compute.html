@@ -65,22 +65,22 @@
   <div class="section" id="gf-compute">
 <h1>gf_compute<a class="headerlink" href="#gf-compute" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>n = gf_compute(mesh_fem MF, vec U, &#x27;L2 norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;L2 dist&#x27;, mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H1 semi norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H1 semi dist&#x27;, mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H1 norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H2 semi norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H2 norm&#x27;, mesh_im mim[, mat CVids])
-DU = gf_compute(mesh_fem MF, vec U, &#x27;gradient&#x27;, mesh_fem mf_du)
-HU = gf_compute(mesh_fem MF, vec U, &#x27;hessian&#x27;, mesh_fem mf_h)
-UP = gf_compute(mesh_fem MF, vec U, &#x27;eval on triangulated surface&#x27;, int Nrefine, [vec CVLIST])
-Ui = gf_compute(mesh_fem MF, vec U, &#x27;interpolate on&#x27;, {mesh_fem mfi | slice sli | vec pts})
-Ue = gf_compute(mesh_fem MF, vec U, &#x27;extrapolate on&#x27;, mesh_fem mfe)
-E = gf_compute(mesh_fem MF, vec U, &#x27;error estimate&#x27;, mesh_im mim)
-E = gf_compute(mesh_fem MF, vec U, &#x27;error estimate nitsche&#x27;, mesh_im mim, int GAMMAC, int GAMMAN, scalar lambda_, scalar mu_, scalar gamma0, scalar f_coeff, scalar vertical_force)
-gf_compute(mesh_fem MF, vec U, &#x27;convect&#x27;, mesh_fem mf_v, vec V, scalar dt, int nt[, string option[, vec per_min, vec per_max]])
-[U2[,MF2,[,X[,Y[,Z]]]]] = gf_compute(mesh_fem MF, vec U, &#x27;interpolate on Q1 grid&#x27;, {&#x27;regular h&#x27;, hxyz | &#x27;regular N&#x27;, Nxyz | X[,Y[,Z]]})</pre>
+<div class="highlight-python"><pre>n = gf_compute(mesh_fem MF, vec U, 'L2 norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'L2 dist', mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H1 semi norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H1 semi dist', mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H1 norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H2 semi norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H2 norm', mesh_im mim[, mat CVids])
+DU = gf_compute(mesh_fem MF, vec U, 'gradient', mesh_fem mf_du)
+HU = gf_compute(mesh_fem MF, vec U, 'hessian', mesh_fem mf_h)
+UP = gf_compute(mesh_fem MF, vec U, 'eval on triangulated surface', int Nrefine, [vec CVLIST])
+Ui = gf_compute(mesh_fem MF, vec U, 'interpolate on', {mesh_fem mfi | slice sli | vec pts})
+Ue = gf_compute(mesh_fem MF, vec U, 'extrapolate on', mesh_fem mfe)
+E = gf_compute(mesh_fem MF, vec U, 'error estimate', mesh_im mim)
+E = gf_compute(mesh_fem MF, vec U, 'error estimate nitsche', mesh_im mim, int GAMMAC, int GAMMAN, scalar lambda_, scalar mu_, scalar gamma0, scalar f_coeff, scalar vertical_force)
+gf_compute(mesh_fem MF, vec U, 'convect', mesh_fem mf_v, vec V, scalar dt, int nt[, string option[, vec per_min, vec per_max]])
+[U2[,MF2,[,X[,Y[,Z]]]]] = gf_compute(mesh_fem MF, vec U, 'interpolate on Q1 grid', {'regular h', hxyz | 'regular N', Nxyz | X[,Y[,Z]]})</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>

@@ -65,12 +65,12 @@
   <div class="section" id="gf-linsolve">
 <h1>gf_linsolve<a class="headerlink" href="#gf-linsolve" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>X = gf_linsolve(&#x27;gmres&#x27;, spmat M, vec b[, int restart][, precond P][,&#x27;noisy&#x27;][,&#x27;res&#x27;, r][,&#x27;maxiter&#x27;, n])
-X = gf_linsolve(&#x27;cg&#x27;, spmat M, vec b [, precond P][,&#x27;noisy&#x27;][,&#x27;res&#x27;, r][,&#x27;maxiter&#x27;, n])
-X = gf_linsolve(&#x27;bicgstab&#x27;, spmat M, vec b [, precond P][,&#x27;noisy&#x27;][,&#x27;res&#x27;, r][,&#x27;maxiter&#x27;, n])
-{U, cond} = gf_linsolve(&#x27;lu&#x27;, spmat M, vec b)
-{U, cond} = gf_linsolve(&#x27;superlu&#x27;, spmat M, vec b)
-{U, cond} = gf_linsolve(&#x27;mumps&#x27;, spmat M, vec b)</pre>
+<div class="highlight-python"><pre>X = gf_linsolve('gmres', spmat M, vec b[, int restart][, precond P][,'noisy'][,'res', r][,'maxiter', n])
+X = gf_linsolve('cg', spmat M, vec b [, precond P][,'noisy'][,'res', r][,'maxiter', n])
+X = gf_linsolve('bicgstab', spmat M, vec b [, precond P][,'noisy'][,'res', r][,'maxiter', n])
+{U, cond} = gf_linsolve('lu', spmat M, vec b)
+{U, cond} = gf_linsolve('superlu', spmat M, vec b)
+{U, cond} = gf_linsolve('mumps', spmat M, vec b)</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>

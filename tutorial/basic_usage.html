@@ -76,14 +76,14 @@
 
 ... define a Model and set it up:
 
-    Model.add_fem_variable(MeshFem, &quot;some variable name&quot;)
+    Model.add_fem_variable(MeshFem, "some variable name")
 
-    Model.add_fem_variable(MeshFem, &quot;another variable name&quot;)
+    Model.add_fem_variable(MeshFem, "another variable name")
 
-    Model.add_fem_data(MeshFem, &quot;some data name&quot;)
+    Model.add_fem_data(MeshFem, "some data name")
 
     Model.add_nonlinear_generic_assembly_brick(MeshIm,
-                            &quot;copy &amp; paste your PDE weak formulation here&quot;, MeshRegion)
+                            "copy &amp; paste your PDE weak formulation here", MeshRegion)
 
     Model.solve(...options)</pre>
 </div>

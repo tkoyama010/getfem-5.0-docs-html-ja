@@ -131,14 +131,14 @@ The corresponding expression on the assembly string is:</p>
 <div class="math">
 <p><img src="../images/math/d0fd930f89710672af61587bb3203789b1a8c3ff.png" alt="-\mbox{div } \sigma(u) = f, \mbox{ in } \Omega,"/></p>
 </div><p>for <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> a vector field and <img class="math" src="../images/math/f6441ba16f1e778b63716920d7793e69859a6dcd.png" alt="\sigma(u) = \lambda \mbox{div } u + \mu (\nabla u + (\nabla u)^T)" style="vertical-align: -4px"/> when isotropic linear elasticity is considered. The corresponding assembly string to describe the weak formulation can be written:</p>
-<div class="highlight-c++"><pre>(lambda*Trace(Grad_u)*Id(qdim(u)) + mu*(Grad_u+Grad_u&#x27;)):Grad_Test_u - my_f.Test_u</pre>
+<div class="highlight-c++"><pre>(lambda*Trace(Grad_u)*Id(qdim(u)) + mu*(Grad_u+Grad_u')):Grad_Test_u - my_f.Test_u</pre>
 </div>
 <p>or:</p>
-<div class="highlight-c++"><pre>lambda*Div_u*Div_Test_u + mu*(Grad_u + Grad_u&#x27;):Grad_Test_u - my_f.Test_u</pre>
+<div class="highlight-c++"><pre>lambda*Div_u*Div_Test_u + mu*(Grad_u + Grad_u'):Grad_Test_u - my_f.Test_u</pre>
 </div>
 <p>Here again, the coefficients <tt class="docutils literal"><span class="pre">lambda</span></tt> and <tt class="docutils literal"><span class="pre">mu</span></tt> can be given constants, or scalar field or explicit expression or even expression coming from some other variables in order to couples some problems. For instance, if the coefficients depends on a temperature field one can write:</p>
 <div class="highlight-c++"><pre>my_f1(theta)*Div_u*Div_Test_u
-+ my_f2(theta)*(Grad_u + Grad_u&#x27;):Grad_Test_u - my_f.Grad_Test_u</pre>
++ my_f2(theta)*(Grad_u + Grad_u'):Grad_Test_u - my_f.Grad_Test_u</pre>
 </div>
 <p>where <tt class="docutils literal"><span class="pre">theta</span></tt> is the temperature which can be the solution to a Poisson equation:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">Grad_theta</span><span class="p">.</span><span class="n">Grad_Test_theta</span> <span class="o">-</span> <span class="n">my_f</span><span class="o">*</span><span class="n">Grad_Test_theta</span>

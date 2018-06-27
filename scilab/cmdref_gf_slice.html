@@ -66,9 +66,9 @@
 <h1>gf_slice<a class="headerlink" href="#gf-slice" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
 <div class="highlight-python"><pre>sl = gf_slice(sliceop, {slice sl|{mesh m| mesh_fem mf, vec U}, int refine}[, mat CVfids])
-sl = gf_slice(&#x27;streamlines&#x27;, mesh_fem mf, mat U, mat S)
-sl = gf_slice(&#x27;points&#x27;, mesh m, mat Pts)
-sl = gf_slice(&#x27;load&#x27;, string filename[, mesh m])</pre>
+sl = gf_slice('streamlines', mesh_fem mf, mat U, mat S)
+sl = gf_slice('points', mesh m, mat Pts)
+sl = gf_slice('load', string filename[, mesh m])</pre>
 </div>
 <p><strong>Description :</strong></p>
 <p>General constructor for slice objects.</p>
@@ -77,7 +77,7 @@ sl = gf_slice(&#x27;load&#x27;, string filename[, mesh m])</pre>
 P1-discontinuous mesh_fem on which interpolation is very fast. The slice is
 built from a mesh object, and a description of the slicing operation, for
 example:</p>
-<div class="highlight-python"><pre>sl = gf_slice({&#x27;planar&#x27;,+1,[0;0],[1;0]}, m, 5);</pre>
+<div class="highlight-python"><pre>sl = gf_slice({'planar',+1,[0;0],[1;0]}, m, 5);</pre>
 </div>
 <p>cuts the original mesh with the half space {y&gt;0}. Each convex of the
 original mesh &lt;literal&gt;m&lt;/literal&gt; is simplexified (for example a quadrangle is splitted
@@ -140,8 +140,8 @@ Returns the union of slicing operations.</p>
 </li>
 <li><p class="first">{&#8216;intersection&#8217;, SLICEOP1, SLICEOP2} :
 Returns the intersection of slicing operations, for example:</p>
-<div class="highlight-python"><pre>sl = gf_slice({intersection&#x27;,{&#x27;planar&#x27;,+1,[0;0;0],[0;0;1]},
-                           {&#x27;isovalues&#x27;,-1,mf2,u2,0}},mf,u,5)</pre>
+<div class="highlight-python"><pre>sl = gf_slice({intersection',{'planar',+1,[0;0;0],[0;0;1]},
+                           {'isovalues',-1,mf2,u2,0}},mf,u,5)</pre>
 </div>
 </li>
 <li><p class="first">{&#8216;comp&#8217;, SLICEOP} :

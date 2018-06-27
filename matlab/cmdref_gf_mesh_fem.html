@@ -66,14 +66,14 @@
 <h1>gf_mesh_fem<a class="headerlink" href="#gf-mesh-fem" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
 <div class="highlight-python"><pre>MF = gf_mesh_fem(mesh m[, int Qdim1=1[, int Qdim2=1, ...]])
-MF = gf_mesh_fem(&#x27;load&#x27;, string fname[, mesh m])
-MF = gf_mesh_fem(&#x27;from string&#x27;, string s[, mesh m])
-MF = gf_mesh_fem(&#x27;clone&#x27;, mesh_fem mf)
-MF = gf_mesh_fem(&#x27;sum&#x27;, mesh_fem mf1, mesh_fem mf2[, mesh_fem mf3[, ...]])
-MF = gf_mesh_fem(&#x27;product&#x27;, mesh_fem mf1, mesh_fem mf2)
-MF = gf_mesh_fem(&#x27;levelset&#x27;, mesh_levelset mls, mesh_fem mf)
-MF = gf_mesh_fem(&#x27;global function&#x27;, mesh m, levelset ls, {global_function GF1,...}[, int Qdim_m])
-MF = gf_mesh_fem(&#x27;partial&#x27;, mesh_fem mf, ivec DOFs[, ivec RCVs])</pre>
+MF = gf_mesh_fem('load', string fname[, mesh m])
+MF = gf_mesh_fem('from string', string s[, mesh m])
+MF = gf_mesh_fem('clone', mesh_fem mf)
+MF = gf_mesh_fem('sum', mesh_fem mf1, mesh_fem mf2[, mesh_fem mf3[, ...]])
+MF = gf_mesh_fem('product', mesh_fem mf1, mesh_fem mf2)
+MF = gf_mesh_fem('levelset', mesh_levelset mls, mesh_fem mf)
+MF = gf_mesh_fem('global function', mesh m, levelset ls, {global_function GF1,...}[, int Qdim_m])
+MF = gf_mesh_fem('partial', mesh_fem mf, ivec DOFs[, ivec RCVs])</pre>
 </div>
 <p><strong>Description :</strong></p>
 <p>General constructor for mesh_fem objects.</p>

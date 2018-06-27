@@ -278,10 +278,10 @@ Trace(M)                              % trace of the matrix M
 Matrix_i2(M)                          % second invariant of M (in 3D): (sqr(Trace(m)) - Trace(m*m))/2
 Matrix_j1(M)                          % modified first invariant of M: Trace(m)pow(Det(m),-1/3).
 Matrix_j2(M)                          % modified second invariant of M: Matrix_I2(m)*pow(Det(m),-2/3).
-Right_Cauchy_Green(F)                 % F&#x27; * F
-Left_Cauchy_Green(F)                  % F * F&#x27;
-Green_Lagrangian(F)                   % (F&#x27;F - Id(meshdim))/2
-Cauchy_stress_from_PK2(sigma, Grad_u) % (Id+Grad_u)*sigma*(I+Grad_u&#x27;)/det(I+Grad_u)</pre>
+Right_Cauchy_Green(F)                 % F' * F
+Left_Cauchy_Green(F)                  % F * F'
+Green_Lagrangian(F)                   % (F'F - Id(meshdim))/2
+Cauchy_stress_from_PK2(sigma, Grad_u) % (Id+Grad_u)*sigma*(I+Grad_u')/det(I+Grad_u)</pre>
 </div>
 <p>The potentials:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">Saint_Venant_Kirchhoff_potential</span><span class="p">(</span><span class="n">Grad_u</span><span class="p">,</span> <span class="p">[</span><span class="n">lambda</span><span class="p">;</span> <span class="n">mu</span><span class="p">])</span>
