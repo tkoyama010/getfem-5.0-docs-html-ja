@@ -65,7 +65,7 @@
   <div class="section" id="gf-asm">
 <h1>gf_asm<a class="headerlink" href="#gf-asm" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>{...} = gf_asm('generic', mesh_im mim, int order, string expression, int region, [model model,] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], ...)
+<div class="highlight-python"><pre>{...} = gf_asm('generic', mesh_im mim, int order, string expression, int region, [model model, ['Secondary_domain', 'name',]] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], ...)
 M = gf_asm('mass matrix', mesh_im mim, mesh_fem mf1[, mesh_fem mf2[, int region]])
 L = gf_asm('laplacian', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
 Le = gf_asm('linear elasticity', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec lambda_d, vec mu_d[, int region])
@@ -104,7 +104,7 @@ necessary.</p>
 </div></blockquote>
 <p><strong>Command list :</strong></p>
 <blockquote>
-<div><p><tt class="docutils literal"><span class="pre">{...}</span> <span class="pre">=</span> <span class="pre">gf_asm('generic',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">int</span> <span class="pre">order,</span> <span class="pre">string</span> <span class="pre">expression,</span> <span class="pre">int</span> <span class="pre">region,</span> <span class="pre">[model</span> <span class="pre">model,]</span> <span class="pre">[string</span> <span class="pre">varname,</span> <span class="pre">int</span> <span class="pre">is_variable[,</span> <span class="pre">{mesh_fem</span> <span class="pre">mf,</span> <span class="pre">mesh_imd</span> <span class="pre">mimd}],</span> <span class="pre">value],</span> <span class="pre">...)</span></tt></p>
+<div><p><tt class="docutils literal"><span class="pre">{...}</span> <span class="pre">=</span> <span class="pre">gf_asm('generic',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">int</span> <span class="pre">order,</span> <span class="pre">string</span> <span class="pre">expression,</span> <span class="pre">int</span> <span class="pre">region,</span> <span class="pre">[model</span> <span class="pre">model,</span> <span class="pre">['Secondary_domain',</span> <span class="pre">'name',]]</span> <span class="pre">[string</span> <span class="pre">varname,</span> <span class="pre">int</span> <span class="pre">is_variable[,</span> <span class="pre">{mesh_fem</span> <span class="pre">mf,</span> <span class="pre">mesh_imd</span> <span class="pre">mimd}],</span> <span class="pre">value],</span> <span class="pre">...)</span></tt></p>
 <blockquote>
 <div><p>High-level generic assembly procedure for volumic or boundary assembly.</p>
 <p>Performs the generic assembly of &lt;literal&gt;expression&lt;/literal&gt; with the integration
@@ -116,7 +116,9 @@ mesh_im_data corresponding to the variables.</p>
 (order = 0) or the (vector) residual (order = 1) or the
 tangent (matrix) (order = 2) is to be computed.</p>
 <p>&lt;literal&gt;model&lt;/literal&gt; is an optional parameter allowing to take into account
-all variables and data of a model.</p>
+all variables and data of a model. Optionnally, for the integration
+on the product of two domains, a secondary domain of the model can
+be specified after a &#8216;Secondary_domain&#8217; string.</p>
 <p>The variables and constant (data) are listed after the
 region number (or optionally the model).
 For each variable/constant, first the variable/constant

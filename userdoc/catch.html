@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Catch errors &mdash; GetFEM++</title>
+    <title>キャッチエラー &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
-    <link rel="next" title="Build a mesh" href="bmesh.html" />
+    <link rel="up" title="ユーザマニュアル" href="index.html" />
+    <link rel="next" title="メッシュ生成" href="bmesh.html" />
     <link rel="prev" title="GetFEM++ のMPI並列化" href="parallel.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
@@ -43,7 +43,7 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="bmesh.html" title="Build a mesh"
+          <a href="bmesh.html" title="メッシュ生成"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="parallel.html" title="GetFEM++ のMPI並列化"
@@ -52,7 +52,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,14 +62,9 @@
           <div class="body">
             
   <div class="section" id="catch-errors">
-<span id="ud-catch"></span><h1>Catch errors<a class="headerlink" href="#catch-errors" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Errors used in <em>GetFEM++</em> are defined in the file <tt class="file docutils literal"><span class="pre">gmm/gmm_except.h</span></tt>. In order to
-make easier the error catching all errors derive from the type
-<tt class="docutils literal"><span class="pre">std::logic_error</span></tt> defined in the file <tt class="docutils literal"><span class="pre">stdexcept</span></tt> of the S.T.L.</p>
-<p>A standard procedure, <tt class="docutils literal"><span class="pre">GMM_STANDARD_CATCH_ERROR</span></tt>, is defined in
-<tt class="file docutils literal"><span class="pre">gmm/gmm_except.h</span></tt>. This procedure catches all errors and prints the error
-message when an error occurs. It can be used in the main procedure of the program
-as follows:</p>
+<span id="ud-catch"></span><h1>キャッチエラー<a class="headerlink" href="#catch-errors" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><em>GetFEM++</em> で使用されるエラーは <tt class="file docutils literal"><span class="pre">gmm</span> <span class="pre">/</span> <span class="pre">gmm_except.h</span></tt> ファイルで定義されます。 エラーをより簡単にするために、すべてのエラーはS.T.Lのファイル <tt class="docutils literal"><span class="pre">stdexcept</span></tt> に定義された <tt class="docutils literal"><span class="pre">std::logic_error</span></tt> 型から得られます。</p>
+<p>標準的な手順である <tt class="docutils literal"><span class="pre">GMM_STANDARD_CATCH_ERROR</span></tt> は <tt class="file docutils literal"><span class="pre">gmm/gmm_except.h</span></tt> で定義されています。 このプロシージャは、すべてのエラーをキャッチし、エラーが発生したときにエラー・メッセージを出力します。 次のようにプログラムのメインプロシージャで使用できます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">try</span> <span class="p">{</span>
     <span class="p">...</span> <span class="n">main</span> <span class="n">program</span> <span class="p">...</span>
@@ -93,7 +88,7 @@ as follows:</p>
                         title="前の章へ"><em>GetFEM++</em> のMPI並列化</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="bmesh.html"
-                        title="次の章へ">Build a mesh</a></p>            <h3>Download</h3>
+                        title="次の章へ">メッシュ生成</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -138,7 +133,7 @@ as follows:</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="bmesh.html" title="Build a mesh"
+          <a href="bmesh.html" title="メッシュ生成"
              >次へ</a> |</li>
         <li class="right" >
           <a href="parallel.html" title="GetFEM++ のMPI並列化"
@@ -147,7 +142,7 @@ as follows:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

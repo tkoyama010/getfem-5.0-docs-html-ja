@@ -229,7 +229,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="mesh-generation">
 <h3>Mesh generation<a class="headerlink" href="#mesh-generation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><em>GetFEM++</em> has some limited meshing facilities which are described here. We are going to use them. However, there is no guaranty of the quality and conformity of the obtained mesh, so it is better to verify the mesh if you use <em>GetFEM++</em> meshing facilities. You can also use external meshers (GiD or Gmsh for instance) and import them (see <a class="reference internal" href="../userdoc/bmesh.html#ud-load-save-mesh"><em>Save and load meshes</em></a>).</p>
+<p><em>GetFEM++</em> has some limited meshing facilities which are described here. We are going to use them. However, there is no guaranty of the quality and conformity of the obtained mesh, so it is better to verify the mesh if you use <em>GetFEM++</em> meshing facilities. You can also use external meshers (GiD or Gmsh for instance) and import them (see <a class="reference internal" href="../userdoc/bmesh.html#ud-load-save-mesh"><em>メッシュの保存とロード</em></a>).</p>
 <p>The geometry of the domain is supposed to be a rectangle with three circular holes (see <a class="reference internal" href="#tut-fig-meshthermo"><em>The obtained mesh.</em></a>). The geometry is described thanks to some geometrical primitives and union/setminus operations (see <tt class="file docutils literal"><span class="pre">src/getfem/getfem)_mesher.h</span></tt> file. In the following, <cite>h</cite> stands for the mesh size and <cite>2</cite> is the degree of the mesh (this means that the transformation is of degree two, we used curved edges).</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -301,7 +301,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="boundary-selection">
 <h3>Boundary selection<a class="headerlink" href="#boundary-selection" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Since we have different boundary conditions on the different parts of the boundary, we have to number the different parts of the boundary (in the hole, thermal and electrical insulation together with a stress free boundary conditions are assumed). Thus, we have to select the element faces on the mesh and define mesh regions (see <a class="reference internal" href="../userdoc/bmesh.html#ud-mesh-regions"><em>Mesh regions</em></a>) 1, 2, 3, 4 to be the right boundary, the left one, the top one and the bottom one respectively. These boundary numbers will be used in the model bricks.</p>
+<p>Since we have different boundary conditions on the different parts of the boundary, we have to number the different parts of the boundary (in the hole, thermal and electrical insulation together with a stress free boundary conditions are assumed). Thus, we have to select the element faces on the mesh and define mesh regions (see <a class="reference internal" href="../userdoc/bmesh.html#ud-mesh-regions"><em>メッシュ領域</em></a>) 1, 2, 3, 4 to be the right boundary, the left one, the top one and the bottom one respectively. These boundary numbers will be used in the model bricks.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -584,7 +584,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 <p>Concerning the coupling term</p>
 <div class="math">
 <p><img src="../images/math/2562e1e538a37c6d30d57352772d9a0d13364e59.png" alt="\int_{\Omega} (\beta\theta I) :\bar{\varepsilon}(\delta_u)dx,"/></p>
-</div><p>there is no predefined brick and we use directly a weak form language term <cite>add_linear_term(md mim, &#8220;beta*theta*Div_Test_u)&#8221;</cite>. See <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures</em></a> for more details on the weak form language. Basically, the principle is that the assembly string is compiled into a list of optimized assembly instructions which are executed on each Gauss point.</p>
+</div><p>there is no predefined brick and we use directly a weak form language term <cite>add_linear_term(md mim, &#8220;beta*theta*Div_Test_u)&#8221;</cite>. See <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures - Weak-form language</em></a> for more details on the weak form language. Basically, the principle is that the assembly string is compiled into a list of optimized assembly instructions which are executed on each Gauss point.</p>
 <p>The following program allows to take into account the whole elastic deformation equation. Note the use of specific brick to prescribe the Dirichlet condition on the left boundary. There is several option to prescribe a Dirichlet condition (see <a class="reference internal" href="../userdoc/model_dirichlet.html#ud-model-dirichlet"><em>Dirichlet condition brick</em></a>).</p>
 <table border="1" class="docutils">
 <colgroup>

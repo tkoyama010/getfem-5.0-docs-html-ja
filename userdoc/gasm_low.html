@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザマニュアル" href="index.html" />
     <link rel="next" title="Some Standard assembly procedures (low-level generic assembly)" href="asm.html" />
-    <link rel="prev" title="Compute arbitrary terms - high-level generic assembly procedures" href="gasm_high.html" />
+    <link rel="prev" title="Compute arbitrary terms - high-level generic assembly procedures - Weak-form language" href="gasm_high.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -46,13 +46,13 @@
           <a href="asm.html" title="Some Standard assembly procedures (low-level generic assembly)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures"
+          <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures - Weak-form language"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,7 +63,7 @@
             
   <div class="section" id="compute-arbitrary-terms-low-level-generic-assembly-procedures">
 <span id="ud-gasm-low"></span><span id="index-0"></span><h1>Compute arbitrary terms - low-level generic assembly procedures<a class="headerlink" href="#compute-arbitrary-terms-low-level-generic-assembly-procedures" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This section present the first version of generic assembly procedure which has been implemented in <em>GetFEM++</em>. It allows to easily make the assembly of arbitrary matrices in the linear case. In the nonlinear case, some special &#8220;non_linear_term&#8221; object have to be implemented, which could be a bit tricky and obliges to use very low-level internal tools of <em>GetFEM++</em>. The high-level generic assembly has been developped to circumvent these difficulties (see <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures</em></a>).</p>
+<p>This section present the first version of generic assembly procedure which has been implemented in <em>GetFEM++</em>. It allows to easily make the assembly of arbitrary matrices in the linear case. In the nonlinear case, some special &#8220;non_linear_term&#8221; object have to be implemented, which could be a bit tricky and obliges to use very low-level internal tools of <em>GetFEM++</em>. The high-level generic assembly has been developped to circumvent these difficulties (see <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures - Weak-form language</em></a>).</p>
 <p>As it can be seen in the file <tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt>, all the
 previous assembly procedures use a <tt class="docutils literal"><span class="pre">getfem::generic_assembly</span></tt> object and provide it an adequate
 description of what must be done. For example, the assembly of a volumic source
@@ -249,7 +249,7 @@ matrix, one can use <tt class="docutils literal"><span class="pre">data$2</span>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="gasm_high.html"
-                        title="前の章へ">Compute arbitrary terms - high-level generic assembly procedures</a></p>
+                        title="前の章へ">Compute arbitrary terms - high-level generic assembly procedures - Weak-form language</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="asm.html"
                         title="次の章へ">Some Standard assembly procedures (low-level generic assembly)</a></p>            <h3>Download</h3>
@@ -300,13 +300,13 @@ matrix, one can use <tt class="docutils literal"><span class="pre">data$2</span>
           <a href="asm.html" title="Some Standard assembly procedures (low-level generic assembly)"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures"
+          <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures - Weak-form language"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

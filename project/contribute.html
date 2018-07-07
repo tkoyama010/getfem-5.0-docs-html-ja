@@ -87,8 +87,19 @@
 </pre></div>
 </div>
 <p>The first command create the branch and the second one position you on your branch. After that you are nearly ready to makes some modifications. You can specify your contact name and e-mail with the following commands in order to label your changes</p>
-<div class="highlight-c++"><pre>git config --global user.name "Your Name Comes Here"
-git config --global user.email you@yourdomain.example.com</pre>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">&quot;Your Name Comes Here&quot;</span>
+</pre></div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/tetsuo/getfem/doc/sphinx/source/project/contribute.rst</tt>, line 59)</p>
+Literal block ends without a blank line; unexpected unindent.</div>
+<p>git config &#8211;global user.email <a class="reference external" href="mailto:you&#37;&#52;&#48;yourdomain&#46;example&#46;com">you<span>&#64;</span>yourdomain<span>&#46;</span>example<span>&#46;</span>com</a></p>
+</div>
+<div class="section" id="specific-branch-for-doc-improvements-and-typo-fixes">
+<h2>Specific branch for doc improvements and typo-fixes<a class="headerlink" href="#specific-branch-for-doc-improvements-and-typo-fixes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If you want to contribute to the documentation only, it is not necessary to build a specific branch. You can just checkout to the <tt class="docutils literal"><span class="pre">fixmisspell</span></tt> branch which has been created for this purpose with</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="n">fixmisspell</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="locally-commit-your-changes">
@@ -148,6 +159,7 @@ Your role stops here, since you are not allowed to modify the master branch of <
 <li><a class="reference internal" href="#">How to contribute / Git repository on Savannah</a><ul>
 <li><a class="reference internal" href="#how-to-get-the-sources">How to get the sources</a></li>
 <li><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
+<li><a class="reference internal" href="#specific-branch-for-doc-improvements-and-typo-fixes">Specific branch for doc improvements and typo-fixes</a></li>
 <li><a class="reference internal" href="#locally-commit-your-changes">Locally commit your changes</a></li>
 <li><a class="reference internal" href="#push-you-changes-in-the-savannah-repository">Push you changes in the Savannah repository</a></li>
 <li><a class="reference internal" href="#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf">Ask for an admin to merge your modifications to the master branch of <em>GetFEM++</em></a></li>

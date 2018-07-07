@@ -86,6 +86,7 @@ gf_model_set(model M, 'define variable group', string name[, string varname, ...
 gf_model_set(model M, 'add elementary rotated RT0 projection', string transname)
 gf_model_set(model M, 'add interpolate transformation from expression', string transname, mesh source_mesh, mesh target_mesh, string expr)
 gf_model_set(model M, 'add element extrapolation transformation', string transname, mesh source_mesh, mat elt_corr)
+gf_model_set(model M, 'add standard secondary domain', string name, mesh_im mim, int region = -1)
 gf_model_set(model M, 'set element extrapolation correspondance', string transname, mat elt_corr)
 gf_model_set(model M, 'add raytracing transformation', string transname, scalar release_distance)
 gf_model_set(model M, 'add master contact boundary to raytracing transformation', string transname, mesh m, string dispname, int region)
@@ -96,10 +97,13 @@ gf_model_set(model M, 'add master contact boundary to projection transformation'
 gf_model_set(model M, 'add slave contact boundary to projection transformation', string transname, mesh m, string dispname, int region)
 gf_model_set(model M, 'add rigid obstacle to projection transformation', string transname, string expr, int N)
 ind = gf_model_set(model M, 'add linear term', mesh_im mim, string expression[, int region[, int is_symmetric[, int is_coercive]]])
+ind = gf_model_set(model M, 'add linear twodomain term', mesh_im mim, string expression, int region, string secondary_domain[, int is_symmetric[, int is_coercive]])
 ind = gf_model_set(model M, 'add linear generic assembly brick', mesh_im mim, string expression[, int region[, int is_symmetric[, int is_coercive]]])
 ind = gf_model_set(model M, 'add nonlinear term', mesh_im mim, string expression[, int region[, int is_symmetric[, int is_coercive]]])
+ind = gf_model_set(model M, 'add nonlinear twodomain term', mesh_im mim, string expression, int region, string secondary_domain[, int is_symmetric[, int is_coercive]])
 ind = gf_model_set(model M, 'add nonlinear generic assembly brick', mesh_im mim, string expression[, int region[, int is_symmetric[, int is_coercive]]])
 ind = gf_model_set(model M, 'add source term', mesh_im mim, string expression[, int region])
+ind = gf_model_set(model M, 'add twodomain source term', mesh_im mim, string expression, int region, string secondary_domain)
 ind = gf_model_set(model M, 'add source term generic assembly brick', mesh_im mim, string expression[, int region])
 gf_model_set(model M, 'add assembly assignment', string dataname, string expression[, int region[, int order[, int before]]])
 gf_model_set(model M, 'clear assembly assignment')
@@ -304,6 +308,11 @@ concerned by the transformation and the second line the respective
 elements on which the extrapolation has to be made. If an element
 is not listed in elt_cor the evaluation is just made on the current
 element.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'add</span> <span class="pre">standard</span> <span class="pre">secondary</span> <span class="pre">domain',</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">int</span> <span class="pre">region</span> <span class="pre">=</span> <span class="pre">-1)</span></tt></p>
+<blockquote>
+<div>Add a secondary domain to the model which can be used in a weak-form language expression for integration on the product of two domains. &lt;literal&gt;name&lt;/literal&gt; is the name
+of the secondary domain, &lt;literal&gt;mim&lt;/literal&gt; is an integration method on this domain
+and &lt;literal&gt;region&lt;/literal&gt; the region on which the integration is to be performed.</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'set</span> <span class="pre">element</span> <span class="pre">extrapolation</span> <span class="pre">correspondance',</span> <span class="pre">string</span> <span class="pre">transname,</span> <span class="pre">mat</span> <span class="pre">elt_corr)</span></tt></p>
 <blockquote>
 <div>Change the correspondance map of an element extrapolation interpolate
@@ -368,6 +377,13 @@ If you are not sure, the better is to declare the term not symmetric
 and not coercive. But some solvers (conjugate gradient for instance)
 are not allowed for non-coercive problems.
 &lt;literal&gt;brickname&lt;/literal&gt; is an otpional name for the brick.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">ind</span> <span class="pre">=</span> <span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'add</span> <span class="pre">linear</span> <span class="pre">twodomain</span> <span class="pre">term',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">expression,</span> <span class="pre">int</span> <span class="pre">region,</span> <span class="pre">string</span> <span class="pre">secondary_domain[,</span> <span class="pre">int</span> <span class="pre">is_symmetric[,</span> <span class="pre">int</span> <span class="pre">is_coercive]])</span></tt></p>
+<blockquote>
+<div>Adds a linear term given by a weak form language expression like
+gf_model_set(model M, &#8216;add linear term&#8217;) but for an integration on a direct
+product of two domains, a first specfied by &lt;literal&gt;&lt;/literal&gt;mim&lt;literal&gt;&lt;/literal&gt; and &lt;literal&gt;&lt;/literal&gt;region&lt;literal&gt;&lt;/literal&gt;
+and a second one by &lt;literal&gt;&lt;/literal&gt;secondary_domain&lt;literal&gt;&lt;/literal&gt; which has to be declared
+first into the model.</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">ind</span> <span class="pre">=</span> <span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'add</span> <span class="pre">linear</span> <span class="pre">generic</span> <span class="pre">assembly</span> <span class="pre">brick',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">expression[,</span> <span class="pre">int</span> <span class="pre">region[,</span> <span class="pre">int</span> <span class="pre">is_symmetric[,</span> <span class="pre">int</span> <span class="pre">is_coercive]]])</span></tt></p>
 <blockquote>
 <div>Deprecated. Use gf_model_set(model M, &#8216;add linear term&#8217;) instead.</div></blockquote>
@@ -383,6 +399,13 @@ If you are not sure, the better is to declare the term not symmetric
 and not coercive. But some solvers (conjugate gradient for instance)
 are not allowed for non-coercive problems.
 &lt;literal&gt;brickname&lt;/literal&gt; is an otpional name for the brick.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">ind</span> <span class="pre">=</span> <span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'add</span> <span class="pre">nonlinear</span> <span class="pre">twodomain</span> <span class="pre">term',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">expression,</span> <span class="pre">int</span> <span class="pre">region,</span> <span class="pre">string</span> <span class="pre">secondary_domain[,</span> <span class="pre">int</span> <span class="pre">is_symmetric[,</span> <span class="pre">int</span> <span class="pre">is_coercive]])</span></tt></p>
+<blockquote>
+<div>Adds a nonlinear term given by a weak form language expression like
+gf_model_set(model M, &#8216;add nonlinear term&#8217;) but for an integration on a direct
+product of two domains, a first specfied by &lt;literal&gt;&lt;/literal&gt;mim&lt;literal&gt;&lt;/literal&gt; and &lt;literal&gt;&lt;/literal&gt;region&lt;literal&gt;&lt;/literal&gt;
+and a second one by &lt;literal&gt;&lt;/literal&gt;secondary_domain&lt;literal&gt;&lt;/literal&gt; which has to be declared
+first into the model.</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">ind</span> <span class="pre">=</span> <span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'add</span> <span class="pre">nonlinear</span> <span class="pre">generic</span> <span class="pre">assembly</span> <span class="pre">brick',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">expression[,</span> <span class="pre">int</span> <span class="pre">region[,</span> <span class="pre">int</span> <span class="pre">is_symmetric[,</span> <span class="pre">int</span> <span class="pre">is_coercive]]])</span></tt></p>
 <blockquote>
 <div>Deprecated. Use gf_model_set(model M, &#8216;add nonlinear term&#8217;) instead.</div></blockquote>
@@ -395,6 +418,13 @@ Take care that if the expression contains some variables and if the
 expression is a potential, the expression will be
 derivated with respect to all variables.
 &lt;literal&gt;brickname&lt;/literal&gt; is an optional name for the brick.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">ind</span> <span class="pre">=</span> <span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'add</span> <span class="pre">twodomain</span> <span class="pre">source</span> <span class="pre">term',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">expression,</span> <span class="pre">int</span> <span class="pre">region,</span> <span class="pre">string</span> <span class="pre">secondary_domain)</span></tt></p>
+<blockquote>
+<div>Adds a source term given by a weak form language expression like
+gf_model_set(model M, &#8216;add source term&#8217;) but for an integration on a direct
+product of two domains, a first specfied by &lt;literal&gt;&lt;/literal&gt;mim&lt;literal&gt;&lt;/literal&gt; and &lt;literal&gt;&lt;/literal&gt;region&lt;literal&gt;&lt;/literal&gt;
+and a second one by &lt;literal&gt;&lt;/literal&gt;secondary_domain&lt;literal&gt;&lt;/literal&gt; which has to be declared
+first into the model.</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">ind</span> <span class="pre">=</span> <span class="pre">gf_model_set(model</span> <span class="pre">M,</span> <span class="pre">'add</span> <span class="pre">source</span> <span class="pre">term</span> <span class="pre">generic</span> <span class="pre">assembly</span> <span class="pre">brick',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">string</span> <span class="pre">expression[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div>Deprecated. Use gf_model_set(model M, &#8216;add source term&#8217;) instead.</div></blockquote>

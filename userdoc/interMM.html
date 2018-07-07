@@ -28,7 +28,7 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザマニュアル" href="index.html" />
     <link rel="next" title="Incorporate new finite element methods in GetFEM++" href="ifem.html" />
     <link rel="prev" title="Some Standard assembly procedures (low-level generic assembly)" href="asm.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
@@ -52,7 +52,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -109,7 +109,7 @@ the interpolation is done with a simple matrix multiplication:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">void</span> <span class="n">getfem</span><span class="o">::</span><span class="n">ga_interpolation_Lagrange_fem</span><span class="p">(</span><span class="n">workspace</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">workspace</span></tt> is a <tt class="docutils literal"><span class="pre">getfem::ga_workspace</span></tt> object which aims to store the different variables and data (see  <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures</em></a>), <tt class="docutils literal"><span class="pre">mf</span></tt> is the <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> object reresenting the Lagrange fem on which the interpolation is to be done and <tt class="docutils literal"><span class="pre">result</span></tt> is a <tt class="docutils literal"><span class="pre">beot::base_vector</span></tt> which store the interpolatin. Note that the workspace should contain the epression to be interpolated.</p>
+<p>where <tt class="docutils literal"><span class="pre">workspace</span></tt> is a <tt class="docutils literal"><span class="pre">getfem::ga_workspace</span></tt> object which aims to store the different variables and data (see  <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures - Weak-form language</em></a>), <tt class="docutils literal"><span class="pre">mf</span></tt> is the <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> object reresenting the Lagrange fem on which the interpolation is to be done and <tt class="docutils literal"><span class="pre">result</span></tt> is a <tt class="docutils literal"><span class="pre">beot::base_vector</span></tt> which store the interpolatin. Note that the workspace should contain the epression to be interpolated.</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">void</span> <span class="n">getfem</span><span class="o">::</span><span class="n">ga_interpolation_Lagrange_fem</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">rg</span><span class="o">=</span><span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 </pre></div>
 </div>
@@ -205,7 +205,7 @@ the interpolation is done with a simple matrix multiplication:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
