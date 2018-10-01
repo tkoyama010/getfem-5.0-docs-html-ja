@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Incorporate new finite element methods in GetFEM++ &mdash; GetFEM++</title>
+    <title>GetFEM++ に新しい有限要素法を組み込む &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="ユーザマニュアル" href="index.html" />
-    <link rel="next" title="Incorporate new approximated integration methods in GetFEM++" href="iinteg.html" />
-    <link rel="prev" title="Interpolation of arbitary quantities" href="interMM.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="next" title="GetFEM++ に新しい近似積分法を組み込む" href="iinteg.html" />
+    <link rel="prev" title="任意の量の補間" href="interMM.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="iinteg.html" title="Incorporate new approximated integration methods in GetFEM++"
+          <a href="iinteg.html" title="GetFEM++ に新しい近似積分法を組み込む"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="interMM.html" title="Interpolation of arbitary quantities"
+          <a href="interMM.html" title="任意の量の補間"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,17 +62,9 @@
           <div class="body">
             
   <div class="section" id="incorporate-new-finite-element-methods-in-gf">
-<span id="ud-ifem"></span><h1>Incorporate new finite element methods in <em>GetFEM++</em><a class="headerlink" href="#incorporate-new-finite-element-methods-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Basically, It is sufficient to describe an element on the reference element, i.e.
-to describe each base function of each degree of freedom. Intrinsically vectorial
-elements are supported (see for instance Nedelec and Raviart-Thomas elements).
-Finite element methods that are not equivalent via the geometric transformation
-(not <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/>-equivalent in <em>GetFEM++</em> jargon, such as vectorial elements, Hermite
-elements ...) an additional linear transformation of the degrees of freedom
-depending on the real element should be described (see the implementation of
-Argyris element for instance).</p>
-<p>Please read <a class="reference internal" href="../project/index.html#dp"><em>Description of the Project</em></a> for more details and see the files
-<tt class="file docutils literal"><span class="pre">getfem/getfem_fem.h</span></tt>, <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> for practical implementation.</p>
+<span id="ud-ifem"></span><h1><em>GetFEM++</em> に新しい有限要素法を組み込む<a class="headerlink" href="#incorporate-new-finite-element-methods-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>基本的には、参照要素に要素を記述するだけで十分です。すなわち各自由度の各基底関数を記述するということです。本質的にベクトル要素がサポートされています（例えば、NedelecとRaviart-Thomas要素）。実要素に依存する自由度の追加の線形変換と等価ではない有限要素法（ベクター要素、Hermite要素などの... <em>GetFEM++</em> 専門の非 <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> 方程式）を記述する必要があります（例としてArgyris要素の実装を参照)。</p>
+<p>詳細は <a class="reference internal" href="../project/index.html#dp"><em>Description of the Project</em></a> を読んでください。実際の実装は <tt class="file docutils literal"><span class="pre">getfem/getfem_fem.h</span></tt> 、 <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> を参照してください。</p>
 </div>
 
 
@@ -86,10 +78,10 @@ Argyris element for instance).</p>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="interMM.html"
-                        title="前の章へ">Interpolation of arbitary quantities</a></p>
+                        title="前の章へ">任意の量の補間</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="iinteg.html"
-                        title="次の章へ">Incorporate new approximated integration methods in <em>GetFEM++</em></a></p>            <h3>Download</h3>
+                        title="次の章へ"><em>GetFEM++</em> に新しい近似積分法を組み込む</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -134,16 +126,16 @@ Argyris element for instance).</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="iinteg.html" title="Incorporate new approximated integration methods in GetFEM++"
+          <a href="iinteg.html" title="GetFEM++ に新しい近似積分法を組み込む"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="interMM.html" title="Interpolation of arbitary quantities"
+          <a href="interMM.html" title="任意の量の補間"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

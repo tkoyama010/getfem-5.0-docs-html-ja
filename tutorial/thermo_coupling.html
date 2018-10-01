@@ -461,7 +461,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </pre></div>
 </div>
 <p>where the <cite>2</cite> stands for the dimension of the vector field. The second line sets the finite element used. <cite>classical_finite_element</cite> means a continuous Lagrange element and remember that <cite>elements_degree</cite> has been set to <cite>2</cite> which means that we will use quadratic (isoparametric) elements.</p>
-<p>There is a wide choice of pre-existing finite element methods in <em>GetFEM++</em>, see <a class="reference internal" href="../userdoc/appendixA.html#ud-appendixa"><em>Appendix A. Finite element method list</em></a>. However, Lagrange finite element methods are the most used in practice.</p>
+<p>There is a wide choice of pre-existing finite element methods in <em>GetFEM++</em>, see <a class="reference internal" href="../userdoc/appendixA.html#ud-appendixa"><em>付録A.有限要素法リスト</em></a>. However, Lagrange finite element methods are the most used in practice.</p>
 <p>The second finite element method is a scalar one, <cite>mft</cite> with which we will approximate both the temperature field and the electric potential field. A single finite element method can serve to approximate an arbitrary number of finite element variables.</p>
 <p>The third finite element method is a discontinuous scalar Lagrange one which will allow us to interpolate the derivative of one of the variables (for instance to interpolate the Von Mises stress).</p>
 <p>The last thing to define is an integration method <cite>mim</cite>. There is no default integration method in <em>GetFEM++</em> so this is mandatory to define an integration method. Of course, the order of the integration method have to be chosen sufficient to make a convenient integration of the selected finite element method. Here, the square of <cite>elements_degree</cite> is sufficient.</p>
@@ -526,7 +526,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="model-definition">
 <h3>Model definition<a class="headerlink" href="#model-definition" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The model object in <em>GetFEM++</em> gather the variables of the models (the unknowns), the data and what is called the model bricks. The model bricks are some parts of the model (linear or nonlinear terms) applied on a single variable or linking several variables. They are used to make the assembly of the (tangent) linear system (see <a class="reference internal" href="../userdoc/model_object.html#ud-model-object"><em>The model object</em></a> for more details).</p>
+<p>The model object in <em>GetFEM++</em> gather the variables of the models (the unknowns), the data and what is called the model bricks. The model bricks are some parts of the model (linear or nonlinear terms) applied on a single variable or linking several variables. They are used to make the assembly of the (tangent) linear system (see <a class="reference internal" href="../userdoc/model_object.html#ud-model-object"><em>modelオブジェクト</em></a> for more details).</p>
 <p>This is not strictly mandatory to use the model object since one may use directly the assembly procedures and build by it own the (tangent) linear system. The model object allows a rapid build of the model since most classical parts of a model are pre-programmed: standard boundary conditions, standard partial differential equations, use of multipliers to prescribe a constraint ... Moreover, some bricks are designed to extend the possibilities of the standard bricks (generic assembly bricks, explicit matrix brick ...). Thus, it is recommended to use the framework of the model object.</p>
 <p>There are two versions of the model: the real one and the complex one. Complex models have to be reserved for special applications (some electromagnetism problems for instance) where it is advantageous to solve a complex linear system.</p>
 <p>Let us declare a real model with the three variables corresponding to the three fields to be computed:</p>
@@ -584,8 +584,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 <p>Concerning the coupling term</p>
 <div class="math">
 <p><img src="../images/math/2562e1e538a37c6d30d57352772d9a0d13364e59.png" alt="\int_{\Omega} (\beta\theta I) :\bar{\varepsilon}(\delta_u)dx,"/></p>
-</div><p>there is no predefined brick and we use directly a weak form language term <cite>add_linear_term(md mim, &#8220;beta*theta*Div_Test_u)&#8221;</cite>. See <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures - Weak-form language</em></a> for more details on the weak form language. Basically, the principle is that the assembly string is compiled into a list of optimized assembly instructions which are executed on each Gauss point.</p>
-<p>The following program allows to take into account the whole elastic deformation equation. Note the use of specific brick to prescribe the Dirichlet condition on the left boundary. There is several option to prescribe a Dirichlet condition (see <a class="reference internal" href="../userdoc/model_dirichlet.html#ud-model-dirichlet"><em>Dirichlet condition brick</em></a>).</p>
+</div><p>there is no predefined brick and we use directly a weak form language term <cite>add_linear_term(md mim, &#8220;beta*theta*Div_Test_u)&#8221;</cite>. See <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</em></a> for more details on the weak form language. Basically, the principle is that the assembly string is compiled into a list of optimized assembly instructions which are executed on each Gauss point.</p>
+<p>The following program allows to take into account the whole elastic deformation equation. Note the use of specific brick to prescribe the Dirichlet condition on the left boundary. There is several option to prescribe a Dirichlet condition (see <a class="reference internal" href="../userdoc/model_dirichlet.html#ud-model-dirichlet"><em>Dirichlet条件ブリック</em></a>).</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="8%" />
@@ -890,7 +890,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="export-visualization-of-the-solution">
 <h3>Export/visualization of the solution<a class="headerlink" href="#export-visualization-of-the-solution" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The finite element problem is now solved. We can plot the solution as follows. Note that for the C++ and Python programs, it is necessary to use an external external graphical post-processor. Note also that arbitrary quantities can be post-processed using the generic interpolation (see <cite>ga_interpolation_Lagrange_fem</cite> below). It is also possible to make complex exports and slices (see <a class="reference internal" href="../userdoc/export.html#ud-export"><em>Export and view a solution</em></a>).</p>
+<p>The finite element problem is now solved. We can plot the solution as follows. Note that for the C++ and Python programs, it is necessary to use an external external graphical post-processor. Note also that arbitrary quantities can be post-processed using the generic interpolation (see <cite>ga_interpolation_Lagrange_fem</cite> below). It is also possible to make complex exports and slices (see <a class="reference internal" href="../userdoc/export.html#ud-export"><em>解の出力と表示</em></a>).</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="6%" />

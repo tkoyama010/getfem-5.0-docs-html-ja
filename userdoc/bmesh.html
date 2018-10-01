@@ -28,7 +28,7 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="ユーザマニュアル" href="index.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="メッシュ上に有限要素法を構築します" href="bfem.html" />
     <link rel="prev" title="キャッチエラー" href="catch.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
@@ -52,7 +52,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -64,47 +64,47 @@
   <div class="section" id="build-a-mesh">
 <span id="ud-bmesh"></span><h1>メッシュ生成<a class="headerlink" href="#build-a-mesh" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>前置きとして、 <em>GetFEM++</em> <a class="reference external" href="http://getfem.org/getfem_reference/index.html">用語</a> に関する簡単な説明をします。</p>
-<p><em>GetFEM++</em> はファイル <tt class="file docutils literal"><span class="pre">getfem</span> <span class="pre">/</span> <span class="pre">bgeot_mesh_structure.h</span></tt> と :file:` getfem / getfem_mesh.h` で定義されるメッシュを格納する固有の構造を持っています。</p>
+<p><em>GetFEM++</em> はファイル <tt class="file docutils literal"><span class="pre">getfem/bgeot_mesh_structure.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem/getfem_mesh.h</span></tt> で定義されるメッシュを格納する固有の構造を持っています。</p>
 <p>このオブジェクトは、異なる次元の要素を混合しても、任意の次元に任意の要素を格納できます。</p>
-<p>複雑なジオメトリをメッシュ化するには、 <em>GetFEM++</em> には（非常に）実験的なメッシング手順しかありません。しかし、どんなフォーマットからでもメッシュを簡単に読み込むことができます（いくつかのプロシージャは、 <tt class="file docutils literal"><span class="pre">getfem/getfem_import.h</span></tt> にあり、いくつかのパブリックドメインメッシュジェネレータからメッシュをロードします）。</p>
+<p>複雑なジオメトリをメッシュ化するには、 <em>GetFEM++</em> には（非常に）実験的なメッシング手順しかありません。しかし、どんなフォーマットからでもメッシュを簡単に読み込むことができます（いくつかのプロシージャは、 <tt class="file docutils literal"><span class="pre">getfem/getfem_import.h</span></tt> にあり、いくつかのパブリック領域メッシュジェネレータからメッシュをロードします）。</p>
 <p>構造体 <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt> は、境界や要素の集合など、メッシュの領域に関する記述を含むこともできます。 これは、凸面と凸面のコンテナ <tt class="docutils literal"><span class="pre">getfem::mesh_region</span></tt> を介して処理されます。</p>
 <div class="section" id="add-an-element-to-a-mesh">
 <h2>メッシュに要素を追加する<a class="headerlink" href="#add-an-element-to-a-mesh" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>変数 <tt class="docutils literal"><span class="pre">mymesh</span></tt> が次のように定義されているとします</p>
+<p>変数 <tt class="docutils literal"><span class="pre">mymesh</span></tt> が次のように定義されているとします。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">mesh</span> <span class="n">mymesh</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>このメッシュに新しい要素を挿入するには、ポイントのリストから追加する方法と既存のポイントのインデックスのリストから追加する2つの方法があります。</p>
-<p>メッシュ上に新しい点を入力するには、次のメソッドを使用してください</p>
+<p>メッシュ上に新しい点を入力するには、次のメソッドを使用してください。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">i</span> <span class="o">=</span> <span class="n">mymesh</span><span class="p">.</span><span class="n">add_point</span><span class="p">(</span><span class="n">pt</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>ここで、 <tt class="docutils literal"><span class="pre">pt</span></tt> は <tt class="docutils literal"><span class="pre">bgeot::base_node</span></tt> 型です。 インデックス <tt class="docutils literal"><span class="pre">i</span></tt> は、メッシュ上のこのポイントのインデックスです。 すでにメッシュ内にポイントが存在する場合、新しいポイントは挿入されず、既存のポイントのインデックスが返されます。 メッシュには、その点の次元である主次元があります。 同じメッシュ内に異なる次元の点を持つことはできません。</p>
-<p>新しい要素をメッシュに追加する最も基本的な機能は:</p>
+<p>新しい要素をメッシュに追加する最も基本的な関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">j</span> <span class="o">=</span> <span class="n">mymesh</span><span class="p">.</span><span class="n">add_convex</span><span class="p">(</span><span class="n">pgt</span><span class="p">,</span> <span class="n">it</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>これは、 <tt class="docutils literal"><span class="pre">bgeot::pgeometric_trans</span></tt> 型の <a href="#id1"><span class="problematic" id="id2">``</span></a>pgt``（基本的にはbg_gt型のインスタンスへのポインタ）を持つテンプレート関数であり、既に存在する点のインデックスのリスト上の反復子です。 たとえば、3次元メッシュに新しい三角形を追加する必要がある場合、最初に3つの点のインデックスを持つ配列を定義する必要があります</p>
+<p>これは、 <tt class="docutils literal"><span class="pre">bgeot::pgeometric_trans</span></tt> 型の <tt class="docutils literal"><span class="pre">pgt</span></tt> （基本的にはbg_gt型のインスタンスへのポインタ）を持つテンプレート関数であり、既に存在する点のインデックスのリスト上の反復子です。 たとえば、3次元メッシュに新しい3角形を追加する必要がある場合、最初に3つの点のインデックスを持つ配列を定義する必要があります</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">bgeot</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span> <span class="n">ind</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mymesh</span><span class="p">.</span><span class="n">add_point</span><span class="p">(</span><span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">));</span>
 <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mymesh</span><span class="p">.</span><span class="n">add_point</span><span class="p">(</span><span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">));</span>
 <span class="n">ind</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mymesh</span><span class="p">.</span><span class="n">add_point</span><span class="p">(</span><span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>要素を追加するには</p>
+<p>要素の追加は、次のように行います。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mymesh</span><span class="p">.</span><span class="n">add_convex</span><span class="p">(</span><span class="n">bgeot</span><span class="o">::</span><span class="n">simplex_geotrans</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">ind</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">bgeot::simplex_geotrans(N,1);</span></tt> は次元Nの単純化のための通常の線形幾何変換を示します。</p>
-<p>単純化のために、以下のようにより特殊化された関数が存在します</p>
+<p>ここで <tt class="docutils literal"><span class="pre">bgeot::simplex_geotrans(N,1);</span></tt> は次元Nのシンプレックスのための通常の線形幾何変換を示します。</p>
+<p>シンプレックスのために、以下のようにより特殊化された関数が存在します。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mymesh</span><span class="p">.</span><span class="n">add_simplex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">ind</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>次の関数を使ってポイントのリストを直接与えることも可能です:</p>
+<p>次の関数を使ってポイントのリストを直接与えることも可能です。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mymesh</span><span class="p">.</span><span class="n">add_convex_by_points</span><span class="p">(</span><span class="n">pgt</span><span class="p">,</span> <span class="n">itp</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">itp</span></tt> は点の配列のイテレータです。 例えば：：</p>
+<p>ここで <tt class="docutils literal"><span class="pre">itp</span></tt> は点の配列のイテレータです。 例えば、次のような場合、</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span><span class="o">&gt;</span> <span class="n">pts</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
 <span class="n">pts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
@@ -112,15 +112,15 @@
 <span class="n">mymesh</span><span class="p">.</span><span class="n">add_convex_by_points</span><span class="p">(</span><span class="n">bgeot</span><span class="o">::</span><span class="n">simplex_geotrans</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">pts</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>このように使用することも可能です</p>
+<p>このように使用することも可能です。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mymesh</span><span class="p">.</span><span class="n">add_simplex_by_points</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">pts</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>シンプレックス以外の要素については、 <tt class="docutils literal"><span class="pre">mymesh.add_convex_by_points</span></tt> や <tt class="docutils literal"><span class="pre">mymesh.add_convex</span></tt> で適切な幾何学的変換と共に使用することは可能です。</p>
+<p>シンプレックス以外の要素についても、 <tt class="docutils literal"><span class="pre">mymesh.add_convex_by_points</span></tt> や <tt class="docutils literal"><span class="pre">mymesh.add_convex</span></tt> で適切な幾何学的変換と共に使用することが可能です。</p>
 <ul class="simple">
-<li><p class="first"><tt class="docutils literal"><span class="pre">bgeot::parallelepiped_geotrans(N,</span> <span class="pre">1)</span></tt> は次元 <tt class="docutils literal"><span class="pre">N</span></tt> の平行六面体（ <tt class="docutils literal"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">2</span></tt> の場合は四辺形、 <tt class="docutils literal"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">3</span></tt> の場合は六面体、...）</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">bgeot::parallelepiped_geotrans(N,</span> <span class="pre">1)</span></tt> は次元 <tt class="docutils literal"><span class="pre">N</span></tt> の平行6面体（ <tt class="docutils literal"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">2</span></tt> の場合は四辺形、 <tt class="docutils literal"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">3</span></tt> の場合は6面体、...）</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">bgeot::prism_geotrans(N,</span> <span class="pre">1)</span></tt> は次元 <tt class="docutils literal"><span class="pre">N</span></tt> のプリズムの通常の変換を表しています（通常のプリズムは <tt class="docutils literal"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">3</span></tt> である。一般化されたプリズムは、次元 <tt class="docutils literal"><span class="pre">N-1</span></tt> のシンプレックスとセグメント）</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">bgeot::prism_geotrans(N,</span> <span class="pre">1)</span></tt> は次元 <tt class="docutils literal"><span class="pre">N</span></tt> のプリズムの通常の変換を表しています（通常のプリズムは <tt class="docutils literal"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">3</span></tt> です。一般化されたプリズムは、次元 <tt class="docutils literal"><span class="pre">N-1</span></tt> のシンプレックスとセグメント）</p>
 </li>
 </ul>
 <p>特殊化された関数も存在します</p>
@@ -135,7 +135,7 @@
 <a class="reference internal image-reference" href="../images/getfemuserelem.png"><img alt="../images/getfemuserelem.png" src="../images/getfemuserelem.png" style="width: 15cm;" /></a>
 <p class="caption">通常の一次要素の頂点数</p>
 </div>
-<p>より高次の変換を含む一般的な規則は、頂点数が対応するラグランジュ有限要素法(  <a class="reference internal" href="appendixA.html#ud-appendixa"><em>Appendix A. Finite element method list</em></a> を参照)の1つに従うことであることに注意してください。</p>
+<p>より高次の変換を含む汎用的な規則は、頂点数が対応するLagrange有限要素法(  <a class="reference internal" href="appendixA.html#ud-appendixa"><em>付録A.有限要素法リスト</em></a> を参照)の1つに従うことであることに注意してください。</p>
 </div>
 <div class="section" id="remove-an-element-from-a-mesh">
 <h2>メッシュから要素を削除する<a class="headerlink" href="#remove-an-element-from-a-mesh" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -147,13 +147,13 @@
 </div>
 <div class="section" id="simple-structured-meshes">
 <h2>シンプルな構造化メッシュ<a class="headerlink" href="#simple-structured-meshes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>平行六面体のドメインの場合、 <tt class="file docutils literal"><span class="pre">getfem/getfem_regular_meshes.h</span></tt> で定義されている3つの関数からシンプレックス、平行六面体、またはプリズム要素を持つ構造化メッシュを得ることができます。</p>
+<p>平行6面体の領域の場合、 <tt class="file docutils literal"><span class="pre">getfem/getfem_regular_meshes.h</span></tt> で定義されている3つの関数からシンプレックス、平行6面体、またはプリズム要素を持つ構造化メッシュを得ることができます。</p>
 <p>最も単純な関数は</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">regular_unit_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">size_type</span><span class="o">&gt;</span> <span class="n">nsubdiv</span><span class="p">,</span>
                        <span class="n">bgeot</span><span class="o">::</span><span class="n">pgeometric_trans</span> <span class="n">pgt</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">noised</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>メッシュ <tt class="docutils literal"><span class="pre">m</span></tt> をシンプル/平行六面体/プリズムの規則的なメッシュで塗りつぶします（ <tt class="docutils literal"><span class="pre">pgt</span></tt> の値に応じて）。 各方向のセル数は <tt class="docutils literal"><span class="pre">nsubdiv</span></tt> で与えられます。 次の例では、単位正方形に2次三角形のメッシュを作成します（メッシュは後でスケーリングして変換できます）</p>
+<p>メッシュ <tt class="docutils literal"><span class="pre">m</span></tt> をシンプル/平行6面体/プリズムの規則的なメッシュで塗りつぶします（ <tt class="docutils literal"><span class="pre">pgt</span></tt> の値に応じて）。 各方向のセル数は <tt class="docutils literal"><span class="pre">nsubdiv</span></tt> で与えられます。 次の例では、単位正方形に2次3角形のメッシュを作成します（メッシュは後でスケーリングして変換できます）</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">getfem</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span> <span class="n">nsubdiv</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">nsubdiv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">nsubdiv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 <span class="n">regular_unit_mesh</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nsubdiv</span><span class="p">,</span> <span class="n">bgeot</span><span class="o">::</span><span class="n">simplex_geotrans</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
@@ -166,8 +166,8 @@
 <span class="n">getfem</span><span class="o">::</span><span class="n">parallelepiped_regular_mesh</span><span class="p">(</span><span class="n">mymesh</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">org</span><span class="p">,</span> <span class="n">ivect</span><span class="p">,</span> <span class="n">iref</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">mymesh</span></tt> は構造化されたメッシュが構築されるメッシュ変数で、 <tt class="docutils literal"><span class="pre">N</span></tt> は次元です（単純化の場合は4、プリズムの場合は5、平行六面体の場合は無制限です）。 <tt class="docutils literal"><span class="pre">org</span></tt> を <tt class="docutils literal"><span class="pre">bgeot::base_node</span></tt> と設定し、メッシュの起点を表します。  <tt class="docutils literal"><span class="pre">ivect</span></tt> は平行四辺形のドメインを構築するための <tt class="docutils literal"><span class="pre">N</span></tt> ベクトルの配列上のイテレータです。 <tt class="docutils literal"><span class="pre">iref</span></tt> は、 各方向の分割数を表す <tt class="docutils literal"><span class="pre">N</span></tt> の自然数の配列です。</p>
-<p>例えば、 <img class="math" src="../images/math/5717220d94fa98a1569df1652d5f96051c44a031.png" alt="10\times~10\times~10" style="vertical-align: -1px"/> の単位立方体の四面体を持つメッシュを作成するには、次のように記述します</p>
+<p>ここで <tt class="docutils literal"><span class="pre">mymesh</span></tt> は構造化されたメッシュが構築されるメッシュ変数で、 <tt class="docutils literal"><span class="pre">N</span></tt> は次元です（シンプレックスの場合は4、プリズムの場合は5、平行6面体の場合は無制限です）。 <tt class="docutils literal"><span class="pre">org</span></tt> を <tt class="docutils literal"><span class="pre">bgeot::base_node</span></tt> と設定し、メッシュの起点を表します。  <tt class="docutils literal"><span class="pre">ivect</span></tt> は平行四辺形の領域を構築するための <tt class="docutils literal"><span class="pre">N</span></tt> ベクトルの配列上のイテレータです。 <tt class="docutils literal"><span class="pre">iref</span></tt> は、 各方向の分割数を表す <tt class="docutils literal"><span class="pre">N</span></tt> の自然数の配列です。</p>
+<p>例えば、 <img class="math" src="../images/math/5717220d94fa98a1569df1652d5f96051c44a031.png" alt="10\times~10\times~10" style="vertical-align: -1px"/> の単位立方体の4面体を持つメッシュを作成するには、次のように記述します</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">mesh</span> <span class="n">mymesh</span><span class="p">;</span>
 <span class="n">bgeot</span><span class="o">::</span><span class="n">base_node</span> <span class="n">org</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">bgeot</span><span class="o">::</span><span class="n">base_small_vector</span><span class="o">&gt;</span> <span class="n">vect</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -181,7 +181,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">ノート</p>
-<p class="last"><tt class="docutils literal"><span class="pre">base_node</span></tt> と <tt class="docutils literal"><span class="pre">base_small_vector</span></tt> はどちらも小さなベクトルクラス（16個以上の要素を格納できません）で、幾何学的な点や幾何学的なベクトルを記述するために使われます。 それらのメモリフットプリントは <tt class="docutils literal"><span class="pre">std::vector</span></tt> よりも小さくなっています。</p>
+<p class="last"><tt class="docutils literal"><span class="pre">base_node</span></tt> と <tt class="docutils literal"><span class="pre">base_small_vector</span></tt> はどちらも小さなベクトルクラス（16個以上の要素を格納できません）で、幾何用の点や幾何用のベクトルを記述するために使われます。 それらのメモリフットプリントは <tt class="docutils literal"><span class="pre">std::vector</span></tt> よりも小さくなっています。</p>
 </div>
 </div>
 <div class="section" id="mesh-regions">
@@ -294,7 +294,7 @@
 <dl class="function">
 <dt id="mymesh.neighbour_of_convex">
 <tt class="descclassname">mymesh.</tt><tt class="descname">neighbour_of_convex</tt><big>(</big><em>ic</em>, <em>f</em><big>)</big><a class="headerlink" href="#mymesh.neighbour_of_convex" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>要素 <tt class="docutils literal"><span class="pre">ic</span></tt> 以外の要素 <tt class="docutils literal"><span class="pre">ic</span></tt> のローカルインデックスfの共通面を持つ <a href="#id1"><span class="problematic" id="id2">``</span></a>mesh``の最初の要素のインデックスを返します。 見つからなければsize_type（-1）を返します。</p>
+<dd><p>要素 <tt class="docutils literal"><span class="pre">ic</span></tt> 以外の要素 <tt class="docutils literal"><span class="pre">ic</span></tt> のローカルインデックスfの共通面を持つ <tt class="docutils literal"><span class="pre">mesh</span></tt> の最初の要素のインデックスを返します。見つからなければsize_type（-1）を返します。</p>
 </dd></dl>
 
 <dl class="function">
@@ -312,7 +312,7 @@
 <dl class="function">
 <dt id="mymesh.optimize_structure">
 <tt class="descclassname">mymesh.</tt><tt class="descname">optimize_structure</tt><big>(</big><big>)</big><a class="headerlink" href="#mymesh.optimize_structure" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>構造体をコンパクトにします（番号付けに穴がないようにポイントと凸部の番号を付け直します）。</p>
+<dd><p>構造体をコンパクトにします（番号付けに穴がないようにポイントと凸包の番号を付け直します）。</p>
 </dd></dl>
 
 <dl class="function">
@@ -324,13 +324,13 @@
 <dl class="function">
 <dt id="mymesh.normal_of_face_of_convex">
 <tt class="descclassname">mymesh.</tt><tt class="descname">normal_of_face_of_convex</tt><big>(</big><em>ic</em>, <em>f</em>, <em>pt</em><big>)</big><a class="headerlink" href="#mymesh.normal_of_face_of_convex" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>ローカル座標（参照要素内の座標）のポイントでローカルインデックス <tt class="docutils literal"><span class="pre">f</span></tt> の面で要素の外向き法線を表す <tt class="docutils literal"><span class="pre">bgeot::base_small_vector</span></tt> を返します。 幾何変換が線形の場合、点 <tt class="docutils literal"><span class="pre">pt</span></tt> は影響を与えません。 これは単位法線ではなく、結果として生じるベクトルのノルムは、基準要素の面の表面と実要素の面の表面との間の比である。</p>
+<dd><p>ローカル座標（参照要素内の座標）のポイントでローカルインデックス <tt class="docutils literal"><span class="pre">f</span></tt> の面で要素の外向き法線を表す <tt class="docutils literal"><span class="pre">bgeot::base_small_vector</span></tt> を返します。 幾何変換が線形の場合、点 <tt class="docutils literal"><span class="pre">pt</span></tt> は影響を与えません。 これは単位法線ではなく、結果として生じるベクトルのノルムは、基準要素の面の表面と実要素の面の表面との間の比です。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="mymesh.convex_area_estimate">
 <tt class="descclassname">mymesh.</tt><tt class="descname">convex_area_estimate</tt><big>(</big><em>ic</em><big>)</big><a class="headerlink" href="#mymesh.convex_area_estimate" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p><tt class="docutils literal"><span class="pre">ic</span></tt> 凸面の面積の推定値を与える。</p>
+<dd><p><tt class="docutils literal"><span class="pre">ic</span></tt> 凸面の面積の推定値を与えます。</p>
 </dd></dl>
 
 <dl class="function">
@@ -342,7 +342,7 @@
 <dl class="function">
 <dt id="mymesh.convex_radius_estimate">
 <tt class="descclassname">mymesh.</tt><tt class="descname">convex_radius_estimate</tt><big>(</big><em>ic</em><big>)</big><a class="headerlink" href="#mymesh.convex_radius_estimate" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>要素 <tt class="docutils literal"><span class="pre">ic</span></tt> の半径の推定値を与える。</p>
+<dd><p>要素 <tt class="docutils literal"><span class="pre">ic</span></tt> の半径の推定値を与えます。</p>
 </dd></dl>
 
 <dl class="function">
@@ -361,7 +361,7 @@
 <dl class="function">
 <dt id="add">
 <tt class="descname">add</tt><big>(</big><em>ic</em><big>)</big><a class="headerlink" href="#add" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>その領域にインデックス `` ic``の凸を追加します。</p>
+<dd><p>その領域にインデックス `` ic``の凸包を追加します。</p>
 </dd></dl>
 
 <dl class="function">
@@ -375,7 +375,7 @@
 <tt class="descname">sup</tt><big>(</big><em>ic</em><big>)</big><a class="headerlink" href="#sup" title="この定義へのパーマリンク">¶</a></dt>
 <dt>
 <tt class="descname">sup</tt><big>(</big><em>ic</em>, <em>f</em><big>)</big></dt>
-<dd><p>その領域から凸または凸面を除去する。</p>
+<dd><p>その領域から凸または凸面を除去します。</p>
 </dd></dl>
 
 <dl class="function">
@@ -417,7 +417,7 @@
 <h2><tt class="docutils literal"><span class="pre">dal::bit_vector</span></tt> を使います<a class="headerlink" href="#using-dal-bv" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>オブジェクト <tt class="docutils literal"><span class="pre">dal::bit_vector</span></tt> （ <tt class="file docutils literal"><span class="pre">getfem/dal_bit_vector.h</span></tt> で宣言されています）は、 <em>GetFEM++</em> で頻繁に使用される構造体です。 これは <tt class="docutils literal"><span class="pre">std::bitset</span></tt> と <tt class="docutils literal"><span class="pre">std::vector&lt;bool&gt;</span></tt> に非常に近いものですが、非負の整数の集合を表現する追加の機能を持ち、それらを繰り返し処理します。</p>
 <p><tt class="docutils literal"><span class="pre">nn</span></tt> が <tt class="docutils literal"><span class="pre">dal::bit_vector</span></tt> であると宣言されている場合、2つの命令 <tt class="docutils literal"><span class="pre">nn.add(6)</span></tt> または <tt class="docutils literal"><span class="pre">nn[6]</span> <span class="pre">=</span> <span class="pre">true</span></tt> は等価であり、整数6がその集合に追加されることを意味します。</p>
-<p>同様に <tt class="docutils literal"><span class="pre">nn.sup(6)</span></tt> または <tt class="docutils literal"><span class="pre">nn[6]</span> <span class="pre">=</span> <span class="pre">false</span></tt> で整数6を集合から削除します。 命令nn.add（6,4）は集合に6,7,8,9を追加する。</p>
+<p>同様に <tt class="docutils literal"><span class="pre">nn.sup(6)</span></tt> または <tt class="docutils literal"><span class="pre">nn[6]</span> <span class="pre">=</span> <span class="pre">false</span></tt> で整数6を集合から削除します。 命令nn.add（6,4）は集合に6,7,8,9を追加します。</p>
 <p><tt class="docutils literal"><span class="pre">dal::bit_vector</span></tt> を反復するにはイテレーターを通常どおり使用することができますが、ほとんどの場合、このオブジェクトは整数の集合を表しているため、集合に含まれる整数を反復したいだけです。 これを行う最も簡単な方法は、疑似反復子 <tt class="docutils literal"><span class="pre">dal::bv_visitor</span></tt> を使用することです。</p>
 <p>例えば、メッシュ上の点を標準出力に出力するコードを次に示します</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">dal</span><span class="o">::</span><span class="n">bv_visitor</span> <span class="n">i</span><span class="p">(</span><span class="n">mymesh</span><span class="p">.</span><span class="n">points_index</span><span class="p">());</span> <span class="o">!</span><span class="n">i</span><span class="p">.</span><span class="n">finished</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -432,7 +432,7 @@
 <a class="reference internal image-reference" href="../images/getfemuserelemf.png"><img alt="../images/getfemuserelemf.png" src="../images/getfemuserelemf.png" style="width: 12cm;" /></a>
 <p class="caption">通常の要素の面に対しての記数</p>
 </div>
-<p>凸と点はgf_mオブジェクト内でグローバルに番号が付けられていますが、面のグローバルな番号付けはありません。そのため、与えられた面を参照する唯一の方法は凸面の番号と凸面の局所面番号を与えることです。</p>
+<p>凸と点はgf_mオブジェクト内でグローバルに番号が付けられていますが、面のグローバルな番号付けはありません。そのため、与えられた面を参照する唯一の方法は凸面の番号と凸面の局所面番号を与えますことです。</p>
 </div>
 <div class="section" id="save-and-load-meshes">
 <span id="ud-load-save-mesh"></span><h2>メッシュの保存とロード<a class="headerlink" href="#save-and-load-meshes" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -501,7 +501,7 @@
 </pre></div>
 </div>
 <p>前述の書式指定子の1つである文字列 <tt class="docutils literal"><span class="pre">fmt</span></tt> と同等の方法で使用できます。</p>
-<p>&#8220;gid&#8221;フォーマット指定子は、 <a class="reference external" href="http://gid.cimne.upc.es">GiD</a> によって生成されるメッシュ用であり、 <tt class="docutils literal"><span class="pre">gmsh</span></tt> は、オープンソースメッシュ生成プログラム <cite>Gmsh</cite> によって生成されるメッシュ用である。 &#8220;cdb&#8221; 書式指定子はCDWRITEコマンドでブロック形式でエクスポートされた <a class="reference external" href="http://www.ansys.com">ANSYS</a> モデルからメッシュを読み込むためのものです。 現在、 <cite>ANSYS</cite> 要素タイプ42,45,73,82,87,89,90,92,95,162,182,183,185,186,187、および191をインポートすることができますが、これらの要素にリンクされた有限要素技術は含まず、そのジオメトリのみが含まれます。 &#8220;noboite&#8221;形式はTetMesh-GHS3D用で、 &#8220;am_fmt&#8221;と &#8220;emc2_mesh&#8221;は &#8220;EMC2&#8221;（ただし2Dのみ）で構築されたファイル用です。</p>
+<p>&#8220;gid&#8221;フォーマット指定子は、 <a class="reference external" href="http://gid.cimne.upc.es">GiD</a> によって生成されるメッシュ用であり、 <tt class="docutils literal"><span class="pre">gmsh</span></tt> は、オープンソースメッシュ生成プログラム <cite>Gmsh</cite> によって生成されるメッシュ用です。 &#8220;cdb&#8221; 書式指定子はCDWRITEコマンドでブロック形式で出力された <a class="reference external" href="http://www.ansys.com">ANSYS</a> モデルからメッシュを読み込むためのものです。 現在、 <cite>ANSYS</cite> 要素タイプ42,45,73,82,87,89,90,92,95,162,182,183,185,186,187、および191をインポートすることができますが、これらの要素にリンクされた有限要素技術は含まず、そのジオメトリのみが含まれます。 &#8220;noboite&#8221;形式はTetMesh-GHS3D用で、 &#8220;am_fmt&#8221;と &#8220;emc2_mesh&#8221;は &#8220;EMC2&#8221;（ただし2Dのみ）で構築されたファイル用です。</p>
 <p><tt class="docutils literal"><span class="pre">構造化</span></tt> 形式は通常のメッシュの短い仕様です。その場合の <tt class="docutils literal"><span class="pre">fmtfilename</span></tt> の残りの部分はファイル名ではなく、次の形式の文字列です</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">import_mesh</span><span class="p">(</span><span class="s">&quot;structured:GT=&#39;GT_PK(2,1)&#39;;&quot;</span>
                     <span class="s">&quot;NSUBDIV=[5,5];&quot;</span>
@@ -510,7 +510,7 @@
                     <span class="s">&quot;NOISED=0&quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">GT</span></tt> は幾何変換の名前、 <tt class="docutils literal"><span class="pre">NSUBDIV</span></tt> は各座標（デフォルト値2）の細分数のベクトル、 <tt class="docutils literal"><span class="pre">ORG</span></tt> はメッシュの原点（デフォルト値 <tt class="docutils literal"><span class="pre">[0,0、...]</span></tt> ）、 <tt class="docutils literal"><span class="pre">SIZES</span></tt> は 各方向のサイズのベクトル（デフォルト値 <tt class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">...]</span></tt> 、 <tt class="docutils literal"><span class="pre">NOISED</span> <span class="pre">=</span> <span class="pre">1</span></tt> の場合は、メッシュ内部のノードがランダムに振られます（デフォルト値 <tt class="docutils literal"><span class="pre">NOISED</span> <span class="pre">=</span> <span class="pre">0</span></tt> ）。  <tt class="docutils literal"><span class="pre">GT</span></tt> 以外のパラメータはオプションです。</p>
+<p>ここで <tt class="docutils literal"><span class="pre">GT</span></tt> は幾何変換の名前、 <tt class="docutils literal"><span class="pre">NSUBDIV</span></tt> は各座標（デフォルト値2）の細分数のベクトル、 <tt class="docutils literal"><span class="pre">ORG</span></tt> はメッシュの原点（デフォルト値 <tt class="docutils literal"><span class="pre">[0,0、...]</span></tt> ）、 <tt class="docutils literal"><span class="pre">SIZES</span></tt> は 各方向のサイズのベクトル（デフォルト値 <tt class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">...]</span></tt> 、 <tt class="docutils literal"><span class="pre">NOISED</span> <span class="pre">=</span> <span class="pre">1</span></tt> の場合は、メッシュ内部の節点がランダムに振られます（デフォルト値 <tt class="docutils literal"><span class="pre">NOISED</span> <span class="pre">=</span> <span class="pre">0</span></tt> ）。  <tt class="docutils literal"><span class="pre">GT</span></tt> 以外のパラメータはオプションです。</p>
 </div>
 </div>
 </div>
@@ -602,7 +602,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

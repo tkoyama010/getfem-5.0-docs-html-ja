@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Compute and norms &mdash; GetFEM++</title>
+    <title>と ノルムの計算 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="ユーザマニュアル" href="index.html" />
-    <link rel="next" title="Compute derivatives" href="computeD.html" />
-    <link rel="prev" title="Interpolation of a finite element method on non-matching meshes" href="interNMM.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="next" title="導関数の計算" href="computeD.html" />
+    <link rel="prev" title="非適合メッシュ上の有限要素法の補間" href="interNMM.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="computeD.html" title="Compute derivatives"
+          <a href="computeD.html" title="導関数の計算"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="interNMM.html" title="Interpolation of a finite element method on non-matching meshes"
+          <a href="interNMM.html" title="非適合メッシュ上の有限要素法の補間"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,26 +62,20 @@
           <div class="body">
             
   <div class="section" id="compute-and-norms">
-<span id="ud-computel2h1"></span><h1>Compute <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms<a class="headerlink" href="#compute-and-norms" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The file <tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt> defines the functions to compute
-<img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms of a solution. The following functions compute
-the different norms:</p>
+<span id="ud-computel2h1"></span><h1><img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> と <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> ノルムの計算<a class="headerlink" href="#compute-and-norms" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt> は、 <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> と <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> ノルムを計算するため関数を定義します。以下の関数は、異なるノルムを計算します</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_L2_norm</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 <span class="n">getfem</span><span class="o">::</span><span class="n">asm_H1_semi_norm</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 <span class="n">getfem</span><span class="o">::</span><span class="n">asm_H1_norm</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">mim</span></tt> is a <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> used for the integration, <tt class="docutils literal"><span class="pre">mf</span></tt> is a <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> and
-describes the finite element method on which the solution is defined, <tt class="docutils literal"><span class="pre">U</span></tt> is the
-vector of values of the solution on each degree of freedom of <tt class="docutils literal"><span class="pre">mf</span></tt> and <tt class="docutils literal"><span class="pre">region</span></tt> is an optional parameter which specify the mesh region on which the norm is computed. The size of
-<tt class="docutils literal"><span class="pre">U</span></tt> should be <tt class="docutils literal"><span class="pre">mf.nb_dof()</span></tt>.</p>
-<p>In order to compare two solutions, it is often simpler and faster to use the
-following function than to interpolate one <cite>mesh_fem</cite> on another:</p>
+<p>ここで <tt class="docutils literal"><span class="pre">mim</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> 積分のために使われ、 <tt class="docutils literal"><span class="pre">mf</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> で、解が定義される有限要素法を記述します、 <tt class="docutils literal"><span class="pre">U</span></tt> は <tt class="docutils literal"><span class="pre">mf</span></tt> の自由度の解のベクトルであり、 <tt class="docutils literal"><span class="pre">region</span></tt> はノルムが計算されるメッシュ領域を指定する任意のパラメータです。<tt class="docutils literal"><span class="pre">U</span></tt> のサイズは <tt class="docutils literal"><span class="pre">mf.nb_dof()</span></tt> でなければなりません。</p>
+<p>2つの解を比較するには、1つの <cite>mesh_fem</cite> を補間するよりも、次の関数を使用する方が簡単で速くなることがよくあります。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_L2_dist</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf1</span><span class="p">,</span> <span class="n">U1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">U2</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 <span class="n">getfem</span><span class="o">::</span><span class="n">asm_H1_dist</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf1</span><span class="p">,</span> <span class="n">U1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">U2</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>These functions return the <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> and <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> norms of <img class="math" src="../images/math/e5e61a187d97e3cd689f897873604a26dff53950.png" alt="u_1-u_2" style="vertical-align: -4px"/>.</p>
+<p>これらの関数は <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> と <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> ノルムの <img class="math" src="../images/math/e5e61a187d97e3cd689f897873604a26dff53950.png" alt="u_1-u_2" style="vertical-align: -4px"/> を返します。</p>
 </div>
 
 
@@ -95,10 +89,10 @@ following function than to interpolate one <cite>mesh_fem</cite> on another:</p>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="interNMM.html"
-                        title="前の章へ">Interpolation of a finite element method on non-matching meshes</a></p>
+                        title="前の章へ">非適合メッシュ上の有限要素法の補間</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="computeD.html"
-                        title="次の章へ">Compute derivatives</a></p>            <h3>Download</h3>
+                        title="次の章へ">導関数の計算</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -143,16 +137,16 @@ following function than to interpolate one <cite>mesh_fem</cite> on another:</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="computeD.html" title="Compute derivatives"
+          <a href="computeD.html" title="導関数の計算"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="interNMM.html" title="Interpolation of a finite element method on non-matching meshes"
+          <a href="interNMM.html" title="非適合メッシュ上の有限要素法の補間"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

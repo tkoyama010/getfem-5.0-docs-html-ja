@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Appendix B. Cubature method list &mdash; GetFEM++</title>
+    <title>付録B.立体求積法のリスト &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="ユーザマニュアル" href="index.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
     <link rel="next" title="References" href="../biblio.html" />
-    <link rel="prev" title="Appendix A. Finite element method list" href="appendixA.html" />
+    <link rel="prev" title="付録A.有限要素法リスト" href="appendixA.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -46,13 +46,13 @@
           <a href="../biblio.html" title="References"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="appendixA.html" title="Appendix A. Finite element method list"
+          <a href="appendixA.html" title="付録A.有限要素法リスト"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,79 +62,64 @@
           <div class="body">
             
   <div class="section" id="appendix-b-cubature-method-list">
-<span id="ud-appendixb"></span><h1>Appendix B. Cubature method list<a class="headerlink" href="#appendix-b-cubature-method-list" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The integration methods are of two kinds. Exact integrations of polynomials and
-approximated integrations (cubature formulas) of any function. The exact
-integration can only be used if all the elements are polynomial and if the
-geometric transformation is linear.</p>
-<p>A descriptor on an integration method is given by the function:</p>
+<span id="ud-appendixb"></span><h1>付録B.立体求積法のリスト<a class="headerlink" href="#appendix-b-cubature-method-list" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>積分法は2種類あります。任意の関数の多項式と近似された積分（立方体式）の正確な積分。正確な積分は、すべての要素が多項式であり、幾何変換が線形である場合にのみ使用できます。</p>
+<p>積分法の記述子は、関数:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ppi</span> <span class="o">=</span> <span class="n">getfem</span><span class="o">::</span><span class="n">int_method_descriptor</span><span class="p">(</span><span class="s">&quot;name of method&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">&quot;name</span> <span class="pre">of</span> <span class="pre">method&quot;</span></tt> is a string to be chosen among the existing methods.</p>
-<p>The program <tt class="docutils literal"><span class="pre">integration</span></tt> located in the <tt class="docutils literal"><span class="pre">tests</span></tt> directory lists and checks
-the degree of each integration method.</p>
+<p><tt class="docutils literal"><span class="pre">&quot;name</span> <span class="pre">of</span> <span class="pre">method&quot;</span></tt> は既存のメソッドの中から選択される文字列です。</p>
+<p><tt class="docutils literal"><span class="pre">tests</span></tt> ディレクトリにある <tt class="docutils literal"><span class="pre">integration</span></tt> プログラムは、それぞれの積分法の次数を列挙して確認します。</p>
 <div class="section" id="exact-integration-methods">
-<h2>Exact Integration methods<a class="headerlink" href="#exact-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><em>GetFEM++</em> furnishes a set of exact integration methods. This means that polynomials are integrated exactly. However, their use is (very) limited and not recommended. The use of exact integration methods is limited to the low-level generic assembly for polynomial <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/>-equivalent elements with linear transformations and for linear terms. It is not possible to use them in the high-level generic assembly.</p>
-<p>The list of available exact integration methods is the following</p>
+<h2>完全な積分法<a class="headerlink" href="#exact-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><em>GetFEM++</em> の正確な積分法のセットを与えます。これは、多項式が正確に積分されていることを意味します。しかし、その使用は（非常に）制限されており、推奨されていません。正確な積分法の使用は、多項式のための低レベル総称構築に限定されています。線形変換を伴う <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> 等価要素と線形項では制限されています。高水準の汎用構築でこれらを使用することはできません。</p>
+<p>利用可能な正確な積分法のリストは以下の通りです</p>
 <blockquote>
-<div><table border="1" class="docutils">
-<caption>Exact Integration Methods</caption>
+<div><table border="1" class="docutils" id="id5">
+<caption>正確な積分法</caption>
 <colgroup>
 <col width="40%" />
 <col width="60%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">&quot;IM_NONE()&quot;</span></tt></td>
-<td>Dummy integration method.</td>
+<td><p class="first last">ダミー積分法。</p>
+</td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">&quot;IM_EXACT_SIMPLEX(n)&quot;</span></tt></td>
-<td>Description of the exact integration of polynomials on the simplex of
-reference of dimension <tt class="docutils literal"><span class="pre">n</span></tt>.</td>
+<td><p class="first last">次元 <tt class="docutils literal"><span class="pre">n</span></tt> を参照するシンプレックスの単体における多項式の正確な積分の説明。</p>
+</td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">&quot;IM_PRODUCT(a,</span> <span class="pre">b)&quot;</span></tt></td>
-<td>Description of the exact integration on the convex which is the direct
-product of the convex in <tt class="docutils literal"><span class="pre">a</span></tt> and in <tt class="docutils literal"><span class="pre">b</span></tt>.</td>
+<td><p class="first last"><tt class="docutils literal"><span class="pre">a</span></tt> と <tt class="docutils literal"><span class="pre">b</span></tt> の凸包の直接の積である凸包面上の正確な積分の説明。</p>
+</td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">&quot;IM_EXACT_PARALLELEPIPED(n)&quot;</span></tt></td>
-<td>Description of the exact integration of polynomials on the parallelepiped
-of reference of dimension <tt class="docutils literal"><span class="pre">n</span></tt>.</td>
+<td><p class="first last">次元 <tt class="docutils literal"><span class="pre">n</span></tt> を参照する平行6面体上の多項式の正確な積分の説明。</p>
+</td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">&quot;IM_EXACT_PRISM(n)&quot;</span></tt></td>
-<td>Description of the exact integration of polynomials on the prism of
-reference of dimension <tt class="docutils literal"><span class="pre">n</span></tt></td>
+<td><p class="first last">次元 <tt class="docutils literal"><span class="pre">n</span></tt> を参照するプリズムへの多項式の正確な積分の説明</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>Even though a description of exact integration method exists on
-parallelepipeds or prisms, most of the time the geometric transformations
-on such elements are
-nonlinear and the exact integration cannot be used.</p>
+<p>平行6面体またはプリズムに正確な積分法の記述が存在しても、ほとんどの場合、そのような要素の幾何学的変換は非線形であり、正確な積分は使用できません。</p>
 </div>
 <div class="section" id="newton-cotes-integration-methods">
-<h2>Newton cotes Integration methods<a class="headerlink" href="#newton-cotes-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Newton cotes integration of order <tt class="docutils literal"><span class="pre">K</span></tt> on simplices, parallelepipeds
-and prisms
-are denoted by <tt class="docutils literal"><span class="pre">&quot;IM_NC(N,K)&quot;</span></tt>, <tt class="docutils literal"><span class="pre">&quot;IM_NC_PARALLELEPIPED(N,K)&quot;</span></tt> and
-<tt class="docutils literal"><span class="pre">&quot;IM_NC_PRISM(N,K)&quot;</span></tt> respectively.</p>
+<h2>Newton Cotes積分法<a class="headerlink" href="#newton-cotes-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>シンプレックス、平行6面体、およびプリズムの <tt class="docutils literal"><span class="pre">K</span></tt> 次の Newton Cotes 積分は、 <tt class="docutils literal"><span class="pre">&quot;IM_NC(N,K)&quot;</span></tt> 、 <tt class="docutils literal"><span class="pre">&quot;IM_NC_PARALLELEPIPED(N,K)&quot;</span></tt> 、 <tt class="docutils literal"><span class="pre">&quot;IM_NC_PRISM(N,K)&quot;</span></tt> とします。</p>
 </div>
 <div class="section" id="gauss-integration-methods-on-dimension-1">
-<h2>Gauss Integration methods on dimension 1<a class="headerlink" href="#gauss-integration-methods-on-dimension-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Gauss-Legendre integration on the segment of order
-<tt class="docutils literal"><span class="pre">K</span></tt> (with <tt class="docutils literal"><span class="pre">K/2+1</span></tt> points)
-are denoted by <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS1D(K)&quot;</span></tt>. Gauss-Lobatto-Legendre integration on the
-segment of order <tt class="docutils literal"><span class="pre">K</span></tt> (with <tt class="docutils literal"><span class="pre">K/2+1</span></tt> points) are denoted by
-<tt class="docutils literal"><span class="pre">&quot;IM_GAUSSLOBATTO1D(K)&quot;</span></tt>. It is only available for odd values of <tt class="docutils literal"><span class="pre">K</span></tt>. The
-Gauss-Lobatto integration method can be used in conjunction with
-<tt class="docutils literal"><span class="pre">&quot;FEM_PK_GAUSSLOBATTO1D(K/2)&quot;</span></tt> to perform mass-lumping.</p>
+<h2>次元1のGauss積分法<a class="headerlink" href="#gauss-integration-methods-on-dimension-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Gauss-Legendreの <tt class="docutils literal"><span class="pre">K</span></tt> （ <tt class="docutils literal"><span class="pre">K/2+1</span></tt> 点）の部分には、 <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS1D(K)&quot;</span></tt> と表示されます。Gauss-Lobatto-Legendre積分は、( <tt class="docutils literal"><span class="pre">K/2+1</span></tt> 点を持つ) <tt class="docutils literal"><span class="pre">K</span></tt> 次の部分に、 <tt class="docutils literal"><span class="pre">&quot;IM_GAUSSLOBATTO1D(K)&quot;</span></tt> と表示されます。これは <tt class="docutils literal"><span class="pre">K</span></tt> の奇数値に対してのみ利用可能です。Gauss-Lobatto積分は、集中質量の挙動をするために <tt class="docutils literal"><span class="pre">&quot;FEM_PK_GAUSSLOBATTO1D(K/2)&quot;</span></tt> と一緒に使用して一括処理を実行できます。</p>
 </div>
 <div class="section" id="gauss-integration-methods-on-dimension-2">
-<h2>Gauss Integration methods on dimension 2<a class="headerlink" href="#gauss-integration-methods-on-dimension-2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>次元2のGauss積分法<a class="headerlink" href="#gauss-integration-methods-on-dimension-2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><table border="1" class="docutils">
-<caption>Integration methods on dimension 2</caption>
+<div><table border="1" class="docutils" id="id6">
+<caption>次元2の積分法</caption>
 <colgroup>
 <col width="44%" />
 <col width="22%" />
@@ -142,10 +127,14 @@ Gauss-Lobatto integration method can be used in conjunction with
 <col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">graphic</th>
-<th class="head">coordinates (x,  y)</th>
-<th class="head">weights</th>
-<th class="head">function to call / order</th>
+<tr class="row-odd"><th class="head"><p class="first last">図</p>
+</th>
+<th class="head"><p class="first last">座標 (x,  y)</p>
+</th>
+<th class="head"><p class="first last">重み</p>
+</th>
+<th class="head"><p class="first last">呼び出し/次数関数</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -154,7 +143,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <td>(1/3, 1/3)</td>
 <td>1/2</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(1)&quot;</span></tt></p>
-<p class="last">1 point, order 1.</p>
+<p class="last">1点、次数1。</p>
 </td>
 </tr>
 <tr class="row-odd"><td><a class="first last reference internal image-reference" href="../images/getfemlistintmethodtriangle2.png"><img alt="../images/getfemlistintmethodtriangle2.png" src="../images/getfemlistintmethodtriangle2.png" style="width: 248.5px; height: 243.0px;" /></a>
@@ -168,13 +157,13 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">1/6</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(2)&quot;</span></tt></p>
-<p class="last">3 points, order 2.</p>
+<p class="last">3点、次数2。</p>
 </td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
-<caption>Integration methods on dimension 2</caption>
+<table border="1" class="docutils" id="id7">
+<caption>次元2の積分法</caption>
 <colgroup>
 <col width="44%" />
 <col width="22%" />
@@ -182,10 +171,14 @@ Gauss-Lobatto integration method can be used in conjunction with
 <col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">graphic</th>
-<th class="head">coordinates (x,  y)</th>
-<th class="head">weights</th>
-<th class="head">function to call / order</th>
+<tr class="row-odd"><th class="head"><p class="first last">図</p>
+</th>
+<th class="head"><p class="first last">座標 (x,  y)</p>
+</th>
+<th class="head"><p class="first last">重み</p>
+</th>
+<th class="head"><p class="first last">呼び出し/次数関数</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -202,7 +195,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">25/96</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(3)&quot;</span></tt></p>
-<p class="last">4 points, order 3.</p>
+<p class="last">4点、次数3。</p>
 </td>
 </tr>
 <tr class="row-odd"><td><a class="first last reference internal image-reference" href="../images/getfemlistintmethodtriangle4.png"><img alt="../images/getfemlistintmethodtriangle4.png" src="../images/getfemlistintmethodtriangle4.png" style="width: 248.5px; height: 243.0px;" /></a>
@@ -222,7 +215,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">d</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(4)&quot;</span></tt></p>
-<p>6 points, order 4</p>
+<p>6点、次数4</p>
 <p class="last"><img class="math" src="../images/math/3d428f9426a73ac259aee9ed4064dc0ebd912cbe.png" alt="a = 0.445948490915965" style="vertical-align: -1px"/>
 <img class="math" src="../images/math/2089449bfd39f3e68ea8c89e6471d14ab86a8e7f.png" alt="b=0.091576213509771" style="vertical-align: -1px"/>
 <img class="math" src="../images/math/ba07045cca79c17acab3b05201dd2e8e05867378.png" alt="c=0.111690794839005" style="vertical-align: -1px"/>
@@ -248,7 +241,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">d</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(5)&quot;</span></tt></p>
-<p>7 points, order 5</p>
+<p>7点、次数5</p>
 <p class="last"><img class="math" src="../images/math/8dcbcce19adf88dd2f559cf2f721a59ca7263abc.png" alt="a = \Frac{6+\sqrt{15}}{21}" style="vertical-align: -14px"/>
 <img class="math" src="../images/math/d4bef95b527b2e4afd89f00f7eb63ab4d48b58f8.png" alt="b = 4/7 - a" style="vertical-align: -5px"/>
 <img class="math" src="../images/math/2cda75b51e8ee413cff5aab93615d1177556bfe1.png" alt="c = \Frac{155+\sqrt{15}}{2400}" style="vertical-align: -14px"/>
@@ -284,7 +277,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">g</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(6)&quot;</span></tt></p>
-<p>12 points, order 6</p>
+<p>12点、次数6</p>
 <p class="last"><img class="math" src="../images/math/41d851db35cfedf782d33f143065bae65308f09e.png" alt="a = 0.063089104491502" style="vertical-align: -1px"/>
 <img class="math" src="../images/math/d2783b38b3c1b3143303c312a81c2d9e3efe2f97.png" alt="b = 0.249286745170910" style="vertical-align: -1px"/>
 <img class="math" src="../images/math/cbd41e9410444687638582071915b4237fe886f7.png" alt="c = 0.310352451033785" style="vertical-align: -1px"/>
@@ -296,8 +289,8 @@ Gauss-Lobatto integration method can be used in conjunction with
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
-<caption>Integration methods on dimension 2</caption>
+<table border="1" class="docutils" id="id8">
+<caption>次元2の積分法</caption>
 <colgroup>
 <col width="44%" />
 <col width="22%" />
@@ -305,10 +298,14 @@ Gauss-Lobatto integration method can be used in conjunction with
 <col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">graphic</th>
-<th class="head">coordinates (x,  y)</th>
-<th class="head">weights</th>
-<th class="head">function to call / order</th>
+<tr class="row-odd"><th class="head"><p class="first last">図</p>
+</th>
+<th class="head"><p class="first last">座標 (x,  y)</p>
+</th>
+<th class="head"><p class="first last">重み</p>
+</th>
+<th class="head"><p class="first last">呼び出し/次数関数</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -343,7 +340,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">k</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(7)&quot;</span></tt></p>
-<p>13 points, order 7</p>
+<p>13点、次数7</p>
 <p class="last"><img class="math" src="../images/math/d479591401f1f527e9f877f2c8740e4e52247347.png" alt="a = 0.0651301029022" style="vertical-align: -1px"/>
 <img class="math" src="../images/math/39154b815bd189042c2d23f7b5b633c4594dbc5b.png" alt="b = 0.8697397941956" style="vertical-align: -1px"/>
 <img class="math" src="../images/math/0d8bc2f9b01b20a8ac4d41bb23457d16b9289866.png" alt="c = 0.3128654960049" style="vertical-align: -1px"/>
@@ -361,28 +358,28 @@ Gauss-Lobatto integration method can be used in conjunction with
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(8)&quot;</span></tt></p>
-<p class="last">(see <a class="reference internal" href="../biblio.html#encyclopcubature" id="id1">[EncyclopCubature]</a>)</p>
+<p class="last">（<a class="reference internal" href="../biblio.html#encyclopcubature" id="id1">[EncyclopCubature]</a> を参照してください）</p>
 </td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(9)&quot;</span></tt></p>
-<p class="last">(see <a class="reference internal" href="../biblio.html#encyclopcubature" id="id2">[EncyclopCubature]</a>)</p>
+<p class="last">（<a class="reference internal" href="../biblio.html#encyclopcubature" id="id2">[EncyclopCubature]</a> を参照してください）</p>
 </td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(10)&quot;</span></tt></p>
-<p class="last">(see <a class="reference internal" href="../biblio.html#encyclopcubature" id="id3">[EncyclopCubature]</a>)</p>
+<p class="last">（<a class="reference internal" href="../biblio.html#encyclopcubature" id="id3">[EncyclopCubature]</a> を参照してください）</p>
 </td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TRIANGLE(13)&quot;</span></tt></p>
-<p class="last">(see <a class="reference internal" href="../biblio.html#encyclopcubature" id="id4">[EncyclopCubature]</a>)</p>
+<td><p class="first">`` <cite>IM_TRIANGLE（13）</cite> ``</p>
+<p class="last">（<a class="reference internal" href="../biblio.html#encyclopcubature" id="id4">[EncyclopCubature]</a> を参照してください）</p>
 </td>
 </tr>
 <tr class="row-odd"><td><a class="first last reference internal image-reference" href="../images/getfemlistintmethodquad2.png"><img alt="../images/getfemlistintmethodquad2.png" src="../images/getfemlistintmethodquad2.png" style="width: 248.5px; height: 243.0px;" /></a>
@@ -394,13 +391,13 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">1/3</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_QUAD(2)&quot;</span></tt></p>
-<p class="last">3 points, order 2</p>
+<p class="last">3点、次数2</p>
 </td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
-<caption>Integration methods on dimension 2</caption>
+<table border="1" class="docutils" id="id9">
+<caption>次元2の積分法</caption>
 <colgroup>
 <col width="44%" />
 <col width="22%" />
@@ -408,10 +405,14 @@ Gauss-Lobatto integration method can be used in conjunction with
 <col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">graphic</th>
-<th class="head">coordinates (x,  y)</th>
-<th class="head">weights</th>
-<th class="head">function to call / order</th>
+<tr class="row-odd"><th class="head"><p class="first last">図</p>
+</th>
+<th class="head"><p class="first last">座標 (x,  y)</p>
+</th>
+<th class="head"><p class="first last">重み</p>
+</th>
+<th class="head"><p class="first last">呼び出し/次数関数</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -424,7 +425,7 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">1/4</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_QUAD(3)&quot;</span></tt></p>
-<p class="last">4 points, order 3</p>
+<p class="last">4点、次数3</p>
 </td>
 </tr>
 <tr class="row-odd"><td><a class="first last reference internal image-reference" href="../images/getfemlistintmethodquad5.png"><img alt="../images/getfemlistintmethodquad5.png" src="../images/getfemlistintmethodquad5.png" style="width: 248.5px; height: 243.0px;" /></a>
@@ -438,46 +439,41 @@ Gauss-Lobatto integration method can be used in conjunction with
 <p class="last">5/36</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_QUAD(5)&quot;</span></tt></p>
-<p class="last">7 points, order 5</p>
+<p class="last">7点、次数5</p>
 </td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_QUAD(7)&quot;</span></tt></p>
-<p class="last">12 points, order 7</p>
+<p class="last">12点、次数7</p>
 </td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_QUAD(9)&quot;</span></tt></p>
-<p class="last">20 points, order 9</p>
+<p class="last">20点、次数9</p>
 </td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_QUAD(17)&quot;</span></tt></p>
-<p class="last">70 points, order 17</p>
+<p class="last">70点、次数17</p>
 </td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>There is also the <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(n,k)&quot;</span></tt> which is a direct product of
-1D gauss integrations.</p>
-<p><strong>Important note:</strong> do not forget that <tt class="docutils literal"><span class="pre">IM_QUAD(k)</span></tt> is exact for
-polynomials up to degree <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/>, and that a <img class="math" src="../images/math/1d12d36ff17f66936fc1fecced3d3e2ecaca2b41.png" alt="Q_k" style="vertical-align: -4px"/> polynomial has a degree
-of <img class="math" src="../images/math/2d84cc881a826e822e877f3e77cdbe1a555de124.png" alt="2*k" style="vertical-align: 0px"/>. For example, <tt class="docutils literal"><span class="pre">IM_QUAD(7)</span></tt> cannot integrate exactly the product
-of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9cc64e1.png" alt="Q_{2}" style="vertical-align: -4px"/> polynomials. On the other hand,
-<tt class="docutils literal"><span class="pre">IM_GAUSS_PARALLELEPIPED(2,4)</span></tt> can integrate exactly that product ...</p>
+<p>1DGaussの積分の直積である <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(n,k)&quot;</span></tt> もあります。</p>
+<p><strong>重要な注記:</strong> <tt class="docutils literal"><span class="pre">IM_QUAD(k)</span></tt> は多項式の次数 <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> に対して厳密であり、 <img class="math" src="../images/math/1d12d36ff17f66936fc1fecced3d3e2ecaca2b41.png" alt="Q_k" style="vertical-align: -4px"/> 多項式の次数 <img class="math" src="../images/math/2d84cc881a826e822e877f3e77cdbe1a555de124.png" alt="2*k" style="vertical-align: 0px"/> を持つことを忘れないでください。例えば、 <tt class="docutils literal"><span class="pre">IM_QUAD(7)</span></tt> は、2つの <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9cc64e1.png" alt="Q_{2}" style="vertical-align: -4px"/> 多項式の積を正確に積分することはできません。一方、<tt class="docutils literal"><span class="pre">IM_GAUSS_PARALLELEPIPED(2,4)</span></tt> は、その積を正確に積分することができます...</p>
 </div>
 <div class="section" id="gauss-integration-methods-on-dimension-3">
-<h2>Gauss Integration methods on dimension 3<a class="headerlink" href="#gauss-integration-methods-on-dimension-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>次元3のGauss積分法<a class="headerlink" href="#gauss-integration-methods-on-dimension-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><table border="1" class="docutils">
-<caption>Integration methods on dimension 3</caption>
+<div><table border="1" class="docutils" id="id10">
+<caption>次元3の積分法</caption>
 <colgroup>
 <col width="44%" />
 <col width="22%" />
@@ -485,10 +481,14 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 <col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">graphic</th>
-<th class="head">coordinates (x,  y)</th>
-<th class="head">weights</th>
-<th class="head">function to call / order</th>
+<tr class="row-odd"><th class="head"><p class="first last">図</p>
+</th>
+<th class="head"><p class="first last">座標 (x,  y)</p>
+</th>
+<th class="head"><p class="first last">重み</p>
+</th>
+<th class="head"><p class="first last">呼び出し/次数関数</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -497,7 +497,7 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 <td>(1/4, 1/4, 1/4)</td>
 <td>1/6</td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TETRAHEDRON(1)&quot;</span></tt></p>
-<p class="last">1 point, order 1</p>
+<p class="last">1点、次数1</p>
 </td>
 </tr>
 <tr class="row-odd"><td><a class="first last reference internal image-reference" href="../images/getfemlistintmethodtetrahedron2.png"><img alt="../images/getfemlistintmethodtetrahedron2.png" src="../images/getfemlistintmethodtetrahedron2.png" style="width: 248.5px; height: 243.0px;" /></a>
@@ -513,15 +513,15 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 <p class="last">1/24</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TETRAHEDRON(2)&quot;</span></tt></p>
-<p>4 points, order 2} hspace{7em}</p>
+<p>4点、次数 2} hspace{7em}</p>
 <p><img class="math" src="../images/math/45c1a7f4abcd4163c81417ffa7369da0cbc32660.png" alt="a = \Frac{5 - \sqrt{5}}{20}" style="vertical-align: -13px"/></p>
 <p class="last"><img class="math" src="../images/math/8aebdfe2d63838515c6abbc9de2cad2cf8c0f0e0.png" alt="b = \Frac{5 + 3\sqrt{5}}{20}" style="vertical-align: -13px"/></p>
 </td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
-<caption>Integration methods on dimension 3</caption>
+<table border="1" class="docutils" id="id11">
+<caption>次元3の積分法</caption>
 <colgroup>
 <col width="44%" />
 <col width="22%" />
@@ -529,10 +529,14 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 <col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">graphic</th>
-<th class="head">coordinates (x,  y)</th>
-<th class="head">weights</th>
-<th class="head">function to call / order</th>
+<tr class="row-odd"><th class="head"><p class="first last">図</p>
+</th>
+<th class="head"><p class="first last">座標 (x,  y)</p>
+</th>
+<th class="head"><p class="first last">重み</p>
+</th>
+<th class="head"><p class="first last">呼び出し/次数関数</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -551,7 +555,7 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 <p class="last">3/40</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TETRAHEDRON(3)&quot;</span></tt></p>
-<p class="last">5 points, order 3</p>
+<p class="last">5点、次数3</p>
 </td>
 </tr>
 <tr class="row-odd"><td><a class="first last reference internal image-reference" href="../images/getfemlistintmethodtetrahedron5.png"><img alt="../images/getfemlistintmethodtetrahedron5.png" src="../images/getfemlistintmethodtetrahedron5.png" style="width: 248.5px; height: 243.0px;" /></a>
@@ -589,7 +593,7 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 <p class="last">5/567</p>
 </td>
 <td><p class="first"><tt class="docutils literal"><span class="pre">&quot;IM_TETRAHEDRON(5)&quot;</span></tt></p>
-<p>15 points, order 5</p>
+<p>15点、次数5</p>
 <p><img class="math" src="../images/math/234199eea42295c1c17c5ea0c39cef0fc5076db3.png" alt="a = \Frac{7 + \sqrt{15}}{34}" style="vertical-align: -14px"/></p>
 <p><img class="math" src="../images/math/9fa47a3dcda08d50455ac022991b17cd9f106a37.png" alt="b = \Frac{7 - \sqrt{15}}{34}" style="vertical-align: -14px"/></p>
 <p><img class="math" src="../images/math/e72dae8f3d5fef11f05130a04717e8c6dc22d83b.png" alt="c = \Frac{13 + 3\sqrt{15}}{34}" style="vertical-align: -14px"/></p>
@@ -603,7 +607,7 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 </tbody>
 </table>
 </div></blockquote>
-<p>Others methods are:</p>
+<p>その他の方法は次のとおりです。</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -612,42 +616,53 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">name</th>
-<th class="head">element type</th>
-<th class="head">number of points</th>
+<tr class="row-odd"><th class="head"><p class="first last">名前</p>
+</th>
+<th class="head"><p class="first last">要素型</p>
+</th>
+<th class="head"><p class="first last">点数</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">&quot;IM_TETRAHEDRON(6)&quot;</span></tt></td>
-<td>tetrahedron</td>
+<td><p class="first last">4面体</p>
+</td>
 <td>24</td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">&quot;IM_TETRAHEDRON(8)&quot;</span></tt></td>
-<td>tetrahedron</td>
+<td><p class="first last">4面体</p>
+</td>
 <td>43</td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">&quot;IM_SIMPLEX4D(3)&quot;</span></tt></td>
-<td>4D simplex</td>
+<td><p class="first last">4Dシンプレックス</p>
+</td>
 <td>6</td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">&quot;IM_HEXAHEDRON(5)&quot;</span></tt></td>
-<td>3D hexahedron</td>
+<td><p class="first last">3D6面体</p>
+</td>
 <td>14</td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">&quot;IM_HEXAHEDRON(9)&quot;</span></tt></td>
-<td>3D hexahedron</td>
+<td><p class="first last">3D6面体</p>
+</td>
 <td>58</td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">&quot;IM_HEXAHEDRON(11)&quot;</span></tt></td>
-<td>3D hexahedron</td>
+<td><p class="first last">3D6面体</p>
+</td>
 <td>90</td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">&quot;IM_CUBE4D(5)&quot;</span></tt></td>
-<td>4D parallelepipeded</td>
+<td><p class="first last">4D平行6面体</p>
+</td>
 <td>24</td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">&quot;IM_CUBE4D(9)&quot;</span></tt></td>
-<td>4D parallelepipeded</td>
+<td><p class="first last">4D平行6面体</p>
+</td>
 <td>145</td>
 </tr>
 </tbody>
@@ -655,33 +670,22 @@ of two <img class="math" src="../images/math/2eb0587f6e11a24013ee03f3f8275a93e9c
 </div></blockquote>
 </div>
 <div class="section" id="direct-product-of-integration-methods">
-<h2>Direct product of integration methods<a class="headerlink" href="#direct-product-of-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You can use <tt class="docutils literal"><span class="pre">&quot;IM_PRODUCT(IM1,</span> <span class="pre">IM2)&quot;</span></tt> to produce integration methods on
-quadrilateral or prisms. It gives the direct product of two integration methods.
-For instance <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(2,k)&quot;</span></tt> is an alias for
-<tt class="docutils literal"><span class="pre">&quot;IM_PRODUCT(IM_GAUSS1D(2,k),IM_GAUSS1D(2,k))&quot;</span></tt> and can be use instead of the
-<tt class="docutils literal"><span class="pre">&quot;IM_QUAD&quot;</span></tt> integrations.</p>
+<h2>積分法の直積<a class="headerlink" href="#direct-product-of-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">&quot;IM_PRODUCT(IM1,</span> <span class="pre">IM2)&quot;</span></tt> を使って、四辺形やプリズムの積分法を作ることができます。これは、2つの積分法の直積を与えます。 例えば、 <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(2,k)&quot;</span></tt> は <tt class="docutils literal"><span class="pre">&quot;IM_PRODUCT(IM_GAUSS1D(2,k),IM_GAUSS1D(2,k))&quot;</span></tt> の別名であり、 <tt class="docutils literal"><span class="pre">&quot;IM_QUAD&quot;</span></tt> の積分の代わりに使用することができます。</p>
 </div>
 <div class="section" id="specific-integration-methods">
-<h2>Specific integration methods<a class="headerlink" href="#specific-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For pyramidal elements, <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID(im)&quot;</span></tt> provides an integration method corresponding to the transformation of an integration <tt class="docutils literal"><span class="pre">im</span></tt> from a hexahedron (for instance <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(3,5)&quot;</span></tt>) onto a pyramid. It is a singular integration method specically adapted to rational fraction shape functions of the pyramidal elements.</p>
+<h2>具体的な積分法<a class="headerlink" href="#specific-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ピラミッド型要素の場合、 <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID(im)&quot;</span></tt> は、6面体（例えば <tt class="docutils literal"><span class="pre">&quot;IM_GAUSS_PARALLELEPIPED(3,5)&quot;</span></tt> ）からピラミッドへ積分 <tt class="docutils literal"><span class="pre">im</span></tt> 変換する積分法を提供します。これは、ピラミッド要素の有理数分数試行関数に特別に適合された特異な積分法です。</p>
 </div>
 <div class="section" id="composite-integration-methods">
-<h2>Composite integration methods<a class="headerlink" href="#composite-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>コンポジット積分法<a class="headerlink" href="#composite-integration-methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-center" id="ud-fig-triangle-compcinq">
 <a class="reference internal image-reference" href="../images/getfemlistintmethodtriangle2comp.png"><img alt="../images/getfemlistintmethodtriangle2comp.png" src="../images/getfemlistintmethodtriangle2comp.png" style="width: 347.9px; height: 340.2px;" /></a>
-<p class="caption">Composite method <tt class="docutils literal"><span class="pre">&quot;IM_STRUCTURED_COMPOSITE(IM_TRIANGLE(2),</span> <span class="pre">3)&quot;</span></tt></p>
+<p class="caption">複合メソッド <tt class="docutils literal"><span class="pre">&quot;IM_STRUCTURED_COMPOSITE(IM_TRIANGLE(2),</span> <span class="pre">3)&quot;</span></tt></p>
 </div>
-<p>Use <tt class="docutils literal"><span class="pre">&quot;IM_STRUCTURED_COMPOSITE(IM1,</span> <span class="pre">S)&quot;</span></tt> to copy <tt class="docutils literal"><span class="pre">IM1</span></tt> on an element with <tt class="docutils literal"><span class="pre">S</span></tt>
-subdivisions. The resulting integration method has the same order but with more
-points. It could be more stable to use a composite method rather than to improve
-the order of the method. Those methods have to be used also with composite
-elements. Most of the time for composite element, it is preferable to choose the
-basic method <tt class="docutils literal"><span class="pre">IM1</span></tt> with no points on the boundary (because the gradient could be
-not defined on the boundary of sub-elements).</p>
-<p>For the HCT element, it is advised to use the <tt class="docutils literal"><span class="pre">&quot;IM_HCT_COMPOSITE(im)&quot;</span></tt> composite
-integration (which split the original triangle into 3 sub-triangles).</p>
-<p>For pyramidal elements, <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID_COMPOSITE(im)&quot;</span></tt> provides an integration method ase on the decomposition of the pyramid into two tetrahedrons (<tt class="docutils literal"><span class="pre">im</span></tt> should be an integration method on a tetrahedron). Note that the integraton method <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID(im)&quot;</span></tt> where <tt class="docutils literal"><span class="pre">im</span></tt> is an integration method on an hexahedron, should be prefered.</p>
+<p><tt class="docutils literal"><span class="pre">&quot;IM_STRUCTURED_COMPOSITE(IM1,</span> <span class="pre">S)&quot;</span></tt> を使って、 <tt class="docutils literal"><span class="pre">S</span></tt> の細分を持つ要素に <tt class="docutils literal"><span class="pre">IM1</span></tt> をコピーしてください。得られた積分法は同じ次数ですが、より多くの点を有します。メソッドの次数を改善するのではなく、複合メソッドを使用する方が安定している可能性があります。それらのメソッドは複合要素でも使用する必要があります。複合要素はほとんどの場合、境界上に点がありません。（勾配がサブ要素の境界上に定義されない可能性があるため）基本メソッド &#8220;IM1&#8221; を選択することが望ましいです。</p>
+<p>HCT要素については、複合積分 <tt class="docutils literal"><span class="pre">&quot;IM_HCT_COMPOSITE(im)&quot;</span></tt> （元の3角形を3つの3角形に分割する）を使用することをお勧めします。</p>
+<p>ピラミッド型要素の場合、 <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID_COMPOSITE(im)&quot;</span></tt> は、ピラミッドを2つの4面体に分解する積分法を提供します（ <tt class="docutils literal"><span class="pre">im</span></tt> は4面体の積分法でなければなりません）。ここで、 <tt class="docutils literal"><span class="pre">im</span></tt> が6面体の積分法である場合 <tt class="docutils literal"><span class="pre">&quot;IM_PYRAMID(im)&quot;</span></tt> の積分法が望ましいはずです。</p>
 </div>
 </div>
 
@@ -696,22 +700,22 @@ integration (which split the original triangle into 3 sub-triangles).</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Appendix B. Cubature method list</a><ul>
-<li><a class="reference internal" href="#exact-integration-methods">Exact Integration methods</a></li>
-<li><a class="reference internal" href="#newton-cotes-integration-methods">Newton cotes Integration methods</a></li>
-<li><a class="reference internal" href="#gauss-integration-methods-on-dimension-1">Gauss Integration methods on dimension 1</a></li>
-<li><a class="reference internal" href="#gauss-integration-methods-on-dimension-2">Gauss Integration methods on dimension 2</a></li>
-<li><a class="reference internal" href="#gauss-integration-methods-on-dimension-3">Gauss Integration methods on dimension 3</a></li>
-<li><a class="reference internal" href="#direct-product-of-integration-methods">Direct product of integration methods</a></li>
-<li><a class="reference internal" href="#specific-integration-methods">Specific integration methods</a></li>
-<li><a class="reference internal" href="#composite-integration-methods">Composite integration methods</a></li>
+<li><a class="reference internal" href="#">付録B.立体求積法のリスト</a><ul>
+<li><a class="reference internal" href="#exact-integration-methods">完全な積分法</a></li>
+<li><a class="reference internal" href="#newton-cotes-integration-methods">Newton Cotes積分法</a></li>
+<li><a class="reference internal" href="#gauss-integration-methods-on-dimension-1">次元1のGauss積分法</a></li>
+<li><a class="reference internal" href="#gauss-integration-methods-on-dimension-2">次元2のGauss積分法</a></li>
+<li><a class="reference internal" href="#gauss-integration-methods-on-dimension-3">次元3のGauss積分法</a></li>
+<li><a class="reference internal" href="#direct-product-of-integration-methods">積分法の直積</a></li>
+<li><a class="reference internal" href="#specific-integration-methods">具体的な積分法</a></li>
+<li><a class="reference internal" href="#composite-integration-methods">コンポジット積分法</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="appendixA.html"
-                        title="前の章へ">Appendix A. Finite element method list</a></p>
+                        title="前の章へ">付録A.有限要素法リスト</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="../biblio.html"
                         title="次の章へ">References</a></p>            <h3>Download</h3>
@@ -762,13 +766,13 @@ integration (which split the original triangle into 3 sub-triangles).</p>
           <a href="../biblio.html" title="References"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="appendixA.html" title="Appendix A. Finite element method list"
+          <a href="appendixA.html" title="付録A.有限要素法リスト"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

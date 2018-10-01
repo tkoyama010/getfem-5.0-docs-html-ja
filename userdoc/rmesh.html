@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Mesh refinement &mdash; GetFEM++</title>
+    <title>メッシュの改善 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="ユーザマニュアル" href="index.html" />
-    <link rel="next" title="Compute arbitrary terms - high-level generic assembly procedures - Weak-form language" href="gasm_high.html" />
-    <link rel="prev" title="Selecting integration methods" href="binteg.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="next" title="任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語" href="gasm_high.html" />
+    <link rel="prev" title="積分方法の選択" href="binteg.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures - Weak-form language"
+          <a href="gasm_high.html" title="任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="binteg.html" title="Selecting integration methods"
+          <a href="binteg.html" title="積分方法の選択"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,42 +62,26 @@
           <div class="body">
             
   <div class="section" id="mesh-refinement">
-<span id="ud-rmesh"></span><h1>Mesh refinement<a class="headerlink" href="#mesh-refinement" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Mesh refinement with the Bank et all method (see <a class="reference internal" href="../biblio.html#bank1983" id="id1">[bank1983]</a>) is available in
-dimension 1, 2 or 3 for simplex meshes (segments, triangles and tetrahedrons).
-For a given object <tt class="docutils literal"><span class="pre">mymesh</span></tt> of type <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt>, the method:</p>
+<span id="ud-rmesh"></span><h1>メッシュの改善<a class="headerlink" href="#mesh-refinement" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>単純なメッシュ(セグメント、3角形、4面体)の場合、1、2または3次元では、Bank et all(<a class="reference internal" href="../biblio.html#bank1983" id="id1">[bank1983]</a> を参照)の方法によるメッシュの細分化が利用できます。 <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt> オブジェクト <tt class="docutils literal"><span class="pre">mymesh</span></tt> の場合、メソッドは:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mymesh</span><span class="p">.</span><span class="n">Bank_refine</span><span class="p">(</span><span class="n">bv</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>refines the elements whose indices are stored in <tt class="docutils literal"><span class="pre">bv</span></tt> (a <tt class="docutils literal"><span class="pre">dal::bit_vector</span></tt> object). The
-conformity of the mesh is kept thanks to additional refinement (the so called
-green triangles). Information about green triangles (in Figure
-<a class="reference internal" href="#ud-fig-refine"><em>Example of Bank refinement in 2D</em></a>) is stored on the mesh object to gather them for further
-refinements (see <a class="reference internal" href="../biblio.html#bank1983" id="id2">[bank1983]</a>).</p>
+<p>インデックスが <tt class="docutils literal"><span class="pre">bv</span></tt> (dal_bvオブジェクト)に格納されている要素を絞り込みます。 メッシュの適合性は、追加の改良(ここでは緑色の3角形)により維持されます。 緑色の3角形に関する情報(図 <a class="reference internal" href="#ud-fig-refine"><em>2次元でのBankの手法の例</em></a> )はメッシュオブジェクトに格納され、細分化のために集められます( <a class="reference internal" href="../biblio.html#bank1983" id="id2">[bank1983]</a> を参照)。</p>
 <div class="figure align-center" id="ud-fig-refine">
 <a class="reference internal image-reference" href="../images/getfemuserrefine.png"><img alt="../images/getfemuserrefine.png" src="../images/getfemuserrefine.png" style="width: 7cm;" /></a>
-<p class="caption">Example of Bank refinement in 2D</p>
+<p class="caption">2次元でのBankの手法の例</p>
 </div>
-<p>Mesh refinement is most of the time coupled with an <em>a posteriori</em> error
-estimate. A very basic error estimate is available in the file
-<tt class="file docutils literal"><span class="pre">getfem/getfem_error_estimate.h</span></tt>:</p>
+<p>メッシュの細分化は、大部分が <em>ポステオリ</em> なエラーの見積もりと結びついています。 とても基本的なエラーの見積もりはファイル <tt class="file docutils literal"><span class="pre">getfem/getfem_error_estimate.h</span></tt> 内で利用できます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">error_estimate</span><span class="p">(</span><span class="n">mim</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">rg</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">mim</span></tt> is the integration method (a <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> object), <tt class="docutils literal"><span class="pre">mf</span></tt> is the finite
-element method on which the unknown has been computed (a <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> object), <tt class="docutils literal"><span class="pre">U</span></tt> is
-the vector of degrees of freedom of the unknown, <tt class="docutils literal"><span class="pre">err</span></tt> is a sufficiently large
-vector in which the error estimate is computed for each element of the mesh, and
-<tt class="docutils literal"><span class="pre">rg</span></tt> is a mesh region bulild from elements on which the error estimate should be computed (a <tt class="docutils literal"><span class="pre">getfem::mesh_region</span></tt> object).</p>
-<p>This basic error estimate is only valid for order two problems and just compute
-the sum of the jump in normal derivative across the elements on each edge (for
-two-dimensional problems) or each face (for three-dimensional problems). This
-means that for each face <img class="math" src="../images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e" style="vertical-align: 0px"/> of the mesh the following quantity is
-computed:</p>
+<p>ここで、 <tt class="docutils literal"><span class="pre">mim</span></tt> は積分法( <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> オブジェクト)、 <tt class="docutils literal"><span class="pre">mf</span></tt> は未知数が計算された有限要素法( <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクト)、 <tt class="docutils literal"><span class="pre">U</span></tt> は未知数の自由度のベクトル、 <tt class="docutils literal"><span class="pre">err</span></tt> は 誤差推定値が計算されるべき要素( <tt class="docutils literal"><span class="pre">getfem::mesh_region</span></tt> オブジェクト)からのメッシュ領域塗りつぶしです。</p>
+<p>この基本誤差推定は、2次の問題に対してのみ有効で、各エッジ(2次元問題の場合)または各面(3次元問題の場合)上の要素間の前後の正規分布の分岐の合計を計算するだけです。 これは、メッシュの各面に対して、以下の量が計算されることを意味しています。</p>
 <div class="math">
 <p><img src="../images/math/ce936de0228eaf54fab078cf5077b29d939c8a91.png" alt="\int_e |\hspace{0.01em}[\hspace{-0.12em}[
 \partial_n u ]\hspace{-0.12em}]\hspace{0.01em}|^2 d \Gamma,"/></p>
-</div><p>where <img class="math" src="../images/math/6b7fb647f0e5a51f94021fd1faafab264e4b66bf.png" alt="[\hspace{-0.12em}[\partial_n u]\hspace{-0.12em}]" style="vertical-align: -5px"/> is the jump of the normal derivative. Then, the error estimate for a given element is the sum of the computed quantities on each internal face multiplied by the element diameter. This basic error estimate can be taken as a model for more elaborated ones. It uses the high-level generic assembly and the <tt class="docutils literal"><span class="pre">neighbour_elt</span></tt> interpolate transformation (see <a class="reference internal" href="gasm_high.html#ud-gasm-high-inter-elt-disc"><em>Evaluating discontinuities across inter-element edges/faces</em></a>).</p>
+</div><p><img class="math" src="../images/math/6b7fb647f0e5a51f94021fd1faafab264e4b66bf.png" alt="[\hspace{-0.12em}[\partial_n u]\hspace{-0.12em}]" style="vertical-align: -5px"/> は正規微分の分岐です。 次に、所与の要素の誤差推定値は、各内面の計算量の合計に要素の直径を掛けたものです。 この基本的な誤差の見積もりは、より精巧なもののモデルとみなすことができます。 これは、ハイレベルのジェネリック構築と <tt class="docutils literal"><span class="pre">neighbour_elt</span></tt> 補間変換を使用します( <a class="reference internal" href="gasm_high.html#ud-gasm-high-inter-elt-disc"><em>要素間エッジ/面間の不連続性の評価します。</em></a> )。</p>
 </div>
 
 
@@ -111,10 +95,10 @@ computed:</p>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="binteg.html"
-                        title="前の章へ">Selecting integration methods</a></p>
+                        title="前の章へ">積分方法の選択</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="gasm_high.html"
-                        title="次の章へ">Compute arbitrary terms - high-level generic assembly procedures - Weak-form language</a></p>            <h3>Download</h3>
+                        title="次の章へ">任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -159,16 +143,16 @@ computed:</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="gasm_high.html" title="Compute arbitrary terms - high-level generic assembly procedures - Weak-form language"
+          <a href="gasm_high.html" title="任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="binteg.html" title="Selecting integration methods"
+          <a href="binteg.html" title="積分方法の選択"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>A pure convection method &mdash; GetFEM++</title>
+    <title>純対流法 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="ユーザマニュアル" href="index.html" />
-    <link rel="next" title="The model description and basic model bricks" href="model.html" />
-    <link rel="prev" title="Export and view a solution" href="export.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="next" title="モデル記述と基本モデルブリック" href="model.html" />
+    <link rel="prev" title="解の出力と表示" href="export.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="model.html" title="The model description and basic model bricks"
+          <a href="model.html" title="モデル記述と基本モデルブリック"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="export.html" title="Export and view a solution"
+          <a href="export.html" title="解の出力と表示"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,32 +62,23 @@
           <div class="body">
             
   <div class="section" id="a-pure-convection-method">
-<span id="ud-convect"></span><h1>A pure convection method<a class="headerlink" href="#a-pure-convection-method" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>A method to compute a pure convection is defined in the file
-<tt class="file docutils literal"><span class="pre">getfem/getfem_convect.h</span></tt>. The call of the function is:</p>
+<span id="ud-convect"></span><h1>純対流法<a class="headerlink" href="#a-pure-convection-method" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>純粋な対流を計算する方法は、ファイル <tt class="file docutils literal"><span class="pre">getfem/getfem_convect.h</span></tt> で定義されています。関数の呼び出しは:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">convect</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">mf_v</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">nt</span><span class="p">,</span> <span class="n">option</span> <span class="o">=</span> <span class="n">CONVECT_EXTRAPOLATION</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">mf</span></tt> is a variable of type <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt>, <tt class="docutils literal"><span class="pre">U</span></tt> is a vector which represent the
-field to be convected, <tt class="docutils literal"><span class="pre">mf_v</span></tt> is a <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> for the velocity field, <tt class="docutils literal"><span class="pre">V</span></tt> is the
-dof vector for the velocity field, <tt class="docutils literal"><span class="pre">dt</span></tt> is the pseudo time of convection and
-<tt class="docutils literal"><span class="pre">nt</span></tt> the number of iterations for the computation of characteristics. <tt class="docutils literal"><span class="pre">option</span></tt> is an option for the boundary condition where there is a re-entrant convection. The possibilities are getfem::CONVECT_EXTRAPOLATION (extrapolation of the field on the nearest element) or getfem::CONVECT_UNCHANGED (no change of the value on the boundary).</p>
-<p>The method integrate the partial differential equation</p>
+<p>ここで <tt class="docutils literal"><span class="pre">mf</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 型の変数です、 <tt class="docutils literal"><span class="pre">U</span></tt> は対流するフィールドを表すベクトル、 <tt class="docutils literal"><span class="pre">mf_v</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 速度場の場合、 <tt class="docutils literal"><span class="pre">V</span></tt> は速度場の自由度ベクトルであり、 <tt class="docutils literal"><span class="pre">dt</span></tt> は対流の擬似時間であり、 <tt class="docutils literal"><span class="pre">nt</span></tt> は特性計算のための反復回数です。 <tt class="docutils literal"><span class="pre">option</span></tt> は境界条件がリエントラント対流である場合のオプションです。可能なものは <tt class="docutils literal"><span class="pre">getfem::CONVECT_EXTRAPOLATION</span></tt>  （最も近い要素のフィールドの外挿）または <tt class="docutils literal"><span class="pre">getfem::CONVECT_UNCHANGED</span></tt> （境界の値の変更なし）です。</p>
+<p>この方法は、偏微分方程式</p>
 <div class="math">
 <p><img src="../images/math/b1e5586a7056d427af93deb939f00e55926e9dd9.png" alt="\frac{\partial U}{\partial t} + V\cdot\nabla U = 0,"/></p>
-</div><p>on the time intervall <img class="math" src="../images/math/97a1183ef32dc07a42581fac5a589501e460853a.png" alt="[0, dt]" style="vertical-align: -5px"/>.</p>
-<p>The method used is of Galerkin-Characteristic kind. It is a very simple version
-which is inconditionnally stable but rather dissipative. See <a class="reference internal" href="../biblio.html#zt1989" id="id1">[ZT1989]</a> and also the Freefem++ documentation on convect
-command.</p>
-<p>The defined method works only if <tt class="docutils literal"><span class="pre">mf</span></tt> is a pure Lagrange finite element method
-for the moment. The principle is to convect backward the finite element nodes by solving the ordinary differential equation:</p>
+</div><p>の時間間隔 <img class="math" src="../images/math/97a1183ef32dc07a42581fac5a589501e460853a.png" alt="[0, dt]" style="vertical-align: -5px"/> を積分します。</p>
+<p>使用される方法はGalerkin-Characteristicのものです。この方法は無条件に安定しているものの、むしろ散逸的で非常に簡単なバージョンです。 <a class="reference internal" href="../biblio.html#zt1989" id="id1">[ZT1989]</a> およびconvectコマンドに関するFreefem ++のドキュメントを参照してください。</p>
+<p>定義されたメソッドは <tt class="docutils literal"><span class="pre">mf</span></tt> がその時点の純粋なLagrange有限要素法である場合にのみ機能します。原理は常微分方程式を解くことによって有限要素節点を逆方向に対流させることです。</p>
 <div class="math">
 <p><img src="../images/math/e7af5e15b652726cb52549a2c078075fab265d56.png" alt="\frac{d X}{d t} = -V(X),"/></p>
-</div><p>with an initial condition corresponding to each node. This convection is made with <tt class="docutils literal"><span class="pre">nt</span></tt> steps. Then the solution is interploated on
-the convected nodes.</p>
-<p>In order to make the extrapolation not too expensive, the product <img class="math" src="../images/math/7a49ec2a64db75bcd60d90ecc4c7caac92e99308.png" alt="dt\times V" style="vertical-align: 0px"/>
-should not be too large.</p>
-<p>Note that this method can be used to solve convection dominant problems coupling it with a splitting scheme.</p>
+</div><p>各節点に対応する初期条件を有します。この対流は <tt class="docutils literal"><span class="pre">nt</span></tt> ステップで行われます。次に、対流節点上で解を補間します。</p>
+<p>外挿をそれほど高コストにしないために、積 <img class="math" src="../images/math/7a49ec2a64db75bcd60d90ecc4c7caac92e99308.png" alt="dt\times V" style="vertical-align: 0px"/> は大きすぎてはいけません。</p>
+<p>この方法は分割スキームと結合する対流優位問題を解決するために使用することができることに留意してください。</p>
 </div>
 
 
@@ -101,10 +92,10 @@ should not be too large.</p>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="export.html"
-                        title="前の章へ">Export and view a solution</a></p>
+                        title="前の章へ">解の出力と表示</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="model.html"
-                        title="次の章へ">The model description and basic model bricks</a></p>            <h3>Download</h3>
+                        title="次の章へ">モデル記述と基本モデルブリック</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -149,16 +140,16 @@ should not be too large.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="model.html" title="The model description and basic model bricks"
+          <a href="model.html" title="モデル記述と基本モデルブリック"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="export.html" title="Export and view a solution"
+          <a href="export.html" title="解の出力と表示"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

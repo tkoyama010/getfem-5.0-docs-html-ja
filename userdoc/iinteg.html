@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Incorporate new approximated integration methods in GetFEM++ &mdash; GetFEM++</title>
+    <title>GetFEM++ に新しい近似積分法を組み込む &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="ユーザマニュアル" href="index.html" />
-    <link rel="next" title="Level-sets, Xfem, fictitious domains, Cut-fem" href="xfem.html" />
-    <link rel="prev" title="Incorporate new finite element methods in GetFEM++" href="ifem.html" />
+    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="next" title="レベル集合法、拡張有限要素法(Xfem)、仮想領域有限要素法、切断有限要素法" href="xfem.html" />
+    <link rel="prev" title="GetFEM++ に新しい有限要素法を組み込む" href="ifem.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="xfem.html" title="Level-sets, Xfem, fictitious domains, Cut-fem"
+          <a href="xfem.html" title="レベル集合法、拡張有限要素法(Xfem)、仮想領域有限要素法、切断有限要素法"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="ifem.html" title="Incorporate new finite element methods in GetFEM++"
+          <a href="ifem.html" title="GetFEM++ に新しい有限要素法を組み込む"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,11 +62,8 @@
           <div class="body">
             
   <div class="section" id="incorporate-new-approximated-integration-methods-in-gf">
-<span id="ud-iinteg"></span><h1>Incorporate new approximated integration methods in <em>GetFEM++</em><a class="headerlink" href="#incorporate-new-approximated-integration-methods-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>A perl script automatically incorporates new cubature methods from a description
-file. You can see in the directory <tt class="docutils literal"><span class="pre">cubature</span></tt> such description files (with
-extension <tt class="docutils literal"><span class="pre">.IM</span></tt>) . For instance for <tt class="docutils literal"><span class="pre">IM_TETRAHEDRON(5)</span></tt> the following file
-describes the method:</p>
+<span id="ud-iinteg"></span><h1><em>GetFEM++</em> に新しい近似積分法を組み込む<a class="headerlink" href="#incorporate-new-approximated-integration-methods-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>perlスクリプトは記述ファイルから新しい立方体法を自動的に組み込みます。このような記述ファイル（拡張子は <tt class="docutils literal"><span class="pre">.IM</span></tt> ）はディレクトリ <tt class="docutils literal"><span class="pre">cubature</span></tt> にあります。たとえば、 <tt class="docutils literal"><span class="pre">IM_TETRAHEDRON(5)</span></tt> の場合、次のファイルはメソッドを記述しています:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">NAME</span> <span class="o">=</span> <span class="n">IM_TETRAHEDRON</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">GEOTRANS</span> <span class="o">=</span> <span class="n">GT_PK</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -81,25 +78,18 @@ describes the method:</p>
 <span class="n">IM_TRIANGLE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">NAME</span></tt> is the name of the method in <em>GetFEM++</em> (constant integer parameter are
-allowed), <tt class="docutils literal"><span class="pre">N</span></tt> is the dimension, <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt> describes a valid geometric
-transformation of <em>GetFEM++</em>. This geometric transformation just defines the reference
-element on which the integration method is described. <tt class="docutils literal"><span class="pre">NBPT</span></tt> is the number of
-integration node definitions. Integration node definitions include a symmetry
-definition such that the total number of integration nodes would be greater than
-<tt class="docutils literal"><span class="pre">NBPT</span></tt>.</p>
-<p>Composition of the integration node definition:</p>
+<p>ここで、 <tt class="docutils literal"><span class="pre">NAME</span></tt> は、 <em>GetFEM++</em> （定数整数パラメータが許される）のメソッド名です。<tt class="docutils literal"><span class="pre">N</span></tt> は次元、 <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt> は <em>GetFEM++</em> の有効な幾何変換を記述します。この幾何学変換は、積分法が記述されている基準要素を定義するだけです。 <tt class="docutils literal"><span class="pre">NBPT</span></tt> は積分節点定義の数です。積分節点定義には積分節点の総数が <tt class="docutils literal"><span class="pre">NBPT</span></tt> より大きい対称定義が含まれています。</p>
+<p>積分節点定義の構成：</p>
 <ul class="simple">
-<li>an integer: 0 = no symmetry, 1 = full symmetric (x6 for a triangle, x4 for a
-quadrangle, x24 for a tetrahedron ...),</li>
-<li>the <tt class="docutils literal"><span class="pre">N</span></tt> coordinates of the integration node,</li>
-<li>the load.</li>
+<li><p class="first">整数：0 = 対称性なし、1 = 完全対称（3角形の場合はx6、四角形の場合はx4、4面体の場合はx24 ...）、</p>
+</li>
+<li><p class="first">積分節点の <tt class="docutils literal"><span class="pre">N</span></tt> 座標、</p>
+</li>
+<li><p class="first">荷重。</p>
+</li>
 </ul>
-<p><tt class="docutils literal"><span class="pre">NBF</span></tt> is the number of faces of the reference element (should
-correspond to <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt>). Then follows an already existing
-integration method for each face (each on a line). This is necessary
-to make integrations on boundaries.</p>
-<p>The file format is inspired from <a class="reference internal" href="../biblio.html#encyclopcubature" id="id1">[EncyclopCubature]</a>.</p>
+<p><tt class="docutils literal"><span class="pre">NBF</span></tt> は参照要素の面の数です（ <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt> に対応する必要があります）。次に、既存の積分方法を各面（各面に1つずつ）に設定します。これは、境界を積分するために必要です。</p>
+<p>ファイル形式は <a class="reference internal" href="../biblio.html#encyclopcubature" id="id1">[EncyclopCubature]</a> からインスピレーションを受けています。</p>
 </div>
 
 
@@ -113,10 +103,10 @@ to make integrations on boundaries.</p>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="ifem.html"
-                        title="前の章へ">Incorporate new finite element methods in <em>GetFEM++</em></a></p>
+                        title="前の章へ"><em>GetFEM++</em> に新しい有限要素法を組み込む</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="xfem.html"
-                        title="次の章へ">Level-sets, Xfem, fictitious domains, Cut-fem</a></p>            <h3>Download</h3>
+                        title="次の章へ">レベル集合法、拡張有限要素法(Xfem)、仮想領域有限要素法、切断有限要素法</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -161,16 +151,16 @@ to make integrations on boundaries.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="xfem.html" title="Level-sets, Xfem, fictitious domains, Cut-fem"
+          <a href="xfem.html" title="レベル集合法、拡張有限要素法(Xfem)、仮想領域有限要素法、切断有限要素法"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="ifem.html" title="Incorporate new finite element methods in GetFEM++"
+          <a href="ifem.html" title="GetFEM++ に新しい有限要素法を組み込む"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

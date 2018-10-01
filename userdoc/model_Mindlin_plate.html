@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Mindlin-Reissner plate model &mdash; GetFEM++</title>
+    <title>Mindlin-Reissnerプレートモデル &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="The model description and basic model bricks" href="model.html" />
-    <link rel="next" title="The model tools for the integration of transient problems" href="model_time_integration.html" />
-    <link rel="prev" title="Bilaplacian and Kirchhoff-Love plate bricks" href="model_bilaplacian.html" />
+    <link rel="up" title="モデル記述と基本モデルブリック" href="model.html" />
+    <link rel="next" title="過渡問題の積分のためのモデルツール" href="model_time_integration.html" />
+    <link rel="prev" title="BilaplacianとKirchhoff-Loveプレートブリック" href="model_bilaplacian.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="model_time_integration.html" title="The model tools for the integration of transient problems"
+          <a href="model_time_integration.html" title="過渡問題の積分のためのモデルツール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="model_bilaplacian.html" title="Bilaplacian and Kirchhoff-Love plate bricks"
+          <a href="model_bilaplacian.html" title="BilaplacianとKirchhoff-Loveプレートブリック"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li>
-          <li><a href="model.html" accesskey="U">The model description and basic model bricks</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li>
+          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,75 +63,65 @@
           <div class="body">
             
   <div class="section" id="mindlin-reissner-plate-model">
-<span id="ud-model-mindlin-plate"></span><span id="index-0"></span><h1>Mindlin-Reissner plate model<a class="headerlink" href="#mindlin-reissner-plate-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This brick implements the classical Mindlin-Reissner bending model for isotropic plates.</p>
+<span id="ud-model-mindlin-plate"></span><span id="index-0"></span><h1>Mindlin-Reissnerプレートモデル<a class="headerlink" href="#mindlin-reissner-plate-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このブリックは等方性プレート用の古典的なMindlin-Reissner曲げモデルを実装しています。</p>
 <div class="section" id="the-mindlin-reissner-plate-model">
-<h2>The Mindlin-Reissner plate model<a class="headerlink" href="#the-mindlin-reissner-plate-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Let <img class="math" src="../images/math/34351db8edc91cfb50b5af8de09529d0749640b6.png" alt="\Omega \subset \R^2" style="vertical-align: -1px"/> be the reference configuration of the mid-plane of a plate of thickness <img class="math" src="../images/math/eaf4418fbe935c15a606516d8f55dc380cd8e822.png" alt="\epsilon" style="vertical-align: 0px"/>.</p>
-<p>The weak formulation of the Mindlin-Reissner model for isotropic material can be written as follows for <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/> the transverse displacement and <img class="math" src="../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/> the rotation of fibers normal to the mid-plane:</p>
+<h2>Mindlin-Reissnerプレートモデル<a class="headerlink" href="#the-mindlin-reissner-plate-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><img class="math" src="../images/math/e59185256e54bcf32c15c79eeb39bad59be924df.png" alt="\Omega\subset\R^2" style="vertical-align: -1px"/> は厚さ <img class="math" src="../images/math/eaf4418fbe935c15a606516d8f55dc380cd8e822.png" alt="\epsilon" style="vertical-align: 0px"/> のプレートのミッドプレーンの参照構成です</p>
+<p>等方性材料のMindlin-Reissnerモデルの弱定式化は以下のように書くことができます。ここで <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/> は横方向の変位であり、 <img class="math" src="../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/> は中間平面に垂直なファイバーの回転です:</p>
 <div class="math">
 <p><img src="../images/math/6814746eab190e3a967b23dfc745c40f4ff07af4.png" alt="&amp; \int_{\Omega} D \epsilon^3\left((1-v)\gamma(\theta):\gamma(\psi) + \nu \mbox{div}(\theta)\mbox{div}(\psi)\right) dx \\
 &amp; ~~~~~~~~~~~~~~ + \int_{\Omega}G\epsilon (\nabla u_3 - \theta)\cdot(\nabla v_3 - \psi)dx = \int_{\Omega} F_3v_3 + M.\psi dx,"/></p>
-</div><p>for all admissible test functions <img class="math" src="../images/math/4fe8f98a28302f0fe2f47fd9f36c3b5fb1c149fb.png" alt="v_3 : \Omega \rightarrow \R,$ $\psi : \Omega \rightarrow \R^2" style="vertical-align: -4px"/> and where:</p>
+</div><p>すべての許容可能な試行関数について <img class="math" src="../images/math/7d1f01c6d14b3313b9a468fa21ee1505623ac75e.png" alt="v_3 : \Omega \rightarrow \R,$
+$\psi : \Omega \rightarrow \R^2" style="vertical-align: -4px"/> であり:</p>
 <div class="math">
 <p><img src="../images/math/e1bfcd2ed2ab986bd14a7ee57f998d6a4ec767b2.png" alt="&amp; D = \Frac{E}{12(1-\nu^2)}, ~~ G = \Frac{E\kappa}{2(1+\nu)}, \\
 &amp; \gamma(\theta) = (\nabla \theta + \nabla \theta^T)/2, \\
 &amp; F_3 = \int_{-\epsilon/2}^{\epsilon/2} f_3dx_3 + g_3^+ + g_3^-, \\
 &amp; M_{\alpha} = \epsilon(g^+_{\alpha} - g^-_{\alpha})/2 +  \int_{-\epsilon/2}^{\epsilon/2} x_3 f_{\alpha}dx_3, \alpha \in \{1, 2\},"/></p>
-</div><p><img class="math" src="../images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f" style="vertical-align: -4px"/> being a volumic force applied inside the three dimensional plate, <img class="math" src="../images/math/184ed03929a1ffb5974c1ee6c7e569fdeb49a238.png" alt="g^+" style="vertical-align: -4px"/> and <img class="math" src="../images/math/90d034bbbaa8d3fcb7b9455a5f6aacd0bb9265e8.png" alt="g^-" style="vertical-align: -4px"/> a force applied on the top and bottom surface of the plate, <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> Young&#8217;s modulus, <img class="math" src="../images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> Poisson&#8217;s ratio and <img class="math" src="../images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa" style="vertical-align: 0px"/> the shear correction factor (usually set to 5/6).</p>
-<p>The classical boundary conditions are the following:</p>
+</div><p><img class="math" src="../images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f" style="vertical-align: -4px"/> は3次元板の内部に加えられる体積力であり、 <img class="math" src="../images/math/184ed03929a1ffb5974c1ee6c7e569fdeb49a238.png" alt="g^+" style="vertical-align: -4px"/> と <img class="math" src="../images/math/90d034bbbaa8d3fcb7b9455a5f6aacd0bb9265e8.png" alt="g^-" style="vertical-align: -4px"/> は板の上面と底面に加えられる力です。 <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> はYoung率、 <img class="math" src="../images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> Poisson比そして <img class="math" src="../images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa" style="vertical-align: 0px"/> はせん断補正係数（通常5/6に設定）です。</p>
+<p>古典的な境界条件は次のとおりです。</p>
 <blockquote>
 <div><ul class="simple">
-<li>Simple support :  a dirichlet condition on <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/>.</li>
-<li>Clamped support : a dirichlet condition on both <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/> and <img class="math" src="../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/>.</li>
-<li>Prescribed transverse force : boundary source term on <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/>.</li>
-<li>Prescribed moment : boundary source term on <img class="math" src="../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/>.</li>
+<li><p class="first">単純支持： <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/> 上のDirichlet条件。</p>
+</li>
+<li><p class="first">固定支持: <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/> と <img class="math" src="../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/> のDirichlet条件。</p>
+</li>
+<li><p class="first">既定の横力： <img class="math" src="../images/math/b030cd493cf47cb7ba11af2031b2dbd94459e8f8.png" alt="u_3" style="vertical-align: -3px"/> 上の境界ソース項。</p>
+</li>
+<li><p class="first">既定のモーメント： <img class="math" src="../images/math/e190153b3ee7261a77bab2783f3199aec51d692d.png" alt="\ theta" style="vertical-align: 0px"/> 上の境界源項。</p>
+</li>
 </ul>
 </div></blockquote>
-<p>An important issue of this model is that it is subjected to the so called shear locking so that a direct Galerkin procedure do not give a satisfactory approximation. There is several ways to circumvent the shear locking problem : reduced integration, projection of the transverse shear term, mixed methods. The two first method are proposed.</p>
+<p>このモデルの重要な問題は、直接的Galerkin法が満足できる近似を与えないため、いわゆるせん断ロッキングが発生することです。せん断ロッキングの問題を回避するには、積分の低減・横方向のせん断項の投影・混合方法があります。2つの高速な方法が提案されています。</p>
 <div class="section" id="reduced-integration-of-the-transverse-shear-term">
-<h3>Reduced integration of the transverse shear term<a class="headerlink" href="#reduced-integration-of-the-transverse-shear-term" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>This strategy consists simply to use a lower order integration method to numerically compute the term</p>
+<h3>横断せん断項の積分を減少させる<a class="headerlink" href="#reduced-integration-of-the-transverse-shear-term" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>この方法では単に下位の積分方法を使用して数値的に計算します</p>
 <div class="math">
 <p><img src="../images/math/1f4738a376813c32a9be141d5a5e0bae68c2e73d.png" alt="\int_{\Omega}G\epsilon (\nabla u_3 - \theta)\cdot(\nabla v_3 - \psi)dx"/></p>
-</div><p>This strategy is working properly at least when both the rotation and the transverse displacement is approximated with Q1 quadrilateral element with a degree one reduced integration method (the so-called QUAD4 element).</p>
+</div><p>この方法は少なくとも回転変位と横変位の両方を1階微分積分法を用いたQ1四辺形要素（いわゆるQUAD4要素）で近似するとき適切に機能します。</p>
 </div>
 <div class="section" id="projection-of-the-transverse-shear-term">
-<h3>Projection of the transverse shear term<a class="headerlink" href="#projection-of-the-transverse-shear-term" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Another strategy comes from the MITC elements (Mixed Interpolation of Tensorial Components) which correspond to a re-interpretation in terms of projection of some mixed methods. The most popular element of this type is the MITC4 which correspond to the quadrilateral element Q1 with a projection of the transverse shear term on a rotated Raviart-Thomas element of lowest degree (RT0) (see <a class="reference internal" href="../biblio.html#ba-dv1985" id="id1">[ba-dv1985]</a>, <a class="reference internal" href="../biblio.html#br-ba-fo1989" id="id2">[br-ba-fo1989]</a>). This means that the transverse shear term becomes</p>
+<h3>横断方向せん断項の射影<a class="headerlink" href="#projection-of-the-transverse-shear-term" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>もう1つの方法はいくつかの混合方法の投影の再解釈に対応するMITC要素（テンソリアル成分の混合補間）に由来します。このタイプの最も汎用的な要素は回転度の低いRaviart-Thomas要素（RT0）の横断方向せん断項の投影を伴う四辺形要素Q1に対応するMITC4です（ <a class="reference internal" href="../biblio.html#ba-dv1985" id="id1">[ba-dv1985]</a> , <a class="reference internal" href="../biblio.html#br-ba-fo1989" id="id2">[br-ba-fo1989]</a> を参照）。これは横せん断項が</p>
 <div class="math">
 <p><img src="../images/math/2387fa472880601e98ac82344ca64bdf09f2c308.png" alt="\int_{\Omega}G\epsilon P^h(\nabla u_3 - \theta)\cdot P^h(\nabla v_3 - \psi)dx"/></p>
-</div><p>where <img class="math" src="../images/math/286d375d6b11a18c014917fa283f0edca26d09e2.png" alt="P^h(T)" style="vertical-align: -4px"/> is the elementwize <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/>-projection onto the rotated RT0 space.  For the moment, the only projection implemented is the previous described one (projection on rotated RT0 space for quadrilateral element). Higher degree elements and triangular elements can be found in the litterature (see <a class="reference internal" href="../biblio.html#mi-zh2002" id="id3">[Mi-Zh2002]</a>, <a class="reference internal" href="../biblio.html#br-ba-fo1989" id="id4">[br-ba-fo1989]</a>, <a class="reference internal" href="../biblio.html#duan2014" id="id5">[Duan2014]</a>) and will be under consideration for a future implementation. Note also that since <img class="math" src="../images/math/cab3d7671cf66f9b026a011caff207daedabf9d0.png" alt="P^h(\nabla u_3) = \nabla u_3" style="vertical-align: -4px"/>, the term reduces to</p>
+</div><p>ここで、 <img class="math" src="../images/math/286d375d6b11a18c014917fa283f0edca26d09e2.png" alt="P^h(T)" style="vertical-align: -4px"/> は回転されたRT0空間上の要素の大きさ <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> -投影です。現時点では、実装されている唯一のプロジェクションは、前に説明したものです（四角形要素の回転RT0空間上の投影）。より高度の要素と3角形の要素はライブラリで見つけることができます（ <a class="reference internal" href="../biblio.html#mi-zh2002" id="id3">[Mi-Zh2002]</a>, <a class="reference internal" href="../biblio.html#br-ba-fo1989" id="id4">[br-ba-fo1989]</a>, <a class="reference internal" href="../biblio.html#duan2014" id="id5">[Duan2014]</a> を参照）。また、以下のことに注意してください。 <img class="math" src="../images/math/cab3d7671cf66f9b026a011caff207daedabf9d0.png" alt="P^h(\nabla u_3) = \nabla u_3" style="vertical-align: -4px"/> であるため、項は</p>
 <div class="math">
 <p><img src="../images/math/d9cc0634f5ec88c9ce06786ee0996ffe85d95543.png" alt="\int_{\Omega}G\epsilon (\nabla u_3 - P^h(\theta))\cdot(\nabla v_3 - P^h(\psi))dx"/></p>
-</div><p>The principle of the definition of an elementary projection is explained if the description of the weak form language (see <a class="reference internal" href="gasm_high.html#ud-gasm-high-elem-trans"><em>Elementary transformations</em></a>) and an example can be found in the file <tt class="file docutils literal"><span class="pre">src/getfem_linearized_plates.cc</span></tt>.</p>
+</div><p>に減らすことができることに留意してください。弱形式言語の記述であれば基本的な要素投影の定義の原則が説明されています（ <a class="reference internal" href="gasm_high.html#ud-gasm-high-elem-trans"><em>初等変換</em></a> を参照）。また例はファイル <tt class="file docutils literal"><span class="pre">src/getfem_linearized_plates.cc</span></tt> にあります。</p>
 </div>
 </div>
 <div class="section" id="add-a-mindlin-reissner-plate-model-brick-to-a-model">
-<h2>Add a Mindlin-Reissner plate model brick to a model<a class="headerlink" href="#add-a-mindlin-reissner-plate-model-brick-to-a-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The following function defined in <tt class="file docutils literal"><span class="pre">src/getfem/getfem_linearized_plates.h</span></tt> allows to add a Mindlin-Reissner plate model term to a transverse displacement <cite>u3</cite> and a rotation <cite>theta</cite>:</p>
+<h2>Mindlin-Reissnerプレートモデルブリックをモデルに追加する<a class="headerlink" href="#add-a-mindlin-reissner-plate-model-brick-to-a-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><tt class="file docutils literal"><span class="pre">src/getfem/getfem_linearized_plates.h</span></tt> で定義されている次の関数はMindlin-Reissnerプレートモデル項を横方向変位 <cite>u3</cite> と回転 <cite>theta</cite> に追加します</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">size_type</span> <span class="n">add_Mindlin_Reissner_plate_brick</span>
 <span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mim_reduced</span><span class="p">,</span> <span class="n">name_u3</span><span class="p">,</span> <span class="n">name_theta</span><span class="p">,</span> <span class="n">param_E</span><span class="p">,</span>
  <span class="n">param_nu</span><span class="p">,</span> <span class="n">param_epsilon</span><span class="p">,</span> <span class="n">param_kappa</span><span class="p">,</span> <span class="n">variant</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <cite>name_u3</cite> is name of the variable which represents the transverse displacmenent, <cite>name_theta</cite> the variable which represents the rotation, &#8216;param_E&#8217; the Young Modulus, <cite>param_nu</cite> the poisson ratio, <cite>param_epsilon</cite> the plate thickness, <cite>param_kappa</cite> the shear correction factor. Note that since this brick
-uses the weak form language, the parameter can be regular expression of this language.
-There are three variants.
-<cite>variant = 0</cite> corresponds to the an
-unreduced formulation and in that case only the integration
-method <cite>mim</cite> is used. Practically this variant is not usable since
-it is subject to a strong locking phenomenon.
-<cite>variant = 1</cite> corresponds to a reduced integration where <cite>mim</cite> is
-used for the rotation term and <cite>mim_reduced</cite> for the transverse
-shear term. <cite>variant = 2</cite> (default) corresponds to the projection onto
-a rotated RT0 element of the transverse shear term. For the moment, this
-is adapted to quadrilateral only (because it is not sufficient to
-remove the locking phenomenon on triangle elements). Note also that if
-you use high order elements, the projection on RT0 will reduce the order
-of the approximation.
-Returns the brick index in the model.</p>
-<p>The projection on rotated RTO element can be added to a model thanks to the following function:</p>
+<p><cite>name_u3</cite> は横変位を表す変数の名前、 <cite>name_theta</cite> は回転を表す変数、 <cite>param_E</cite> はヤング係数、 <cite>param_nu</cite> はPoisson比、 <cite>param_epsilon</cite> は板厚、 <cite>param_kappa</cite> はせん断補正係数です。このブリックは弱形式言語を使用するため、パラメータはこの言語の正規表現にすることができます。 3つの変数があります。 <cite>variant = 0</cite> は非還元式に対応し、その場合には積分法 <cite>mim</cite> のみが使用されます。実際にはこの変形は強力なロッキング現象の影響を受けやすいので使用できません。 <cite>variant = 1</cite> は回転項に <cite>mim</cite> が使用され、横断せん断項に <cite>mim_reduced</cite> が使用される縮小積分に対応します。 <cite>variant = 2</cite> （デフォルト）は横せん断項の回転RT0要素への投影に対応します。現時点では、四辺形のみに適用されています（3角形要素のロック現象を除去するには不十分であるため）。高次の要素を使用すると、RT0の投影によって近似の次数が減少することにも注意してください。モデル内の要素のインデックスを返します。</p>
+<p>回転RTO要素の投影は次の関数によってモデルに追加できます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">add_2D_rotated_RT0_projection</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">transname</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -149,23 +139,23 @@ Returns the brick index in the model.</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Mindlin-Reissner plate model</a><ul>
-<li><a class="reference internal" href="#the-mindlin-reissner-plate-model">The Mindlin-Reissner plate model</a><ul>
-<li><a class="reference internal" href="#reduced-integration-of-the-transverse-shear-term">Reduced integration of the transverse shear term</a></li>
-<li><a class="reference internal" href="#projection-of-the-transverse-shear-term">Projection of the transverse shear term</a></li>
+<li><a class="reference internal" href="#">Mindlin-Reissnerプレートモデル</a><ul>
+<li><a class="reference internal" href="#the-mindlin-reissner-plate-model">Mindlin-Reissnerプレートモデル</a><ul>
+<li><a class="reference internal" href="#reduced-integration-of-the-transverse-shear-term">横断せん断項の積分を減少させる</a></li>
+<li><a class="reference internal" href="#projection-of-the-transverse-shear-term">横断方向せん断項の射影</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#add-a-mindlin-reissner-plate-model-brick-to-a-model">Add a Mindlin-Reissner plate model brick to a model</a></li>
+<li><a class="reference internal" href="#add-a-mindlin-reissner-plate-model-brick-to-a-model">Mindlin-Reissnerプレートモデルブリックをモデルに追加する</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_bilaplacian.html"
-                        title="前の章へ">Bilaplacian and Kirchhoff-Love plate bricks</a></p>
+                        title="前の章へ">BilaplacianとKirchhoff-Loveプレートブリック</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="model_time_integration.html"
-                        title="次の章へ">The model tools for the integration of transient problems</a></p>            <h3>Download</h3>
+                        title="次の章へ">過渡問題の積分のためのモデルツール</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -210,17 +200,17 @@ Returns the brick index in the model.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="model_time_integration.html" title="The model tools for the integration of transient problems"
+          <a href="model_time_integration.html" title="過渡問題の積分のためのモデルツール"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="model_bilaplacian.html" title="Bilaplacian and Kirchhoff-Love plate bricks"
+          <a href="model_bilaplacian.html" title="BilaplacianとKirchhoff-Loveプレートブリック"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li>
-          <li><a href="model.html" >The model description and basic model bricks</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li>
+          <li><a href="model.html" >モデル記述と基本モデルブリック</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Bilaplacian and Kirchhoff-Love plate bricks &mdash; GetFEM++</title>
+    <title>BilaplacianとKirchhoff-Loveプレートブリック &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="The model description and basic model bricks" href="model.html" />
-    <link rel="next" title="Mindlin-Reissner plate model" href="model_Mindlin_plate.html" />
-    <link rel="prev" title="Mass brick" href="model_mass.html" />
+    <link rel="up" title="モデル記述と基本モデルブリック" href="model.html" />
+    <link rel="next" title="Mindlin-Reissnerプレートモデル" href="model_Mindlin_plate.html" />
+    <link rel="prev" title="質量ブリック" href="model_mass.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="model_Mindlin_plate.html" title="Mindlin-Reissner plate model"
+          <a href="model_Mindlin_plate.html" title="Mindlin-Reissnerプレートモデル"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="model_mass.html" title="Mass brick"
+          <a href="model_mass.html" title="質量ブリック"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li>
-          <li><a href="model.html" accesskey="U">The model description and basic model bricks</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li>
+          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,41 +63,32 @@
           <div class="body">
             
   <div class="section" id="bilaplacian-and-kirchhoff-love-plate-bricks">
-<span id="ud-model-bilaplacian"></span><span id="index-0"></span><h1>Bilaplacian and Kirchhoff-Love plate bricks<a class="headerlink" href="#bilaplacian-and-kirchhoff-love-plate-bricks" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The following function</p>
+<span id="ud-model-bilaplacian"></span><span id="index-0"></span><h1>BilaplacianとKirchhoff-Loveプレートブリック<a class="headerlink" href="#bilaplacian-and-kirchhoff-love-plate-bricks" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>以下の関数:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span> <span class="n">add_bilaplacian_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">dataname</span><span class="p">,</span>
                             <span class="n">region</span> <span class="o">=</span> <span class="n">size_type</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>adds a bilaplacian brick on the variable <cite>varname</cite> and on the mesh region <cite>region</cite>. This represent a term <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/>. where <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/> is a coefficient determined by <cite>dataname</cite> which could be constant or described on a f.e.m. The corresponding weak form is <img class="math" src="../images/math/369464e75e59e5a1e16eabc2a3221bdc97acd76c.png" alt="\int D(x)\Delta u(x) \Delta v(x) dx" style="vertical-align: -6px"/>.</p>
-<p>For the Kirchhoff-Love plate model, the weak form is a bit different (and more stable than the previous one). the function to add that term is</p>
+<p>は変数 <cite>varname</cite> とメッシュ領域 <cite>region</cite> にbilaplacianブリックを追加します。これは、項 <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/> を表します。ここで、 <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/> は <cite>datamame</cite> によって決定される係数であり、定数またはf.e.m上で記述されます。対応する弱形式は <img class="math" src="../images/math/369464e75e59e5a1e16eabc2a3221bdc97acd76c.png" alt="\int D(x)\Delta u(x) \Delta v(x) dx" style="vertical-align: -6px"/> です。</p>
+<p>Kirchhoff-Loveプレートモデルの場合、弱形式は少し異なります（前の形よりも安定しています）。その項を追加する関数は:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span> <span class="n">add_bilaplacian_brick_KL</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">dataname1</span><span class="p">,</span> <span class="n">dataname2</span><span class="p">,</span>
                                <span class="n">region</span> <span class="o">=</span> <span class="n">size_type</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>It adds a bilaplacian brick on the variable <cite>varname</cite> and on the mesh region <cite>region</cite>. This represent a term <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/> where <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/>
-is a the flexion modulus determined by <cite>dataname1</cite>. The term is
-integrated by part following a Kirchhoff-Love plate model
-with <cite>dataname2</cite> the poisson ratio.</p>
-<p>There is specific bricks to add appropriate boundary conditions for fourth order partial differential equations. The first one is</p>
+<p>これは変数 <cite>varname</cite> とメッシュ領域 <cite>region</cite> にBilaplacian要素を追加します。これは <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/> のような項を表します。ここで、 <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/> は <cite>dataname1</cite> によって決定される屈曲率です。この項は、Poisson比 <cite>dataname2</cite> を有するKirchhoff-Loveプレートモデルに続く部分によって積分される。</p>
+<p>4次の偏微分方程式に適切な境界条件を追加するための特定の要素があります。最初のものは:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span>  <span class="n">add_normal_derivative_source_term_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                                <span class="n">dataname</span><span class="p">,</span> <span class="n">region</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>which adds a normal derivative source term brick
-<img class="math" src="../images/math/4ade589871ce41d3b7211682dc6dc5349bdf6784.png" alt="F = \int b.\partial_n v" style="vertical-align: -6px"/> on the variable <cite>varname</cite> and on the
-mesh region <cite>region</cite>. It updates the right hand side of the linear
-system. <cite>dataname</cite> represents <cite>b</cite> and <cite>varname</cite> represents <cite>v</cite>.</p>
-<p>A Neumann term can be added thanks to the following bricks</p>
+<p>これは変数 <cite>varname</cite> とメッシュ領域 <cite>region</cite> に正のソース項ブリック <img class="math" src="../images/math/4ade589871ce41d3b7211682dc6dc5349bdf6784.png" alt="F = \int b.\partial_n v" style="vertical-align: -6px"/> を追加します。これは線形システムの右側を更新します。 <cite>dataname</cite> は <cite>b</cite> を表し、 <cite>varname</cite> は <cite>v</cite> を表します。</p>
+<p>Neumann項は以下の要素により追加することができます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span> <span class="n">add_Kirchhoff_Love_Neumann_term_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
  <span class="n">dataname1</span><span class="p">,</span> <span class="n">dataname2</span><span class="p">,</span> <span class="n">region</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>which adds a Neumann term brick for Kirchhoff-Love model
-on the variable <cite>varname</cite> and the mesh region <cite>region</cite>.
-<cite>dataname1</cite> represents the bending moment tensor and  <cite>dataname2</cite>
-its divergence.</p>
-<p>And a Dirichlet condition on the normal derivative can be prescribed thanks to the following bricks</p>
+<p>変数 <cite>varname</cite> とメッシュ領域 <cite>region</cite> にKirchhoff-LoveモデルのNeumann項ブリックを追加しました。 <cite>dataname1</cite> は曲げモーメントテンソルを表し <cite>dataname2</cite> はその逆テンソルを表します。</p>
+<p>そして、次の要素で正規DirichletのDirichlet条件を規定することができます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span> <span class="n">add_normal_derivative_Dirichlet_condition_with_multipliers</span>
       <span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">multname</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">dataname</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(),</span>
       <span class="n">R_must_be_derivated</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
@@ -111,17 +102,8 @@ its divergence.</p>
       <span class="n">R_must_be_derivated</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>These bricks add a Dirichlet condition on the normal derivative of the variable
-<cite>varname</cite> and on the mesh region <cite>region</cite> (which should be a boundary.
-The general form is <img class="math" src="../images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/>
-where <img class="math" src="../images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> is the right hand side for the Dirichlet condition (0 for
-homogeneous conditions) and <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is in a space of multipliers
-defined by the variable <cite>multname</cite> (first version) or defined on the finite element method <cite>mf_mult</cite> (second version) or simply on a Lagrange finite element method of degree <cite>degree</cite> (third version) on the part of boundary determined
-by <cite>region</cite>. <cite>dataname</cite> is an optional parameter which represents
-the right hand side of the Dirichlet condition.
-If <cite>R_must_be_derivated</cite> is set to <cite>true</cite> then the normal
-derivative of <cite>dataname</cite> is considered.</p>
-<p>The test program <tt class="file docutils literal"><span class="pre">bilaplacian.cc</span></tt> is a good example of the use of the previous bricks.</p>
+<p>これらの要素は、変数 <cite>varname</cite> の標準偏差とメッシュ領域 <cite>region</cite> （これは境界でなければなりません）にDirichlet条件を追加します。汎用的な形式は <img class="math" src="../images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/> のとおりです。ここで、 <img class="math" src="../images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> はDirichlet条件（均質条件の場合は0）の右辺で、 <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は変数 <cite>multname</cite> によって定義された乗数の空間（第1のバージョン）、または <cite>mf_mult</cite> で定義された有限要素法（第2のバージョン）、または単 <cite>region</cite> により定義された境界の部分の <cite>次数</cite> によるLagrange有限要素法（第3のバージョン）です。 <cite>dataname</cite> は、Dirichlet条件の右辺を表すオプションのパラメータです。 <cite>R_must_be_derivated</cite> が <cite>true</cite> に設定されている場合、 <cite>dataname</cite> の標準偏差が考慮されます。</p>
+<p>テストプログラム <tt class="file docutils literal"><span class="pre">bilaplacian.cc</span></tt> はこの要素の使用例です。</p>
 </div>
 
 
@@ -135,10 +117,10 @@ derivative of <cite>dataname</cite> is considered.</p>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_mass.html"
-                        title="前の章へ">Mass brick</a></p>
+                        title="前の章へ">質量ブリック</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="model_Mindlin_plate.html"
-                        title="次の章へ">Mindlin-Reissner plate model</a></p>            <h3>Download</h3>
+                        title="次の章へ">Mindlin-Reissnerプレートモデル</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -183,17 +165,17 @@ derivative of <cite>dataname</cite> is considered.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="model_Mindlin_plate.html" title="Mindlin-Reissner plate model"
+          <a href="model_Mindlin_plate.html" title="Mindlin-Reissnerプレートモデル"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="model_mass.html" title="Mass brick"
+          <a href="model_mass.html" title="質量ブリック"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >ユーザマニュアル</a> &raquo;</li>
-          <li><a href="model.html" >The model description and basic model bricks</a> &raquo;</li> 
+          <li><a href="index.html" >User Documentation</a> &raquo;</li>
+          <li><a href="model.html" >モデル記述と基本モデルブリック</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
