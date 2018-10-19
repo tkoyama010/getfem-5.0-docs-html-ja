@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Integ module &mdash; GetFEM++</title>
+    <title>Integ モジュール &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="MeshFem module" href="libdesc_meshfem.html" />
-    <link rel="prev" title="Fem module" href="libdesc_fem.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="MeshFem モジュール" href="libdesc_meshfem.html" />
+    <link rel="prev" title="Fem モジュール" href="libdesc_fem.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_meshfem.html" title="MeshFem module"
+          <a href="libdesc_meshfem.html" title="MeshFem モジュール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_fem.html" title="Fem module"
+          <a href="libdesc_fem.html" title="Fem モジュール"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,55 +63,46 @@
           <div class="body">
             
   <div class="section" id="integ-module">
-<span id="dp-libdesc-im"></span><h1>Integ module<a class="headerlink" href="#integ-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-im"></span><h1>Integ モジュール<a class="headerlink" href="#integ-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The CUBATURE module gives access to the numerical integration methods on
-reference elements. In fact it does not only contain some cubature formulas
-because it also give access to some exact integration methods. However, the exact
-integration methods are only usable for polynomial element and affine geometric
-transformations. This explain why exact integration methods are not widely used.
-The description of cubature formulas is done either directly in the file
-<tt class="file docutils literal"><span class="pre">getfem_integration.h</span></tt> or via a description file in the directory
-<tt class="docutils literal"><span class="pre">cubature</span></tt> of <em>GetFEM++</em>. The addition of new cubature formulas is then very simple,
-it suffices to reference the element on which it is defined and the list of Gauss
-points in a file and add it to this directory. Additionally, In order to
-integrate terms defined on a boundary of a domain, the description should also
-contains the reference to a method of same order on each face of the element.</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>立体求積法モジュールは、参照要素の数値積分法へのアクセスを提供します。それはまた、いくつかの正確な統合方法へのアクセスを与えるため、実際にはそれだけでいくつかの立体求積法式が含まれていません。ただし、厳密な積分法は多項式要素とアフィン幾何学的変換に対してのみ使用できます。これは厳密な統合方法が広く使用されない理由を説明する。立体求積法式の説明は、ファイル内で直接実行されます: ファイル: &#8216; getfem_integration &#8216; またはディレクトリ &#8216; &#8216; 立体求積法 &#8216; &#8216; の説明ファイルを介して | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>。新しい立体求積法式の追加は非常に単純であり、それはそれが定義されている要素を参照し、ファイル内のガウス点のリストと、このディレクトリに追加するだけで十分です。さらに、ドメインの境界に定義された用語を統合するために、その説明には、要素の各面で同じ順序のメソッドへの参照も含まれている必要があります。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_integration.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_integration.cc</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_integration_composite.cc</span></tt></td>
-<td>Structure of integration methods, basic integration methods, product of integration method and composite methods.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_integration &#8216; と: ファイル: &#8216; getfem_integration &#8216; と: ファイル: &#8216; getfem_integration_composite &#8216;</p>
+</td>
+<td><p class="first last">統合方法の構造、基本的な統合方法、統合方法および複合方法のプロダクト。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_im_list.h</span></tt></td>
-<td>file generated by <tt class="file docutils literal"><span class="pre">cubature/make_getfem_list</span></tt> with the integration methods defined in cubature directory. This gives the possibility to define a new integration method just listing the Gauss points and weigth in a text file.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_im_list &#8216;</p>
+</td>
+<td><p class="first last">で生成されたファイル: ファイル: &#8216; 立体求積法/make_getfem_list &#8216; 立体求積法ディレクトリで定義されている統合メソッドを使用します。これにより、ガウスポイントとディファレンシャルムーブメントをテキストファイルにリストするだけで、新しい統合メソッドを定義することができます。</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>This module meets the present needs for the project and is considered as
-stabilized. The list of available cubature formulas is given in
-<a class="reference internal" href="../userdoc/appendixB.html#ud-appendixb"><em>付録B.立体求積法のリスト</em></a>.</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このモジュールは、プロジェクトの現在のニーズを満たしており、安定していると考えられています。使用可能な立体求積法式のリストは、ref: &#8216; ud-付録 b &#8216; で指定されています。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>No change needed for the moment. An effort could be done on the documentation to
-describe completely how to add a new cubature formula (format of descritption
-files).</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>今のところ変更は必要ありません。新しい立体求積法式 (descritption ファイルの形式) を追加する方法を完全に説明するために、ドキュメントで努力を行うことができます。</p>
 </div>
 </div>
 
@@ -126,21 +117,21 @@ files).</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Integ module</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">Integ モジュール</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_fem.html"
-                        title="前の章へ">Fem module</a></p>
+                        title="前の章へ">Fem モジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_meshfem.html"
-                        title="次の章へ">MeshFem module</a></p>            <h3>Download</h3>
+                        title="次の章へ">MeshFem モジュール</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -185,17 +176,17 @@ files).</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_meshfem.html" title="MeshFem module"
+          <a href="libdesc_meshfem.html" title="MeshFem モジュール"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_fem.html" title="Fem module"
+          <a href="libdesc_fem.html" title="Fem モジュール"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>How to contribute / Git repository on Savannah &mdash; GetFEM++</title>
+    <title>貢献する方法 / SavannahのGitリポジトリ &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the Project" href="index.html" />
-    <link rel="next" title="The FEM description in GetFEM++" href="femdesc.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="up" title="$B%W%m%8%’%/%H$N@bL@(B" href="index.html" />
+    <link rel="next" title="GetFEM++ のFEM記述" href="femdesc.html" />
+    <link rel="prev" title="導入" href="intro.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="femdesc.html" title="The FEM description in GetFEM++"
+          <a href="femdesc.html" title="GetFEM++ のFEM記述"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="intro.html" title="導入"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">Description of the Project</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,79 +62,78 @@
           <div class="body">
             
   <div class="section" id="how-to-contribute-git-repository-on-savannah">
-<span id="dp-contribute"></span><h1>How to contribute / Git repository on Savannah<a class="headerlink" href="#how-to-contribute-git-repository-on-savannah" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><em>GetFEM++</em> is an  open source finite element library based on a collaborative development. If you intend to make some contributions, you can ask for membership of the project there. Contributions of all kinds are welcome: documentation, bug reports, constructive comments, changes suggestions, bug fix, new models, etc ...</p>
-<p>Contributors are of course required to be careful that their changes do not affect the proper functioning of the library and that these changes follow a principle of backward compatibility.</p>
-<p>See <a class="reference external" href="https://savannah.nongnu.org/task/?group=getfem">here</a> for a list of task and discussions about <em>GetFEM++</em> development.</p>
-<p><strong>IMPORTANT</strong> : a contributor implicitly accepts that his/her contribution will be distributed under the LGPL licence of <em>GetFEM++</em>.</p>
-<p>The main repository of <em>GetFEM++</em> is on Savannah, the software forge of the Free Software Foundation (see <a class="reference external" href="https://savannah.gnu.org">Savannah</a>). The page of the project on Savannah is <a class="reference external" href="https://savannah.nongnu.org/projects/getfem">Getfem on Savannah</a>. See also <a class="reference external" href="http://git.savannah.nongnu.org/gitweb/?p=getfem.git;a=tree">Getfem sources on Savannah</a>.</p>
+<span id="dp-contribute"></span><h1>貢献する方法 / SavannahのGitリポジトリ<a class="headerlink" href="#how-to-contribute-git-repository-on-savannah" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><em>GetFEM++</em> は共同開発に基づいたオープンソースの有限要素ライブラリです。貢献したい場合は、プロジェクトのメンバー参加を頼むことができます。ドキュメンテーション、バグレポート、建設的なコメント、提案の変更、バグ修正、新モデルなど、あらゆる種類の貢献が歓迎されています...</p>
+<p>貢献者は、もちろん、その変更がライブラリの適切な機能に影響を与えないよう注意し、これらの変更が下位互換性の原則に従うように注意する必要があります。</p>
+<p><em>GetFEM++</em> 開発についてのタスクと議論のリストについては、 <a class="reference external" href="https://savannah.nongnu.org/task/?group=getfem">here</a> を参照してください。</p>
+<p><strong>重要</strong> ： 寄稿者は、自分の寄与が <em>GetFEM++</em> のLGPLライセンスに基づいて配布されることを暗黙のうちに承諾しているとします。</p>
+<p><em>GetFEM++</em> のメインリポジトリはフリーソフトウェア財団のソフトウェア鍛造所である Savannah にあります（ <a class="reference external" href="https://savannah.gnu.org">Savannah</a> を参照）。 Savannah のプロジェクトのページは <a class="reference external" href="https://savannah.nongnu.org/projects/getfem">Getfem on Savannah</a> です。 <a class="reference external" href="http://git.savannah.nongnu.org/gitweb/?p=getfem.git;a=tree">Getfem sources on Savannah</a> も参照してください。</p>
 <div class="section" id="how-to-get-the-sources">
-<h2>How to get the sources<a class="headerlink" href="#how-to-get-the-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If you just want the sources and do not intend to make some contributions, you can just use the command</p>
+<h2>ソースを入手する方法<a class="headerlink" href="#how-to-get-the-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ソースだけが必要で、貢献したくないのであれば、次のコマンドを使うことができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//git.savannah.nongnu.org/git/getfem.git</span>
 </pre></div>
 </div>
-<p>If you intend to make some contributions, the first step is to ask for the inclusion in the <em>GetFEM++</em> project (for this you have to create a Savannah account). You have also to register a ssh key (see <a class="reference external" href="http://savannah.gnu.org/maintenance/UsingGit/">git on Savannah</a>) and then use the command</p>
+<p>いくつかの貢献をするつもりなら、最初のステップは、 <em>GetFEM++</em> に参加することです。プロジェクト（このためには、サバンナアカウントを作成する必要があります）。また、sshキー（ <a class="reference external" href="http://savannah.gnu.org/maintenance/UsingGit/">git on Savannah</a> を参照）を登録してから、次のコマンドを使用する必要があります。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">ssh</span><span class="o">:</span><span class="c1">//savannah-login@git.sv.gnu.org:/srv/git/getfem.git</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-contribute">
-<h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Before modifying any file, you have to create a <em>development branch</em> because it is <em>not allowed to make a modification directly in the master branch</em>. It is recommended that the branch name is of the type <cite>devel-name-subject</cite> where name is your name or login and subject the main subject of the changes. For instance, if you chose <cite>devel-me-rewrite-fem-kernel</cite> as the branch name, the creation of the branch reads</p>
+<h2>貢献する方法<a class="headerlink" href="#how-to-contribute" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ファイルを変更する前に、 <em>masterブランチで直接変更することはできない</em> ため、<em>開発ブランチ</em> を作成する必要があります。ブランチ名は <cite>devel-name-subject</cite> の形であることが推奨されます。ここで、 name はあなたの名前またはログインであり、 subject は変更の主題です。たとえば、ブランチ名として <cite>devel-me-rewrite-fem-kernel</cite> を選択した場合、ブランチの作成方法は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="n">devel</span><span class="o">-</span><span class="n">me</span><span class="o">-</span><span class="n">rewrite</span><span class="o">-</span><span class="n">fem</span><span class="o">-</span><span class="n">kernel</span>
 <span class="n">git</span> <span class="n">checkout</span> <span class="n">devel</span><span class="o">-</span><span class="n">me</span><span class="o">-</span><span class="n">rewrite</span><span class="o">-</span><span class="n">fem</span><span class="o">-</span><span class="n">kernel</span>
 </pre></div>
 </div>
-<p>The first command create the branch and the second one position you on your branch. After that you are nearly ready to makes some modifications. You can specify your contact name and e-mail with the following commands in order to label your changes</p>
+<p>最初のコマンドはブランチを作成し、2番目のコマンドはブランチを作成します。その後、いくつかの変更を行う準備はほぼ完了です。変更のラベルを付けるために、連絡先の名前と電子メールを以下のコマンドで指定することができます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">&quot;Your Name Comes Here&quot;</span>
 </pre></div>
 </div>
 <div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/tetsuo/getfem/doc/sphinx/source/project/contribute.rst</tt>, line 59)</p>
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/tkoyama/getfem-ja/doc/sphinx/source/project/contribute.rst</tt>, line 59)</p>
 Literal block ends without a blank line; unexpected unindent.</div>
 <p>git config &#8211;global user.email <a class="reference external" href="mailto:you&#37;&#52;&#48;yourdomain&#46;example&#46;com">you<span>&#64;</span>yourdomain<span>&#46;</span>example<span>&#46;</span>com</a></p>
 </div>
 <div class="section" id="specific-branch-for-doc-improvements-and-typo-fixes">
-<h2>Specific branch for doc improvements and typo-fixes<a class="headerlink" href="#specific-branch-for-doc-improvements-and-typo-fixes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If you want to contribute to the documentation only, it is not necessary to build a specific branch. You can just checkout to the <tt class="docutils literal"><span class="pre">fixmisspell</span></tt> branch which has been created for this purpose with</p>
+<h2>ドキュメントの改善と誤植のためのブランチ<a class="headerlink" href="#specific-branch-for-doc-improvements-and-typo-fixes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ドキュメントのみに貢献したい場合は、特定のブランチをビルドする必要はありません。この目的のために作成された <tt class="docutils literal"><span class="pre">fixmisspell</span></tt> ブランチをチェックアウトするだけです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">checkout</span> <span class="n">fixmisspell</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="locally-commit-your-changes">
-<h2>Locally commit your changes<a class="headerlink" href="#locally-commit-your-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once you made some modifications of a file or you added a new file, say <cite>src/toto.cc</cite>, the local commit is done with the commands:</p>
+<h2>変更をローカルにコミットする。<a class="headerlink" href="#locally-commit-your-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><cite>src/toto.cc</cite> と言うファイルをいくつか変更したり、新しいファイルを追加したら、 ローカルコミットは次のコマンドで行われます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="n">src</span><span class="o">/</span><span class="n">toto</span><span class="p">.</span><span class="n">cc</span>
 <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;Your extensive commit message here&quot;</span>
 </pre></div>
 </div>
-<p>At this stage the commit is done on your local repository but not in the Savannah one.</p>
+<p>この段階でコミットはあなたのローカルリポジトリで行われますが、Savannahリポジトリでは行われません。</p>
 </div>
 <div class="section" id="push-you-changes-in-the-savannah-repository">
-<h2>Push you changes in the Savannah repository<a class="headerlink" href="#push-you-changes-in-the-savannah-repository" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You can now transfer your modifications to the Savannah repository with</p>
+<h2>Savannahリポジトリの変更をプッシュします<a class="headerlink" href="#push-you-changes-in-the-savannah-repository" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Savannahリポジトリに変更を転送することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">devel</span><span class="o">-</span><span class="n">me</span><span class="o">-</span><span class="n">rewrite</span><span class="o">-</span><span class="n">fem</span><span class="o">-</span><span class="n">kernel</span>
 </pre></div>
 </div>
-<p>where of course <em>devel-me-rewrite-fem-kernel</em> is still the name of your branch. At this stage your modifications are registered in the branch <em>devel-me-rewrite-fem-kernel</em> of Savannah repository.
-Your role stops here, since you are not allowed to modify the master branch of <em>GetFEM++</em>.</p>
+<p>もちろん <em>devel-me-rewrite-fem-kernel</em> はあなたのブランチの名前です。この段階で、あなたの変更は、Savannahリポジトリのブランチ <em>devel-me-rewrite-fem-kernel</em> に登録されます。 <em>GetFEM++</em> のマスターブランチを変更することは許可されていないので、あなたの役割はここで終わります。</p>
 </div>
 <div class="section" id="ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf">
-<h2>Ask for an admin to merge your modifications to the master branch of <em>GetFEM++</em><a class="headerlink" href="#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once you validated your modifications with sufficient tests, you can ask an admin of <em>GetFEM++</em> to merge your modifications. For this, contact one of them directly, or send an e-mail to <em>getfem-commits&#64;nongnu.org</em> with the message : &#8220;please merge branch devel-me-rewrite-fem-kernel&#8221; with eventually a short description of the modifications. IMPORTANT : by default, your branch will be deleted after the merge, unless you express the need to keep it.</p>
+<h2><em>GetFEM++</em> のマスターブランチに変更をマージする場合は管理者に問い合わせてください。<a class="headerlink" href="#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>十分なテストで変更を検証したら、管理者に <em>GetFEM++</em> 変更をマージします。そのためには、それらのうちの1人に直接連絡するか、 <em>getfem-commits&#64;nongnu.org</em> に &#8220;branch devel-me-rewrite-fem-kernelをマージしてください&#8221; というメッセージを電子メールで送ってください。その際には変更に関する短い説明文を添付してください。重要：デフォルトでは、ブランチを保存する必要がある場合を除き、ブランチはマージ後に削除されます。</p>
 </div>
 <div class="section" id="merge-modifications-done-by-other-contributors">
-<h2>Merge modifications done by other contributors<a class="headerlink" href="#merge-modifications-done-by-other-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You can run a</p>
+<h2>他の貢献者が行った変更をマージする。<a class="headerlink" href="#merge-modifications-done-by-other-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>あなたは次のコマンドを実行することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">master</span>
 <span class="n">git</span> <span class="n">merge</span> <span class="n">master</span>
 </pre></div>
 </div>
-<p>in order to integrate the modifications which has been validated and integrated to the master branch. This is recommended to run this command before any request for integration of a modification in the master branch.</p>
+<p>検証され統合された変更をマスターブランチに統合するために使用されます。マスターブランチでの変更の統合要求の前にこのコマンドを実行することをお勧めします。</p>
 </div>
 <div class="section" id="some-useful-git-commands">
-<h2>Some useful git commands<a class="headerlink" href="#some-useful-git-commands" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>有用なgitコマンド<a class="headerlink" href="#some-useful-git-commands" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">status</span>  <span class="o">:</span> <span class="n">status</span> <span class="n">of</span> <span class="n">your</span> <span class="n">repository</span> <span class="o">/</span> <span class="n">branch</span>
 
 <span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">follow</span> <span class="s">&quot;filepath&quot;</span>   <span class="o">:</span> <span class="n">Show</span> <span class="n">all</span> <span class="n">the</span> <span class="n">commits</span> <span class="n">modifying</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">file</span> <span class="p">(</span><span class="n">and</span> <span class="n">follow</span> <span class="n">the</span> <span class="n">eventual</span> <span class="n">change</span> <span class="n">of</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span><span class="p">).</span>
@@ -156,25 +155,25 @@ Your role stops here, since you are not allowed to modify the master branch of <
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">How to contribute / Git repository on Savannah</a><ul>
-<li><a class="reference internal" href="#how-to-get-the-sources">How to get the sources</a></li>
-<li><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
-<li><a class="reference internal" href="#specific-branch-for-doc-improvements-and-typo-fixes">Specific branch for doc improvements and typo-fixes</a></li>
-<li><a class="reference internal" href="#locally-commit-your-changes">Locally commit your changes</a></li>
-<li><a class="reference internal" href="#push-you-changes-in-the-savannah-repository">Push you changes in the Savannah repository</a></li>
-<li><a class="reference internal" href="#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf">Ask for an admin to merge your modifications to the master branch of <em>GetFEM++</em></a></li>
-<li><a class="reference internal" href="#merge-modifications-done-by-other-contributors">Merge modifications done by other contributors</a></li>
-<li><a class="reference internal" href="#some-useful-git-commands">Some useful git commands</a></li>
+<li><a class="reference internal" href="#">貢献する方法 / SavannahのGitリポジトリ</a><ul>
+<li><a class="reference internal" href="#how-to-get-the-sources">ソースを入手する方法</a></li>
+<li><a class="reference internal" href="#how-to-contribute">貢献する方法</a></li>
+<li><a class="reference internal" href="#specific-branch-for-doc-improvements-and-typo-fixes">ドキュメントの改善と誤植のためのブランチ</a></li>
+<li><a class="reference internal" href="#locally-commit-your-changes">変更をローカルにコミットする。</a></li>
+<li><a class="reference internal" href="#push-you-changes-in-the-savannah-repository">Savannahリポジトリの変更をプッシュします</a></li>
+<li><a class="reference internal" href="#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf"><em>GetFEM++</em> のマスターブランチに変更をマージする場合は管理者に問い合わせてください。</a></li>
+<li><a class="reference internal" href="#merge-modifications-done-by-other-contributors">他の貢献者が行った変更をマージする。</a></li>
+<li><a class="reference internal" href="#some-useful-git-commands">有用なgitコマンド</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="intro.html"
-                        title="前の章へ">Introduction</a></p>
+                        title="前の章へ">導入</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="femdesc.html"
-                        title="次の章へ">The FEM description in <em>GetFEM++</em></a></p>            <h3>Download</h3>
+                        title="次の章へ"><em>GetFEM++</em> のFEM記述</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -219,16 +218,16 @@ Your role stops here, since you are not allowed to modify the master branch of <
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="femdesc.html" title="The FEM description in GetFEM++"
+          <a href="femdesc.html" title="GetFEM++ のFEM記述"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="intro.html" title="導入"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>MeshFem module &mdash; GetFEM++</title>
+    <title>MeshFem モジュール &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="MeshIm module" href="libdesc_mim.html" />
-    <link rel="prev" title="Integ module" href="libdesc_im.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="MeshIm モジュール" href="libdesc_mim.html" />
+    <link rel="prev" title="Integ モジュール" href="libdesc_im.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_mim.html" title="MeshIm module"
+          <a href="libdesc_mim.html" title="MeshIm モジュール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_im.html" title="Integ module"
+          <a href="libdesc_im.html" title="Integ モジュール"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,68 +63,91 @@
           <div class="body">
             
   <div class="section" id="meshfem-module">
-<span id="dp-libdesc-mesh-fem"></span><h1>MeshFem module<a class="headerlink" href="#meshfem-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-mesh-fem"></span><h1>MeshFem モジュール<a class="headerlink" href="#meshfem-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The MeshFem module aims to represent a finite element method (space) with respect to a given mesh. The mesh_fem object will be permanently linked to the given mesh and will be able to react to  changes in the mesh (addition or deletion of elements, in particular). A mesh_fem object may associate a different finite element method on each element of the mesh even though of course, the most common case it that all the element share the same finite element method.</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>MeshFem モジュールは、特定のメッシュに対する有限要素法 (空間) を表すことを目的としています。mesh_fem オブジェクトは、指定されたメッシュに永続的にリンクされ、メッシュの変化 (特に要素の追加または削除) に反応することができます。mesh_fem オブジェクトは、もちろん、すべての要素が同じ有限要素メソッドを共有していることが最も一般的なケースであっても、メッシュの各要素に異なる有限要素メソッドを関連付けることができます。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_mesh_fem.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_mesh_fem.cc</span></tt></td>
-<td>Defines the structure representing a finite element on a whole mesh. Each element of the mesh is associated with a finite element method. This is a quite complex structure which perform dof identification and numbering, allows a global linear reduction.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_mesh_fem &#8216; と: ファイル: &#8216; getfem_mesh_fem &#8216;</p>
+</td>
+<td><p class="first last">メッシュ全体の有限要素を表す構造体を定義します。メッシュの各要素は、有限要素法に関連付けられています。これは、実行する非常に複雑な構造である dof 識別とナンバリングは、グローバルなリニアリダクションを可能にします。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_mesh_fem_global_function.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_mesh_fem_global_function.cc</span></tt></td>
-<td>Defines mesh_fem with fem defined as a fem_global_function. It provides convenience methods for updating the list of base functions in the linked fem_global_function.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_mesh_fem_global_function &#8216; と: ファイル: &#8216; getfem_mesh_fem_global_function &#8216;</p>
+</td>
+<td><p class="first last">fem_global_function として定義された fem で mesh_fem を定義します。リンクされた fem_global_function の基本関数のリストを更新するための便利なメソッドを提供します。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_mesh_fem_product.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_mesh_fem_product.cc</span></tt></td>
-<td>Produces a mesh_fem object which is a kind of direct product of two finite element method. Useful for Xfem enrichment.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_mesh_fem_product &#8216; と: ファイル: &#8216; getfem_mesh_fem_product &#8216;</p>
+</td>
+<td><p class="first last">2つの有限要素法の直接積の一種である mesh_fem オブジェクトを生成します。Xfem 濃縮に役立ちます。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_mesh_fem_sum.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_mesh_fem_sum.cc</span></tt></td>
-<td>Produces a mesh_fem object which is a kind of direct sum of two finite element method. Useful for Xfem enrichment.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_mesh_fem_sum &#8216; と: ファイル: &#8216; getfem_mesh_fem_sum &#8216;</p>
+</td>
+<td><p class="first last">2つの有限要素法の直接的な和の一種である mesh_fem オブジェクトを生成します。Xfem 濃縮に役立ちます。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_partial_mesh_fem.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_partial_mesh_fem.cc</span></tt></td>
-<td>Produces a mesh_fem with a reduced number of dofs</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_partial_mesh_fem &#8216; と: ファイル: &#8216; getfem_partial_mesh_fem &#8216;</p>
+</td>
+<td><p class="first last">dofs の数が減少した mesh_fem を生成します。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_interpolation.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_interpolation.cc</span></tt></td>
-<td>Interpolation between two finite element methods, possibly between different meshes. The interpolation facilities of the high-level generic assembly can be used instead.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_interpolation &#8216; と: ファイル: &#8216; getfem_interpolation &#8216;</p>
+</td>
+<td><p class="first last">異なるメッシュ間の2つの有限要素メソッド間の補間。代わりに、高レベルのジェネリックアセンブリの補間機能を使用できます。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_derivatives.h</span></tt></td>
-<td>Interpolation of some derivatives of a finite element field on a (discontinuous) Lagrange finite element. The interpolation facilities of the high-level generic assembly can be used instead.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_derivatives &#8216;</p>
+</td>
+<td><p class="first last">(不連続) ラグランジュ有限要素における有限要素場の微分の補間代わりに、高レベルのジェネリックアセンブリの補間機能を使用できます。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_inter_element.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_inter_element.cc</span></tt></td>
-<td>An attempt to make framework for inter-element computations (jump in normal derivative for instance). To be continuated and perhaps integrated into the generic assembly language.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_inter_element &#8216; と: ファイル: &#8216; getfem_inter_element &#8216;</p>
+</td>
+<td><p class="first last">要素間の計算のためのフレームワークを作る試み (例えば通常の微分でジャンプ)。continuated で、おそらくジェネリックアセンブリ言語に統合されています。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_error_estimate.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_error_estimate.cc</span></tt></td>
-<td>An attempt to make framework for computation of error estimates. To be continuated and perhaps integrated into the generic assembly language.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_error_estimate &#8216; と: ファイル: &#8216; getfem_error_estimate &#8216;</p>
+</td>
+<td><p class="first last">誤差推定の計算のための枠組みを作る試み.continuated で、おそらくジェネリックアセンブリ言語に統合されています。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_crack_sif.h</span></tt></td>
-<td>Crack support functions for computation of SIF(stress intensity factors).</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_crack_sif &#8216;</p>
+</td>
+<td><p class="first last">SIF (応力拡大係数) の計算のためのクラックサポート機能。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_torus.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_torus.cc</span></tt></td>
-<td>Adapt a mesh_fem object which extends a 2D dimensional structure with a radial dimension.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_torus &#8216; と: ファイル: &#8216; getfem_torus &#8216;</p>
+</td>
+<td><p class="first last">2d 寸法構造を放射状寸法で拡張する mesh_fem オブジェクトを適応させます。</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Stable. Not evolving so much.</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>安定。あまり進化していません。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Parallelisation of dof numbering to be done. An optimal (an simple) algorithm
-exists.</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Parallelisation の自由度のナンバリングが行われる。最適 (単純な) アルゴリズムが存在します。</p>
 </div>
 </div>
 
@@ -139,21 +162,21 @@ exists.</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">MeshFem module</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">MeshFem モジュール</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_im.html"
-                        title="前の章へ">Integ module</a></p>
+                        title="前の章へ">Integ モジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_mim.html"
-                        title="次の章へ">MeshIm module</a></p>            <h3>Download</h3>
+                        title="次の章へ">MeshIm モジュール</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -198,17 +221,17 @@ exists.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_mim.html" title="MeshIm module"
+          <a href="libdesc_mim.html" title="MeshIm モジュール"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_im.html" title="Integ module"
+          <a href="libdesc_im.html" title="Integ モジュール"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

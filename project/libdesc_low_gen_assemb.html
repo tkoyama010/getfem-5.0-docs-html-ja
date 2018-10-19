@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The low-level generic assembly module in GetFEM++ &mdash; GetFEM++</title>
+    <title>低レベルの汎用アセンブリモジュール | gf | &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="Model module" href="libdesc_model.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="モデルモジュール" href="libdesc_model.html" />
     <link rel="prev" title="The high-level generic assembly module in GetFEM++" href="libdesc_high_gen_assemb.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
@@ -43,7 +43,7 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_model.html" title="Model module"
+          <a href="libdesc_model.html" title="モデルモジュール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="libdesc_high_gen_assemb.html" title="The high-level generic assembly module in GetFEM++"
@@ -52,8 +52,8 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,46 +63,56 @@
           <div class="body">
             
   <div class="section" id="the-low-level-generic-assembly-module-in-gf">
-<span id="dp-libdesc-low-assemb"></span><h1>The low-level generic assembly module in <em>GetFEM++</em><a class="headerlink" href="#the-low-level-generic-assembly-module-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-low-assemb"></span><h1>低レベルの汎用アセンブリモジュール | gf |<a class="headerlink" href="#the-low-level-generic-assembly-module-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>First version of the generic assembly. Base on tensor reduction. Not very convenient for nonlinear terms. The high-level generic assembly have to be prefered now.</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ジェネリックアセンブリの最初のバージョン。テンソルの減少の基盤。非線形用語にはあまり便利ではありません。高レベルのジェネリックアセンブリが推奨されるようになりました。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_mat_elem_type.h</span></tt> and:file:` getfem_mat_elem_type.cc</td>
-<td>Defines bes type for components of an elementary matrix.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_mat_elem_type &#8216; と: ファイル: &#8216; getfem_mat_elem_type</p>
+</td>
+<td><p class="first last">基本行列のコンポーネントの bes タイプを定義します。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_mat_elem.h</span></tt> and:file:` getfem_mat_elem.cc</td>
-<td>Describes an compute elementary matrices.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_mat_elem &#8216; と: ファイル: &#8216; getfem_mat_elem</p>
+</td>
+<td><p class="first last">計算の基本行列について説明します。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_assembling_tensors.h</span></tt> and:file:<cite>getfem_assembling_tensors.cc</cite></td>
-<td>Performs the assembly.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_assembling_tensors &#8216; と:file: &#8216; getfem_assembling_tensors &#8216;</p>
+</td>
+<td><p class="first last">アセンブリを実行します。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_assembling.h</span></tt></td>
-<td>Various assembly terms (linear elasticity, generix elliptic term, Dirichlet condition ...</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_assembling &#8216;</p>
+</td>
+<td><p class="first last">様々なアセンブリ用語 (線形弾性, generix 楕円項, ディリクレ条件...</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Stable.</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>安定。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Will not evolve since the efforts are now focused on the high-level generic assembly.</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>努力は現在、高レベルの一般的なアセンブリに焦点を当てているので、進化しません。</p>
 </div>
 </div>
 
@@ -117,11 +127,11 @@
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">The low-level generic assembly module in <em>GetFEM++</em></a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">低レベルの汎用アセンブリモジュール | gf |</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +141,7 @@
                         title="前の章へ">The high-level generic assembly module in <em>GetFEM++</em></a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_model.html"
-                        title="次の章へ">Model module</a></p>            <h3>Download</h3>
+                        title="次の章へ">モデルモジュール</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -176,7 +186,7 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_model.html" title="Model module"
+          <a href="libdesc_model.html" title="モデルモジュール"
              >次へ</a> |</li>
         <li class="right" >
           <a href="libdesc_high_gen_assemb.html" title="The high-level generic assembly module in GetFEM++"
@@ -185,8 +195,8 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

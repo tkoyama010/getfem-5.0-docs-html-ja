@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Appendix A. Some basic computations between reference and real elements &mdash; GetFEM++</title>
+    <title>付録A.参照要素と実要素の基本的な計算 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the Project" href="index.html" />
+    <link rel="up" title="$B%W%m%8%’%/%H$N@bL@(B" href="index.html" />
     <link rel="next" title="References" href="../biblio.html" />
-    <link rel="prev" title="Interface with scripts languages (Python, Scilab and Matlab)" href="libdesc_interface.html" />
+    <link rel="prev" title="スクリプト言語 (Python、Scilab、Matlab) とのインタフェース" href="libdesc_interface.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -46,13 +46,13 @@
           <a href="../biblio.html" title="References"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_interface.html" title="Interface with scripts languages (Python, Scilab and Matlab)"
+          <a href="libdesc_interface.html" title="スクリプト言語 (Python、Scilab、Matlab) とのインタフェース"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">Description of the Project</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,10 +62,10 @@
           <div class="body">
             
   <div class="section" id="appendix-a-some-basic-computations-between-reference-and-real-elements">
-<span id="dp-appendixa"></span><h1>Appendix A. Some basic computations between reference and real elements<a class="headerlink" href="#appendix-a-some-basic-computations-between-reference-and-real-elements" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-appendixa"></span><h1>付録A.参照要素と実要素の基本的な計算<a class="headerlink" href="#appendix-a-some-basic-computations-between-reference-and-real-elements" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="volume-integral">
-<h2>Volume integral<a class="headerlink" href="#volume-integral" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>One has</p>
+<h2>体積積分<a class="headerlink" href="#volume-integral" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>1つは持っている</p>
 <div class="math">
 <p><img src="../images/math/f0df30ce2e74507fd30ef9fbb1ab194afed49406.png" alt="\int_T f(x)\ dx = \int_{\widehat{T}} \widehat{f}(\widehat{x})
 |\mbox{vol}\left(
@@ -74,7 +74,7 @@
 \ldots;
 \frac{\partial\tau(\widehat{x})}{\partial \widehat{x}_{P-1}}
 \right)|\ d\widehat{x}."/></p>
-</div><p>Denoting <img class="math" src="../images/math/497312467d939cef41fa5860e6ae69e2075ad677.png" alt="J_{\tau}(\widehat{x})" style="vertical-align: -4px"/> the jacobian</p>
+</div><p>意味：数学： <a href="#id1"><span class="problematic" id="id2">`</span></a><a href="#id1"><span class="problematic" id="id2">J_</span></a> {tau}（ワイドハット{x}）`ジャコビア</p>
 <div class="math">
 <p><img src="../images/math/c207c5cd1e785543ca4d9cb9a41eac798ff13525.png" alt="\fbox{$ J_{\tau}(\widehat{x}) :=
 |\mbox{vol}\left(
@@ -84,110 +84,93 @@
 \frac{\partial\tau(\widehat{x})}{\partial \widehat{x}_{P-1}}
 \right)| =
 (\mbox{det}(K(\widehat{x})^T K(\widehat{x})))^{1/2}$,}"/></p>
-</div><p>one finally has</p>
+</div><p>1つはついに</p>
 <div class="math">
 <p><img src="../images/math/783c89b33a9d91f4aedb61da4e23525bcb33e572.png" alt="\fbox{$\int_T f(x)\ dx = \int_{\widehat{T}} \widehat{f}(\widehat{x}) J_{\tau}(\widehat{x})\ d\widehat{x}$.}"/></p>
-</div><p>When <img class="math" src="../images/math/d2833ace395dfb2162abbdd4f7f75e65e36d83d9.png" alt="P = N" style="vertical-align: 0px"/>, the expression of the jacobian reduces to <img class="math" src="../images/math/c7e871a4e6e6c90d89dc5f52aeba480fa2fc1dd6.png" alt="J_{\tau}(\widehat{x})
-= |\mbox{det}(K(\widehat{x}))|" style="vertical-align: -5px"/>.</p>
+</div><p>math： <cite>P = N`のとき、ジャコビアの式は次のようになります。math：</cite> {tau}（widehat {x}）= | mbox {det}（K（widehat {x}）） | <a href="#id1"><span class="problematic" id="id2">`</span></a>。</p>
 </div>
 <div class="section" id="surface-integral">
-<h2>Surface integral<a class="headerlink" href="#surface-integral" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>With <img class="math" src="../images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/> a part of the boundary of <img class="math" src="../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T" style="vertical-align: 0px"/> a real element and
-<img class="math" src="../images/math/a5c0cee200b3f38c0f6164b04275406a67856429.png" alt="\widehat{\Gamma}" style="vertical-align: -1px"/> the corresponding boundary on the reference element <img class="math" src="../images/math/ab3da9205a52f44a4d132b33deb60f99456bf730.png" alt="\widehat{T}" style="vertical-align: 0px"/>,
-one has</p>
+<h2>面積分<a class="headerlink" href="#surface-integral" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：math： <cite>ガンマ &#8216;は：math：</cite> T`実数要素と：math： <a href="#id1"><span class="problematic" id="id2">`</span></a>widehat {Gamma}`の境界の一部であり、参照要素の対応する境界：math： <a href="#id3"><span class="problematic" id="id4">`</span></a>widehat {T } <a href="#id5"><span class="problematic" id="id6">`</span></a>、1つは持っている</p>
 <div class="math">
 <p><img src="../images/math/668aef2a67cb112873362ff519ae78842f1a5f2a.png" alt="\fbox{$\int_{\Gamma} f(x)\ d\sigma =
 \int_{\widehat{\Gamma}}\widehat{f}(\widehat{x}) \|B(\widehat{x})\widehat{n}\| J_{\tau}(\widehat{x})\ d\widehat{\sigma}$,}"/></p>
-</div><p>where <img class="math" src="../images/math/8a125dc6129c2e8ed2a29d51ec279f90e66ef43e.png" alt="\widehat{n}" style="vertical-align: 0px"/> is the unit normal to <img class="math" src="../images/math/ab3da9205a52f44a4d132b33deb60f99456bf730.png" alt="\widehat{T}" style="vertical-align: 0px"/> on <img class="math" src="../images/math/a5c0cee200b3f38c0f6164b04275406a67856429.png" alt="\widehat{\Gamma}" style="vertical-align: -1px"/>. In a same
-way</p>
+</div><p>ここで、math： <cite>widehat {nガンマ}`は：math： `widehat {T}}：math：</cite> widehat {Gamma} <a href="#id1"><span class="problematic" id="id2">`</span></a>の法線です。同じように</p>
 <div class="math">
 <p><img src="../images/math/3d56876d4fd2b0d2818776051862bb4f4c0ed294.png" alt="\fbox{$\int_{\Gamma} F(x)\cdot n\ d\sigma =
 \int_{\widehat{\Gamma}} \widehat{F}(\widehat{x})\cdot(B(\widehat{x})\cdot\widehat{n}) J_{\tau}(\widehat{x})\ d\widehat{\sigma}$,}"/></p>
-</div><p>For <img class="math" src="../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> the unit normal to <img class="math" src="../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T" style="vertical-align: 0px"/> on <img class="math" src="../images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/>.</p>
+</div><p>for：math： <cite>n`は、次の式の正規化の単位です：math：</cite> T` on：math： <cite>Gamma</cite>。</p>
 </div>
 <div class="section" id="derivative-computation">
-<h2>Derivative computation<a class="headerlink" href="#derivative-computation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>One has</p>
+<h2>デリバティブ計算<a class="headerlink" href="#derivative-computation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>1つは持っている</p>
 <div class="math">
 <p><img src="../images/math/ddba475a8524c94fc8be913f17a858e527610a0c.png" alt="\nabla f(x) = B(\widehat{x})\widehat{\nabla} \widehat{f}(\widehat{x})."/></p>
 </div></div>
 <div class="section" id="second-derivative-computation">
-<h2>Second derivative computation<a class="headerlink" href="#second-derivative-computation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Denoting</p>
+<h2>二次微分計算<a class="headerlink" href="#second-derivative-computation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>表記</p>
 <div class="math">
 <p><img src="../images/math/922650db95a714a428af3c384a4e359d258de17e.png" alt="\nabla^2 f =
 \left[\frac{\partial^2 f}{\partial x_i \partial x_j}\right]_{ij},"/></p>
-</div><p>the <img class="math" src="../images/math/cb21db0177b65427c9c7fb7bd9183d242bdbcb1f.png" alt="N \times N" style="vertical-align: 0px"/> matrix and</p>
+</div><p>：数学：「N times N」行列と</p>
 <div class="math">
 <p><img src="../images/math/2c28c1bd5becb309c409b3d9fd51e34b2526a10c.png" alt="\widehat{X}(\widehat{x}) =
 \sum_{k = 0}^{N-1}\widehat{\nabla}^2\tau_k(\widehat{x})\frac{\partial f}{\partial x_k}(x) =
 \sum_{k = 0}^{N-1}\sum_{i = 0}^{P-1}
 \widehat{\nabla}^2\tau_k(\widehat{x})B_{ki}\frac{\partial \widehat{f}}{\partial \widehat{x}_i}(\widehat{x}),"/></p>
-</div><p>the <img class="math" src="../images/math/7a7000afbea2fce4dbd290fc88eff7da06cd842a.png" alt="P \times P" style="vertical-align: 0px"/> matrix, then</p>
+</div><p>：数学： <a href="#id1"><span class="problematic" id="id2">`</span></a>P times P`マトリックス、そして</p>
 <div class="math">
 <p><img src="../images/math/50a43f77f4b134a46f6e8cc92eda1ca9c2adcb25.png" alt="\widehat{\nabla}^2 \widehat{f}(\widehat{x}) = \widehat{X}(\widehat{x}) + K(\widehat{x})^T \nabla^2 f(x) K(\widehat{x}),"/></p>
-</div><p>and thus</p>
+</div><p>したがって</p>
 <div class="math">
 <p><img src="../images/math/56d19ce1f48409407456c782b7c1f810f9b10df1.png" alt="\nabla^2 f(x) = B(\widehat{x})(\widehat{\nabla}^2 \widehat{f}(\widehat{x}) - \widehat{X}(\widehat{x})) B(\widehat{x})^T."/></p>
-</div><p>In order to have uniform methods for the computation of elementary matrices, the
-Hessian is computed as a column vector <img class="math" src="../images/math/1b11c03f79f2b15ed4f938c9a3df0e3121689339.png" alt="H f" style="vertical-align: -4px"/> whose components are
-<img class="math" src="../images/math/16a3012e1fd44d48159b198b137791af96afcab1.png" alt="\frac{\partial^2 f}{\partial x^2_0}, \frac{\partial^2 f}{\partial
-x_1\partial x_0},\ldots, \frac{\partial^2 f}{\partial x^2_{N-1}}" style="vertical-align: -12px"/>. Then, with
-<img class="math" src="../images/math/368b6f971b418d731c62ff2cb59f51c527d22849.png" alt="B_2" style="vertical-align: -3px"/> the <img class="math" src="../images/math/b798084a45e691542355bd7f6ead3384f13e8d7a.png" alt="P^2 \times P" style="vertical-align: 0px"/> matrix defined as</p>
+</div><p>基本行列の計算のための一様な方法を持たせるために、ヘッセ行列は次のような列ベクトルとして計算されます：math： <cite>H f`その成分は次の通りです：frac {partial ^ 2 f} {partial x ^ 2_0 }、frac {part ^ 2 f} {partial x_1 partial x_0}、ldots、frac {partial ^ 2 f} {partial x ^ 2_ {N-1}} `次に：with：math： `B_2`は：数学：</cite> P ^ 2 times P`行列を次のように定義します。</p>
 <div class="math">
 <p><img src="../images/math/af0dc2d4ddff4d7e7c23ea66da969f7cd3547afb.png" alt="\left[B_2(\widehat{x})\right]_{ij} =
 \sum_{k = 0}^{N-1}
 \frac{\partial^2 \tau_k(\widehat{x})}{\partial \widehat{x}_{i / P} \partial \widehat{x}_{i\mbox{ mod }P}}
 B_{kj}(\widehat{x}),"/></p>
-</div><p>and <img class="math" src="../images/math/c48424701a2c36b4d4d6956d8c41e2798d8b32a8.png" alt="B_3" style="vertical-align: -3px"/> the <img class="math" src="../images/math/a21d6cd50779232c105861d9e93cc23b4114aad4.png" alt="N^2 \times P^2" style="vertical-align: 0px"/> matrix defined as</p>
+</div><p>：math： <cite>B_3`は次のように定義されています：math：</cite> N ^ 2 times P ^ 2`行列</p>
 <div class="math">
 <p><img src="../images/math/a154bfb20b9d7666d4d1ac1dc4f0ea257870ff0d.png" alt="\left[B_3(\widehat{x})\right]_{ij} =
 B_{i / N, j / P}(\widehat{x}) B_{i\mbox{ mod }N, j\mbox{ mod }P}(\widehat{x}),"/></p>
-</div><p>one has</p>
+</div><p>1つは持っている</p>
 <div class="math">
 <p><img src="../images/math/4701305b13062292cfac92726f1d7ab0e9275394.png" alt="\fbox{$H f(x) = B_3(\widehat{x})
 \left(\widehat{H}\ \widehat{f}(\widehat{x}) - B_2(\widehat{x})\widehat{\nabla} \widehat{f}(\widehat{x})\right)$.}"/></p>
 </div></div>
 <div class="section" id="example-of-elementary-matrix">
-<h2>Example of elementary matrix<a class="headerlink" href="#example-of-elementary-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Assume one needs to compute the elementary &#8220;matrix&#8221;:</p>
+<h2>基本行列の例<a class="headerlink" href="#example-of-elementary-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>基本的な「行列」を計算する必要があると仮定します。</p>
 <div class="math">
 <p><img src="../images/math/9b5be3e33c64925095b323580d30685e1d27eebf.png" alt="t(i_0, i_1, \ldots, i_7) =
 \int_{T}\varphi_{i_1}^{i_0}
 \partial_{i_4}\varphi_{i_3}^{i_2}
 \partial^2_{i_7/ P, i_7\mbox{ mod } P}\varphi_{i_6}^{i_5}\ dx,"/></p>
-</div><p>The computations to be made on the reference elements are</p>
+</div><p>参照要素に対して行われる計算は、</p>
 <div class="math">
 <p><img src="../images/math/ecd9c2d8e581a5615c0b5e6f329b9900a7e4a332.png" alt="\widehat{t}_0(i_0, i_1, \ldots,i_7) =
 \int_{\widehat{T}}(\widehat{\varphi})_{i_1}^{i_0}
 \partial_{i_4}(\widehat{\varphi})_{i_3}^{i_2}
 \partial^2_{i_7 / P, i_7\mbox{ mod } P}(\widehat{\varphi})_{i_6}^{i_5} J(\widehat{x})\ d\widehat{x},"/></p>
-</div><p>and</p>
+</div><p>そして</p>
 <div class="math">
 <p><img src="../images/math/66103a6281ce1003f94aea7d7c01fa51cfa28d6c.png" alt="\widehat{t}_1(i_0, i_1, \ldots, i_7) =
 \int_{\widehat{T}}(\widehat{\varphi})_{i_1}^{i_0}
 \partial_{i_4}(\widehat{\varphi})_{i_3}^{i_2}
 \partial_{i_7}(\widehat{\varphi})_{i_6}^{i_5} J(\widehat{x})\ d\widehat{x},"/></p>
-</div><p>Those two tensor can be computed once on the whole reference element if the
-geometric transformation is linear (because <img class="math" src="../images/math/e966a5a32b5d416a5be4ab0e2e01d12d24447736.png" alt="J(\widehat{x})" style="vertical-align: -4px"/> is constant). If the
-geometric transformation is non-linear, what has to be stored is the value on
-each integration point. To compute the integral on the real element a certain
-number of reductions have to be made:</p>
+</div><p>これらの2つのテンソルは、ジオメトリ変換が線形の場合（参照：数学： <a href="#id1"><span class="problematic" id="id2">`</span></a>J（widehat {x}）が一定であるため）、参照要素全体で一度計算できます。幾何変換が非線形である場合、格納されるべきものは各積分点の値です。実要素上の積分を計算するには、いくつかの削減が必要です。</p>
 <ul class="simple">
-<li>Concerning the first term (<img class="math" src="../images/math/0916a9d933c9f1c8c6ab13ec2ba3480464ad3444.png" alt="\varphi_{i_1}^{i_0}" style="vertical-align: -7px"/>) nothing.</li>
-<li>Concerning the second term (<img class="math" src="../images/math/3cbfd02d0736d7eb018e0b706e0371aefc0593be.png" alt="\partial_{i_4}\varphi_{i_3}^{i_2}" style="vertical-align: -6px"/>) a
-reduction with respect to <img class="math" src="../images/math/d6d044c602a9194bc1c6f69d2de89ce213b1e4fe.png" alt="i_4" style="vertical-align: -3px"/> with the matrix <img class="math" src="../images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/>.</li>
-<li>Concerning the third term (<img class="math" src="../images/math/2733bf5bde00f71d77606b3b820c3f613b923ca0.png" alt="\partial^2_{i_7 / P, i_7\mbox{ mod }P}
-\varphi_{i_6}^{i_5}" style="vertical-align: -12px"/>)` a reduction of <img class="math" src="../images/math/1bda44ca188269d50dd966c5b3a186c03cd3abfd.png" alt="\widehat{t}_0" style="vertical-align: -3px"/> with respect to <img class="math" src="../images/math/99e0c873b9c5f69b2c29f44e766c6ad10eb1e886.png" alt="i_7" style="vertical-align: -3px"/>
-with the matrix <img class="math" src="../images/math/c48424701a2c36b4d4d6956d8c41e2798d8b32a8.png" alt="B_3" style="vertical-align: -3px"/> and a reduction of <img class="math" src="../images/math/571e00e0bfae3253a4eb9fdc702df5a4c088b881.png" alt="\widehat{t}_1" style="vertical-align: -4px"/> with respect also
-to <img class="math" src="../images/math/99e0c873b9c5f69b2c29f44e766c6ad10eb1e886.png" alt="i_7" style="vertical-align: -3px"/> with the matrix <img class="math" src="../images/math/cc4f913cd6e3e8ed3b3952be2663cab76ae1aac9.png" alt="B_3 B_2" style="vertical-align: -3px"/></li>
+<li><p class="first">最初の項（：数学： <cite>varphi_ {i_1} ^ {i_0}</cite>）については何もしません。</p>
+</li>
+<li><p class="first">2番目の項（：math： <cite>partial_ {i_4} varphi_ {i_3} ^ {i_2}</cite>）については、以下のように、行列：math： <cite>B`を使って、math：</cite> i_4`</p>
+</li>
+<li><p class="first">第3項（：数学： <cite>part ^ 2_ {i_7 / P、i_7 mbox {mod} P} varphi_ {i_6} ^ {i_5}</cite>） math： <cite>i_7`を行列：math：</cite> B_3`で置き換え、以下のように減算します：math： <cite>widehat {t} _1</cite>：math：` i_7` ： <cite>B_3 B_2</cite></p>
+</li>
 </ul>
-<p>The reductions are to be made on each integration point if the geometric
-transformation is non-linear. Once those reductions are done, an addition of all
-the tensor resulting of those reductions is made (with a factor equal to the load
-of each integration point if the geometric transformation is non-linear).</p>
-<p>If the finite element is non-<img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/>-equivalent, a supplementary reduction of the
-resulting tensor with the matrix <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> has to be made.</p>
+<p>幾何学的変換が非線形である場合には、各積分点に対して縮小を行う。これらの縮小が行われると、それらの縮小の結果として生じるすべてのテンソルの加算が行われる（幾何変換が非線形である場合、各積分点の負荷に等しい因子で）。</p>
+<p>有限要素が非：math： <cite>tau`相当の場合、結果のテンソルを行列：数学：</cite> M &#8216;で補助的に減らさなければなりません。</p>
 </div>
 </div>
 
@@ -202,19 +185,19 @@ resulting tensor with the matrix <img class="math" src="../images/math/5d1e4485d
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Appendix A. Some basic computations between reference and real elements</a><ul>
-<li><a class="reference internal" href="#volume-integral">Volume integral</a></li>
-<li><a class="reference internal" href="#surface-integral">Surface integral</a></li>
-<li><a class="reference internal" href="#derivative-computation">Derivative computation</a></li>
-<li><a class="reference internal" href="#second-derivative-computation">Second derivative computation</a></li>
-<li><a class="reference internal" href="#example-of-elementary-matrix">Example of elementary matrix</a></li>
+<li><a class="reference internal" href="#">付録A.参照要素と実要素の基本的な計算</a><ul>
+<li><a class="reference internal" href="#volume-integral">体積積分</a></li>
+<li><a class="reference internal" href="#surface-integral">面積分</a></li>
+<li><a class="reference internal" href="#derivative-computation">デリバティブ計算</a></li>
+<li><a class="reference internal" href="#second-derivative-computation">二次微分計算</a></li>
+<li><a class="reference internal" href="#example-of-elementary-matrix">基本行列の例</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_interface.html"
-                        title="前の章へ">Interface with scripts languages (Python, Scilab and Matlab)</a></p>
+                        title="前の章へ">スクリプト言語 (Python、Scilab、Matlab) とのインタフェース</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="../biblio.html"
                         title="次の章へ">References</a></p>            <h3>Download</h3>
@@ -265,13 +248,13 @@ resulting tensor with the matrix <img class="math" src="../images/math/5d1e4485d
           <a href="../biblio.html" title="References"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_interface.html" title="Interface with scripts languages (Python, Scilab and Matlab)"
+          <a href="libdesc_interface.html" title="スクリプト言語 (Python、Scilab、Matlab) とのインタフェース"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

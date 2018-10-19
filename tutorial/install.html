@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>How to install &mdash; GetFEM++</title>
+    <title>インストール方法 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="GetFEM++ Tutorial" href="index.html" />
+    <link rel="up" title="|gf|チュートリアル" href="index.html" />
     <link rel="next" title="Basic Usage of GetFEM++" href="basic_usage.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="prev" title="導入" href="intro.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -46,13 +46,13 @@
           <a href="basic_usage.html" title="Basic Usage of GetFEM++"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="intro.html" title="導入"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U"><em>GetFEM++</em> Tutorial</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">|gf|チュートリアル</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,22 +62,26 @@
           <div class="body">
             
   <div class="section" id="how-to-install">
-<span id="ud-install-tut"></span><h1>How to install<a class="headerlink" href="#how-to-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Since <em>GetFEM++</em> is developped on linux (Ubuntu), the installation is simpler on linux, especially on Debian-based distributions (Debian/Ubuntu/Mint). However, <em>GetFEM++</em> can be installed also on other linux distributions, on Mac os X and Windows. In order to compile <em>GetFEM++</em> from sources, you need a recent C++ complier (supporting C++ 11 standard) and a recent version of python 2.</p>
-<p>The main dependences of <em>GetFEM++</em> on other libraries are</p>
+<span id="ud-install-tut"></span><h1>インストール方法<a class="headerlink" href="#how-to-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>以降 | gf <a href="#id1"><span class="problematic" id="id2">|linux 上で開発し (ubuntu の)、インストールは linux 上で、特に debian ベースのディストリビューション (debian/ubuntu の/ミント) で簡単です。しかし、|</span></a> gf <a href="#id1"><span class="problematic" id="id2">|</span></a>Mac os X および Windows 上の他の linux ディストリビューションにもインストールできます。ためにコンパイルする | gf <a href="#id3"><span class="problematic" id="id4">|</span></a>ソースからは、最近の c++ コンパイラ (c++ 11 標準をサポート) と python 2 の最新バージョンが必要です。</p>
+<p>の主な依存性 <a href="#id1"><span class="problematic" id="id2">|</span></a>Gf <a href="#id3"><span class="problematic" id="id4">|</span></a>他のライブラリでは</p>
 <ul class="simple">
-<li>svn client, automake, autoconf and libtool if you  want to build binaries
-from svn version to get the latest changes.</li>
-<li>Python development files (Python.h etc.) and also the <em>numpy</em> and <em>scipy</em> packages if
-you want to build the python interface.</li>
-<li>sequential MUMPS package (direct solver for sparse matrices) if you want to use it instead of the SuperLU version distributed along with <em>GetFEM++</em>.</li>
-<li>Parallel MUMPS, METIS and MPI4PY packages if you want to ue the MPI parallelized version of <em>GetFEM++</em>.</li>
-<li>qhull package for mesh generation and fictitious domain applications</li>
-<li>BLAS and LAPACK packages</li>
+<li><p class="first">svn クライアント、automake、autoconf、libtool は、最新の変更を取得するために svn のバージョンからバイナリを構築したい場合。</p>
+</li>
+<li><p class="first">python 開発ファイル (python. h など) と、| np <a href="#id1"><span class="problematic" id="id2">|</span></a>と | sp <a href="#id3"><span class="problematic" id="id4">|</span></a>python インターフェイスを構築する場合は、パッケージを選択します。</p>
+</li>
+<li><p class="first">シーケンシャルおたふく風邪のパッケージ (疎行列の直接ソルバー) あなたは SuperLU のバージョンの代わりにそれを使用する場合は | gf | と一緒に配布されます。</p>
+</li>
+<li><p class="first">パラレルおたふく風邪、MPI4PY パッケージ | gf の MPI の並列化されたバージョンを ue したい場合は |</p>
+</li>
+<li><p class="first">メッシュ生成および架空ドメインアプリケーション用の qhull パッケージ</p>
+</li>
+<li><p class="first">ブラスと LAPACK パッケージ</p>
+</li>
 </ul>
 <p><em>GetFEM++</em> C++ library can be build on its own or together with the Python, Scilab and/or Matlab interface.</p>
-<p>You can also install the stable release of Getfem on linux distributions using the corresponding package management system.</p>
-<p>More specific information on how to build Getfem C++ library can be found on the <a class="reference external" href="../download.html">download and install</a> page.</p>
+<p>また、対応するパッケージ管理システムを使用して、Getfem の安定版を linux ディストリビューションにインストールすることもできます。</p>
+<p>Getfem C++ ライブラリをビルドする方法に関するより具体的な情報については、「ダウンロードしてインストールする &lt;.../download.html &gt; &#8216; _ ページを表示します。</p>
 </div>
 
 
@@ -91,7 +95,7 @@ you want to build the python interface.</li>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="intro.html"
-                        title="前の章へ">Introduction</a></p>
+                        title="前の章へ">導入</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="basic_usage.html"
                         title="次の章へ">Basic Usage of <em>GetFEM++</em></a></p>            <h3>Download</h3>
@@ -142,13 +146,13 @@ you want to build the python interface.</li>
           <a href="basic_usage.html" title="Basic Usage of GetFEM++"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="intro.html" title="導入"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" ><em>GetFEM++</em> Tutorial</a> &raquo;</li> 
+          <li><a href="index.html" >|gf|チュートリアル</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Description of the Project &mdash; GetFEM++</title>
+    <title>$B%W%m%8%’%/%H$N@bL@(B &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="next" title="Introduction" href="intro.html" />
-    <link rel="prev" title="Example of wheel in contact (Assembly between two meshes, transformations, use of fixed size variables)" href="../tutorial/wheel.html" />
+    <link rel="next" title="導入" href="intro.html" />
+    <link rel="prev" title="接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)" href="../tutorial/wheel.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -42,10 +42,10 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="intro.html" title="導入"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="../tutorial/wheel.html" title="Example of wheel in contact (Assembly between two meshes, transformations, use of fixed size variables)"
+          <a href="../tutorial/wheel.html" title="接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
@@ -60,53 +60,53 @@
           <div class="body">
             
   <div class="section" id="description-of-the-project">
-<span id="dp"></span><span id="using-index"></span><h1>Description of the Project<a class="headerlink" href="#description-of-the-project" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp"></span><span id="using-index"></span><h1>$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B<a class="headerlink" href="#description-of-the-project" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute / Git repository on Savannah</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#how-to-get-the-sources">How to get the sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#specific-branch-for-doc-improvements-and-typo-fixes">Specific branch for doc improvements and typo-fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#locally-commit-your-changes">Locally commit your changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#push-you-changes-in-the-savannah-repository">Push you changes in the Savannah repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf">Ask for an admin to merge your modifications to the master branch of <em>GetFEM++</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#merge-modifications-done-by-other-contributors">Merge modifications done by other contributors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html#some-useful-git-commands">Some useful git commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">導入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">貢献する方法 / SavannahのGitリポジトリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#how-to-get-the-sources">ソースを入手する方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#how-to-contribute">貢献する方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#specific-branch-for-doc-improvements-and-typo-fixes">ドキュメントの改善と誤植のためのブランチ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#locally-commit-your-changes">変更をローカルにコミットする。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#push-you-changes-in-the-savannah-repository">Savannahリポジトリの変更をプッシュします</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf"><em>GetFEM++</em> のマスターブランチに変更をマージする場合は管理者に問い合わせてください。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#merge-modifications-done-by-other-contributors">他の貢献者が行った変更をマージする。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#some-useful-git-commands">有用なgitコマンド</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="femdesc.html">The FEM description in <em>GetFEM++</em></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="femdesc.html#convex-structures">Convex structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="femdesc.html#convexes-of-reference">Convexes of reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="femdesc.html#shape-function-type">Shape function type</a></li>
-<li class="toctree-l2"><a class="reference internal" href="femdesc.html#geometric-transformations">Geometric transformations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="femdesc.html#finite-element-methods-description">Finite element methods description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="femdesc.html"><em>GetFEM++</em> のFEM記述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="femdesc.html#convex-structures">凸包構造</a></li>
+<li class="toctree-l2"><a class="reference internal" href="femdesc.html#convexes-of-reference">参照の凸包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="femdesc.html#shape-function-type">形状関数型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="femdesc.html#geometric-transformations">幾何学的変換</a></li>
+<li class="toctree-l2"><a class="reference internal" href="femdesc.html#finite-element-methods-description">有限要素法記述</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="libdesc.html">Description of the different parts of the library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_gmm.html">Gmm library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_dal.html">Dal library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_misc.html">Miscellaneous algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_event.html">Events management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_mesh.html">Mesh module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_fem.html">Fem module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_im.html">Integ module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_meshfem.html">MeshFem module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_mim.html">MeshIm module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_levelset.html">Level-set module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libdesc.html">ライブラリのさまざまな部分の説明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_gmm.html">ライブラリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_dal.html">Dal ライブラリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_misc.html">その他のアルゴリズム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_event.html">イベント管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_mesh.html">メッシュモジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_fem.html">Fem モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_im.html">Integ モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_meshfem.html">MeshFem モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_mim.html">MeshIm モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_levelset.html">レベルセットモジュール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="libdesc_high_gen_assemb.html">The high-level generic assembly module in <em>GetFEM++</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_low_gen_assemb.html">The low-level generic assembly module in <em>GetFEM++</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_model.html">Model module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_cont.html">Continuation module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libdesc_interface.html">Interface with scripts languages (Python, Scilab and Matlab)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_low_gen_assemb.html">低レベルの汎用アセンブリモジュール | gf |</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_model.html">モデルモジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_cont.html">継続モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdesc_interface.html">スクリプト言語 (Python、Scilab、Matlab) とのインタフェース</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="appendixA.html">Appendix A. Some basic computations between reference and real elements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendixA.html#volume-integral">Volume integral</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendixA.html#surface-integral">Surface integral</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendixA.html#derivative-computation">Derivative computation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendixA.html#second-derivative-computation">Second derivative computation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendixA.html#example-of-elementary-matrix">Example of elementary matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixA.html">付録A.参照要素と実要素の基本的な計算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendixA.html#volume-integral">体積積分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixA.html#surface-integral">面積分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixA.html#derivative-computation">デリバティブ計算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixA.html#second-derivative-computation">二次微分計算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendixA.html#example-of-elementary-matrix">基本行列の例</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../biblio.html">References</a></li>
@@ -125,10 +125,10 @@
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="../tutorial/wheel.html"
-                        title="前の章へ">Example of wheel in contact (Assembly between two meshes, transformations, use of fixed size variables)</a></p>
+                        title="前の章へ">接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="intro.html"
-                        title="次の章へ">Introduction</a></p>            <h3>Download</h3>
+                        title="次の章へ">導入</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -173,10 +173,10 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="intro.html" title="導入"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="../tutorial/wheel.html" title="Example of wheel in contact (Assembly between two meshes, transformations, use of fixed size variables)"
+          <a href="../tutorial/wheel.html" title="接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>

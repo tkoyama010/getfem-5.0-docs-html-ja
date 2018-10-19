@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Interface with scripts languages (Python, Scilab and Matlab) &mdash; GetFEM++</title>
+    <title>スクリプト言語 (Python、Scilab、Matlab) とのインタフェース &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="Appendix A. Some basic computations between reference and real elements" href="appendixA.html" />
-    <link rel="prev" title="Continuation module" href="libdesc_cont.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="付録A.参照要素と実要素の基本的な計算" href="appendixA.html" />
+    <link rel="prev" title="継続モジュール" href="libdesc_cont.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="appendixA.html" title="Appendix A. Some basic computations between reference and real elements"
+          <a href="appendixA.html" title="付録A.参照要素と実要素の基本的な計算"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_cont.html" title="Continuation module"
+          <a href="libdesc_cont.html" title="継続モジュール"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,119 +63,72 @@
           <div class="body">
             
   <div class="section" id="interface-with-scripts-languages-python-scilab-and-matlab">
-<span id="dp-libdesc-interface"></span><h1>Interface with scripts languages (Python, Scilab and Matlab)<a class="headerlink" href="#interface-with-scripts-languages-python-scilab-and-matlab" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>A simplified (but rather complete) interface of <em>GetFEM++</em> is provided, so that it is possible to use getfem in some script languages.</p>
+<span id="dp-libdesc-interface"></span><h1>スクリプト言語 (Python、Scilab、Matlab) とのインタフェース<a class="headerlink" href="#interface-with-scripts-languages-python-scilab-and-matlab" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><em>GetFEM++</em> の簡略化された (むしろ完全な) インターフェイスは、いくつかのスクリプト言語で getfem を使用することができるように提供されています。</p>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>All sources are located in the <tt class="file docutils literal"><span class="pre">interface/src</span></tt> directory. The interface is
-composed of one large library <tt class="docutils literal"><span class="pre">getfemint</span></tt> (which stands for getfem
-interaction), which acts as a layer above the <em>GetFEM++</em> library, and is used by
-the python, matlab and scilab interfaces.</p>
-<p>This interface is not something that is generated automatically from c++ sources
-(as that could be the case with tools such as swig). It is something that has
-been designed as a simplified and consistent interface to getfem. Adding a new
-language should be quite easy (assuming the language provides some structures
-for dense arrays manipulations).</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>すべてのソースは <tt class="file docutils literal"><span class="pre">interface/src</span></tt> ディレクトリにあります。インターフェイスは、1つの大規模なライブラリ <tt class="docutils literal"><span class="pre">getfemint</span></tt> (getfem 相互作用の略) で構成され、その上の層として機能する <em>GetFEM++</em> ライブラリ、および python、matlab と scilab のインターフェイスによって使用されます。</p>
+<p>このインターフェイスは、c++ ソースから自動的に生成されるものではありません (ガブガブなどのツールの場合もあります)。それは getfem に簡素化され、一貫性のあるインターフェイスとして設計されているものです。新しい言語を追加することは非常に簡単です (言語が密な配列操作のための構造を提供すると仮定して)。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>All the files in the directory <tt class="file docutils literal"><span class="pre">interfacesrc</span></tt>. A short description of main files:</p>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ディレクトリ内のすべてのファイル: ファイル: &#8216; interfacesrc &#8216;。メインファイルの簡単な説明:</p>
 <ul>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">getfem_interface.cc</span></tt>.</p>
-<p>This is the bridge between the script language and the getfem interface. The
-function getfem_interface_main is exported as an <tt class="docutils literal"><span class="pre">extern</span> <span class="pre">&quot;C&quot;</span></tt> function, so
-this is a sort of c++ barrier between the script language and the getfem
-interface (exporting only a C interface avoids many compilation problems).</p>
+<li><p class="first">: ファイル: &#8216; getfem_interface &#8216;。</p>
+<p>これは、スクリプト言語と getfem インターフェイスの間のブリッジです。関数 getfem_interface_main は &#8216; &#8216; extern &#8216; c &#8216; &#8216; &#8216; 関数としてエクスポートされるため、これはスクリプト言語と getfem インターフェイスの間の c++ バリアの一種です (c インターフェイスのみをエクスポートすると、多くのコンパイルの問題が回避されます)。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">matlab/gfm_mex.c</span></tt>.</p>
-<p>The matlab interface. The only thing it knows about getfem is in
-<tt class="file docutils literal"><span class="pre">getfem_interface.h</span></tt>.</p>
+<li><p class="first">: ファイル: &#8216; matlab の/gfm_mex &#8216;。</p>
+<p>matlab インターフェイス。それは getfem について知っている唯一のものである: ファイル: &#8216; getfem_interface &#8216;。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">python/getfem_python.c</span></tt>.</p>
-<p>The python interface. The only thing it knows about getfem is in
-<tt class="file docutils literal"><span class="pre">getfem_interface.h</span></tt>.</p>
+<li><p class="first">: ファイル: &#8216; python/getfem_python &#8216;.</p>
+<p>python インターフェイス。それは getfem について知っている唯一のものである: ファイル: &#8216; getfem_interface &#8216;。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">gfi_array.h</span></tt>, <tt class="file docutils literal"><span class="pre">gfi_array.c</span></tt>.</p>
-<p>Both <tt class="file docutils literal"><span class="pre">gfm_mex.c</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_python.c</span></tt> need a simple convention on
-how to send and receive arrays, and object handles, from
-<tt class="docutils literal"><span class="pre">getfem_interface_main()</span></tt>. This file provide such functionnality.</p>
+<li><p class="first">: ファイル: &#8216; gfi_array &#8216;,: ファイル: &#8216; gfi_array &#8216;.</p>
+<p>どちらも: ファイル: &#8216; gfm_mex &#8216; と: ファイル: &#8216; getfem_python &#8216; は &#8216; &#8216; getfem_interface_main () &#8216; &#8216; から配列とオブジェクトハンドルを送受信する方法に関する簡単な規則を必要とします。このファイルはこのような機能を提供します。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">getfemint_gsparse.h</span></tt>, <tt class="file docutils literal"><span class="pre">getfemint_precond.h</span></tt>, etc.</p>
-<p>Files specific to an interfaced object if needed.
-(getfemint_gsparse which export some kind of mutable sparse matrix that can
-switch between different storage types, and real of complex elements).</p>
+<li><p class="first">: ファイル: &#8216; getfemint_gsparse &#8216;,: ファイル: &#8216; getfemint_precond &#8216;, など.</p>
+<p>必要に応じて、インタフェースオブジェクトに固有のファイル。(getfemint_gsparse は、異なる種類のストレージを切り替えることができるいくつかの種類の可変疎行列をエクスポートし、複雑な要素の実数) を出力します。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">gf_workspace.cc</span></tt>, <tt class="file docutils literal"><span class="pre">gf_delete.cc</span></tt>.</p>
-<p>Memory management for getfem objects. There is a layer which handles the
-dependency between for example a <tt class="docutils literal"><span class="pre">mesh</span></tt> and a <tt class="docutils literal"><span class="pre">mesh_fem</span></tt>.
-It makes sure that no object
-will be destroyed while there is still another getfem_object using it.
-The goal
-is to make sure that under no circumstances the user is able to crash getfem
-(and the host program, matlab, scilab or python) by passing incorrect
-argument to the getfem interface.</p>
-<p>It also provides a kind of workspace stack, which was designed to simplify
-handling and cleaning of many getfem objects in matlab (since matlab does not
-have &#8220;object destructors&#8221;).</p>
+<li><p class="first">: ファイル: &#8216; gf_workspace &#8216;,: ファイル: &#8216; gf_delete &#8216;.</p>
+<p>getfem オブジェクトのメモリ管理。たとえば &#8216; &#8216; メッシュ &#8216; &#8216; と &#8216; &#8216; mesh_fem &#8216; &#8216; の間の依存関係を処理するレイヤがあります。それを使用して別の getfem_object がまだある間、オブジェクトが破棄されることを確認します。目的は、ユーザーが getfem インターフェイスに不正な引数を渡すことによって getfem (およびホストプログラム、matlab、scilab または python) をクラッシュさせることができない状況下でことを確認することです。</p>
+<p>また、(matlab は &#8220;オブジェクトのデストラクタ&#8221; を持っていないので) matlab で多くの getfem オブジェクトの処理とクリーニングを簡素化するように設計されたワークスペースのスタックの種類を提供しています。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">getfemint.h</span></tt>, <tt class="file docutils literal"><span class="pre">getfemint.cc</span></tt>.</p>
-<p>Define the <tt class="docutils literal"><span class="pre">mexarg_in</span></tt>, <tt class="docutils literal"><span class="pre">mexarg_out</span></tt> classes, which are used to parse the
-list of input and output arguments to the getfem interface functions.
-The name  is not adequate anymore since any reference to &#8220;mex&#8221;
-has been moved into
-<tt class="file docutils literal"><span class="pre">gfm_mex.c</span></tt>.</p>
+<li><p class="first">: ファイル: &#8216; getfemint &#8216;,: ファイル: &#8216; getfemint &#8216;.</p>
+<p>入力と出力の引数のリストを getfem インターフェイス関数に解析するために使用される &#8216; &#8216; mexarg_in &#8216; &#8216;、&#8217; &#8216; mexarg_out &#8216; &#8216; クラスを定義します。&#8221;mex&#8221; への参照が移されたので、名前はもう十分ではありません: ファイル: &#8216; gfm_mex &#8216;。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">gf_mesh.cc</span></tt>, <tt class="file docutils literal"><span class="pre">gf_mesh_get.cc</span></tt>, <tt class="file docutils literal"><span class="pre">gf_mesh_set.cc</span></tt>,
-<tt class="file docutils literal"><span class="pre">gf_fem.cc</span></tt>, etc.</p>
-<p>All the functions exported be the getfem interfaces, sorted by object type
-(<tt class="docutils literal"><span class="pre">gf_mesh*</span></tt>, <tt class="docutils literal"><span class="pre">gf_mesh_fem*</span></tt>, <tt class="docutils literal"><span class="pre">gf_fem*</span></tt>), and then organized as one for
-the object construction (<tt class="docutils literal"><span class="pre">gf_mesh</span></tt>), one for the object modification
-(<tt class="docutils literal"><span class="pre">gf_mesh_set</span></tt>), and one for the object inquiry (<tt class="docutils literal"><span class="pre">gf_mesh_get</span></tt>). Each of
-these files contain one main function, that receives a <tt class="docutils literal"><span class="pre">mexargs_in</span></tt> and
-<tt class="docutils literal"><span class="pre">mexargs_out</span></tt> stack of arguments. It parses then, and usually interprets the
-first argument as the name of a subfunction (<tt class="docutils literal"><span class="pre">gf_mesh_get('nbpts')</span></tt> in
-matlab, or <tt class="docutils literal"><span class="pre">Mesh.nbpts()</span></tt> in python).</p>
+<li><p class="first">: ファイル: &#8216; gf_mesh &#8216;,: ファイル: &#8216; gf_mesh_get &#8216;,: ファイル: &#8216; gf_mesh_set &#8216;,: ファイル: &#8216; gf_fem cc &#8216;, など.</p>
+<p>エクスポートされるすべての関数は、オブジェクトの種類 (&#8216; &#8216; gf_mesh * &#8216; &#8216;、&#8217; で並べ替えられた getfem インターフェイスになります。 &#8216; gf_mesh_fem * &#8216;、&#8217; &#8216; gf_fem * &#8216; &#8216;)、オブジェクトの構築 (&#8216; &#8216; gf_mesh &#8216; &#8216;)、オブジェクトの変更 (&#8216; &#8216; gf_mesh_set &#8216; &#8216;) の1つとして編成され、オブジェクトの照会 (&#8216; &#8216; gf_mesh_get &#8216; &#8216;)。これらの各ファイルには、引数の &#8216; &#8216; mexargs_in &#8216; &#8216; と &#8216; &#8216; mexargs_out &#8216; &#8216; スタックを受け取る1つの main 関数が含まれています。その後、解析し、通常、最初の引数を subfunction の名前として解釈します (&#8216; &#8216; gf_mesh_get (&#8216; nbpts &#8216;) &#8216; &#8216; matlab で、または &#8216; &#8216; メッシュ nbpts () &#8216; &#8216; python で)。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">matlab/gfm_rpx_mexint.c</span></tt>.</p>
-<p>An alternative to <tt class="file docutils literal"><span class="pre">gfm_mex.c</span></tt> which is used when the
-<tt class="docutils literal"><span class="pre">--enable-matlab-rpc</span></tt> is passed to the <tt class="docutils literal"><span class="pre">./configure</span></tt> script. The main use
-for that is debugging the interface, since in that case, the matlab interface
-communicates via sockets with a &#8220;getfem_server&#8221; program, so it is possible to
-debug that server program, and identify memory leaks or anything else without
-having to mess with matlab (it is pain to debug).</p>
+<li><p class="first">: ファイル: &#8216; matlab の/gfm_rpx_mexint &#8216;。</p>
+<p>代替: ファイル: &#8216; &#8216;&#8211;有効-matlab-rpc &#8216; &#8216; が &#8216; &#8216;/configure &#8216; &#8216; スクリプトに渡されるときに使用される &#8216; gfm_mex &#8216;。そのための主な用途は、その場合には、matlab のインターフェイスは、&#8221;getfem_server&#8221; プログラムでソケットを介して通信するので、そのサーバープログラムをデバッグすることが可能であり、メモリリークまたは何かを混乱させることなく識別するインターフェイスをデバッグしているmatlab (デバッグするのは苦痛です)。</p>
 </li>
-<li><p class="first"><tt class="file docutils literal"><span class="pre">python/getfem.py</span></tt>.</p>
-<p>The python interface is available as a &#8220;<tt class="file docutils literal"><span class="pre">getfem.py</span></tt>&#8221; file which is
-produced during compilation by the python script
-&#8220;<tt class="file docutils literal"><span class="pre">bin/extract_doc.py</span></tt>&#8221;.</p>
+<li><p class="first">: ファイル: &#8216; python/getfem &#8216;。</p>
+<p>python インタフェースは、python スクリプトによってコンパイル中に生成される &#8221;: file: &#8216; getfem &#8216;&#8221; ファイルとして利用可能です: ファイル: &#8216; bin/extract_doc &#8216; &#8220;。</p>
 </li>
 </ul>
 </div>
 <div class="section" id="objects-methods-and-functions-of-the-interface">
-<h2>Objects, methods and functions of the interface<a class="headerlink" href="#objects-methods-and-functions-of-the-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The main concepts manipulated by the interface are a limited number of objects
-(Fem, Mesh, MeshFem, Model ...), the associated methods and some functions defined on these objects.</p>
-<p>A special effort has been done to facilitate the addition of new objects, methods and functions to the interface without doing it separetaly for each partsupported script language (Python, Scilab, Matlab).</p>
-<p>All the information needed to build the interface for the different objects, methods and functions is contained in the files <cite>interface/src/gf*.cc</cite>. A python script (<cite>bin/extract_doc</cite>) produces all the necessary files from the information it takes there. In particular, it produces the python file getfem.py, the matlab m-files for the different functions and objects (including subdirectories) and it also produces the automatic documentations.</p>
-<p>To make all the things work automatically, a certain number of rules have to be respected:</p>
+<h2>インターフェイスのオブジェクト、メソッド、および関数<a class="headerlink" href="#objects-methods-and-functions-of-the-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>インターフェイスによって操作される主な概念は、オブジェクトの限られた数 (Fem、メッシュ、MeshFem、モデル...)、関連するメソッド、およびこれらのオブジェクトで定義されている関数です。</p>
+<p>特別な努力は、各 partsupported スクリプト言語 (Python、Scilab、Matlab) の separetaly を行うことなく、インターフェイスに新しいオブジェクト、メソッド、および関数の追加を容易にするために行われています。</p>
+<p>さまざまなオブジェクト、メソッド、および関数のインターフェイスを構築するために必要なすべての情報は、ファイルのインターフェイス/src/gf <a href="#id1"><span class="problematic" id="id2">*</span></a>. cc &#8216; に含まれています。python スクリプト (&#8216; bin/extract_doc &#8216;) は、必要なすべてのファイルをそこで取得する情報から生成します。特に、それは python ファイル getfem.py を生成する、matlab の m-ファイルの異なる機能やオブジェクト (サブディレクトリを含む) と、それはまた、自動ドキュメンテーションを生成します。</p>
+<p>すべてのものを自動的に動作させるには、一定数のルールを尊重する必要があります。</p>
 <ul>
-<li><p class="first">An object have to be defined by three files on the interface</p>
+<li><p class="first">オブジェクトは、インターフェイス上の3つのファイルで定義する必要があります。</p>
 <ul class="simple">
-<li><tt class="file docutils literal"><span class="pre">gf_objectname.cc</span></tt> : contains the constructors of the object</li>
-<li><tt class="file docutils literal"><span class="pre">gf_objectname_get.cc</span></tt> : contains the methods which only get some information about the object (if any).</li>
-<li><tt class="file docutils literal"><span class="pre">gf_objectname_set.cc</span></tt> : contains the methods which transform the object (if any).</li>
+<li><p class="first">: ファイル: &#8216; gf_objectname &#8216;: オブジェクトのコンストラクタが含まれています。</p>
+</li>
+<li><p class="first">: ファイル: &#8216; gf_objectname_get &#8216;: オブジェクトに関する情報を取得するメソッドが含まれています (存在する場合)。</p>
+</li>
+<li><p class="first">: ファイル: &#8216; gf_objectname_set &#8216;: オブジェクトを変換するメソッドが含まれています (存在する場合)。</p>
+</li>
 </ul>
 </li>
-<li><p class="first">A list of function is defined by only one file <tt class="file docutils literal"><span class="pre">gf_commandname.cc</span></tt>
-it contains a list of sub-comands.</p>
+<li><p class="first">関数のリストは1つのファイルによって定義されます: ファイル: &#8216; gf_commandname &#8216; サブ comands のリストが含まれています。</p>
 </li>
-<li><p class="first">For each file, the main commentary on the list of functions or methods is delimited by the tags &#8216;/<em>&#64;GFDOC&#8217; and &#8216;&#64;</em>/&#8217;. For a file corresponding to the constructors of an object, the commentary should correspond to the description of the object.</p>
+<li><p class="first">各ファイルについて、関数またはメソッドのリストに関する主な解説は、タグ &#8216;/* &#64;GFDOC &#8216; および &#8216; &#64; <a href="#id1"><span class="problematic" id="id2">*</span></a>/&#8217; で区切られています。オブジェクトのコンストラクタに対応するファイルの場合、注釈はオブジェクトの説明に対応している必要があります。</p>
 </li>
-<li><p class="first">Each non trivial file gf_*.cc contains a macro allowing to define the
-methods of the object or the sub-commands. In particular, this system
-allows to have a efficient search of the called method/function.
-This macro allows to declare
-a new method/function with the following syntax:</p>
+<li><p class="first">各非自明ファイル <a href="#id1"><span class="problematic" id="id2">gf_</span></a> <a href="#id1"><span class="problematic" id="id2">*</span></a>. cc には、オブジェクトまたはサブコマンドのメソッドを定義できるマクロが含まれています。特に、このシステムは、呼び出されたメソッド/関数の効率的な検索をすることができます。このマクロでは、次の構文を使用して新しいメソッド/関数を宣言できます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="cm">/*@GET val = (&#39;method-name&#39;, params, ...)</span>
 <span class="cm">   Documention of the method/function.</span>
 <span class="cm">@*/</span>
@@ -187,148 +140,126 @@ a new method/function with the following syntax:</p>
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>The first three line are a c++ commentary which describes the call of the
-method/function with a special syntax and also gives a description of the
-method/function which will be included in the documentations. The first
-line of this commentary is important since it will be analyzed to produce
-the right interface for Python, Matlab and Scilab.</p>
-<p>The syntax for the description of the call of a method/function is the
-following: After <tt class="docutils literal"><span class="pre">/*&#64;</span></tt> a special keyword should be present. It is either
-<tt class="docutils literal"><span class="pre">INIT</span></tt>, <tt class="docutils literal"><span class="pre">GET</span></tt>, <tt class="docutils literal"><span class="pre">SET</span></tt>, <tt class="docutils literal"><span class="pre">RDATTR</span></tt> or <tt class="docutils literal"><span class="pre">FUNC</span></tt>. The keyword
-<tt class="docutils literal"><span class="pre">INIT</span></tt> means that
-this is the description of a constructor of an object. <tt class="docutils literal"><span class="pre">RDATTR</span></tt> is for
-a short method allowing to get an attribut of an object. <tt class="docutils literal"><span class="pre">GET</span></tt> is for a
-method of an object which does not modify it. <tt class="docutils literal"><span class="pre">SET</span></tt> is for a method which
-modifies an object and <tt class="docutils literal"><span class="pre">FUNC</span></tt> is for the sub-command of a function list.</p>
-<p>If the method/function returns a value, then a name for the return value
-is given (which is arbitrary) followed by <tt class="docutils literal"><span class="pre">=</span></tt>.</p>
-<p>The parameters of the method/function are described. For a method, the
-object itself is not mentionned. The first parameter should be the method
-or sub-command name between single quotes (a speical case is when
-this name begins with a dot; this means that it corresponds to a
-method/function where the command name is not required).</p>
-<p>The other parameters, if any, should be declared with a type. Predefined
-types are the following:</p>
+<p>最初の3行は、特別な構文を持つメソッド/関数の呼び出しを記述し、また、ドキュメントに含まれるメソッド/関数の説明を与える c++ の解説です。それは Python、Matlab と Scilab のための適切なインターフェイスを生成するために分析されるため、この解説の最初の行は重要です。</p>
+<p>メソッド/関数の呼び出しの説明の構文は次のとおりです。 &#8216; &#8216;/* &#64; &#8216; &#8216; の後には、特別なキーワードが存在する必要があります。これは、&#8217; &#8216; INIT &#8216; &#8216;、&#8217; &#8216; GET &#8216; &#8216;、&#8217; &#8216; SET &#8216; &#8216;、&#8217; &#8216; RDATTR &#8216; &#8216;、または &#8216; &#8216; FUNC &#8216; &#8216; のいずれかです。キーワード &#8216; &#8216; INIT &#8216; &#8216; は、これがオブジェクトのコンストラクタの記述であることを意味します。&#8217; &#8216; RDATTR &#8216; &#8216; は、オブジェクトの attribut を得ることを可能にする短いメソッドのためのものです。&#8217; &#8216; GET &#8216; &#8216; は、それを変更しないオブジェクトのメソッドのためのものです。&#8217; &#8216; SET &#8216; &#8216; は、オブジェクトを変更するメソッドのためのもので、&#8217; &#8216; FUNC &#8216; &#8216; は関数リストのサブコマンドのためのものです。</p>
+<p>メソッド/関数が値を返す場合は、戻り値の名前 (任意です) に続いて &#8216; &#8216; = &#8216; &#8216; が返されます。</p>
+<p>メソッド/関数のパラメータについて説明します。メソッドの場合、オブジェクト自体は mentionned ではありません。最初のパラメーターは、単一引用符の間のメソッドまたはサブコマンド名である必要があります (speical の場合は、この名前がドットで始まる場合です。これは、コマンド名が不要なメソッド/関数に対応することを意味します)。</p>
+<p>その他のパラメーターがある場合は、型を使用して宣言する必要があります。定義済みの型は次のとおりです。</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">&#64;CELL</span></tt>   : a cell array,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;imat</span></tt>   : matrix of integers,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;ivec</span></tt>   : vector of integers,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;cvec</span></tt>   : vector of complex values,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;dcvec</span></tt>  : vector of complex values,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;dvec</span></tt>   : vector of real values,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;vec</span></tt>    : vector of real or complex values,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;dmat</span></tt>   : matrix of real values,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;mat</span></tt>    : matrix of real or complex values,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;str</span></tt>    : a string,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;int</span></tt>    : an integer,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;bool</span></tt>   : a boolean,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;real</span></tt>   : a real value,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;scalar</span></tt> : a real or complex value,</li>
-<li><tt class="docutils literal"><span class="pre">&#64;list</span></tt>   : a list.</li>
+<li><p class="first">&#8216; &#8216; &#64;CELL &#8216; &#8216;: セル配列、</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;imat &#8216; &#8216;: 整数の行列、</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;ivec &#8216; &#8216;: 整数のベクトル,</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;cvec &#8216; &#8216;: 複素値のベクトル,</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;dcvec &#8216; &#8216;: 複素値のベクトル,</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;dvec &#8216; &#8216;: 実数値のベクトル,</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;vec &#8216; &#8216;: 実数または複素数のベクトル,</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;dmat &#8216; &#8216;: 実数値の行列,</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;mat &#8216; &#8216;: 実数または複素数の行列,</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;str &#8216; &#8216;: 文字列、</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;int &#8216; &#8216;: 整数、</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;bool &#8216; &#8216;: ブール型 (boolean)、</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;real &#8216; &#8216;: 実際の値、</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;scalar &#8216; &#8216;: 実数または複素数を指定します。</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;list &#8216; &#8216;: リスト。</p>
+</li>
 </ul>
 </div></blockquote>
-<p>Moreover, <tt class="docutils literal"><span class="pre">&#64;tobj</span></tt> refers to an object defined by the interface.
-For instance, ou can refer to <tt class="docutils literal"><span class="pre">&#64;tmesh</span></tt>, <tt class="docutils literal"><span class="pre">&#64;tmesh_fem</span></tt>, <tt class="docutils literal"><span class="pre">&#64;tfem</span></tt>, etc.
-There are some authorized abreviations:</p>
+<p>さらに、&#8217; &#8216; &#64;tobj &#8216; &#8216; はインタフェースによって定義されたオブジェクトを参照します。たとえば、ou は &#8216; &#8216; &#64;tmesh &#8216; &#8216;、&#8217; &#8216; &#64;tmesh_fem &#8216; &#8216;、&#8217; &#8216; &#64;tfem &#8216; &#8216; などを参照できます。いくつかの承認された abreviations があります:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">&#64;tcs</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tcont_struct</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tmf</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tmesh_fem</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tgt</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tgeotrans</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tgf</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tglobal_function</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tmo</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tmesher_object</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tmls</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tmesh_levelset</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tmim</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tmesh_im</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tls</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tlevelset</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tsl</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tslice</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tsp</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tspmat</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">&#64;tpre</span></tt>  for  <tt class="docutils literal"><span class="pre">&#64;tprecond</span></tt></li>
+<li><p class="first">&#8216; &#8216; &#64;tcont_struct &#8216; &#8216; の &#8216; &#8216; &#64;tcs &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tmesh_fem &#8216; &#8216; の &#8216; &#8216; &#64;tmf &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tgeotrans &#8216; &#8216; の &#8216; &#8216; &#64;tgt &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tglobal_function &#8216; &#8216; の &#8216; &#8216; &#64;tgf &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tmesher_object &#8216; &#8216; の &#8216; &#8216; &#64;tmo &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tmesh_levelset &#8216; &#8216; の &#8216; &#8216; &#64;tmls &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tmesh_im &#8216; &#8216; の &#8216; &#8216; &#64;tmim &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tlevelset &#8216; &#8216; の &#8216; &#8216; &#64;tls &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tslice &#8216; &#8216; の &#8216; &#8216; &#64;tsl &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tspmat &#8216; &#8216; の &#8216; &#8216; &#64;tsp &#8216; &#8216;</p>
+</li>
+<li><p class="first">&#8216; &#8216; &#64;tprecond &#8216; &#8216; の &#8216; &#8216; &#64;tpre &#8216; &#8216;</p>
+</li>
 </ul>
 </div></blockquote>
-<p>Three dots at the end of the parameter list (<tt class="docutils literal"><span class="pre">...</span></tt>) mean that
-additional parameters are possible. Optional parameters can be described
-with brackets. For instance <tt class="docutils literal"><span class="pre">/*&#64;SET</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">('name'[,</span> <span class="pre">&#64;int</span> <span class="pre">i])</span></tt>. But
-be carreful how it is interpreted by the <tt class="file docutils literal"><span class="pre">extract_doc</span></tt> script
-to build the python interface.</p>
-<p>The second to fifth parameters of the macro correspond respectively to
-the minimum number of input arguments, the maximum one, the minimum
-number of output arguments and the maximum number of output arguments. It
-is dynamically verified.</p>
-<p>Additional parameters for the function lists ....</p>
-<p>For unknown reasons, the body of the function cannot contain multiple
-declarations such as <tt class="docutils literal"><span class="pre">int</span> <span class="pre">a,</span> <span class="pre">b;</span></tt> (c++ believes that it is an additional
-parameter of the macro).</p>
+<p>パラメータリスト (&#8216; &#8216;... &#8216; &#8216;) の末尾にある3つの点は、追加のパラメータが可能であることを意味します。省略可能なパラメーターは、角かっこで記述できます。たとえば、&#8217;/* &#64;SET v = (&#8216; name &#8216; [, &#64;int i]) &#8216; &#8216; です。しかし、python インターフェイスを構築するには、: file: &#8216; extract_doc &#8216; スクリプトによってどのように解釈されるかを carreful してください。</p>
+<p>マクロの 2 ~ 5 番目のパラメーターは、入力引数の最小数、最大値、出力引数の最小数、および出力引数の最大数にそれぞれ対応しています。動的に検証されます。</p>
+<p>関数リストの追加パラメータ...。</p>
+<p>不明な理由から、関数の本体には、&#8217; &#8216; int a、b; &#8216; &#8216; などの複数の宣言を含めることはできません (c++ はマクロの追加パラメーターであると考えています)。</p>
 </li>
 </ul>
 <ul>
-<li><p class="first">The parts of documentation included in the c++ commentaries should be in
-<a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> format. In particular, math formulas can be included
-with :math:`f(x) = 3x^2+2x+4` or with:</p>
+<li><p class="first">c++ の解説に含まれているドキュメントの部分は、&#8217; reStructuredText&#8217;_ 形式である必要があります。特に、数学の数式は : 数学 : &#8216; f (x) = 3x ^ 2 + 2x + 4 &#8216; に含めることができます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="p">..</span> <span class="n">math</span><span class="o">::</span>
 
   <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">3</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="n">x</span><span class="o">+</span><span class="mi">4</span>
 </pre></div>
 </div>
-<p>It is possible to refer to another method or function of the interface
-with the syntax <tt class="docutils literal"><span class="pre">INIT::OBJNAME('method-name',</span> <span class="pre">...)</span></tt>,
-<tt class="docutils literal"><span class="pre">GET::OBJNAME('method-name',</span> <span class="pre">...)</span></tt>, <tt class="docutils literal"><span class="pre">SET::OBJNAME('method-name',</span> <span class="pre">...)</span></tt>,
-<tt class="docutils literal"><span class="pre">FUNC::FUNCNAME('subcommand-name',</span> <span class="pre">...)</span></tt>. This will be replaced with
-the right syntax depending on the language (Matlab, Scilab or Python).</p>
+<p>&#8216; &#8216; INIT:: OBJNAME (&#8216; メソッド名 &#8216;,...) を使用して、インターフェイスの別のメソッドまたは関数を参照することができます。&#8217; &#8216;, &#8216; &#8216; GET:: OBJNAME (&#8216; メソッド名 &#8216;,...)&#8217; &#8216;, &#8216; &#8216; SET:: OBJNAME (&#8216; メソッド名 &#8216;,...)&#8217; &#8216;, &#8216; &#8216; FUNC:: FUNCNAME (&#8216; サブコマンド名 &#8216;,...)``.これは言語 (Matlab、Scilab または Python) に応じて正しい構文に置き換えられます。</p>
 </li>
-<li><p class="first">Still in the documentations, parts for a specific language can be added by
-<tt class="docutils literal"><span class="pre">&#64;MATLAB{specific</span> <span class="pre">part</span> <span class="pre">...}</span></tt>, <tt class="docutils literal"><span class="pre">&#64;SCILAB{specific</span> <span class="pre">part</span> <span class="pre">...}</span></tt> and
-<tt class="docutils literal"><span class="pre">&#64;PYTHON{specific</span> <span class="pre">part</span> <span class="pre">...}</span></tt>.
-If a method/sub-command is specific to an interface, it can be added,
-for instance for Matlab,
-replacing <cite>GET</cite> by <cite>MATLABGET</cite>, <cite>FUNC</cite> by <cite>MATLABFUNC</cite>, etc.
-If a specific code is needed for this additional function, it can be added
-with the tags <tt class="docutils literal"><span class="pre">/*&#64;MATLABEXT</span></tt>, <tt class="docutils literal"><span class="pre">/*&#64;SCILABEXT</span></tt>, <tt class="docutils literal"><span class="pre">/*&#64;PYTHONEXT</span></tt>. See
-for instance the file <tt class="file docutils literal"><span class="pre">gf_mesh_fem_get.cc</span></tt>.</p>
+<li><p class="first">まだドキュメンテーションでは、特定の言語のための部品は &#8216; &#8216; &#64;MATLAB {特定の部分によって加えることができる...}&#8217; &#8216;、&#8217; &#8216; &#64;SCILAB {特定の部分...}&#8217; &#8216; および &#8216; &#8216; &#64;PYTHON {特定の部分...}``.メソッド/サブコマンドがインタフェースに固有である場合、例えば Matlab のために、&#8217; GET &#8216; を &#8216; MATLABGET &#8216;、&#8217; FUNC &#8216; で &#8216; MATLABFUNC &#8216; などで置き換えることができます。この追加機能に特定のコードが必要な場合は、タグ &#8216;/* &#64;MATLABEXT &#8216; &#8216;、&#8217;/* &#64;SCILABEXT &#8216; &#8216;、&#8217;/* &#64;PYTHONEXT &#8216; &#8216; で追加することができます。たとえば、ファイル: &#8216; gf_mesh_fem_get &#8216; を参照してください。</p>
 </li>
-<li><p class="first">For Python and the Matlab object, if a <cite>SET</cite> method has the same name as
-a <cite>GET</cite> method, the <cite>SET</cite> method is prefixed by <cite>set_</cite>.</p>
+<li><p class="first">Python と Matlab オブジェクトの場合、&#8217; set &#8216; メソッドの名前が &#8216; GET &#8216; メソッドと同じである場合、&#8217; set &#8216; メソッドの先頭に &#8216; <a href="#id3"><span class="problematic" id="id4">set_</span></a> &#8216; が付きます。</p>
 </li>
 </ul>
 </div>
 <div class="section" id="adding-a-new-function-or-object-method-to-the-getfem-interface">
-<h2>Adding a new function or object method to the getfem interface<a class="headerlink" href="#adding-a-new-function-or-object-method-to-the-getfem-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If one want to add a new function <tt class="docutils literal"><span class="pre">gf_mesh_get(m,</span> <span class="pre">&quot;foobar&quot;,</span> <span class="pre">.)</span></tt>, then the
-main file to modify is <tt class="file docutils literal"><span class="pre">gf_mesh_get.cc</span></tt>. Remember to check every argument
-passed to the function in order to make sure that the user cannot crash scilab, matlab or python when using that function. Use the macro defined in <tt class="file docutils literal"><span class="pre">gf_mesh_get.cc</span></tt> to add your function.</p>
-<p>Do not forget to add documentation for that function: in <tt class="file docutils literal"><span class="pre">gf_mesh_get.cc</span></tt>,
-this is the documentation that appears in the matlab/scilab/python help files (that is when on
-type &#8220;<tt class="docutils literal"><span class="pre">help</span> <span class="pre">gf_mesh_get</span></tt>&#8221; at the matlab prompt), and in the getfem_python
-autogenerated documentation.</p>
-<p>IMPORTANT. Note that the array indices start at 0 in Python and 1 in Matlab and Scilab. A specific function:</p>
+<h2>getfem インターフェイスへの新しい関数またはオブジェクトメソッドの追加<a class="headerlink" href="#adding-a-new-function-or-object-method-to-the-getfem-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>新しい関数 &#8216; &#8216; gf_mesh_get を追加したい場合 (m, &#8220;foobar&#8221;,.)&#8217; &#8216;, 次に、変更するメインファイルは: ファイル: &#8216; gf_mesh_get &#8216;.ユーザーがその関数を使用するときに scilab、matlab または python をクラッシュさせることができないようにするために、関数に渡されるすべての引数をチェックしてください。関数を追加するには、ファイル: &#8216; gf_mesh_get &#8216; で定義されているマクロを使用します。</p>
+<p>その関数のドキュメントを追加することを忘れないでください: in: file: &#8216; gf_mesh_get &#8216;, これは、matlab/scilab/python のヘルプファイルに表示されるドキュメントです (それはタイプであるときに &#8216; &#8216; ヘルプ gf_mesh_get &#8216; &#8216; &#8220;matlab のプロンプトで), と getfem_python で自動生成ドキュメント。</p>
+<p>大事な。配列のインデックスは、Python では0から始まり、Matlab と Scilab では1であることに注意してください。特定の関数:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">config</span><span class="o">::</span><span class="n">base_index</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>whose value is 0 in python and 1 in Matlab and Scilab has to be used to exchange indices and array of indices. Take care not to make the correction twice. Some Array of indices are automatically shifted.</p>
+<p>値が python では0、Matlab では1、Scilab はインデックスとインデックスの配列を交換するために使用されなければなりません。2度と矯正をしないように気をつけて。インデックスのいくつかの配列は自動的にシフトされます。</p>
 </div>
 <div class="section" id="adding-a-new-object-to-the-getfem-interface">
-<h2>Adding a new object to the getfem interface<a class="headerlink" href="#adding-a-new-object-to-the-getfem-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In order to add a new object to the interface, you have to build the new corresponding sources <tt class="file docutils literal"><span class="pre">gf_obj.cc</span></tt>, <tt class="file docutils literal"><span class="pre">gf_obj_get.cc</span></tt> and <tt class="file docutils literal"><span class="pre">gf_obj_set.cc</span></tt>. Of course you can take the existing ones as a model.</p>
-<p>For the management of the object, you have to declare the class at the begining of <tt class="file docutils literal"><span class="pre">getfemint.h</span></tt> (with respect to the alphabetic order), and declare three functions:</p>
+<h2>getfem インターフェイスへの新しいオブジェクトの追加<a class="headerlink" href="#adding-a-new-object-to-the-getfem-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>インターフェイスに新しいオブジェクトを追加するには、新しい対応するソースを構築する必要があります: ファイル: &#8216; gf_obj &#8216;、: ファイル: &#8216; gf_obj_get &#8216; と: ファイル: &#8216; gf_obj_set &#8216;。もちろん、モデルとして、既存のものを取ることができます。</p>
+<p>オブジェクトの管理については、次のようにクラスを宣言する必要があります: ファイル: &#8216; getfemint &#8216; (アルファベット順に関して)、3つの関数を宣言:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">bool</span> <span class="n">is_</span><span class="s">&quot;name&quot;</span><span class="n">_object</span><span class="p">(</span><span class="k">const</span> <span class="n">mexarg_in</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">);</span>
 <span class="n">id_type</span> <span class="n">store_</span><span class="s">&quot;name&quot;</span><span class="n">_object</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">object_class</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">shp</span><span class="p">);</span>
 <span class="n">object_class</span> <span class="o">*</span><span class="n">to_</span><span class="s">&quot;name&quot;</span><span class="n">_object</span><span class="p">(</span><span class="k">const</span> <span class="n">mexarg_in</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>where &#8220;name&#8221; is the name of the object in the interface and <tt class="docutils literal"><span class="pre">object_class</span></tt> is the class name in getfem (for instance  <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt> for the mesh object). Alternatively, for the object that are manipulated by a shared pointer in <em>GetFEM++</em>, the third function can return a shared pointer.</p>
-<p>IMPORTANT: In order to be interfaced, a <em>GetFEM++</em> object has to derive from <tt class="docutils literal"><span class="pre">dal::static_stored_object</span></tt>. However, if it is not the case, a wrapper class can be defined such as the one for <tt class="docutils literal"><span class="pre">bgeot::base_poly</span></tt> (see the end of <tt class="file docutils literal"><span class="pre">getfemint.h</span></tt>).</p>
-<p>The previous three functions have to be implemented at the end of <tt class="file docutils literal"><span class="pre">getfemint.cc</span></tt>.It is possible to use one of the two macros defined in <tt class="file docutils literal"><span class="pre">getfemint.cc</span></tt>. The firs macro is for a standard object and the second one for an object which is manipulated in <em>GetFEM++</em> with a shared pointer.</p>
-<p>You have also to complete functions <tt class="docutils literal"><span class="pre">name_of_getfemint_class_id</span></tt> and <tt class="docutils literal"><span class="pre">class_id_of_object</span></tt> at the end of <tt class="file docutils literal"><span class="pre">getfemint.cc</span></tt>.</p>
-<p>You have to add the call of the interface function in <tt class="file docutils literal"><span class="pre">getfem_interface.cc</span></tt> and modifiy the file <tt class="file docutils literal"><span class="pre">bin/extract_doc</span></tt> and run the configure file.</p>
-<p>The methods <tt class="docutils literal"><span class="pre">get('char')</span></tt> and <tt class="docutils literal"><span class="pre">get('display')</span></tt> should be defined for each object. The first one should give a string allowing the object to be saved in a file and the second one is to give some information about the object. Additionnaly, a constructor from a string is necessary to load the object from a file.</p>
-<p>For the Scilab interface the file <tt class="file docutils literal"><span class="pre">sci_gateway/c/builder_gateway_c.sce.in</span></tt> has to be modified and the files in the directory <tt class="file docutils literal"><span class="pre">macros/overload</span></tt>.</p>
+<p>ここで、&#8221;name&#8221; はインターフェイス内のオブジェクトの名前であり、&#8217; &#8216; object_class &#8216; &#8216; は getfem のクラス名です (たとえば、メッシュオブジェクトの場合は &#8216; &#8216; getfem:: mesh &#8216; &#8216;)。または、| gf | で共有ポインタによって操作されるオブジェクトの場合、3番目の関数は共有ポインタを返すことができます。</p>
+<p>重要: インタフェースするために、a | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>オブジェクトは &#8216; &#8216; dal:: static_stored_object &#8216; &#8216; から派生しなければなりません。ただし、そうでない場合は、ラッパークラスを &#8216; &#8216; bgeot:: base_poly &#8216; &#8216; のように定義できます (ファイル: &#8216; getfemint &#8216; の末尾を参照してください)。</p>
+<p>前の3つの関数は、ファイル: &#8216; getfemint &#8216; の末尾に実装する必要があります。ファイル: &#8216; getfemint &#8216; で定義されている2つのマクロのいずれかを使用することができます。もみのマクロは標準的な目的のためであり、で操作される目的のための二番目のものは | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>共有ポインタを使用します。</p>
+<p>また、&#8217; &#8216; name_of_getfemint_class_id &#8216; &#8216; と &#8216; &#8216; class_id_of_object &#8216; &#8216; の最後には、&#8217; getfemint &#8216; という関数を完成させる必要があります。</p>
+<p>あなたは、インターフェイス関数の呼び出しを追加する必要があります: ファイル: &#8216; getfem_interface &#8216; と変更ファイル: ファイル: &#8216; bin/extract_doc &#8216; と構成ファイルを実行します。</p>
+<p>メソッド &#8216; &#8216; get (&#8216; char &#8216;) &#8216; &#8216; および &#8216; &#8216; get (&#8216; display &#8216;) &#8216; &#8216; は、各オブジェクトに対して定義する必要があります。最初の1つは、オブジェクトがファイルに保存され、2番目のオブジェクトに関するいくつかの情報を与えることができるように文字列を与える必要があります。Additionnaly、文字列からのコンストラクターは、ファイルからオブジェクトを読み込む必要があります。</p>
+<p>Scilab インターフェイスのためにファイル: ファイル: &#8216; sci_gateway/c/builder_gateway_c. in &#8216; は、ディレクトリ内のファイルを変更することがあります: ファイル: &#8216; マクロ/オーバーロード &#8216;。</p>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The interface grows in conjunction with <em>GetFEM++</em>. The main <em>GetFEM++</em> functionalities are interfaced.</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>インターフェイスは | gf | と連動して成長します。メイン | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>機能はインタフェースされます。</p>
 </div>
 </div>
 
@@ -343,24 +274,24 @@ autogenerated documentation.</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Interface with scripts languages (Python, Scilab and Matlab)</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#objects-methods-and-functions-of-the-interface">Objects, methods and functions of the interface</a></li>
-<li><a class="reference internal" href="#adding-a-new-function-or-object-method-to-the-getfem-interface">Adding a new function or object method to the getfem interface</a></li>
-<li><a class="reference internal" href="#adding-a-new-object-to-the-getfem-interface">Adding a new object to the getfem interface</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">スクリプト言語 (Python、Scilab、Matlab) とのインタフェース</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#objects-methods-and-functions-of-the-interface">インターフェイスのオブジェクト、メソッド、および関数</a></li>
+<li><a class="reference internal" href="#adding-a-new-function-or-object-method-to-the-getfem-interface">getfem インターフェイスへの新しい関数またはオブジェクトメソッドの追加</a></li>
+<li><a class="reference internal" href="#adding-a-new-object-to-the-getfem-interface">getfem インターフェイスへの新しいオブジェクトの追加</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_cont.html"
-                        title="前の章へ">Continuation module</a></p>
+                        title="前の章へ">継続モジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="appendixA.html"
-                        title="次の章へ">Appendix A. Some basic computations between reference and real elements</a></p>            <h3>Download</h3>
+                        title="次の章へ">付録A.参照要素と実要素の基本的な計算</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -405,17 +336,17 @@ autogenerated documentation.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="appendixA.html" title="Appendix A. Some basic computations between reference and real elements"
+          <a href="appendixA.html" title="付録A.参照要素と実要素の基本的な計算"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_cont.html" title="Continuation module"
+          <a href="libdesc_cont.html" title="継続モジュール"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

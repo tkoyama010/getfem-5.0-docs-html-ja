@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="The low-level generic assembly module in GetFEM++" href="libdesc_low_gen_assemb.html" />
-    <link rel="prev" title="Level-set module" href="libdesc_levelset.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="低レベルの汎用アセンブリモジュール | gf |" href="libdesc_low_gen_assemb.html" />
+    <link rel="prev" title="レベルセットモジュール" href="libdesc_levelset.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_low_gen_assemb.html" title="The low-level generic assembly module in GetFEM++"
+          <a href="libdesc_low_gen_assemb.html" title="低レベルの汎用アセンブリモジュール | gf |"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_levelset.html" title="Level-set module"
+          <a href="libdesc_levelset.html" title="レベルセットモジュール"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -65,188 +65,217 @@
   <div class="section" id="the-high-level-generic-assembly-module-in-gf">
 <span id="dp-libdesc-high-assemb"></span><h1>The high-level generic assembly module in <em>GetFEM++</em><a class="headerlink" href="#the-high-level-generic-assembly-module-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The high level generic assembly module of <em>GetFEM++</em> and its weak form language is a key module which allows to describe weak formulation of partial differential equation problems. See the description of the language in the user documentation section <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>Compute arbitrary terms - high-level generic assembly procedures - Weak-form language</em></a>.</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The high level generic assembly module of <em>GetFEM++</em> and its weak form language is a key module which allows to describe weak formulation of partial differential equation problems. See the description of the language in the user documentation section <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</em></a>.</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly.h</span></tt></td>
-<td>Main header for exported definitions. Only this header has to be included to use the generic assembly. Other headers of the module are for internal use only.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly &#8216;</p>
+</td>
+<td><p class="first last">エクスポートされた定義のメインヘッダー。ジェネリックアセンブリを使用するには、このヘッダーのみを含めるようにしてください。モジュールの他のヘッダーは、内部でのみ使用されます。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly_tree.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_generic_assembly_tree.cc</span></tt></td>
-<td>Definition of the tree structure and basic operations on it, including reading an assembly string and transform it in a syntax tree and make the invert transformation of a tree into a string.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_tree &#8216; と: ファイル: &#8216; getfem_generic_assembly_tree &#8216;</p>
+</td>
+<td><p class="first last">アセンブリ文字列を読み取って構文ツリーで変換し、ツリーの反転変換を文字列にするなど、ツリー構造とその基本操作の定義。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly_fonction_and_operators.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_generic_assembly_fonction_and_operators.cc</span></tt></td>
-<td>Definition of redefined function and nonlinear operator of the weak form language.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_fonction_and_operators &#8216; と: ファイル: &#8216; getfem_generic_assembly_fonction_and_operators &#8216;</p>
+</td>
+<td><p class="first last">弱形式言語の再定義関数と非線形演算子</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly_semantic.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_generic_assembly_semantic.cc</span></tt></td>
-<td>Semantic analysis and enrichment of the syntax tree. Include some operations such as making the derivation of a tree with respect to a variable or computing the tree corresponding to the gradient of an expression.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_semantic &#8216; と: ファイル: &#8216; getfem_generic_assembly_semantic &#8216;</p>
+</td>
+<td><p class="first last">構文ツリーのセマンティック分析と濃縮。変数に対するツリーの派生や、式のグラデーションに対応するツリーの計算など、いくつかの操作を含めます。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly_workspace.cc</span></tt></td>
-<td>Methodes of the workspace object (defined in <tt class="file docutils literal"><span class="pre">getfem_generic_assembly.h</span></tt>).</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_workspace &#8216;</p>
+</td>
+<td><p class="first last">ワークスペースオブジェクトの法 (で定義されている: ファイル: &#8216; getfem_generic_assembly &#8216;)。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly_compile_and_exec.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_generic_assembly_compile_and_exec.cc</span></tt></td>
-<td>Definition of the optimized instructions, compilation into a sequel of optimize instructions and execution of the instructions on Gauss point/interpolation points.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_compile_and_exec &#8216; と: ファイル: &#8216; getfem_generic_assembly_compile_and_exec &#8216;</p>
+</td>
+<td><p class="first last">最適化された命令の定義、最適化の手順とガウスポイント/補間ポイントの命令の実行の続編にコンパイルします。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly_interpolation.cc</span></tt></td>
-<td>Interpolation operations and interpolate transformations.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_interpolation &#8216;</p>
+</td>
+<td><p class="first last">補間演算および補間変換。</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="a-few-implementation-details">
-<h2>A few implementation details<a class="headerlink" href="#a-few-implementation-details" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The assembly string is transformed in an assembly tree by a set of function in <tt class="file docutils literal"><span class="pre">src/getfem_generic_assembly.cc</span></tt>. The process has 6 steps:</p>
+<h2>いくつかの実装の詳細<a class="headerlink" href="#a-few-implementation-details" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アセンブリ文字列は、ファイル: &#8216; src/getfem _generic _assembly &#8216; の一連の関数によってアセンブリツリーに変換されます。プロセスには6つのステップがあります。</p>
 <blockquote>
 <div><ul class="simple">
-<li>Lexical analysis with the procedure <tt class="docutils literal"><span class="pre">ga_get_token(...)</span></tt>.</li>
-<li>Syntax analysis and transformation into a syntax tree by <tt class="docutils literal"><span class="pre">ga_read_string(...)</span></tt>.</li>
-<li>Semantic analysis, simplification (pre-computation) of constant expressions and enrichment of the tree by <tt class="docutils literal"><span class="pre">ga_semantic_analysis(...)</span></tt>.</li>
-<li>Symbolic (automatic) differentiation of an assembly tree by <tt class="docutils literal"><span class="pre">ga_derivative(...)</span></tt></li>
-<li>Symbolic (automatic) gradient computation of an assembly tree by <tt class="docutils literal"><span class="pre">ga_gradient(...)</span></tt></li>
-<li>Compilation in a sequence of instructions with optimizations by <tt class="docutils literal"><span class="pre">ga_compile(...)</span></tt>.</li>
-<li>Execution of the sequence of instructions and assembly by <tt class="docutils literal"><span class="pre">ga_exec(...)</span></tt>.</li>
+<li><p class="first">プロシージャ &#8216; &#8216; ga_get_token を使用した字句解析 (...)``.</p>
+</li>
+<li><p class="first">構文解析と構文木への変換 &#8216; &#8216; ga_read_string (...)``.</p>
+</li>
+<li><p class="first">&#8216; &#8216; ga_semantic_analysis による定数式の意味解析, 単純化 (事前計算) と木の濃縮 (...)``.</p>
+</li>
+<li><p class="first">&#8216; &#8216; ga_derivative によるアセンブリツリーのシンボリック (自動) 微分 (...)``</p>
+</li>
+<li><p class="first">&#8216; &#8216; ga_gradient によるアセンブリツリーのシンボリック (自動) 勾配計算 (...)``</p>
+</li>
+<li><p class="first">&#8216; &#8216; ga_compile によって最適化された一連の命令のコンパイル (...)``.</p>
+</li>
+<li><p class="first">&#8216; &#8216; ga_exec による命令とアセンブリのシーケンスの実行 (...)``.</p>
+</li>
 </ul>
 </div></blockquote>
-<p>These steps are performed only once at the beginning of the assembly. The final tree is compiled in a sequence of optimized instructions which are executed on each Gauss point of each element. The compilation performed some optimizations : repeated terms are automatically detected and evaluated only once, simplifications if the mesh has uniform type of elements, simplifications for vectorized fnite element methods.</p>
-<p>Moreover, there is specifics function for interpolation operations (ga_interpolation(...), ga_interpolation_exec(...), ga_interpolation_Lagrange_fem, ga_interpolation_mti, ga_interpolation_im_data, ...)</p>
+<p>これらの手順は、アセンブリの先頭で1回だけ実行されます。最終的なツリーは、各要素の各ガウス点で実行される最適化された命令のシーケンスでコンパイルします。コンパイルはいくつかの最適化を実行しました: 繰り返しの用語は自動的に検出され、1回だけ、簡素化メッシュは、ベクトル界面要素メソッドの簡素化の要素の均一な型を持っている場合は、評価します。</p>
+<p>さらに、補間操作 (ga_interpolation (...)、ga_interpolation_exec (...)、ga_interpolation_Lagrange_fem、ga_interpolation_mti、ga_interpolation_im_data、...) の具体的な機能があります。</p>
 </div>
 <div class="section" id="assembly-tree">
-<h2>Assembly tree<a class="headerlink" href="#assembly-tree" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Assembly strings are transformed into assembly trees by <tt class="docutils literal"><span class="pre">ga_read_string(...)</span></tt>. Assembly trees are syntax trees that are progressively enriched in information in the differents steps (semantic analysis, derivation, compilation).</p>
-<p>The object <tt class="docutils literal"><span class="pre">ga_tree</span></tt> represents an assembly tree. It is a copyable object that only contains a pointer to the root of the tree. Each tree node is an object <tt class="docutils literal"><span class="pre">ga_tree_node</span></tt> that contains the main following information:</p>
+<h2>アセンブリツリー<a class="headerlink" href="#assembly-tree" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アセンブリ文字列は &#8216; &#8216; ga_read_string (...) でアセンブリツリーに変換されます。<a href="#id1"><span class="problematic" id="id2">``</span></a>.アセンブリツリーは、貴様ステップ (セマンティック分析、派生、コンパイル) の情報で徐々に濃縮される構文ツリーです。</p>
+<p>オブジェクト &#8216; &#8216; ga_tree &#8216; &#8216; はアセンブリツリーを表します。これは、ツリーのルートへのポインターのみを含むコピー可能オブジェクトです。各ツリーノードは、次の主な情報を含むオブジェクト &#8216; &#8216; ga_tree_node &#8216; &#8216; です。</p>
 <ul class="simple">
-<li>node_type (function, variable value, variable gradient, operation ...)</li>
-<li>operation type for operation nodes.</li>
-<li>assembly tensor: used at execution time by optimized instructions to compute the intermediary results. The final result is in the assembly string of the root node at the end of the execution (for each Gauss point).</li>
-<li>term type: value, order one term (ith order one test functions),
-order two term (with order two test functions) or with both order one and
-order two test functions (tangent term).</li>
-<li>variable name of tests functions for order 1 or 2 terms.</li>
-<li>pointer to the parent node.</li>
-<li>pointers to the children nodes.</li>
+<li><p class="first">node_type (関数、変数の値、変数のグラデーション、操作...)</p>
+</li>
+<li><p class="first">操作ノードの操作の種類。</p>
+</li>
+<li><p class="first">アセンブリテンソル: 中間結果を計算するために最適化された命令によって実行時に使用します。最終的な結果は、実行の終了時にルートノードのアセンブリ文字列 (各ガウスポイント) になります。</p>
+</li>
+<li><p class="first">用語の種類: 値、順序1つの用語 (i 番目の順序1つのテスト関数)、順序2つの用語 (順序2つのテスト関数) または両方の順序1と順序2つのテスト関数 (タンジェント用語)。</p>
+</li>
+<li><p class="first">順序1または2の用語のテスト関数の変数名。</p>
+</li>
+<li><p class="first">親ノードへのポインター。</p>
+</li>
+<li><p class="first">子ノードへのポインター。</p>
+</li>
 </ul>
-<p>For example, the assembly tree for the assembly string &#8220;a*Grad_Test2_u.Grad_Test_u&#8221; for the stiffness matrix of a Laplacian problem can be represented as follows with its assembly tensors at each node:</p>
+<p>たとえば、ラプラシアン問題の剛性マトリックスのアセンブリ文字列 &#8220;a * Grad_Test2_u Grad_Test_u&#8221; のアセンブリツリーは、各ノードのアセンブリテンソルと共に次のように表現できます。</p>
 <div class="figure align-center" id="dp-fig-tree-laplace-tan">
 <a class="reference internal image-reference" href="../images/tree_simple_laplace_tan.png"><img alt="../images/tree_simple_laplace_tan.png" src="../images/tree_simple_laplace_tan.png" style="width: 581.25px; height: 323.25px;" /></a>
 </div>
 </div>
 <div class="section" id="assembly-tensors">
-<h2>Assembly tensors<a class="headerlink" href="#assembly-tensors" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Assembly tensors are represented on each node by a <tt class="docutils literal"><span class="pre">bgeot::tensor&lt;double&gt;</span></tt> object. However, there is a specific structure in <tt class="file docutils literal"><span class="pre">src/getfem_generic_assembly.cc</span></tt> for assembly tensors because there is several format of assembly tensors :</p>
+<h2>組立テンソル<a class="headerlink" href="#assembly-tensors" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アセンブリテンソルは、各ノードで &#8216; &#8216; bgeot:: テンソル &#8216; &#8216; オブジェクトによって表され&lt;double&gt;ます。ただし、アセンブリテンソルには複数の形式があるため、ファイル: &#8216; src/getfem _generic _assembly &#8216; には特定の構造&lt;/double&gt;があります。</p>
 <ul>
-<li><p class="first">Normal tensor. The first and second indices may represent the test function local indices if the node represent a first or second order term. Remember that in <em>GetFEM++</em> all tensors are stored with a Fortran order. This means that for instance a for a <img class="math" src="../images/math/fc97bd8c8a807bb46f8a711a4b5960235f116360.png" alt="N\times P\times Q" style="vertical-align: -4px"/> tensor one has <tt class="docutils literal"><span class="pre">t(i,</span> <span class="pre">j,</span> <span class="pre">k)</span> <span class="pre">=</span> <span class="pre">t[i</span> <span class="pre">+</span> <span class="pre">j*N</span> <span class="pre">+</span> <span class="pre">k*N*P]</span></tt>.</p>
+<li><p class="first">通常のテンソル。最初と2番目のインデックスは、ノードが最初または2番目の順序の用語を表す場合、テスト関数のローカルインデックスを表すことができます。覚えている | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>すべてのテンソルは、Fortran の順序で保存されます。これは a のための例えば a のために意味する: 数学: &#8216; Ntimes Ptimes Q &#8216; のテンソル1つは &#8216; t (i、j、k) = トン [i + j * n + k * n * P] &#8216; &#8216; を有する。</p>
 </li>
-<li><p class="first">Copied tensor. When a node is detected to have exactly the same expression compared to an already compiled one, the assembly tensor will contain a pointer to the assembly tensor of the already compiled node. The consequence is that no unnecessary copy is made.</p>
+<li><p class="first">コピーされたテンソル。ノードが、既にコンパイルされたものと比較してまったく同じ式を持つことが検出されると、アセンブリテンソルには、既にコンパイル済みのノードのアセンブリテンソルへのポインタが含まれます。結果として、不要なコピーは作成されません。</p>
 </li>
-<li><p class="first">Sparse tensor with a listed sparsity. When working with a vector field, the finite element method is applied on each component. This results on vector base functions having only one nonzero component and some components are duplicated. The tensor are fully represented because it would be difficul to gain in efficiency with that kind of small sparse tensor format. However, some operation can be optimized with the knoledge of a certain sparsity (and duplication). This can change the order of complexity of a reduction. In order to allows this gain in efficiency, the tensor are labellised with some known sparsity format (vectorisation and format coming from operation applied on vectorized tensors). This results in a certain number of sparsity formats that are listed below:</p>
+<li><p class="first">リストされたスパースの疎なテンソル。ベクトルフィールドを使用する場合、有限要素法は各成分に適用されます。この結果、ベクトル基底関数が0以外のコンポーネントを1つだけ持ち、一部のコンポーネントが複製されます。テンソルは、その種の小さな疎テンソル形式で効率を得るために難しいされるので、完全に表されます。ただし、一部の操作は、特定のスパース (および重複) の知識を使用して最適化できます。これは、削減の複雑さの順序を変更することができます。効率のこの利得を可能にするためには、テンソルはいくつかの知られていたスパースフォーマット (ベクトルテンソルで適用される操作から来る vectorisation およびフォーマット) と labellised。これにより、以下に示すように、一定数のスパース形式が得られます。</p>
 <ul>
-<li><p class="first">1: Vectorized base sparsity format: The tensor represent a vectorized
-value. Each value of the condensed tensor is repeated on <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/>
-components of the vectorized tensor. The mesh dimensions is denoted
-<img class="math" src="../images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/>. For instance if <img class="math" src="../images/math/87686aa0f5136421c8415c7169adcb308e36c7a8.png" alt="\varphi_i" style="vertical-align: -4px"/> are the <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> local
-base functions on an element and the evaluation is on a Gauss point
-<img class="math" src="../images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x" style="vertical-align: 0px"/>, then the non vectorized tensor is
-<img class="math" src="../images/math/6b07d616edcb7ef12e9533bed584034af94f0620.png" alt="\bar{t}(i) = \varphi_i(x)" style="vertical-align: -4px"/> and the vectorized one is
-<img class="math" src="../images/math/446df8a10795ffd4dfed4bfa73f3ebb1cf67887e.png" alt="t(j,k) = \varphi_{j/Q}(x) \delta_{k, j \mbox{ mod } Q}" style="vertical-align: -9px"/>
-where <img class="math" src="../images/math/6e618d44cdd1b76e4df35a7bc9ebd5524f56c49f.png" alt="j/M" style="vertical-align: -5px"/> is the integer division. For <img class="math" src="../images/math/c310f710722cb94897f7c38d39ca8bae7bc0ccb5.png" alt="M=2" style="vertical-align: 0px"/>,
-<img class="math" src="../images/math/ff477eb98ac5cc2250dafa9252424e4f03028524.png" alt="Q=2" style="vertical-align: -4px"/> and <img class="math" src="../images/math/62cbee4f6fd50f986cc39275a4e09aff1d2200a7.png" alt="N=3" style="vertical-align: 0px"/> the components of the two tensors are
-represented in the following table</p>
+<li><p class="first">1: ベクトルベーススパースフォーマット: テンソルはベクトル値を表します。凝縮されたテンソルの各々の価値は繰り返される: 数学: ベクトルテンソルの &#8216; Q &#8216; の部品。メッシュの寸法が示されます: 数学: &#8216; N &#8216;。例えば: 数学: &#8216; varphi_i &#8216; は次のようになります: 数学: 要素上のローカル基本関数と評価はガウス点にあります: 数学: &#8216; x &#8216;, その後、非ベクトルテンソルは: 数学: &#8216; bar{t} (i) = varphi_i (x) &#8216; とベクトル1は: 数学: t (j, k) = <a href="#id1"><span class="problematic" id="id2">varphi_</span></a> {j/q} (x) delta_{k, j mbox{mod} Q} &#8216; where: 数学: &#8216; j/M &#8216; は整数除算です。For: 数学: &#8216;m = 2 &#8216;,: 数学: &#8216; Q = 2 &#8216; と: 数学: &#8216; N = 3 &#8216; 2 つのテンソルのコンポーネントは、次の表で表されます。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="29%" />
 <col width="71%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Scalar tensor</th>
-<th class="head">Vectorized tensor</th>
+<tr class="row-odd"><th class="head"><p class="first last">スカラーテンソル</p>
+</th>
+<th class="head"><p class="first last">ベクトルテンソル</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img class="math" src="../images/math/6b07d616edcb7ef12e9533bed584034af94f0620.png" alt="\bar{t}(i) = \varphi_i(x)" style="vertical-align: -4px"/></td>
-<td><img class="math" src="../images/math/196581fca061d38a98db82b897e3987f1c86d20d.png" alt="t(j,k) = \varphi_{j/Q}(x) \delta_{k, (j \mbox{ mod } Q)}" style="vertical-align: -9px"/></td>
+<tr class="row-even"><td><p class="first last">: 数学: &#8216; bar{t} (i) = varphi_i (x) &#8216;</p>
+</td>
+<td><p class="first last">: 数学: t (j, k) = <a href="#id3"><span class="problematic" id="id4">varphi_</span></a> {j/Q} (x) delta_{k, (j mbox{mod} Q)} &#8216;</p>
+</td>
 </tr>
-<tr class="row-odd"><td><img class="math" src="../images/math/3a1c8a2ef3e84de33b5bdfcc23e32110d51ab1de.png" alt="[\varphi_0(x), \varphi_1(x)]" style="vertical-align: -5px"/></td>
-<td><img class="math" src="../images/math/409e5f5710cfc6e5d84610e3b6abfe03b490695b.png" alt="[\varphi_0(x), 0, \varphi_1(x), 0, 0, \varphi_0(x), 0, \varphi_1(x)]" style="vertical-align: -5px"/></td>
+<tr class="row-odd"><td><p class="first last">: 数学: &#8216; [varphi_0 (x), varphi_1 (x)] &#8216;</p>
+</td>
+<td><p class="first last">: 数学: &#8216; [varphi_0 (x), 0, varphi_1 (x), 0, 0, varphi_0 (x), 0, varphi_1 (x)] &#8216;</p>
+</td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p class="first">2: Grad condensed format</p>
+<li><p class="first">2: 卒業生の凝縮形式</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="29%" />
 <col width="71%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Scalar tensor</th>
-<th class="head">Vectorized tensor</th>
+<tr class="row-odd"><th class="head"><p class="first last">スカラーテンソル</p>
+</th>
+<th class="head"><p class="first last">ベクトルテンソル</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img class="math" src="../images/math/184f1b13a9306b0471b9342d2efd4a7dd5966ad2.png" alt="\bar{t}(i,j) = \partial_j\varphi_i(x)" style="vertical-align: -6px"/></td>
-<td><img class="math" src="../images/math/6c80b39211b6e273475f7cb1375045ab4065252e.png" alt="t(k,l,m) = \partial_m\varphi_{k/Q}(x) \delta_{l, (m \mbox{ mod } Q)}" style="vertical-align: -9px"/></td>
+<tr class="row-even"><td><p class="first last">: 数学: &#8216; bar{t} (i, j) = partial_jvarphi_i (x) &#8216;</p>
+</td>
+<td><p class="first last">: 数学: t (k, l, m) = partial_mvarphi_ {k/Q} (x) delta_{l, (m mbox{mod} Q)} &#8216;</p>
+</td>
 </tr>
-<tr class="row-odd"><td><img class="math" src="../images/math/5c098f045361872866b59fff5fb6a308a047ee1a.png" alt="[\partial_0\varphi_0(x), \partial_0\varphi_1(x)," style="vertical-align: -5px"/> <img class="math" src="../images/math/c29bb2bcc243a4771105480d2ef8d607d0875731.png" alt="\partial_1\varphi_0(x), \partial_1\varphi_1(x)," style="vertical-align: -4px"/> <img class="math" src="../images/math/a1f6b79689ebe648a93b0e090547169354c3f228.png" alt="\partial_2\varphi_0(x), \partial_2\varphi_1(x)]" style="vertical-align: -5px"/></td>
+<tr class="row-odd"><td><p class="first last">: 数学: &#8216; [partial_0varphi_0 (x), partial_0varphi_1 (x), &#8216;: 数学: &#8216; partial_1varphi_0 (x), partial_1varphi_1 (x), &#8216;: 数学: &#8216; partial_2varphi_0 (x), partial_2varphi_1 (x)] &#8216;</p>
+</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p class="first">3: Hessian condensed format</p>
+<li><p class="first">3: ヘッセ凝縮形式</p>
 </li>
-<li><p class="first">10: Vectorized mass: the tensor represent a scalar product of two
-vectorised base functions. This means a tensor <img class="math" src="../images/math/b7b3f46d049750b33446ef29407305f607221023.png" alt="t(\cdot,\cdot)" style="vertical-align: -4px"/>
-where <img class="math" src="../images/math/fdd6d8a4b13897b5e9079af24d99b2c1a649ffe7.png" alt="t(i*Q+k, j*Q+l) = 0" style="vertical-align: -4px"/> for <img class="math" src="../images/math/7fbae26633ee7a308593b4dc810bbc8cb88e764f.png" alt="k \ne l" style="vertical-align: -4px"/> and
-<img class="math" src="../images/math/de4fb9a34d83f82a8ba41b6573d2bdd81ed88a42.png" alt="t(i*Q+k, j*Q+k)" style="vertical-align: -4px"/> are equals for <img class="math" src="../images/math/0137039df48d9c7006809fad34bfc571b60b4f3f.png" alt="0 \le k &lt; Q" style="vertical-align: -4px"/>.</p>
+<li><p class="first">10: ベクトル質量: テンソルは2つの vectorised 基底関数のスカラー積を表す.これは、テンソルを意味します: 数学: &#8216; t (cdot, cdot) &#8216; where: 数学: t (i * q + k, j * q + l) = 0 &#8216; のための: 数学: &#8216; k ne l &#8216; と: 数学: &#8216; t (i * q + k, j * q + k) &#8216; に等しい: 数学: &#8216; 0 le k &lt; Q &#8216;.</p>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="optimized-instructions">
-<h2>Optimized instructions<a class="headerlink" href="#optimized-instructions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Optimized instructions for variable evaluation, operations, vector and matrix assembly ... to be described.</p>
+<h2>最適化された手順<a class="headerlink" href="#optimized-instructions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>変数の評価、操作、ベクトルと行列のアセンブリのための最適化された命令...</p>
 </div>
 <div class="section" id="predefined-functions">
-<h2>Predefined functions<a class="headerlink" href="#predefined-functions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>定義済み関数<a class="headerlink" href="#predefined-functions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <dl class="docutils">
-<dt>Some predefined scalar functions are available in <em>GetFEM++</em> weak form language in order to describe a weak formulation (or also to make basic algebraic computations). This is limited to scalar functions of one or two arguments. Due to the automatic differentiation used to obtain the tangent system of described problems, the derivative each function have to be available. The principle retained is the following: For each predefined function is available:</dt>
+<dt>いくつかの定義済みスカラー関数は | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>弱い形式の言語は弱い定式化を記述するために (またはまた基本的な代数計算をするため)。これは、1つまたは2つの引数のスカラー関数に限定されます。記述されていた問題のタンジェントシステムを得るのに使われる自動微分のために、各機能は利用できるべきである。保持される原則は次のとおりです。定義済みの関数ごとに使用できます。</dt>
 <dd><ul class="first last simple">
-<li>A C++ function which computes the value given the argument(s).</li>
-<li>The support of the function in the first each argument in term of a
-(possibly infinite) interval (this is for simplification of expressions).</li>
-<li>The string corresponding of the derivative in terms of already known
-functions</li>
+<li><p class="first">引数に指定された値を計算する C++ 関数。</p>
+</li>
+<li><p class="first">(多分無限) 間隔の言葉の最初の各議論の機能のサポート (これは表現の簡素化のためである)。</p>
+</li>
+<li><p class="first">既に知られている関数に関して、導関数に対応する文字列</p>
+</li>
 </ul>
 </dd>
 </dl>
-<p>A new predefined function is easy to add. See init_predefined_functions() in file <tt class="file docutils literal"><span class="pre">src/getfem_generic_assembly.cc</span></tt>. + describe how to give the derivative ...</p>
+<p>新しい定義済み関数は簡単に追加できます。ファイル: ファイル: &#8216; src/getfem_generic_assembly &#8216; の init_predefined_functions () を参照してください。+ は、誘導体を与える方法を説明...</p>
 </div>
 <div class="section" id="predefined-nonlinear-operators">
-<h2>Predefined nonlinear operators<a class="headerlink" href="#predefined-nonlinear-operators" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>to be described ...</p>
+<h2>定義済みの非線形演算子<a class="headerlink" href="#predefined-nonlinear-operators" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>説明するには...</p>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Stable.</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>安定。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Is a certain extension to complex data possible ?</li>
-<li>More simplifications : study the possibility to automatically factorize some terms (for instance scalar ones) to reduce the number of operations.</li>
+<li><p class="first">複雑なデータへの特定の拡張は可能ですか?</p>
+</li>
+<li><p class="first">さらに簡素化: 操作の数を減らすために、いくつかの用語 (例えばスカラーのもの) を自動的に factorize する可能性を検討します。</p>
+</li>
 </ul>
 </div>
 </div>
@@ -263,26 +292,26 @@ functions</li>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">The high-level generic assembly module in <em>GetFEM++</em></a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#a-few-implementation-details">A few implementation details</a></li>
-<li><a class="reference internal" href="#assembly-tree">Assembly tree</a></li>
-<li><a class="reference internal" href="#assembly-tensors">Assembly tensors</a></li>
-<li><a class="reference internal" href="#optimized-instructions">Optimized instructions</a></li>
-<li><a class="reference internal" href="#predefined-functions">Predefined functions</a></li>
-<li><a class="reference internal" href="#predefined-nonlinear-operators">Predefined nonlinear operators</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#a-few-implementation-details">いくつかの実装の詳細</a></li>
+<li><a class="reference internal" href="#assembly-tree">アセンブリツリー</a></li>
+<li><a class="reference internal" href="#assembly-tensors">組立テンソル</a></li>
+<li><a class="reference internal" href="#optimized-instructions">最適化された手順</a></li>
+<li><a class="reference internal" href="#predefined-functions">定義済み関数</a></li>
+<li><a class="reference internal" href="#predefined-nonlinear-operators">定義済みの非線形演算子</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_levelset.html"
-                        title="前の章へ">Level-set module</a></p>
+                        title="前の章へ">レベルセットモジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_low_gen_assemb.html"
-                        title="次の章へ">The low-level generic assembly module in <em>GetFEM++</em></a></p>            <h3>Download</h3>
+                        title="次の章へ">低レベルの汎用アセンブリモジュール | gf |</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -327,17 +356,17 @@ functions</li>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_low_gen_assemb.html" title="The low-level generic assembly module in GetFEM++"
+          <a href="libdesc_low_gen_assemb.html" title="低レベルの汎用アセンブリモジュール | gf |"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_levelset.html" title="Level-set module"
+          <a href="libdesc_levelset.html" title="レベルセットモジュール"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

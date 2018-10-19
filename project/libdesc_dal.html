@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Dal library &mdash; GetFEM++</title>
+    <title>Dal ライブラリ &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="Miscellaneous algorithms" href="libdesc_misc.html" />
-    <link rel="prev" title="Gmm library" href="libdesc_gmm.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="その他のアルゴリズム" href="libdesc_misc.html" />
+    <link rel="prev" title="ライブラリ" href="libdesc_gmm.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_misc.html" title="Miscellaneous algorithms"
+          <a href="libdesc_misc.html" title="その他のアルゴリズム"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_gmm.html" title="Gmm library"
+          <a href="libdesc_gmm.html" title="ライブラリ"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,71 +63,87 @@
           <div class="body">
             
   <div class="section" id="dal-library">
-<span id="dp-libdesc-dal"></span><h1>Dal library<a class="headerlink" href="#dal-library" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-dal"></span><h1>Dal ライブラリ<a class="headerlink" href="#dal-library" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In the very begining of <em>GetFEM++</em> (the first files was written in 1995) the S.T.L. was
-not available and the containers defined in the <tt class="docutils literal"><span class="pre">dal</span></tt> namespace was used
-everywhere. Now, in <em>GetFEM++</em>, the S.T.L. containers are mainly used. The remaining
-uses of <tt class="docutils literal"><span class="pre">dal</span></tt> containers are eather historical or due to the specificities of
-these containers. It is however clear that this is not the aim of the <em>GetFEM++</em>
-project to developp new container concept. So, the use of the <tt class="docutils literal"><span class="pre">dal</span></tt> containers
-has to be as much as possible reduced.</p>
-<p>Furthermore, <tt class="docutils literal"><span class="pre">dal</span></tt> contains a certain number of basic algorithms to deal with static stored objects (description of finite element methods, intermediary structures for auxiliary computations ...).</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>の非常に初めに | gf <a href="#id1"><span class="problematic" id="id2">|(最初のファイルは1995で書かれていました) S.T.L. は使用できず、&#8217; &#8216; dal &#8216; &#8216; 名前空間で定義されているコンテナはどこでも使用されていました。今、|</span></a> gf | では、S.T.L. 容器は主に使用されます。&#8217; &#8216; dal &#8216; &#8216; コンテナの残りの用途は、イーザーの歴史的またはこれらのコンテナの特異性によるものです。しかし、これが目的ではないことは明らかである | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>新しいコンテナコンセプトを developp するプロジェクト。したがって、&#8217; &#8216; dal &#8216; &#8216; コンテナの使用は可能な限り削減することがあります。</p>
+<p>さらに、&#8217; &#8216; dal &#8216; &#8216; には、静的格納されたオブジェクト (有限要素法の記述、補助計算のための中間構造物) を扱うための基本的なアルゴリズムがいくつか含まれています。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">dal_config.h</span></tt></td>
-<td>Mainly load <em>Gmm++</em> header files</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; dal_config &#8216;</p>
+</td>
+<td><p class="first last">主に負荷 <a href="#id1"><span class="problematic" id="id2">|</span></a>ヘッダーファイル</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">dal_basic.h</span></tt></td>
-<td>A variable size array container, dal::dynamic_array&lt;T&gt;.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; dal_basic &#8216;</p>
+</td>
+<td><p class="first last">可変サイズの配列コンテナ、dal::d ynamic_array&lt;T&gt;。&lt;/T&gt;</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">dal_bit_vector.h</span></tt> and <tt class="file docutils literal"><span class="pre">dal_bit_vector.cc</span></tt></td>
-<td>A improved bit vector container based on dal::dynamic_array&lt;T&gt;.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; dal_bit_vector &#8216; と: ファイル: &#8216; dal_bit_vector &#8216;</p>
+</td>
+<td><p class="first last">ダルに基づく改良型ビットベクトルコンテナ::d ynamic_array&lt;T&gt;.&lt;/T&gt;</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">dal_tas.h</span></tt></td>
-<td>A heap container based on dal::dynamic_array&lt;T&gt;.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; dal_tas &#8216;</p>
+</td>
+<td><p class="first last">dal に基づくヒープコンテナー::d ynamic_array&lt;T&gt;。&lt;/T&gt;</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">dal_tree_sorted.h</span></tt></td>
-<td>A balanced tree stored array based on dal::dynamic_array&lt;T&gt;.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; dal_tree_sorted &#8216;</p>
+</td>
+<td><p class="first last">dal に基づくバランスのとれたツリー格納された配列::d ynamic_array&lt;T&gt;.&lt;/T&gt;</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">dal_static_stored_objects.h</span></tt> and <tt class="file docutils literal"><span class="pre">dal_static_stored_objects.cc</span></tt></td>
-<td>Allows to store some objects and dependencies between some objects. Used to store many things in <em>GetFEM++</em> (finite element methods, integration methods, pre-computations, ...).</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; dalstatic_stored_objects &#8216; と: ファイル: &#8216; dalstatic_stored_objects &#8216;</p>
+</td>
+<td><p class="first last">いくつかのオブジェクトと依存関係を格納することができます。多くのものを保存するために使用 | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>(有限要素法, 積分法, 事前計算,...).</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">dal_naming_system.h</span></tt></td>
-<td>A generic object to associate a name to a method descriptor and store the method descriptor. Used for finite element methods, integration methods and geometric transformations. Uses dal::static_stored_object.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; dal_naming_system &#8216;</p>
+</td>
+<td><p class="first last">メソッド記述子に名前を関連付け、メソッド記述子を格納する汎用オブジェクト。有限要素法、積分法および幾何学的変換に使用されます。dal:: static_stored_object を使用しています。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">dal_shared_ptr.h</span></tt></td>
-<td>A simplified version of boost::shared_ptr.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; dal_shared_ptr &#8216;</p>
+</td>
+<td><p class="first last">ブースト:: shared_ptr の簡略化されたバージョンです。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">dal_singleton.h</span></tt> and <tt class="file docutils literal"><span class="pre">dal_singleton.cc</span></tt></td>
-<td>A simple singleton implementation which has been made thread safe for OpenMP (singletons are replicated n each thread).</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; dal_singleton &#8216; と: ファイル: &#8216; dal_singleton &#8216;</p>
+</td>
+<td><p class="first last">OpenMP に対してスレッドセーフにされた単純なシングルトン実装 (シングルトンは、各スレッドが n 個複製されます)。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">dal_backtrace.h</span></tt> and <tt class="file docutils literal"><span class="pre">dal_backtrace.cc</span></tt></td>
-<td>For debugging, dump glibc backtrace.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; dal_backtrace &#8216; と: ファイル: &#8216; dal_backtrace &#8216;</p>
+</td>
+<td><p class="first last">デバッグのために、glibc トレースをダンプします。</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Stable, not evolving too much.</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>安定して、あまり進化していません。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>No plan.</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>計画はない</p>
 </div>
 </div>
 
@@ -142,21 +158,21 @@ has to be as much as possible reduced.</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Dal library</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">Dal ライブラリ</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_gmm.html"
-                        title="前の章へ">Gmm library</a></p>
+                        title="前の章へ">ライブラリ</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_misc.html"
-                        title="次の章へ">Miscellaneous algorithms</a></p>            <h3>Download</h3>
+                        title="次の章へ">その他のアルゴリズム</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -201,17 +217,17 @@ has to be as much as possible reduced.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_misc.html" title="Miscellaneous algorithms"
+          <a href="libdesc_misc.html" title="その他のアルゴリズム"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_gmm.html" title="Gmm library"
+          <a href="libdesc_gmm.html" title="ライブラリ"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; GetFEM++</title>
+    <title>導入 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="GetFEM++ Tutorial" href="index.html" />
-    <link rel="next" title="How to install" href="install.html" />
-    <link rel="prev" title="GetFEM++ Tutorial" href="index.html" />
+    <link rel="up" title="|gf|チュートリアル" href="index.html" />
+    <link rel="next" title="インストール方法" href="install.html" />
+    <link rel="prev" title="|gf|チュートリアル" href="index.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="install.html" title="How to install"
+          <a href="install.html" title="インストール方法"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="GetFEM++ Tutorial"
+          <a href="index.html" title="|gf|チュートリアル"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U"><em>GetFEM++</em> Tutorial</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">|gf|チュートリアル</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,48 +62,53 @@
           <div class="body">
             
   <div class="section" id="introduction">
-<span id="ud-intro-tut"></span><h1>Introduction<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This tutorial is intended to present the main aspects of the <em>GetFEM++</em> library  on commented simple examples. <em>GetFEM++</em> allows numerical modeling of complex problems including coupled ones. It is relatively simple to add arbitrary coupling terms thanks to a weak form description language. Expressions in weak form are then compiled in the form of a list of optimized instructions that are executed during assembly.</p>
-<p>The main presented functionalities are the following</p>
+<span id="ud-intro-tut"></span><h1>導入<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このチュートリアルでは、| gf の主な側面を提示することを意図しています <a href="#id1"><span class="problematic" id="id2">|ライブラリは、単純な例をコメントした。|</span></a> gf <a href="#id1"><span class="problematic" id="id2">|</span></a>結合されたものを含む複雑な問題の数値モデリングを可能にします。弱い形式記述言語のおかげで任意の結合項を追加することは比較的簡単です。次に、弱い形式の式は、アセンブリ中に実行される最適化された命令のリストの形式でコンパイルします。</p>
+<p>主な提示された機能は次のとおりである</p>
 <blockquote>
 <div><ul class="simple">
-<li>Approximation of multiphysics problems and the use of the generic assembly.</li>
-<li>The use of fixed-size variables.</li>
-<li>Contact problems.</li>
-<li>Fictitious domain fonctionalities and transformations allowing inter-mesh or inter-region assembly.</li>
-<li>Continuation / bifurcation problems.</li>
+<li><p class="first">マルチフィジックス問題の近似とジェネリックアセンブリの使用。</p>
+</li>
+<li><p class="first">固定サイズ変数の使用。</p>
+</li>
+<li><p class="first">連絡先の問題。</p>
+</li>
+<li><p class="first">架空のドメイン fonctionalities と変換により、メッシュ間またはリージョン間のアセンブリを可能にします。</p>
+</li>
+<li><p class="first">継続/分岐の問題。</p>
+</li>
 </ul>
 </div></blockquote>
-<p>This tutorial does not of course takes the place of the various documentations. The user documentation (that of the C++ library) is the reference one concerning the description of implemented methods. Interfaces documentations describe the use of the different functionalities from interfaces but do not repeat the description of methods. &#8216;Developpers&#8217;s guide&#8217; documentation describes more internal concerning the organization of the library.</p>
+<p>このチュートリアルでは、もちろん、様々なドキュメントの場所を取ることはありません。ユーザードキュメント (C++ ライブラリの) は、実装されたメソッドの説明に関するリファレンスです。インターフェイスのドキュメンテーションはインターフェイスからの異なった機能性の使用を記述するが、方法の記述を繰り返さない。&#8217; Developpers のガイド &#8216; ドキュメントは、ライブラリの組織に関するより多くの内部について説明します。</p>
 <div class="line-block">
-<div class="line">Gf | is a free collaborative project hosted by the <a class="reference external" href="http://savannah.gnu.org">Savannah</a> site (see <a class="reference external" href="https://savannah.nongnu.org/projects/getfem">https://savannah.nongnu.org/projects/getfem</a>). New contributors are welcome to all aspects of the project.</div>
+<div class="line">Gf <a href="#id1"><span class="problematic" id="id2">|</span></a>は、&#8217; サバンナ &#8216; _ サイトでホストされている無料の共同プロジェクトです&lt;http: savannah.gnu.org=&#8221;&#8220;&gt;(<a class="reference external" href="https://savannah.nongnu.org/projects/getfem">https://savannah.nongnu.org/projects/getfem</a> 参照)。新しい貢献者は、プロジェクトのすべての側面に歓迎されています。&lt;/http:&gt;</div>
 </div>
 <div class="section" id="c-python-scilab-or-matlab">
-<h2>C++, Python, Scilab or Matlab ?<a class="headerlink" href="#c-python-scilab-or-matlab" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>C++、Python、Scilab または Matlab?<a class="headerlink" href="#c-python-scilab-or-matlab" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><em>GetFEM++</em> is basically a library written in C++. However, it has an interface that is available in Python, Scilab and Matlab  versions and allows to use all the advanced features. It is recommended to start by using the interface with scripting languages, which makes programming easier. The three versions of the interface differ only by small syntax elements, except for the graphics post-processing (Scilab and Matlab interfaces offer the possibility of integrated post-processing while it is necessary to use dedicated software such as Paraview, Mayavi or gmsh when using the Python interface or directly the library in C++). The Python interface is compiled by default along with the C++ library.</p>
-<p>Use <em>GetFEM++</em> interface is a good strategy even for complex applications, the performance is comparable to the direct use of the C++ library and it is more flexible to use. However, only the Python interface allows for the parallelization (with MPI). The possible addition of functionality to the interface being a relatively simple operation.</p>
-<p>The first example of the tutorial (thermo-electric coupling elastico) allows to see the difference in the use of the C++ library and one of the versions of the interface.</p>
+<p>使用 | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>インターフェイスは、複雑なアプリケーションであっても良い戦略であり、パフォーマンスは C++ ライブラリの直接的な使用に匹敵し、より柔軟に使用できます。ただし、Python インタフェースだけが並列化を可能にします (MPI を使用)。インターフェイスへの機能の可能な付加は比較的簡単な操作である。</p>
+<p>チュートリアル (サーモエレクトリックカップリング elastico) の最初の例では、C++ ライブラリの使用方法とインターフェイスのバージョンの違いを確認できます。</p>
 </div>
 <div class="section" id="where-are-demo-files">
-<h2>Where are demo files ?<a class="headerlink" href="#where-are-demo-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A large number of demonstration programs can be found</p>
+<h2>デモファイルはどこにありますか?<a class="headerlink" href="#where-are-demo-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>多数のデモンストレーションプログラムを見つけることができます。</p>
 <ul>
-<li><p class="first">for the C++ examples in directory:</p>
+<li><p class="first">ディレクトリの C++ の例:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">tests</span><span class="o">/</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">for the Python interface in the directory:</p>
+<li><p class="first">ディレクトリ内の Python インターフェイスの場合:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">python</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">for the Scilab interface in the directory:</p>
+<li><p class="first">ディレクトリ内の Scilab インタフェースの場合:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">scr</span><span class="o">/</span><span class="n">scilab</span><span class="o">/</span><span class="n">demos</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">and for the Matlab interface in the directory:</p>
+<li><p class="first">とディレクトリ内の Matlab のインターフェイス:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">matlab</span>
 </pre></div>
 </div>
@@ -123,19 +128,19 @@
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Introduction</a><ul>
-<li><a class="reference internal" href="#c-python-scilab-or-matlab">C++, Python, Scilab or Matlab ?</a></li>
-<li><a class="reference internal" href="#where-are-demo-files">Where are demo files ?</a></li>
+<li><a class="reference internal" href="#">導入</a><ul>
+<li><a class="reference internal" href="#c-python-scilab-or-matlab">C++、Python、Scilab または Matlab?</a></li>
+<li><a class="reference internal" href="#where-are-demo-files">デモファイルはどこにありますか?</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
-                        title="前の章へ"><em>GetFEM++</em> Tutorial</a></p>
+                        title="前の章へ">|gf|チュートリアル</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="install.html"
-                        title="次の章へ">How to install</a></p>            <h3>Download</h3>
+                        title="次の章へ">インストール方法</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -180,16 +185,16 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="install.html" title="How to install"
+          <a href="install.html" title="インストール方法"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="GetFEM++ Tutorial"
+          <a href="index.html" title="|gf|チュートリアル"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" ><em>GetFEM++</em> Tutorial</a> &raquo;</li> 
+          <li><a href="index.html" >|gf|チュートリアル</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

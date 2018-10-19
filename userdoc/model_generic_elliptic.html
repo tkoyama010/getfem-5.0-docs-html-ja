@@ -78,7 +78,7 @@
 </pre></div>
 </div>
 <p>モデル変数にも依存したとしても(例えば &#8220;1&#8221;, &#8220;sin(X[0])&#8221; or &#8220;Norm(u)&#8221; のような)弱形式言語の正規表現でなければならない式 <tt class="docutils literal"><span class="pre">dataexpr</span></tt> によって与えられた任意の係数が加えられます。（モデルの宣言されたデータでなければならない複素数バージョンを除く）。</p>
-<p>この要素では非常に汎用的な方程式が得られることに注意してください。例えば、テンソルデータを用いて線形異方性弾性を得ることができる。テンソル4次を使用する場合、対応する弱定式化項は次のようになります</p>
+<p>この要素では非常に汎用的な方程式が得られることに注意してください。例えば、テンソルデータを用いて線形異方性弾性を得ることができます。テンソル4次を使用する場合、対応する弱定式化項は次のようになります</p>
 <div class="math">
 <p><img src="../images/math/c70c39c8c42f5321b7e50c9c139f7dd11b652f53.png" alt="\int_{\Omega} \sum_{i,j,k,l} a_{i,j,k,l}\partial_i u_j \partial_k v_l dx"/></p>
 </div><p>ここで、次のようになります。 <img class="math" src="../images/math/34a5ba912141171ad416444385a83fc912b4b6e1.png" alt="a_{i,j,k,l}" style="vertical-align: -6px"/> はテンソル4次の次数であり、未知数 <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> の <img class="math" src="../images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/> 成分の <img class="math" src="../images/math/25ee658fc5ee9b34ede580b498f134be039ed723.png" alt="\partial_i u_j" style="vertical-align: -6px"/> は次の <img class="math" src="../images/math/ffbd55597272a9914166c5dd1e71a5d23d842ddd.png" alt="i^{th}" style="vertical-align: 0px"/> 変数の偏微分です。  <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は試行関数です。しかし、線形等方性弾性の場合、より適合した要素が利用可能です（下記参照）。</p>

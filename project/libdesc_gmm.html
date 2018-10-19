@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Gmm library &mdash; GetFEM++</title>
+    <title>ライブラリ &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="Dal library" href="libdesc_dal.html" />
-    <link rel="prev" title="Description of the different parts of the library" href="libdesc.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="Dal ライブラリ" href="libdesc_dal.html" />
+    <link rel="prev" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_dal.html" title="Dal library"
+          <a href="libdesc_dal.html" title="Dal ライブラリ"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc.html" title="Description of the different parts of the library"
+          <a href="libdesc.html" title="ライブラリのさまざまな部分の説明"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,53 +63,35 @@
           <div class="body">
             
   <div class="section" id="gmm-library">
-<span id="dp-libdesc-gmm"></span><h1>Gmm library<a class="headerlink" href="#gmm-library" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-gmm"></span><h1>ライブラリ<a class="headerlink" href="#gmm-library" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><em>Gmm++</em> is a template linear algebra library which was originally designed to make an
-interface between the need in linear algebra procedures of <em>GetFEM++</em> and existing free
-linear algebra libraries (MTL, Superlu, Blas, Lapack originally). It rapidly
-evolves to an independent self-consistent library with its own vector and matrix
-types. It is now used as a base linear algebra library by several other projects.</p>
-<p>However, it preserves the characteristic to be a potential interface for more
-specific packages. Any vector or matrix type having the minimum of compatibility
-can be used by generic algorithms of <em>Gmm++</em> writing a <tt class="docutils literal"><span class="pre">linalg_traits</span></tt> structure.</p>
-<p>A <em>Gmm++</em> standalone version is distributed since release 1.5 of <em>GetFEM++</em>. It is
-however developed inside the <em>GetFEM++</em> project even though since release 3.0 it is
-completely independent of any <em>GetFEM++</em> file.</p>
-<p>In addition to the linear algebra procedures, it furnishes also the following
-utilities to <em>GetFEM++</em>.</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">|</span></a>は線形代数のプロシージャの必要性間のインターフェイスを作るために最初に設計されていた型板の線形代数の図書館である | gf <a href="#id3"><span class="problematic" id="id4">|</span></a>と既存の自由線形代数ライブラリ (中央線、Superlu、ブラス、Lapack もともと)。それは、独自のベクトルと行列型を持つ独立した自己一貫性のあるライブラリに急速に進化します。これは、他のいくつかのプロジェクトによって基礎線形代数ライブラリとして使用されるようになりました。</p>
+<p>ただし、その特性は、より特定のパッケージのための潜在的なインターフェイスとして保持されます。互換性の最小値を持つベクトルまたは行列型は、ジェネリックアルゴリズムで使用できます <a href="#id1"><span class="problematic" id="id2">|</span></a>&#8216; &#8216; linalg_traits &#8216; &#8216; 構造を書いています。</p>
+<p>A <a href="#id1"><span class="problematic" id="id2">|スタンドアロンバージョンは、|</span></a> gf | のリリース1.5 以降に配布されています。しかしそれは内部で開発される | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>プロジェクトにもかかわらず、リリース3.0 以来、完全に任意の独立している | gf <a href="#id3"><span class="problematic" id="id4">|</span></a>ファイル。</p>
+<p>線形代数プロシージャに加えて、それは次の実用性をまた供給する | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>。</p>
 <ul class="simple">
-<li>Fix some eventual compatibility problems in <tt class="file docutils literal"><span class="pre">gmm_std.h</span></tt>.</li>
-<li>Error, warning and trace management in <tt class="file docutils literal"><span class="pre">gmm_except.h</span></tt>.</li>
-<li>Some extended math definitions in <tt class="file docutils literal"><span class="pre">gmm_def.h</span></tt>.</li>
+<li><p class="first">ファイル: &#8216; gmm_std &#8216; のいくつかの最終的な互換性の問題を修正します。</p>
+</li>
+<li><p class="first">エラー、警告、およびトレース管理: ファイル: &#8216; gmm_except &#8216;。</p>
+</li>
+<li><p class="first">いくつかの拡張数学の定義: ファイル: &#8216; gmm_def &#8216;。</p>
+</li>
 </ul>
-<p>See <a class="reference internal" href="../gmm/index.html#gmm"><em>Gmm++ Library</em></a> documenation for more details.</p>
+<p>詳細については、ref: &#8216; ドキュメント &#8216; を参照してください。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>All files in src/gmm</p>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>src/のすべてのファイル</p>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For the moment, <em>Gmm++</em> cover the needs of <em>GetFEM++</em> concerning the basic linear algebra
-procedures.</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>とりあえず || gf のニーズをカバー <a href="#id1"><span class="problematic" id="id2">|</span></a>基本的な線形代数の手順について。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>There is potentatialy several points to be improved in <em>Gmm++</em> (partial
-introduction of expression template for some base types of matrix and vectors,
-think about the way to represent in a more coherent manner sparse sub-vectors
-and sub-matrices, introduction of C++ concepts, etc.). However, since <em>Gmm++</em>
-globally cover the needs of <em>GetFEM++</em> and since there exists some other project like
-<a class="reference external" href="http://glas.sourceforge.net/">Glas</a> to build a reference C++ library for
-linear algebra, a global change seem to be unnecessary. This part
-is considered to be stabilized.</p>
-<p>The current vocation of <em>Gmm++</em> is to continue to collect generic algorithms and
-interfaces to some other packages (DIFFPACK for instance) in order to cover new needs of the whole
-project. The library is now frequently used as a separate package and has also
-the vocation to collect the contribution of any person who propose some
-improvements, new algorithms or new interfaces.</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>改善すべきいくつかの点が potentatialy <a href="#id1"><span class="problematic" id="id2">|</span></a>(いくつかの基底型の行列とベクトルのための表現テンプレートの部分的な導入、より一貫した方法疎サブベクトルとサブ行列、C++ の概念の導入など) で表現する方法について考えてみてください。しかし、以来 <a href="#id3"><span class="problematic" id="id4">|</span></a>グローバルなニーズをカバー | gf <a href="#id5"><span class="problematic" id="id6">|</span></a>と &#8216; グラス &#8216; _ のようないくつかの他のプロジェクトが存在するので&lt;http: glas.sourceforge.net/=&#8221;&#8220;&gt;、線形代数のためのリファレンス C++ ライブラリを構築するには、グローバルな変更は不要と思われる。この部分は安定していると考えられます。&lt;/http:&gt;</p>
+<p>現在の職業 <a href="#id1"><span class="problematic" id="id2">|</span></a>は、プロジェクト全体の新しいニーズをカバーするために、他のいくつかのパッケージ (たとえば DIFFPACK) に汎用アルゴリズムとインターフェイスを収集し続けることです。ライブラリは、現在頻繁に別のパッケージとして使用され、また、いくつかの改善、新しいアルゴリズムや新しいインターフェイスを提案するすべての人の貢献を収集するために職業を持っています。</p>
 </div>
 </div>
 
@@ -124,21 +106,21 @@ improvements, new algorithms or new interfaces.</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Gmm library</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">ライブラリ</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc.html"
-                        title="前の章へ">Description of the different parts of the library</a></p>
+                        title="前の章へ">ライブラリのさまざまな部分の説明</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_dal.html"
-                        title="次の章へ">Dal library</a></p>            <h3>Download</h3>
+                        title="次の章へ">Dal ライブラリ</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -183,17 +165,17 @@ improvements, new algorithms or new interfaces.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_dal.html" title="Dal library"
+          <a href="libdesc_dal.html" title="Dal ライブラリ"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc.html" title="Description of the different parts of the library"
+          <a href="libdesc.html" title="ライブラリのさまざまな部分の説明"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

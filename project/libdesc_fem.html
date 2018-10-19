@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Fem module &mdash; GetFEM++</title>
+    <title>Fem モジュール &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="Integ module" href="libdesc_im.html" />
-    <link rel="prev" title="Mesh module" href="libdesc_mesh.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="Integ モジュール" href="libdesc_im.html" />
+    <link rel="prev" title="メッシュモジュール" href="libdesc_mesh.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_im.html" title="Integ module"
+          <a href="libdesc_im.html" title="Integ モジュール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_mesh.html" title="Mesh module"
+          <a href="libdesc_mesh.html" title="メッシュモジュール"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,75 +63,64 @@
           <div class="body">
             
   <div class="section" id="fem-module">
-<span id="dp-libdesc-fem"></span><h1>Fem module<a class="headerlink" href="#fem-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-fem"></span><h1>Fem モジュール<a class="headerlink" href="#fem-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The Fem module is the part of <em>GetFEM++</em> which describes the finite elements at the
-element level and the degrees of freedom. Finite element methods can be of
-different types. They could be scalar or vectorial, polynomial, piecewise
-polynomial or non-polynomial, equivalent via the geometric transformation or not.
-Moreover, the description of the degrees of freedom have to be such that it is
-possible to gather the compatible degrees of freedom between two neighbour
-elements in a generic way (for instance connecting a Lagrange 2D element to
-another Lagrange 1D element).</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Fem モジュールは | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>これは、要素レベルと自由度の有限要素を記述します。有限要素法は異なったタイプである場合もある。それらは幾何学的変形によってスカラーかベクトル、多項式、区分多項式または非多項式、同等であるかもしれない。また、自由度の記述は、一般的な方法で2つの隣接要素間の互換性のある自由度を収集することができるようにする必要があります (例えばラグランジュ2d 要素を別のラグランジュ1d 要素に接続する場合)。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">bgeot_poly.h</span></tt> and <tt class="file docutils literal"><span class="pre">bgeot_poly_composite.h</span></tt> and <tt class="file docutils literal"><span class="pre">bgeot_poly.cc</span></tt> and <tt class="file docutils literal"><span class="pre">bgeot_poly_composite.cc</span></tt></td>
-<td>Some classes to represent polynomials and piecewise polynomials in order to describe shape functions of a finite element method on the reference element.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; bgeot_poly &#8216; と: ファイル: &#8216; bgeot_poly_composite &#8216; と: ファイル: &#8216; bgeot_poly &#8216; と: ファイル: &#8216; bgeot_poly_composite. cc &#8216;</p>
+</td>
+<td><p class="first last">いくつかのクラスは、参照要素の有限要素法の形状関数を記述するために、多項式と区分的な多項式を表現する。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_fem.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_fem_composite.cc</span></tt></td>
-<td>Descriptors for finite element and a degree of freedom. Polynomial finite elements are defined in <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> and piecewise polynomial finite elements in <tt class="file docutils literal"><span class="pre">getfem_fem_composite.cc</span></tt></td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_fem &#8216; と: ファイル: &#8216; getfem_fem &#8216; と: ファイル: &#8216; getfem_fem_composite &#8216;</p>
+</td>
+<td><p class="first last">有限要素と自由度の記述子。多項式有限要素を定義する: ファイル: &#8216; getfem_fem &#8216; と区分多項式有限要素: ファイル: &#8216; getfem_fem_composite &#8216;</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_fem_global_function.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_fem_global_function.cc</span></tt></td>
-<td>Defines a fem with base functions defined as global functions given by the user. Useful for enrichment with singular functions and for implementation of meshless methods.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_fem_global_function &#8216; と: ファイル: &#8216; getfem_fem_global_function &#8216;</p>
+</td>
+<td><p class="first last">ユーザーが指定したグローバル関数として定義された基本関数を持つ fem を定義します。特異関数による濃縮やメッシュレスメソッドの実装に有用である.</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_projected_fem.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_projected_fem.cc</span></tt></td>
-<td>Defines a fem which is the projection of a finite element space (represented by a mesh_fem) on a different mesh. Note that the high-generic assembly language offers also this functionality by means of the interpolated transformations.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_projected_fem &#8216; と: ファイル: &#8216; getfem_projected_fem &#8216;</p>
+</td>
+<td><p class="first last">別のメッシュ上の有限要素空間 (mesh_fem で表される) の射影である fem を定義します。高ジェネリックアセンブリ言語では、補間変換によってこの機能も提供されていることに注意してください。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_interpolated_fem.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_interpolated_fem.cc</span></tt></td>
-<td>Dsfines a fem which is the interpolation of a finite element space (represented by a mesh_fem) on a different mesh. Note that the high-generic assembly language offers also this functionality by means of the interpolated transformations.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_interpolated_fem &#8216; と: ファイル: &#8216; getfem_interpolated_fem &#8216;</p>
+</td>
+<td><p class="first last">Dsfines は、別のメッシュ上の有限要素空間 (mesh_fem で表される) の補間である fem を構成します。高ジェネリックアセンブリ言語では、補間変換によってこの機能も提供されていることに注意してください。</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The two files <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_fem_composite.cc</span></tt> mainly
-contains all the finite element description for basic elements. A exhaustive list
-of the defined finite elements is given in <a class="reference internal" href="../userdoc/appendixA.html#ud-appendixa"><em>Appendix A. Finite element method list</em></a>.</p>
-<p>Some other files define some specific finite element such as
-<tt class="file docutils literal"><span class="pre">getfem_fem_level_set.h</span></tt> which is a complex construction which allows to
-&#8220;cut&#8221; a existing element by one or several level sets.</p>
-<p>The manner to describe the degrees of freedom globally satisfies the needing
-(connecting dof from an element to another in a generic way) but is a little bit
-obscure and too much complicated.</p>
-<p>Conversely, the way to represent non-equivalent elements with the supplementary
-matrix <tt class="docutils literal"><span class="pre">M</span></tt> has proven its efficiency on several elements (Hermites elements,
-Argyris, etc.).</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>2つのファイル: ファイル: &#8216; getfem_fem &#8216; と: ファイル: &#8216; getfem_fem_composite &#8216; は主に基本的な要素のすべての有限要素の説明が含まれています。定義された有限要素の完全なリストは、で与えられます: ref: &#8216; ud-appendixa &#8216;。</p>
+<p>いくつかの他のファイルのようないくつかの特定の有限要素を定義する: ファイル: &#8216; getfem_fem_level_set &#8216; は、&#8221;&#8221; 1 つまたは複数のレベルセットで既存の要素をカットすることができます複雑な構造です。</p>
+<p>自由度を記述する方法は、グローバルに必要とする (接続 dof 一般的な方法で別の要素から) が、少しあいまいで、あまりにも複雑です。</p>
+<p>逆に、補助行列 &#8216; is &#8216; &#8216; で非等価要素を表現する方法は、いくつかの要素 (Hermites 要素、アージリスなど) でその効率を証明しています。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The principal dissatisfaction of this module is that description of the degrees
-of freedom is not completely satisfactory. It is the principal reason why one
-documentation on how to build an element from A to Z was not made for the moment
-because description of the degrees of freedom was conceived to be temporary. An
-effort of design is thus to be provided to completely stabilize this module
-mainly thus with regard to the description of degrees of freedom but also perhaps
-the description of finite elements which could be partially externalized in a
-similar way to the cubature methods , at least for the simplest finite elements
-(equivalent and polynomial finite elements).</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このモジュールの主な不満は、自由度の説明が完全に満足していないということです。自由度の記述が一時的であるために考案されたので、A から Z までの要素を構築する方法についての1つのドキュメンテーションが今のところ作られなかった主な理由です。設計の努力はこうして完全に自由度の記述に関してこのモジュールを主として安定させるために提供されるべきであるまた多分立体求積法に同様の方法で部分的に外部化であることができる有限要素の記述メソッドは、少なくとも最も単純な有限要素 (等価および多項式有限要素)。</p>
 </div>
 </div>
 
@@ -146,21 +135,21 @@ similar way to the cubature methods , at least for the simplest finite elements
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Fem module</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">Fem モジュール</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_mesh.html"
-                        title="前の章へ">Mesh module</a></p>
+                        title="前の章へ">メッシュモジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_im.html"
-                        title="次の章へ">Integ module</a></p>            <h3>Download</h3>
+                        title="次の章へ">Integ モジュール</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -205,17 +194,17 @@ similar way to the cubature methods , at least for the simplest finite elements
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_im.html" title="Integ module"
+          <a href="libdesc_im.html" title="Integ モジュール"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_mesh.html" title="Mesh module"
+          <a href="libdesc_mesh.html" title="メッシュモジュール"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

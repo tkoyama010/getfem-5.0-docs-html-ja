@@ -92,7 +92,7 @@
 </li>
 <li><p class="first">括弧は標準的な方法で操作の順序を変更するために使用できます。例えば <tt class="docutils literal"><span class="pre">(1+2)*4</span></tt> や <tt class="docutils literal"><span class="pre">(u+v)*Test_u</span></tt> は有効な式です。</p>
 </li>
-<li><p class="first">ベクトル/行列/テンソルの成分へのアクセスは、左括弧、成分のリスト、右括弧の項をたどることによって行うことができる。たとえば、 <tt class="docutils literal"><span class="pre">[1,1,2](3)</span></tt> は正しく <tt class="docutils literal"><span class="pre">2</span></tt> を返します。インデックスは1で始まることに注意してください（C++やPythonインタフェースでも）。コロンを使うことでMatlabのような構文でインデックス先の値を置き換えることができます。</p>
+<li><p class="first">ベクトル/行列/テンソルの成分へのアクセスは、左括弧、成分のリスト、右括弧の項をたどることによって行うことができます。たとえば、 <tt class="docutils literal"><span class="pre">[1,1,2](3)</span></tt> は正しく <tt class="docutils literal"><span class="pre">2</span></tt> を返します。インデックスは1で始まることに注意してください（C++やPythonインタフェースでも）。コロンを使うことでMatlabのような構文でインデックス先の値を置き換えることができます。</p>
 </li>
 <li><p class="first">陽なベクトル: 例えば <tt class="docutils literal"><span class="pre">[1;2;3;4]</span></tt> はサイズが4の陽なベクトルです。各成分は式になります。</p>
 </li>
@@ -121,7 +121,7 @@
 <li><p class="first"><tt class="docutils literal"><span class="pre">Elementary_transformation(variable,</span> <span class="pre">transformation)</span></tt>: 要素水準で定義された線形変換を許可します（つまり、Gauss積分点基準では定義できません）。この機能は、主にプレート要素の縮小（回転RT0などの低水準のベクトル要素への投影）を定義するために追加されました。 <tt class="docutils literal"><span class="pre">transformation</span></tt> は、特定の要素の変換を記述するworkspaceやmodelオブジェクトによって格納されるオブジェクトです。</p>
 </li>
 <li><p class="first">二重積分計算またはカーネル/畳み込み/積分積分による2つの変数の結合のための2つの領域の直接積に対する積分の可能です。これにより、次のような表現が可能になります。
-<img class="math" src="../images/math/25c056f01b2d920f07a2a9bee3a455aa739c218a.png" alt="\Omega_1" style="vertical-align: -4px"/> 上と <img class="math" src="../images/math/1705dcf5b6ed693e2aaea2fda973ea0b976433db.png" alt="\Omega_2" style="vertical-align: -3px"/> 上の2つの領域で <img class="math" src="../images/math/89e5a3f997b03e8f485ade1fa8c8f34fdae4da18.png" alt="\displaystyle\int_{\Omega_1}\int_{\Omega_2}k(x,y)u(x)v(y)dydx" style="vertical-align: -19px"/> 同じにしろ違うにしろ固有のメッシュと積分手法を持つことができる。ここで、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は <img class="math" src="../images/math/25c056f01b2d920f07a2a9bee3a455aa739c218a.png" alt="\Omega_1" style="vertical-align: -4px"/> 上で定義された変数で <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は <img class="math" src="../images/math/1705dcf5b6ed693e2aaea2fda973ea0b976433db.png" alt="\Omega_2" style="vertical-align: -3px"/> 上で定義された変数です。キーワード <tt class="docutils literal"><span class="pre">Secondary_domain(変数)</span></tt> を使用すると、積分の第2領域上の変数にアクセスできます。</p>
+<img class="math" src="../images/math/25c056f01b2d920f07a2a9bee3a455aa739c218a.png" alt="\Omega_1" style="vertical-align: -4px"/> 上と <img class="math" src="../images/math/1705dcf5b6ed693e2aaea2fda973ea0b976433db.png" alt="\Omega_2" style="vertical-align: -3px"/> 上の2つの領域で <img class="math" src="../images/math/89e5a3f997b03e8f485ade1fa8c8f34fdae4da18.png" alt="\displaystyle\int_{\Omega_1}\int_{\Omega_2}k(x,y)u(x)v(y)dydx" style="vertical-align: -19px"/> 同じにしろ違うにしろ固有のメッシュと積分手法を持つことができます。ここで、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は <img class="math" src="../images/math/25c056f01b2d920f07a2a9bee3a455aa739c218a.png" alt="\Omega_1" style="vertical-align: -4px"/> 上で定義された変数で <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は <img class="math" src="../images/math/1705dcf5b6ed693e2aaea2fda973ea0b976433db.png" alt="\Omega_2" style="vertical-align: -3px"/> 上で定義された変数です。キーワード <tt class="docutils literal"><span class="pre">Secondary_domain(変数)</span></tt> を使用すると、積分の第2領域上の変数にアクセスできます。</p>
 </li>
 </ul>
 </div></blockquote>
@@ -523,9 +523,9 @@
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">element_size</span></tt> は、（ getfem::convex_radius_estimate を使って）現在の要素の直径の推定値を返します。</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">element_K</span></tt> は、参照（親）要素からの幾何学変換の勾配（ <a class="reference internal" href="../project/femdesc.html#dp-transgeo"><em>Geometric transformations</em></a> を参照）を与えます。メッシュに混合次元の要素が含まれていない場合にのみ使用できます。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">element_K</span></tt> は、参照（親）要素からの幾何学変換の勾配（ <a class="reference internal" href="../project/femdesc.html#dp-transgeo"><em>幾何学的変換</em></a> を参照）を与えます。メッシュに混合次元の要素が含まれていない場合にのみ使用できます。</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">element_B</span></tt> は、参照（親）要素からの幾何学変換の勾配の擬似逆行列の転置を与えます（ <a class="reference internal" href="../project/femdesc.html#dp-transgeo"><em>Geometric transformations</em></a> を参照）。メッシュに混合次元の要素が含まれていない場合にのみ使用できます。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">element_B</span></tt> は、参照（親）要素からの幾何学変換の勾配の擬似逆行列の転置を与えます（ <a class="reference internal" href="../project/femdesc.html#dp-transgeo"><em>幾何学的変換</em></a> を参照）。メッシュに混合次元の要素が含まれていない場合にのみ使用できます。</p>
 </li>
 </ul>
 </div></blockquote>

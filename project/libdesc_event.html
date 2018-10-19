@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Events management &mdash; GetFEM++</title>
+    <title>イベント管理 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
-    <link rel="next" title="Mesh module" href="libdesc_mesh.html" />
-    <link rel="prev" title="Miscellaneous algorithms" href="libdesc_misc.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
+    <link rel="next" title="メッシュモジュール" href="libdesc_mesh.html" />
+    <link rel="prev" title="その他のアルゴリズム" href="libdesc_misc.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_mesh.html" title="Mesh module"
+          <a href="libdesc_mesh.html" title="メッシュモジュール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_misc.html" title="Miscellaneous algorithms"
+          <a href="libdesc_misc.html" title="その他のアルゴリズム"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,80 +63,71 @@
           <div class="body">
             
   <div class="section" id="events-management">
-<span id="dp-libdesc-event"></span><h1>Events management<a class="headerlink" href="#events-management" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-event"></span><h1>イベント管理<a class="headerlink" href="#events-management" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">mesh</span></tt>, <cite>mesh_fem</cite>, <cite>mesh_im</cite> and <cite>model</cite> description are linkedtogether in the sense
-that there is some dependencies between them. For instance, when an element is
-suppressed to a mesh, the <cite>mesh_fem</cite> object has to react.</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&#8216; &#8216; メッシュ &#8216; &#8216;, | mf <a href="#id1"><span class="problematic" id="id2">|, | mim |と | mo |説明は、それらの間にいくつかの依存関係があるという意味で linkedtogether です。たとえば、要素がメッシュに対して抑制されている場合、|</span></a> mf <a href="#id1"><span class="problematic" id="id2">|</span></a>オブジェクトは反応しなければなりません。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_context.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_context.cc</span></tt></td>
-<td>Define a class <cite>context_dependencies</cite> from which all object has to derive in order to manage events.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_context &#8216; と: ファイル: &#8216; getfem_context &#8216;</p>
+</td>
+<td><p class="first last">イベントを管理するために、すべてのオブジェクトの派生元となるクラス &#8216; context_dependencies &#8216; を定義します。</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The main tool to deal with simple dependence of object is in
-<tt class="file docutils literal"><span class="pre">getfem_context.h</span></tt>. An object <tt class="docutils literal"><span class="pre">context_dependencies</span></tt> is defined there. In
-order to deal with the dependencies of an object, the object
-<tt class="docutils literal"><span class="pre">context_dependencies</span></tt> needs to be a parent class of this object. It adds the
-following methods to the object:</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>オブジェクトの単純な依存性に対処するための主なツールは: ファイル: &#8216; getfem_context &#8216;。オブジェクト &#8216; &#8216; context_dependencies &#8216; &#8216; が定義されています。オブジェクトの依存関係を処理するために、オブジェクト &#8216; &#8216; context_dependencies &#8216; &#8216; はこのオブジェクトの親クラスである必要があります。オブジェクトに次のメソッドを追加します。</p>
 <dl class="function">
 <dt id="add_dependency">
 <tt class="descname">add_dependency</tt><big>(</big>ct<big>)</big><a class="headerlink" href="#add_dependency" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Add an object (which has to have <tt class="docutils literal"><span class="pre">context_dependencies</span></tt> as a parent class)
-to the list of objects from which the current object depend.</p>
+<dd><p>オブジェクト (親クラスとして &#8216; &#8216; context_dependencies &#8216; &#8216; を持つ必要があります) を、現在のオブジェクトが依存するオブジェクトのリストに追加します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="touch">
 <tt class="descname">touch</tt><big>(</big><big>)</big><a class="headerlink" href="#touch" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Indicates to the dependent objects that something has change in the object.</p>
+<dd><p>オブジェクトに何か変化があることを従属オブジェクトに示します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="context_check">
 <tt class="descname">context_check</tt><big>(</big><big>)</big><a class="headerlink" href="#context_check" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Check if the object has to be updated. if it is the case it makes first a
-check to the dependency list and call the update function of the object. (the
-update function of the dependencies are called before the update function of
-the current object).</p>
+<dd><p>オブジェクトを更新するかどうかを確認します。その場合は、最初に依存関係リストにチェックを行い、オブジェクトの update 関数を呼び出します。(依存関係の更新関数は、現在のオブジェクトの update 関数の前に呼び出されます)。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="context_valid">
 <tt class="descname">context_valid</tt><big>(</big><big>)</big><a class="headerlink" href="#context_valid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Says if the object has still a valid context, i.e. if the object in the
-dependency list still exist.</p>
+<dd><p>オブジェクトがまだ有効なコンテキストを持っているかどうか、つまり、依存関係リスト内のオブジェクトがまだ存在する場合を言います。</p>
 </dd></dl>
 
-<p>Moreover, the object has to define a method:</p>
+<p>さらに、オブジェクトはメソッドを定義しなければなりません:</p>
 <div class="highlight-c++"><pre>``void update_from_context(void) const``</pre>
 </div>
-<p>which is called after a <tt class="docutils literal"><span class="pre">context_check()</span></tt> if the context has changed.</p>
-<p>An additional system is present in the object <cite>mesh</cite>. Each individual element has a
-version number in order for the objects <cite>mesh_fem</cite> and <cite>mesh_im</cite> to detect which element
-has changed between two calls.</p>
+<p>コンテキストが変更された場合は &#8216; &#8216; context_check () &#8216; &#8216; の後に呼び出されます。</p>
+<p>オブジェクト | m | に追加のシステムが存在します。個々の要素には、オブジェクトの順序でバージョン番号があります | オス-メス <a href="#id1"><span class="problematic" id="id2">|</span></a>と | mim <a href="#id3"><span class="problematic" id="id4">|</span></a>2つの呼び出しの間で変更された要素を検出します。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The event management of some objects should be analysed with care  This is the case for instance of|mls|, <cite>mesh_fem_level_set</cite>, <cite>partial_mesh_fem</cite>, etc.</p>
-<p>The event management still have to be improved to be a fully reactive system.</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>いくつかのオブジェクトのイベント管理は、注意して分析する必要があります。これは、| mls <a href="#id3"><span class="problematic" id="id4">|、|</span></a> mfls <a href="#id5"><span class="problematic" id="id6">|、|</span></a> pmf | などのインスタンスの場合です。</p>
+<p>イベント管理は、まだ完全に反応するシステムであるために改善される必要があります。</p>
 </div>
 </div>
 
@@ -151,21 +142,21 @@ has changed between two calls.</p>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Events management</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">イベント管理</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_misc.html"
-                        title="前の章へ">Miscellaneous algorithms</a></p>
+                        title="前の章へ">その他のアルゴリズム</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_mesh.html"
-                        title="次の章へ">Mesh module</a></p>            <h3>Download</h3>
+                        title="次の章へ">メッシュモジュール</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -210,17 +201,17 @@ has changed between two calls.</p>
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_mesh.html" title="Mesh module"
+          <a href="libdesc_mesh.html" title="メッシュモジュール"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_misc.html" title="Miscellaneous algorithms"
+          <a href="libdesc_misc.html" title="その他のアルゴリズム"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

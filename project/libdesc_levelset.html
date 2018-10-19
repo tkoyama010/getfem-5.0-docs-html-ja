@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Level-set module &mdash; GetFEM++</title>
+    <title>レベルセットモジュール &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="Description of the different parts of the library" href="libdesc.html" />
+    <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="The high-level generic assembly module in GetFEM++" href="libdesc_high_gen_assemb.html" />
-    <link rel="prev" title="MeshIm module" href="libdesc_mim.html" />
+    <link rel="prev" title="MeshIm モジュール" href="libdesc_mim.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -46,14 +46,14 @@
           <a href="libdesc_high_gen_assemb.html" title="The high-level generic assembly module in GetFEM++"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_mim.html" title="MeshIm module"
+          <a href="libdesc_mim.html" title="MeshIm モジュール"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" accesskey="U">Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" accesskey="U">ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,55 +63,71 @@
           <div class="body">
             
   <div class="section" id="level-set-module">
-<span id="dp-libdesc-levelset"></span><h1>Level-set module<a class="headerlink" href="#level-set-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-levelset"></span><h1>レベルセットモジュール<a class="headerlink" href="#level-set-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Define level-set objects and cut meshes, integration method and finite element method with respect to one or several level-set.</p>
+<h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>1つまたは複数のレベルセットに関して、レベルセットオブジェクトとカットメッシュ、積分法、有限要素法を定義します。</p>
 </div>
 <div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="35%" />
 <col width="65%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">File(s)</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head"><p class="first last">ファイル</p>
+</th>
+<th class="head"><p class="first last">説明</p>
+</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_level_set.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_level_set.cc</span></tt></td>
-<td>Define a level-set function (scalar field defined on a Lagrange fem) with an optional secondary level-set function.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_level_set &#8216; と: ファイル: &#8216; getfem_level_set &#8216;</p>
+</td>
+<td><p class="first last">オプションの二次レベル設定関数を使用して、レベルセット関数 (ラグランジュ fem で定義されたスカラーフィールド) を定義します。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_mesh_level_set.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_mesh_level_set.cc</span></tt></td>
-<td>Cut a mesh with respect to one or several level-sets.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_mesh_level_set &#8216; と: ファイル: &#8216; getfem_mesh_level_set &#8216;</p>
+</td>
+<td><p class="first last">1つまたは複数のレベルセットに対してメッシュをカットします。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_fem_level_set.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_fem_level_set.cc</span></tt></td>
-<td>Define a special finite element method which depends on the element and which is cut by one or several level-sets.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_fem_level_set &#8216; と: ファイル: &#8216; getfem_fem_level_set &#8216;</p>
+</td>
+<td><p class="first last">要素に依存し、1つまたは複数のレベルセットによってカットされる特殊な有限要素メソッドを定義します。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_mesh_fem_level_set.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_mesh_fem_level_set.cc</span></tt></td>
-<td>Produces a mesh_fem object with shape functions cut by one or several level-sets.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_mesh_fem_level_set &#8216; と: ファイル: &#8216; getfem_mesh_fem_level_set &#8216;</p>
+</td>
+<td><p class="first last">1つまたは複数のレベルセットによってカットされたシェイプ関数を持つ mesh_fem オブジェクトを生成します。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_mesh_im_level_set.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_mesh_im_level_set.cc</span></tt></td>
-<td>Produce a mesh_im representing an intergation method cut by the level set and being on on side of level-set, the oter side, both or only on the levelset itself.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_mesh_im_level_set &#8216; と: ファイル: &#8216; getfem_mesh_im_level_set &#8216;</p>
+</td>
+<td><p class="first last">レベルセットによってカットされた intergation メソッドを表す mesh_im を生成し、レベルセット、oter 側、levelset 自体の両方またはのみの側にある。</p>
+</td>
 </tr>
-<tr class="row-odd"><td><tt class="file docutils literal"><span class="pre">getfem_level_set_contact.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_level_set_contact.cc</span></tt></td>
-<td>A level set based large sliding contact algorithm for an easy analysis of implant positioning.</td>
+<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_level_set_contact &#8216; と: ファイル: &#8216; getfem_level_set_contact &#8216;</p>
+</td>
+<td><p class="first last">インプラントの位置決めを簡単に解析するための、レベルセットベースの大型スライディングコンタクトアルゴリズム。</p>
+</td>
 </tr>
-<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_convect.h</span></tt></td>
-<td>Compute the convection of a quantity with respect to a vector field. Used to computate the evolution of a level-set function for instance. Galerkin characteristic method.</td>
+<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_convect &#8216;</p>
+</td>
+<td><p class="first last">ベクトルフィールドに対する量の対流を計算します。たとえば、レベルセット関数の進化を computate するために使用されます。ガラーキン特性法</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="state">
-<h2>State<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Stable.</p>
+<h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>安定。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>Perspectives<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Clarify the alorithm computing the different zones.</p>
+<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>異なるゾーンを計算する alorithm を明確にします。</p>
 </div>
 </div>
 
@@ -126,18 +142,18 @@
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Level-set module</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
-<li><a class="reference internal" href="#state">State</a></li>
-<li><a class="reference internal" href="#perspectives">Perspectives</a></li>
+<li><a class="reference internal" href="#">レベルセットモジュール</a><ul>
+<li><a class="reference internal" href="#description">説明</a></li>
+<li><a class="reference internal" href="#files">ファイル</a></li>
+<li><a class="reference internal" href="#state">状態</a></li>
+<li><a class="reference internal" href="#perspectives">視点</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_mim.html"
-                        title="前の章へ">MeshIm module</a></p>
+                        title="前の章へ">MeshIm モジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_high_gen_assemb.html"
                         title="次の章へ">The high-level generic assembly module in <em>GetFEM++</em></a></p>            <h3>Download</h3>
@@ -188,14 +204,14 @@
           <a href="libdesc_high_gen_assemb.html" title="The high-level generic assembly module in GetFEM++"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_mim.html" title="MeshIm module"
+          <a href="libdesc_mim.html" title="MeshIm モジュール"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >Description of the Project</a> &raquo;</li>
-          <li><a href="libdesc.html" >Description of the different parts of the library</a> &raquo;</li> 
+          <li><a href="index.html" >$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a> &raquo;</li>
+          <li><a href="libdesc.html" >ライブラリのさまざまな部分の説明</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
