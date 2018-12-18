@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="|gf|チュートリアル" href="index.html" />
+    <link rel="up" title="GetFEM++ の導入" href="index.html" />
     <link rel="next" title="インストール方法" href="install.html" />
-    <link rel="prev" title="|gf|チュートリアル" href="index.html" />
+    <link rel="prev" title="GetFEM++ の導入" href="index.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -46,13 +46,13 @@
           <a href="install.html" title="インストール方法"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="|gf|チュートリアル"
+          <a href="index.html" title="GetFEM++ の導入"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,52 +63,52 @@
             
   <div class="section" id="introduction">
 <span id="ud-intro-tut"></span><h1>導入<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>このチュートリアルでは、| gf の主な側面を提示することを意図しています <a href="#id1"><span class="problematic" id="id2">|ライブラリは、単純な例をコメントした。|</span></a> gf <a href="#id1"><span class="problematic" id="id2">|</span></a>結合されたものを含む複雑な問題の数値モデリングを可能にします。弱い形式記述言語のおかげで任意の結合項を追加することは比較的簡単です。次に、弱い形式の式は、アセンブリ中に実行される最適化された命令のリストの形式でコンパイルします。</p>
-<p>主な提示された機能は次のとおりである</p>
+<p>このチュートリアルでは、コメント付きの簡単な例のライブラリで <em>GetFEM++</em> の主な側面を示すことを目的としています。 <em>GetFEM++</em> は結合されたものを含む複雑な問題の数値モデリングを可能にします。弱形式記述言語のおかげで、任意の結合項を追加するのは比較的簡単です。次に、弱形式の式はアセンブリ中に実行される最適化された命令の一覧の形式でコンパイルします。</p>
+<p>主な提示された機能は次のとおりです</p>
 <blockquote>
 <div><ul class="simple">
 <li><p class="first">マルチフィジックス問題の近似とジェネリックアセンブリの使用。</p>
 </li>
 <li><p class="first">固定サイズ変数の使用。</p>
 </li>
-<li><p class="first">連絡先の問題。</p>
+<li><p class="first">接触の問題。</p>
 </li>
-<li><p class="first">架空のドメイン fonctionalities と変換により、メッシュ間またはリージョン間のアセンブリを可能にします。</p>
+<li><p class="first">架空領域の機能性と変換により、メッシュ間または領域間のアセンブリが可能になります。</p>
 </li>
 <li><p class="first">継続/分岐の問題。</p>
 </li>
 </ul>
 </div></blockquote>
-<p>このチュートリアルでは、もちろん、様々なドキュメントの場所を取ることはありません。ユーザードキュメント (C++ ライブラリの) は、実装されたメソッドの説明に関するリファレンスです。インターフェイスのドキュメンテーションはインターフェイスからの異なった機能性の使用を記述するが、方法の記述を繰り返さない。&#8217; Developpers のガイド &#8216; ドキュメントは、ライブラリの組織に関するより多くの内部について説明します。</p>
+<p>このチュートリアルでは、もちろん、様々なドキュメンテーションの場所では説明しません。実装されたメソッドの説明に関しては、ユーザーマニュアル (C++ ライブラリのもの) を参考ににしてください。インターフェイスのドキュメンテーションはインターフェイスからのさまざまな機能の使用を記述しますが、メソッドの記述は繰り返しません。「開発者の手引き」には、ライブラリの構造に関する内部情報が記載されています。</p>
 <div class="line-block">
-<div class="line">Gf <a href="#id1"><span class="problematic" id="id2">|</span></a>は、&#8217; サバンナ &#8216; _ サイトでホストされている無料の共同プロジェクトです&lt;http: savannah.gnu.org=&#8221;&#8220;&gt;(<a class="reference external" href="https://savannah.nongnu.org/projects/getfem">https://savannah.nongnu.org/projects/getfem</a> 参照)。新しい貢献者は、プロジェクトのすべての側面に歓迎されています。&lt;/http:&gt;</div>
+<div class="line"><em>GetFEM++</em> は、 <a class="reference external" href="http://savannah.gnu.org">Savannah</a> サイトによってホストされている無料の共同プロジェクトです(<a class="reference external" href="https://savannah.nongnu.org/projects/getfem">https://savannah.nongnu.org/projects/getfem</a> を参照してください)。新しい貢献者は、プロジェクトのすべての側面で歓迎されます。</div>
 </div>
 <div class="section" id="c-python-scilab-or-matlab">
-<h2>C++、Python、Scilab または Matlab?<a class="headerlink" href="#c-python-scilab-or-matlab" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><em>GetFEM++</em> is basically a library written in C++. However, it has an interface that is available in Python, Scilab and Matlab  versions and allows to use all the advanced features. It is recommended to start by using the interface with scripting languages, which makes programming easier. The three versions of the interface differ only by small syntax elements, except for the graphics post-processing (Scilab and Matlab interfaces offer the possibility of integrated post-processing while it is necessary to use dedicated software such as Paraview, Mayavi or gmsh when using the Python interface or directly the library in C++). The Python interface is compiled by default along with the C++ library.</p>
-<p>使用 | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>インターフェイスは、複雑なアプリケーションであっても良い戦略であり、パフォーマンスは C++ ライブラリの直接的な使用に匹敵し、より柔軟に使用できます。ただし、Python インタフェースだけが並列化を可能にします (MPI を使用)。インターフェイスへの機能の可能な付加は比較的簡単な操作である。</p>
-<p>チュートリアル (サーモエレクトリックカップリング elastico) の最初の例では、C++ ライブラリの使用方法とインターフェイスのバージョンの違いを確認できます。</p>
+<h2>C++、Python、Scilab、または Matlab?<a class="headerlink" href="#c-python-scilab-or-matlab" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><em>GetFEM++</em> は基本的に C++ で書かれたライブラリです。しかし、それは Python、Scilab と Matlab バージョンで利用可能であり、すべての高度な機能を使用することができるインターフェイスを持っています。プログラミングをより簡単にするスクリプト言語とのインターフェイスを使用して開始することをお勧めします。インターフェイスの3つのバージョンは、グラフィックの後処理を除いて、小さな構文要素によってのみ異なります (Scilab および Matlab インターフェイスは、Paraview などの専用ソフトウェアを使用する必要がある一方で、統合された後処理も可能です。Mayavi または gmsh を使用する場合は、Python インターフェイスまたは C++ で直接ライブラリを使います)。Python インターフェイスは、C++ ライブラリと共にデフォルトでコンパイルされます。</p>
+<p><em>GetFEM++</em> が使用するインターフェイスは、複雑なアプリケーションの場合でも、パフォーマンスは C++ ライブラリの直接使用に匹敵する優れた戦略であり、より柔軟に使用できます。しかし、Python インタフェースだけが (MPI で) 並列化を可能にします。インターフェイスへの機能の追加は比較的簡単な操作です。</p>
+<p>チュートリアル (温度-電気弾性連成) の最初の例では、C++ ライブラリとインターフェイスのバージョンの使用の違いを確認することができます。</p>
 </div>
 <div class="section" id="where-are-demo-files">
 <h2>デモファイルはどこにありますか?<a class="headerlink" href="#where-are-demo-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>多数のデモンストレーションプログラムを見つけることができます。</p>
 <ul>
-<li><p class="first">ディレクトリの C++ の例:</p>
+<li><p class="first">ディレクトリ内の C++ の例</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">tests</span><span class="o">/</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">ディレクトリ内の Python インターフェイスの場合:</p>
+<li><p class="first">ディレクトリ内の Python インターフェイスの場合</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">python</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">ディレクトリ内の Scilab インタフェースの場合:</p>
+<li><p class="first">ディレクトリ内の Scilab インターフェイスの場合</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">scr</span><span class="o">/</span><span class="n">scilab</span><span class="o">/</span><span class="n">demos</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">とディレクトリ内の Matlab のインターフェイス:</p>
+<li><p class="first">そして、ディレクトリ内の Matlab インターフェイス</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">matlab</span>
 </pre></div>
 </div>
@@ -129,7 +129,7 @@
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">導入</a><ul>
-<li><a class="reference internal" href="#c-python-scilab-or-matlab">C++、Python、Scilab または Matlab?</a></li>
+<li><a class="reference internal" href="#c-python-scilab-or-matlab">C++、Python、Scilab、または Matlab?</a></li>
 <li><a class="reference internal" href="#where-are-demo-files">デモファイルはどこにありますか?</a></li>
 </ul>
 </li>
@@ -137,7 +137,7 @@
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
-                        title="前の章へ">|gf|チュートリアル</a></p>
+                        title="前の章へ"><em>GetFEM++</em> の導入</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="install.html"
                         title="次の章へ">インストール方法</a></p>            <h3>Download</h3>
@@ -188,13 +188,13 @@
           <a href="install.html" title="インストール方法"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="|gf|チュートリアル"
+          <a href="index.html" title="GetFEM++ の導入"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" ><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

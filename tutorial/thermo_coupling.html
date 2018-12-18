@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化) &mdash; GetFEM++</title>
+    <title>熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化) &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="|gf|チュートリアル" href="index.html" />
-    <link rel="next" title="接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)" href="wheel.html" />
-    <link rel="prev" title="Basic Usage of GetFEM++" href="basic_usage.html" />
+    <link rel="up" title="GetFEM++ の導入" href="index.html" />
+    <link rel="next" title="接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)" href="wheel.html" />
+    <link rel="prev" title="GetFEM++ の基本的な使い方" href="basic_usage.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -43,16 +43,16 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="wheel.html" title="接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
+          <a href="wheel.html" title="接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="basic_usage.html" title="Basic Usage of GetFEM++"
+          <a href="basic_usage.html" title="GetFEM++ の基本的な使い方"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,26 +62,26 @@
           <div class="body">
             
   <div class="section" id="example-of-thermo-elastic-and-electrical-coupling-simple-nonlinear-coupled-problem-model-object-generic-assembly-solve-and-visualization">
-<span id="tut-thermo-elec-coupling"></span><h1>熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)<a class="headerlink" href="#example-of-thermo-elastic-and-electrical-coupling-simple-nonlinear-coupled-problem-model-object-generic-assembly-solve-and-visualization" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>この例は、変位場、温度場、電位場の非線形結合を持つマルチフィジックス問題の簡単な例を示すことを目的としています。また、C++ ライブラリと異なるインターフェイスの使用を比較することも目的としています。対応するデモファイルは、| gf のテストディレクトリに存在している <a href="#id1"><span class="problematic" id="id2">|</span></a>(&#8216; テスト/&#8217;、&#8217; インターフェイス/テスト/python &#8216;、&#8217; インターフェイス/scr/scilab/デモ &#8216; と &#8216; インターフェイス/テスト/matlab の &#8216;)。</p>
+<span id="tut-thermo-elec-coupling"></span><h1>熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)<a class="headerlink" href="#example-of-thermo-elastic-and-electrical-coupling-simple-nonlinear-coupled-problem-model-object-generic-assembly-solve-and-visualization" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>この例では、変位フィールド、温度フィールド、および電位フィールドの非線形結合を持つマルチフィジックス問題の簡単な例を紹介します。また、C++ ライブラリと異なるインターフェイスの使用を比較することも目的としています。対応するデモファイルは、 <em>GetFEM++</em> のテストディレクトリに存在します( <cite>tests/</cite> 、 <cite>interface/tests/python</cite> 、 <cite>interface/scr/scilab/demos</cite> 、  <cite>interface/tests/matlab</cite> )。</p>
 <div class="section" id="the-problem-setting">
 <h2>問題の設定<a class="headerlink" href="#the-problem-setting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Let: 数学: &#8216; Omega subset R ^ 2 &#8216; は、2d プレートの参照構成になります (ジオメトリを参照してください: ref: &#8216; ここ&lt;tut-fig-meshthermo&gt;&#8217;) 厚さの: 数学: &#8216; varepsilon &#8216; 外部の力に提出, 電位と加熱.我々は、によって示されます: 数学: &#8216; theta: Omega rightarrow R &#8216; 温度フィールド (in | degreC <a href="#id1"><span class="problematic" id="id2">|</span></a>),: 数学: &#8216; V: Omega rightarrow R &#8216; 電位場と: 数学: &#8216; u: Omega rightarrow R ^ 2 &#8216; 膜変位場.&lt;/tut-fig-meshthermo&gt;</p>
+<p><img class="math" src="../images/math/34351db8edc91cfb50b5af8de09529d0749640b6.png" alt="\Omega \subset \R^2" style="vertical-align: -1px"/> は、2D プレートの参照構成であるとします(ジオメトリ <a class="reference internal" href="#tut-fig-meshthermo"><em>ここ</em></a> を参照してください)、ここで厚さ <img class="math" src="../images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon" style="vertical-align: 0px"/> は外部力、電位および加熱に寄与します。ここで、 <img class="math" src="../images/math/e12a8af9b8f2086ce34f3e02c89d08ada2196878.png" alt="\theta : \Omega \rightarrow \R" style="vertical-align: -1px"/> は( °C 内の)温度フィールド、 <img class="math" src="../images/math/0023b81a095415f3c7a3804f54889dd50c74d4cc.png" alt="V : \Omega \rightarrow \R" style="vertical-align: -1px"/> は電位フィールドです。また、 <img class="math" src="../images/math/2a5413a809159a22a4d5aee9cdfc6bb4183d57d2.png" alt="u : \Omega \rightarrow \R^2" style="vertical-align: -1px"/> は膜変位場です。</p>
 <div class="section" id="thermal-problem">
-<h3>熱問題<a class="headerlink" href="#thermal-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>プレートの正面と裏面が熱伝達係数: 数学: &#8216;d &#8216; で、空気 (20 | degreC <a href="#id1"><span class="problematic" id="id2">|</span></a>) との熱交換であることになっているので、プレートの外側の面は、断熱材になることになっている。</p>
-<p>温度の方程式: 数学: &#8216; theta &#8216; と境界条件は、次のように記述することができます:</p>
+<h3>熱の問題<a class="headerlink" href="#thermal-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プレートの表裏面は、熱伝達係数を持つ (20 °C である) 空気と熱交換することになっているので、プレートの側面面は断熱材であることになっています。</p>
+<p>温度の方程式 <img class="math" src="../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/> と境界条件は次のように書くことができます。</p>
 <div class="math">
 <p><img src="../images/math/21f096380e3c73a1f4556157ed61ae2993aab0e4.png" alt="\left\{\begin{array}{l}
 -\mbox{div}(\varepsilon\kappa(\nabla \theta)) + 2D(\theta - T_0) - \varepsilon\sigma|\nabla V|^2 = 0 ~~ \mbox{ in } \Omega, \\
 \kappa\nabla \theta \cdot n = 0 ~~ \mbox{ on } \partial \Omega,
 \end{array} \right."/></p>
-</div><p>熱伝導率が設計されている場所: 数学: &#8216; kappa &#8216;,: 数学: &#8216; t _0 &#8216; は、空気の温度です: 数学: &#8216; partial Omega &#8216; ドメインの境界: 数学: &#8216; Omega &#8216; と: 数学: &#8216; n &#8216; 外向きの単位法線ベクトル: 数学: &#8216; Omega &#8216; on: 数学: &#8216; partial Omega`.</p>
-<p>用語: 数学: &#8216; sigma | nabla V | ^ 2 &#8216; は、ジュール加熱項に対応する非線形結合項であり、ここで: 数学: &#8216; sigma &#8216; は電気伝導度である。</p>
+</div><p>熱伝導率は <img class="math" src="../images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa" style="vertical-align: 0px"/> により設計されています、 <img class="math" src="../images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> は空気の温度、 <img class="math" src="../images/math/8e8ad6e6563df57ba65066164700f8005af358ef.png" alt="\partial \Omega" style="vertical-align: -1px"/> は、領域 <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> の境界であり <img class="math" src="../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> は <img class="math" src="../images/math/8e8ad6e6563df57ba65066164700f8005af358ef.png" alt="\partial \Omega" style="vertical-align: -1px"/> 上の <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> への外向きの単位法線ベクトルです。</p>
+<p>項 <img class="math" src="../images/math/6d2aa0f2f47ea4c258351586351607471876996f.png" alt="\sigma|\nabla V|^2" style="vertical-align: -5px"/> は、Joule加熱項に対応する非線形結合項であり、ここで <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は電気伝導率です。</p>
 </div>
 <div class="section" id="electric-potential-problem">
-<h3>電気電位問題<a class="headerlink" href="#electric-potential-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は、潜在的な違いを考慮: 数学: プレートの右と左の横面の間に &#8216; 0.1 v &#8216;。他の面は電気的に絶縁されていると見なされます。電気潜在性のための同等化はように読む</p>
+<h3>電位問題<a class="headerlink" href="#electric-potential-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>私たちは、プレートの左右の側面の間の <img class="math" src="../images/math/21d4a8d43e8c83d941598c902f1d51a81558711d.png" alt="0.1V" style="vertical-align: -1px"/> の電位差を考慮します。他の面は電気的に絶縁されていると考えます。電位の方程式は、</p>
 <div class="math">
 <p><img src="../images/math/228d208aa67c1abbda089d030b386cfa28058a09.png" alt="\left\{\begin{array}{l}
 -\mbox{div}(\varepsilon\sigma(\nabla V)) = 0 ~~ \mbox{ in } \Omega, \\
@@ -89,14 +89,14 @@
 V = 0 ~~ \mbox{ on the right lateral face}, \\
 V = 0.1 ~~ \mbox{ on the left lateral face}, \\
 \end{array} \right."/></p>
-</div><p>場所: 数学: &#8216; sigma &#8216; はまだ電気伝導性である。また、我々は考慮: 数学: &#8216; sigma は、次のように温度に依存:</p>
+</div><p>ここで <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> はまだ電気伝導性です。さらに、 <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は、次のように温度に依存すると考えます。</p>
 <div class="math">
 <p><img src="../images/math/1fcd45830529fae6543dd7e3604b74c2e8355a99.png" alt="\sigma = \Frac{1}{\rho_0(1+\alpha(\theta - T_0))},"/></p>
-</div><p>場所: 数学: &#8216; t _0 &#8216; 参照温度 (気温はここ)、: 数学: &#8216; rho_0 &#8216; 抵抗温度係数: 数学: &#8216; t _0 &#8216; と: 数学: &#8216; alpha &#8216; 2 番目の抵抗温度係数。</p>
+</div><p>ここで <img class="math" src="../images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> は参照温度 (ここでは空気温度) であり、 <img class="math" src="../images/math/10b071702fff383bdcbc7bbaee13f6beeae9fd7f.png" alt="\rho_0" style="vertical-align: -4px"/> は <img class="math" src="../images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> 上の抵抗温度係数であり、<img class="math" src="../images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha" style="vertical-align: 0px"/> は第2抵抗温度係数です。</p>
 </div>
 <div class="section" id="deformation-problem">
 <h3>変形問題<a class="headerlink" href="#deformation-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は、右側の横面に適用される力の下でプレートの膜小さな変形を考慮し、プレートの加熱によって影響を受けた。変位: 数学: &#8216; u &#8216; は次の問題 (線形化された弾力性) の解決である:</p>
+<p>右側面に加わる力の下でのプレートの微小変形を考慮し, プレートの加熱によって影響を受けます。変位 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は、次の(線形化された弾性)問題の解になります :</p>
 <div class="math">
 <p><img src="../images/math/6e21f54c88108e97c48123fa3e4a5694ac874395.png" alt="\left\{\begin{array}{l}
 -\mbox{div}(\bar{\sigma}(u)) = 0 ~~ \mbox{ in } \Omega, \\
@@ -104,36 +104,36 @@ V = 0.1 ~~ \mbox{ on the left lateral face}, \\
 \bar{\sigma}\ n = F ~~ \mbox{ on the right lateral face}, \\
 u = 0 ~~ \mbox{ on the left lateral face},
 \end{array} \right."/></p>
-</div><p>場所: 数学: &#8216; F &#8216; は、右横方向の境界に適用される力密度であり、: 数学: &#8216; bar{sigma} (u) &#8216; はコーシー応力テンソルで定義されています</p>
+</div><p>ここで <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> は、右側の横方向境界に適用される力密度であり、 <img class="math" src="../images/math/12afdcbe343f8c19498315ecedfddf832ee97b4f.png" alt="\bar{\sigma}(u)" style="vertical-align: -4px"/> は、次のように定義されたCauchy応力テンソルです。</p>
 <div class="math">
 <p><img src="../images/math/a7351de7f14eb96bd24887fefeafc27fcea4c1e5.png" alt="\bar{\sigma}(u) = \lambda^* \mbox{div}(u) I + 2\mu \bar{\varepsilon}(u) + \beta(T_0-\theta) I,"/></p>
-</div><p>: 数学: &#8216; bar{varepsilon} (u) = (nabla u + (nabla u) ^ T)/2 &#8216; 線形ひずみテンソルである,: 数学: &#8216; I &#8216; アイデンティティ2番目の順序テンソルと: 数学: &#8216; lambda ^ <a href="#id1"><span class="problematic" id="id2">*</span></a>, μ &#8216; されて <a href="#id3"><span class="problematic" id="id4">|</span></a>ラメ <a href="#id5"><span class="problematic" id="id6">|</span></a>によって定義される係数</p>
+</div><p><img class="math" src="../images/math/7a31a024cda0a4fb9e32b880b9ef853f4b5251ff.png" alt="\bar{\varepsilon}(u) = (\nabla u + (\nabla u)^T)/2" style="vertical-align: -5px"/> は、線形化されたひずみテンソルであり、 <img class="math" src="../images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I" style="vertical-align: 0px"/> は2次単位テンソルで、 <img class="math" src="../images/math/928ed15c5cfb1301f19a695f24dcdd8d9e7bc84a.png" alt="\lambda^*, \mu" style="vertical-align: -4px"/> は、 Lamé 係数であり次のように定義されます。</p>
 <div class="math">
 <p><img src="../images/math/06d7859343b74ef363af001d62ccd17f7d7434e1.png" alt="&amp;\lambda = \Frac{E\nu}{(1+\nu)(1-2\nu)}, \\
 &amp;\mu = \Frac{E}{2(1+\nu)}, \\
 &amp;\lambda^* = \Frac{2\lambda\mu}{\lambda+2*\mu},"/></p>
-</div><p>から: 数学: &#8216; E &#8216; 若い係数と: 数学: &#8216; nu &#8216; 材料のポアソン比。</p>
-<p>用語: 数学: &#8216; beta (T_0-theta) I &#8216; は、熱膨張の用語に対応しています, ここで: 数学: &#8216; beta = alpha_{th} E/(1-2 nu) &#8216;,: 数学: &#8216; alpha_{th} &#8216; 熱膨張係数である.</p>
+</div><p><img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> は材料のヤング係数であり <img class="math" src="../images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> はポアソン比であることから。</p>
+<p>項 <img class="math" src="../images/math/a91e01c92de562ecfc5d082c2d1334ea441aa25f.png" alt="\beta(T_0-\theta) I" style="vertical-align: -4px"/> は、熱膨張の項に対応しています。ここで <img class="math" src="../images/math/8ee78acaa7dcac5fbf8b981be39a4d79c05c3489.png" alt="\beta = \alpha_{th} E/(1-2\nu)" style="vertical-align: -5px"/> 、<img class="math" src="../images/math/2130776379db7207c8e6d93192affc75db35d635.png" alt="\alpha_{th}" style="vertical-align: -3px"/> は熱膨張係数です。</p>
 </div>
 </div>
 <div class="section" id="the-weak-formulation">
-<h2>弱い定式化<a class="headerlink" href="#the-weak-formulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>重要なステップは式の結合されたシステムの弱い定式化を得ることである。これは、有限要素の定式化は、弱い定式化 (ガラーキン近似) に基づいており、弱い定式化は、私たちに追加する用語の表現を与えることができる唯一のものであるため、重要なステップです。</p>
-<p>各偏微分方程式の弱定式化は、主未知がディリクレ条件を満たす主な未知を満たす均質ディリクレ条件に対応する試験関数と式とを乗算したものであり、その後ドメイン上の統合: 数学: &#8216; Omega &#8216; と部品 (グリーンの式を使用して) によっていくつかの統合を実行します。部分的な微分方程式のシステムの弱い定式化は読む:</p>
+<h2>弱定式化<a class="headerlink" href="#the-weak-formulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>重要なステップは、方程式の結合系の弱定式化を得ることです。有限要素定式化は弱定式化 (Galerkin近似)に基づいており、弱定式化は追加される項の表現を与えることができる唯一のものであるため、これは重要なステップです。</p>
+<p>各偏微分方程式の弱定式化は、主たる未知がDirichlet条件を満たしている主な未知のDirichlet条件に対応する試行関数を用いて式を乗算することにより得られ、その後領域 <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> 上の積分と(グリーンの数式を使用した)部分上の積分を実行します。偏微分方程式系の弱定式化は :</p>
 <div class="math">
 <p><img src="../images/math/07635cc1ae68c52b7548f1a5508d9768c3c5b199.png" alt="&amp;\mbox{Find } \theta, V, u \mbox{ with } V = 0.1, u = 0 \mbox{ on the left face}, V = 0 \mbox{ on the right face}, \\
 &amp;\ds \int_{\Omega} \varepsilon\kappa\nabla\theta\cdot\nabla\delta_{\theta} + 2D\theta\delta_{\theta}dx = \int_{\Omega} (2DT_0 + \varepsilon\sigma|\nabla V|^2)\delta_{\theta} dx ~~~\mbox{ for all } \delta_{\theta}, \\
 &amp;\ds \int_{\Omega} \varepsilon\sigma\nabla V\cdot\nabla\delta_V = 0 dx ~~~ \mbox{ for all } \delta_V \mbox{ satisfying } \delta_V = 0 \mbox{ on the left and right faces}, \\
 &amp;\ds \int_{\Omega} \bar{\sigma}(u):\bar{\varepsilon}(\delta_u)dx = \int_{\Gamma_N} F\cdot \delta_u d\Gamma ~~~ \mbox{ for all } \delta_{u} \mbox{ satisfying } \delta_u = 0 \mbox{ on the left face},"/></p>
-</div><p>場所: 数学: &#8216; delta_{theta}, delta_V, delta_u &#8216; に対応するテスト関数があります: 数学: &#8216; theta, V, u &#8216;, それぞれ,: 数学: &#8216; Gamma_N &#8216; 右の境界を示しますここで、力の密度: 数学: &#8216; F &#8216; が適用され、: 数学: &#8216; bar{sigma}: bar{varepsilon} &#8216; は、2番目の順序テンソルの間のフロベニウススカラー積です。</p>
+</div><p>ここで <img class="math" src="../images/math/6a322aecf0783913607e61d7554bb96705d13baf.png" alt="\delta_{\theta}, \delta_V, \delta_u" style="vertical-align: -4px"/> は、それぞれ、 <img class="math" src="../images/math/d16772d1c29fb5174dbc12259590b15ded8fabde.png" alt="\theta, V, u" style="vertical-align: -4px"/> に対応する試行関数です、 <img class="math" src="../images/math/0b983602095bda2a85dd1b0c177f154eaffbecbd.png" alt="\Gamma_N" style="vertical-align: -3px"/> は、力 <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> の密度が適用される右の境界を示します、そして <img class="math" src="../images/math/5abb503bf21fd3ce5ed2e4f936193c6304d5a024.png" alt="\bar{\sigma}:\bar{\varepsilon}" style="vertical-align: 0px"/> は、2次テンソル間のFrobeniusスカラー積です。</p>
 </div>
 <div class="section" id="implementation-in-c-and-with-the-interface">
 <h2>C++ での実装とインターフェイス<a class="headerlink" href="#implementation-in-c-and-with-the-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>私たちは今の使用の詳細なプレゼンテーションをしてみましょう | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>問題を近似する。我々は同時に、C++、Python、Scilab と Matlab のプログラムを構築します。Matlab および Scilab プログラムの場合、我々は、指向オブジェクトコマンドを使用しません (参照: &#8216; mlab-oocmd &#8216; どのようにそれらを使用する)</p>
+<p>次に、問題を近似する <em>GetFEM++</em> の使用についての詳細なプレゼンテーションを行います。私たちは、C++、Python、Scilab と Matlab プログラムを同時に構築します。Matlab および Scilab プログラムでは、オブジェクト指向コマンドを使用しません (使用する方法は <a class="reference internal" href="../matlab/oocmd.html#mlab-oocmd"><em>GetFEM++ OO-commands</em></a> を参照してください)</p>
 <div class="section" id="initialization">
 <h3>初期化<a class="headerlink" href="#initialization" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>まず、C++ では、モデルオブジェクト、ジェネリックアセンブリ、線形インターフェイス (メッシャー + +)、実験用のヘッダー、およびエクスポート機能に対して、特定の数のヘッダを含めるようにしています。Python の場合、これは簡単です | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>グローバルにインポートすることができます (numpy もインポートする)。scilab について, ライブラリは、最初に scilab コンソールにロードされている (これはここで説明されていません) と Matlab 用, 何も必要ありません, を除いて &#8216; gf_workspace (&#8216; クリアすべて &#8216;) &#8216; すべてをクリアすることができます | gf <a href="#id3"><span class="problematic" id="id4">|</span></a>変数。</p>
-<table border="1" class="longtable docutils">
+<p>まず、C++ では、モデルオブジェクト、ジェネリックアセンブリ、線形インターフェイス (Gmm++) 、実験用メッシュ、およびエクスポート機能に対して、特定の数のヘッダーを含めることができます。Python の場合、これは簡単です。 <em>GetFEM++</em> グローバルにインポートすることができます (numpy もインポートする必要があります)。Scilab の場合、ライブラリは Scilab コンソールに最初にロードされます (ここでは説明しません)、Matlab の場合、すべての <em>GetFEM++</em> 変数をクリアすることを可能にする <cite>gf_workspace(&#8216;clear all&#8217;)</cite> を除いて、何も必要ありません。</p>
+<table border="1" class="docutils">
 <colgroup>
 <col width="15%" />
 <col width="85%" />
@@ -180,7 +180,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="parameters-of-the-model">
 <h3>モデルのパラメータ<a class="headerlink" href="#parameters-of-the-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ここで、問題の物理的および数値の異なるパラメータを定義してみましょう。スクリプト言語 (Python、Scilab、Matlab) には違いはありません。</p>
+<p>ここで、問題のさまざまな物理的および数値パラメータを定義しましょう。スクリプト言語 (Python、Scilab、Matlab) には違いはありません。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -229,8 +229,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="mesh-generation">
 <h3>メッシュ生成<a class="headerlink" href="#mesh-generation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><em>GetFEM++</em> has some limited meshing facilities which are described here. We are going to use them. However, there is no guaranty of the quality and conformity of the obtained mesh, so it is better to verify the mesh if you use <em>GetFEM++</em> meshing facilities. You can also use external meshers (GiD or Gmsh for instance) and import them (see <a class="reference internal" href="../userdoc/bmesh.html#ud-load-save-mesh"><em>メッシュの保存とロード</em></a>).</p>
-<p>領域の幾何学は3つの円形の穴が付いている長方形であるために仮定される (見なさい: ref: &#8216; ツタンカーメン-イチジク-meshthermo &#8216;)。ジオメトリは、いくつかの幾何学的プリミティブとユニオン/setminus 操作のおかげで記述されています (ファイル: &#8216; src/getfem/getfem) _mesher &#8216; ファイルを参照してください。以下では、&#8217; h &#8216; はメッシュサイズを表し、&#8217; 2 &#8216; はメッシュの次数である (これは、変形が次数2であることを意味し、我々は湾曲したエッジを使用した)。</p>
+<p><em>GetFEM++</em> には、ここで説明するいくつかの限定されたメッシュ機能があります。ここではそれらを使用するつもりです。しかし、得られたメッシュの品質と適合性の保証はありませんので、 <em>GetFEM++</em> メッシュ作成機能を使用する場合はメッシュを確認することをお勧めします。また、外部メッシャ (GiD または Gmsh) を使用してインポートすることもできます( <a class="reference internal" href="../userdoc/bmesh.html#ud-load-save-mesh"><em>メッシュの保存とロード</em></a> をご覧ください)。</p>
+<p>領域のジオメトリは、3つの円形の穴がある長方形であることが想定されています ( <a class="reference internal" href="#tut-fig-meshthermo"><em>得られたメッシュ。</em></a> を参照)。ジオメトリは、いくつかの原始的な幾何とunion/setminus 操作によって説明されています (ファイル:file:<cite>src/getfem/getfem)_mesher.h</cite> ファイルを参照してください。以下では、 <cite>h</cite> はメッシュサイズを表し、 <cite>2</cite> はメッシュの次数です (これは変換が次数2であることを意味し、曲線エッジを使用しています)。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="11%" />
@@ -301,8 +301,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="boundary-selection">
 <h3>境界の選択<a class="headerlink" href="#boundary-selection" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は境界の異なる部分に異なる境界条件を持っているので、我々は、境界の異なる部分 (穴、熱と電気絶縁と一緒にストレスフリーの境界条件が想定されている) に番号を付けなければならない。したがって、我々は、メッシュ上の要素面を選択し、メッシュ領域を定義する必要があります (参照: &#8216; ud-mesh_regions &#8216;) 1, 2, 3, 4 は、右の境界、左の1つ、上の1つと下の1つそれぞれである。これらの境界番号は、モデルのレンガで使用されます。</p>
-<table border="1" class="longtable docutils">
+<p>境界の異なる部分には異なる境界条件があるため、境界のさまざまな部分に番号を付けなければなりません (穴に、熱と電気の断熱材とともに、応力自由境界条件が想定されます)。したがって、メッシュ上の要素面を選択し、メッシュ領域を定義する必要があります ( <a class="reference internal" href="../userdoc/bmesh.html#ud-mesh-regions"><em>メッシュ領域</em></a> を参照) 1、2、3、4はそれぞれ右境界、左境界、上境界、下境界です。これらの境界番号は、モデルブリックで使用されます。</p>
+<table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
 <col width="88%" />
@@ -404,8 +404,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </table>
 </div>
 <div class="section" id="mesh-draw">
-<h3>メッシュドロー<a class="headerlink" href="#mesh-draw" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>メッシュをプレビューし、その妥当性を制御するために、次の手順を使用することができます。</p>
+<h3>メッシュ描画<a class="headerlink" href="#mesh-draw" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>メッシュをプレビューし、その有効性を制御するために、次の手順を使用できます。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -451,20 +451,20 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </tr>
 </tbody>
 </table>
-<p>C++ および Python インターフェイスでは、外部のグラフィカルポストプロセッサを使用する (たとえば、gmsh、Mayavi2、または Paraview) ことがあります。Scilab および Matlab インタフェースでは、内部プロット機能を使用することができます (結果を参照してください: ref: &#8216; ツタンカーメン-イチジク-meshthermo &#8216;)。</p>
+<p>C++ および Python インターフェイスでは、外部グラフィカルポストプロセッサを使用する必要があります (たとえば、gmsh、Mayavi2、または Paraview)。Scilab および Matlab インタフェースでは、内部プロット機能を使用することができます (結果は <a class="reference internal" href="#tut-fig-meshthermo"><em>得られたメッシュ。</em></a> を参照)。</p>
 </div>
 <div class="section" id="definition-of-finite-element-methods-and-integration-method">
 <h3>有限要素法の定義と積分法<a class="headerlink" href="#definition-of-finite-element-methods-and-integration-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>3つの有限要素法を定義する。最初の1つ、&#8217; mfu &#8216; は変位場を近似することです。これはベクトルフィールドです。これは C++ で定義されます。</p>
+<p>3つの有限要素法を定義します。最初の1つは、変位フィールドを近似する <cite>mfu</cite> です。これはベクトルフィールドです。これは C++ では次のように定義されます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">mesh_fem</span> <span class="n">mfu</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 <span class="n">mfu</span><span class="p">.</span><span class="n">set_classical_finite_element</span><span class="p">(</span><span class="n">elements_degree</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで、&#8217; 2 &#8216; はベクトルフィールドの次元を表します。2行目は、使用される有限要素を設定します。&#8217; classical_finite_element &#8216; は連続したラグランジュ要素を意味し、&#8217; elements_degree &#8216; が &#8216; 2 &#8216; に設定されていることを覚えておいて、二次 (アイソパラメトリック) 要素を使用することを意味します。</p>
-<p>既存の有限要素法の幅広い選択肢があります | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>, 参照してください: ref: &#8216; ud-appendixa &#8216;.しかし、ラグランジュ有限要素法は、実際に最も使用されています。</p>
-<p>第2の有限要素法はスカラー 1, &#8216; mft &#8216; で、温度場と電位場の両方を近似する。単一の有限要素法は、有限要素変数の任意の数を近似するために役立つことができます。</p>
-<p>第3の有限要素法は不連続スカラーラグランジュ1つであり、変数の1つの導関数を補間することができる (例えば、フォン・ミーゼスストレスを補間する)。</p>
-<p>最後に定義することは、積分法 &#8216; mim &#8216; です。デフォルトの統合方法はありません | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>したがって、積分法を定義することは必須です。もちろん、選択した有限要素法を簡便に統合するには、積分法の次数を十分に選択しなければならない。ここでは、&#8217; elements_degree &#8216; の二乗で十分です。</p>
+<p>ここで、 <cite>2</cite> はベクトル場の次元を表します。2番目の線は、使用する有限要素を設定します。 <cite>classical_finite_element</cite> は、連続したLagrange要素を意味し、<cite>elements_degree</cite> は <cite>2</cite> に設定されていることを覚えておいてください、これは2次の (アイソパラメトリック) 要素を使用することを意味します。</p>
+<p><em>GetFEM++</em> には、既存の有限要素法の幅広い選択肢があります、 <a class="reference internal" href="../userdoc/appendixA.html#ud-appendixa"><em>付録A.有限要素法リスト</em></a> を参照してください。しかし、 Lagrange 有限要素法は、実際に最も使用されています。</p>
+<p>第2の有限要素法はスカラー1で、温度場と電位場の両方を近似する <cite>mft</cite> です。単一の有限要素法は、任意の数の有限要素変数を近似するのに役立ちます。</p>
+<p>3番目の有限要素法は不連続なスカラーLagrangeで、1つの変数の導関数を補間することができます (たとえば、Von Mises応力の補間)。</p>
+<p>定義する最後のものは、積分法 <cite>mim</cite> です。<em>GetFEM++</em> にデフォルトの積分法はありません。したがって、これは積分法を定義するために必須です。もちろん、積分法の次数は、選択された有限要素法の便利な積分を行うために十分に選定しなければなりません。ここでは、 <cite>elements_degree</cite> の2乗で十分です。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="11%" />
@@ -526,10 +526,10 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="model-definition">
 <h3>モデル定義<a class="headerlink" href="#model-definition" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>モデルオブジェクト | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>モデルの変数 (未知数)、データ、およびモデルのレンガと呼ばれるものを収集します。モデルレンガは、1つの変数に適用されるモデル (線形または非線形の用語) の一部であるか、複数の変数をリンクしています。これらは、(接線) 線形システムのアセンブリを作成するために使用されます (詳細については、ref: &#8216; ud モデルオブジェクト &#8216; を参照してください)。</p>
-<p>これは、モデルオブジェクトを使用するために厳密には必須ではありませんが、アセンブリプロシージャを直接使用し、(接線) 線形システムを独自に構築することができます。モデルオブジェクトは、モデルのほとんどの古典的な部分が事前にプログラムされているので、モデルのラピッドビルドを可能にする: 標準の境界条件、標準偏微分方程式、乗算器の使用は、制約を処方する...また、いくつかのレンガは、標準レンガの可能性を拡張するように設計されています (一般的なアセンブリのレンガ、明示的マトリックスレンガ...).したがって、モデルオブジェクトのフレームワークを使用することをお勧めします。</p>
-<p>モデルの2つのバージョンがあります: 実際のものと複雑なもの。複雑なモデルは複雑な線形システムを解決するために有利である特殊アプリケーション (例えばいくつかの電磁気問題) のために予約されなければならない。</p>
-<p>計算される3つのフィールドに対応する3つの変数を持つ実数モデルを宣言しましょう:</p>
+<p><em>GetFEM++</em> のモデルオブジェクトの変数(未知数)、データ、およびモデルブリックと呼ばれるものを収集します。モデルブリックは、単一の変数に適用されるモデル (線形または非線形項) の一部であるか、複数の変数をリンクしています。これらは、(接線) 線形システムのアセンブリを作成するために使用されます (詳細については <a class="reference internal" href="../userdoc/model_object.html#ud-model-object"><em>modelオブジェクト</em></a> を参照してください)。</p>
+<p>これは、アセンブリプロシージャを直接使用し、(接線) 線形システムを所有することによって構築されるため、モデルオブジェクトを使用することは厳密には必須ではありません。モデルオブジェクトは、モデルのほとんどの古典的な部分が事前にプログラムされているので、モデルのラピッドビルドを可能にします。 標準境界条件、標準偏微分方程式、制約を処理するための乗数の使用...さらに、いくつかのブリックは、標準ブリック (ジェネリックアセンブリブリック、明示的なマトリックスブリック) の可能性を拡張するように設計されています。したがって、モデルオブジェクトのフレームワークを使用することをお勧めします。</p>
+<p>モデルの2つのバージョンがあります: 実数と複素数。複素数モデルは複雑な線形システムを解くのに有利である特殊なアプリケーション (例えば、いくつかの電磁気学の問題) のために予約されています。</p>
+<p>計算される3つのフィールドに対応する3つの変数を持つ実際のモデルを宣言してみましょう :</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -577,15 +577,15 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="membrane-elastic-deformation-problem">
 <h3>膜弾性変形問題<a class="headerlink" href="#membrane-elastic-deformation-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>私たちは今、弾性変形の問題から始めましょう。我々は以下の &#8216; add_isotropic_linearized_elasticity_brick &#8216; によって追加された定義済みのレンガを使用します。基本的にそれはに対応する用語を追加します。</p>
+<p>ここで、弾性変形問題から始めましょう。以下の <cite>add_isotropic_linearized_elasticity_brick</cite> によって追加された定義済みのブリックを使用します。基本的には、それに対応する項を追加します</p>
 <div class="math">
 <p><img src="../images/math/b8a15b79aa8793124675da9b1c74bdb0a4191310.png" alt="\int_{\Omega} (\lambda^* \mbox{div}(u) I + 2\mu \bar{\varepsilon}(u)):\bar{\varepsilon}(\delta_u)dx,"/></p>
-</div><p>を接線線形システムに対して行います。このモデルのレンガを使用するために, データは、彼に対応する <a href="#id1"><span class="problematic" id="id2">|</span></a>ラメ <a href="#id3"><span class="problematic" id="id4">|</span></a>係数は、最初にモデルに追加する必要があります。ここでは、<a href="#id5"><span class="problematic" id="id6">|</span></a>ラメ <a href="#id7"><span class="problematic" id="id8">|</span></a>係数はドメインに対して一定です。しかし、それはまた、いくつかの非定数データを定義することができます。また、この定義済みのブリックを使用する代わりに、弱い形式の言語用語 &#8216; add_linear_term (md mim、ラムダ * (Div_u * Div_Test_u) + mu * ((Grad_u + Grad_u &#8216;): Grad_Test_u) &#8220;を使用することもできます。</p>
-<p>カップリング用語について</p>
+</div><p>を接線線形システムに対して行います。このモデルブリックを使用するために、対応するデータ Lamé 係数は、最初にモデルに追加する必要があります。ここでは、 Lamé 係数は、領域に対して一定です。ただし、一部の非定数データを定義することもできます。また、この定義済みのブリックを使用する代わりに、弱形式言語項 <cite>add_linear_term(md mim, &#8220;lambda*(Div_u*Div_Test_u) + mu*((Grad_u + Grad_u&#8217;):Grad_Test_u)&#8221;</cite> を等価的に使用することができることに注意してください。</p>
+<p>結合項について</p>
 <div class="math">
 <p><img src="../images/math/2562e1e538a37c6d30d57352772d9a0d13364e59.png" alt="\int_{\Omega} (\beta\theta I) :\bar{\varepsilon}(\delta_u)dx,"/></p>
-</div><p>定義済みの煉瓦がないし、私達は弱い形態の言語言葉の &#8216; add_linear_term (md の mim、「ベータ * シータ * Div_Test_u)」を直接使用する。参照: ref: &#8216; ud-gasm-高 &#8216; 弱いフォーム言語の詳細については。基本的に、アセンブリ文字列は、各ガウスポイントで実行される最適化されたアセンブリ命令のリストにコンパイルされることを原則としています。</p>
-<p>次のプログラムは、全体の弾性変形方程式を考慮することができます。特定のレンガを使用して、左側の境界にディリクレ条件を規定することに注意してください。ディリクレ条件を処方するためのいくつかのオプションがあります (参照: &#8216; ud-モデル-ディリクレ &#8216;)。</p>
+</div><p>定義済みのブリックはなく、弱形式言語項 <cite>add_linear_term(md mim, &#8220;beta*theta*Div_Test_u)&#8221;</cite> を直接使用します。弱形式言語の詳細については、 <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</em></a> を参照してください。基本的に、アセンブリ文字列は、各Gauss点で実行される最適化されたアセンブリ命令のリストにコンパイルすることが原則です。</p>
+<p>以下のプログラムは、全体の弾性変形方程式を考慮に入れることができます。左側の境界にDirichlet条件を規定するために、特定のブリックの使用に注意してください。Dirichlet条件を規定するいくつかのオプションがあります ( <a class="reference internal" href="../userdoc/model_dirichlet.html#ud-model-dirichlet"><em>Dirichlet条件ブリック要素</em></a> を参照)。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="8%" />
@@ -661,8 +661,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </table>
 </div>
 <div class="section" id="id1">
-<h3>電気電位問題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>同様に、次のプログラムは、電気ポテンシャル方程式を考慮してください。電気伝導度の定義に注意してください: 数学: &#8216; sigma &#8216; と、再び弱いフォーム言語用語の使用.</p>
+<h3>電位問題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>同様に、以下のプログラムは、電位方程式を考慮に入れます。電気伝導率 <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> とまた弱形式言語用語の使用の定義に注意してください。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="8%" />
@@ -728,8 +728,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </table>
 </div>
 <div class="section" id="id2">
-<h3>熱問題<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>さて、プログラムのアカウントに熱の問題を取る:</p>
+<h3>熱の問題<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ここで、熱の問題を扱うためのプログラム :</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="9%" />
@@ -793,8 +793,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </table>
 </div>
 <div class="section" id="model-solve">
-<h3>モデルの解決<a class="headerlink" href="#model-solve" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>モデルが正しく定義されると、次のように単純に解決できます。</p>
+<h3>モデル求解<a class="headerlink" href="#model-solve" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>モデルが正しく定義されたら、次のようにして簡単に解けます。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -828,11 +828,11 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </tr>
 </tbody>
 </table>
-<p>この問題はグローバルに非線形であるため、ニュートン法を用いて問題を反復的に解くことができます。それはいくつかのイテレーション (約4その場合) が必要です。</p>
+<p>問題はグローバルに非線形であるため、Newton法を用いて問題を反復的に解きます。それはいくつかのイテレーションを必要とします (その場合は約 4)。</p>
 </div>
 <div class="section" id="model-solve-with-two-steps">
-<h3>2つのステップでモデルを解く<a class="headerlink" href="#model-solve-with-two-steps" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>問題を解決するもう一つの選択は熱および電気潜在的な問題を最初に解決することである。実際、我々のモデルでは、熱と電位は変形に依存しません。一度熱と電位の問題は、我々は、変形の問題を解決します。これは次のように行うことができます。</p>
+<h3>モデルは、2つのステップで解きます<a class="headerlink" href="#model-solve-with-two-steps" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>問題を解決するもう一つの選択肢は、最初に熱と電位の問題を解くことです。実際、我々のモデルでは、熱および電位は変形に依存しません。熱と電位の問題が発生したら、変形の問題を解決します。これは、次のように行うことができます。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -889,8 +889,8 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </table>
 </div>
 <div class="section" id="export-visualization-of-the-solution">
-<h3>ソリューションのエクスポート/視覚化<a class="headerlink" href="#export-visualization-of-the-solution" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>有限要素問題が解決されました。我々は、次のようにソリューションをプロットすることができます。C++ および Python プログラムでは、外部の外部グラフィカルポストプロセッサを使用する必要があることに注意してください。また、任意の数量は、ジェネリック補間を使用して後処理することもできます (後述の「ga_interpolation_Lagrange_fem」を参照)。また、複雑なエクスポートとスライスを作成することもできます (参照: &#8216; ud-エクスポート &#8216;)。</p>
+<h3>解のエクスポート/可視化<a class="headerlink" href="#export-visualization-of-the-solution" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>有限要素問題が解かれました。我々は、次のように解をプロットすることができます。C++ および Python プログラムでは、外部の外部グラフィカルポストプロセッサを使用する必要があることに注意してください。また、汎用補間を使用して任意の数量を後処理できることにも注意してください(後述の <cite>ga_interpolation_Lagrange_fem</cite> を参照)。また、複雑なエクスポートやスライスを作成することもできます ( <a class="reference internal" href="../userdoc/export.html#ud-export"><em>解の出力と表示</em></a> をご覧ください)。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="6%" />
@@ -1010,7 +1010,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </table>
 <div class="figure align-center" id="tut-fig-solthermo">
 <a class="reference internal image-reference" href="../images/solution_thermo.png"><img alt="../images/solution_thermo.png" src="../images/solution_thermo.png" style="width: 774.0px; height: 796.0px;" /></a>
-<p class="caption">ソリューションのプロット。</p>
+<p class="caption">解のプロット。</p>
 </div>
 </div>
 </div>
@@ -1027,28 +1027,28 @@ u = 0 ~~ \mbox{ on the left lateral face},
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)</a><ul>
+<li><a class="reference internal" href="#">熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)</a><ul>
 <li><a class="reference internal" href="#the-problem-setting">問題の設定</a><ul>
-<li><a class="reference internal" href="#thermal-problem">熱問題</a></li>
-<li><a class="reference internal" href="#electric-potential-problem">電気電位問題</a></li>
+<li><a class="reference internal" href="#thermal-problem">熱の問題</a></li>
+<li><a class="reference internal" href="#electric-potential-problem">電位問題</a></li>
 <li><a class="reference internal" href="#deformation-problem">変形問題</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#the-weak-formulation">弱い定式化</a></li>
+<li><a class="reference internal" href="#the-weak-formulation">弱定式化</a></li>
 <li><a class="reference internal" href="#implementation-in-c-and-with-the-interface">C++ での実装とインターフェイス</a><ul>
 <li><a class="reference internal" href="#initialization">初期化</a></li>
 <li><a class="reference internal" href="#parameters-of-the-model">モデルのパラメータ</a></li>
 <li><a class="reference internal" href="#mesh-generation">メッシュ生成</a></li>
 <li><a class="reference internal" href="#boundary-selection">境界の選択</a></li>
-<li><a class="reference internal" href="#mesh-draw">メッシュドロー</a></li>
+<li><a class="reference internal" href="#mesh-draw">メッシュ描画</a></li>
 <li><a class="reference internal" href="#definition-of-finite-element-methods-and-integration-method">有限要素法の定義と積分法</a></li>
 <li><a class="reference internal" href="#model-definition">モデル定義</a></li>
 <li><a class="reference internal" href="#membrane-elastic-deformation-problem">膜弾性変形問題</a></li>
-<li><a class="reference internal" href="#id1">電気電位問題</a></li>
-<li><a class="reference internal" href="#id2">熱問題</a></li>
-<li><a class="reference internal" href="#model-solve">モデルの解決</a></li>
-<li><a class="reference internal" href="#model-solve-with-two-steps">2つのステップでモデルを解く</a></li>
-<li><a class="reference internal" href="#export-visualization-of-the-solution">ソリューションのエクスポート/視覚化</a></li>
+<li><a class="reference internal" href="#id1">電位問題</a></li>
+<li><a class="reference internal" href="#id2">熱の問題</a></li>
+<li><a class="reference internal" href="#model-solve">モデル求解</a></li>
+<li><a class="reference internal" href="#model-solve-with-two-steps">モデルは、2つのステップで解きます</a></li>
+<li><a class="reference internal" href="#export-visualization-of-the-solution">解のエクスポート/可視化</a></li>
 </ul>
 </li>
 </ul>
@@ -1057,10 +1057,10 @@ u = 0 ~~ \mbox{ on the left lateral face},
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="basic_usage.html"
-                        title="前の章へ">Basic Usage of <em>GetFEM++</em></a></p>
+                        title="前の章へ"><em>GetFEM++</em> の基本的な使い方</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="wheel.html"
-                        title="次の章へ">接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)</a></p>            <h3>Download</h3>
+                        title="次の章へ">接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -1105,16 +1105,16 @@ u = 0 ~~ \mbox{ on the left lateral face},
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="wheel.html" title="接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
+          <a href="wheel.html" title="接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="basic_usage.html" title="Basic Usage of GetFEM++"
+          <a href="basic_usage.html" title="GetFEM++ の基本的な使い方"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" ><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

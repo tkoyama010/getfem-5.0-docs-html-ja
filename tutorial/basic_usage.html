@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Basic Usage of GetFEM++ &mdash; GetFEM++</title>
+    <title>GetFEM++ の基本的な使い方 &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="|gf|チュートリアル" href="index.html" />
-    <link rel="next" title="熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)" href="thermo_coupling.html" />
+    <link rel="up" title="GetFEM++ の導入" href="index.html" />
+    <link rel="next" title="熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)" href="thermo_coupling.html" />
     <link rel="prev" title="インストール方法" href="install.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
@@ -43,7 +43,7 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="thermo_coupling.html" title="熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)"
+          <a href="thermo_coupling.html" title="熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="install.html" title="インストール方法"
@@ -52,7 +52,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,12 +62,12 @@
           <div class="body">
             
   <div class="section" id="basic-usage-of-gf">
-<span id="tut-bsic-usage"></span><h1>Basic Usage of <em>GetFEM++</em><a class="headerlink" href="#basic-usage-of-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>A | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>構造は次の通りまとめることができる</p>
+<span id="tut-bsic-usage"></span><h1><em>GetFEM++</em> の基本的な使い方<a class="headerlink" href="#basic-usage-of-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><em>GetFEM++</em> の構造は以下のように要約することができる</p>
 <div class="figure align-center" id="tut-figstructget">
 <a class="reference internal image-reference" href="../images/getfem_structure1.png"><img alt="../images/getfem_structure1.png" src="../images/getfem_structure1.png" style="width: 934.0px; height: 657.0px;" /></a>
 </div>
-<p>getfem を使用するプログラムは、多くの場合、次の構造を持ちます。</p>
+<p>getfem を使用するプログラムには、多くの場合、次の構造があります。</p>
 <div class="highlight-python"><pre>... define one or more Mesh
 
 ... define one or more MeshFem
@@ -87,7 +87,7 @@
 
     Model.solve(...options)</pre>
 </div>
-<p>弱い形式の言語で pde 用語を定義するのではなく (参照: 「ud-gasm-high」の syntaxt の詳細については)、標準用語の定義済みのレンガを使用することができます: 一般的な eliptic 用語、線形化または有限ひずみ弾力性、標準的な境界条件...</p>
+<p>弱形式言語で pde 項を定義するのではなく、弱形式言語の記号の詳細については、 <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</em></a> を参照してください)、標準用語に定義済みのブリックを使用することができます: 一般的な eliptic 項、線形化または有限ひずみ弾性、標準境界条件...</p>
 </div>
 
 
@@ -104,7 +104,7 @@
                         title="前の章へ">インストール方法</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="thermo_coupling.html"
-                        title="次の章へ">熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)</a></p>            <h3>Download</h3>
+                        title="次の章へ">熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -149,7 +149,7 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="thermo_coupling.html" title="熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)"
+          <a href="thermo_coupling.html" title="熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)"
              >次へ</a> |</li>
         <li class="right" >
           <a href="install.html" title="インストール方法"
@@ -158,7 +158,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" ><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用) &mdash; GetFEM++</title>
+    <title>接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用) &mdash; GetFEM++</title>
     
     <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
@@ -28,9 +28,9 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="|gf|チュートリアル" href="index.html" />
+    <link rel="up" title="GetFEM++ の導入" href="index.html" />
     <link rel="next" title="$B%W%m%8%’%/%H$N@bL@(B" href="../project/index.html" />
-    <link rel="prev" title="熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)" href="thermo_coupling.html" />
+    <link rel="prev" title="熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)" href="thermo_coupling.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
@@ -46,13 +46,13 @@
           <a href="../project/index.html" title="$B%W%m%8%’%/%H$N@bL@(B"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="thermo_coupling.html" title="熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)"
+          <a href="thermo_coupling.html" title="熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)"
              accesskey="P">前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,15 +62,15 @@
           <div class="body">
             
   <div class="section" id="example-of-wheel-in-contact-assembly-between-two-meshes-transformations-use-of-fixed-size-variables">
-<span id="tut-wheel"></span><h1>接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)<a class="headerlink" href="#example-of-wheel-in-contact-assembly-between-two-meshes-transformations-use-of-fixed-size-variables" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>変形可能な「ホイール」のこの例では、変形可能な基礎と接触して入力します。ここでは python インターフェイスを使用し、このプログラムを別のインターフェイスまたは C++ で翻訳するのは簡単です (前の例を参照してください)。完全なプログラム &#8216; demo_wheel_contact &#8216; は、ディレクトリ &#8216; インターフェイス/テスト/python &#8216; で見つけることができます。</p>
+<span id="tut-wheel"></span><h1>接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)<a class="headerlink" href="#example-of-wheel-in-contact-assembly-between-two-meshes-transformations-use-of-fixed-size-variables" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>変形可能な「車輪」のこの例では、変形した基礎と接触して入力されます。私たちは、ここで python インターフェイスを使用し、別のインターフェイスまたは C++ でこのプログラムを翻訳するのは簡単です (前の例を参照)。完全なプログラム <cite>demo_wheel_contact.py</cite> は、ディレクトリ <cite>interface/tests/python</cite> で見つけることができます。</p>
 <div class="section" id="the-problem-setting">
 <h2>問題の設定<a class="headerlink" href="#the-problem-setting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Let: 数学: &#8216; Omega ^ 1 subset R ^ 2 &#8216; は、2d ホイールの参照構成と: 数学: &#8216; Omega ^ 2 subset R ^ 2 &#8216; 変形可能な基礎の参照構成です。我々は、これら2つの体 (線形弾性) とそれらの間の接触の小さな変形を考慮してください。我々はまた、ホイールのリムは剛性であり、ホイールに垂直方向の力を適用することを検討してください。</p>
+<p><img class="math" src="../images/math/3bfd78daba9f047f58f0f71f26a56cb2f7d2e5a0.png" alt="\Omega^1 \subset \R^2" style="vertical-align: -1px"/> は2D車輪の参照構成であり、 <img class="math" src="../images/math/9fe9d6f3b185c77b35e589e7cbc34646d4e61092.png" alt="\Omega^2 \subset \R^2" style="vertical-align: -1px"/> は変形可能な基礎の参照構成です。これら2つの物体の微小変形 (線形化弾性) とそれらの間の接触を考慮します。また、車輪の周縁は剛であり、車輪に垂直方向の力を適用することを考慮します。</p>
 </div>
 <div class="section" id="building-the-program">
-<h2>プログラムの構築<a class="headerlink" href="#building-the-program" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>私たちは、Getfem を読み込んで、問題のパラメータを修正することから始めましょう</p>
+<h2>プログラムのビルド<a class="headerlink" href="#building-the-program" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Getfem をロードし、問題のパラメータを修正することから始めましょう</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">getfem</span> <span class="kn">as</span> <span class="nn">gf</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
@@ -88,7 +88,7 @@
 </div>
 <div class="section" id="mesh-generation">
 <h3>メッシュ生成<a class="headerlink" href="#mesh-generation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>車輪の半径は15cm とリム8cm のもので、ホイールは厚さ10cm の変形可能な土台の上にあると考えています。我々は、| gf | の実験メッシャーを使用してホイールのメッシュを生成します。基盤のメッシュに関しては、構造化メッシュを構築します (python インタフェースのメッシュオブジェクトのドキュメントを参照してください)。</p>
+<p>車輪の半径は15cm、周縁8cm のもので、車輪は厚さ10cm の変形可能な土台の上にあると考えています。私たちは、 <em>GetFEM++</em> の実験メッシュを使用して、車輪の網目を生成します。基礎のメッシュに関しては、構造化されたメッシュを構築します (python インタフェースのメッシュオブジェクトのドキュメントを参照してください)。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">mo1</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">MesherObject</span><span class="p">(</span><span class="s">&#39;ball&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">],</span> <span class="mf">15.</span><span class="p">)</span>
 <span class="n">mo2</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">MesherObject</span><span class="p">(</span><span class="s">&#39;ball&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">],</span> <span class="mf">8.</span><span class="p">)</span>
 <span class="n">mo3</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">MesherObject</span><span class="p">(</span><span class="s">&#39;set minus&#39;</span><span class="p">,</span> <span class="n">mo1</span><span class="p">,</span> <span class="n">mo2</span><span class="p">)</span>
@@ -99,14 +99,14 @@
 <span class="n">mesh2</span><span class="o">.</span><span class="n">translate</span><span class="p">([</span><span class="o">-</span><span class="mf">15.</span><span class="p">,</span><span class="o">-</span><span class="mf">10.</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>結果は次のとおりです。</p>
+<p>結果は以下のとおりです</p>
 <div class="figure align-center" id="tut-fig-wheelmesh">
 <a class="reference internal image-reference" href="../images/wheel_mesh.png"><img alt="../images/wheel_mesh.png" src="../images/wheel_mesh.png" style="width: 596.0px; height: 611.0px;" /></a>
 </div>
 </div>
 <div class="section" id="boundary-selection">
 <h3>境界の選択<a class="headerlink" href="#boundary-selection" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は、境界の異なる部分を選択する必要があります我々はいくつかの境界条件を設定します, すなわち、リムの境界 (力を適用するために、リムが剛体であるという事実), 車輪の接触境界と基礎の下の境界は、we はクランプされたと仮定します。</p>
+<p>境界条件、すなわち周縁の境界 (周縁が剛体であるということを適用するために)、車輪の接触境界、およびクランプされたと仮定する基礎の底部境界を設定するために、異なる名前を選択しなければなりません。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">fb1</span> <span class="o">=</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">outer_faces_in_box</span><span class="p">([</span><span class="o">-</span><span class="mf">8.1</span><span class="p">,</span> <span class="mf">6.9</span><span class="p">],</span> <span class="p">[</span><span class="mf">8.1</span><span class="p">,</span> <span class="mf">23.1</span><span class="p">])</span>     <span class="c"># Boundary of the hole</span>
 <span class="n">fb2</span> <span class="o">=</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">outer_faces_with_direction</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.5</span><span class="p">)</span> <span class="c"># Contact boundary of the wheel</span>
 <span class="n">fb3</span> <span class="o">=</span> <span class="n">mesh2</span><span class="o">.</span><span class="n">outer_faces_with_direction</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">)</span>      <span class="c"># Bottom boundary of the foundation</span>
@@ -119,11 +119,11 @@
 <span class="n">mesh2</span><span class="o">.</span><span class="n">set_region</span><span class="p">(</span><span class="n">BOTTOM_BOUND</span><span class="p">,</span> <span class="n">fb3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>コマンド &#8216; mesh1 に注意してください。 outer_faces_with_direction ([0.,-1.], n. pi/4) &#8216; は、ベクトル &#8216; [0.,-1] を持つ &#8216; n. pi/4 &#8216; に対して角度が小さいか等しいかを持つユニットを外側に垂直に持つすべての面を選択することができます。<a href="#id1"><span class="problematic" id="id2">`</span></a>.コマンド &#8216; mesh1 region_subtract (CONTACT_BOUND、HOLE_BOUND) &#8216; は、接触境界のリムに対応する面を削除することができます。</p>
+<p>コマンド <cite>mesh1.outer_faces_with_direction([0., -1.], n.pi/4)</cite> は、ベクトル <cite>[0., -1.]</cite> で <cite>n.pi/4</cite> 以下の角度を持つ、外側の法線の単位を持つすべての面を選択することを可能にすることに注意してください。コマンド`mesh1.region_subtract(CONTACT_BOUND, HOLE_BOUND)` は、接触境界のリムに対応する面を削除することを可能にします。</p>
 </div>
 <div class="section" id="definition-of-finite-elements-methods-and-integration-method">
 <h3>有限要素法の定義と積分法<a class="headerlink" href="#definition-of-finite-elements-methods-and-integration-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は、ホイールと基礎の変位をそれぞれ近似する &#8216; mfu1 &#8216;、&#8217; mfu2 &#8216; 2 つの有限要素法を定義します。&#8217; mflambda &#8216; は、リムの剛性を考慮して乗算器を近似する有限要素法であり、&#8217; mflambda_C &#8216; は、接触乗数 (接触圧力) と &#8216; mfvm1 &#8216; を近似することであり、&#8217; mfvm2 &#8216; は、フォンミーゼスの補間に使用されるホイールと後処理のための基盤。&#8217; mim1 &#8216;、&#8217; mim2 &#8216; はホイールとファンデーションの2つの積分法です。</p>
+<p>車輪と基礎の変位をそれぞれ近似する <cite>mfu1</cite>, <cite>mfu2</cite> の2つの有限要素法を定義します。 <cite>mflambda</cite> は、リムの剛性を考慮して乗数を近似する有限要素法であり、 <cite>mflambda_C</cite> は接触乗数(接触圧力) を近似するためにあり、 <cite>mfvm1</cite>, <cite>mfvm2</cite> は、 Von Mises 応力を補間するために使用され、後処理の基礎となります。 <cite>mim1</cite>, <cite>mim2</cite> は、車輪と基礎の2つの積分方法です。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">mfu1</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">MeshFem</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">mfu1</span><span class="o">.</span><span class="n">set_classical_fem</span><span class="p">(</span><span class="n">elements_degree</span><span class="p">)</span>
 <span class="n">mflambda</span> <span class="o">=</span> <span class="n">gf</span><span class="o">.</span><span class="n">MeshFem</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -143,7 +143,7 @@
 </div>
 <div class="section" id="model-definition">
 <h3>モデル定義<a class="headerlink" href="#model-definition" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は実際のモデルを使用し、変位を表す2つの変数を宣言します。</p>
+<p>実際のモデルを使用して、変位を表す2つの変数を宣言します。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">=</span><span class="n">gf</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s">&#39;real&#39;</span><span class="p">);</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_fem_variable</span><span class="p">(</span><span class="s">&#39;u1&#39;</span><span class="p">,</span> <span class="n">mfu1</span><span class="p">)</span>       <span class="c"># Displacement of the structure 1</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_fem_variable</span><span class="p">(</span><span class="s">&#39;u2&#39;</span><span class="p">,</span> <span class="n">mfu2</span><span class="p">)</span>       <span class="c"># Displacement of the structure 2</span>
@@ -151,8 +151,8 @@
 </div>
 </div>
 <div class="section" id="linearized-elasticity-bricks">
-<h3>線形化弾性煉瓦<a class="headerlink" href="#linearized-elasticity-bricks" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は、追加 <a href="#id1"><span class="problematic" id="id2">|</span></a>ラメ <a href="#id3"><span class="problematic" id="id4">|</span></a>モデルのデータとして係数とホイールと基礎の線形弾性レンガを追加:</p>
+<h3>線形弾性ブリック<a class="headerlink" href="#linearized-elasticity-bricks" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Lamé 係数をモデルのデータとして追加して使用し、車輪と基礎の線形化された弾性ブリックを追加します。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_initialized_data</span><span class="p">(</span><span class="s">&#39;cmu&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">cmu</span><span class="p">])</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_initialized_data</span><span class="p">(</span><span class="s">&#39;clambdastar&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">clambdastar</span><span class="p">])</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_isotropic_linearized_elasticity_brick</span><span class="p">(</span><span class="n">mim1</span><span class="p">,</span> <span class="s">&#39;u1&#39;</span><span class="p">,</span> <span class="s">&#39;clambdastar&#39;</span><span class="p">,</span> <span class="s">&#39;cmu&#39;</span><span class="p">)</span>
@@ -161,30 +161,30 @@
 </div>
 </div>
 <div class="section" id="clamped-condition-at-the-bottom-of-the-foundation">
-<h3>土台の下部にクランプされた状態<a class="headerlink" href="#clamped-condition-at-the-bottom-of-the-foundation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>私達は次の煉瓦の付加が付いている乗数と、例えば消えるために基礎の最下面の変位を規定した:</p>
+<h3>基礎の下部のクランプ状態<a class="headerlink" href="#clamped-condition-at-the-bottom-of-the-foundation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>例えば、次のブリックの追加と乗算で、基礎の底面を消去するためにに変位を規定しました。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_Dirichlet_condition_with_multipliers</span><span class="p">(</span><span class="n">mim2</span><span class="p">,</span> <span class="s">&#39;u2&#39;</span><span class="p">,</span> <span class="n">elements_degree</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">BOTTOM_BOUND</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="contact-condition-use-of-interpolate-transformations">
 <h3>接触条件 (補間変換の使用)<a class="headerlink" href="#contact-condition-use-of-interpolate-transformations" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>さて、2つの構造体の間の接触状態を規定する方法を見てみましょう。これは、定義済みのレンガを使用することが可能です (参照してください: ref: &#8220;ud-モデル-接触-摩擦&#8221; 小さな変形/小さな摺動接点と: ref: &#8220;ud-モデル-接触-摩擦-大&#8221; 大規模な変形のための/大きな滑り接触)。しかし、ここでは、拡張ラグランジュの定式化と補間変換を使用して直接接触条件を処方する方法について説明します。</p>
-<p>小さい変形の接触のために、他への1つの接触の表面のポイント間の一致は参照構成で記述されなければなり、当然より簡単であるが、近似である進化していない。</p>
-<p>我々は、車輪の接触境界がスレーブ1であることを考慮し、車輪の接触境界から基礎の接触境界までの変換を記述しなければならない。これは基礎の接触の境界が消失の垂直座標に対応するので、ここに非常に簡単である。だから我々は、変換を定義する</p>
+<p>ここで、2つの構造の間の接触条件を規定する方法を見てみましょう。定義済みのレンガを使用することができます (微小変型/微小滑りは <a class="reference internal" href="../userdoc/model_contact_friction.html#ud-model-contact-friction"><em>摩擦ブリック要素との微小すべり接触</em></a> そして大変形/大滑りは <a class="reference internal" href="../userdoc/model_contact_friction_large_sliding.html#ud-model-contact-friction-large"><em>摩擦ブリック要素との有限すべり/有限変形接触</em></a> を参照してください)。ただし、ここでは、拡張Lagrangian定式化と補間変換を使用して接触条件を直接規定する方法について説明します。</p>
+<p>微小変形接触では、1つの接触面の点間の対応が参照設定に記述されていて、進展していないため、もちろん単純ですが、近似値です。</p>
+<p>車輪の接触境界がスレーブ1であることを考慮し、車輪の接触境界から基礎の接触境界までの変換を記述しなければなりません。これは、基礎の接触境界が垂直座標の消失に対応するため、ここでは非常に簡単です。そこで、変換を定義します。</p>
 <div class="math">
 <p><img src="../images/math/b4c1a3795452998894b77725782519dfee5bf1be.png" alt="X \longmapsto (X(1), 0)"/></p>
-</div><p>場所: 数学: &#8216; X &#8216; は、ポイントの座標のベクトルです。この変換は、コマンドを使用してモデルに追加します。</p>
+</div><p>ここで <img class="math" src="../images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X" style="vertical-align: 0px"/> は、点の座標のベクトルです。この変換は、コマンドを使用してモデルに追加します。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_interpolate_transformation_from_expression</span><span class="p">(</span><span class="s">&#39;Proj1&#39;</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="s">&#39;[X(1);0]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>その結果、ホイールのメッシュから基礎のメッシュまで、この変換を弱い形式の言語表現に使用することが可能になります。これは非常に単純な定数式であることに注意してください。データまたはモデルの変数に応じてより複雑な式を使用することができます。変換の式がモデルの変数に依存する場合、接線線形システムは、この依存関係を自動的に考慮します (詳細については、ref: &#8216; ud-gasm-transf &#8216; を参照してください。また、大規模なスライディング接点に対応し、接触境界間の対応を自動的に検索する変換が存在することにも注意してください | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>(参照: ref: &#8216; ud-モデル-接触-摩擦-大-hlgav &#8216;)。</p>
-<p>定義された変換を使用して、我々は拡張ラグランジュの定式化を使用して積分接触条件を書くことができます (参照: ref の-&#8220;ud-モデル-接触-摩擦&#8221; 詳細については)。対応する用語 (弱い定式化の残りの部分に追加する) を読み取ります。</p>
+<p>その結果、車輪のメッシュから基礎のメッシュまで、この変換を弱形式の言語表現に使用することが可能になります。これは非常に単純な定数式であることに注意してください。データまたはモデルの変数に応じて、より複雑な式を使用できます。変換の式がモデルの変数に依存する場合、接線線形システムでは、この依存関係が自動的に考慮されます (詳細については、 <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high-transf"><em>補間変換</em></a> を参照してください)。また、大すべり接触に対応し、接触境界間の対応を自動的に検索する変換が <em>GetFEM++</em> に存在することにも注意してください。 ( <a class="reference internal" href="../userdoc/model_contact_friction_large_sliding.html#ud-model-contact-friction-large-hlgav"><em>レイトレース付き積分接触要素</em></a> を参照)。</p>
+<p>定義された変換を使用して、我々は、拡張Lagrangian式を使用して積分接触条件を記述することができます (詳細については <a class="reference internal" href="../userdoc/model_contact_friction.html#ud-model-contact-friction"><em>摩擦ブリック要素との微小すべり接触</em></a> を参照)。対応する項 (弱定式化の残りの部分に追加されます) は以下を読み取ります。</p>
 <div class="math">
 <p><img src="../images/math/7af5173b94667134d7e0464ec5a7fac31f0d0b80.png" alt="&amp; \cdots + \ds \int_{\Gamma_c} \lambda_N(X) (\delta_{u^1}(X)-\delta_{u^2}(\Pi(X)))\cdot n d\Gamma \\
 &amp; -  \ds \int_{\Gamma_c} \left(\lambda_N(X) + \left(\lambda_N(X) + \Frac{1}{h_T\gamma_0}((X + u^1(X))\cdot n - (\Pi(X) - u^2(\Pi(X)))\cdot n\right)_-\right)\delta_{\lambda_N}(X) d\Gamma = 0 ~~~~ \forall \delta_{\lambda_N}, \forall \delta_{u^1}, \forall \delta_{u^2},"/></p>
-</div><p>where: 数学: &#8216; Gamma_c &#8216; は、スレーブの接触境界です: 数学: &#8216; lambda_N &#8216; は、接触乗数 (接触圧力)、: 数学: &#8216; h_T &#8216; は、要素の半径です: 数学: &#8216; Pi &#8216; は、変換、&#8217; N &#8216; は、マスターの接触境界に外向きの法線ベクトルです (ここ: 数学: &#8216; n = (0, 1) &#8216;),: 数学: &#8216; gamma_0 &#8216; は、増強パラメータです: 数学: &#8216; (cdot) _-: Ihspace {-0.2 em} Rrightarrow Ihspace {-0.2 em} <a href="#id1"><span class="problematic" id="id2">R_</span></a> + &#8216; は負の部分であり、: 数学: &#8216; delta_{lambda_N}、delta_{u ^ 1}、delta_{u ^ 2} &#8216; はテスト関数です。に対応する: 数学: &#8216; lambda_N, u ^ 1, u ^ 2 &#8216;, それぞれ.</p>
-<p>弱いフォーム言語を使用して、接触条件を追加することができます:</p>
+</div><p>ここで <img class="math" src="../images/math/2e78fb4781b2620fa10368d193dd418062230428.png" alt="\Gamma_c" style="vertical-align: -3px"/> はスレーブ接触境界であり、 <img class="math" src="../images/math/5b25ea40e7493b07f4e97bea02533a0c8861b07c.png" alt="\lambda_N" style="vertical-align: -3px"/> は接触乗数 (接触圧) であり、 <img class="math" src="../images/math/6d366326170663b7b7e8aee5db7aaf68a11e36b7.png" alt="h_T" style="vertical-align: -3px"/> は要素の半径であり、 <img class="math" src="../images/math/c3e77f8dac39bd44cff4ca15469c871bab27c02e.png" alt="\Pi" style="vertical-align: -1px"/> は変換であり、 <cite>n</cite> はマスター接触境界への外向きの法線ベクトルです(ここで <img class="math" src="../images/math/fc8152eaffd8411ddc69cc776c023d0a7443b17e.png" alt="n = (0,1)" style="vertical-align: -4px"/>) <img class="math" src="../images/math/cbe065ef1957f1cfa20281d4ea41ba2cbb716906.png" alt="\gamma_0" style="vertical-align: -4px"/> は拡張パラメータであり、 <img class="math" src="../images/math/6b12b1f2b6d6251fcd15bda6cf9e963617f8c737.png" alt="(\cdot)_-:I\hspace{-0.2em}R\rightarrow I\hspace{-0.2em}R_+" style="vertical-align: -5px"/> は負の部分であり、 <img class="math" src="../images/math/7ad7e323661545990d45d4a0063f49510b5c6816.png" alt="\delta_{\lambda_N}, \delta_{u^1}, \delta_{u^2}" style="vertical-align: -5px"/> はそれぞれ <img class="math" src="../images/math/92b8d17b712b84a0c5e9b13fe61da237803c5a3c.png" alt="\lambda_N, u^1, u^2" style="vertical-align: -4px"/> に対応する試行関数です。</p>
+<p>弱形式言語を使用すると、次の方法で接触条件を追加できます。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_initialized_data</span><span class="p">(</span><span class="s">&#39;gamma0&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">gamma0</span><span class="p">])</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_filtered_fem_variable</span><span class="p">(</span><span class="s">&#39;lambda1&#39;</span><span class="p">,</span> <span class="n">mflambda_C</span><span class="p">,</span> <span class="n">CONTACT_BOUND</span><span class="p">)</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_nonlinear_term</span><span class="p">(</span><span class="n">mim1</span><span class="p">,</span> <span class="s">&#39;lambda1*(Test_u1.[0;1])&#39;</span>
@@ -196,46 +196,46 @@
 </div>
 </div>
 <div class="section" id="prescribing-the-rigidity-of-the-rim-and-the-vertical-force">
-<h3>リムと垂直力の剛性を処方<a class="headerlink" href="#prescribing-the-rigidity-of-the-rim-and-the-vertical-force" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>今はリムの剛性を処方してもらっています。これは、我々はリムの垂直変位になるかを事前に知らないので、非標準的な状態です。我々は、その垂直変位のための追加の未知を使用することができます。サイズ1の固定サイズ変数 &#8216; alpha_D &#8216; (有限要素フィールドではないことを意味する) を追加します。</p>
+<h3>リムの剛性と垂直力の処理<a class="headerlink" href="#prescribing-the-rigidity-of-the-rim-and-the-vertical-force" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>これでリムの剛性を規定しています。リムの垂直方向の変位が何であるかは未知であるため、非標準の状態です。垂直変位のための追加の未知変数を使用することができます。サイズ1の固定サイズ変数 <cite>alpha_D</cite> (有限要素フィールドではないことを意味します) を追加します。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s">&#39;alpha_D&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>我々は、リム境界上の変位を処方する乗数が必要です:</p>
+<p>リム境界上の変位を規定する乗数が必要です。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_filtered_fem_variable</span><span class="p">(</span><span class="s">&#39;lambda_D&#39;</span><span class="p">,</span> <span class="n">mflambda</span><span class="p">,</span> <span class="n">HOLE_BOUND</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>この乗数は、次のように垂直変位を規定するために必要な境界応力を表します: 数学 &#8216; (0,-alpha_D) &#8216;。この乗数に適用する制約は、リム境界上の積分が、適用したい垂直方向の力であるということです。弱い製剤の残りの部分に追加される対応する弱い製剤用語は、読み取り</p>
+<p>この乗数は、垂直方向の変位を規定するために必要な境界応力を表します :math`(0, -alpha_D)` 。この乗数に適用する制約は、リム境界上の積分が、適用したい垂直方向の力であることです。弱定式の残りの部分に追加される対応する弱定式項を読み取ります。</p>
 <div class="math">
 <p><img src="../images/math/d55a1cd7ad378dd090cddf52338c8f064bde1350.png" alt="\cdots + \int_{\Gamma_D} -\lambda_D.\delta_{u^1} + ((0, \alpha_D) - u^1).\delta_{\lambda_D} + (\lambda_D.(0,1) + F)\delta_{\alpha_D} d\Gamma = 0,"/></p>
-</div><p>場所: 数学: &#8216; Gamma_D &#8216; は、リムの境界は、: 数学: &#8216; F &#8216; 力の適用密度です。</p>
-<p>これは、弱いフォーム言語を使用してモデルに追加できます。</p>
+</div><p>ここで <img class="math" src="../images/math/932d4407c87b1cb432a44ee87997e834b985003b.png" alt="\Gamma_D" style="vertical-align: -3px"/> は、リムの境界であり、 <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> は、力の適用された密度です。</p>
+<p>これは、弱形式言語でモデルに追加することができます。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_filtered_fem_variable</span><span class="p">(</span><span class="s">&#39;lambda_D&#39;</span><span class="p">,</span> <span class="n">mflambda</span><span class="p">,</span> <span class="n">HOLE_BOUND</span><span class="p">)</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_initialized_data</span><span class="p">(</span><span class="s">&#39;F&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">applied_force</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)])</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_linear_term</span><span class="p">(</span><span class="n">mim1</span><span class="p">,</span> <span class="s">&#39;-lambda_D.Test_u1 + (alpha_D*[0;1]-u1).Test_lambda_D&#39;</span>
       <span class="s">&#39; + (lambda_D.[0;1]+F)*Test_alpha_D&#39;</span><span class="p">,</span> <span class="n">HOLE_BOUND</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>より堅牢性については、小さな刑罰: 数学: &#8216; alpha_D &#8216; を追加することができます</p>
+<p>よりロバスト性を向上させるために、 <img class="math" src="../images/math/5287d7ee29e3bc0926c9ed7d41c85bdaf9689d88.png" alt="alpha_D" style="vertical-align: -4px"/> 上の小さなペナルティを追加することができます</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_linear_term</span><span class="p">(</span><span class="n">mim1</span><span class="p">,</span> <span class="s">&#39;1E-6*alpha_D*Test_alpha_D&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>固定サイズ変数 &#8216; alpha_D &#8216; は、リム境界の各点にリンクされていることに注意してください。これは、&#8217; alpha_D &#8216; に対応する接線行列の線が0以外の成分を多く持つことを意味します。このため、固定サイズ変数の使用は慎重に行う必要があります。</p>
+<p>固定サイズ変数 <cite>alpha_D</cite> は、リム境界の各ポイントにリンクされていることに注意してください。これは、 <cite>alpha_D</cite> に対応する接線行列の線は、ゼロ以外の成分を多く持つことができることを意味します。このため、固定サイズ変数の使用は慎重に行う必要があります。</p>
 </div>
 <div class="section" id="model-solve">
-<h3>モデルの解決<a class="headerlink" href="#model-solve" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>我々は今で私たちの問題を解決することができます:</p>
+<h3>モデル求解<a class="headerlink" href="#model-solve" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>私たちは今、問題を解くことができます :</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="s">&#39;max_res&#39;</span><span class="p">,</span> <span class="mf">1E-9</span><span class="p">,</span> <span class="s">&#39;max_iter&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s">&#39;noisy&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>いくつかの構成では、デフォルトのものよりも基本的な行検索を使用することが望ましいことに注意してください。</p>
+<p>設定によっては、デフォルトのものよりも基本的な線形探索を使用する方が望ましいことに注意してください :</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="s">&#39;max_res&#39;</span><span class="p">,</span> <span class="mf">1E-9</span><span class="p">,</span> <span class="s">&#39;max_iter&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s">&#39;noisy&#39;</span><span class="p">,</span> <span class="s">&#39;lsearch&#39;</span><span class="p">,</span> <span class="s">&#39;simplest&#39;</span><span class="p">,</span>  <span class="s">&#39;alpha min&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="export-the-solution">
-<h3>ソリューションのエクスポート<a class="headerlink" href="#export-the-solution" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次に、VonMiss のストレスでソリューションをエクスポートするコードを以下にします。</p>
+<h3>解のエクスポート<a class="headerlink" href="#export-the-solution" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>次に、VonMiss 応力を伴う解をエクスポートするコードを示します:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">U1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="s">&#39;u1&#39;</span><span class="p">)</span>
 <span class="n">U2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="s">&#39;u2&#39;</span><span class="p">)</span>
 <span class="n">VM1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">compute_isotropic_linearized_Von_Mises_or_Tresca</span><span class="p">(</span><span class="s">&#39;u1&#39;</span><span class="p">,</span> <span class="s">&#39;clambdastar&#39;</span><span class="p">,</span> <span class="s">&#39;cmu&#39;</span><span class="p">,</span> <span class="n">mfvm1</span><span class="p">)</span>
@@ -252,7 +252,7 @@
 </div>
 <div class="figure align-center" id="tut-fig-wheelsol">
 <a class="reference internal image-reference" href="../images/wheel.png"><img alt="../images/wheel.png" src="../images/wheel.png" style="width: 1028.0px; height: 795.0px;" /></a>
-<p class="caption">ソリューションのプロット。</p>
+<p class="caption">解のプロット。</p>
 </div>
 </div>
 </div>
@@ -269,19 +269,19 @@
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">接触中のホイールの例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)</a><ul>
+<li><a class="reference internal" href="#">接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)</a><ul>
 <li><a class="reference internal" href="#the-problem-setting">問題の設定</a></li>
-<li><a class="reference internal" href="#building-the-program">プログラムの構築</a><ul>
+<li><a class="reference internal" href="#building-the-program">プログラムのビルド</a><ul>
 <li><a class="reference internal" href="#mesh-generation">メッシュ生成</a></li>
 <li><a class="reference internal" href="#boundary-selection">境界の選択</a></li>
 <li><a class="reference internal" href="#definition-of-finite-elements-methods-and-integration-method">有限要素法の定義と積分法</a></li>
 <li><a class="reference internal" href="#model-definition">モデル定義</a></li>
-<li><a class="reference internal" href="#linearized-elasticity-bricks">線形化弾性煉瓦</a></li>
-<li><a class="reference internal" href="#clamped-condition-at-the-bottom-of-the-foundation">土台の下部にクランプされた状態</a></li>
+<li><a class="reference internal" href="#linearized-elasticity-bricks">線形弾性ブリック</a></li>
+<li><a class="reference internal" href="#clamped-condition-at-the-bottom-of-the-foundation">基礎の下部のクランプ状態</a></li>
 <li><a class="reference internal" href="#contact-condition-use-of-interpolate-transformations">接触条件 (補間変換の使用)</a></li>
-<li><a class="reference internal" href="#prescribing-the-rigidity-of-the-rim-and-the-vertical-force">リムと垂直力の剛性を処方</a></li>
-<li><a class="reference internal" href="#model-solve">モデルの解決</a></li>
-<li><a class="reference internal" href="#export-the-solution">ソリューションのエクスポート</a></li>
+<li><a class="reference internal" href="#prescribing-the-rigidity-of-the-rim-and-the-vertical-force">リムの剛性と垂直力の処理</a></li>
+<li><a class="reference internal" href="#model-solve">モデル求解</a></li>
+<li><a class="reference internal" href="#export-the-solution">解のエクスポート</a></li>
 </ul>
 </li>
 </ul>
@@ -290,7 +290,7 @@
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="thermo_coupling.html"
-                        title="前の章へ">熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)</a></p>
+                        title="前の章へ">熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="../project/index.html"
                         title="次の章へ">$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</a></p>            <h3>Download</h3>
@@ -341,13 +341,13 @@
           <a href="../project/index.html" title="$B%W%m%8%’%/%H$N@bL@(B"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="thermo_coupling.html" title="熱弾性と電気的結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析と視覚化)"
+          <a href="thermo_coupling.html" title="熱弾性および電気結合の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)"
              >前へ</a> |</li>
         <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" ><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -28,8 +28,8 @@
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="|gf|チュートリアル" href="index.html" />
-    <link rel="next" title="Basic Usage of GetFEM++" href="basic_usage.html" />
+    <link rel="up" title="GetFEM++ の導入" href="index.html" />
+    <link rel="next" title="GetFEM++ の基本的な使い方" href="basic_usage.html" />
     <link rel="prev" title="導入" href="intro.html" />
     <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
@@ -43,7 +43,7 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="basic_usage.html" title="Basic Usage of GetFEM++"
+          <a href="basic_usage.html" title="GetFEM++ の基本的な使い方"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="intro.html" title="導入"
@@ -52,7 +52,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,25 +63,25 @@
             
   <div class="section" id="how-to-install">
 <span id="ud-install-tut"></span><h1>インストール方法<a class="headerlink" href="#how-to-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>以降 | gf <a href="#id1"><span class="problematic" id="id2">|linux 上で開発し (ubuntu の)、インストールは linux 上で、特に debian ベースのディストリビューション (debian/ubuntu の/ミント) で簡単です。しかし、|</span></a> gf <a href="#id1"><span class="problematic" id="id2">|</span></a>Mac os X および Windows 上の他の linux ディストリビューションにもインストールできます。ためにコンパイルする | gf <a href="#id3"><span class="problematic" id="id4">|</span></a>ソースからは、最近の c++ コンパイラ (c++ 11 標準をサポート) と python 2 の最新バージョンが必要です。</p>
-<p>の主な依存性 <a href="#id1"><span class="problematic" id="id2">|</span></a>Gf <a href="#id3"><span class="problematic" id="id4">|</span></a>他のライブラリでは</p>
+<p><em>GetFEM++</em> は linux (ubuntu) 上で開発しされているため linux 、特に Debian ベースのディストリビューション (Debian/Ubuntu/Mint) では、インストールは簡単です。しかし、Mac os X および Windows 上の他の linux ディストリビューションにも <em>GetFEM++</em> をインストールすることができます。<em>GetFEM++</em> をコンパイルするためにソースから、最近の C++ コンパイラ (C++ 11 標準をサポート) と最新バージョンの python 2 が必要です。</p>
+<p><em>GetFEM++</em> の他のライブラリの主な依存は</p>
 <ul class="simple">
-<li><p class="first">svn クライアント、automake、autoconf、libtool は、最新の変更を取得するために svn のバージョンからバイナリを構築したい場合。</p>
+<li><p class="first">svn クライアント、automake、autoconf、および libtool は、svn バージョンからバイナリをビルドして最新の変更を取得する場合に使用します。</p>
 </li>
-<li><p class="first">python 開発ファイル (python. h など) と、| np <a href="#id1"><span class="problematic" id="id2">|</span></a>と | sp <a href="#id3"><span class="problematic" id="id4">|</span></a>python インターフェイスを構築する場合は、パッケージを選択します。</p>
+<li><p class="first">Python インターフェイスを構築する場合は、Python 開発ファイル (Python.h など) と <em>numpy</em> と <em>scipy</em> パッケージが必要です。</p>
 </li>
-<li><p class="first">シーケンシャルおたふく風邪のパッケージ (疎行列の直接ソルバー) あなたは SuperLU のバージョンの代わりにそれを使用する場合は | gf | と一緒に配布されます。</p>
+<li><p class="first"><em>GetFEM++</em> と一緒に配布された SuperLU の代わりに使用したい場合、直列 MUMPS パッケージ (疎行列の直接ソルバー) が必要です。</p>
 </li>
-<li><p class="first">パラレルおたふく風邪、MPI4PY パッケージ | gf の MPI の並列化されたバージョンを ue したい場合は |</p>
+<li><p class="first">MPI で並列化されたバージョンの <em>GetFEM++</em> を使用したい場合は、 METIS と MPI4PY の並列パッケージが必要です。</p>
 </li>
-<li><p class="first">メッシュ生成および架空ドメインアプリケーション用の qhull パッケージ</p>
+<li><p class="first">メッシュ生成と架空領域アプリケーションのための qhull パッケージ</p>
 </li>
-<li><p class="first">ブラスと LAPACK パッケージ</p>
+<li><p class="first">BLAS と LAPACK パッケージ</p>
 </li>
 </ul>
-<p><em>GetFEM++</em> C++ library can be build on its own or together with the Python, Scilab and/or Matlab interface.</p>
-<p>また、対応するパッケージ管理システムを使用して、Getfem の安定版を linux ディストリビューションにインストールすることもできます。</p>
-<p>Getfem C++ ライブラリをビルドする方法に関するより具体的な情報については、「ダウンロードしてインストールする &lt;.../download.html &gt; &#8216; _ ページを表示します。</p>
+<p><em>GetFEM++</em> C++ ライブラリは、独自に構築することも、Python、Scilab、および/または Matlab インターフェイスと一緒にビルドすることができます。</p>
+<p>また、対応するパッケージ管理システムを使用して linux ディストリビューションに Getfem の安定版リリースをインストールすることもできます。</p>
+<p>Getfem C++ ライブラリをビルドする方法の詳細については、 <a class="reference external" href="../download.html">ダウンロードしてインストールする</a> を参照してください。</p>
 </div>
 
 
@@ -98,7 +98,7 @@
                         title="前の章へ">導入</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="basic_usage.html"
-                        title="次の章へ">Basic Usage of <em>GetFEM++</em></a></p>            <h3>Download</h3>
+                        title="次の章へ"><em>GetFEM++</em> の基本的な使い方</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -143,7 +143,7 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="basic_usage.html" title="Basic Usage of GetFEM++"
+          <a href="basic_usage.html" title="GetFEM++ の基本的な使い方"
              >次へ</a> |</li>
         <li class="right" >
           <a href="intro.html" title="導入"
@@ -152,7 +152,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >|gf|チュートリアル</a> &raquo;</li> 
+          <li><a href="index.html" ><em>GetFEM++</em> の導入</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
