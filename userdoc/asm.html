@@ -6,10 +6,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>いくつかの標準構築手順（低レベル汎用構築） &mdash; GetFEM++</title>
+    <title>いくつかの標準構築手順（低水準汎用構築） &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="任意の量の補間" href="interMM.html" />
-    <link rel="prev" title="任意の項を計算する - 低レベルの汎用的な構築手順" href="gasm_low.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="prev" title="任意の項を計算する - 低水準の汎用的な構築手順" href="gasm_low.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -46,13 +46,13 @@
           <a href="interMM.html" title="任意の量の補間"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="gasm_low.html" title="任意の項を計算する - 低レベルの汎用的な構築手順"
+          <a href="gasm_low.html" title="任意の項を計算する - 低水準の汎用的な構築手順"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,83 +62,83 @@
           <div class="body">
             
   <div class="section" id="some-standard-assembly-procedures-low-level-generic-assembly">
-<span id="ud-asm"></span><h1>いくつかの標準構築手順（低レベル汎用構築）<a class="headerlink" href="#some-standard-assembly-procedures-low-level-generic-assembly" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>ファイル <tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt> で定義されている手続きは、古典的な偏微分方程式の問題のいくつかの剛性行列、質量行列、境界条件の構築を可能にします。任意の行列ライブラリで使用するために、すべてのプロシージャにはベクトルと行列のテンプレートパラメータがあります。</p>
+<span id="ud-asm"></span><h1>いくつかの標準構築手順（低水準汎用構築）<a class="headerlink" href="#some-standard-assembly-procedures-low-level-generic-assembly" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ファイル <tt class="file docutils literal"><span class="pre">getfem/getfem_assembling.h</span></tt> で定義されている手続きは、古典的な偏微分方程式の問題のいくつかの剛性行列、質量行列、境界条件の構築を可能にします。任意の行列ライブラリで使用するために、すべての手順にはベクトルと行列のテンプレートパラメータがあります。</p>
 <p>注意：構築手順では、同じ行列/ベクトルに対して複数の構築操作を実行する可能性があるため、構築の最初に行列/ベクトルを初期化しません。したがって、最初の構築操作の前にマトリックス/ベクトルを初期化する必要があります。</p>
 <div class="section" id="laplacian-poisson-problem">
 <h2>Laplacian（Poisson）問題<a class="headerlink" href="#laplacian-poisson-problem" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>この問題を解決するための組み立て手順が定義されています。</p>
+<p>この問題を解決するための構築手順が定義されています。</p>
 <div class="math">
-<p><img src="../images/math/9eab1497126644ec5269ee26529f868d38ce090e.png" alt="-\mbox{div}(a(x)\cdot\mbox{grad}(u(x))) &amp;= f(x)\ \mbox{ in }\Omega,  \\
+<p><img src="../_images/math/9eab1497126644ec5269ee26529f868d38ce090e.png" alt="-\mbox{div}(a(x)\cdot\mbox{grad}(u(x))) &amp;= f(x)\ \mbox{ in }\Omega,  \\
 u(x) &amp; = U(x)\ \mbox{ on }\Gamma_D, \\
 \frac{\partial u}{\partial\eta}(x) &amp; = F(x)\ \mbox{ on }\Gamma_N,"/></p>
-</div><p>ここで、 <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> は任意の次元のオープン領域です <img class="math" src="../images/math/374511afe521f2b7acde053f039c570a9026ed20.png" alt="\Gamma_{D}" style="vertical-align: -3px"/> と <img class="math" src="../images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> は、 <img class="math" src="../images/math/df321a16c05c7d678128914f4147490710908e35.png" alt="a(x)" style="vertical-align: -4px"/> は与えられた係数であり、 <img class="math" src="../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> は与えられたソースの項である <img class="math" src="../images/math/073f69367cee601cff7c1b8684c1453c6dd75e27.png" alt="U(x)" style="vertical-align: -4px"/> は次の式 <img class="math" src="../images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> 上の <img class="math" src="../images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)" style="vertical-align: -4px"/> の正規方程式です。剛性行列をアセンブルするために呼び出される関数は:</p>
+</div><p>ここで、 <img class="math" src="../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> は任意の次元の開領域、 <img class="math" src="../_images/math/374511afe521f2b7acde053f039c570a9026ed20.png" alt="\Gamma_{D}" style="vertical-align: -3px"/> および <img class="math" src="../_images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> は <img class="math" src="../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> の境界の一部、 <img class="math" src="../_images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)" style="vertical-align: -4px"/> は未知数、 <img class="math" src="../_images/math/df321a16c05c7d678128914f4147490710908e35.png" alt="a(x)" style="vertical-align: -4px"/> は所与の係数、 <img class="math" src="../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> は所与のソース項、 <img class="math" src="../_images/math/073f69367cee601cff7c1b8684c1453c6dd75e27.png" alt="U(x)" style="vertical-align: -4px"/> は <img class="math" src="../_images/math/374511afe521f2b7acde053f039c570a9026ed20.png" alt="\Gamma_{D}" style="vertical-align: -3px"/> 上の規定値 <img class="math" src="../_images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)" style="vertical-align: -4px"/> であり、 <img class="math" src="../_images/math/de8fdaa56ea5a8940d4bba79faa9e3dea0f6bf7c.png" alt="F(x)" style="vertical-align: -4px"/> は <img class="math" src="../_images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> 上の <img class="math" src="../_images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)" style="vertical-align: -4px"/> の規定された標準偏差です。 剛性行列を構築するために呼び出される関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_stiffness_matrix_for_laplacian</span><span class="p">(</span><span class="n">SM</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mfu</span><span class="p">,</span> <span class="n">mfd</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>ここで</p>
 <ul class="simple">
-<li><p class="first"><tt class="docutils literal"><span class="pre">SM</span></tt> は正しい次元（つまり、 <tt class="docutils literal"><span class="pre">mfu.nb_dof()</span></tt> ）を持つ任意の型の行列です。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">SM</span></tt> は適切な次元（つまり、 <tt class="docutils literal"><span class="pre">mfu.nb_dof()</span></tt> ）を持つ任意の型の行列です。</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">mim</span></tt> は使用される積分方法を定義する型 <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> の変数です。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">mim</span></tt> は使用される積分法を定義する型 <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> の変数です。</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">mfu</span></tt> は解の有限要素法を定義する型 <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> の変数です。</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">mfd</span></tt> は係数 <img class="math" src="../images/math/df321a16c05c7d678128914f4147490710908e35.png" alt="a(x)" style="vertical-align: -4px"/> が定義されている有限要素法を記述する型 <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> （おそらく <tt class="docutils literal"><span class="pre">mfu</span></tt> に等しい）の変数です。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">mfd</span></tt> は係数 <img class="math" src="../_images/math/df321a16c05c7d678128914f4147490710908e35.png" alt="a(x)" style="vertical-align: -4px"/> が定義されている有限要素法を記述する型 <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> （おそらく <tt class="docutils literal"><span class="pre">mfu</span></tt> に等しい）の変数です。</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">A</span></tt> は <tt class="docutils literal"><span class="pre">mfd</span></tt> の各自由度に対するこの係数の値の（実数または複素数）ベクトルです。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">A</span></tt> は <tt class="docutils literal"><span class="pre">mfd</span></tt> の各自由度に対する係数の値の（実数または複素数）ベクトルです。</p>
 </li>
 </ul>
 <p>両方の <cite>mesh_fem</cite> は同じメッシュ（つまり、 <tt class="docutils literal"><span class="pre">&amp;mfu.linked_mesh()</span> <span class="pre">==</span> <span class="pre">&amp;mfd.linked_mesh()</span></tt> ）を使用する必要があります。</p>
-<p>基本行列を計算するのに使われる <tt class="docutils literal"><span class="pre">mim</span></tt> に格納されている積分方法は十分な次元のものを選択することが重要です。次数は <tt class="docutils literal"><span class="pre">mfu</span></tt> の要素の多項式の次数、 <tt class="docutils literal"><span class="pre">mfd</span></tt> 非線形の場合の幾何変換を考慮して決定する必要があります。例えば、線形幾何学変換の場合、 <tt class="docutils literal"><span class="pre">mfu</span></tt> は <img class="math" src="../images/math/d9f6c1b48c702cd2b8d4362a98b74527c93478cb.png" alt="P_{K}" style="vertical-align: -3px"/> 有限要素法、 <tt class="docutils literal"><span class="pre">mfd</span></tt> は <img class="math" src="../images/math/515c38beda32fe99b2904dd3509311b1082e953e.png" alt="P_{L}" style="vertical-align: -3px"/> 有限要素法です。 積分次数は次数 <img class="math" src="../images/math/04168da45c603fdf663f4fa18980fad491bd0b5f.png" alt="\geq 2(K-1) + L" style="vertical-align: -4px"/> で選択する必要があります、それゆれ <tt class="docutils literal"><span class="pre">SM</span></tt> の構築の間に計算される要素積分は <img class="math" src="../images/math/2e9c138cd93fbb5a5e3d4987b407662c7fb018ae.png" alt="\int\nabla\varphi_i\nabla\varphi_j\psi_k" style="vertical-align: -6px"/> のようになります（それと <img class="math" src="../images/math/87686aa0f5136421c8415c7169adcb308e36c7a8.png" alt="\varphi_i" style="vertical-align: -4px"/> は <tt class="docutils literal"><span class="pre">mfu</span></tt> の基底関数で、 <img class="math" src="../images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i" style="vertical-align: -4px"/> は <tt class="docutils literal"><span class="pre">mfd</span></tt> の基底関数です）。</p>
-<p>ソース項を構築するのに呼び出す関数は:</p>
+<p>基本行列を計算するのに使われる <tt class="docutils literal"><span class="pre">mim</span></tt> に格納されている積分法は十分な次元のものを選択することが重要です。次数は <tt class="docutils literal"><span class="pre">mfu</span></tt> の要素の多項式の次数、 <tt class="docutils literal"><span class="pre">mfd</span></tt> の非線形の場合の幾何変換を考慮して決定する必要があります。例えば、線形幾何学変換の場合、 <tt class="docutils literal"><span class="pre">mfu</span></tt> は <img class="math" src="../_images/math/d9f6c1b48c702cd2b8d4362a98b74527c93478cb.png" alt="P_{K}" style="vertical-align: -3px"/> 有限要素法、 <tt class="docutils literal"><span class="pre">mfd</span></tt> は <img class="math" src="../_images/math/515c38beda32fe99b2904dd3509311b1082e953e.png" alt="P_{L}" style="vertical-align: -3px"/> 有限要素法です。 積分次数は次数 <img class="math" src="../_images/math/04168da45c603fdf663f4fa18980fad491bd0b5f.png" alt="\geq 2(K-1) + L" style="vertical-align: -4px"/> で選択する必要があります、それゆれ <tt class="docutils literal"><span class="pre">SM</span></tt> の構築の間に計算される要素積分は <img class="math" src="../_images/math/2e9c138cd93fbb5a5e3d4987b407662c7fb018ae.png" alt="\int\nabla\varphi_i\nabla\varphi_j\psi_k" style="vertical-align: -6px"/> のようになります（それと <img class="math" src="../_images/math/87686aa0f5136421c8415c7169adcb308e36c7a8.png" alt="\varphi_i" style="vertical-align: -4px"/> は <tt class="docutils literal"><span class="pre">mfu</span></tt> の基底関数で、 <img class="math" src="../_images/math/75b7bc3d0bbe11946d21dabacfde02b7d0978b3f.png" alt="\psi_i" style="vertical-align: -4px"/> は <tt class="docutils literal"><span class="pre">mfd</span></tt> の基底関数です）。</p>
+<p>ソース項を構築するのに呼び出す関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_source_term</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mfu</span><span class="p">,</span> <span class="n">mfd</span><span class="p">,</span> <span class="n">V</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">B</span></tt> は正しい次元（まだ <tt class="docutils literal"><span class="pre">mfu.nb_dof()</span></tt> ）を持つ型のベクトルで、 <tt class="docutils literal"><span class="pre">mim</span></tt> は使用される積分方法を定義する <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> 型の変数です、 <tt class="docutils literal"><span class="pre">mfd</span></tt> はそれぞれの自由度の <img class="math" src="../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> 上の有限要素法が記述されている型 <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> （おそらく <tt class="docutils literal"><span class="pre">mfu</span></tt> に等しい）の変数です、そして <tt class="docutils literal"><span class="pre">V</span></tt> は <tt class="docutils literal"><span class="pre">mfd</span></tt> 上の各自由度の <img class="math" src="../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> の値のベクトルです。</p>
-<p>関数 <tt class="docutils literal"><span class="pre">asm_source_term</span></tt> にはオプションの引数があります。これは <tt class="docutils literal"><span class="pre">getfem::mesh_region</span></tt> （または単に整数 <tt class="docutils literal"><span class="pre">i</span></tt> 、 <tt class="docutils literal"><span class="pre">mim.linked_mesh().region(i)</span></tt> が考慮されます）。したがって、Neumann条件 <img class="math" src="../images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> と同等の関数は:</p>
+<p><tt class="docutils literal"><span class="pre">B</span></tt> は正しい次元（まだ <tt class="docutils literal"><span class="pre">mfu.nb_dof()</span></tt> ）を持つ型のベクトルで、 <tt class="docutils literal"><span class="pre">mim</span></tt> は使用される積分法を定義する <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> 型の変数です、 <tt class="docutils literal"><span class="pre">mfd</span></tt> はそれぞれの自由度の <img class="math" src="../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> 上の有限要素法が記述されている型 <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> （おそらく <tt class="docutils literal"><span class="pre">mfu</span></tt> に等しい）の変数です、そして <tt class="docutils literal"><span class="pre">V</span></tt> は <tt class="docutils literal"><span class="pre">mfd</span></tt> 上の各自由度の <img class="math" src="../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> の値のベクトルです。</p>
+<p>関数 <tt class="docutils literal"><span class="pre">asm_source_term</span></tt> にはオプションの引数があります。これは <tt class="docutils literal"><span class="pre">getfem::mesh_region</span></tt> （または単に整数 <tt class="docutils literal"><span class="pre">i</span></tt> 、 <tt class="docutils literal"><span class="pre">mim.linked_mesh().region(i)</span></tt> が考慮されます）。したがって、Neumann条件 <img class="math" src="../_images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> と同等の関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_source_term</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mfu</span><span class="p">,</span> <span class="n">mfd</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">nbound</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">mim</span></tt> 、 <tt class="docutils literal"><span class="pre">mfu</span></tt> 、 <tt class="docutils literal"><span class="pre">mfd</span></tt> のリンクメッシュでは、 <tt class="docutils literal"><span class="pre">nbound</span></tt> は境界 <img class="math" src="../images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> のインデックスです。</p>
-<p>線形システムを変更する、または明示的にDirichlet条件の核に還元することにより、 <img class="math" src="../images/math/374511afe521f2b7acde053f039c570a9026ed20.png" alt="\Gamma_{D}" style="vertical-align: -3px"/> のDirichlet条件を考慮したり、線形システムを変更したり、Dirichlet条件のカーネルに明示的に縮小するには、2つの方法があります（実際には、Lagrange乗数を使用するか、ペナルティを使用することも可能です）。最初の方法として、以下の関数が定義されています:</p>
+<p><tt class="docutils literal"><span class="pre">mim</span></tt> 、 <tt class="docutils literal"><span class="pre">mfu</span></tt> 、 <tt class="docutils literal"><span class="pre">mfd</span></tt> のリンクメッシュでは、 <tt class="docutils literal"><span class="pre">nbound</span></tt> は境界 <img class="math" src="../_images/math/ee86b3db4c3592e435f2e00931782755e066ed06.png" alt="\Gamma_{N}" style="vertical-align: -3px"/> のインデックスです。</p>
+<p>線形システムを変更する、または陽にDirichlet条件の核に還元することにより、 <img class="math" src="../_images/math/374511afe521f2b7acde053f039c570a9026ed20.png" alt="\Gamma_{D}" style="vertical-align: -3px"/> のDirichlet条件を考慮したり、線形システムを変更したり、Dirichlet条件のカーネルに陽に縮小するには、2つの方法があります（実際には、Lagrange乗数を使用するか、ペナルティを使用することも可能です）。最初の方法として、以下の関数が定義されています。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">assembling_Dirichlet_condition</span><span class="p">(</span><span class="n">SM</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">mfu</span><span class="p">,</span> <span class="n">nbound</span><span class="p">,</span> <span class="n">R</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで、 <tt class="docutils literal"><span class="pre">nbound</span></tt> は境界のインデックスです <img class="math" src="../images/math/932d4407c87b1cb432a44ee87997e834b985003b.png" alt="\Gamma_D" style="vertical-align: -3px"/> Dirichlet条件が適用される場合、 <tt class="docutils literal"><span class="pre">R</span></tt> は <tt class="docutils literal"><span class="pre">mfu</span></tt> の各自由度の <img class="math" src="../images/math/a3eeefa367883375994fd2e1f575d088bce9d8b1.png" alt="R(x)" style="vertical-align: -4px"/> の値のベクトルです。この操作は、剛性行列 <tt class="docutils literal"><span class="pre">SM</span></tt> を変換するので、最後の操作でなければなりません。これはラグランジェ要素に対してのみ機能します。最後に、離散システムを得るには：</p>
+<p>ここで、 <tt class="docutils literal"><span class="pre">nbound</span></tt> は境界のインデックスです <img class="math" src="../_images/math/932d4407c87b1cb432a44ee87997e834b985003b.png" alt="\Gamma_D" style="vertical-align: -3px"/> Dirichlet条件が適用される場合、 <tt class="docutils literal"><span class="pre">R</span></tt> は <tt class="docutils literal"><span class="pre">mfu</span></tt> の各自由度の <img class="math" src="../_images/math/a3eeefa367883375994fd2e1f575d088bce9d8b1.png" alt="R(x)" style="vertical-align: -4px"/> の値のベクトルです。この操作は、剛性行列 <tt class="docutils literal"><span class="pre">SM</span></tt> を変換するので、最後の操作でなければなりません。これはLagrange要素に対してのみ機能します。最後に、離散システムの式は次の通りです。</p>
 <div class="math">
-<p><img src="../images/math/360abdea2682c599c281923a7ff20fd101f59d75.png" alt="[SM] U = B,"/></p>
-</div><p>ここで、 <img class="math" src="../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> は離散未知数です。</p>
-<p>2番目の方法では、もっと汎用的な:</p>
+<p><img src="../_images/math/360abdea2682c599c281923a7ff20fd101f59d75.png" alt="[SM] U = B,"/></p>
+</div><p>ここで、 <img class="math" src="../_images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> は離散未知数です。</p>
+<p>2番目の方法では、もっと汎用的な関数を使用します。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_dirichlet_constraints</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mf_u</span><span class="p">,</span> <span class="n">mf_mult</span><span class="p">,</span>
                                   <span class="n">mf_r</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">nbound</span><span class="p">).</span>
 </pre></div>
 </div>
-<p>解 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> を満たす汎用的な線形制約Dirichlet条件を参照してください。この関数は、 <tt class="docutils literal"><span class="pre">mf_mult</span></tt> で定義された乗数空間の全ての <tt class="docutils literal"><span class="pre">v</span></tt> に対して <img class="math" src="../images/math/b32255a4012b92082aa37d0d1ec3052f92075707.png" alt="\int_{\Gamma} u(x)v(x) = \int_{\Gamma}r(x)v(x)" style="vertical-align: -6px"/> の型のDirichlet条件の構築を行います。<tt class="docutils literal"><span class="pre">mf_u</span></tt> があまりにも &#8220;複雑&#8221; な場合を除いて、有限要素法の <tt class="docutils literal"><span class="pre">mf_mult</span></tt> は <tt class="docutils literal"><span class="pre">mf_u</span></tt> と同じように選ばれることがよくあります。</p>
-<p>この関数はこれらの制約を新しい線形システム <img class="math" src="../images/math/5aaaff03bd787f968734729e681e82765a8b40c6.png" alt="H u=R" style="vertical-align: 0px"/> に組み立てるだけです。 また、 &#8220;単純な&#8221; 制約行列を得るためにいくつかの追加の単純化を行います。</p>
-<p>それでは、</p>
+<p>解 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> を満たす汎用的な線形制約Dirichlet条件を参照してください。この関数は、 <tt class="docutils literal"><span class="pre">mf_mult</span></tt> で定義された乗数空間の全ての <tt class="docutils literal"><span class="pre">v</span></tt> に対して <img class="math" src="../_images/math/b32255a4012b92082aa37d0d1ec3052f92075707.png" alt="\int_{\Gamma} u(x)v(x) = \int_{\Gamma}r(x)v(x)" style="vertical-align: -6px"/> の型のDirichlet条件の構築を行います。<tt class="docutils literal"><span class="pre">mf_u</span></tt> があまりにも &#8220;複雑&#8221; な場合を除いて、有限要素法の <tt class="docutils literal"><span class="pre">mf_mult</span></tt> は <tt class="docutils literal"><span class="pre">mf_u</span></tt> と同じように選ばれることが多いです。</p>
+<p>この関数はこれらの制約を新しい線形システム <img class="math" src="../_images/math/5aaaff03bd787f968734729e681e82765a8b40c6.png" alt="H u=R" style="vertical-align: 0px"/> に構築するだけです。 また、 &#8220;単純な&#8221; 制約行列を得るためにいくつかの追加の単純化を行います。</p>
+<p>次の関数は</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ncols</span> <span class="o">=</span> <span class="n">getfem</span><span class="o">::</span><span class="n">Dirichlet_nullspace</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">Ud</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Dirichlet条件を満たすベクトル <img class="math" src="../images/math/c637453900fc179acd998cd01c8d43525e4b316d.png" alt="U_d" style="vertical-align: -3px"/> と、 <img class="math" src="../images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> のカーネルの直交基底 <img class="math" src="../images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> を返す。したがって、解く必要のある離散システムは、</p>
+<p>Dirichlet条件を満たすベクトル <img class="math" src="../_images/math/c637453900fc179acd998cd01c8d43525e4b316d.png" alt="U_d" style="vertical-align: -3px"/> と、 <img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> のカーネルの直交基底 <img class="math" src="../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> を返します。したがって、解く必要のある離散システムは、</p>
 <div class="math">
-<p><img src="../images/math/e9bc01b99157c20d9c7b5060d96f3fd432ba950b.png" alt="(N'[SM]N) U_{int}=N'(B-[SM]U_d),"/></p>
-</div><p>解は <img class="math" src="../images/math/a5ac81353214d917634cf0265b38f6b4584328d7.png" alt="U=N U_{int}+U_d" style="vertical-align: -3px"/> です。出力行列 <img class="math" src="../images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> は <img class="math" src="../images/math/b467a07984c704527c74d5213ef34ab53ff1ad7d.png" alt="nbdof \times nbdof" style="vertical-align: -4px"/> （疎行列）行列でなければなりませんが、 <tt class="docutils literal"><span class="pre">ncols</span></tt> 列にリサイズする必要があります。出力ベクトル <img class="math" src="../images/math/c637453900fc179acd998cd01c8d43525e4b316d.png" alt="U_d" style="vertical-align: -3px"/> は、 <img class="math" src="../images/math/b9822d81135a48a35b9b7d4ee6d28383089f8b04.png" alt="nbdof" style="vertical-align: -4px"/> ベクトルでなければなりません。このアプローチの大きな利点は汎用性であり、有限要素法の <tt class="docutils literal"><span class="pre">mf_u</span></tt> がLagrange型であることは規定されていません。 <tt class="docutils literal"><span class="pre">mf_u</span></tt> と <tt class="docutils literal"><span class="pre">mf_d</span></tt> が異なる場合、有限要素 <tt class="docutils literal"><span class="pre">mf_u</span></tt> 上のデータの投影（ <img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> ノルムに関して）が暗黙的にあります。</p>
-<p>より汎用的なスカラー楕円方程式 <img class="math" src="../images/math/344f0e54dc8c2acfc94632898ca41de377939f95.png" alt="\mbox{div}(A(x)\nabla u)" style="vertical-align: -4px"/> を扱いたい場合、次の式を使用する必要があります。ここで、 <img class="math" src="../images/math/133abca2101afa88a51f60a6747c47e699a858e5.png" alt="A(x)" style="vertical-align: -4px"/> は正方行列です。</p>
+<p><img src="../_images/math/e9bc01b99157c20d9c7b5060d96f3fd432ba950b.png" alt="(N'[SM]N) U_{int}=N'(B-[SM]U_d),"/></p>
+</div><p>であり、解は <img class="math" src="../_images/math/a5ac81353214d917634cf0265b38f6b4584328d7.png" alt="U=N U_{int}+U_d" style="vertical-align: -3px"/> です。出力行列 <img class="math" src="../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> は <img class="math" src="../_images/math/b467a07984c704527c74d5213ef34ab53ff1ad7d.png" alt="nbdof \times nbdof" style="vertical-align: -4px"/> （疎）行列でなければなりませんが、 <tt class="docutils literal"><span class="pre">ncols</span></tt> 列にリサイズする必要があります。出力ベクトル <img class="math" src="../_images/math/c637453900fc179acd998cd01c8d43525e4b316d.png" alt="U_d" style="vertical-align: -3px"/> は、 <img class="math" src="../_images/math/b9822d81135a48a35b9b7d4ee6d28383089f8b04.png" alt="nbdof" style="vertical-align: -4px"/> ベクトルでなければなりません。このアプローチの大きな利点は汎用性であり、有限要素法の <tt class="docutils literal"><span class="pre">mf_u</span></tt> がLagrange型であることは規定されていません。 <tt class="docutils literal"><span class="pre">mf_u</span></tt> と <tt class="docutils literal"><span class="pre">mf_d</span></tt> が異なる場合、有限要素 <tt class="docutils literal"><span class="pre">mf_u</span></tt> 上のデータの投影（ <img class="math" src="../_images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> ノルムに関して）が暗黙的にあります。</p>
+<p>より汎用的なスカラー楕円方程式 <img class="math" src="../_images/math/344f0e54dc8c2acfc94632898ca41de377939f95.png" alt="\mbox{div}(A(x)\nabla u)" style="vertical-align: -4px"/> を扱いたい場合、次の式を使用する必要があります。ここで、 <img class="math" src="../_images/math/133abca2101afa88a51f60a6747c47e699a858e5.png" alt="A(x)" style="vertical-align: -4px"/> は正方行列です。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_stiffness_matrix_for_scalar_elliptic</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mfu</span><span class="p">,</span>
                                                  <span class="n">mfdata</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>行列データ <tt class="docutils literal"><span class="pre">A</span></tt> は、 <tt class="docutils literal"><span class="pre">mfdata</span></tt> 上で定義し <img class="math" src="../images/math/5033ce098377400f3ddb583c889abcbdafa6ba64.png" alt="n \times n \times nbdof" style="vertical-align: -4px"/> テンソル（Fortran順）を表すベクトルである必要があります。 <img class="math" src="../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> は <tt class="docutils literal"><span class="pre">mfu</span></tt> のメッシュの次元であり、  <img class="math" src="../images/math/b9822d81135a48a35b9b7d4ee6d28383089f8b04.png" alt="nbdof" style="vertical-align: -4px"/> は <tt class="docutils literal"><span class="pre">mfdata</span></tt> の自由度数です。</p>
+<p>行列データ <tt class="docutils literal"><span class="pre">A</span></tt> は、 <tt class="docutils literal"><span class="pre">mfdata</span></tt> 上で定義し <img class="math" src="../_images/math/5033ce098377400f3ddb583c889abcbdafa6ba64.png" alt="n \times n \times nbdof" style="vertical-align: -4px"/> テンソル（Fortran順）を表すベクトルである必要があります。 <img class="math" src="../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> は <tt class="docutils literal"><span class="pre">mfu</span></tt> のメッシュの次元であり、  <img class="math" src="../_images/math/b9822d81135a48a35b9b7d4ee6d28383089f8b04.png" alt="nbdof" style="vertical-align: -4px"/> は <tt class="docutils literal"><span class="pre">mfdata</span></tt> の自由度数です。</p>
 </div>
 <div class="section" id="linear-elasticity-problem">
 <h2>線形弾性問題<a class="headerlink" href="#linear-elasticity-problem" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>以下の関数は、線形弾性のための剛性行列を組み立てます:</p>
+<p>以下の関数は、線形弾性のための剛性行列を構築ます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_stiffness_matrix_for_linear_elasticity</span><span class="p">(</span><span class="n">SM</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mfu</span><span class="p">,</span>
                                                    <span class="n">mfd</span><span class="p">,</span> <span class="n">LAMBDA</span><span class="p">,</span> <span class="n">MU</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">SM</span></tt> は適切な次元を持つ任意の型の行列です（ここでは <tt class="docutils literal"><span class="pre">mfu.nb_dof()</span></tt> ）、 <tt class="docutils literal"><span class="pre">mim</span></tt> は使用される積分方法を定義する <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> 型の変数です。<tt class="docutils literal"><span class="pre">mfu</span></tt> は解の有限要素法を定義する必要がある <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 型の変数です。 <tt class="docutils literal"><span class="pre">mfd</span></tt> はLamé係数が定義されている有限要素法を記述する <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 型の変数です（おそらくは <tt class="docutils literal"><span class="pre">mfu</span></tt> に等しい）。 <tt class="docutils literal"><span class="pre">LAMBDA</span></tt> と <tt class="docutils literal"><span class="pre">MU</span></tt> はそれぞれ <tt class="docutils literal"><span class="pre">mfd</span></tt> の自由度に関するLamé係数の値のベクトルです。</p>
+<p><tt class="docutils literal"><span class="pre">SM</span></tt> は適切な次元を持つ任意の型の行列です（ここでは <tt class="docutils literal"><span class="pre">mfu.nb_dof()</span></tt> ）、 <tt class="docutils literal"><span class="pre">mim</span></tt> は使用される積分法を定義する <tt class="docutils literal"><span class="pre">getfem::mesh_im</span></tt> 型の変数です。<tt class="docutils literal"><span class="pre">mfu</span></tt> は解の有限要素法を定義する必要がある <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 型の変数です。 <tt class="docutils literal"><span class="pre">mfd</span></tt> はLamé係数が定義されている有限要素法を記述する <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 型の変数です（おそらくは <tt class="docutils literal"><span class="pre">mfu</span></tt> に等しい）。 <tt class="docutils literal"><span class="pre">LAMBDA</span></tt> と <tt class="docutils literal"><span class="pre">MU</span></tt> はそれぞれ <tt class="docutils literal"><span class="pre">mfd</span></tt> の自由度に関するLamé係数の値のベクトルです。</p>
 <div class="admonition caution">
 <p class="first admonition-title">ご用心</p>
 <p class="last">線形弾性問題はベクトル問題であるため、 <tt class="docutils literal"><span class="pre">mfu</span></tt> （ <tt class="docutils literal"><span class="pre">mf.set_qdim(Q)</span></tt> を参照）の対象次元はメッシュの次元と同じでなければなりません。</p>
@@ -146,8 +146,8 @@ u(x) &amp; = U(x)\ \mbox{ on }\Gamma_D, \\
 <p>ソース項、NeumannおよびDirichlet条件を構築するために、前のセクションと同じ関数を使用します。</p>
 </div>
 <div class="section" id="stokes-problem-with-mixed-finite-element-method">
-<h2>混合有限要素法によるストークス問題<a class="headerlink" href="#stokes-problem-with-mixed-finite-element-method" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>混合項の組み立て <img class="math" src="../images/math/c6c5b7802cd0348ac145c55f590e3c92e9101318.png" alt="B = - \int p\nabla.v" style="vertical-align: -6px"/> は:</p>
+<h2>混合有限要素法によるStokes問題<a class="headerlink" href="#stokes-problem-with-mixed-finite-element-method" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><img class="math" src="../_images/math/c6c5b7802cd0348ac145c55f590e3c92e9101318.png" alt="B = - \int p\nabla.v" style="vertical-align: -6px"/> 混合項の構築は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_stokes_B</span><span class="p">(</span><span class="n">MATRIX</span> <span class="o">&amp;</span><span class="n">B</span><span class="p">,</span> <span class="k">const</span> <span class="n">mesh_im</span> <span class="o">&amp;</span><span class="n">mim</span><span class="p">,</span>
                      <span class="k">const</span> <span class="n">mesh_fem</span> <span class="o">&amp;</span><span class="n">mf_u</span><span class="p">,</span> <span class="k">const</span> <span class="n">mesh_fem</span> <span class="o">&amp;</span><span class="n">mf_p</span><span class="p">);</span>
 </pre></div>
@@ -155,14 +155,13 @@ u(x) &amp; = U(x)\ \mbox{ on }\Gamma_D, \\
 </div>
 <div class="section" id="assembling-a-mass-matrix">
 <h2>質量行列の構築<a class="headerlink" href="#assembling-a-mass-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>2つの有限要素間の質量行列の構築:</p>
+<p>2つの有限要素間の質量行列の構築は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">asm_mass_matrix</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">mf1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>同じ関数の境界上の質量行列を得ることも可能です：</p>
+<p>同じ関数の境界上の質量行列を得ることも可能です。</p>
 <blockquote>
-<div><p>getfem::asm_mass_matrix(M, mim, mf1, mf2, nbound);</p>
-</div></blockquote>
+<div>getfem::asm_mass_matrix(M, mim, mf1, mf2, nbound);</div></blockquote>
 <p><tt class="docutils literal"><span class="pre">nbound</span></tt> は <tt class="docutils literal"><span class="pre">mim.linked_mesh()</span></tt> の領域インデックス、または <tt class="docutils literal"><span class="pre">mesh_region</span></tt> オブジェクトです。</p>
 </div>
 </div>
@@ -174,14 +173,14 @@ u(x) &amp; = U(x)\ \mbox{ on }\Gamma_D, \\
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">いくつかの標準構築手順（低レベル汎用構築）</a><ul>
+<li><a class="reference internal" href="#">いくつかの標準構築手順（低水準汎用構築）</a><ul>
 <li><a class="reference internal" href="#laplacian-poisson-problem">Laplacian（Poisson）問題</a></li>
 <li><a class="reference internal" href="#linear-elasticity-problem">線形弾性問題</a></li>
-<li><a class="reference internal" href="#stokes-problem-with-mixed-finite-element-method">混合有限要素法によるストークス問題</a></li>
+<li><a class="reference internal" href="#stokes-problem-with-mixed-finite-element-method">混合有限要素法によるStokes問題</a></li>
 <li><a class="reference internal" href="#assembling-a-mass-matrix">質量行列の構築</a></li>
 </ul>
 </li>
@@ -189,7 +188,7 @@ u(x) &amp; = U(x)\ \mbox{ on }\Gamma_D, \\
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="gasm_low.html"
-                        title="前の章へ">任意の項を計算する - 低レベルの汎用的な構築手順</a></p>
+                        title="前の章へ">任意の項を計算する - 低水準の汎用的な構築手順</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="interMM.html"
                         title="次の章へ">任意の量の補間</a></p>            <h3>Download</h3>
@@ -240,13 +239,13 @@ u(x) &amp; = U(x)\ \mbox{ on }\Gamma_D, \\
           <a href="interMM.html" title="任意の量の補間"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="gasm_low.html" title="任意の項を計算する - 低レベルの汎用的な構築手順"
+          <a href="gasm_low.html" title="任意の項を計算する - 低水準の汎用的な構築手順"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

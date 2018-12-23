@@ -8,8 +8,8 @@
     
     <title>貢献する方法 / SavannahのGitリポジトリ &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="$B%W%m%8%’%/%H$N@bL@(B" href="index.html" />
     <link rel="next" title="GetFEM++ のFEM記述" href="femdesc.html" />
     <link rel="prev" title="導入" href="intro.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="intro.html" title="導入"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -67,14 +67,14 @@
 <p>貢献者は、もちろん、その変更がライブラリの適切な機能に影響を与えないよう注意し、これらの変更が下位互換性の原則に従うように注意する必要があります。</p>
 <p><em>GetFEM++</em> 開発についてのタスクと議論のリストについては、 <a class="reference external" href="https://savannah.nongnu.org/task/?group=getfem">here</a> を参照してください。</p>
 <p><strong>重要</strong> ： 寄稿者は、自分の寄与が <em>GetFEM++</em> のLGPLライセンスに基づいて配布されることを暗黙のうちに承諾しているとします。</p>
-<p><em>GetFEM++</em> のメインリポジトリはフリーソフトウェア財団のソフトウェア鍛造所である Savannah にあります（ <a class="reference external" href="https://savannah.gnu.org">Savannah</a> を参照）。 Savannah のプロジェクトのページは <a class="reference external" href="https://savannah.nongnu.org/projects/getfem">Getfem on Savannah</a> です。 <a class="reference external" href="http://git.savannah.nongnu.org/gitweb/?p=getfem.git;a=tree">Getfem sources on Savannah</a> も参照してください。</p>
+<p><em>GetFEM++</em> のメインリポジトリはフリーソフトウェア財団のソフトウェアforgeである Savannah にあります（ <a class="reference external" href="https://savannah.gnu.org">Savannah</a> を参照）。 Savannah のプロジェクトのページは <a class="reference external" href="https://savannah.nongnu.org/projects/getfem">Getfem on Savannah</a> です。 <a class="reference external" href="http://git.savannah.nongnu.org/gitweb/?p=getfem.git;a=tree">Getfem sources on Savannah</a> も参照してください。</p>
 <div class="section" id="how-to-get-the-sources">
 <h2>ソースを入手する方法<a class="headerlink" href="#how-to-get-the-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ソースだけが必要で、貢献したくないのであれば、次のコマンドを使うことができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//git.savannah.nongnu.org/git/getfem.git</span>
 </pre></div>
 </div>
-<p>いくつかの貢献をするつもりなら、最初のステップは、 <em>GetFEM++</em> に参加することです。プロジェクト（このためには、サバンナアカウントを作成する必要があります）。また、sshキー（ <a class="reference external" href="http://savannah.gnu.org/maintenance/UsingGit/">git on Savannah</a> を参照）を登録してから、次のコマンドを使用する必要があります。</p>
+<p>いくつかの貢献をするつもりなら、最初のステップは、 <em>GetFEM++</em> プロジェクト（このためには、サバンナアカウントを作成する必要があります）に参加することです。また、sshキー（ <a class="reference external" href="http://savannah.gnu.org/maintenance/UsingGit/">git on Savannah</a> を参照）を登録してから、次のコマンドを使用する必要があります。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">ssh</span><span class="o">:</span><span class="c1">//savannah-login@git.sv.gnu.org:/srv/git/getfem.git</span>
 </pre></div>
 </div>
@@ -87,13 +87,9 @@
 </pre></div>
 </div>
 <p>最初のコマンドはブランチを作成し、2番目のコマンドはブランチを作成します。その後、いくつかの変更を行う準備はほぼ完了です。変更のラベルを付けるために、連絡先の名前と電子メールを以下のコマンドで指定することができます:</p>
-<div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">&quot;Your Name Comes Here&quot;</span>
-</pre></div>
+<div class="highlight-c++"><pre>git config --global user.name &quot;Your Name Comes Here&quot;
+git config --global user.email you@yourdomain.example.com</pre>
 </div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/tkoyama/getfem-ja/doc/sphinx/source/project/contribute.rst</tt>, line 59)</p>
-Literal block ends without a blank line; unexpected unindent.</div>
-<p>git config &#8211;global user.email <a class="reference external" href="mailto:you&#37;&#52;&#48;yourdomain&#46;example&#46;com">you<span>&#64;</span>yourdomain<span>&#46;</span>example<span>&#46;</span>com</a></p>
 </div>
 <div class="section" id="specific-branch-for-doc-improvements-and-typo-fixes">
 <h2>ドキュメントの改善と誤植のためのブランチ<a class="headerlink" href="#specific-branch-for-doc-improvements-and-typo-fixes" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -104,12 +100,12 @@ Literal block ends without a blank line; unexpected unindent.</div>
 </div>
 <div class="section" id="locally-commit-your-changes">
 <h2>変更をローカルにコミットする。<a class="headerlink" href="#locally-commit-your-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><cite>src/toto.cc</cite> と言うファイルをいくつか変更したり、新しいファイルを追加したら、 ローカルコミットは次のコマンドで行われます。</p>
+<p><cite>src/toto.cc</cite> と言うファイルをいくつか変更したり、新しいファイルを追加したら、 ローカルコミットは次のコマンドで行います。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="n">src</span><span class="o">/</span><span class="n">toto</span><span class="p">.</span><span class="n">cc</span>
 <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;Your extensive commit message here&quot;</span>
 </pre></div>
 </div>
-<p>この段階でコミットはあなたのローカルリポジトリで行われますが、Savannahリポジトリでは行われません。</p>
+<p>この段階でコミットはあなたのローカルリポジトリで行われていますが、Savannahリポジトリでは行われません。</p>
 </div>
 <div class="section" id="push-you-changes-in-the-savannah-repository">
 <h2>Savannahリポジトリの変更をプッシュします<a class="headerlink" href="#push-you-changes-in-the-savannah-repository" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -121,7 +117,7 @@ Literal block ends without a blank line; unexpected unindent.</div>
 </div>
 <div class="section" id="ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf">
 <h2><em>GetFEM++</em> のマスターブランチに変更をマージする場合は管理者に問い合わせてください。<a class="headerlink" href="#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>十分なテストで変更を検証したら、管理者に <em>GetFEM++</em> 変更をマージします。そのためには、それらのうちの1人に直接連絡するか、 <em>getfem-commits&#64;nongnu.org</em> に &#8220;branch devel-me-rewrite-fem-kernelをマージしてください&#8221; というメッセージを電子メールで送ってください。その際には変更に関する短い説明文を添付してください。重要：デフォルトでは、ブランチを保存する必要がある場合を除き、ブランチはマージ後に削除されます。</p>
+<p>十分なテストで変更を検証したら、管理者に <em>GetFEM++</em> 変更をマージするように問い合わせます。そのためには、それらのうちの1人に直接連絡するか、 <em>getfem-commits&#64;nongnu.org</em> に &#8220;branch devel-me-rewrite-fem-kernelをマージしてください&#8221; というメッセージを電子メールで送ってください。その際には変更に関する短い説明文を添付してください。重要：デフォルトでは、ブランチを保存する必要がある場合を除き、ブランチはマージ後に削除されます。</p>
 </div>
 <div class="section" id="merge-modifications-done-by-other-contributors">
 <h2>他の貢献者が行った変更をマージする。<a class="headerlink" href="#merge-modifications-done-by-other-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -142,6 +138,35 @@ Literal block ends without a blank line; unexpected unindent.</div>
 </pre></div>
 </div>
 </div>
+<div class="section" id="contributing-to-document-translation">
+<h2>ドキュメント翻訳への貢献<a class="headerlink" href="#contributing-to-document-translation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>新しい寄稿者がドキュメントを翻訳するための推奨方法は、 <a class="reference external" href="https://www.transifex.com/getfem-doc">Getfem translation team on Transifex</a> に参加することです。貢献するためには、 <a class="reference external" href="https://www.transifex.com">transifex</a> でアカウントを作成し、[言語と入力フォームを要求] をクリックしてください。翻訳後、transifex を使用して、サイトから翻訳された po ファイルをプルします。Transifex サイトで得ることができるAPIトークンが必要です。</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">cd</span> <span class="n">doc</span><span class="o">/</span><span class="n">sphinx</span>
+<span class="n">tx</span> <span class="n">pull</span> <span class="o">-</span><span class="n">l</span> <span class="o">&lt;</span><span class="n">lang</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>ネイティブ言語のコード&lt;lang&gt;を設定します ( <a class="reference external" href="http://www.sphinx-doc.org/en/stable/usage/configuration.html#confval-language">Currently supported languages by Sphinx are</a> を参照)。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Transifex に tx push <strong>しないでください</strong>。それにはいくつかの問題があります。チームページでファイルを1つずつアップロードできます。</p>
+</div>
+<p>翻訳された po ファイルをpullした後、 <cite>doc/sphinx/Makefile.am</cite> のLANGUAGEに&lt;lang&gt;を設定します。</p>
+<div class="highlight-c++"><pre>LANGUAGE      = &lt;lang&gt;
+SPHINXOPTS    = -D language=$(LANGUAGE)</pre>
+</div>
+<p>次に、html ローカリゼーションドキュメントを作成するために、以下のコマンドを実行します。</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">cd</span> <span class="n">doc</span><span class="o">/</span><span class="n">sphinx</span>
+<span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>あなたの言語で pdf ファイルを作成したい場合は、次のコマンドを実行します。</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">make</span> <span class="n">latex</span>
+<span class="n">cd</span> <span class="n">build</span><span class="o">/</span><span class="n">latex</span>
+<span class="n">make</span> <span class="n">all</span><span class="o">-</span><span class="n">pdf</span><span class="o">-&lt;</span><span class="n">lang</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>詳細は <a class="reference external" href="http://www.sphinx-doc.org/en/stable/intl.html">Sphinx Internationalization</a> を参照してください。</p>
+</div>
 </div>
 
 
@@ -151,7 +176,7 @@ Literal block ends without a blank line; unexpected unindent.</div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -164,6 +189,7 @@ Literal block ends without a blank line; unexpected unindent.</div>
 <li><a class="reference internal" href="#ask-for-an-admin-to-merge-your-modifications-to-the-master-branch-of-gf"><em>GetFEM++</em> のマスターブランチに変更をマージする場合は管理者に問い合わせてください。</a></li>
 <li><a class="reference internal" href="#merge-modifications-done-by-other-contributors">他の貢献者が行った変更をマージする。</a></li>
 <li><a class="reference internal" href="#some-useful-git-commands">有用なgitコマンド</a></li>
+<li><a class="reference internal" href="#contributing-to-document-translation">ドキュメント翻訳への貢献</a></li>
 </ul>
 </li>
 </ul>
@@ -223,7 +249,7 @@ Literal block ends without a blank line; unexpected unindent.</div>
         <li class="right" >
           <a href="intro.html" title="導入"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

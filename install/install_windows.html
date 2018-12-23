@@ -8,8 +8,8 @@
     
     <title>How to install GetFEM++ from sources on Windows &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,17 +20,17 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="next" title="What’s New in GetFEM++" href="../whatsnew/index.html" />
     <link rel="prev" title="How to install from sources on MacOS X" href="install_mac.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -47,7 +47,7 @@
         <li class="right" >
           <a href="install_mac.html" title="How to install from sources on MacOS X"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  
@@ -164,12 +164,12 @@ without the interfaces.  Download the last released version of <em>GetFEM++</em>
 git current version, however, it necessitates the additional installation
 of m4, autoconf, automake and libtool). Then, untar the package, enter into
 the source directory of <em>GetFEM++</em> with Msys and compile with:</p>
-<div class="highlight-c++"><pre>$ ./configure --with-blas="-lblas -lgfortran"
+<div class="highlight-c++"><pre>$ ./configure --with-blas=&quot;-lblas -lgfortran&quot;
 $ cd superlu
 $ make
 $ cp .libs/libsuperlu.a /usr/local/lib
 $ cd ..
-$ ./configure --with-blas="-lblas -lgfortran" --disable-superlu
+$ ./configure --with-blas=&quot;-lblas -lgfortran&quot; --disable-superlu
 $ make
 $ make check</pre>
 </div>
@@ -182,7 +182,7 @@ command <tt class="docutils literal"><span class="pre">ar</span></tt>.</p>
 </div></blockquote>
 <div class="section" id="build-with-the-python-interface">
 <h2>Build with the Python interface<a class="headerlink" href="#build-with-the-python-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Additionnaly to build the Python interface, you will have first to install a 64bits version of Python 2 or 3 on your system together with Numpy and Scipy packages. The simpler way is to install Anaconda2 or 3 (it already contains Numpy and Scipy packages which are necessary). For instance with Anaconda2</p>
+<p>Additionaly to build the Python interface, you will have first to install a 64bits version of Python 2 or 3 on your system together with Numpy and Scipy packages. The simpler way is to install Anaconda2 or 3 (it already contains Numpy and Scipy packages which are necessary). For instance with Anaconda2</p>
 <blockquote>
 <div><ul>
 <li><p class="first">Install Anaconda2 and add to windows path <tt class="docutils literal"><span class="pre">C:\install_dir\Anaconda2</span></tt>
@@ -193,7 +193,7 @@ a system installation)</p>
 <li><p class="first">close an re-open a windows command shell and msys</p>
 </li>
 <li><p class="first">run again:</p>
-<div class="highlight-c++"><pre>$ ./configure --with-blas="-lblas -lgfortran" --disable-superlu</pre>
+<div class="highlight-c++"><pre>$ ./configure --with-blas=&quot;-lblas -lgfortran&quot; --disable-superlu</pre>
 </div>
 <p>Python should be detected and the Python interface prepared to be built.</p>
 </li>
@@ -228,14 +228,14 @@ However, for the Matlab interface, Numpy and Scipy are not required.</p>
 <li><p class="first">In the source top directory of <em>GetFEM++</em>, add the file <tt class="docutils literal"><span class="pre">gnumex.opts</span></tt>
 with the following lines (to be adapted):</p>
 <div class="highlight-c++"><pre>#!/bin/sh
-MATLAB_ROOT="c:\Program Files\MATLAB\R20???"
+MATLAB_ROOT=&quot;c:\Program Files\MATLAB\R20???&quot;
 MATLAB_RELEASE=14
-MATLAB_INC_DIR="$MATLAB_ROOT\extern\include"
+MATLAB_INC_DIR=&quot;$MATLAB_ROOT\extern\include&quot;
 MEXOPTS=c:\path_to_mexopts\mexopts.bat</pre>
 </div>
 </li>
 <li><p class="first">Re-run the configure script and compile with:</p>
-<div class="highlight-c++"><pre>$ ./configure --with-blas="-lblas -lgfortran" --disable-superlu --enable-matlab
+<div class="highlight-c++"><pre>$ ./configure --with-blas=&quot;-lblas -lgfortran&quot; --disable-superlu --enable-matlab
 $ make</pre>
 </div>
 <p>The Matlab interface should be compiled without error. If there is some
@@ -245,7 +245,7 @@ command building the interface.</p>
 </li>
 <li><p class="first">Once the interface is properly compiled, you can lauch Matlab, add the
 path of the compiled interface (on the matlab command line) with:</p>
-<div class="highlight-c++"><pre>add_path('c:\msys\home\login\getfem-5.?\interface/tests/matlab')</pre>
+<div class="highlight-c++"><pre>add_path(&#x27;c:\msys\home\login\getfem-5.?\interface/tests/matlab&#x27;)</pre>
 </div>
 <p>and try the demo matlab programs of the interface in
 <tt class="docutils literal"><span class="pre">interface\tests\matlab</span></tt>. In order not to have to call the <tt class="docutils literal"><span class="pre">addpath</span></tt>
@@ -267,7 +267,7 @@ Matlab installation directory.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -333,7 +333,7 @@ Matlab installation directory.</p>
         <li class="right" >
           <a href="install_mac.html" title="How to install from sources on MacOS X"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  

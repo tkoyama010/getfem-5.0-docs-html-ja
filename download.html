@@ -8,8 +8,8 @@
     
     <title>Download &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,15 +20,15 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="static/jquery.js"></script>
-    <script type="text/javascript" src="static/underscore.js"></script>
-    <script type="text/javascript" src="static/doctools.js"></script>
-    <script type="text/javascript" src="static/translations.js"></script>
-    <link rel="shortcut icon" href="static/favicon.ico"/>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="about.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
     <link rel="top" title="GetFEM++" href="index.html" />
-    <link rel="shortcut icon" type="image/png" href="static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="_static/icon.png" />
  
 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="index.html">GetFEM++</a> &raquo;</li>
  
@@ -145,21 +145,32 @@ by executing <b>aptitude update</b> and <b>aptitude install python-getfem++</b>.
 
 <h3> On Windows (last release)</h3>
 
+<p>Installer of the GetFEM 5.3 interface for 64bits Windows and Python 2.7 of Anaconda 2 (furnished by J.-F. Barthelemy):
+  <a href="http://download-mirror.savannah.gnu.org/releases/getfem/misc/getfem5.3win-amd64-py2.7.exe">getfem5.3win-amd64-py2.7.exe</a>.</p>
+<p>Note that you have to install first Anaconda 2.</p>
+
+<p>Installer of the GetFEM 5.3 interface for 64bits Windows and Python 3.6 of Anaconda 3 (furnished by J.-F. Barthelemy):
+  <a href="http://download-mirror.savannah.gnu.org/releases/getfem/misc/getfem5.3win-amd64-py3.6.exe">getfem5.3win-amd64-py3.6.exe</a>.</p>
+<p>Note that you have to install first Anaconda 3.</p>
+
+<p>Installer of the GetFEM 5.3 interface for 64bits Windows and Python 3.7 of Anaconda 3 (furnished by J.-F. Barthelemy):
+  <a href="http://download-mirror.savannah.gnu.org/releases/getfem/misc/getfem5.3win-amd64-py3.7.exe">getfem5.3win-amd64-py3.7.exe</a>.</p>
+<p>Note that you have to install first Anaconda 3.</p>
+
+<p>Once installed, you can test under for instance command shell the Python tests programs (see <a href="http://git.savannah.nongnu.org/cgit/getfem.git/tree/interface/tests/python">interface/tests/python</a> directory).</p>
+
+
+
 <p>Installer of the GetFEM 5.2 interface for 64bits Windows and Matlab 2016:
   <a href="http://download-mirror.savannah.gnu.org/releases/getfem/misc/getfem5.2-matlab2016-interface-setup.exe">getfem5.2-matlab2016-interface-setup.exe</a>.</p>
 
 <p>IMPORTANT : Unfortunately, it seems that recent Matlab versions on Windows do not take properly into account the MATLABPATH environment variable (Matlab is unable to run correctly with a defined MATLABPATH variable). So, the installer do not set it and you have to add the install path specified on the installer yourself using Matlab (Click on "home" and "add path" in Matlab).</p>
 
-<p>Once installed, you can test under Matlab the tests programs included.</p>
-
-
-<p>Installer of the GetFEM 5.2 interface for 64bits Windows and Python 2.7 of Anaconda 2-4.4.0 (furnished by J.-F. Barthelemy):
-  <a href="http://download-mirror.savannah.gnu.org/releases/getfem/misc/getfem5.2win-amd64-py2.7.exe">getfem5.2win-amd64-py2.7.exe</a>.</p>
-<p>Note that you have to install first Anaconda 2. The interface is only built for Anaconda 2, if you want to use Anaconda 3 (Python 3.x) you have to build the interface following <a href="install/install_windows.html">this</a>.</p>
+<p>Once installed, you can test under Matlab the tests programs (see <a href="http://git.savannah.nongnu.org/cgit/getfem.git/tree/interface/tests/matlab">interface/tests/matlab</a> directory).</p>
 
 
 
-<p>Once installed, you can test under for instance command shell the Python tests programs included.</p>
+
 
 
 <h3> On Windows (old releases)</h3>
@@ -198,7 +209,7 @@ by executing <b>aptitude update</b> and <b>aptitude install python-getfem++</b>.
 <table class="docutils">
   <tr><th>Document</th><th>Link</th></tr>
   <tr><td>GetFEM++ user documentation in pdf format</td>
-    <td><a href="pdf/getfem_userdoc-ja-5.3.pdf">getfem_userdoc.pdf</a></td>
+    <td><a href="http://download-mirror.savannah.gnu.org/releases/getfem/doc/getfem_userdoc.pdf">getfem_userdoc.pdf</a></td>
   </tr>
   <tr><td>Gmm++ user documentation in pdf format</td>
     <td><a href="http://download-mirror.savannah.gnu.org/releases/getfem/doc/gmm_userdoc.pdf">gmm_userdoc.pdf</a></td>
@@ -234,7 +245,7 @@ email to <a href="mailto:getfem-users@nongnu.org">getfem-users@nongnu.org</a>.</
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="index.html">
-    <img class="logo" src="static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>            <h3>Download</h3>
             <p><a href="#">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
@@ -279,7 +290,7 @@ email to <a href="mailto:getfem-users@nongnu.org">getfem-users@nongnu.org</a>.</
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="index.html">GetFEM++</a> &raquo;</li>
  

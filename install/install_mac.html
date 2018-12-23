@@ -8,8 +8,8 @@
     
     <title>How to install from sources on MacOS X &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,17 +20,17 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="next" title="How to install GetFEM++ from sources on Windows" href="install_windows.html" />
     <link rel="prev" title="How to install from sources on Linux" href="install_linux.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -47,7 +47,7 @@
         <li class="right" >
           <a href="install_linux.html" title="How to install from sources on Linux"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  
@@ -71,20 +71,21 @@
 </ul>
 </div></blockquote>
 <p>(Xquartz is not strictly necessary but more confortable).</p>
-<p>Then execute on a console (if not already done),</p>
-<blockquote>
-<div>$ brew tap homebrew/science</div></blockquote>
 <p>Then, if you download the current git version</p>
 <blockquote>
 <div><p>$ brew install m4</p>
 <p>$ brew install automake</p>
 <p>$ brew install libtool</p>
 </div></blockquote>
-<p>For the sequential mumps,</p>
-<blockquote>
-<div><p>$ brew options mumps</p>
-<p>$ brew install mumps &#8211;without-mpi</p>
-</div></blockquote>
+<dl class="docutils">
+<dt>For the sequential mumps,</dt>
+<dd><p class="first">$ brew tap dpo/openblas</p>
+<p>$ brew tap-pin dpo/openblas</p>
+<p>$ brew options ipopt</p>
+<p>$ brew options mumps</p>
+<p class="last">$ brew install mumps &#8211;without-mpi</p>
+</dd>
+</dl>
 <p>For the parallel one, just forget &#8211;without-mpi and install also mpi and metis.</p>
 <p>For Qhull</p>
 <blockquote>
@@ -171,10 +172,10 @@ together with at least <tt class="docutils literal"><span class="pre">numpy</spa
 <li><p class="first">If you want to use a specific <strong>BLAS</strong> library, you may have to
 supply the necessary link flags and libs to the configure script
 with:</p>
-<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS="-L/path/to/lib -lfoo -lbar ....etc"</pre>
+<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS=&quot;-L/path/to/lib -lfoo -lbar ....etc&quot;</pre>
 </div>
 <p>for example:</p>
-<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS="-L/usr/lib/sse2/atlas -lblas"</pre>
+<div class="highlight-c++"><pre>$ ./configure BLAS_LIBS=&quot;-L/usr/lib/sse2/atlas -lblas&quot;</pre>
 </div>
 </li>
 <li><p class="first">If you want to set the prefix directory where to install the library
@@ -262,7 +263,7 @@ non-GNU compiler, gcc/g++ (&gt;= 4.8) should be a safe solution.</p>
 <tt class="docutils literal"><span class="pre">exec</span> <span class="pre">loader.sce;</span></tt></li>
 <li>You can try to launch a demo with:
 <tt class="docutils literal"><span class="pre">cd</span> <span class="pre">demos;</span></tt>
-<tt class="docutils literal"><span class="pre">exec</span> <span class="pre">demostatic_contact.sce;</span></tt></li>
+<tt class="docutils literal"><span class="pre">exec</span> <span class="pre">demo_static_contact.sce;</span></tt></li>
 </ul>
 </div></blockquote>
 </div>
@@ -276,7 +277,7 @@ non-GNU compiler, gcc/g++ (&gt;= 4.8) should be a safe solution.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -347,7 +348,7 @@ non-GNU compiler, gcc/g++ (&gt;= 4.8) should be a safe solution.</p>
         <li class="right" >
           <a href="install_linux.html" title="How to install from sources on Linux"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  

@@ -8,8 +8,8 @@
     
     <title>gf_slice_get &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_slice_set" href="cmdref_gf_slice_set.html" />
     <link rel="prev" title="gf_slice" href="cmdref_gf_slice.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref_gf_slice.html" title="gf_slice"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -65,24 +65,24 @@
   <div class="section" id="gf-slice-get">
 <h1>gf_slice_get<a class="headerlink" href="#gf-slice-get" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>d = gf_slice_get(slice S, 'dim')
-a = gf_slice_get(slice S, 'area')
-CVids = gf_slice_get(slice S, 'cvs')
-n = gf_slice_get(slice S, 'nbpts')
-ns = gf_slice_get(slice S, 'nbsplxs'[, int dim])
-P = gf_slice_get(slice S, 'pts')
-{S, CV2S} = gf_slice_get(slice S, 'splxs',int dim)
-{P, E1, E2} = gf_slice_get(slice S, 'edges')
-Usl = gf_slice_get(slice S, 'interpolate_convex_data', mat Ucv)
-m = gf_slice_get(slice S, 'linked mesh')
-m = gf_slice_get(slice S, 'mesh')
-z = gf_slice_get(slice S, 'memsize')
-gf_slice_get(slice S, 'export to vtk', string filename, ...)
-gf_slice_get(slice S, 'export to pov', string filename)
-gf_slice_get(slice S, 'export to dx', string filename, ...)
-gf_slice_get(slice S, 'export to pos', string filename[, string name][[,mesh_fem mf1], mat U1, string nameU1[[,mesh_fem mf1], mat U2, string nameU2,...])
-s = gf_slice_get(slice S, 'char')
-gf_slice_get(slice S, 'display')</pre>
+<div class="highlight-python"><pre>d = gf_slice_get(slice S, &#x27;dim&#x27;)
+a = gf_slice_get(slice S, &#x27;area&#x27;)
+CVids = gf_slice_get(slice S, &#x27;cvs&#x27;)
+n = gf_slice_get(slice S, &#x27;nbpts&#x27;)
+ns = gf_slice_get(slice S, &#x27;nbsplxs&#x27;[, int dim])
+P = gf_slice_get(slice S, &#x27;pts&#x27;)
+{S, CV2S} = gf_slice_get(slice S, &#x27;splxs&#x27;,int dim)
+{P, E1, E2} = gf_slice_get(slice S, &#x27;edges&#x27;)
+Usl = gf_slice_get(slice S, &#x27;interpolate_convex_data&#x27;, mat Ucv)
+m = gf_slice_get(slice S, &#x27;linked mesh&#x27;)
+m = gf_slice_get(slice S, &#x27;mesh&#x27;)
+z = gf_slice_get(slice S, &#x27;memsize&#x27;)
+gf_slice_get(slice S, &#x27;export to vtk&#x27;, string filename, ...)
+gf_slice_get(slice S, &#x27;export to pov&#x27;, string filename)
+gf_slice_get(slice S, &#x27;export to dx&#x27;, string filename, ...)
+gf_slice_get(slice S, &#x27;export to pos&#x27;, string filename[, string name][[,mesh_fem mf1], mat U1, string nameU1[[,mesh_fem mf1], mat U2, string nameU2,...])
+s = gf_slice_get(slice S, &#x27;char&#x27;)
+gf_slice_get(slice S, &#x27;display&#x27;)</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -225,7 +225,7 @@ This function is to be completed.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_slice.html"
@@ -282,7 +282,7 @@ This function is to be completed.</p>
         <li class="right" >
           <a href="cmdref_gf_slice.html" title="gf_slice"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

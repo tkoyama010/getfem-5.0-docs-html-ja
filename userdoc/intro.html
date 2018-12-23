@@ -8,8 +8,8 @@
     
     <title>イントロダクション &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="インストール方法" href="install.html" />
-    <link rel="prev" title="User Documentation" href="index.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="prev" title="ユーザドキュメント" href="index.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -46,13 +46,13 @@
           <a href="install.html" title="インストール方法"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="User Documentation"
+          <a href="index.html" title="ユーザドキュメント"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -67,11 +67,11 @@
 <p>このライブラリでは、積分法（厳密または近似）、幾何変換（線形または非線形）、および任意の次元の有限要素法が完全に分離されています。 それにより、基本な計算が技術的に困難なより積分された有限要素法コーディングを楽にすることができます。</p>
 <p>利用可能な有限要素法は、任意の次数と次元の単純なPk、平行6面体のQk、気泡関数を持つP1、P2、Hermite要素、階層ベースの要素（例えばマルチグリッド法の場合）、不連続なPkまたはQk、XFem、 Argyris、HCT、Raviart-Thomasなどです。</p>
 <p>新しい有限要素法を追加するのは簡単です。 参照要素に関する記述が必要になります（ほとんどの場合、これは基底関数の説明であり、それ以上は必要ありません）。 拡張機能としてHermite要素、微分的多項式、非多項式およびベクトル要素、XFemが提供されています。</p>
-<p>ライブラリには、古典的な偏微分方程式の組み立て手順、補間法、ノルムの計算、メッシュ操作、境界条件、メッシュからのスライスの抽出などのポスト処理ツールなど、有限要素法用の通常のツールも含まれています。</p>
+<p>ライブラリには、古典的な偏微分方程式の構築手順、補間法、ノルムの計算、メッシュ操作、境界条件、メッシュからのスライスの抽出などのポスト処理ツールなど、有限要素法用の通常のツールも含まれています。</p>
 <p><em>GetFEM++</em> はとても汎用的な有限要素コードを作成するために使用できます。有限要素、積分法、メッシュの次元は、非常に簡単に変更できるいくつかのパラメータであり、したがって実験の幅が広がります。多数の例が、配布物の <tt class="docutils literal"><span class="pre">tests</span></tt> ディレクトリにあります。</p>
-<p><em>GetFEM++</em> は（非常に）実験的なメッシュ化手順しか持たず（そして通常のメッシュを生成します）、メッシュはインポートするのが一般的です。 <em>GetFEM++</em> で現在知られているインポート形式は、 <em>GiD</em> 、 <em>Gmsh</em> および <em>emc2</em> メッシュファイルです。 ただし、メッシュを指定すると、自動的に修正することができます。</p>
+<p><em>GetFEM++</em> は（非常に）実験的なメッシュ化手順しか持たず（そして通常のメッシュを生成します）、メッシュはインポートするのが一般的です。 <em>GetFEM++</em> で現在対応しているインポートフォーマットは、 <em>GiD</em> 、 <em>Gmsh</em> および <em>emc2</em> メッシュファイルです。 ただし、メッシュを指定すると、自動的に洗練することができます。</p>
 <p>Copyright © 2004-2018 <em>GetFEM++</em> project.</p>
-<p><em>GetFEM++</em> のウェブサイトのテキストとドキュメントは、 GNU Free Documentation License の条件の下で変更および再利用することができます。(訳者注: 本ドキュメントの翻訳は以下のプロジェクトで行われています。 <a class="reference external" href="https://www.transifex.com/getfem-doc/getfem-53-1">https://www.transifex.com/getfem-doc/getfem-53-1</a>)</p>
+<p><em>GetFEM++</em> のウェブサイトのテキストとドキュメントは、 GNU Free Documentation License の条件の下で変更および再利用することができます。</p>
 <p>このライブラリはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行されたGNU 劣等一般公衆利用許諾契約書(バージョン3のライセンス、または（あなたのオプションで）いずれかのそれ以降のバージョンを、GCCランタイムライブラリ例外とともに、バージョン3.1または（あなたのオプションで）いずれかのそれ以降のバージョンに置き換えてください。)の定める条件の下で再頒布または改変することができます。このライブラリは有用であることを願って頒布されますが、 <em>全くの無保証</em> です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 劣等一般公衆利用許諾契約書をご覧ください。あなたはこのライブラリと共に、GNU 劣等一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先は the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA)。</p>
 </div>
 
@@ -82,11 +82,11 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
-                        title="前の章へ">User Documentation</a></p>
+                        title="前の章へ">ユーザドキュメント</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="install.html"
                         title="次の章へ">インストール方法</a></p>            <h3>Download</h3>
@@ -137,13 +137,13 @@
           <a href="install.html" title="インストール方法"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="User Documentation"
+          <a href="index.html" title="ユーザドキュメント"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

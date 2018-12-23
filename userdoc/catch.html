@@ -8,8 +8,8 @@
     
     <title>キャッチエラー &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="メッシュ生成" href="bmesh.html" />
     <link rel="prev" title="GetFEM++ のMPI並列化" href="parallel.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,11 +48,11 @@
         <li class="right" >
           <a href="parallel.html" title="GetFEM++ のMPI並列化"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,8 +63,8 @@
             
   <div class="section" id="catch-errors">
 <span id="ud-catch"></span><h1>キャッチエラー<a class="headerlink" href="#catch-errors" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><em>GetFEM++</em> で使用されるエラーは <tt class="file docutils literal"><span class="pre">gmm</span> <span class="pre">/</span> <span class="pre">gmm_except.h</span></tt> ファイルで定義されます。 エラーをより簡単にするために、すべてのエラーはS.T.Lのファイル <tt class="docutils literal"><span class="pre">stdexcept</span></tt> に定義された <tt class="docutils literal"><span class="pre">std::logic_error</span></tt> 型から得られます。</p>
-<p>標準的な手順である <tt class="docutils literal"><span class="pre">GMM_STANDARD_CATCH_ERROR</span></tt> は <tt class="file docutils literal"><span class="pre">gmm/gmm_except.h</span></tt> で定義されています。 このプロシージャは、すべてのエラーをキャッチし、エラーが発生したときにエラー・メッセージを出力します。 次のようにプログラムのメインプロシージャで使用できます:</p>
+<p><em>GetFEM++</em> で使用されるエラーは <tt class="file docutils literal"><span class="pre">gmm</span> <span class="pre">/</span> <span class="pre">gmm_except.h</span></tt> ファイルで定義されます。 エラーをより簡単にするために、すべてのエラーはS.T.Lのファイル <tt class="docutils literal"><span class="pre">stdexcept</span></tt> で定義された <tt class="docutils literal"><span class="pre">std::logic_error</span></tt> 型から得られます。</p>
+<p>標準的な手順である <tt class="docutils literal"><span class="pre">GMM_STANDARD_CATCH_ERROR</span></tt> は <tt class="file docutils literal"><span class="pre">gmm/gmm_except.h</span></tt> で定義されています。 この手順は、すべてのエラーをキャッチし、エラーが発生したときにエラー・メッセージを出力します。 次のようにプログラムのメイン手順で使用できます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">try</span> <span class="p">{</span>
     <span class="p">...</span> <span class="n">main</span> <span class="n">program</span> <span class="p">...</span>
@@ -81,7 +81,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="parallel.html"
@@ -138,11 +138,11 @@
         <li class="right" >
           <a href="parallel.html" title="GetFEM++ のMPI並列化"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

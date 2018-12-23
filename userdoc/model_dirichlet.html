@@ -6,10 +6,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Dirichlet条件ブリック &mdash; GetFEM++</title>
+    <title>Dirichlet条件ブリック要素 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="モデル記述と基本モデルブリック" href="model.html" />
-    <link rel="next" title="ソース項ブリック（およびNeumann条件）" href="model_source_term.html" />
-    <link rel="prev" title="汎用的な楕円ブリック" href="model_generic_elliptic.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
+    <link rel="next" title="ソース項ブリック要素（およびNeumann条件）" href="model_source_term.html" />
+    <link rel="prev" title="汎用的な楕円ブリック要素" href="model_generic_elliptic.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -43,17 +43,17 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="model_source_term.html" title="ソース項ブリック（およびNeumann条件）"
+          <a href="model_source_term.html" title="ソース項ブリック要素（およびNeumann条件）"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="model_generic_elliptic.html" title="汎用的な楕円ブリック"
+          <a href="model_generic_elliptic.html" title="汎用的な楕円ブリック要素"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li>
-          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li>
+          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック要素</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,47 +63,52 @@
           <div class="body">
             
   <div class="section" id="dirichlet-condition-brick">
-<span id="ud-model-dirichlet"></span><span id="index-0"></span><h1>Dirichlet条件ブリック<a class="headerlink" href="#dirichlet-condition-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Dirichlet条件ブリックの目的は、モデル変数のために領域の境界の一部にDirichlet条件を規定することです。これは、この変数の値が境界で規定されていることを意味します。このブリックは3つのバージョンがあります（ <a class="reference internal" href="model_Nitsche.html#ud-model-nitsche"><em>Dirichletおよび接触境界条件に対するNitsche法</em></a> の節も参照してください）。最初のバージョンはDirichlet乗数を定めます。関連する弱形式の項は次のとおりです。</p>
+<span id="ud-model-dirichlet"></span><span id="index-0"></span><h1>Dirichlet条件ブリック要素<a class="headerlink" href="#dirichlet-condition-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Dirichlet条件ブリック要素の目的は、モデル変数のために領域の境界の一部にDirichlet条件を規定することです。これは、この変数の値が境界で規定されていることを意味します。このブリック要素は3つのバージョンがあります（ <a class="reference internal" href="model_Nitsche.html#ud-model-nitsche"><em>Dirichletおよび接触境界条件に対するNitsche法</em></a> の節も参照してください）。最初のバージョンはDirichlet乗数を定めます。関連する弱形式の項は次のとおりです。</p>
 <div class="math">
-<p><img src="../images/math/a682345cc0b58573c0f9b92f2bc2a819c3405c2c.png" alt="\int_{\Gamma} u \mu d\Gamma = \int_{\Gamma} u_D \mu d\Gamma, \forall \mu \in M."/></p>
-</div><p>ここで、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は変数です <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> は乗数の空間です、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は変数、 <img class="math" src="../images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/> はDirichlet境界です。このバージョンでは乗数を表すために追加の変数が必要です。これは、モデルに直接行うことも、以下の関数で行うこともできます。乗数で指定されたDirichlet条件を追加できる3つの関数があります。最初のものは:</p>
+<p><img src="../_images/math/a682345cc0b58573c0f9b92f2bc2a819c3405c2c.png" alt="\int_{\Gamma} u \mu d\Gamma = \int_{\Gamma} u_D \mu d\Gamma, \forall \mu \in M."/></p>
+</div><p>where <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is the variable, <img class="math" src="../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> is the space of multipliers, <img class="math" src="../_images/math/64f650be582a1056128d1394c1bc9141f7e2d839.png" alt="u_D" style="vertical-align: -3px"/>
+is the variable and <img class="math" src="../_images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/> the Dirichlet boundary. For this version, an
+additional variable have to be added to represent the multiplier. It can be done
+directly to the model or thanks to the functions below. There are three functions
+allowing to add a Dirichlet condition prescribed with a multiplier. The first one
+is:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_Dirichlet_condition_with_multipliers</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                          <span class="n">multname</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span>
                                          <span class="n">dataname</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>メッシュ領域 <tt class="docutils literal"><span class="pre">region</span></tt> （境界でなければならない）上の乗数変数 <tt class="docutils literal"><span class="pre">multname</span></tt> のおかげで、 <tt class="docutils literal"><span class="pre">varname</span></tt> にDirichlet条件を追加しました。その境界上の変数の値は、あらかじめモデル内で定義されていなければならないデータ <tt class="docutils literal"><span class="pre">dataname</span></tt> によって記述されます。データが省略された場合、Dirichlet条件は均質なもの（境界上の消失変数）とみなされます。データは、FEM上で一定または記述することができます。また、変数に応じてスカラー値またはベクトル値にすることもできます。変数 <tt class="docutils literal"><span class="pre">multname</span></tt> はメソッド <tt class="docutils literal"><span class="pre">add_multiplier</span></tt> でモデルに追加する必要があります。この関数は、モデル内のブリックのインデックスを返します。2番目の機能は:</p>
+<p>メッシュ領域 <tt class="docutils literal"><span class="pre">region</span></tt> （境界でなければならない）上の乗数変数 <tt class="docutils literal"><span class="pre">multname</span></tt> により、 <tt class="docutils literal"><span class="pre">varname</span></tt> にDirichlet条件を追加します。その境界上の変数の値は、あらかじめモデル内で定義されていなければならないデータ <tt class="docutils literal"><span class="pre">dataname</span></tt> によって記述されます。データが省略された場合、Dirichlet条件は均質なもの（境界上の消失変数）とみなされます。データは、FEM上で一定または記述することができます。また、変数に応じてスカラー値またはベクトル値にすることもできます。変数 <tt class="docutils literal"><span class="pre">multname</span></tt> はメソッド <tt class="docutils literal"><span class="pre">add_multiplier</span></tt> でモデルに追加する必要があります。この関数は、モデル内のブリック要素のインデックスを返します。2番目の関数は以下の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_Dirichlet_condition_with_multipliers</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                          <span class="n">mf_mult</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span>
                                          <span class="n">dataname</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>唯一の違いは、 <tt class="docutils literal"><span class="pre">multname</span></tt> は <tt class="docutils literal"><span class="pre">mf_mult</span></tt> に置き換えられます。つまり、乗算器が構築される有限要素のみが与えられます。この関数は、乗数変数をモデルに追加します。 3番目の関数は非常に似ています:</p>
+<p>唯一の違いは、 <tt class="docutils literal"><span class="pre">multname</span></tt> は <tt class="docutils literal"><span class="pre">mf_mult</span></tt> に置き換えられます。つまり、乗算器が構築される有限要素のみが与えられます。この関数は、乗数変数をモデルに追加します。 3番目の関数は2番目の関数と非常に似ています。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_Dirichlet_condition_with_multipliers</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                          <span class="n">degree</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span>
                                          <span class="n">dataname</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>パラメータ <tt class="docutils literal"><span class="pre">mf_mult</span></tt> は乗数がその程度の古典的な有限要素法に基づいて構築されることを示す整数の <tt class="docutils literal"><span class="pre">degree</span></tt> に置き換えられます。</p>
+<p>パラメータ <tt class="docutils literal"><span class="pre">mf_mult</span></tt> は乗数がその次数の古典的な有限要素法に基づいて構築されることを示す整数の <tt class="docutils literal"><span class="pre">degree</span></tt> に置き換えられます。</p>
 <p>全ての場合において、変数がmodelオブジェクトの <tt class="docutils literal"><span class="pre">add_multiplier</span></tt> メソッドによって追加されたとき <cite>mesh_fem</cite> は（ <tt class="docutils literal"><span class="pre">partial_mesh_fem_object</span></tt> により）考慮されている境界に寄与していない自由度しか保持しないようにフィルタリングされます。</p>
-<p>最後に、乗算器の変数名は関数により:</p>
+<p>最後に、乗算器の変数名は以下の関数により得られます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mult_varname_Dirichlet</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">ind_brick</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">ind_brick</span></tt> はモデルのブリックのインデックスです。この関数は別の種類のブリックに適用された場合、未定義の動作をします。</p>
-<p>Dirichlet条件のブリックの第2のバージョンは、ペナルティを伴うものです。このブリックを追加できる関数は:</p>
+<p>ここで <tt class="docutils literal"><span class="pre">ind_brick</span></tt> はモデルのブリック要素のインデックスです。この関数は別の種類のブリック要素に適用された場合、未定義の動作をします。</p>
+<p>Dirichlet条件のブリック要素の第2のバージョンは、ペナルティを伴うものです。このブリック要素を追加できる関数は以下の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_Dirichlet_condition_with_penalization</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                           <span class="n">penalization_coeff</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span>
                                           <span class="n">dataname</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(),</span>
                                           <span class="o">*</span><span class="n">mf_mult</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ペナルティは変数の質量行列を計算し、ペナルティ係数を掛けたものに剛性行列を加算することからなります。パラメータ <cite>mf_mult</cite> （ <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクトへのポインタ）はオプションです。 Dirichlet条件をロックするために、それを弱めることができます。この場合、ペナルティ行列は <img class="math" src="../images/math/f12318131384e419e4faa0e96884f46f560d223f.png" alt="B^TB" style="vertical-align: 0px"/> のような形式になります。ここで、 <img class="math" src="../images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> は、変数 <cite>varname</cite> の試行関数と乗数空間ペナルティ係数はモデルのデータとして追加され、次の関数によって変更することができます:</p>
+<p>ペナルティは変数の質量行列を計算し、ペナルティ係数を掛けたものに剛性行列を加算します。パラメータ <cite>mf_mult</cite> （ <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクトへのポインタ）はオプションです。 ロッキングした場合に、Dirichlet条件を弱めることもできます。この場合、ペナルティ行列は <img class="math" src="../_images/math/f12318131384e419e4faa0e96884f46f560d223f.png" alt="B^TB" style="vertical-align: 0px"/> のような形式になります。ここで、 <img class="math" src="../_images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> は、変数 <cite>varname</cite> の試行関数と乗数空間ペナルティ係数はモデルのデータとして追加され、次の関数によって変更することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">change_penalization_coeff</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">ind_brick</span><span class="p">,</span> <span class="n">penalisation_coeff</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Dirichlet条件ブリックの第3バージョンは、線形システム（非線形問題のための接線系）の簡略化を使用します。基本的には、規定された自由度に対応する線の対角成分に1を強制し、それに応じていくつかのゼロを有する線を完成させます（対称問題については、いくつかのゼロで列を完成させる）。これは、Dirichlet条件を処理するための、単純で効率的な方法です。ただし、Dirichlet条件で規定されている自由度を特定できる場合にのみ適用できます。したがって、有限要素法、Hermite要素法の使用を慎重に使用しなければならず、ベクトル問題に関する通常の（または一般化された）Dirichlet条件には適用できません。このブリックを追加できる関数は:</p>
+<p>Dirichlet条件ブリック要素の第3バージョンは、線形システム（非線形問題のための接線系）の簡略化を使用します。基本的には、規定された自由度に対応する線の対角成分に1を強制し、それに応じていくつかのゼロを有する線を完成させます（対称問題については、いくつかのゼロで列を完成させます）。これは、Dirichlet条件を処理するための、単純で効率的な方法です。ただし、Dirichlet条件で規定されている自由度を特定できる場合にのみ適用できます。したがって、簡略化したHermite要素法の使用は慎重に使用しなければならず、ベクトル問題に関する通常の（または一般化された）Dirichlet条件には適用できません。このブリック要素を追加できる関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_Dirichlet_condition_with_simplification</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span>
                                           <span class="n">dataname</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">());</span>
 </pre></div>
@@ -111,11 +116,11 @@
 <p><cite>dataname</cite> が省略されている場合は、同種のDirichlet条件が適用されます。<cite>dataname</cite> が 与えられた場合、Dirichlet条件が適用される変数 <cite>varname</cite> と同じ有限要素法で定数または記述されなければならないという制約があります。加えて、 <cite>dataname</cite> が定数の場合、Lagrange有限要素法にしか適用できません。</p>
 </div>
 <div class="section" id="generalized-dirichlet-condition-brick">
-<h1>一般化Dirichlet状態ブリック<a class="headerlink" href="#generalized-dirichlet-condition-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>一般化されたDirichlet条件は、タイプのベクトル場uの境界条件である</p>
+<h1>一般化Dirichlet状態ブリック要素<a class="headerlink" href="#generalized-dirichlet-condition-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>一般化されたDirichlet条件は、タイプのベクトル場uの境界条件です。</p>
 <div class="math">
-<p><img src="../images/math/52fc3a3d0694bdf8543b25692039776640241732.png" alt="H u  = r"/></p>
-</div><p>ここで、 <img class="math" src="../images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> は行列フィールドです。対応するブリックを追加する関数は、標準的なDirichlet条件のものと似ていますが、補足パラメータ <cite>Hname</cite> を必要とします。これは、 <img class="math" src="../images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> に対応するデータの名前を与えます。このデータは、スカラーのfemまたは定数行列に記述された行列フィールドにすることができます。</p>
+<p><img src="../_images/math/52fc3a3d0694bdf8543b25692039776640241732.png" alt="H u  = r"/></p>
+</div><p>ここで、 <img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> は行列フィールドです。対応するブリック要素を追加する関数は、標準的なDirichlet条件のものと似ていますが、補足パラメータ <cite>Hname</cite> を必要とします。これは、 <img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> に対応するデータの名前を与えます。このデータは、スカラーの有限要素法または定数行列に記述された行列フィールドにすることができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_generalized_Dirichlet_condition_with_multipliers</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                          <span class="n">multname</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span>
                                          <span class="n">dataname</span><span class="p">,</span> <span class="n">Hname</span><span class="p">);</span>
@@ -137,17 +142,17 @@
 </div>
 </div>
 <div class="section" id="pointwise-constraints-brick">
-<h1>点列制約ブリック<a class="headerlink" href="#pointwise-constraints-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>点列制約ブリックは、ブリックのようなDirichlet条件であり、領域の所与の点に未知の値を処方することを可能にします。これらの点は、必ずしもメッシュの頂点である必要はなく、未知数が記述されている有限要素法の自由度に対応する点列である必要はありません。</p>
-<p>スカラー場変数については、 <img class="math" src="../images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点  <img class="math" src="../images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられると、ブリックはこれらの点で変数の値を指定すると、</p>
+<h1>点列制約ブリック要素<a class="headerlink" href="#pointwise-constraints-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>点列制約ブリック要素は、ブリック要素のようなDirichlet条件であり、領域の所与の点に未知の値を処方することを可能にします。これらの点は、必ずしもメッシュの頂点である必要はなく、未知数が記述されている有限要素法の自由度に対応する点列である必要もありません。</p>
+<p>スカラー場変数については、 <img class="math" src="../_images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点  <img class="math" src="../_images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられ、ブリック要素にこれらの点で変数の値を指定すると、次のようになります。</p>
 <div class="math">
-<p><img src="../images/math/303d5e3444f4395156921283bff8ec371b20d261.png" alt="u(x_i) = l_i, ~~~ i = 1\cdots N_p,"/></p>
-</div><p>ここで、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> はスカラーフィールドで、 <img class="math" src="../images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> はポイント <img class="math" src="../images/math/67bc6daa9d6b964201d6cef60cbeb1ac5fd26ead.png" alt="x_i" style="vertical-align: -3px"/> に指定する値です。</p>
-<p>ベクトルフィールド変数の場合、 <img class="math" src="../images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点数 <img class="math" src="../images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられた場合、ブリックは変数の1つのブリックの値をこれらの点で処理することを可能にします、すなわち、条件を強制します。</p>
+<p><img src="../_images/math/303d5e3444f4395156921283bff8ec371b20d261.png" alt="u(x_i) = l_i, ~~~ i = 1\cdots N_p,"/></p>
+</div><p>ここで、 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> はスカラーフィールドで、 <img class="math" src="../_images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> はポイント <img class="math" src="../_images/math/67bc6daa9d6b964201d6cef60cbeb1ac5fd26ead.png" alt="x_i" style="vertical-align: -3px"/> に指定する値です。</p>
+<p>ベクトルフィールド変数の場合、 <img class="math" src="../_images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点数 <img class="math" src="../_images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられた場合、ブリック要素は変数の1つのブリック要素の値をこれらの点で処理することを可能にします、すなわち、条件を強制します。</p>
 <div class="math">
-<p><img src="../images/math/584d5c2ad6bc3ca6d614597d285ad5b5b7871ea1.png" alt="u(x_i)\cdot n_i = l_i, ~~~ i = 1\cdots N_p,"/></p>
-</div><p>ここで、 <img class="math" src="../images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> は次のようなベクトルです。例えば <img class="math" src="../images/math/bc4c151f6cc152fa191ba93834871785ac7e5f1a.png" alt="u(x_i)\cdot n_i" style="vertical-align: -4px"/> は指定する成分を表します。</p>
-<p>ブリックには2つのバージョンがあります: ペナルティバージョンと乗算機能付きバージョンです。呼び出しは次のとおりです:</p>
+<p><img src="../_images/math/584d5c2ad6bc3ca6d614597d285ad5b5b7871ea1.png" alt="u(x_i)\cdot n_i = l_i, ~~~ i = 1\cdots N_p,"/></p>
+</div><p>ここで、 <img class="math" src="../_images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> は次のようなベクトルです。例えば <img class="math" src="../_images/math/bc4c151f6cc152fa191ba93834871785ac7e5f1a.png" alt="u(x_i)\cdot n_i" style="vertical-align: -4px"/> は指定する成分を表します。</p>
+<p>ブリック要素には2つのバージョンがあります: ペナルティバージョンと乗算機能付きバージョンです。呼び出しは次のとおりです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_pointwise_constraints_with_penalization</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">penalisation_coeff</span><span class="p">,</span>
               <span class="n">dataname_pt</span><span class="p">,</span> <span class="n">dataname_unitv</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(),</span>
               <span class="n">dataname_val</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">());</span>
@@ -160,8 +165,8 @@
               <span class="n">dataname_unitv</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(),</span> <span class="n">dataname_val</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>与えられた乗数固定サイズの変数を持つものと、適切なサイズの乗数変数をモデルに自動的に追加するものとの2種類があります。データ <cite>dataname_pt</cite> 、<cite>dataname_unitv</cite> 、 <cite>dataname_val</cite> は最初にmodelに追加する必要があります。 <cite>dataname_pt</cite> は、変数 <cite>varname</cite> の値を規定する点の座標を含むベクトルでなければなりません。したがって、次のようなサイズ <img class="math" src="../images/math/fd4ab8e19d42532d8c1a9b63793562866ffc3f35.png" alt="N N_p" style="vertical-align: -6px"/> です。ここで、 <img class="math" src="../images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> はメッシュの次元です。 <cite>dataname_unitv</cite> はスカラフィールド変数では無視されます。ベクトルフィールド変数の場合はベクトル <img class="math" src="../images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> を含むはずです。その場合、サイズは次のように <img class="math" src="../images/math/2ae997804992dee689ce6e1b35f0f88db3fb7459.png" alt="Q N_p" style="vertical-align: -6px"/> である必要があります。ここで、 <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> はベクトルフィールドの次元です。 <cite>dataname_val</cite> はオプションで右辺を表します。これは、 <img class="math" src="../images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> という成分を含んでいなければなりません。 <img class="math" src="../images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> のデフォルト値は0です。</p>
-<p>このブリックは主に、純粋なNeumann問題の剛性変位を処理するように設計されています。</p>
+<p>与えられた乗数固定サイズの変数を持つものと、適切なサイズの乗数変数をモデルに自動的に追加するものとの2種類があります。データ <cite>dataname_pt</cite> 、<cite>dataname_unitv</cite> 、 <cite>dataname_val</cite> は最初にmodelに追加する必要があります。 <cite>dataname_pt</cite> は、変数 <cite>varname</cite> の値を規定する点の座標を含むベクトルでなければなりません。したがって、サイズ <img class="math" src="../_images/math/fd4ab8e19d42532d8c1a9b63793562866ffc3f35.png" alt="N N_p" style="vertical-align: -6px"/> です。ここで、 <img class="math" src="../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> はメッシュの次元です。 <cite>dataname_unitv</cite> はスカラフィールド変数では無視されます。ベクトルフィールド変数の場合はベクトル <img class="math" src="../_images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> を含むはずです。その場合、サイズは次のように <img class="math" src="../_images/math/2ae997804992dee689ce6e1b35f0f88db3fb7459.png" alt="Q N_p" style="vertical-align: -6px"/> である必要があります。ここで、 <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> はベクトルフィールドの次元です。 <cite>dataname_val</cite> はオプションで右辺を表します。これは、 <img class="math" src="../_images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> という成分を含んでいなければなりません。 <img class="math" src="../_images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> のデフォルト値は0です。</p>
+<p>このブリック要素は主に、純粋なNeumann問題の剛性変位を処理するように設計されています。</p>
 </div>
 
 
@@ -171,21 +176,21 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Dirichlet条件ブリック</a></li>
-<li><a class="reference internal" href="#generalized-dirichlet-condition-brick">一般化Dirichlet状態ブリック</a></li>
-<li><a class="reference internal" href="#pointwise-constraints-brick">点列制約ブリック</a></li>
+<li><a class="reference internal" href="#">Dirichlet条件ブリック要素</a></li>
+<li><a class="reference internal" href="#generalized-dirichlet-condition-brick">一般化Dirichlet状態ブリック要素</a></li>
+<li><a class="reference internal" href="#pointwise-constraints-brick">点列制約ブリック要素</a></li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_generic_elliptic.html"
-                        title="前の章へ">汎用的な楕円ブリック</a></p>
+                        title="前の章へ">汎用的な楕円ブリック要素</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="model_source_term.html"
-                        title="次の章へ">ソース項ブリック（およびNeumann条件）</a></p>            <h3>Download</h3>
+                        title="次の章へ">ソース項ブリック要素（およびNeumann条件）</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -230,17 +235,17 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="model_source_term.html" title="ソース項ブリック（およびNeumann条件）"
+          <a href="model_source_term.html" title="ソース項ブリック要素（およびNeumann条件）"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="model_generic_elliptic.html" title="汎用的な楕円ブリック"
+          <a href="model_generic_elliptic.html" title="汎用的な楕円ブリック要素"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li>
-          <li><a href="model.html" >モデル記述と基本モデルブリック</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li>
+          <li><a href="model.html" >モデル記述と基本モデルブリック要素</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

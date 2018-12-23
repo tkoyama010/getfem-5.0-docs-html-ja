@@ -8,8 +8,8 @@
     
     <title>導入 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="GetFEM++ の導入" href="index.html" />
     <link rel="next" title="インストール方法" href="install.html" />
     <link rel="prev" title="GetFEM++ の導入" href="index.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="index.html" title="GetFEM++ の導入"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -63,15 +63,15 @@
             
   <div class="section" id="introduction">
 <span id="ud-intro-tut"></span><h1>導入<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>このチュートリアルでは、コメント付きの簡単な例のライブラリで <em>GetFEM++</em> の主な側面を示すことを目的としています。 <em>GetFEM++</em> は結合されたものを含む複雑な問題の数値モデリングを可能にします。弱形式記述言語のおかげで、任意の結合項を追加するのは比較的簡単です。次に、弱形式の式はアセンブリ中に実行される最適化された命令の一覧の形式でコンパイルします。</p>
-<p>主な提示された機能は次のとおりです</p>
+<p>このチュートリアルでは、コメント付きの簡単な例のライブラリで <em>GetFEM++</em> の主な特徴を示すことを目的としています。 <em>GetFEM++</em> は連成されたものを含む複雑な問題の数値モデリングを可能にします。弱形式記述言語のおかげで、任意の結合項を追加するのは比較的簡単です。弱形式の式はアセンブリ中に実行される最適化された命令のリストの形式でコンパイルされます。</p>
+<p>提供されている主な機能は次のとおりです</p>
 <blockquote>
 <div><ul class="simple">
-<li><p class="first">マルチフィジックス問題の近似とジェネリックアセンブリの使用。</p>
+<li><p class="first">マルチフィジックス問題の近似と汎用構築の使用。</p>
 </li>
 <li><p class="first">固定サイズ変数の使用。</p>
 </li>
-<li><p class="first">接触の問題。</p>
+<li><p class="first">接触問題。</p>
 </li>
 <li><p class="first">架空領域の機能性と変換により、メッシュ間または領域間のアセンブリが可能になります。</p>
 </li>
@@ -79,36 +79,34 @@
 </li>
 </ul>
 </div></blockquote>
-<p>このチュートリアルでは、もちろん、様々なドキュメンテーションの場所では説明しません。実装されたメソッドの説明に関しては、ユーザーマニュアル (C++ ライブラリのもの) を参考ににしてください。インターフェイスのドキュメンテーションはインターフェイスからのさまざまな機能の使用を記述しますが、メソッドの記述は繰り返しません。「開発者の手引き」には、ライブラリの構造に関する内部情報が記載されています。</p>
-<div class="line-block">
-<div class="line"><em>GetFEM++</em> は、 <a class="reference external" href="http://savannah.gnu.org">Savannah</a> サイトによってホストされている無料の共同プロジェクトです(<a class="reference external" href="https://savannah.nongnu.org/projects/getfem">https://savannah.nongnu.org/projects/getfem</a> を参照してください)。新しい貢献者は、プロジェクトのすべての側面で歓迎されます。</div>
-</div>
+<p>このチュートリアルは、もちろん、様々なドキュメンテーションの代わりにはなりません。実装されたメソッドの説明に関しては、(C++ ライブラリの)ユーザードキュメント を参考ににしてください。インターフェイスのドキュメンテーションはインターフェイスからのさまざまな機能の使用法を記述しますが、メソッドの記述は繰り返しません。「開発者の手引き」には、ライブラリの構造に関する内部情報が記載されています。</p>
+<p><em>GetFEM++</em> は、 <a class="reference external" href="http://savannah.gnu.org">Savannah</a> サイトによってホストされている自由な共同プロジェクトです(<a class="reference external" href="https://savannah.nongnu.org/projects/getfem">https://savannah.nongnu.org/projects/getfem</a> を参照してください)。新しい貢献者は、プロジェクトのすべての面で歓迎されます。</p>
 <div class="section" id="c-python-scilab-or-matlab">
 <h2>C++、Python、Scilab、または Matlab?<a class="headerlink" href="#c-python-scilab-or-matlab" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><em>GetFEM++</em> は基本的に C++ で書かれたライブラリです。しかし、それは Python、Scilab と Matlab バージョンで利用可能であり、すべての高度な機能を使用することができるインターフェイスを持っています。プログラミングをより簡単にするスクリプト言語とのインターフェイスを使用して開始することをお勧めします。インターフェイスの3つのバージョンは、グラフィックの後処理を除いて、小さな構文要素によってのみ異なります (Scilab および Matlab インターフェイスは、Paraview などの専用ソフトウェアを使用する必要がある一方で、統合された後処理も可能です。Mayavi または gmsh を使用する場合は、Python インターフェイスまたは C++ で直接ライブラリを使います)。Python インターフェイスは、C++ ライブラリと共にデフォルトでコンパイルされます。</p>
-<p><em>GetFEM++</em> が使用するインターフェイスは、複雑なアプリケーションの場合でも、パフォーマンスは C++ ライブラリの直接使用に匹敵する優れた戦略であり、より柔軟に使用できます。しかし、Python インタフェースだけが (MPI で) 並列化を可能にします。インターフェイスへの機能の追加は比較的簡単な操作です。</p>
-<p>チュートリアル (温度-電気弾性連成) の最初の例では、C++ ライブラリとインターフェイスのバージョンの使用の違いを確認することができます。</p>
+<p><em>GetFEM++</em> は基本的に C++ で書かれたライブラリです。しかし、それは Python、Scilab と Matlab バージョンで利用可能であり、すべての高度な機能を使用することができるインターフェイスを持っています。プログラミングをより簡単にするスクリプト言語のインターフェイスを使用して開始することをお勧めします。3種類のインターフェイスは、グラフィックの後処理を除いて、わずかな構文要素のみ異なります (Python インターフェイスまたは C++ で直接ライブラリを使用する場合、Paraview Mayavi または gmsh などの専用ソフトウェアを使用する必要がある一方で、Scilab および Matlab インターフェイスを使用する場合は統合された後処理も可能です)。Python インターフェイスは、C++ ライブラリと共にデフォルトでコンパイルされます。</p>
+<p><em>GetFEM++</em> のインターフェイスを使用することは優れた戦略です、複雑なアプリケーションの場合でも、パフォーマンスは C++ ライブラリの直接使用に匹敵し、より柔軟に使用できます。しかし、(MPI で) 並列化が可能なのはPython インタフェースだけです。インターフェイスへの機能の追加は比較的簡単な作業です。</p>
+<p>チュートリアルの最初の例 (熱-電気弾性連成) では、C++ ライブラリとインターフェイスバージョンの使用の違いを確認することができます。</p>
 </div>
 <div class="section" id="where-are-demo-files">
 <h2>デモファイルはどこにありますか?<a class="headerlink" href="#where-are-demo-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>多数のデモンストレーションプログラムを見つけることができます。</p>
+<p>多数のデモンストレーションプログラムを以下で見つけることができます。</p>
 <ul>
-<li><p class="first">ディレクトリ内の C++ の例</p>
+<li><p class="first">C++ の例は以下のディレクトリ内にあります</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">tests</span><span class="o">/</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">ディレクトリ内の Python インターフェイスの場合</p>
+<li><p class="first">Python インターフェイスは以下のディレクトリ内にあります</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">python</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">ディレクトリ内の Scilab インターフェイスの場合</p>
+<li><p class="first">Scilab インターフェイスは以下のディレクトリ内にあります</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">scr</span><span class="o">/</span><span class="n">scilab</span><span class="o">/</span><span class="n">demos</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">そして、ディレクトリ内の Matlab インターフェイス</p>
+<li><p class="first">そして、 Matlab インターフェイスは以下のディレクトリ内にあります</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">interface</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">matlab</span>
 </pre></div>
 </div>
@@ -124,7 +122,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -190,7 +188,7 @@
         <li class="right" >
           <a href="index.html" title="GetFEM++ の導入"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

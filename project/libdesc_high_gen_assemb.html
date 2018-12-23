@@ -8,8 +8,8 @@
     
     <title>The high-level generic assembly module in GetFEM++ &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="低レベルの汎用アセンブリモジュール | gf |" href="libdesc_low_gen_assemb.html" />
     <link rel="prev" title="レベルセットモジュール" href="libdesc_levelset.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_levelset.html" title="レベルセットモジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -93,8 +93,7 @@
 <td><p class="first last">アセンブリ文字列を読み取って構文ツリーで変換し、ツリーの反転変換を文字列にするなど、ツリー構造とその基本操作の定義。</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_fonction_and_operators &#8216; と: ファイル: &#8216; getfem_generic_assembly_fonction_and_operators &#8216;</p>
-</td>
+<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_generic_assembly_function_and_operators.h</span></tt> and <tt class="file docutils literal"><span class="pre">getfem_generic_assembly_function_and_operators.cc</span></tt></td>
 <td><p class="first last">弱形式言語の再定義関数と非線形演算子</p>
 </td>
 </tr>
@@ -110,7 +109,7 @@
 </tr>
 <tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_compile_and_exec &#8216; と: ファイル: &#8216; getfem_generic_assembly_compile_and_exec &#8216;</p>
 </td>
-<td><p class="first last">最適化された命令の定義、最適化の手順とガウスポイント/補間ポイントの命令の実行の続編にコンパイルします。</p>
+<td><p class="first last">最適化された命令の定義、最適化の手順とガウス点/補間点の命令の実行の続編にコンパイルします。</p>
 </td>
 </tr>
 <tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_generic_assembly_interpolation &#8216;</p>
@@ -126,7 +125,7 @@
 <p>アセンブリ文字列は、ファイル: &#8216; src/getfem _generic _assembly &#8216; の一連の関数によってアセンブリツリーに変換されます。プロセスには6つのステップがあります。</p>
 <blockquote>
 <div><ul class="simple">
-<li><p class="first">プロシージャ &#8216; &#8216; ga_get_token を使用した字句解析 (...)``.</p>
+<li><p class="first">手順 &#8216; &#8216; ga_get_token を使用した字句解析 (...)``.</p>
 </li>
 <li><p class="first">構文解析と構文木への変換 &#8216; &#8216; ga_read_string (...)``.</p>
 </li>
@@ -148,39 +147,39 @@
 <div class="section" id="assembly-tree">
 <h2>アセンブリツリー<a class="headerlink" href="#assembly-tree" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アセンブリ文字列は &#8216; &#8216; ga_read_string (...) でアセンブリツリーに変換されます。<a href="#id1"><span class="problematic" id="id2">``</span></a>.アセンブリツリーは、貴様ステップ (セマンティック分析、派生、コンパイル) の情報で徐々に濃縮される構文ツリーです。</p>
-<p>オブジェクト &#8216; &#8216; ga_tree &#8216; &#8216; はアセンブリツリーを表します。これは、ツリーのルートへのポインターのみを含むコピー可能オブジェクトです。各ツリーノードは、次の主な情報を含むオブジェクト &#8216; &#8216; ga_tree_node &#8216; &#8216; です。</p>
+<p>オブジェクト &#8216; &#8216; ga_tree &#8216; &#8216; はアセンブリツリーを表します。これは、ツリーのルートへのポインターのみを含むコピー可能オブジェクトです。各ツリー節点は、次の主な情報を含むオブジェクト &#8216; &#8216; ga_tree_node &#8216; &#8216; です。</p>
 <ul class="simple">
 <li><p class="first">node_type (関数、変数の値、変数のグラデーション、操作...)</p>
 </li>
-<li><p class="first">操作ノードの操作の種類。</p>
+<li><p class="first">操作節点の操作の種類。</p>
 </li>
-<li><p class="first">アセンブリテンソル: 中間結果を計算するために最適化された命令によって実行時に使用します。最終的な結果は、実行の終了時にルートノードのアセンブリ文字列 (各ガウスポイント) になります。</p>
+<li><p class="first">アセンブリテンソル: 中間結果を計算するために最適化された命令によって実行時に使用します。最終的な結果は、実行の終了時にルート節点のアセンブリ文字列 (各ガウス点) になります。</p>
 </li>
 <li><p class="first">用語の種類: 値、順序1つの用語 (i 番目の順序1つのテスト関数)、順序2つの用語 (順序2つのテスト関数) または両方の順序1と順序2つのテスト関数 (タンジェント用語)。</p>
 </li>
 <li><p class="first">順序1または2の用語のテスト関数の変数名。</p>
 </li>
-<li><p class="first">親ノードへのポインター。</p>
+<li><p class="first">親節点へのポインター。</p>
 </li>
-<li><p class="first">子ノードへのポインター。</p>
+<li><p class="first">子節点へのポインター。</p>
 </li>
 </ul>
-<p>たとえば、ラプラシアン問題の剛性マトリックスのアセンブリ文字列 &#8220;a * Grad_Test2_u Grad_Test_u&#8221; のアセンブリツリーは、各ノードのアセンブリテンソルと共に次のように表現できます。</p>
+<p>たとえば、ラプラシアン問題の剛性マトリックスのアセンブリ文字列 &#8220;a * Grad_Test2_u Grad_Test_u&#8221; のアセンブリツリーは、各節点のアセンブリテンソルと共に次のように表現できます。</p>
 <div class="figure align-center" id="dp-fig-tree-laplace-tan">
-<a class="reference internal image-reference" href="../images/tree_simple_laplace_tan.png"><img alt="../images/tree_simple_laplace_tan.png" src="../images/tree_simple_laplace_tan.png" style="width: 581.25px; height: 323.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/tree_simple_laplace_tan.png"><img alt="../_images/tree_simple_laplace_tan.png" src="../_images/tree_simple_laplace_tan.png" style="width: 581.25px; height: 323.25px;" /></a>
 </div>
 </div>
 <div class="section" id="assembly-tensors">
 <h2>組立テンソル<a class="headerlink" href="#assembly-tensors" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>アセンブリテンソルは、各ノードで &#8216; &#8216; bgeot:: テンソル &#8216; &#8216; オブジェクトによって表され&lt;double&gt;ます。ただし、アセンブリテンソルには複数の形式があるため、ファイル: &#8216; src/getfem _generic _assembly &#8216; には特定の構造&lt;/double&gt;があります。</p>
+<p>アセンブリテンソルは、各節点で &#8216; &#8216; bgeot:: テンソル &#8216; &#8216; オブジェクトによって表され&lt;double&gt;ます。ただし、アセンブリテンソルには複数の形式があるため、ファイル: &#8216; src/getfem _generic _assembly &#8216; には特定の構造&lt;/double&gt;があります。</p>
 <ul>
-<li><p class="first">通常のテンソル。最初と2番目のインデックスは、ノードが最初または2番目の順序の用語を表す場合、テスト関数のローカルインデックスを表すことができます。覚えている | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>すべてのテンソルは、Fortran の順序で保存されます。これは a のための例えば a のために意味する: 数学: &#8216; Ntimes Ptimes Q &#8216; のテンソル1つは &#8216; t (i、j、k) = トン [i + j * n + k * n * P] &#8216; &#8216; を有する。</p>
+<li><p class="first">通常のテンソル。最初と2番目のインデックスは、節点が最初または2番目の順序の用語を表す場合、テスト関数のローカルインデックスを表すことができます。覚えている | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>すべてのテンソルは、Fortran の順序で保存されます。これは a のための例えば a のために意味する: 数学: &#8216; Ntimes Ptimes Q &#8216; のテンソル1つは &#8216; t (i、j、k) = トン [i + j * n + k * n * P] &#8216; &#8216; を有する。</p>
 </li>
-<li><p class="first">コピーされたテンソル。ノードが、既にコンパイルされたものと比較してまったく同じ式を持つことが検出されると、アセンブリテンソルには、既にコンパイル済みのノードのアセンブリテンソルへのポインタが含まれます。結果として、不要なコピーは作成されません。</p>
+<li><p class="first">コピーされたテンソル。節点が、既にコンパイルされたものと比較してまったく同じ式を持つことが検出されると、アセンブリテンソルには、既にコンパイル済みの節点のアセンブリテンソルへのポインタが含まれます。結果として、不要なコピーは作成されません。</p>
 </li>
-<li><p class="first">リストされたスパースの疎なテンソル。ベクトルフィールドを使用する場合、有限要素法は各成分に適用されます。この結果、ベクトル基底関数が0以外のコンポーネントを1つだけ持ち、一部のコンポーネントが複製されます。テンソルは、その種の小さな疎テンソル形式で効率を得るために難しいされるので、完全に表されます。ただし、一部の操作は、特定のスパース (および重複) の知識を使用して最適化できます。これは、削減の複雑さの順序を変更することができます。効率のこの利得を可能にするためには、テンソルはいくつかの知られていたスパースフォーマット (ベクトルテンソルで適用される操作から来る vectorisation およびフォーマット) と labellised。これにより、以下に示すように、一定数のスパース形式が得られます。</p>
+<li><p class="first">リストされたスパースの疎なテンソル。ベクトルフィールドを使用する場合、有限要素法は各成分に適用されます。この結果、ベクトル基底関数が0以外の成分を1つだけ持ち、一部の成分が複製されます。テンソルは、その種の小さな疎テンソル形式で効率を得るために難しいされるので、完全に表されます。ただし、一部の操作は、特定のスパース (および重複) の知識を使用して最適化できます。これは、削減の複雑さの順序を変更することができます。効率のこの利得を可能にするためには、テンソルはいくつかの知られていたスパースフォーマット (ベクトルテンソルで適用される操作から来る vectorisation およびフォーマット) と labellised。これにより、以下に示すように、一定数のスパース形式が得られます。</p>
 <ul>
-<li><p class="first">1: ベクトルベーススパースフォーマット: テンソルはベクトル値を表します。凝縮されたテンソルの各々の価値は繰り返される: 数学: ベクトルテンソルの &#8216; Q &#8216; の部品。メッシュの寸法が示されます: 数学: &#8216; N &#8216;。例えば: 数学: &#8216; varphi_i &#8216; は次のようになります: 数学: 要素上のローカル基本関数と評価はガウス点にあります: 数学: &#8216; x &#8216;, その後、非ベクトルテンソルは: 数学: &#8216; bar{t} (i) = varphi_i (x) &#8216; とベクトル1は: 数学: t (j, k) = <a href="#id1"><span class="problematic" id="id2">varphi_</span></a> {j/q} (x) delta_{k, j mbox{mod} Q} &#8216; where: 数学: &#8216; j/M &#8216; は整数除算です。For: 数学: &#8216;m = 2 &#8216;,: 数学: &#8216; Q = 2 &#8216; と: 数学: &#8216; N = 3 &#8216; 2 つのテンソルのコンポーネントは、次の表で表されます。</p>
+<li><p class="first">1: ベクトルベーススパースフォーマット: テンソルはベクトル値を表します。凝縮されたテンソルの各々の価値は繰り返される: 数学: ベクトルテンソルの &#8216; Q &#8216; の部品。メッシュの寸法が示されます: 数学: &#8216; N &#8216;。例えば: 数学: &#8216; varphi_i &#8216; は次のようになります: 数学: 要素上のローカル基本関数と評価はガウス点にあります: 数学: &#8216; x &#8216;, その後、非ベクトルテンソルは: 数学: &#8216; bar{t} (i) = varphi_i (x) &#8216; とベクトル1は: 数学: t (j, k) = <a href="#id1"><span class="problematic" id="id2">varphi_</span></a> {j/q} (x) delta_{k, j mbox{mod} Q} &#8216; where: 数学: &#8216; j/M &#8216; は整数除算です。For: 数学: &#8216;m = 2 &#8216;,: 数学: &#8216; Q = 2 &#8216; と: 数学: &#8216; N = 3 &#8216; 2 つのテンソルの成分は、次の表で表されます。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="29%" />
@@ -287,7 +286,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -361,7 +360,7 @@
         <li class="right" >
           <a href="libdesc_levelset.html" title="レベルセットモジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

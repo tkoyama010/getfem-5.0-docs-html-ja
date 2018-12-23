@@ -8,8 +8,8 @@
     
     <title>Fem モジュール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="Integ モジュール" href="libdesc_im.html" />
     <link rel="prev" title="メッシュモジュール" href="libdesc_mesh.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_mesh.html" title="メッシュモジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,7 +66,7 @@
 <span id="dp-libdesc-fem"></span><h1>Fem モジュール<a class="headerlink" href="#fem-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Fem モジュールは | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>これは、要素レベルと自由度の有限要素を記述します。有限要素法は異なったタイプである場合もある。それらは幾何学的変形によってスカラーかベクトル、多項式、区分多項式または非多項式、同等であるかもしれない。また、自由度の記述は、一般的な方法で2つの隣接要素間の互換性のある自由度を収集することができるようにする必要があります (例えばラグランジュ2d 要素を別のラグランジュ1d 要素に接続する場合)。</p>
+<p>Fem モジュールは | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>これは、要素レベルと自由度の有限要素を記述します。有限要素法は異なったタイプである場合もある。それらは幾何学的変形によってスカラーかベクトル、多項式、区分多項式または非多項式、同等であるかもしれない。また、自由度の記述は、一般的な方法で2つの隣接要素間の互換性のある自由度を収集することができるようにする必要があります (例えばLagrange2d 要素を別のLagrange1d 要素に接続する場合)。</p>
 </div>
 <div class="section" id="files">
 <h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -116,7 +116,7 @@
 <p>2つのファイル: ファイル: &#8216; getfem_fem &#8216; と: ファイル: &#8216; getfem_fem_composite &#8216; は主に基本的な要素のすべての有限要素の説明が含まれています。定義された有限要素の完全なリストは、で与えられます: ref: &#8216; ud-appendixa &#8216;。</p>
 <p>いくつかの他のファイルのようないくつかの特定の有限要素を定義する: ファイル: &#8216; getfem_fem_level_set &#8216; は、&#8221;&#8221; 1 つまたは複数のレベルセットで既存の要素をカットすることができます複雑な構造です。</p>
 <p>自由度を記述する方法は、グローバルに必要とする (接続 dof 一般的な方法で別の要素から) が、少しあいまいで、あまりにも複雑です。</p>
-<p>逆に、補助行列 &#8216; is &#8216; &#8216; で非等価要素を表現する方法は、いくつかの要素 (Hermites 要素、アージリスなど) でその効率を証明しています。</p>
+<p>逆に、補助行列 &#8216; is &#8216; &#8216; で非等価要素を表現する方法は、いくつかの要素 (Hermites 要素、Argyrisなど) でその効率を証明しています。</p>
 </div>
 <div class="section" id="perspectives">
 <h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -131,7 +131,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -199,7 +199,7 @@
         <li class="right" >
           <a href="libdesc_mesh.html" title="メッシュモジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

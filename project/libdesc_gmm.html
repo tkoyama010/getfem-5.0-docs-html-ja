@@ -6,10 +6,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ライブラリ &mdash; GetFEM++</title>
+    <title>Gmmライブラリ &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="Dal ライブラリ" href="libdesc_dal.html" />
     <link rel="prev" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc.html" title="ライブラリのさまざまな部分の説明"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -63,35 +63,42 @@
           <div class="body">
             
   <div class="section" id="gmm-library">
-<span id="dp-libdesc-gmm"></span><h1>ライブラリ<a class="headerlink" href="#gmm-library" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="dp-libdesc-gmm"></span><h1>Gmmライブラリ<a class="headerlink" href="#gmm-library" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a href="#id1"><span class="problematic" id="id2">|</span></a>は線形代数のプロシージャの必要性間のインターフェイスを作るために最初に設計されていた型板の線形代数の図書館である | gf <a href="#id3"><span class="problematic" id="id4">|</span></a>と既存の自由線形代数ライブラリ (中央線、Superlu、ブラス、Lapack もともと)。それは、独自のベクトルと行列型を持つ独立した自己一貫性のあるライブラリに急速に進化します。これは、他のいくつかのプロジェクトによって基礎線形代数ライブラリとして使用されるようになりました。</p>
-<p>ただし、その特性は、より特定のパッケージのための潜在的なインターフェイスとして保持されます。互換性の最小値を持つベクトルまたは行列型は、ジェネリックアルゴリズムで使用できます <a href="#id1"><span class="problematic" id="id2">|</span></a>&#8216; &#8216; linalg_traits &#8216; &#8216; 構造を書いています。</p>
-<p>A <a href="#id1"><span class="problematic" id="id2">|スタンドアロンバージョンは、|</span></a> gf | のリリース1.5 以降に配布されています。しかしそれは内部で開発される | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>プロジェクトにもかかわらず、リリース3.0 以来、完全に任意の独立している | gf <a href="#id3"><span class="problematic" id="id4">|</span></a>ファイル。</p>
-<p>線形代数プロシージャに加えて、それは次の実用性をまた供給する | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>。</p>
+<p><em>Gmm++</em> は <em>GetFEM++</em> の線形代数が必要な手順と既存のフリーの線形代数ライブラリ(もともとは MTL、Superlu、Blas、Lapack)との間のインターフェイスを作るために最初に設計されていた線形代数のテンプレートライブラリです。それは、独自のベクトルと行列型を持つ独立した自己一貫性のあるライブラリに急速に進化しています。これは、他のいくつかのプロジェクトで基礎線形代数ライブラリとして使用されるようになりました。</p>
+<p>ただし、その特性は、より特定のパッケージのための潜在的なインターフェイスとして保持されます。最小限の互換性を持つベクトルまたは行列型で、 <tt class="docutils literal"><span class="pre">linalg_traits</span></tt> 構造による <em>Gmm++</em> の汎用アルゴリズムで使用できます。</p>
+<p><em>Gmm++</em> スタンドアロンバージョンは、 <em>GetFEM++</em> のリリース1.5 以降に配布されています。しかし、リリース3.0 以来、完全に任意の <em>GetFEM++</em> ファイルから独立しているにもかかわらず、それは <em>GetFEM++</em> プロジェクト内部で開発されています。</p>
+<p>線形代数手順に加えて、それはまた次のユーティリティを <em>GetFEM++</em> に供給します。</p>
 <ul class="simple">
-<li><p class="first">ファイル: &#8216; gmm_std &#8216; のいくつかの最終的な互換性の問題を修正します。</p>
+<li><p class="first"><tt class="file docutils literal"><span class="pre">gmm_std.h</span></tt> のいくつかの最終的な互換性の問題を修正します。</p>
 </li>
-<li><p class="first">エラー、警告、およびトレース管理: ファイル: &#8216; gmm_except &#8216;。</p>
+<li><p class="first">エラー、警告、およびトレース管理は <tt class="file docutils literal"><span class="pre">gmm_except.h</span></tt> です。</p>
 </li>
-<li><p class="first">いくつかの拡張数学の定義: ファイル: &#8216; gmm_def &#8216;。</p>
+<li><p class="first">いくつかの拡張された数学の定義は <tt class="file docutils literal"><span class="pre">gmm_def.h</span></tt> です。</p>
 </li>
 </ul>
-<p>詳細については、ref: &#8216; ドキュメント &#8216; を参照してください。</p>
+<p>詳細については <a class="reference internal" href="../gmm/index.html#gmm"><em>Gmm++ Library</em></a> のドキュメントを参照してください。</p>
 </div>
 <div class="section" id="files">
 <h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>src/のすべてのファイル</p>
+<p>src/gmm のすべてのファイル</p>
 </div>
 <div class="section" id="state">
 <h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>とりあえず || gf のニーズをカバー <a href="#id1"><span class="problematic" id="id2">|</span></a>基本的な線形代数の手順について。</p>
+<p>とりあえず <em>Gmm++</em> は基本的な線形代数の手順について <em>GetFEM++</em> のニーズをカバーします。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>改善すべきいくつかの点が potentatialy <a href="#id1"><span class="problematic" id="id2">|</span></a>(いくつかの基底型の行列とベクトルのための表現テンプレートの部分的な導入、より一貫した方法疎サブベクトルとサブ行列、C++ の概念の導入など) で表現する方法について考えてみてください。しかし、以来 <a href="#id3"><span class="problematic" id="id4">|</span></a>グローバルなニーズをカバー | gf <a href="#id5"><span class="problematic" id="id6">|</span></a>と &#8216; グラス &#8216; _ のようないくつかの他のプロジェクトが存在するので&lt;http: glas.sourceforge.net/=&#8221;&#8220;&gt;、線形代数のためのリファレンス C++ ライブラリを構築するには、グローバルな変更は不要と思われる。この部分は安定していると考えられます。&lt;/http:&gt;</p>
-<p>現在の職業 <a href="#id1"><span class="problematic" id="id2">|</span></a>は、プロジェクト全体の新しいニーズをカバーするために、他のいくつかのパッケージ (たとえば DIFFPACK) に汎用アルゴリズムとインターフェイスを収集し続けることです。ライブラリは、現在頻繁に別のパッケージとして使用され、また、いくつかの改善、新しいアルゴリズムや新しいインターフェイスを提案するすべての人の貢献を収集するために職業を持っています。</p>
+<h2>展望<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>There is potentially several points to be improved in <em>Gmm++</em> (partial
+introduction of expression template for some base types of matrix and vectors,
+think about the way to represent in a more coherent manner sparse sub-vectors
+and sub-matrices, introduction of C++ concepts, etc.). However, since <em>Gmm++</em>
+globally cover the needs of <em>GetFEM++</em> and since there exists some other project like
+<a class="reference external" href="http://glas.sourceforge.net/">Glas</a> to build a reference C++ library for
+linear algebra, a global change seem to be unnecessary. This part
+is considered to be stabilized.</p>
+<p>現在の <em>Gmm++</em> の使命は、プロジェクト全体の新しいニーズをカバーするために、他のいくつかのパッケージ (たとえば DIFFPACK) の汎用アルゴリズムとインターフェイスを揃え続けることです。ライブラリは、現在頻繁に別のパッケージとして使用され、また、いくつかの改善、新しいアルゴリズムや新しいインターフェイスを提案するすべての人の貢献を収集する使命を持っています。</p>
 </div>
 </div>
 
@@ -102,15 +109,15 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">ライブラリ</a><ul>
+<li><a class="reference internal" href="#">Gmmライブラリ</a><ul>
 <li><a class="reference internal" href="#description">説明</a></li>
 <li><a class="reference internal" href="#files">ファイル</a></li>
 <li><a class="reference internal" href="#state">状態</a></li>
-<li><a class="reference internal" href="#perspectives">視点</a></li>
+<li><a class="reference internal" href="#perspectives">展望</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +177,7 @@
         <li class="right" >
           <a href="libdesc.html" title="ライブラリのさまざまな部分の説明"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

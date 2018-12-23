@@ -8,8 +8,8 @@
     
     <title>Poisson問題の完全な例 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="モデル記述と基本モデルブリック" href="model.html" />
+    <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="Dirichletおよび接触境界条件に対するNitsche法" href="model_Nitsche.html" />
     <link rel="prev" title="あらかじめ定義されたソルバー" href="model_solvers.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,12 +48,12 @@
         <li class="right" >
           <a href="model_solvers.html" title="あらかじめ定義されたソルバー"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li>
-          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li>
+          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック要素</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -64,7 +64,7 @@
             
   <div class="section" id="example-of-a-complete-poisson-problem">
 <span id="ud-model-poisson"></span><span id="index-0"></span><h1>Poisson問題の完全な例<a class="headerlink" href="#example-of-a-complete-poisson-problem" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>次の例は、テストプログラム <tt class="file docutils literal"><span class="pre">tests/laplacian_with_bricks.cc</span></tt> の一部です。メッシュおよび有限要素法の構成は省略されています。メッシュが構築され、このメッシュに <tt class="docutils literal"><span class="pre">mf_u</span></tt> と <tt class="docutils literal"><span class="pre">mf_rhs</span></tt> という2つの有限要素法が構築されていると仮定します。 <tt class="docutils literal"><span class="pre">NEUMANN_BOUNDARY_NUM</span></tt> と <tt class="docutils literal"><span class="pre">DIRICHLET_BOUNDARY_NUM</span></tt> は、そのメッシュ上の2つの有効な境界指標であるとも仮定されています。コードは、ソース項、Neumann条件、Dirichlet条件のデータを構築するために、 <tt class="docutils literal"><span class="pre">mf_rhs</span></tt> で補間される3つの関数の定義から始まります。modelオブジェクトの宣言、要素の追加、および問題の解の計算は次の通りです:</p>
+<p>次の例は、テストプログラム <tt class="file docutils literal"><span class="pre">tests/laplacian_with_bricks.cc</span></tt> の一部です。メッシュおよび有限要素法の構成は省略されています。メッシュが構築され、このメッシュに <tt class="docutils literal"><span class="pre">mf_u</span></tt> と <tt class="docutils literal"><span class="pre">mf_rhs</span></tt> という2つの有限要素法が構築されていると仮定します。 <tt class="docutils literal"><span class="pre">NEUMANN_BOUNDARY_NUM</span></tt> と <tt class="docutils literal"><span class="pre">DIRICHLET_BOUNDARY_NUM</span></tt> は、そのメッシュ上の2つの有効な境界指標であるとも仮定されています。コードは、ソース項、Neumann条件、Dirichlet条件のデータを構築するために、 <tt class="docutils literal"><span class="pre">mf_rhs</span></tt> で補間される3つの関数の定義から始まります。modelオブジェクトの宣言、要素の追加、および問題の解の計算は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">using</span> <span class="n">bgeot</span><span class="o">::</span><span class="n">base_small_vector</span><span class="p">;</span>
 <span class="c1">// Exact solution. Allows an interpolation for the Dirichlet condition.</span>
 <span class="n">scalar_type</span> <span class="nf">sol_u</span><span class="p">(</span><span class="k">const</span> <span class="n">base_node</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="p">}</span>
@@ -124,7 +124,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>ブリックは任意の次数で追加できます。</p>
+<p>ブリック要素は任意の次数で追加できます。</p>
 </div>
 
 
@@ -134,7 +134,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_solvers.html"
@@ -191,12 +191,12 @@
         <li class="right" >
           <a href="model_solvers.html" title="あらかじめ定義されたソルバー"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li>
-          <li><a href="model.html" >モデル記述と基本モデルブリック</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li>
+          <li><a href="model.html" >モデル記述と基本モデルブリック要素</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

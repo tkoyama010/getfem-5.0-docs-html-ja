@@ -8,8 +8,8 @@
     
     <title>導関数の計算 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="解の出力と表示" href="export.html" />
     <link rel="prev" title="と ノルムの計算" href="computeL2H1.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,11 +48,11 @@
         <li class="right" >
           <a href="computeL2H1.html" title="と ノルムの計算"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,11 +63,11 @@
             
   <div class="section" id="compute-derivatives">
 <span id="ud-computed"></span><h1>導関数の計算<a class="headerlink" href="#compute-derivatives" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>ファイル <tt class="file docutils literal"><span class="pre">getfem/getfem_derivatives.h</span></tt> は解の勾配を計算する次の関数を定義します:</p>
+<p>ファイル <tt class="file docutils literal"><span class="pre">getfem/getfem_derivatives.h</span></tt> は解の勾配を計算する次の関数を定義します。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">compute_gradient</span><span class="p">(</span><span class="n">mf1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">mf1</span></tt> は <cite>mesh_fem</cite> 型の変数で、解が定義されている有限要素法を記述します、 <tt class="docutils literal"><span class="pre">mf2</span></tt> は勾配を計算する有限要素法を記述し、 <tt class="docutils literal"><span class="pre">U</span></tt> は解を表すベクトルであり、サイズは <tt class="docutils literal"><span class="pre">mf1.nb_dof()</span></tt> である必要があります、 <tt class="docutils literal"><span class="pre">V</span></tt> は勾配が計算されるベクトルでありサイズが <tt class="docutils literal"><span class="pre">N</span> <span class="pre">*</span> <span class="pre">mf2.nb_dof()</span></tt> で、領域の次元が <tt class="docutils literal"><span class="pre">N</span></tt> でなければなりません。</p>
+<p>ここで <tt class="docutils literal"><span class="pre">mf1</span></tt> は <cite>mesh_fem</cite> 型の変数で、解が定義されている有限要素法を記述します、 <tt class="docutils literal"><span class="pre">mf2</span></tt> は勾配を計算する有限要素法を記述し、 <tt class="docutils literal"><span class="pre">U</span></tt> は解を表すベクトルであり、サイズは <tt class="docutils literal"><span class="pre">mf1.nb_dof()</span></tt> である必要があります、 <tt class="docutils literal"><span class="pre">V</span></tt> は勾配が計算されるベクトルであり、サイズが <tt class="docutils literal"><span class="pre">N</span> <span class="pre">*</span> <span class="pre">mf2.nb_dof()</span></tt> で、領域の次元は <tt class="docutils literal"><span class="pre">N</span></tt> でなければなりません。</p>
 </div>
 
 
@@ -77,11 +77,11 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="computeL2H1.html"
-                        title="前の章へ"><img class="math" src="../images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> と <img class="math" src="../images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> ノルムの計算</a></p>
+                        title="前の章へ"><img class="math" src="../_images/math/07c3de5211dc08b13546363f8b139700a16dd963.png" alt="L^2" style="vertical-align: 0px"/> と <img class="math" src="../_images/math/ee500eed1910756eedebc53f0079d3aaf7a5753f.png" alt="H^1" style="vertical-align: 0px"/> ノルムの計算</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="export.html"
                         title="次の章へ">解の出力と表示</a></p>            <h3>Download</h3>
@@ -134,11 +134,11 @@
         <li class="right" >
           <a href="computeL2H1.html" title="と ノルムの計算"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

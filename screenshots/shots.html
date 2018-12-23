@@ -8,8 +8,8 @@
     
     <title>GetFEM++ in action ... &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,17 +20,17 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="next" title="Matlab source code for the tripod" href="tripod_source.html" />
     <link rel="prev" title="GetFEM++ Mailing Lists" href="../lists.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -47,7 +47,7 @@
         <li class="right" >
           <a href="../lists.html" title="GetFEM++ Mailing Lists"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  
@@ -63,12 +63,12 @@
 <span id="screenshots"></span><h1>GetFEM++ in action ...<a class="headerlink" href="#getfem-in-action" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="generic-mesh-handling">
 <h2>Generic mesh handling<a class="headerlink" href="#generic-mesh-handling" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The first images illustrate the general mesh handling of getfem. The <a class="reference external" href="../static/strange.mesh_fem">mesh description</a>
+<p>The first images illustrate the general mesh handling of getfem. The <a class="reference external" href="../_static/strange.mesh_fem">mesh description</a>
 is hand-made, and involves many different element types and convex types, as you can see
 (the mesh, and a random function interpolated on the mesh):</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../static/strangemesh.png"><img alt="im1" src="../images/strangemesh_small.png" /></a>
- <a class="reference external image-reference" href="../static/strangernd.png"><img alt="im2" src="../images/strangernd_small.png" /></a>
+<strong><a class="reference external image-reference" href="../_static/strangemesh.png"><img alt="im1" src="../_images/strangemesh_small.png" /></a>
+ <a class="reference external image-reference" href="../_static/strangernd.png"><img alt="im2" src="../_images/strangernd_small.png" /></a>
 </strong></p><p>The mesh is 3D. There is a quadrangle, a curved quadrangle/triangle, a kind of curved
 prism and hexahedron, and a very curved (geometrical transformation of degree 3)
 quadrangle.</p>
@@ -81,7 +81,7 @@ computed on a P2 FEM (i.e. P2 isoparametric FEM). Below is the Von Mises stress,
 represented on the deformed tripod. The source code of this example uses the matlab
 interface, and can be found here: <a class="reference internal" href="tripod_source.html#tripod-source"><em>Matlab source code for the tripod</em></a>.</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../static/tripodvonmiseswithmesh.png"><img alt="im-tri" src="../images/tripodvonmiseswithmesh_small.png" /></a>
+<strong><a class="reference external image-reference" href="../_static/tripodvonmiseswithmesh.png"><img alt="im-tri" src="../_images/tripodvonmiseswithmesh_small.png" /></a>
 </strong></p><p>If you want to see what is inside the tripod, download the following animation (mpeg-4
 movie, 6MB, 45secs) <a class="reference external" href="http://getfem.org/misc/tripod_slice.avi">tripod_slice.avi</a></p>
 </div>
@@ -92,11 +92,11 @@ and the solution is computed on a mixed P2+/P1 FEM (P2 with a cubic bubble for t
 velocity field, and discontinuous P1 for the pressure field). The source code is here:
 <a class="reference internal" href="stokes-source.html#stokes-source"><em>Matlab source code for the Stokes equation example</em></a>.</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../static/tube.png"><img alt="im-sto" src="../images/tube_small.png" /></a>
+<strong><a class="reference external image-reference" href="../_static/tube.png"><img alt="im-sto" src="../_images/tube_small.png" /></a>
 </strong></p><p>The next example is still the Stokes problem, inside a 3D cylindrical tank. The picture show the norm of the fluid velocity, with some streamlines.
 3D tank</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../static/cuve_3D_streamlines.png"><img alt="im-cuve" src="../images/cuve_3D_streamlines_small.png" /></a>
+<strong><a class="reference external image-reference" href="../_static/cuve_3D_streamlines.png"><img alt="im-cuve" src="../_images/cuve_3D_streamlines_small.png" /></a>
 </strong></p></div>
 <div class="section" id="helmholtz-equation">
 <h2>Helmholtz equation<a class="headerlink" href="#helmholtz-equation" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -106,14 +106,14 @@ transformations are polynomials of degree 6. Computations are done with a P10 FE
 it is possible to have 2 wavelength per element ! (with a P1 fem, the rule is at least 6
 elements per wavelength). The source is here: <a class="reference internal" href="helmholtz_source.html#helmholtz-source"><em>Matlab source code for the Helmholtz equation example</em></a>.</p>
 <p class="centered">
-<strong><img alt="im-helm1" src="../images/helm_mesh_k7_P10_gt6.png" />
- <img alt="im-helm2" src="../images/helm_k7_P10_gt6.png" />
+<strong><img alt="im-helm1" src="../_images/helm_mesh_k7_P10_gt6.png" />
+ <img alt="im-helm2" src="../_images/helm_k7_P10_gt6.png" />
 </strong></p><p>helmholtz mesh the real part of the scaterred field</p>
 </div>
 <div class="section" id="eigenmodes-of-a-structure-thanks-to-paolo-bertolo">
 <h2>Eigenmodes of a structure (thanks to Paolo Bertolo)<a class="headerlink" href="#eigenmodes-of-a-structure-thanks-to-paolo-bertolo" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p class="centered">
-<strong><img alt="im-paolo" src="../images/modestructure_paolo_small.png" />
+<strong><img alt="im-paolo" src="../_images/modestructure_paolo_small.png" />
 </strong></p><p>eigenmode of a vibrating structure You can look at a small movie showing the 24 first
 modes of the structure: (mpeg1, 4MB) <a class="reference external" href="http://getfem.org/misc/oggetto_modes.mpeg">oggetto_modes.mpeg</a> or (mpeg4, 8MB)
 <a class="reference external" href="http://getfem.org/misc/oggetto_modes.avi">oggetto_modes.avi</a>.</p>
@@ -125,7 +125,7 @@ with one layer of regular hexahedric cells (384 cells), whose geometric transfor
 of order 2, and a Q2 FEM. This picture shows the Von Mises criterion on the deformed
 tire.</p>
 <p class="centered">
-<strong><img alt="im-houari" src="../images/pneu_Q2_vonmises_small.png" />
+<strong><img alt="im-houari" src="../_images/pneu_Q2_vonmises_small.png" />
 </strong></p><p>An animation of a (soft) elastic disk is also available (mpeg-4 movie, 4MB, 12secs)
 <a class="reference external" href="http://getfem.org/misc/disk_in_contact.avi">disk_in_contact.avi</a> (mpeg1, 1MB) (A newmark scheme adapted for the unilateral contact
 condition).</p>
@@ -138,16 +138,16 @@ Thanks to this function, the crack path does not have to follow the original mes
 how the crack cross elements on the mesh below. Four singular functions, which form a
 basis for asymptotical solution to the linear elasticity problem near the crack tips.</p>
 <p class="centered">
-<strong><img alt="im-crack" src="../images/xfembeammesh.png" />
+<strong><img alt="im-crack" src="../_images/xfembeammesh.png" />
 </strong></p><p class="centered">
-<strong><img alt="im-crack2" src="../images/xfembeam.png" />
+<strong><img alt="im-crack2" src="../_images/xfembeam.png" />
 </strong></p></div>
 <div class="section" id="a-3d-crack-made-via-level-set">
 <h2>A 3D crack, made via level-set<a class="headerlink" href="#a-3d-crack-made-via-level-set" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>In this example, the mesh was a simple cartesian mesh 20x20x1, and the crack geometry was
 defined implicitely via a levelset.</p>
 <p class="centered">
-<strong><img alt="im-crack3d" src="../images/fissure_3d_de_traviole.png" />
+<strong><img alt="im-crack3d" src="../_images/fissure_3d_de_traviole.png" />
 </strong></p></div>
 <div class="section" id="large-strain">
 <h2>Large strain<a class="headerlink" href="#large-strain" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -156,7 +156,7 @@ law is a &#8220;Ciarlet Geymonat&#8221; one. A P2 FEM is used. The source code f
 be found in the <cite>tests/nonlinear_elastostatic.cc</cite> file of <em>GetFEM++</em> package. This picture was
 made with OpenDX.</p>
 <p class="centered">
-<strong><img alt="im-largestrain" src="../images/torsion034.png" />
+<strong><img alt="im-largestrain" src="../_images/torsion034.png" />
 </strong></p><p>A short animation is also available: (mpeg-4 movie, 3MB) <a class="reference external" href="http://getfem.org/misc/torsion.avi">torsion.avi</a>.</p>
 </div>
 <div class="section" id="shape-and-topological-optimization">
@@ -167,21 +167,21 @@ represents a shape optimization of a structure submitted to a vertical load at t
 and clambed at the left. A (Xfem like) fictitious domain approach is used together with
 both a shape gradient and a topological gradient.</p>
 <p class="centered">
-<strong><img alt="im-shape1" src="../images/shape1.png" />
- <img alt="im-shape2" src="../images/shape2.png" />
+<strong><img alt="im-shape1" src="../_images/shape1.png" />
+ <img alt="im-shape2" src="../_images/shape2.png" />
 </strong></p><p>The first image corresponds to an initial structure with pre-existing holes. For the
 second one the holes are initiated by the topological optimization. The two following
 images correspond to a 3D case.</p>
 <p class="centered">
-<strong><img alt="im-shape3" src="../images/shape3.png" />
- <img alt="im-shape4" src="../images/shape4.png" />
+<strong><img alt="im-shape3" src="../_images/shape3.png" />
+ <img alt="im-shape4" src="../_images/shape4.png" />
 </strong></p></div>
 <div class="section" id="d-planetary-gears">
 <h2>3D planetary gears<a class="headerlink" href="#d-planetary-gears" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This image comes from the application developped by Konstantinos Poulios
 which is freely available at <a class="reference external" href="http://sourceforge.net/projects/gggears/"><a class="reference external" href="http://sourceforge.net/projects/gggears/">http://sourceforge.net/projects/gggears/</a></a>. It is based on <em>GetFEM++</em> and is intended to be a tool for easy, almost automatic, creation and calculation of gear transmissions.</p>
 <p class="centered">
-<strong><a class="reference external image-reference" href="../static/gear.png"><img alt="im-gear" src="../images/gear.png" /></a>
+<strong><a class="reference external image-reference" href="../_static/gear.png"><img alt="im-gear" src="../_images/gear.png" /></a>
 </strong></p></div>
 </div>
 
@@ -192,7 +192,7 @@ which is freely available at <a class="reference external" href="http://sourcefo
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -267,7 +267,7 @@ which is freely available at <a class="reference external" href="http://sourcefo
         <li class="right" >
           <a href="../lists.html" title="GetFEM++ Mailing Lists"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
  

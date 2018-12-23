@@ -8,8 +8,8 @@
     
     <title>gf_asm &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_compute" href="cmdref_gf_compute.html" />
     <link rel="prev" title="Command reference" href="cmdref.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -65,33 +65,33 @@
   <div class="section" id="gf-asm">
 <h1>gf_asm<a class="headerlink" href="#gf-asm" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>{...} = gf_asm('generic', mesh_im mim, int order, string expression, int region, [model model, ['Secondary_domain', 'name',]] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], ...)
-M = gf_asm('mass matrix', mesh_im mim, mesh_fem mf1[, mesh_fem mf2[, int region]])
-L = gf_asm('laplacian', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
-Le = gf_asm('linear elasticity', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec lambda_d, vec mu_d[, int region])
-TRHS = gf_asm('nonlinear elasticity', mesh_im mim, mesh_fem mf_u, vec U, string law, mesh_fem mf_d, mat params, {'tangent matrix'|'rhs'|'incompressible tangent matrix', mesh_fem mf_p, vec P|'incompressible rhs', mesh_fem mf_p, vec P})
-A = gf_asm('helmholtz', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec k[, int region])
-A = gf_asm('bilaplacian', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
-A = gf_asm('bilaplacian KL', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a, vec nu[, int region])
-V = gf_asm('volumic source', mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec fd[, int region])
-B = gf_asm('boundary source', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec G)
-{HH, RR} = gf_asm('dirichlet', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat H, vec R [, scalar threshold])
-Q = gf_asm('boundary qu term',int boundary_num, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat q)
-gf_asm('define function', string name, int nb_args, string expression[, string expression_derivative_t[, string expression_derivative_u]])
-gf_asm('undefine function', string name)
-gf_asm('define linear hardening function', string name, scalar sigma_y0, scalar H, ... [string 'Frobenius'])
-gf_asm('define Ramberg Osgood hardening function', string name, scalar sigma_ref, {scalar eps_ref | scalar E, scalar alpha}, scalar n[, string 'Frobenius'])
-gf_asm('expression analysis', string expression [, {@tm mesh | mesh_im mim}] [, der_order] [, model model] [, string varname, int is_variable[, {mesh_fem mf | mesh_imd mimd}], ...])
-{...} = gf_asm('volumic' [,CVLST], expr [, mesh_ims, mesh_fems, data...])
-{...} = gf_asm('boundary', int bnum, string expr [, mesh_im mim, mesh_fem mf, data...])
-Mi = gf_asm('interpolation matrix', mesh_fem mf, {mesh_fem mfi | vec pts})
-Me = gf_asm('extrapolation matrix',mesh_fem mf,  {mesh_fem mfe | vec pts})
-B = gf_asm('integral contact Uzawa projection', int bnum, mesh_im mim, mesh_fem mf_u, vec U, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_obstacle, vec obstacle, scalar r [, {scalar coeff | mesh_fem mf_coeff, vec coeff} [, int option[, scalar alpha, vec W]]])
-B = gf_asm('level set normal source term', int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_levelset, vec levelset)
-M = gf_asm('lsneuman matrix', mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
-M = gf_asm('nlsgrad matrix', mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
-M = gf_asm('stabilization patch matrix', @tm mesh, mesh_fem mf,  mesh_im mim, real ratio, real h)
-{Q, G, H, R, F} = gf_asm('pdetool boundary conditions', mf_u, mf_d, b, e[, f_expr])</pre>
+<div class="highlight-python"><pre>{...} = gf_asm(&#x27;generic&#x27;, mesh_im mim, int order, string expression, int region, [model model, [&#x27;Secondary_domain&#x27;, &#x27;name&#x27;,]] [string varname, int is_variable[, {mesh_fem mf, mesh_imd mimd}], value], [&#x27;select_output&#x27;, &#x27;varname1&#x27;[, &#x27;varname2]], ...)
+M = gf_asm(&#x27;mass matrix&#x27;, mesh_im mim, mesh_fem mf1[, mesh_fem mf2[, int region]])
+L = gf_asm(&#x27;laplacian&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
+Le = gf_asm(&#x27;linear elasticity&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec lambda_d, vec mu_d[, int region])
+TRHS = gf_asm(&#x27;nonlinear elasticity&#x27;, mesh_im mim, mesh_fem mf_u, vec U, string law, mesh_fem mf_d, mat params, {&#x27;tangent matrix&#x27;|&#x27;rhs&#x27;|&#x27;incompressible tangent matrix&#x27;, mesh_fem mf_p, vec P|&#x27;incompressible rhs&#x27;, mesh_fem mf_p, vec P})
+A = gf_asm(&#x27;helmholtz&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec k[, int region])
+A = gf_asm(&#x27;bilaplacian&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a[, int region])
+A = gf_asm(&#x27;bilaplacian KL&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec a, vec nu[, int region])
+V = gf_asm(&#x27;volumic source&#x27;, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec fd[, int region])
+B = gf_asm(&#x27;boundary source&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, vec G)
+{HH, RR} = gf_asm(&#x27;dirichlet&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat H, vec R [, scalar threshold])
+Q = gf_asm(&#x27;boundary qu term&#x27;,int boundary_num, mesh_im mim, mesh_fem mf_u, mesh_fem mf_d, mat q)
+gf_asm(&#x27;define function&#x27;, string name, int nb_args, string expression[, string expression_derivative_t[, string expression_derivative_u]])
+gf_asm(&#x27;undefine function&#x27;, string name)
+gf_asm(&#x27;define linear hardening function&#x27;, string name, scalar sigma_y0, scalar H, ... [string &#x27;Frobenius&#x27;])
+gf_asm(&#x27;define Ramberg Osgood hardening function&#x27;, string name, scalar sigma_ref, {scalar eps_ref | scalar E, scalar alpha}, scalar n[, string &#x27;Frobenius&#x27;])
+gf_asm(&#x27;expression analysis&#x27;, string expression [, {mesh mesh | mesh_im mim}] [, der_order] [, model model] [, string varname, int is_variable[, {mesh_fem mf | mesh_imd mimd}], ...])
+{...} = gf_asm(&#x27;volumic&#x27; [,CVLST], expr [, mesh_ims, mesh_fems, data...])
+{...} = gf_asm(&#x27;boundary&#x27;, int bnum, string expr [, mesh_im mim, mesh_fem mf, data...])
+Mi = gf_asm(&#x27;interpolation matrix&#x27;, mesh_fem mf, {mesh_fem mfi | vec pts})
+Me = gf_asm(&#x27;extrapolation matrix&#x27;,mesh_fem mf,  {mesh_fem mfe | vec pts})
+B = gf_asm(&#x27;integral contact Uzawa projection&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, vec U, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_obstacle, vec obstacle, scalar r [, {scalar coeff | mesh_fem mf_coeff, vec coeff} [, int option[, scalar alpha, vec W]]])
+B = gf_asm(&#x27;level set normal source term&#x27;, int bnum, mesh_im mim, mesh_fem mf_u, mesh_fem mf_lambda, vec vec_lambda, mesh_fem mf_levelset, vec levelset)
+M = gf_asm(&#x27;lsneuman matrix&#x27;, mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
+M = gf_asm(&#x27;nlsgrad matrix&#x27;, mesh_im mim, mesh_fem mf1, mesh_fem mf2, levelset ls[, int region])
+M = gf_asm(&#x27;stabilization patch matrix&#x27;, @tm mesh, mesh_fem mf,  mesh_im mim, real ratio, real h)
+{Q, G, H, R, F} = gf_asm(&#x27;pdetool boundary conditions&#x27;, mf_u, mf_d, b, e[, f_expr])</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -105,47 +105,53 @@ necessary.</p>
 </div></blockquote>
 <p><strong>Command list :</strong></p>
 <blockquote>
-<div><p><tt class="docutils literal"><span class="pre">{...}</span> <span class="pre">=</span> <span class="pre">gf_asm('generic',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">int</span> <span class="pre">order,</span> <span class="pre">string</span> <span class="pre">expression,</span> <span class="pre">int</span> <span class="pre">region,</span> <span class="pre">[model</span> <span class="pre">model,</span> <span class="pre">['Secondary_domain',</span> <span class="pre">'name',]]</span> <span class="pre">[string</span> <span class="pre">varname,</span> <span class="pre">int</span> <span class="pre">is_variable[,</span> <span class="pre">{mesh_fem</span> <span class="pre">mf,</span> <span class="pre">mesh_imd</span> <span class="pre">mimd}],</span> <span class="pre">value],</span> <span class="pre">...)</span></tt></p>
+<div><p><tt class="docutils literal"><span class="pre">{...}</span> <span class="pre">=</span> <span class="pre">gf_asm('generic',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">int</span> <span class="pre">order,</span> <span class="pre">string</span> <span class="pre">expression,</span> <span class="pre">int</span> <span class="pre">region,</span> <span class="pre">[model</span> <span class="pre">model,</span> <span class="pre">['Secondary_domain',</span> <span class="pre">'name',]]</span> <span class="pre">[string</span> <span class="pre">varname,</span> <span class="pre">int</span> <span class="pre">is_variable[,</span> <span class="pre">{mesh_fem</span> <span class="pre">mf,</span> <span class="pre">mesh_imd</span> <span class="pre">mimd}],</span> <span class="pre">value],</span> <span class="pre">['select_output',</span> <span class="pre">'varname1'[,</span> <span class="pre">'varname2]],</span> <span class="pre">...)</span></tt></p>
 <blockquote>
 <div><p>High-level generic assembly procedure for volumic or boundary assembly.</p>
 <p>Performs the generic assembly of <cite>expression</cite> with the integration
 method <cite>mim</cite> on the mesh region of index <cite>region</cite> (-1 means all
-the element of the mesh). The same mesh should be shared by
+elements of the mesh). The same mesh should be shared by
 the integration method and all the finite element methods or
 mesh_im_data corresponding to the variables.</p>
 <p><cite>order</cite> indicates either that the (scalar) potential
 (order = 0) or the (vector) residual (order = 1) or the
 tangent (matrix) (order = 2) is to be computed.</p>
 <p><cite>model</cite> is an optional parameter allowing to take into account
-all variables and data of a model. Optionnally, for the integration
-on the product of two domains, a secondary domain of the model can
-be specified after a &#8216;Secondary_domain&#8217; string.</p>
-<p>The variables and constant (data) are listed after the
-region number (or optionally the model).
-For each variable/constant, first the variable/constant
-name should be given (as it is referred in the assembly string), then
-1 if it is a variable or 0 for a constant, then the finite element
-method if it is a fem variable/constant or the mesh_im_data if it is
-data defined on integration points, and the vector representing
-the value of the variable/constant. It is possible to give an arbitrary
-number of variable/constant. The difference between a variable and a
-constant is that automatic differentiation is done with respect to
-variables only (see GetFEM++ user documentation). Test functions are
-only available for variables, not for constants.</p>
+all variables and data of a model. Note that all enabled variables
+of the model will occupy space in the returned vector/matrix
+corresponding to their degrees of freedom in the global system, even
+if they are not present in <cite>expression</cite>.</p>
+<p>The variables and constants (data) are listed after the region number
+(or optionally the model).
+For each variable/constant, a name must be given first (as it is
+referred in the assembly string), then an integer equal to 1 or 0
+is expected respectively for declaring a variable or a constant,
+then the finite element method if it is a fem variable/constant or
+the mesh_im_data if it is data defined on integration points, and
+the vector representing the value of the variable/constant.
+It is possible to give an arbitrary number of variable/constant.
+The difference between a variable and a constant is that test
+functions are only available for variables, not for constants.</p>
+<p><cite>select_output</cite> is an optional parameter which allows to reduce the
+output vecotr (for <cite>order</cite> equal to 1) or the matrix (for <cite>order</cite>
+equal to 2) to the degrees of freedom of the specified variables.
+One variable has to be specified for a vector ouptut and two for a
+matrix output.</p>
 <p>Note that if several variables are given, the assembly of the
 tangent matrix/residual vector will be done considering the order
 in the call of the function (the degrees of freedom of the first
-variable, then of the second, and so on). If a model is provided,
-all degrees of freedom of the model will be counted first.</p>
+variable, then of the second one, and so on). If a model is provided,
+all degrees of freedom of the model will be counted first, even if
+some of the model variables do not appear in <cite>expression</cite>.</p>
 <p>For example, the L2 norm of a vector field &#8220;u&#8221; can be computed with:</p>
-<div class="highlight-python"><pre>gf_compute('L2 norm') or with the square root of:
+<div class="highlight-python"><pre>gf_compute(&#x27;L2 norm&#x27;) or with the square root of:
 
-gf_asm('generic', mim, 0, 'u.u', -1, 'u', 1, mf, U);</pre>
+gf_asm(&#x27;generic&#x27;, mim, 0, &#x27;u.u&#x27;, -1, &#x27;u&#x27;, 1, mf, U);</pre>
 </div>
 <p>The nonhomogeneous Laplacian stiffness matrix of a scalar field can be evaluated with:</p>
-<div class="highlight-python"><pre>gf_asm('laplacian', mim, mf, mf_data, A) or equivalently with:
+<div class="highlight-python"><pre>gf_asm(&#x27;laplacian&#x27;, mim, mf, mf_data, A) or equivalently with:
 
-gf_asm('generic', mim, 2, 'A*Grad_Test2_u.Grad_Test_u', -1, 'u', 1, mf, U, 'A', 0, mf_data, A);</pre>
+gf_asm(&#x27;generic&#x27;, mim, 2, &#x27;A*Grad_Test2_u.Grad_Test_u&#x27;, -1, &#x27;u&#x27;, 1, mf, U, &#x27;A&#x27;, 0, mf_data, A);</pre>
 </div>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">gf_asm('mass</span> <span class="pre">matrix',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf1[,</span> <span class="pre">mesh_fem</span> <span class="pre">mf2[,</span> <span class="pre">int</span> <span class="pre">region]])</span></tt></p>
@@ -156,14 +162,14 @@ gf_asm('generic', mim, 2, 'A*Grad_Test2_u.Grad_Test_u', -1, 'u', 1, mf, U, 'A', 
 <p><tt class="docutils literal"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">gf_asm('laplacian',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">a[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Laplacian problem.</p>
-<p><img class="math" src="../images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
+<p><img class="math" src="../_images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">Le</span> <span class="pre">=</span> <span class="pre">gf_asm('linear</span> <span class="pre">elasticity',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">lambda_d,</span> <span class="pre">vec</span> <span class="pre">mu_d[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembles of the matrix for the linear (isotropic) elasticity problem.</p>
-<p><img class="math" src="../images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
-with <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
+<p><img class="math" src="../_images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
+with <img class="math" src="../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">TRHS</span> <span class="pre">=</span> <span class="pre">gf_asm('nonlinear</span> <span class="pre">elasticity',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">vec</span> <span class="pre">U,</span> <span class="pre">string</span> <span class="pre">law,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">mat</span> <span class="pre">params,</span> <span class="pre">{'tangent</span> <span class="pre">matrix'|'rhs'|'incompressible</span> <span class="pre">tangent</span> <span class="pre">matrix',</span> <span class="pre">mesh_fem</span> <span class="pre">mf_p,</span> <span class="pre">vec</span> <span class="pre">P|'incompressible</span> <span class="pre">rhs',</span> <span class="pre">mesh_fem</span> <span class="pre">mf_p,</span> <span class="pre">vec</span> <span class="pre">P})</span></tt></p>
@@ -201,19 +207,19 @@ tuple of vec objects (incompressible right hand side).</p>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('helmholtz',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">k[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Helmholtz problem.</p>
-<p><img class="math" src="../images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
+<p><img class="math" src="../_images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('bilaplacian',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">a[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Bilaplacian problem.</p>
-<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('bilaplacian</span> <span class="pre">KL',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">a,</span> <span class="pre">vec</span> <span class="pre">nu[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Bilaplacian problem with Kirchhoff-Love formulation.</p>
-<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_asm('volumic</span> <span class="pre">source',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">fd[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
@@ -240,7 +246,7 @@ size is equal to the dimension of the unkown u. This matrix is
 stored in <cite>H</cite>, one column per dof in <cite>mf_d</cite>, each column containing
 the values of the matrix h stored in fortran order:</p>
 <div class="math">
-<p><img src="../images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
+<p><img src="../_images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
 </div><p>if u is a 2D vector field.</p>
 <p>Of course, if the unknown is a scalar field, you just have to set
 <cite>H = ones(1, N)</cite>, where N is the number of dof of <cite>mf_d</cite>.</p>
@@ -291,7 +297,7 @@ with initial yield stress <cite>sigma_y0</cite> and hardening modulus H.
 If an extra string argument with the value &#8216;Frobenius&#8217; is provided,
 the hardening function is expressed in terms of Frobenius norms of its
 input strain and output stress, instead of their Von-Mises equivalents.</div></blockquote>
-<p><tt class="docutils literal"><span class="pre">gf_asm('expression</span> <span class="pre">analysis',</span> <span class="pre">string</span> <span class="pre">expression</span> <span class="pre">[,</span> <span class="pre">{&#64;tm</span> <span class="pre">mesh</span> <span class="pre">|</span> <span class="pre">mesh_im</span> <span class="pre">mim}]</span> <span class="pre">[,</span> <span class="pre">der_order]</span> <span class="pre">[,</span> <span class="pre">model</span> <span class="pre">model]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">varname,</span> <span class="pre">int</span> <span class="pre">is_variable[,</span> <span class="pre">{mesh_fem</span> <span class="pre">mf</span> <span class="pre">|</span> <span class="pre">mesh_imd</span> <span class="pre">mimd}],</span> <span class="pre">...])</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">gf_asm('expression</span> <span class="pre">analysis',</span> <span class="pre">string</span> <span class="pre">expression</span> <span class="pre">[,</span> <span class="pre">{mesh</span> <span class="pre">mesh</span> <span class="pre">|</span> <span class="pre">mesh_im</span> <span class="pre">mim}]</span> <span class="pre">[,</span> <span class="pre">der_order]</span> <span class="pre">[,</span> <span class="pre">model</span> <span class="pre">model]</span> <span class="pre">[,</span> <span class="pre">string</span> <span class="pre">varname,</span> <span class="pre">int</span> <span class="pre">is_variable[,</span> <span class="pre">{mesh_fem</span> <span class="pre">mf</span> <span class="pre">|</span> <span class="pre">mesh_imd</span> <span class="pre">mimd}],</span> <span class="pre">...])</span></tt></p>
 <blockquote>
 <div>Analyse a high-level generic assembly expression and print
 information about the provided expression.</div></blockquote>
@@ -304,14 +310,14 @@ For details about the syntax of assembly expressions, please refer
 to the getfem user manual (or look at the file getfem_assembling.h
 in the getfem++ sources).</p>
 <p>For example, the L2 norm of a field can be computed with:</p>
-<div class="highlight-python"><pre>gf_compute('L2 norm') or with the square root of:
+<div class="highlight-python"><pre>gf_compute(&#x27;L2 norm&#x27;) or with the square root of:
 
-gf_asm('volumic','u=data(#1); V()+=u(i).u(j).comp(Base(#1).Base(#1))(i,j)',mim,mf,U)</pre>
+gf_asm(&#x27;volumic&#x27;,&#x27;u=data(#1); V()+=u(i).u(j).comp(Base(#1).Base(#1))(i,j)&#x27;,mim,mf,U)</pre>
 </div>
 <p>The Laplacian stiffness matrix can be evaluated with:</p>
-<div class="highlight-python"><pre>gf_asm('laplacian',mim, mf, mf_data, A) or equivalently with:
+<div class="highlight-python"><pre>gf_asm(&#x27;laplacian&#x27;,mim, mf, mf_data, A) or equivalently with:
 
-gf_asm('volumic','a=data(#2);M(#1,#1)+=sym(comp(Grad(#1).Grad(#1).Base(#2))(:,i,:,i,j).a(j))', mim,mf,mf_data,A);</pre>
+gf_asm(&#x27;volumic&#x27;,&#x27;a=data(#2);M(#1,#1)+=sym(comp(Grad(#1).Grad(#1).Base(#2))(:,i,:,i,j).a(j))&#x27;, mim,mf,mf_data,A);</pre>
 </div>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">{...}</span> <span class="pre">=</span> <span class="pre">gf_asm('boundary',</span> <span class="pre">int</span> <span class="pre">bnum,</span> <span class="pre">string</span> <span class="pre">expr</span> <span class="pre">[,</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf,</span> <span class="pre">data...])</span></tt></p>
@@ -389,7 +395,7 @@ ones returned by the function ASSEMB from PDETOOL.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref.html"
@@ -446,7 +452,7 @@ ones returned by the function ASSEMB from PDETOOL.</p>
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

@@ -8,8 +8,8 @@
     
     <title>GetFEM++ に新しい近似積分法を組み込む &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="レベル集合法、拡張有限要素法(Xfem)、仮想領域有限要素法、切断有限要素法" href="xfem.html" />
     <link rel="prev" title="GetFEM++ に新しい有限要素法を組み込む" href="ifem.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,11 +48,11 @@
         <li class="right" >
           <a href="ifem.html" title="GetFEM++ に新しい有限要素法を組み込む"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,7 +63,7 @@
             
   <div class="section" id="incorporate-new-approximated-integration-methods-in-gf">
 <span id="ud-iinteg"></span><h1><em>GetFEM++</em> に新しい近似積分法を組み込む<a class="headerlink" href="#incorporate-new-approximated-integration-methods-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>perlスクリプトは記述ファイルから新しい立方体法を自動的に組み込みます。このような記述ファイル（拡張子は <tt class="docutils literal"><span class="pre">.IM</span></tt> ）はディレクトリ <tt class="docutils literal"><span class="pre">cubature</span></tt> にあります。たとえば、 <tt class="docutils literal"><span class="pre">IM_TETRAHEDRON(5)</span></tt> の場合、次のファイルはメソッドを記述しています:</p>
+<p>perlスクリプトは記述ファイルから新しい立方体法を自動的に組み込みます。このような記述ファイル（拡張子は <tt class="docutils literal"><span class="pre">.IM</span></tt> ）はディレクトリ <tt class="docutils literal"><span class="pre">cubature</span></tt> にあります。たとえば、 <tt class="docutils literal"><span class="pre">IM_TETRAHEDRON(5)</span></tt> の場合、次のファイルは積分法を記述しています。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">NAME</span> <span class="o">=</span> <span class="n">IM_TETRAHEDRON</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">GEOTRANS</span> <span class="o">=</span> <span class="n">GT_PK</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -78,18 +78,18 @@
 <span class="n">IM_TRIANGLE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>ここで、 <tt class="docutils literal"><span class="pre">NAME</span></tt> は、 <em>GetFEM++</em> （定数整数パラメータが許される）のメソッド名です。<tt class="docutils literal"><span class="pre">N</span></tt> は次元、 <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt> は <em>GetFEM++</em> の有効な幾何変換を記述します。この幾何学変換は、積分法が記述されている基準要素を定義するだけです。 <tt class="docutils literal"><span class="pre">NBPT</span></tt> は積分節点定義の数です。積分節点定義には積分節点の総数が <tt class="docutils literal"><span class="pre">NBPT</span></tt> より大きい対称定義が含まれています。</p>
-<p>積分節点定義の構成：</p>
+<p>ここで、 <tt class="docutils literal"><span class="pre">NAME</span></tt> は、 <em>GetFEM++</em> （定数整数パラメータが許される）の手法名です。<tt class="docutils literal"><span class="pre">N</span></tt> は次元、 <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt> は <em>GetFEM++</em> の有効な幾何変換を記述します。この幾何学変換は、積分法が記述されている基準要素を定義するだけです。 <tt class="docutils literal"><span class="pre">NBPT</span></tt> は積分節点定義の数です。積分節点定義には積分節点の総数が <tt class="docutils literal"><span class="pre">NBPT</span></tt> より大きい対称定義が含まれています。</p>
+<p>積分節点定義の構成は次の通りです。</p>
 <ul class="simple">
-<li><p class="first">整数：0 = 対称性なし、1 = 完全対称（3角形の場合はx6、四角形の場合はx4、4面体の場合はx24 ...）、</p>
+<li><p class="first">整数：0 = 対称性なし、1 = 完全対称（3角形の場合はx6、4角形の場合はx4、4面体の場合はx24 ...）、</p>
 </li>
 <li><p class="first">積分節点の <tt class="docutils literal"><span class="pre">N</span></tt> 座標、</p>
 </li>
 <li><p class="first">荷重。</p>
 </li>
 </ul>
-<p><tt class="docutils literal"><span class="pre">NBF</span></tt> は参照要素の面の数です（ <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt> に対応する必要があります）。次に、既存の積分方法を各面（各面に1つずつ）に設定します。これは、境界を積分するために必要です。</p>
-<p>ファイル形式は <a class="reference internal" href="../biblio.html#encyclopcubature" id="id1">[EncyclopCubature]</a> からインスピレーションを受けています。</p>
+<p><tt class="docutils literal"><span class="pre">NBF</span></tt> は参照要素の面の数です（ <tt class="docutils literal"><span class="pre">GEOTRANS</span></tt> に対応する必要があります）。次に、既存の積分法を各面（各面に1つずつ）に設定します。これは、境界を積分するために必要です。</p>
+<p>ファイルフォーマットは <a class="reference internal" href="../biblio.html#encyclopcubature" id="id1">[EncyclopCubature]</a> からインスピレーションを受けています。</p>
 </div>
 
 
@@ -99,7 +99,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="ifem.html"
@@ -156,11 +156,11 @@
         <li class="right" >
           <a href="ifem.html" title="GetFEM++ に新しい有限要素法を組み込む"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

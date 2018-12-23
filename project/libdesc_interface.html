@@ -8,8 +8,8 @@
     
     <title>スクリプト言語 (Python、Scilab、Matlab) とのインタフェース &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="付録A.参照要素と実要素の基本的な計算" href="appendixA.html" />
     <link rel="prev" title="継続モジュール" href="libdesc_cont.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_cont.html" title="継続モジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -251,7 +251,7 @@
 <p>前の3つの関数は、ファイル: &#8216; getfemint &#8216; の末尾に実装する必要があります。ファイル: &#8216; getfemint &#8216; で定義されている2つのマクロのいずれかを使用することができます。もみのマクロは標準的な目的のためであり、で操作される目的のための二番目のものは | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>共有ポインタを使用します。</p>
 <p>また、&#8217; &#8216; name_of_getfemint_class_id &#8216; &#8216; と &#8216; &#8216; class_id_of_object &#8216; &#8216; の最後には、&#8217; getfemint &#8216; という関数を完成させる必要があります。</p>
 <p>あなたは、インターフェイス関数の呼び出しを追加する必要があります: ファイル: &#8216; getfem_interface &#8216; と変更ファイル: ファイル: &#8216; bin/extract_doc &#8216; と構成ファイルを実行します。</p>
-<p>メソッド &#8216; &#8216; get (&#8216; char &#8216;) &#8216; &#8216; および &#8216; &#8216; get (&#8216; display &#8216;) &#8216; &#8216; は、各オブジェクトに対して定義する必要があります。最初の1つは、オブジェクトがファイルに保存され、2番目のオブジェクトに関するいくつかの情報を与えることができるように文字列を与える必要があります。Additionnaly、文字列からのコンストラクターは、ファイルからオブジェクトを読み込む必要があります。</p>
+<p>The methods <tt class="docutils literal"><span class="pre">get('char')</span></tt> and <tt class="docutils literal"><span class="pre">get('display')</span></tt> should be defined for each object. The first one should give a string allowing the object to be saved in a file and the second one is to give some information about the object. Additionaly, a constructor from a string is necessary to load the object from a file.</p>
 <p>Scilab インターフェイスのためにファイル: ファイル: &#8216; sci_gateway/c/builder_gateway_c. in &#8216; は、ディレクトリ内のファイルを変更することがあります: ファイル: &#8216; マクロ/オーバーロード &#8216;。</p>
 </div>
 <div class="section" id="state">
@@ -270,7 +270,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -341,7 +341,7 @@
         <li class="right" >
           <a href="libdesc_cont.html" title="継続モジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

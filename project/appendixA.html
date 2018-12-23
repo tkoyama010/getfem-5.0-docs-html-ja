@@ -8,8 +8,8 @@
     
     <title>付録A.参照要素と実要素の基本的な計算 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="$B%W%m%8%’%/%H$N@bL@(B" href="index.html" />
     <link rel="next" title="References" href="../biblio.html" />
     <link rel="prev" title="スクリプト言語 (Python、Scilab、Matlab) とのインタフェース" href="libdesc_interface.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_interface.html" title="スクリプト言語 (Python、Scilab、Matlab) とのインタフェース"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -67,7 +67,7 @@
 <h2>体積積分<a class="headerlink" href="#volume-integral" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>1つは持っている</p>
 <div class="math">
-<p><img src="../images/math/f0df30ce2e74507fd30ef9fbb1ab194afed49406.png" alt="\int_T f(x)\ dx = \int_{\widehat{T}} \widehat{f}(\widehat{x})
+<p><img src="../_images/math/f0df30ce2e74507fd30ef9fbb1ab194afed49406.png" alt="\int_T f(x)\ dx = \int_{\widehat{T}} \widehat{f}(\widehat{x})
 |\mbox{vol}\left(
 \frac{\partial\tau(\widehat{x})}{\partial \widehat{x}_0};
 \frac{\partial\tau(\widehat{x})}{\partial \widehat{x}_1};
@@ -76,7 +76,7 @@
 \right)|\ d\widehat{x}."/></p>
 </div><p>意味：数学： <a href="#id1"><span class="problematic" id="id2">`</span></a><a href="#id1"><span class="problematic" id="id2">J_</span></a> {tau}（ワイドハット{x}）`ジャコビア</p>
 <div class="math">
-<p><img src="../images/math/c207c5cd1e785543ca4d9cb9a41eac798ff13525.png" alt="\fbox{$ J_{\tau}(\widehat{x}) :=
+<p><img src="../_images/math/c207c5cd1e785543ca4d9cb9a41eac798ff13525.png" alt="\fbox{$ J_{\tau}(\widehat{x}) :=
 |\mbox{vol}\left(
 \frac{\partial\tau(\widehat{x})}{\partial \widehat{x}_0};
 \frac{\partial\tau(\widehat{x})}{\partial \widehat{x}_1};
@@ -86,18 +86,18 @@
 (\mbox{det}(K(\widehat{x})^T K(\widehat{x})))^{1/2}$,}"/></p>
 </div><p>1つはついに</p>
 <div class="math">
-<p><img src="../images/math/783c89b33a9d91f4aedb61da4e23525bcb33e572.png" alt="\fbox{$\int_T f(x)\ dx = \int_{\widehat{T}} \widehat{f}(\widehat{x}) J_{\tau}(\widehat{x})\ d\widehat{x}$.}"/></p>
-</div><p>math： <cite>P = N`のとき、ジャコビアの式は次のようになります。math：</cite> {tau}（widehat {x}）= | mbox {det}（K（widehat {x}）） | <a href="#id1"><span class="problematic" id="id2">`</span></a>。</p>
+<p><img src="../_images/math/783c89b33a9d91f4aedb61da4e23525bcb33e572.png" alt="\fbox{$\int_T f(x)\ dx = \int_{\widehat{T}} \widehat{f}(\widehat{x}) J_{\tau}(\widehat{x})\ d\widehat{x}$.}"/></p>
+</div><p><img class="math" src="../_images/math/d2833ace395dfb2162abbdd4f7f75e65e36d83d9.png" alt="P = N" style="vertical-align: 0px"/> のとき、Jacobianの式は次のようになります。 <img class="math" src="../_images/math/6c01cf178ca3a1f04bded6916fee5f19609001c6.png" alt="J_{\tau}(\widehat{x}) = |\mbox{det}(K(\widehat{x}))|" style="vertical-align: -5px"/> 。</p>
 </div>
 <div class="section" id="surface-integral">
 <h2>面積分<a class="headerlink" href="#surface-integral" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>：math： <cite>ガンマ &#8216;は：math：</cite> T`実数要素と：math： <a href="#id1"><span class="problematic" id="id2">`</span></a>widehat {Gamma}`の境界の一部であり、参照要素の対応する境界：math： <a href="#id3"><span class="problematic" id="id4">`</span></a>widehat {T } <a href="#id5"><span class="problematic" id="id6">`</span></a>、1つは持っている</p>
 <div class="math">
-<p><img src="../images/math/668aef2a67cb112873362ff519ae78842f1a5f2a.png" alt="\fbox{$\int_{\Gamma} f(x)\ d\sigma =
+<p><img src="../_images/math/668aef2a67cb112873362ff519ae78842f1a5f2a.png" alt="\fbox{$\int_{\Gamma} f(x)\ d\sigma =
 \int_{\widehat{\Gamma}}\widehat{f}(\widehat{x}) \|B(\widehat{x})\widehat{n}\| J_{\tau}(\widehat{x})\ d\widehat{\sigma}$,}"/></p>
 </div><p>ここで、math： <cite>widehat {nガンマ}`は：math： `widehat {T}}：math：</cite> widehat {Gamma} <a href="#id1"><span class="problematic" id="id2">`</span></a>の法線です。同じように</p>
 <div class="math">
-<p><img src="../images/math/3d56876d4fd2b0d2818776051862bb4f4c0ed294.png" alt="\fbox{$\int_{\Gamma} F(x)\cdot n\ d\sigma =
+<p><img src="../_images/math/3d56876d4fd2b0d2818776051862bb4f4c0ed294.png" alt="\fbox{$\int_{\Gamma} F(x)\cdot n\ d\sigma =
 \int_{\widehat{\Gamma}} \widehat{F}(\widehat{x})\cdot(B(\widehat{x})\cdot\widehat{n}) J_{\tau}(\widehat{x})\ d\widehat{\sigma}$,}"/></p>
 </div><p>for：math： <cite>n`は、次の式の正規化の単位です：math：</cite> T` on：math： <cite>Gamma</cite>。</p>
 </div>
@@ -105,58 +105,58 @@
 <h2>デリバティブ計算<a class="headerlink" href="#derivative-computation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>1つは持っている</p>
 <div class="math">
-<p><img src="../images/math/ddba475a8524c94fc8be913f17a858e527610a0c.png" alt="\nabla f(x) = B(\widehat{x})\widehat{\nabla} \widehat{f}(\widehat{x})."/></p>
+<p><img src="../_images/math/ddba475a8524c94fc8be913f17a858e527610a0c.png" alt="\nabla f(x) = B(\widehat{x})\widehat{\nabla} \widehat{f}(\widehat{x})."/></p>
 </div></div>
 <div class="section" id="second-derivative-computation">
 <h2>二次微分計算<a class="headerlink" href="#second-derivative-computation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>表記</p>
 <div class="math">
-<p><img src="../images/math/922650db95a714a428af3c384a4e359d258de17e.png" alt="\nabla^2 f =
+<p><img src="../_images/math/922650db95a714a428af3c384a4e359d258de17e.png" alt="\nabla^2 f =
 \left[\frac{\partial^2 f}{\partial x_i \partial x_j}\right]_{ij},"/></p>
 </div><p>：数学：「N times N」行列と</p>
 <div class="math">
-<p><img src="../images/math/2c28c1bd5becb309c409b3d9fd51e34b2526a10c.png" alt="\widehat{X}(\widehat{x}) =
+<p><img src="../_images/math/2c28c1bd5becb309c409b3d9fd51e34b2526a10c.png" alt="\widehat{X}(\widehat{x}) =
 \sum_{k = 0}^{N-1}\widehat{\nabla}^2\tau_k(\widehat{x})\frac{\partial f}{\partial x_k}(x) =
 \sum_{k = 0}^{N-1}\sum_{i = 0}^{P-1}
 \widehat{\nabla}^2\tau_k(\widehat{x})B_{ki}\frac{\partial \widehat{f}}{\partial \widehat{x}_i}(\widehat{x}),"/></p>
 </div><p>：数学： <a href="#id1"><span class="problematic" id="id2">`</span></a>P times P`マトリックス、そして</p>
 <div class="math">
-<p><img src="../images/math/50a43f77f4b134a46f6e8cc92eda1ca9c2adcb25.png" alt="\widehat{\nabla}^2 \widehat{f}(\widehat{x}) = \widehat{X}(\widehat{x}) + K(\widehat{x})^T \nabla^2 f(x) K(\widehat{x}),"/></p>
+<p><img src="../_images/math/50a43f77f4b134a46f6e8cc92eda1ca9c2adcb25.png" alt="\widehat{\nabla}^2 \widehat{f}(\widehat{x}) = \widehat{X}(\widehat{x}) + K(\widehat{x})^T \nabla^2 f(x) K(\widehat{x}),"/></p>
 </div><p>したがって</p>
 <div class="math">
-<p><img src="../images/math/56d19ce1f48409407456c782b7c1f810f9b10df1.png" alt="\nabla^2 f(x) = B(\widehat{x})(\widehat{\nabla}^2 \widehat{f}(\widehat{x}) - \widehat{X}(\widehat{x})) B(\widehat{x})^T."/></p>
+<p><img src="../_images/math/56d19ce1f48409407456c782b7c1f810f9b10df1.png" alt="\nabla^2 f(x) = B(\widehat{x})(\widehat{\nabla}^2 \widehat{f}(\widehat{x}) - \widehat{X}(\widehat{x})) B(\widehat{x})^T."/></p>
 </div><p>基本行列の計算のための一様な方法を持たせるために、ヘッセ行列は次のような列ベクトルとして計算されます：math： <cite>H f`その成分は次の通りです：frac {partial ^ 2 f} {partial x ^ 2_0 }、frac {part ^ 2 f} {partial x_1 partial x_0}、ldots、frac {partial ^ 2 f} {partial x ^ 2_ {N-1}} `次に：with：math： `B_2`は：数学：</cite> P ^ 2 times P`行列を次のように定義します。</p>
 <div class="math">
-<p><img src="../images/math/af0dc2d4ddff4d7e7c23ea66da969f7cd3547afb.png" alt="\left[B_2(\widehat{x})\right]_{ij} =
+<p><img src="../_images/math/af0dc2d4ddff4d7e7c23ea66da969f7cd3547afb.png" alt="\left[B_2(\widehat{x})\right]_{ij} =
 \sum_{k = 0}^{N-1}
 \frac{\partial^2 \tau_k(\widehat{x})}{\partial \widehat{x}_{i / P} \partial \widehat{x}_{i\mbox{ mod }P}}
 B_{kj}(\widehat{x}),"/></p>
 </div><p>：math： <cite>B_3`は次のように定義されています：math：</cite> N ^ 2 times P ^ 2`行列</p>
 <div class="math">
-<p><img src="../images/math/a154bfb20b9d7666d4d1ac1dc4f0ea257870ff0d.png" alt="\left[B_3(\widehat{x})\right]_{ij} =
+<p><img src="../_images/math/a154bfb20b9d7666d4d1ac1dc4f0ea257870ff0d.png" alt="\left[B_3(\widehat{x})\right]_{ij} =
 B_{i / N, j / P}(\widehat{x}) B_{i\mbox{ mod }N, j\mbox{ mod }P}(\widehat{x}),"/></p>
 </div><p>1つは持っている</p>
 <div class="math">
-<p><img src="../images/math/4701305b13062292cfac92726f1d7ab0e9275394.png" alt="\fbox{$H f(x) = B_3(\widehat{x})
+<p><img src="../_images/math/4701305b13062292cfac92726f1d7ab0e9275394.png" alt="\fbox{$H f(x) = B_3(\widehat{x})
 \left(\widehat{H}\ \widehat{f}(\widehat{x}) - B_2(\widehat{x})\widehat{\nabla} \widehat{f}(\widehat{x})\right)$.}"/></p>
 </div></div>
 <div class="section" id="example-of-elementary-matrix">
 <h2>基本行列の例<a class="headerlink" href="#example-of-elementary-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>基本的な「行列」を計算する必要があると仮定します。</p>
 <div class="math">
-<p><img src="../images/math/9b5be3e33c64925095b323580d30685e1d27eebf.png" alt="t(i_0, i_1, \ldots, i_7) =
+<p><img src="../_images/math/9b5be3e33c64925095b323580d30685e1d27eebf.png" alt="t(i_0, i_1, \ldots, i_7) =
 \int_{T}\varphi_{i_1}^{i_0}
 \partial_{i_4}\varphi_{i_3}^{i_2}
 \partial^2_{i_7/ P, i_7\mbox{ mod } P}\varphi_{i_6}^{i_5}\ dx,"/></p>
 </div><p>参照要素に対して行われる計算は、</p>
 <div class="math">
-<p><img src="../images/math/ecd9c2d8e581a5615c0b5e6f329b9900a7e4a332.png" alt="\widehat{t}_0(i_0, i_1, \ldots,i_7) =
+<p><img src="../_images/math/ecd9c2d8e581a5615c0b5e6f329b9900a7e4a332.png" alt="\widehat{t}_0(i_0, i_1, \ldots,i_7) =
 \int_{\widehat{T}}(\widehat{\varphi})_{i_1}^{i_0}
 \partial_{i_4}(\widehat{\varphi})_{i_3}^{i_2}
 \partial^2_{i_7 / P, i_7\mbox{ mod } P}(\widehat{\varphi})_{i_6}^{i_5} J(\widehat{x})\ d\widehat{x},"/></p>
 </div><p>そして</p>
 <div class="math">
-<p><img src="../images/math/66103a6281ce1003f94aea7d7c01fa51cfa28d6c.png" alt="\widehat{t}_1(i_0, i_1, \ldots, i_7) =
+<p><img src="../_images/math/66103a6281ce1003f94aea7d7c01fa51cfa28d6c.png" alt="\widehat{t}_1(i_0, i_1, \ldots, i_7) =
 \int_{\widehat{T}}(\widehat{\varphi})_{i_1}^{i_0}
 \partial_{i_4}(\widehat{\varphi})_{i_3}^{i_2}
 \partial_{i_7}(\widehat{\varphi})_{i_6}^{i_5} J(\widehat{x})\ d\widehat{x},"/></p>
@@ -181,7 +181,7 @@ B_{i / N, j / P}(\widehat{x}) B_{i\mbox{ mod }N, j\mbox{ mod }P}(\widehat{x}),"/
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -250,7 +250,7 @@ B_{i / N, j / P}(\widehat{x}) B_{i\mbox{ mod }N, j\mbox{ mod }P}(\widehat{x}),"/
         <li class="right" >
           <a href="libdesc_interface.html" title="スクリプト言語 (Python、Scilab、Matlab) とのインタフェース"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

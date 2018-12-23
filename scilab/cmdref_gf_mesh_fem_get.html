@@ -8,8 +8,8 @@
     
     <title>gf_mesh_fem_get &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_mesh_fem_set" href="cmdref_gf_mesh_fem_set.html" />
     <link rel="prev" title="gf_mesh_fem" href="cmdref_gf_mesh_fem.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref_gf_mesh_fem.html" title="gf_mesh_fem"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -65,43 +65,43 @@
   <div class="section" id="gf-mesh-fem-get">
 <h1>gf_mesh_fem_get<a class="headerlink" href="#gf-mesh-fem-get" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>n = gf_mesh_fem_get(mesh_fem MF, 'nbdof')
-n = gf_mesh_fem_get(mesh_fem MF, 'nb basic dof')
-DOF = gf_mesh_fem_get(mesh_fem MF, 'dof from cv',mat CVids)
-DOF = gf_mesh_fem_get(mesh_fem MF, 'basic dof from cv',mat CVids)
-{DOFs, IDx} = gf_mesh_fem_get(mesh_fem MF, 'dof from cvid'[, mat CVids])
-{DOFs, IDx} = gf_mesh_fem_get(mesh_fem MF, 'basic dof from cvid'[, mat CVids])
-gf_mesh_fem_get(mesh_fem MF, 'non conformal dof'[, mat CVids])
-gf_mesh_fem_get(mesh_fem MF, 'non conformal basic dof'[, mat CVids])
-gf_mesh_fem_get(mesh_fem MF, 'qdim')
-{FEMs, CV2F} = gf_mesh_fem_get(mesh_fem MF, 'fem'[, mat CVids])
-CVs = gf_mesh_fem_get(mesh_fem MF, 'convex_index')
-bB = gf_mesh_fem_get(mesh_fem MF, 'is_lagrangian'[, mat CVids])
-bB = gf_mesh_fem_get(mesh_fem MF, 'is_equivalent'[, mat CVids])
-bB = gf_mesh_fem_get(mesh_fem MF, 'is_polynomial'[, mat CVids])
-bB = gf_mesh_fem_get(mesh_fem MF, 'is_reduced')
-bB = gf_mesh_fem_get(mesh_fem MF, 'reduction matrix')
-bB = gf_mesh_fem_get(mesh_fem MF, 'extension matrix')
-Vr = gf_mesh_fem_get(mesh_fem MF, 'reduce vector', vec V)
-Ve = gf_mesh_fem_get(mesh_fem MF, 'extend vector', vec V)
-DOFs = gf_mesh_fem_get(mesh_fem MF, 'basic dof on region',mat Rs)
-DOFs = gf_mesh_fem_get(mesh_fem MF, 'dof on region',mat Rs)
-DOFpts = gf_mesh_fem_get(mesh_fem MF, 'dof nodes'[, mat DOFids])
-DOFpts = gf_mesh_fem_get(mesh_fem MF, 'basic dof nodes'[, mat DOFids])
-DOFP = gf_mesh_fem_get(mesh_fem MF, 'dof partition')
-gf_mesh_fem_get(mesh_fem MF, 'save',string filename[, string opt])
-gf_mesh_fem_get(mesh_fem MF, 'char'[, string opt])
-gf_mesh_fem_get(mesh_fem MF, 'display')
-m = gf_mesh_fem_get(mesh_fem MF, 'linked mesh')
-m = gf_mesh_fem_get(mesh_fem MF, 'mesh')
-gf_mesh_fem_get(mesh_fem MF, 'export to vtk',string filename, ... ['ascii'], U, 'name'...)
-gf_mesh_fem_get(mesh_fem MF, 'export to dx',string filename, ...['as', string mesh_name][,'edges']['serie',string serie_name][,'ascii'][,'append'], U, 'name'...)
-gf_mesh_fem_get(mesh_fem MF, 'export to pos',string filename[, string name][[,mesh_fem mf1], mat U1, string nameU1[[,mesh_fem mf2], mat U2, string nameU2,...]])
-gf_mesh_fem_get(mesh_fem MF, 'dof_from_im',mesh_im mim[, int p])
-U = gf_mesh_fem_get(mesh_fem MF, 'interpolate_convex_data',mat Ucv)
-z = gf_mesh_fem_get(mesh_fem MF, 'memsize')
-gf_mesh_fem_get(mesh_fem MF, 'has_linked_mesh_levelset')
-gf_mesh_fem_get(mesh_fem MF, 'linked_mesh_levelset')</pre>
+<div class="highlight-python"><pre>n = gf_mesh_fem_get(mesh_fem MF, &#x27;nbdof&#x27;)
+n = gf_mesh_fem_get(mesh_fem MF, &#x27;nb basic dof&#x27;)
+DOF = gf_mesh_fem_get(mesh_fem MF, &#x27;dof from cv&#x27;,mat CVids)
+DOF = gf_mesh_fem_get(mesh_fem MF, &#x27;basic dof from cv&#x27;,mat CVids)
+{DOFs, IDx} = gf_mesh_fem_get(mesh_fem MF, &#x27;dof from cvid&#x27;[, mat CVids])
+{DOFs, IDx} = gf_mesh_fem_get(mesh_fem MF, &#x27;basic dof from cvid&#x27;[, mat CVids])
+gf_mesh_fem_get(mesh_fem MF, &#x27;non conformal dof&#x27;[, mat CVids])
+gf_mesh_fem_get(mesh_fem MF, &#x27;non conformal basic dof&#x27;[, mat CVids])
+gf_mesh_fem_get(mesh_fem MF, &#x27;qdim&#x27;)
+{FEMs, CV2F} = gf_mesh_fem_get(mesh_fem MF, &#x27;fem&#x27;[, mat CVids])
+CVs = gf_mesh_fem_get(mesh_fem MF, &#x27;convex_index&#x27;)
+bB = gf_mesh_fem_get(mesh_fem MF, &#x27;is_lagrangian&#x27;[, mat CVids])
+bB = gf_mesh_fem_get(mesh_fem MF, &#x27;is_equivalent&#x27;[, mat CVids])
+bB = gf_mesh_fem_get(mesh_fem MF, &#x27;is_polynomial&#x27;[, mat CVids])
+bB = gf_mesh_fem_get(mesh_fem MF, &#x27;is_reduced&#x27;)
+bB = gf_mesh_fem_get(mesh_fem MF, &#x27;reduction matrix&#x27;)
+bB = gf_mesh_fem_get(mesh_fem MF, &#x27;extension matrix&#x27;)
+Vr = gf_mesh_fem_get(mesh_fem MF, &#x27;reduce vector&#x27;, vec V)
+Ve = gf_mesh_fem_get(mesh_fem MF, &#x27;extend vector&#x27;, vec V)
+DOFs = gf_mesh_fem_get(mesh_fem MF, &#x27;basic dof on region&#x27;,mat Rs)
+DOFs = gf_mesh_fem_get(mesh_fem MF, &#x27;dof on region&#x27;,mat Rs)
+DOFpts = gf_mesh_fem_get(mesh_fem MF, &#x27;dof nodes&#x27;[, mat DOFids])
+DOFpts = gf_mesh_fem_get(mesh_fem MF, &#x27;basic dof nodes&#x27;[, mat DOFids])
+DOFP = gf_mesh_fem_get(mesh_fem MF, &#x27;dof partition&#x27;)
+gf_mesh_fem_get(mesh_fem MF, &#x27;save&#x27;,string filename[, string opt])
+gf_mesh_fem_get(mesh_fem MF, &#x27;char&#x27;[, string opt])
+gf_mesh_fem_get(mesh_fem MF, &#x27;display&#x27;)
+m = gf_mesh_fem_get(mesh_fem MF, &#x27;linked mesh&#x27;)
+m = gf_mesh_fem_get(mesh_fem MF, &#x27;mesh&#x27;)
+gf_mesh_fem_get(mesh_fem MF, &#x27;export to vtk&#x27;,string filename, ... [&#x27;ascii&#x27;], U, &#x27;name&#x27;...)
+gf_mesh_fem_get(mesh_fem MF, &#x27;export to dx&#x27;,string filename, ...[&#x27;as&#x27;, string mesh_name][,&#x27;edges&#x27;][&#x27;serie&#x27;,string serie_name][,&#x27;ascii&#x27;][,&#x27;append&#x27;], U, &#x27;name&#x27;...)
+gf_mesh_fem_get(mesh_fem MF, &#x27;export to pos&#x27;,string filename[, string name][[,mesh_fem mf1], mat U1, string nameU1[[,mesh_fem mf2], mat U2, string nameU2,...]])
+gf_mesh_fem_get(mesh_fem MF, &#x27;dof_from_im&#x27;,mesh_im mim[, int p])
+U = gf_mesh_fem_get(mesh_fem MF, &#x27;interpolate_convex_data&#x27;,mat Ucv)
+z = gf_mesh_fem_get(mesh_fem MF, &#x27;memsize&#x27;)
+gf_mesh_fem_get(mesh_fem MF, &#x27;has_linked_mesh_levelset&#x27;)
+gf_mesh_fem_get(mesh_fem MF, &#x27;linked_mesh_levelset&#x27;)</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -343,7 +343,7 @@ gf_mesh_get(mesh M, &#8216;max cvid&#8217;) elements.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_mesh_fem.html"
@@ -400,7 +400,7 @@ gf_mesh_get(mesh M, &#8216;max cvid&#8217;) elements.</p>
         <li class="right" >
           <a href="cmdref_gf_mesh_fem.html" title="gf_mesh_fem"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

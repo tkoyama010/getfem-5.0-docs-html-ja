@@ -8,8 +8,8 @@
     
     <title>Preliminary &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="MatLab Interface" href="index.html" />
     <link rel="next" title="GetFEM++ organization" href="mlabgf.html" />
     <link rel="prev" title="Installation" href="install.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="install.html" title="Installation"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -69,8 +69,8 @@ definitively read the <a class="reference internal" href="../project/index.html#
 <p>The <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">mesh</span></tt> is composed of <span class="target" id="index-1"></span><tt class="xref std std-envvar docutils literal"><span class="pre">convexes</span></tt>. What we call convexes can be
 simple line segments, prisms, tetrahedrons, curved triangles, of even something
 which is not convex (in the geometrical sense). They all have an associated
-<span class="target" id="index-2"></span><tt class="xref std std-envvar docutils literal"><span class="pre">reference</span> <span class="pre">convex</span></tt>: for segments, this will be the <img class="math" src="../images/math/e861e10e1c19918756b9c8b7717684593c63aeb8.png" alt="[0,1]" style="vertical-align: -5px"/> segment,
-for triangles this will be the canonical triangle <img class="math" src="../images/math/e843f3a35764fe9f3fcbde01304680147458eebe.png" alt="(0,0)-(0,1)-(1,0)" style="vertical-align: -4px"/>, etc.
+<span class="target" id="index-2"></span><tt class="xref std std-envvar docutils literal"><span class="pre">reference</span> <span class="pre">convex</span></tt>: for segments, this will be the <img class="math" src="../_images/math/e861e10e1c19918756b9c8b7717684593c63aeb8.png" alt="[0,1]" style="vertical-align: -5px"/> segment,
+for triangles this will be the canonical triangle <img class="math" src="../_images/math/e843f3a35764fe9f3fcbde01304680147458eebe.png" alt="(0,0)-(0,1)-(1,0)" style="vertical-align: -4px"/>, etc.
 All convexes of the mesh are constructed from the reference convex through a
 <span class="target" id="index-3"></span><tt class="xref std std-envvar docutils literal"><span class="pre">geometric</span> <span class="pre">transformation</span></tt>. In simple cases (when the convexes are
 simplices for example), this transformation will be linear (hence it is easily
@@ -81,7 +81,7 @@ The geometrical transformation maps these nodes to the <span class="target" id="
 associated at each convex. The basis functions are also attached to some
 geometrical points (which can be arbitrarily chosen). These points are similar to
 the mesh nodes, but <strong>they don&#8217;t have to be the same</strong> (this only happens on very
-simple cases, such as a classical <img class="math" src="../images/math/a5b0256a78d58b6d5f7a53400b19e7747d2983fa.png" alt="P_1" style="vertical-align: -4px"/> fem on a triangular mesh). The set
+simple cases, such as a classical <img class="math" src="../_images/math/a5b0256a78d58b6d5f7a53400b19e7747d2983fa.png" alt="P_1" style="vertical-align: -4px"/> fem on a triangular mesh). The set
 of all basis functions on the mesh forms the basis of a vector space, on which the
 PDE will be solved. These basis functions (and their associated geometrical point)
 are the <span class="target" id="index-7"></span><tt class="xref std std-envvar docutils literal"><span class="pre">degrees</span> <span class="pre">of</span> <span class="pre">freedom</span></tt> (contracted to <span class="target" id="index-8"></span><tt class="xref std std-envvar docutils literal"><span class="pre">dof</span></tt>). The FEM is
@@ -111,18 +111,18 @@ object in <em>GetFEM++</em>.</p>
 <p>A <cite>mesh_fem</cite> can be used to approximate scalar fields (heat, pression, ...), or vector
 fields (displacement, electric field, ...). A <cite>mesh_im</cite> will be used to perform
 numerical integrations on these fields. Most of the finite elements implemented in
-<em>GetFEM++</em> are scalar (however, <img class="math" src="../images/math/e8be482c22563c1665d2dbad619a80e4db1b7816.png" alt="TR_0" style="vertical-align: -3px"/> and edges elements are also available). Of
+<em>GetFEM++</em> are scalar (however, <img class="math" src="../_images/math/e8be482c22563c1665d2dbad619a80e4db1b7816.png" alt="TR_0" style="vertical-align: -3px"/> and edges elements are also available). Of
 course, these scalar FEMs can be used to approximate each component of a vector
-field. This is done by setting the <img class="math" src="../images/math/529cdd64ac76518a2e25cbbc61a8cf7e769cbb58.png" alt="Qdim" style="vertical-align: -4px"/> of the <cite>mesh_fem</cite> to the dimension of
-the vector field (i.e. <img class="math" src="../images/math/eb04669935d1fa97853178e27acd31c31ea52f32.png" alt="Qdim=1" style="vertical-align: -4px"/> <img class="math" src="../images/math/843622567e12d686e4e2f94ddfcb444e8ecde0d2.png" alt="\Rightarrow" style="vertical-align: -1px"/> scalar field,
-<img class="math" src="../images/math/ac28eb3c38512e25bb411bad6c2575755df038b0.png" alt="Qdim=2" style="vertical-align: -4px"/> <img class="math" src="../images/math/843622567e12d686e4e2f94ddfcb444e8ecde0d2.png" alt="\Rightarrow" style="vertical-align: -1px"/> 2D vector field etc.).</p>
+field. This is done by setting the <img class="math" src="../_images/math/529cdd64ac76518a2e25cbbc61a8cf7e769cbb58.png" alt="Qdim" style="vertical-align: -4px"/> of the <cite>mesh_fem</cite> to the dimension of
+the vector field (i.e. <img class="math" src="../_images/math/eb04669935d1fa97853178e27acd31c31ea52f32.png" alt="Qdim=1" style="vertical-align: -4px"/> <img class="math" src="../_images/math/843622567e12d686e4e2f94ddfcb444e8ecde0d2.png" alt="\Rightarrow" style="vertical-align: -1px"/> scalar field,
+<img class="math" src="../_images/math/ac28eb3c38512e25bb411bad6c2575755df038b0.png" alt="Qdim=2" style="vertical-align: -4px"/> <img class="math" src="../_images/math/843622567e12d686e4e2f94ddfcb444e8ecde0d2.png" alt="\Rightarrow" style="vertical-align: -1px"/> 2D vector field etc.).</p>
 <p>When solving a PDE, one often has to use more than one FEM. The most important one
 will be of course the one on which is defined the solution of the PDE. But most
 PDEs involve various coefficients, for example:</p>
 <div class="math">
-<p><img src="../images/math/9d7daf4d8156483ad08fbaf1f12649fa98656367.png" alt="\nabla\cdot(\lambda(x)\nabla u) = f(x)."/></p>
-</div><p>Hence one has to define a FEM for the main unknown <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>, but also for the
-data <img class="math" src="../images/math/1d31c6c4687b003a1d53134dcd40eeeb7c477e17.png" alt="\lambda(x)" style="vertical-align: -4px"/> and <img class="math" src="../images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> if they are not constant. In order to
+<p><img src="../_images/math/9d7daf4d8156483ad08fbaf1f12649fa98656367.png" alt="\nabla\cdot(\lambda(x)\nabla u) = f(x)."/></p>
+</div><p>Hence one has to define a FEM for the main unknown <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/>, but also for the
+data <img class="math" src="../_images/math/1d31c6c4687b003a1d53134dcd40eeeb7c477e17.png" alt="\lambda(x)" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)" style="vertical-align: -4px"/> if they are not constant. In order to
 interpolate easily these coefficients in their finite element space, one often
 choose a Lagrangian FEM.</p>
 <p>The convexes, mesh nodes, and dof are all numbered. We sometimes refer to the
@@ -148,7 +148,7 @@ have to call:</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="install.html"
@@ -205,7 +205,7 @@ have to call:</p>
         <li class="right" >
           <a href="install.html" title="Installation"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

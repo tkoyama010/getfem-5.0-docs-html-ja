@@ -8,8 +8,8 @@
     
     <title>任意の量の補間 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="User Documentation" href="index.html" />
+    <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="GetFEM++ に新しい有限要素法を組み込む" href="ifem.html" />
-    <link rel="prev" title="いくつかの標準構築手順（低レベル汎用構築）" href="asm.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="prev" title="いくつかの標準構築手順（低水準汎用構築）" href="asm.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -46,13 +46,13 @@
           <a href="ifem.html" title="GetFEM++ に新しい有限要素法を組み込む"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="asm.html" title="いくつかの標準構築手順（低レベル汎用構築）"
+          <a href="asm.html" title="いくつかの標準構築手順（低水準汎用構築）"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U">User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U">ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -61,12 +61,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="interpolation-of-arbitary-quantities">
-<span id="ud-intermm"></span><h1>任意の量の補間<a class="headerlink" href="#interpolation-of-arbitary-quantities" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="interpolation-of-arbitrary-quantities">
+<span id="ud-intermm"></span><h1>任意の量の補間<a class="headerlink" href="#interpolation-of-arbitrary-quantities" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>一旦解が計算されると、例えば後処理のための補間関数を用いて解に対する任意の量を抽出することは簡単にできます。</p>
 <div class="section" id="basic-interpolation">
 <h2>基本補間<a class="headerlink" href="#basic-interpolation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><tt class="file docutils literal"><span class="pre">getfem/getfem_interpolation.h</span></tt> はあるメッシュ/有限要素法から他のメッシュ/他のLagrange有限要素法上の解を補間する関数 <tt class="docutils literal"><span class="pre">getfem::interpolation(...)</span></tt> を定義しています:</p>
+<p><tt class="file docutils literal"><span class="pre">getfem/getfem_interpolation.h</span></tt> はあるメッシュ/有限要素法から他のメッシュ/他のLagrange有限要素法上の解を補間する関数 <tt class="docutils literal"><span class="pre">getfem::interpolation(...)</span></tt> を定義しています。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">interpolation</span><span class="p">(</span><span class="n">mf1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">extrapolation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -82,22 +82,22 @@ domain (you can interpolate a 2D mesh on a line etc.).</pre>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">interpolation</span><span class="p">(</span><span class="n">mf1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">extrapolation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで、 <tt class="docutils literal"><span class="pre">M</span></tt> は、補間を表す線形写像（すなわち、 <tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">MU</span></tt> ）を満たす行行列です。行列は正しい次元（ <tt class="docutils literal"><span class="pre">mf2.nb_dof()</span></tt> x <tt class="docutils literal"><span class="pre">mf1.nb_dof()</span></tt> ）を持つ必要があります。この行列が構築されると、単純な行列乗算で補間が行われます:</p>
+<p>ここで、 <tt class="docutils literal"><span class="pre">M</span></tt> は、補間を表す線形写像（すなわち、 <tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">MU</span></tt> ）を満たす行列です。行列は正しい次元（ <tt class="docutils literal"><span class="pre">mf2.nb_dof()</span></tt> x <tt class="docutils literal"><span class="pre">mf1.nb_dof()</span></tt> ）を持つ必要があります。この行列が構築されると、単純な行列乗算で補間が行われます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">mult</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="interpolation-based-on-the-high-level-weak-form-language">
-<h2>高レベル弱形式言語に基づく補間<a class="headerlink" href="#interpolation-based-on-the-high-level-weak-form-language" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>高水準弱形式言語に基づく補間<a class="headerlink" href="#interpolation-based-on-the-high-level-weak-form-language" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>弱形式言語と補間関数により、いくつかのフィールドで任意の式を抽出することが可能です。</p>
 <p>これは特にmodelオブジェクト専用です（ただし、ga_workspaceオブジェクトでも使用できます）。たとえば、 <tt class="docutils literal"><span class="pre">md</span></tt> がいくつかの定義された変数 <tt class="docutils literal"><span class="pre">u</span></tt> （ベクトル）と <tt class="docutils literal"><span class="pre">p</span></tt> （スカラー）を含む有効なオブジェクトである場合、 <tt class="docutils literal"><span class="pre">p*Trace(Grad_u)</span></tt> のような式をLagrange有限要素法で補間することができます。結果の式は、スカラ、ベクトル、またはテンソルになります。結果のベクトルのサイズは自動的に適合されます。</p>
 <p>高水準の一般補間関数はファイル <tt class="file docutils literal"><span class="pre">getfem/getfem_generic_assembly.h</span></tt> で定義されています。</p>
-<p>同じメッシュ上のラグランジェ有限要素法の補間、ポイントまたは <tt class="docutils literal"><span class="pre">getfem::im_data</span></tt> オブジェクト上の点群の補間に対応する補間関数があります。</p>
-<p>ラグランジェ有限要素法:</p>
+<p>同じメッシュ上のLagrange有限要素法の補間、点または <tt class="docutils literal"><span class="pre">getfem::im_data</span></tt> オブジェクト上の点群の補間に対応する補間関数があります。</p>
+<p>Lagrange有限要素法は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">void</span> <span class="n">getfem</span><span class="o">::</span><span class="n">ga_interpolation_Lagrange_fem</span><span class="p">(</span><span class="n">workspace</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">workspace</span></tt> は異なる変数とデータを格納することを目的とした <tt class="docutils literal"><span class="pre">getfem::ga_workspace</span></tt> オブジェクトです（参照 <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</em></a> ）、 <tt class="docutils literal"><span class="pre">mf</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクトは補間を行うLagrangeの有限要素法を表し、 <tt class="docutils literal"><span class="pre">result</span></tt> は補間を格納する <tt class="docutils literal"><span class="pre">beot::base_vector</span></tt> です。ワークスペースには、補間される式が含まれている必要があります。</p>
+<p><tt class="docutils literal"><span class="pre">workspace</span></tt> は異なる変数とデータを格納することを目的とした <tt class="docutils literal"><span class="pre">getfem::ga_workspace</span></tt> オブジェクトです（参照 <a class="reference internal" href="gasm_high.html#ud-gasm-high"><em>任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</em></a> ）、 <tt class="docutils literal"><span class="pre">mf</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクトは補間を行うLagrangeの有限要素法を表し、 <tt class="docutils literal"><span class="pre">result</span></tt> は補間を格納する <tt class="docutils literal"><span class="pre">beot::base_vector</span></tt> です。workspaceには、補間される式が含まれている必要があります。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">void</span> <span class="n">getfem</span><span class="o">::</span><span class="n">ga_interpolation_Lagrange_fem</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">mf</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">rg</span><span class="o">=</span><span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 </pre></div>
 </div>
@@ -107,12 +107,12 @@ domain (you can interpolate a 2D mesh on a line etc.).</pre>
 </pre></div>
 </div>
 <p><tt class="docutils literal"><span class="pre">md</span></tt> は <tt class="docutils literal"><span class="pre">getfem::model</span></tt> オブジェクト（変数とデータを含む）で、 <tt class="docutils literal"><span class="pre">expr</span></tt> （std::string オブジェクト）は補間される式で、 <tt class="docutils literal"><span class="pre">mti</span></tt> は点群を格納する <tt class="docutils literal"><span class="pre">getfem::mesh_trans_inv</span></tt> オブジェクト（ <tt class="file docutils literal"><span class="pre">getfem/getfem_interpolation.h</span></tt> 参照）、 <tt class="docutils literal"><span class="pre">result</span></tt> は補間が格納されているベクトル、 <tt class="docutils literal"><span class="pre">extrapolation</span></tt> は外側の点の外側のメッシュでフィールドを外挿するオプションです。 <tt class="docutils literal"><span class="pre">rg</span></tt> はオプションのメッシュ領域で、 <tt class="docutils literal"><span class="pre">nbpoints</span></tt> はオプションの最大点数です。</p>
-<p><tt class="docutils literal"><span class="pre">im_data</span></tt> オブジェクトの補間（積分法のGauss点で）:</p>
+<p><tt class="docutils literal"><span class="pre">im_data</span></tt> オブジェクトの（積分法のGauss点での）補間は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">void</span> <span class="n">getfem</span><span class="o">::</span><span class="n">ga_interpolation_im_data</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">im_data</span> <span class="o">&amp;</span><span class="n">imd</span><span class="p">,</span>
  <span class="n">base_vector</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mesh_region</span> <span class="o">&amp;</span><span class="n">rg</span><span class="o">=</span><span class="n">mesh_region</span><span class="o">::</span><span class="n">all_convexes</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">md</span></tt> は <tt class="docutils literal"><span class="pre">getfem::model</span></tt> オブジェクト（変数とデータを含んでいます）、 <tt class="docutils literal"><span class="pre">expr</span></tt> （std::stringオブジェクト）は補間される式、 <tt class="docutils literal"><span class="pre">imd</span></tt> は積分法（ <tt class="file docutils literal"><span class="pre">getfem/getfem_im_data.h</span></tt> 参照）を参照する <tt class="docutils literal"><span class="pre">getfem::im_data</span></tt> オブジェクト、 <tt class="docutils literal"><span class="pre">result</span></tt> は補間が格納されているベクトル、 <tt class="docutils literal"><span class="pre">rg</span></tt> オプションのメッシュ領域です。</p>
+<p>ここで <tt class="docutils literal"><span class="pre">md</span></tt> は <tt class="docutils literal"><span class="pre">getfem::model</span></tt> オブジェクト（変数とデータを含んでいます）、（std::stringオブジェクト） <tt class="docutils literal"><span class="pre">expr</span></tt> は補間される式、 <tt class="docutils literal"><span class="pre">imd</span></tt> は積分法（ <tt class="file docutils literal"><span class="pre">getfem/getfem_im_data.h</span></tt> 参照）を参照する <tt class="docutils literal"><span class="pre">getfem::im_data</span></tt> オブジェクト、 <tt class="docutils literal"><span class="pre">result</span></tt> は補間が格納されているベクトル、 <tt class="docutils literal"><span class="pre">rg</span></tt> オプションのメッシュ領域です。</p>
 </div>
 </div>
 
@@ -123,20 +123,20 @@ domain (you can interpolate a 2D mesh on a line etc.).</pre>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">任意の量の補間</a><ul>
 <li><a class="reference internal" href="#basic-interpolation">基本補間</a></li>
-<li><a class="reference internal" href="#interpolation-based-on-the-high-level-weak-form-language">高レベル弱形式言語に基づく補間</a></li>
+<li><a class="reference internal" href="#interpolation-based-on-the-high-level-weak-form-language">高水準弱形式言語に基づく補間</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="asm.html"
-                        title="前の章へ">いくつかの標準構築手順（低レベル汎用構築）</a></p>
+                        title="前の章へ">いくつかの標準構築手順（低水準汎用構築）</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="ifem.html"
                         title="次の章へ"><em>GetFEM++</em> に新しい有限要素法を組み込む</a></p>            <h3>Download</h3>
@@ -187,13 +187,13 @@ domain (you can interpolate a 2D mesh on a line etc.).</pre>
           <a href="ifem.html" title="GetFEM++ に新しい有限要素法を組み込む"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="asm.html" title="いくつかの標準構築手順（低レベル汎用構築）"
+          <a href="asm.html" title="いくつかの標準構築手順（低水準汎用構築）"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

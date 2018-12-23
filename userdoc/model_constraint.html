@@ -6,10 +6,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>拘束ブリック &mdash; GetFEM++</title>
+    <title>拘束ブリック要素 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
-    <link rel="up" title="モデル記述と基本モデルブリック" href="model.html" />
+    <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="他の “陽な”要素" href="model_explicit.html" />
     <link rel="prev" title="Dirichletおよび接触境界条件に対するNitsche法" href="model_Nitsche.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,12 +48,12 @@
         <li class="right" >
           <a href="model_Nitsche.html" title="Dirichletおよび接触境界条件に対するNitsche法"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li>
-          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li>
+          <li><a href="model.html" accesskey="U">モデル記述と基本モデルブリック要素</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,11 +63,11 @@
           <div class="body">
             
   <div class="section" id="constraint-brick">
-<span id="ud-model-constraint"></span><span id="index-0"></span><h1>拘束ブリック<a class="headerlink" href="#constraint-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>拘束ブリックでは変数に明示的な拘束を追加できます。明示的とは、積分が行われていないことを意味します。<img class="math" src="../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> が変数なら型の拘束です</p>
+<span id="ud-model-constraint"></span><span id="index-0"></span><h1>拘束ブリック要素<a class="headerlink" href="#constraint-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>拘束ブリック要素では変数に陽な拘束を追加できます。明示的とは、積分が行われていないことを意味します。<img class="math" src="../_images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> が変数なら型の拘束です</p>
 <div class="math">
-<p><img src="../images/math/bde8a54b763aa0a5665e3a07612e1412f4e2940e.png" alt="BU = L,"/></p>
-</div><p>次の2つの関数で追加することができます:</p>
+<p><img src="../_images/math/bde8a54b763aa0a5665e3a07612e1412f4e2940e.png" alt="BU = L,"/></p>
+</div><p>次の2つの関数で追加することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">indbrick</span> <span class="o">=</span> <span class="n">getfem</span><span class="o">::</span><span class="n">add_constraint_with_penalization</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                                     <span class="n">penalisation_coeff</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">L</span><span class="p">);</span>
 <span class="n">indbrick</span> <span class="o">=</span> <span class="n">getfem</span><span class="o">::</span><span class="n">add_constraint_with_multipliers</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
@@ -75,11 +75,11 @@
 </pre></div>
 </div>
 <p>2番目のケースでは、乗数として機能する（固定サイズの）変数を最初にモデルに追加する必要があります。</p>
-<p>ペナルティバージョンでは、 <tt class="docutils literal"><span class="pre">B</span></tt> はプレーンな行を含んではいけません。さもなければ、接線行列全体がプレーンになります。ペナルティ・パラメータは次の関数によって変更することができます:</p>
+<p>ペナルティバージョンでは、 <tt class="docutils literal"><span class="pre">B</span></tt> はプレーンな行を含んではいけません。さもなければ、接線行列全体がプレーンになります。ペナルティ・パラメータは次の関数によって変更することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">change_penalization_coeff</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">ind_brick</span><span class="p">,</span> <span class="n">penalisation_coeff</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>次の2つの関数により、いつでも拘束を変更することができます:</p>
+<p>次の2つの関数により、いつでも拘束を変更することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">set_private_data_matrix</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">indbrick</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 <span class="n">getfem</span><span class="o">::</span><span class="n">set_private_data_rhs</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">indbrick</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
 </pre></div>
@@ -94,7 +94,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_Nitsche.html"
@@ -151,12 +151,12 @@
         <li class="right" >
           <a href="model_Nitsche.html" title="Dirichletおよび接触境界条件に対するNitsche法"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
-          <li><a href="index.html" >User Documentation</a> &raquo;</li>
-          <li><a href="model.html" >モデル記述と基本モデルブリック</a> &raquo;</li> 
+          <li><a href="index.html" >ユーザドキュメント</a> &raquo;</li>
+          <li><a href="model.html" >モデル記述と基本モデルブリック要素</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
