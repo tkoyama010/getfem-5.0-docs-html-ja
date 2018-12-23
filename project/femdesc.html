@@ -8,8 +8,8 @@
     
     <title>GetFEM++ のFEM記述 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="$B%W%m%8%’%/%H$N@bL@(B" href="index.html" />
     <link rel="next" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="prev" title="貢献する方法 / SavannahのGitリポジトリ" href="contribute.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="contribute.html" title="貢献する方法 / SavannahのGitリポジトリ"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -104,7 +104,7 @@
 </div>
 <p>記述子には特に頂点の数( <tt class="docutils literal"><span class="pre">nb_points()</span></tt> ）のための面の数（ <tt class="docutils literal"><span class="pre">p-&gt;nb_faces()</span></tt> ）と凸部の次元（ <tt class="docutils literal"><span class="pre">p-&gt;dim()</span></tt> ）が含まれます。他の情報は、各面の頂点の数、面の記述、およびより基本的な（幾何学的変換の記述に使用される）記述への最終的な参照です。</p>
 <div class="figure align-center" id="dp-fig-elem">
-<a class="reference internal image-reference" href="../_images/getfemelemelem.png"><img alt="../_images/getfemelemelem.png" src="../_images/getfemelemelem.png" style="width: 1003.2px; height: 853.2px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemelemelem.png"><img alt="../images/getfemelemelem.png" src="../images/getfemelemelem.png" style="width: 1003.2px; height: 853.2px;" /></a>
 <p class="caption">通常の要素</p>
 </div>
 </div>
@@ -136,7 +136,7 @@
 <dd><p>次元 <tt class="docutils literal"><span class="pre">d</span></tt> を参照する平行六面体の記述。</p>
 </dd></dl>
 
-<p>頂点は、そのような参照要素の古典的頂点に対応します。たとえば、三角形の頂点は、 <img class="math" src="../_images/math/c4b86f54134d69cad8793688a431aa907aaf2698.png" alt="(0, 0)" style="vertical-align: -4px"/> 、 <img class="math" src="../_images/math/754e946d1a160f767f0f61cbd9460401c2d1c17f.png" alt="(1, 0)" style="vertical-align: -4px"/> 、 <img class="math" src="../_images/math/6457ca2dcd40dc21d9aa0db18c66bbac9af4d899.png" alt="(0, 1)" style="vertical-align: -4px"/> です。これは、図 <a class="reference internal" href="#dp-fig-elem"><em>通常の要素</em></a> に示す構成に対応します。</p>
+<p>頂点は、そのような参照要素の古典的頂点に対応します。たとえば、三角形の頂点は、 <img class="math" src="../images/math/c4b86f54134d69cad8793688a431aa907aaf2698.png" alt="(0, 0)" style="vertical-align: -4px"/> 、 <img class="math" src="../images/math/754e946d1a160f767f0f61cbd9460401c2d1c17f.png" alt="(1, 0)" style="vertical-align: -4px"/> 、 <img class="math" src="../images/math/6457ca2dcd40dc21d9aa0db18c66bbac9af4d899.png" alt="(0, 1)" style="vertical-align: -4px"/> です。これは、図 <a class="reference internal" href="#dp-fig-elem"><em>通常の要素</em></a> に示す構成に対応します。</p>
 <p><tt class="docutils literal"><span class="pre">p</span></tt> がタイプ <tt class="docutils literal"><span class="pre">bgeot::pconvex_ref</span></tt> の場合 <tt class="docutils literal"><span class="pre">p-&gt;structure()</span></tt> は対応する凸包構造です。したがって、例えば <tt class="docutils literal"><span class="pre">p-&gt;structure()-&gt;nb_points()</span></tt> は頂点の数を返します。 <tt class="docutils literal"><span class="pre">p-&gt;points()</span></tt> 関数は頂点の配列を与え、 <tt class="docutils literal"><span class="pre">p-&gt;points()[0]</span></tt> は最初の頂点です。関数 <tt class="docutils literal"><span class="pre">p-&gt;is_in(const</span> <span class="pre">base_node</span> <span class="pre">&amp;pt)</span></tt> は、点ptが要素内にあれば、負の実数を返します。関数 <tt class="docutils literal"><span class="pre">p-&gt;is_in_face(short_type</span> <span class="pre">f,</span> <span class="pre">const</span> <span class="pre">base_node</span> <span class="pre">&amp;pt)</span></tt> は、点 <tt class="docutils literal"><span class="pre">pt</span></tt> が要素 <tt class="docutils literal"><span class="pre">f</span></tt> にある場合はnullを返します。他の関数は <tt class="file docutils literal"><span class="pre">bgeot_convex_ref.h</span></tt> と <tt class="file docutils literal"><span class="pre">bgeot_convex.h</span></tt> にあります。</p>
 </div>
 <div class="section" id="shape-function-type">
@@ -151,34 +151,34 @@ and must have a method to compute the derivative with respect to the ith variabl
 <div class="section" id="geometric-transformations">
 <span id="dp-transgeo"></span><h2>幾何学的変換<a class="headerlink" href="#geometric-transformations" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-center" id="dp-fig-transgeo">
-<a class="reference internal image-reference" href="../_images/getfemtransgeo.png"><img alt="../_images/getfemtransgeo.png" src="../_images/getfemtransgeo.png" style="width: 896.4px; height: 431.4px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemtransgeo.png"><img alt="../images/getfemtransgeo.png" src="../images/getfemtransgeo.png" style="width: 896.4px; height: 431.4px;" /></a>
 <p class="caption">幾何学的変換</p>
 </div>
 <p>幾何学的変換は、多項式アプリケーションです。</p>
 <div class="math">
-<p><img src="../_images/math/6da7a5ef1d4faacfeec17e7c5d6280cc1984c023.png" alt="\tau : \widehat{T} \subset \Reel^P \longrightarrow T \subset \Reel^N,"/></p>
-</div><p>これは、参照要素 <img class="math" src="../_images/math/ab3da9205a52f44a4d132b33deb60f99456bf730.png" alt="\widehat{T}" style="vertical-align: 0px"/> を実際の要素 <img class="math" src="../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T" style="vertical-align: 0px"/> にマップします。幾何学的節点は次のように表記されます。</p>
+<p><img src="../images/math/6da7a5ef1d4faacfeec17e7c5d6280cc1984c023.png" alt="\tau : \widehat{T} \subset \Reel^P \longrightarrow T \subset \Reel^N,"/></p>
+</div><p>これは、参照要素 <img class="math" src="../images/math/ab3da9205a52f44a4d132b33deb60f99456bf730.png" alt="\widehat{T}" style="vertical-align: 0px"/> を実際の要素 <img class="math" src="../images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T" style="vertical-align: 0px"/> にマップします。幾何学的節点は次のように表記されます。</p>
 <div class="math">
-<p><img src="../_images/math/962a21010e155a5142e812a3380bd07d806214f6.png" alt="g^i, i = 0, \ldots, n_g - 1."/></p>
-</div><p>幾何学的変換は <img class="math" src="../_images/math/76d1c2d79ef0f681a6ec4d928761c7d894519e1d.png" alt="n_g" style="vertical-align: -6px"/> 成分多項式ベクトルのにより記述されています。 (実際には、拡張として、非多項式幾何学的変換はまた、 <em>GetFEM++</em> でサポートすることができますが、これが使用されるのは非常にまれです。)</p>
+<p><img src="../images/math/962a21010e155a5142e812a3380bd07d806214f6.png" alt="g^i, i = 0, \ldots, n_g - 1."/></p>
+</div><p>幾何学的変換は <img class="math" src="../images/math/76d1c2d79ef0f681a6ec4d928761c7d894519e1d.png" alt="n_g" style="vertical-align: -6px"/> 成分多項式ベクトルのにより記述されています。 (実際には、拡張として、非多項式幾何学的変換はまた、 <em>GetFEM++</em> でサポートすることができますが、これが使用されるのは非常にまれです。)</p>
 <div class="math">
-<p><img src="../_images/math/0547643e6c9872843dce00cf21d8024c3688ec92.png" alt="{\cal N}(\widehat{x}),"/></p>
+<p><img src="../images/math/0547643e6c9872843dce00cf21d8024c3688ec92.png" alt="{\cal N}(\widehat{x}),"/></p>
 </div><p>ような</p>
 <div class="math">
-<p><img src="../_images/math/8e7714993b9bbf388a2ba796157bdb488a1c6fa3.png" alt="\tau(\widehat{x}) = \sum_{i = 0}^{n_g - 1}{\cal N}_i(\widehat{x}) g^i."/></p>
+<p><img src="../images/math/8e7714993b9bbf388a2ba796157bdb488a1c6fa3.png" alt="\tau(\widehat{x}) = \sum_{i = 0}^{n_g - 1}{\cal N}_i(\widehat{x}) g^i."/></p>
 </div><p>示す</p>
 <div class="math">
-<p><img src="../_images/math/a7e7fb0dcc86a320f074f89baa72cf01a99d90de.png" alt="G = (g^0; g^1; ...; g^{n_g - 1}),"/></p>
-</div><p><img class="math" src="../_images/math/ed207dcc3ba0b0575e21b489803da0326a2383e6.png" alt="N\times n_g" style="vertical-align: -6px"/> 行列のすべての幾何学的節点を含む, 1 つは</p>
+<p><img src="../images/math/a7e7fb0dcc86a320f074f89baa72cf01a99d90de.png" alt="G = (g^0; g^1; ...; g^{n_g - 1}),"/></p>
+</div><p><img class="math" src="../images/math/ed207dcc3ba0b0575e21b489803da0326a2383e6.png" alt="N\times n_g" style="vertical-align: -6px"/> 行列のすべての幾何学的節点を含む, 1 つは</p>
 <div class="math">
-<p><img src="../_images/math/eb1b33e1c230d224671f26eb5da84ec6e8226ef9.png" alt="\fbox{$\tau(\widehat{x}) = G\cdot{\cal N}(\widehat{x})$.}"/></p>
-</div><p>の導関数 <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> は</p>
+<p><img src="../images/math/eb1b33e1c230d224671f26eb5da84ec6e8226ef9.png" alt="\fbox{$\tau(\widehat{x}) = G\cdot{\cal N}(\widehat{x})$.}"/></p>
+</div><p>の導関数 <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> は</p>
 <div class="math">
-<p><img src="../_images/math/0eb9a71e84149f36e1043e312985c63f5e2672a6.png" alt="\fbox{$K(\widehat{x}) := \nabla\tau(\widehat{x}) = G\cdot\nabla {\cal N}(\widehat{x})$,}"/></p>
-</div><p>ここで <img class="math" src="../_images/math/7b2f69f32ae2570401c8d699ddfc1fbe4945694e.png" alt="K(\widehat{x}) = \nabla\tau(\widehat{x})" style="vertical-align: -4px"/> は <img class="math" src="../_images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> 行列と <img class="math" src="../_images/math/24c2d0eb20838c936036f5720d0d74a123a741a8.png" alt="\nabla {\cal N}(\widehat{x})" style="vertical-align: -4px"/> <img class="math" src="../_images/math/358f30fe59a4c42466c8e7f6b4f3d28a272f0f9a.png" alt="n_g\times P" style="vertical-align: -6px"/> 行列。(転置) 擬似逆 <img class="math" src="../_images/math/3fe66acc0b4361b4c37f856223c8d6448cf346dc.png" alt="\nabla\tau(\widehat{x})" style="vertical-align: -4px"/> は <img class="math" src="../_images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> の行列表記 <img class="math" src="../_images/math/ed95f4f62239f9aa2580eff710f7ed6de10756d9.png" alt="B(\widehat{x})" style="vertical-align: -4px"/> です。</p>
+<p><img src="../images/math/0eb9a71e84149f36e1043e312985c63f5e2672a6.png" alt="\fbox{$K(\widehat{x}) := \nabla\tau(\widehat{x}) = G\cdot\nabla {\cal N}(\widehat{x})$,}"/></p>
+</div><p>ここで <img class="math" src="../images/math/7b2f69f32ae2570401c8d699ddfc1fbe4945694e.png" alt="K(\widehat{x}) = \nabla\tau(\widehat{x})" style="vertical-align: -4px"/> は <img class="math" src="../images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> 行列と <img class="math" src="../images/math/24c2d0eb20838c936036f5720d0d74a123a741a8.png" alt="\nabla {\cal N}(\widehat{x})" style="vertical-align: -4px"/> <img class="math" src="../images/math/358f30fe59a4c42466c8e7f6b4f3d28a272f0f9a.png" alt="n_g\times P" style="vertical-align: -6px"/> 行列。(転置) 擬似逆 <img class="math" src="../images/math/3fe66acc0b4361b4c37f856223c8d6448cf346dc.png" alt="\nabla\tau(\widehat{x})" style="vertical-align: -4px"/> は <img class="math" src="../images/math/8751eb20bb25e6c15261e94d48ad4bdcaf2942ff.png" alt="N\times P" style="vertical-align: 0px"/> の行列表記 <img class="math" src="../images/math/ed95f4f62239f9aa2580eff710f7ed6de10756d9.png" alt="B(\widehat{x})" style="vertical-align: -4px"/> です。</p>
 <div class="math">
-<p><img src="../_images/math/5855d3b641397cd540972930e7fcab8ae0181d83.png" alt="\fbox{$B(\widehat{x}) := K(\widehat{x})(K(\widehat{x})^T K(\widehat{x}))^{-1}$,}"/></p>
-</div><p>もちろん、ここで <img class="math" src="../_images/math/78e70bfd3dbf21ca233e317f93de89829726f28a.png" alt="P=N" style="vertical-align: 0px"/> 、1つは <img class="math" src="../_images/math/8ecdc6050bedc6555fac9c95af9b9eaf6a6c0b64.png" alt="B(\widehat{x})=K(\widehat{x})^{-T}" style="vertical-align: -4px"/> 。</p>
+<p><img src="../images/math/5855d3b641397cd540972930e7fcab8ae0181d83.png" alt="\fbox{$B(\widehat{x}) := K(\widehat{x})(K(\widehat{x})^T K(\widehat{x}))^{-1}$,}"/></p>
+</div><p>もちろん、ここで <img class="math" src="../images/math/78e70bfd3dbf21ca233e317f93de89829726f28a.png" alt="P=N" style="vertical-align: 0px"/> 、1つは <img class="math" src="../images/math/8ecdc6050bedc6555fac9c95af9b9eaf6a6c0b64.png" alt="B(\widehat{x})=K(\widehat{x})^{-T}" style="vertical-align: -4px"/> 。</p>
 <p>幾何学的変換の記述子に対するポインタは、ファイル <tt class="file docutils literal"><span class="pre">bgeot_geometric_trans.h</span></tt> で定義されている次の関数によって取得できます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">bgeot</span><span class="o">::</span><span class="n">pgeometric_trans</span> <span class="n">pgt</span> <span class="o">=</span> <span class="n">bgeot</span><span class="o">::</span><span class="n">geometric_trans_descriptor</span><span class="p">(</span><span class="s">&quot;name of trans&quot;</span><span class="p">);</span>
 </pre></div>
@@ -207,23 +207,23 @@ meshes with parallelograms.</p>
 </div>
 <div class="section" id="finite-element-methods-description">
 <h2>有限要素法記述<a class="headerlink" href="#finite-element-methods-description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>有限要素法は、節点 <img class="math" src="../_images/math/606264c4db7d91ea583bdde39d2b6ca07d6b8f54.png" alt="a^i" style="vertical-align: 0px"/> と対応する基底関数の集合 <img class="math" src="../_images/math/caeb5d2509f928e766cde7df78f6d0d4769392e6.png" alt="n_d" style="vertical-align: -3px"/> による参照要素 <img class="math" src="../_images/math/490a15b156acbdecf8468727082d599e5894f16b.png" alt="\widehat{T}\subset\Reel^P" style="vertical-align: -1px"/> に対して定義されます。</p>
+<p>有限要素法は、節点 <img class="math" src="../images/math/606264c4db7d91ea583bdde39d2b6ca07d6b8f54.png" alt="a^i" style="vertical-align: 0px"/> と対応する基底関数の集合 <img class="math" src="../images/math/caeb5d2509f928e766cde7df78f6d0d4769392e6.png" alt="n_d" style="vertical-align: -3px"/> による参照要素 <img class="math" src="../images/math/490a15b156acbdecf8468727082d599e5894f16b.png" alt="\widehat{T}\subset\Reel^P" style="vertical-align: -1px"/> に対して定義されます。</p>
 <div class="math">
-<p><img src="../_images/math/3e41ea818131cce5267066868358ebfbe694b9fd.png" alt="(\widehat{\varphi})^i : \widehat{T}\subset\Reel^P \longrightarrow \Reel^Q"/></p>
+<p><img src="../images/math/3e41ea818131cce5267066868358ebfbe694b9fd.png" alt="(\widehat{\varphi})^i : \widehat{T}\subset\Reel^P \longrightarrow \Reel^Q"/></p>
 </div><p>示す</p>
 <div class="math">
-<p><img src="../_images/math/8df930d62407f9b5e47e82d39f6f3355fbb5863d.png" alt="\psi^i(x) = (\widehat{\varphi})^i(\widehat{x}) = (\widehat{\varphi})^i(\tau^{-1}(x)),"/></p>
+<p><img src="../images/math/8df930d62407f9b5e47e82d39f6f3355fbb5863d.png" alt="\psi^i(x) = (\widehat{\varphi})^i(\widehat{x}) = (\widehat{\varphi})^i(\tau^{-1}(x)),"/></p>
 </div><p>補助線形変換は、実際の基底関数に対して許可されます。</p>
 <div class="math">
-<p><img src="../_images/math/6c548f37b34f5cafe76d6ee4c81b68f07a542e0b.png" alt="\varphi^i(x) = \sum_{j = 0}^{n_d - 1} M_{ij} \psi^j(x),"/></p>
-</div><p>ここで <img class="math" src="../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> は幾何変換が可能な(すなわち、実数要素の) <img class="math" src="../_images/math/9604d8fac882dcb7a91527f78ef65b36ef7d6cce.png" alt="n_d \times n_d" style="vertical-align: -3px"/> 行列です。Lagrange要素としての基本的な要素については、この行列は恒等行列です(単に無視される)。この場合、要素は次のようになります <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> -等価です。</p>
-<p>この方法では、非線形変換 (主に曲線境界の場合) を使用しても、Hermite要素 (たとえばArgyris) を汎用的な方法で定義することができます。 <img class="math" src="../_images/math/6edcce0428afc0e565a8fc6dd596a310f141e0c3.png" alt="[\widehat{\varphi}(\widehat{x})]" style="vertical-align: -5px"/> <img class="math" src="../_images/math/6816da20503916e6789565a06b93264b1651941f.png" alt="n_d \times Q" style="vertical-align: -4px"/> は、その i 番目の行の行列 <img class="math" src="../_images/math/3535e17235ffaa14e8f8722a8da85be9753c4e0c.png" alt="(\widehat{\varphi})^i(\widehat{x})" style="vertical-align: -4px"/> 。この記法は、次の関数によって定義されます。</p>
+<p><img src="../images/math/6c548f37b34f5cafe76d6ee4c81b68f07a542e0b.png" alt="\varphi^i(x) = \sum_{j = 0}^{n_d - 1} M_{ij} \psi^j(x),"/></p>
+</div><p>ここで <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> は幾何変換が可能な(すなわち、実数要素の) <img class="math" src="../images/math/9604d8fac882dcb7a91527f78ef65b36ef7d6cce.png" alt="n_d \times n_d" style="vertical-align: -3px"/> 行列です。Lagrange要素としての基本的な要素については、この行列は恒等行列です(単に無視される)。この場合、要素は次のようになります <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> -等価です。</p>
+<p>この方法では、非線形変換 (主に曲線境界の場合) を使用しても、Hermite要素 (たとえばArgyris) を汎用的な方法で定義することができます。 <img class="math" src="../images/math/6edcce0428afc0e565a8fc6dd596a310f141e0c3.png" alt="[\widehat{\varphi}(\widehat{x})]" style="vertical-align: -5px"/> <img class="math" src="../images/math/6816da20503916e6789565a06b93264b1651941f.png" alt="n_d \times Q" style="vertical-align: -4px"/> は、その i 番目の行の行列 <img class="math" src="../images/math/3535e17235ffaa14e8f8722a8da85be9753c4e0c.png" alt="(\widehat{\varphi})^i(\widehat{x})" style="vertical-align: -4px"/> 。この記法は、次の関数によって定義されます。</p>
 <div class="math">
-<p><img src="../_images/math/bca41f66ba8f602efc6b316b980fd0d286a29092.png" alt="f(x) = \sum_{i = 0}^{n_d - 1} \alpha_i \varphi^i(x),"/></p>
+<p><img src="../images/math/bca41f66ba8f602efc6b316b980fd0d286a29092.png" alt="f(x) = \sum_{i = 0}^{n_d - 1} \alpha_i \varphi^i(x),"/></p>
 </div><p>1つは</p>
 <div class="math">
-<p><img src="../_images/math/e6a403771cca9a9438d81a0d561519961c5c0a63.png" alt="\fbox{$f(\tau(\widehat{x})) = \alpha^T M [\widehat{\varphi}(\widehat{x})]$,}"/></p>
-</div><p>ここで <img class="math" src="../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha" style="vertical-align: 0px"/> は、その i 番目の成分 <img class="math" src="../_images/math/7e46fc708bb0d019ec0b54d24b166024d6c146ff.png" alt="\alpha_i" style="vertical-align: -3px"/> があるベクトルです。</p>
+<p><img src="../images/math/e6a403771cca9a9438d81a0d561519961c5c0a63.png" alt="\fbox{$f(\tau(\widehat{x})) = \alpha^T M [\widehat{\varphi}(\widehat{x})]$,}"/></p>
+</div><p>ここで <img class="math" src="../images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha" style="vertical-align: 0px"/> は、その i 番目の成分 <img class="math" src="../images/math/7e46fc708bb0d019ec0b54d24b166024d6c146ff.png" alt="\alpha_i" style="vertical-align: -3px"/> があるベクトルです。</p>
 <p>古典的な有限要素法の記述のある特定の数はファイル <tt class="file docutils literal"><span class="pre">getfem_fem.h</span></tt> で定義されています。利用可能な有限要素法の完全なリストは <a class="reference internal" href="../userdoc/appendixA.html#ud-appendixa"><em>付録A.有限要素法リスト</em></a> を参照してください。</p>
 <p>メソッドの有限要素記述子へのポインタは、次の関数を使用して取得されます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">pfem</span> <span class="n">pfe</span> <span class="o">=</span> <span class="n">getfem</span><span class="o">::</span><span class="n">fem_descriptor</span><span class="p">(</span><span class="s">&quot;name of method&quot;</span><span class="p">);</span>
@@ -240,7 +240,7 @@ meshes with parallelograms.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -309,7 +309,7 @@ meshes with parallelograms.</p>
         <li class="right" >
           <a href="contribute.html" title="貢献する方法 / SavannahのGitリポジトリ"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

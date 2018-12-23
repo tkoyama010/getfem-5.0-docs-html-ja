@@ -8,8 +8,8 @@
     
     <title>Examples &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Python Interface" href="index.html" />
     <link rel="next" title="How-tos" href="howtos.html" />
     <link rel="prev" title="Python GetFEM++ interface" href="pygf.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="pygf.html" title="Python GetFEM++ interface"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,14 +66,14 @@
 <div class="section" id="a-step-by-step-basic-example">
 <span id="py-laplacianexample"></span><h2>A step-by-step basic example<a class="headerlink" href="#a-step-by-step-basic-example" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This example shows the basic usage of getfem, on the über-canonical problem above
-all others: solving the <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">Laplacian</span></tt>, <img class="math" src="../_images/math/9d8850362727d1a8a9e76c4d0cc31f56efe39292.png" alt="-\Delta u = f" style="vertical-align: -4px"/> on a square,
-with the Dirichlet condition <img class="math" src="../_images/math/204955570f9d78fc69195a1d6bec6aa58aa45f2e.png" alt="u = g(x)" style="vertical-align: -4px"/> on the domain boundary. You can find
+all others: solving the <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">Laplacian</span></tt>, <img class="math" src="../images/math/9d8850362727d1a8a9e76c4d0cc31f56efe39292.png" alt="-\Delta u = f" style="vertical-align: -4px"/> on a square,
+with the Dirichlet condition <img class="math" src="../images/math/204955570f9d78fc69195a1d6bec6aa58aa45f2e.png" alt="u = g(x)" style="vertical-align: -4px"/> on the domain boundary. You can find
 the <strong>py-file</strong> of this example under the name <strong>demo_step_by_step.py</strong> in the
 directory <tt class="docutils literal"><span class="pre">interface/tests/python/</span></tt> of the <em>GetFEM++</em> distribution.</p>
 <p>The first step is to <strong>create a Mesh object</strong>. It is possible to create simple structured meshes or unstructured meshes for simple geometries (see <tt class="docutils literal"><span class="pre">getfem.Mesh('generate',</span> <span class="pre">mesher_object</span> <span class="pre">mo,</span> <span class="pre">scalar</span> <span class="pre">h))</span></tt>) or to rely on an external mesher (see <tt class="docutils literal"><span class="pre">getfem.Mesh('import',</span>
 <span class="pre">string</span> <span class="pre">FORMAT,</span> <span class="pre">string</span> <span class="pre">FILENAME)</span></tt>), or use very simple meshes. For this example,
 we just consider a regular meshindex{cartesian mesh} whose nodes are
-<img class="math" src="../_images/math/1d8e8e3b20248b84a1b1f24425f487099d4224ce.png" alt="\{x_{i=0\ldots10,j=0..10}=(i/10,j/10)\}" style="vertical-align: -6px"/></p>
+<img class="math" src="../images/math/1d8e8e3b20248b84a1b1f24425f487099d4224ce.png" alt="\{x_{i=0\ldots10,j=0..10}=(i/10,j/10)\}" style="vertical-align: -6px"/></p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -100,10 +100,10 @@ of FEM</p>
 </td></tr></table></div>
 <p>The first instruction builds a new MeshFem object, the second argument specifies
 that this object will be used to interpolate scalar fields (since the unknown
-<img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is a scalar field). The second instruction assigns the <img class="math" src="../_images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> FEM
+<img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is a scalar field). The second instruction assigns the <img class="math" src="../images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> FEM
 to every convex (each basis function is a polynomial of degree 4, remember that
-<img class="math" src="../_images/math/71a51cfdab1b554669a9b87471779e3f41b49b0c.png" alt="P^k\Rightarrow" style="vertical-align: -1px"/> polynomials of degree <img class="math" src="../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/>, while
-<img class="math" src="../_images/math/40c3965a7783a37bc20ea0ff3df05605ed1ee20e.png" alt="Q^k\Rightarrow" style="vertical-align: -4px"/> polynomials of degree <img class="math" src="../_images/math/b8ea7ee8a282949fd853a01537ec7a2b55e56f75.png" alt="2k" style="vertical-align: 0px"/>). As <img class="math" src="../_images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> is a
+<img class="math" src="../images/math/71a51cfdab1b554669a9b87471779e3f41b49b0c.png" alt="P^k\Rightarrow" style="vertical-align: -1px"/> polynomials of degree <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/>, while
+<img class="math" src="../images/math/40c3965a7783a37bc20ea0ff3df05605ed1ee20e.png" alt="Q^k\Rightarrow" style="vertical-align: -4px"/> polynomials of degree <img class="math" src="../images/math/b8ea7ee8a282949fd853a01537ec7a2b55e56f75.png" alt="2k" style="vertical-align: 0px"/>). As <img class="math" src="../images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> is a
 polynomial FEM, you can view the expression of its basis functions on the
 reference convex:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -155,9 +155,9 @@ insertion of the stiffness matrix for the problem considered (linear elasticity,
 laplacian, etc), handling of a set of constraints, Dirichlet condition, addition of
 a source term to the right hand side etc. The global tangent matrix and its right
 hand side are stored in the &#8220;<span class="target" id="index-4"></span><tt class="xref std std-envvar docutils literal"><span class="pre">model</span></tt>&#8221; structure.</p>
-<p>Let us build a problem with an easy solution: <img class="math" src="../_images/math/8a2f037b52e9fe7f21f80788a03486251a6a1ded.png" alt="u = x(x-1)-y(y-1)" style="vertical-align: -4px"/>, then
-we have <img class="math" src="../_images/math/43196f8480dd10d44a135ea5948c92eeca549e85.png" alt="-\Delta u = 0" style="vertical-align: 0px"/> (the FEM won&#8217;t be able to catch the exact
-solution since we use a <img class="math" src="../_images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> method).</p>
+<p>Let us build a problem with an easy solution: <img class="math" src="../images/math/8a2f037b52e9fe7f21f80788a03486251a6a1ded.png" alt="u = x(x-1)-y(y-1)" style="vertical-align: -4px"/>, then
+we have <img class="math" src="../images/math/43196f8480dd10d44a135ea5948c92eeca549e85.png" alt="-\Delta u = 0" style="vertical-align: 0px"/> (the FEM won&#8217;t be able to catch the exact
+solution since we use a <img class="math" src="../images/math/4c52e98ff6e755fe0a4161e44dbbc9e40af1a54b.png" alt="Q^2" style="vertical-align: -4px"/> method).</p>
 <p>We start with an empty real model</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># empty real model</span>
@@ -173,9 +173,9 @@ unknown of the system on the finite element method <cite>mf</cite> by</p>
 <span class="n">md</span><span class="o">.</span><span class="n">add_fem_variable</span><span class="p">(</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="n">mf</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Now, we add a <cite>generic elliptic</cite> brick, which handles <img class="math" src="../_images/math/421698cfd92ae92ecf46ef69aa4c2c5132c2ee25.png" alt="-\nabla\cdot(A:\nabla
-u) = \ldots" style="vertical-align: -4px"/> problems, where <img class="math" src="../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A" style="vertical-align: 0px"/> can be a scalar field, a matrix field, or
-an order 4 tensor field. By default, <img class="math" src="../_images/math/f18428217dcd07944b2adbebcafd0978587a770a.png" alt="A=1" style="vertical-align: -1px"/>. We add it on our main variable
+<p>Now, we add a <cite>generic elliptic</cite> brick, which handles <img class="math" src="../images/math/421698cfd92ae92ecf46ef69aa4c2c5132c2ee25.png" alt="-\nabla\cdot(A:\nabla
+u) = \ldots" style="vertical-align: -4px"/> problems, where <img class="math" src="../images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A" style="vertical-align: 0px"/> can be a scalar field, a matrix field, or
+an order 4 tensor field. By default, <img class="math" src="../images/math/f18428217dcd07944b2adbebcafd0978587a770a.png" alt="A=1" style="vertical-align: -1px"/>. We add it on our main variable
 <tt class="docutils literal"><span class="pre">u</span></tt> with</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># add generic elliptic brick on &quot;u&quot;</span>
@@ -196,8 +196,8 @@ an order 4 tensor field. By default, <img class="math" src="../_images/math/f184
 Dirichlet condition. The third one add a Dirichlet condition to the variable <tt class="docutils literal"><span class="pre">u</span></tt>
 on the boundary number <tt class="docutils literal"><span class="pre">42</span></tt>. The dirichlet condition is imposed with lagrange
 multipliers. Another possibility is to use a penalization. A MeshFem argument is
-also required, as the Dirichlet condition <img class="math" src="../_images/math/042c6e5c286ed5f65fe3269bb42836f8080fb818.png" alt="u=g" style="vertical-align: -4px"/> is imposed in a weak form
-<img class="math" src="../_images/math/05987d85aec718ef4aa6f341c35c0e7d0334a276.png" alt="\int_\Gamma u(x)v(x) = \int_\Gamma g(x)v(x)\ \forall v" style="vertical-align: -6px"/> where <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is
+also required, as the Dirichlet condition <img class="math" src="../images/math/042c6e5c286ed5f65fe3269bb42836f8080fb818.png" alt="u=g" style="vertical-align: -4px"/> is imposed in a weak form
+<img class="math" src="../images/math/05987d85aec718ef4aa6f341c35c0e7d0334a276.png" alt="\int_\Gamma u(x)v(x) = \int_\Gamma g(x)v(x)\ \forall v" style="vertical-align: -6px"/> where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is
 taken in the space of multipliers given by here by <tt class="docutils literal"><span class="pre">mf</span></tt>.</p>
 <div class="topic">
 <p class="topic-title first">Remark:</p>
@@ -239,17 +239,17 @@ system which was solved). It is extracted</p>
 </td></tr></table></div>
 <p>and view with <tt class="docutils literal"><span class="pre">gmsh</span> <span class="pre">u.pos</span></tt>, see figure <a class="reference internal" href="#py-fig-sbs"><em>Computed solution</em></a>.</p>
 <div class="figure align-center" id="py-fig-sbs">
-<a class="reference internal image-reference" href="../_images/step_by_step.png"><img alt="../_images/step_by_step.png" src="../_images/step_by_step.png" style="width: 338.5px; height: 387.5px;" /></a>
+<a class="reference internal image-reference" href="../images/step_by_step.png"><img alt="../images/step_by_step.png" src="../images/step_by_step.png" style="width: 338.5px; height: 387.5px;" /></a>
 <p class="caption">Computed solution</p>
 </div>
 </div>
 <div class="section" id="another-laplacian-with-exact-solution-source-term">
 <h2>Another Laplacian with exact solution (source term)<a class="headerlink" href="#another-laplacian-with-exact-solution-source-term" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>This example shows the basic usage of getfem, on the canonical problem: solving
-the Laplacian, <img class="math" src="../_images/math/9d8850362727d1a8a9e76c4d0cc31f56efe39292.png" alt="-\Delta u = f" style="vertical-align: -4px"/> on a square, with the Dirichlet condition
-<img class="math" src="../_images/math/204955570f9d78fc69195a1d6bec6aa58aa45f2e.png" alt="u = g(x)" style="vertical-align: -4px"/> on the domain boundary <img class="math" src="../_images/math/932d4407c87b1cb432a44ee87997e834b985003b.png" alt="\Gamma_D" style="vertical-align: -3px"/> and the Neumann condition
-<img class="math" src="../_images/math/44d7a516b9736c324460a5525fabdd3598a71d03.png" alt="\frac{\partial u}{\partial\eta} = h(x)" style="vertical-align: -9px"/> on the domain boundary
-<img class="math" src="../_images/math/0b983602095bda2a85dd1b0c177f154eaffbecbd.png" alt="\Gamma_N" style="vertical-align: -3px"/>. You can find the <strong>py-file</strong> of this example under the name
+the Laplacian, <img class="math" src="../images/math/9d8850362727d1a8a9e76c4d0cc31f56efe39292.png" alt="-\Delta u = f" style="vertical-align: -4px"/> on a square, with the Dirichlet condition
+<img class="math" src="../images/math/204955570f9d78fc69195a1d6bec6aa58aa45f2e.png" alt="u = g(x)" style="vertical-align: -4px"/> on the domain boundary <img class="math" src="../images/math/932d4407c87b1cb432a44ee87997e834b985003b.png" alt="\Gamma_D" style="vertical-align: -3px"/> and the Neumann condition
+<img class="math" src="../images/math/44d7a516b9736c324460a5525fabdd3598a71d03.png" alt="\frac{\partial u}{\partial\eta} = h(x)" style="vertical-align: -9px"/> on the domain boundary
+<img class="math" src="../images/math/0b983602095bda2a85dd1b0c177f154eaffbecbd.png" alt="\Gamma_N" style="vertical-align: -3px"/>. You can find the <strong>py-file</strong> of this example under the name
 <strong>demo_laplacian.py</strong> in the directory <tt class="docutils literal"><span class="pre">interface/tests/python/</span></tt> of the <em>GetFEM++</em>
 distribution.</p>
 <p>We create Mesh, MeshFem, MeshIm object and find the boundary of the domain in
@@ -450,7 +450,7 @@ problem is extracted and exported</p>
 </td></tr></table></div>
 <p>view with <tt class="docutils literal"><span class="pre">gmsh</span> <span class="pre">sol.pos</span></tt>:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/laplacian.png"><img alt="../_images/laplacian.png" src="../_images/laplacian.png" style="width: 250pt;" /></a>
+<a class="reference internal image-reference" href="../images/laplacian.png"><img alt="../images/laplacian.png" src="../images/laplacian.png" style="width: 250pt;" /></a>
 <p class="caption">Differences</p>
 </div>
 </div>
@@ -638,7 +638,7 @@ of the <em>GetFEM++</em> distribution.</p>
 <p>Here is the final figure, displaying the <span class="target" id="index-5"></span><tt class="xref std std-envvar docutils literal"><span class="pre">Von</span> <span class="pre">Mises</span></tt> stress and
 displacements norms:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/tripod.png"><img alt="../_images/tripod.png" src="../_images/tripod.png" style="width: 400pt;" /></a>
+<a class="reference internal image-reference" href="../images/tripod.png"><img alt="../images/tripod.png" src="../images/tripod.png" style="width: 400pt;" /></a>
 <p class="caption">(a) Tripod Von Mises, (b) Tripod displacements norms.</p>
 </div>
 </div>
@@ -695,9 +695,9 @@ very similar to the <tt class="file docutils literal"><span class="pre">demo_tri
 </pre></div>
 </div>
 <p>In <em>getfem-interface</em>, the assembly of vectors, and matrices is done via the <tt class="docutils literal"><span class="pre">gf.asm_*</span></tt>
-functions. The Dirichlet condition <img class="math" src="../_images/math/a1cd47f2b7ebceb2c9684d3df121e7aa0de7e074.png" alt="h(x)u(x) = r(x)" style="vertical-align: -4px"/> is handled in the
-weak form <img class="math" src="../_images/math/6e2bb2cdf7797a89eeb0b475869cf0e38c4c04be.png" alt="\int (h(x)u(x)).v(x) = \int r(x).v(x)\quad\forall v" style="vertical-align: -6px"/> (where
-<img class="math" src="../_images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)" style="vertical-align: -4px"/> is a <img class="math" src="../_images/math/7b5343f2d9e22816e8de24262565ff2937695b2c.png" alt="3\times 3" style="vertical-align: 0px"/> matrix field &#8211; here it is constant and
+functions. The Dirichlet condition <img class="math" src="../images/math/a1cd47f2b7ebceb2c9684d3df121e7aa0de7e074.png" alt="h(x)u(x) = r(x)" style="vertical-align: -4px"/> is handled in the
+weak form <img class="math" src="../images/math/6e2bb2cdf7797a89eeb0b475869cf0e38c4c04be.png" alt="\int (h(x)u(x)).v(x) = \int r(x).v(x)\quad\forall v" style="vertical-align: -6px"/> (where
+<img class="math" src="../images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)" style="vertical-align: -4px"/> is a <img class="math" src="../images/math/7b5343f2d9e22816e8de24262565ff2937695b2c.png" alt="3\times 3" style="vertical-align: 0px"/> matrix field &#8211; here it is constant and
 equal to the identity). The reduced system <tt class="docutils literal"><span class="pre">KK</span> <span class="pre">UU</span> <span class="pre">=</span> <span class="pre">FF</span></tt> is then built via the
 elimination of Dirichlet constraints from the original system. Note that it
 might be more efficient (and simpler) to deal with Dirichlet condition via a
@@ -740,7 +740,7 @@ high order FEMs.</li>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -809,7 +809,7 @@ high order FEMs.</li>
         <li class="right" >
           <a href="pygf.html" title="Python GetFEM++ interface"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

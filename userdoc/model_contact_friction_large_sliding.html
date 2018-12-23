@@ -8,8 +8,8 @@
     
     <title>摩擦ブリック要素との有限すべり/有限変形接触 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="数値連続法と分岐" href="model_continuation.html" />
     <link rel="prev" title="摩擦ブリック要素との微小すべり接触" href="model_contact_friction.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_contact_friction.html" title="摩擦ブリック要素との微小すべり接触"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -70,7 +70,7 @@
 <span id="ud-model-contact-friction-raytrace-inter-trans"></span><h2>レイトレーシング補間変換<a class="headerlink" href="#raytracing-interpolate-transformation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>高水準汎用構築に接触検出を組み込むために、特定の補間変換が定義されています（内挿変換の詳細については <a class="reference internal" href="gasm_high.html#ud-gasm-high-transf"><em>補間変換</em></a> を参照してください）。 <a class="reference internal" href="../biblio.html#ko-re2014" id="id1">[KO-RE2014]</a> に記載されているレイトレーシング接触検出に基づいており、以下で説明する基準を使用します。補間変換は、異なる可能性のある接触面を記憶します。ほとんどの方法で、潜在的接触面はマスターとスレーブの2つのカテゴリに分類されます（ <a class="reference internal" href="#ud-fig-masterslave"><em>図</em></a> を参照）。</p>
 <div class="figure align-center" id="ud-fig-masterslave">
-<a class="reference internal image-reference" href="../_images/getfemusermodelmasterslave.png"><img alt="../_images/getfemusermodelmasterslave.png" src="../_images/getfemusermodelmasterslave.png" style="width: 1092.6px; height: 720.0px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemusermodelmasterslave.png"><img alt="../images/getfemusermodelmasterslave.png" src="../images/getfemusermodelmasterslave.png" style="width: 1092.6px; height: 720.0px;" /></a>
 </div>
 <p>スレーブ表面は &#8220;コンタクタ&#8221; で、マスターは &#8220;ターゲット&#8221; です。剛支障も考慮されます。それらは常にマスター表面です。基本的な規則は、スレーブ表面とマスタ面の間で接触が考慮されることです。しかし、マルチコンタクトフレームオブジェクトと <em>GetFEM++</em> 要素は2つのマスター表面間の接触、マスター表面と任意の数のスレーブ表面とマスター表面の自己接触を含む複数接触の状況を可能にします。</p>
 <p>基本的には、接触対を検出するために、Gauss点またはスレーブ表面の有限要素法節点はマスター表面に投影されます（ <a class="reference internal" href="#ud-fig-masterslave"><em>図</em></a> を参照）。自己接触が考慮される場合、Gauss点またはマスター表面の有限要素法節点もマスター表面に投影されます。</p>
@@ -120,19 +120,19 @@
 <h2>接触対検出アルゴリズム<a class="headerlink" href="#the-contact-pair-detection-algorithm" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>接触対は、スレーブ（または自己接触の場合はマスター）の点と、最も近いマスター表面（または剛性の障害物）の投影点とによって形成されます。使用されたアルゴリズムは <a class="reference internal" href="#ud-fig-algodetect"><em>図</em></a> のように整理されます。</p>
 <div class="figure align-center" id="ud-fig-algodetect">
-<a class="reference internal image-reference" href="../_images/getfemusermodeldetectcontact.png"><img alt="../_images/getfemusermodeldetectcontact.png" src="../_images/getfemusermodeldetectcontact.png" style="width: 779.0px; height: 733.5px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemusermodeldetectcontact.png"><img alt="../images/getfemusermodeldetectcontact.png" src="../images/getfemusermodeldetectcontact.png" style="width: 779.0px; height: 733.5px;" /></a>
 </div>
 <p>（<a class="reference internal" href="../biblio.html#pantz2008" id="id2">[Pantz2008]</a> など、)グローバルなトポロジカルな基準なしに有効な接触先と無効な接触先の間で確実に微分することは不可能です。しかし、この種の基準は、実施するのに非常にコストがかかる可能性があります。したがって、一般的には、可能性のあるすべてのケースをカバーすることができない簡単なヒューリスティックな基準を実装します。このような基準をここに提示します。これらはもちろん不完全であり、変更の対象となります。最初に、 <a class="reference internal" href="#ud-fig-invalidcontact"><em>図</em></a> では、条件を微分しなければならない有効なまたは無効な接触先の数の状況を見ることができます。</p>
 <div class="figure align-center" id="ud-fig-invalidcontact">
-<a class="reference internal image-reference" href="../_images/getfemusermodelfalsecontact1.png"><img alt="../_images/getfemusermodelfalsecontact1.png" src="../_images/getfemusermodelfalsecontact1.png" style="width: 1079.0px; height: 1036.0px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemusermodelfalsecontact1.png"><img alt="../images/getfemusermodelfalsecontact1.png" src="../images/getfemusermodelfalsecontact1.png" style="width: 1079.0px; height: 1036.0px;" /></a>
 </div>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/getfemusermodelfalsecontact2.png"><img alt="../_images/getfemusermodelfalsecontact2.png" src="../_images/getfemusermodelfalsecontact2.png" style="width: 1079.0px; height: 1036.0px;" /></a>
+<a class="reference internal image-reference" href="../images/getfemusermodelfalsecontact2.png"><img alt="../images/getfemusermodelfalsecontact2.png" src="../images/getfemusermodelfalsecontact2.png" style="width: 1079.0px; height: 1036.0px;" /></a>
 </div>
 <p>アルゴリズムの詳細は次の通りです。</p>
 <blockquote>
 <div><ul class="simple">
-<li><p class="first"><strong>影響ボックスの計算</strong> 要素の影響ボックスは、放出距離に等しい距離でその境界ボックスのオフセットだけです。この戦略を使用する場合、リリース距離は要素サイズに比べて大きすぎるべきではありません。さもなければ、ポイントは接触対の検索をかなり減速させる多数の影響ボックスに対応します。インフルエンスボックスは、領域ツリーオブジェクトに格納され、平均複雑度を有するアルゴリズムを有する点を含むボックスを、 <img class="math" src="../_images/math/8b696f05ccc93a94a0587a0ae37ec57a8be285bc.png" alt="O(log(N))" style="vertical-align: -4px"/> で見つけます。</p>
+<li><p class="first"><strong>影響ボックスの計算</strong> 要素の影響ボックスは、放出距離に等しい距離でその境界ボックスのオフセットだけです。この戦略を使用する場合、リリース距離は要素サイズに比べて大きすぎるべきではありません。さもなければ、ポイントは接触対の検索をかなり減速させる多数の影響ボックスに対応します。インフルエンスボックスは、領域ツリーオブジェクトに格納され、平均複雑度を有するアルゴリズムを有する点を含むボックスを、 <img class="math" src="../images/math/8b696f05ccc93a94a0587a0ae37ec57a8be285bc.png" alt="O(log(N))" style="vertical-align: -4px"/> で見つけます。</p>
 </li>
 <li><p class="first"><strong>潜在的な接触対とは何か。</strong> 潜在的な接触対は調査されるスレーブポイント - マスターエレメント面のペアです。マスタ表面上のスレーブポイントの投影が行われ、基準が適用されます。</p>
 </li>
@@ -161,21 +161,21 @@
 </div></blockquote>
 <div class="section" id="nodal-contact-brick-with-projection">
 <h3>投影による節点接触要素<a class="headerlink" href="#nodal-contact-brick-with-projection" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>表記： <img class="math" src="../_images/math/0e537c75b385fa5867da4843126d4c5e7431338b.png" alt="\Omega \subset \Reel^d" style="vertical-align: -1px"/> は、変形可能な物体の参照構成を示し、いくつかの未接続部分（ <a class="reference internal" href="#ud-fig-masterslave"><em>図</em></a> を参照）で構成されています。<img class="math" src="../_images/math/f71d06d762a6c84475cc4a89a032b5f41fef60b1.png" alt="\Omega_t" style="vertical-align: -3px"/> は変形後の構成で <img class="math" src="../_images/math/332be2388ee6a2d8dfabbf9dffb43aa85608f0f7.png" alt="\varphi^h: \Omega \rightarrow \Omega_t" style="vertical-align: -4px"/> は有限要素法空間 <img class="math" src="../_images/math/f66eeb03c997a4a17f10178433d3dbc3db338cd3.png" alt="V^h" style="vertical-align: 0px"/> の変形近似です。変形  <img class="math" src="../_images/math/9498ead9fc4e72ef865d581afefded8e881331c1.png" alt="u^h: \Omega \rightarrow \Reel^d" style="vertical-align: -1px"/> は <img class="math" src="../_images/math/1a16cc2c495e7a0cdd5ab2170096078be9c84c42.png" alt="\varphi^h(X) = X + u^h(X)" style="vertical-align: -4px"/> により定義されます。参照構成 <img class="math" src="../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> の一般的な点は <img class="math" src="../_images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X" style="vertical-align: 0px"/> によって表記されており、 <img class="math" src="../_images/math/7a5bf35bf89b628a72c8b07e4013667b18185bf7.png" alt="x = \varphi^h(X)" style="vertical-align: -4px"/> によって変形後の対応する点が表記されいます。変形後の構成の対応する境界はそれぞれ <img class="math" src="../_images/math/a5e772bbc923b0df19832ddf684f0d72f96e2b84.png" alt="\Gamma_t^S" style="vertical-align: -5px"/> と <img class="math" src="../_images/math/36ad2ae5aff30bdc94e9d121f47daf70b534cc55.png" alt="\Gamma_t^M" style="vertical-align: -5px"/> です。(変形後構成の)境界での点 <img class="math" src="../_images/math/7a5bf35bf89b628a72c8b07e4013667b18185bf7.png" alt="x = \varphi^h(X)" style="vertical-align: -4px"/> における外向き単位基準化ベクトルは <img class="math" src="../_images/math/681e8a9cd61d71bbf227b51f031e542b1eeffda6.png" alt="n_x" style="vertical-align: -3px"/> により表現されています。最後に、表記 <img class="math" src="../_images/math/0bb8b0ca66f437172b0e175bd0ac166be8ee2c71.png" alt="\delta A[B]" style="vertical-align: -5px"/> は変形に関する量 <img class="math" src="../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A" style="vertical-align: 0px"/> と方向 <img class="math" src="../_images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> の指向性導関数を表す。同様に、表記 <img class="math" src="../_images/math/cff4275f3333c0cd12df0e38a1329d2d522b1941.png" alt="\delta^2 A[B,C]" style="vertical-align: -5px"/> は方向 <img class="math" src="../_images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> と方向 <img class="math" src="../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> の2階導関数を示す。</p>
-<p><img class="math" src="../_images/math/69ca49693cf9a79b6a5727d5d24092874fb184bd.png" alt="J(\varphi^h)" style="vertical-align: -4px"/> は、接触と摩擦の寄与を考慮しない、システムのポテンシャルエネルギーです。典型的には、それは弾性及び外部負荷ポテンシャルエネルギーを含みます。<img class="math" src="../_images/math/5f8e5cbb6204882df1cf17cfe4b308d485af8056.png" alt="X_i" style="vertical-align: -3px"/> は次のようにします。 <img class="math" src="../_images/math/ac086963e4f6c6b416b82b5c2eb5e01545ac4925.png" alt="i \in I_{\text{nodes}}" style="vertical-align: -3px"/> は参照設定のスレーブ境界上の有限要素節点の集合です。  <img class="math" src="../_images/math/16f81dd7a70c059bdeef121ce8b7ed4a0533b9c2.png" alt="i \in I_{\text{def}}" style="vertical-align: -4px"/> は、変形可能な物体のマスター表面と接触する可能性のある接触節点です。  <img class="math" src="../_images/math/5f8e5cbb6204882df1cf17cfe4b308d485af8056.png" alt="X_i" style="vertical-align: -3px"/> は次のようにします。 <img class="math" src="../_images/math/0b5d54a58d6777c7919b3fb8e72e7bce95131cbe.png" alt="i \in I_{\text{rig}}" style="vertical-align: -6px"/> は、堅い障害物と接触する可能性のある接触節点です。</p>
-<p><img class="math" src="../_images/math/cbfad1fd57412c607f0bed5b7ba43902bb6371fa.png" alt="x_i = \varphi^h(X_i)" style="vertical-align: -4px"/> は、変形された構成の対応する節点であり、 <img class="math" src="../_images/math/6e6ceb79ebc4bf613298e0144eae25dd73de9be3.png" alt="y_i" style="vertical-align: -4px"/> は変形された構成のマスター表面（または剛体の障害物）の投影です。 <img class="math" src="../_images/math/d1e635eb590829b488cf300af12cf0bdda6dae03.png" alt="Y_i" style="vertical-align: -3px"/> はマスター表面上点を確認する <img class="math" src="../_images/math/8ea8899a28f00cf10a17b6edfd6cfb33ca10a80a.png" alt="y_i = \varphi^h(Y_i)" style="vertical-align: -4px"/> です。これにより、通常のギャップを次のように定義できます。</p>
+<p>表記： <img class="math" src="../images/math/0e537c75b385fa5867da4843126d4c5e7431338b.png" alt="\Omega \subset \Reel^d" style="vertical-align: -1px"/> は、変形可能な物体の参照構成を示し、いくつかの未接続部分（ <a class="reference internal" href="#ud-fig-masterslave"><em>図</em></a> を参照）で構成されています。<img class="math" src="../images/math/f71d06d762a6c84475cc4a89a032b5f41fef60b1.png" alt="\Omega_t" style="vertical-align: -3px"/> は変形後の構成で <img class="math" src="../images/math/332be2388ee6a2d8dfabbf9dffb43aa85608f0f7.png" alt="\varphi^h: \Omega \rightarrow \Omega_t" style="vertical-align: -4px"/> は有限要素法空間 <img class="math" src="../images/math/f66eeb03c997a4a17f10178433d3dbc3db338cd3.png" alt="V^h" style="vertical-align: 0px"/> の変形近似です。変形  <img class="math" src="../images/math/9498ead9fc4e72ef865d581afefded8e881331c1.png" alt="u^h: \Omega \rightarrow \Reel^d" style="vertical-align: -1px"/> は <img class="math" src="../images/math/1a16cc2c495e7a0cdd5ab2170096078be9c84c42.png" alt="\varphi^h(X) = X + u^h(X)" style="vertical-align: -4px"/> により定義されます。参照構成 <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> の一般的な点は <img class="math" src="../images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X" style="vertical-align: 0px"/> によって表記されており、 <img class="math" src="../images/math/7a5bf35bf89b628a72c8b07e4013667b18185bf7.png" alt="x = \varphi^h(X)" style="vertical-align: -4px"/> によって変形後の対応する点が表記されいます。変形後の構成の対応する境界はそれぞれ <img class="math" src="../images/math/a5e772bbc923b0df19832ddf684f0d72f96e2b84.png" alt="\Gamma_t^S" style="vertical-align: -5px"/> と <img class="math" src="../images/math/36ad2ae5aff30bdc94e9d121f47daf70b534cc55.png" alt="\Gamma_t^M" style="vertical-align: -5px"/> です。(変形後構成の)境界での点 <img class="math" src="../images/math/7a5bf35bf89b628a72c8b07e4013667b18185bf7.png" alt="x = \varphi^h(X)" style="vertical-align: -4px"/> における外向き単位基準化ベクトルは <img class="math" src="../images/math/681e8a9cd61d71bbf227b51f031e542b1eeffda6.png" alt="n_x" style="vertical-align: -3px"/> により表現されています。最後に、表記 <img class="math" src="../images/math/0bb8b0ca66f437172b0e175bd0ac166be8ee2c71.png" alt="\delta A[B]" style="vertical-align: -5px"/> は変形に関する量 <img class="math" src="../images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A" style="vertical-align: 0px"/> と方向 <img class="math" src="../images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> の指向性導関数を表す。同様に、表記 <img class="math" src="../images/math/cff4275f3333c0cd12df0e38a1329d2d522b1941.png" alt="\delta^2 A[B,C]" style="vertical-align: -5px"/> は方向 <img class="math" src="../images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> と方向 <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> の2階導関数を示す。</p>
+<p><img class="math" src="../images/math/69ca49693cf9a79b6a5727d5d24092874fb184bd.png" alt="J(\varphi^h)" style="vertical-align: -4px"/> は、接触と摩擦の寄与を考慮しない、システムのポテンシャルエネルギーです。典型的には、それは弾性及び外部負荷ポテンシャルエネルギーを含みます。<img class="math" src="../images/math/5f8e5cbb6204882df1cf17cfe4b308d485af8056.png" alt="X_i" style="vertical-align: -3px"/> は次のようにします。 <img class="math" src="../images/math/ac086963e4f6c6b416b82b5c2eb5e01545ac4925.png" alt="i \in I_{\text{nodes}}" style="vertical-align: -3px"/> は参照設定のスレーブ境界上の有限要素節点の集合です。  <img class="math" src="../images/math/16f81dd7a70c059bdeef121ce8b7ed4a0533b9c2.png" alt="i \in I_{\text{def}}" style="vertical-align: -4px"/> は、変形可能な物体のマスター表面と接触する可能性のある接触節点です。  <img class="math" src="../images/math/5f8e5cbb6204882df1cf17cfe4b308d485af8056.png" alt="X_i" style="vertical-align: -3px"/> は次のようにします。 <img class="math" src="../images/math/0b5d54a58d6777c7919b3fb8e72e7bce95131cbe.png" alt="i \in I_{\text{rig}}" style="vertical-align: -6px"/> は、堅い障害物と接触する可能性のある接触節点です。</p>
+<p><img class="math" src="../images/math/cbfad1fd57412c607f0bed5b7ba43902bb6371fa.png" alt="x_i = \varphi^h(X_i)" style="vertical-align: -4px"/> は、変形された構成の対応する節点であり、 <img class="math" src="../images/math/6e6ceb79ebc4bf613298e0144eae25dd73de9be3.png" alt="y_i" style="vertical-align: -4px"/> は変形された構成のマスター表面（または剛体の障害物）の投影です。 <img class="math" src="../images/math/d1e635eb590829b488cf300af12cf0bdda6dae03.png" alt="Y_i" style="vertical-align: -3px"/> はマスター表面上点を確認する <img class="math" src="../images/math/8ea8899a28f00cf10a17b6edfd6cfb33ca10a80a.png" alt="y_i = \varphi^h(Y_i)" style="vertical-align: -4px"/> です。これにより、通常のギャップを次のように定義できます。</p>
 <div class="math">
-<p><img src="../_images/math/88d9861954feffcdf88c59d30b39f9c6c071edbd.png" alt="g_i = n_y . (\varphi^h(X_i) - \varphi^h(Y_i)) = \|\varphi^h(X_i) - \varphi^h(Y_i)\| \text{Sign}(n_y . (\varphi^h(X_i) - \varphi^h(Y_i))),"/></p>
-</div><p>ここで、 <img class="math" src="../_images/math/4590906156b55c69e609aad35ae185b88bdfa59b.png" alt="n_y" style="vertical-align: -6px"/> は、 <img class="math" src="../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y" style="vertical-align: -4px"/> のマスター表面の外向きの単位法線ベクトルです。</p>
+<p><img src="../images/math/88d9861954feffcdf88c59d30b39f9c6c071edbd.png" alt="g_i = n_y . (\varphi^h(X_i) - \varphi^h(Y_i)) = \|\varphi^h(X_i) - \varphi^h(Y_i)\| \text{Sign}(n_y . (\varphi^h(X_i) - \varphi^h(Y_i))),"/></p>
+</div><p>ここで、 <img class="math" src="../images/math/4590906156b55c69e609aad35ae185b88bdfa59b.png" alt="n_y" style="vertical-align: -6px"/> は、 <img class="math" src="../images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y" style="vertical-align: -4px"/> のマスター表面の外向きの単位法線ベクトルです。</p>
 <p>定常剛性障害物のみを考慮し、Alart-Curnier Lagrangian <a class="reference internal" href="../biblio.html#al-cu1991" id="id3">[AL-CU1991]</a> の原理を適用すると、摩擦条件との節点接触の問題は非対称バージョンで次のように表すことができる（線形弾性のケース）。</p>
 <div class="math">
-<p><img src="../_images/math/339dd534c2790d2c0c2648702925a078525fc604.png" alt="\left\{\begin{array}{l}
+<p><img src="../images/math/339dd534c2790d2c0c2648702925a078525fc604.png" alt="\left\{\begin{array}{l}
 \mbox{Find } \varphi^h \in V^h \mbox{ such that } \\
 \displaystyle \delta J(\varphi^h)[\delta u^h] - \sum_{i \in I_{\text{def}}} \lambda_i \cdot (\delta u^h(X_i) - \delta u^h(Y_i)) - \sum_{i \in I_{\text{rig}}} \lambda_i \delta u^h(X_i) = 0 ~~~ \forall \delta u^h \in V^h, \\
 \displaystyle \Frac{1}{r} \left[\lambda_i + P_{n_y, {\mathscr F}}(\lambda_i + r\left(g_i n_y - \alpha(\varphi^h(X_i) - \varphi^h(Y_i) - W_T(X_i)+W_T(Y_i)))\right)\right]= 0  ~~\forall i \in I_{\text{def}}, \\[1em]
 \displaystyle \Frac{1}{r} \left[\lambda_i + P_{n_y, {\mathscr F}}(\lambda_i + r\left(g_i n_y - \alpha(\varphi^h(X_i) - W_T(X_i)))\right)\right]= 0  ~~\forall i \in I_{\text{rig}},
 \end{array}\right."/></p>
-</div><p>ここで、 <img class="math" src="../_images/math/7ebe2e02c0f1e8fd5e8a5dfd7436a872c4404d9c.png" alt="W_T, \alpha, P_{n_y, {\mathscr F}}" style="vertical-align: -6px"/> ... + 接線系</p>
+</div><p>ここで、 <img class="math" src="../images/math/7ebe2e02c0f1e8fd5e8a5dfd7436a872c4404d9c.png" alt="W_T, \alpha, P_{n_y, {\mathscr F}}" style="vertical-align: -6px"/> ... + 接線系</p>
 <p>申し訳ありませんが、このブリック要素は動作していません。</p>
 </div>
 </div>
@@ -186,23 +186,23 @@
 <div><ul>
 <li><p class="first"><tt class="docutils literal"><span class="pre">Transformed_unit_vector(Grad_u,</span> <span class="pre">n)</span></tt> ここで <tt class="docutils literal"><span class="pre">Grad_u</span></tt> は変位フィールドの勾配であり、 <tt class="docutils literal"><span class="pre">n</span></tt> は参照構成の単位ベクトルです。この非線形演算子は、以下の通りです。</p>
 <div class="math">
-<p><img src="../_images/math/64c3fa3a9ee37204a696c0b8e9ee93b7c0092408.png" alt="n_{trans} = \Frac{(I+ \nabla u)^{-T} n}{\|(I+\nabla u)^{-T} n\|}"/></p>
+<p><img src="../images/math/64c3fa3a9ee37204a696c0b8e9ee93b7c0092408.png" alt="n_{trans} = \Frac{(I+ \nabla u)^{-T} n}{\|(I+\nabla u)^{-T} n\|}"/></p>
 </div><p>偏微分は以下の通りです。</p>
 <div class="math">
-<p><img src="../_images/math/fce20c29dcd2678ec59d8ddfca042e93a4675ecc.png" alt="\partial_{u} n_{trans}[\delta u] = -(I - n_{trans}\otimes n_{trans})(I+ \nabla u)^{-T}(\nabla \delta u)^T n_{trans}
+<p><img src="../images/math/fce20c29dcd2678ec59d8ddfca042e93a4675ecc.png" alt="\partial_{u} n_{trans}[\delta u] = -(I - n_{trans}\otimes n_{trans})(I+ \nabla u)^{-T}(\nabla \delta u)^T n_{trans}
 
 \partial_{n} n_{trans}[\delta n] = \Frac{(I+ \nabla u)^{-T}\delta n - n_{trans}(n_{trans}\cdot \delta n)}{\|(I+\nabla u)^{-T} n\|}"/></p>
 </div></li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">Coulomb_friction_coupled_projection(lambda,</span> <span class="pre">n,</span> <span class="pre">Vs,</span> <span class="pre">g,</span> <span class="pre">f,</span> <span class="pre">r)</span></tt> ここで <tt class="docutils literal"><span class="pre">lambda</span></tt> は接触力であり、 <tt class="docutils literal"><span class="pre">n</span></tt> は単位法線ベクトルであり、 <tt class="docutils literal"><span class="pre">Vs</span></tt> はすべり速度であり、 <tt class="docutils literal"><span class="pre">g</span></tt> はギャップ、 <tt class="docutils literal"><span class="pre">f</span></tt> は摩擦係数、 <tt class="docutils literal"><span class="pre">r</span></tt> は正の増強パラメータです。演算子の式は次のとおりです。</p>
 <div class="math">
-<p><img src="../_images/math/ab1cccd3f4b74db8cec569ddc4fcdf7e9f89112f.png" alt="P(\lambda, n, V_s, g, f, r) = -(\lambda\cdot n + rg)_- n + P_{B(n,\tau)}(\lambda - rV_s)
+<p><img src="../images/math/ab1cccd3f4b74db8cec569ddc4fcdf7e9f89112f.png" alt="P(\lambda, n, V_s, g, f, r) = -(\lambda\cdot n + rg)_- n + P_{B(n,\tau)}(\lambda - rV_s)
 
 \mbox{with } \tau = \mbox{min}(f_3 + f_1(\lambda\cdot n + rg)_-, f_2)"/></p>
-</div><p>ここで、 <img class="math" src="../_images/math/57fb98d86400bf0e0957ab1014de4ab7ae1c2074.png" alt="(\cdot)_-" style="vertical-align: -4px"/> は負の部分 (<img class="math" src="../_images/math/5e7ebea19f4e34189331db26b4e00a344bcee445.png" alt="(x)_- = (-x)_+" style="vertical-align: -5px"/>) です:math:<cite>f_1, f_2, f_3</cite> は摩擦係数3成分です。成分 <img class="math" src="../_images/math/78cbfcd454793fccb7ee0d6d9fa85f0deb2f52b7.png" alt="f_2, f_3" style="vertical-align: -4px"/> はオプションであることに注意してください。仮想係数が（ <img class="math" src="../_images/math/37a9e7fca70e2dce829d902af2088735306bc1a3.png" alt="f_1" style="vertical-align: -4px"/> のみ）与えられている場合、これは古典Coulomb摩擦則に相当します。 2つの成分（ <img class="math" src="../_images/math/121ea8613f760042fc6049458012684a01846da0.png" alt="f_1, f_2" style="vertical-align: -4px"/> のみ）ベクトルが与えられている場合、これは与えられた閾値とのCoulomb摩擦に対応します。最後に、3つの成分からなるベクトルが与えられた場合、摩擦法則は、上で与えられた <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> の式に対応します。</p>
-<p>式 <img class="math" src="../_images/math/7eb6e891b4058dcb1662907e766357f29330907c.png" alt="P_{B(n,\tau)}(q)" style="vertical-align: -6px"/> は半径 <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> の <img class="math" src="../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> に関して接線ボール上の直交射影（これはReturn Mapping法へのリンクです）を指します。</p>
-<p>微分は <img class="math" src="../_images/math/69d5aa2c952834be9501bf251cffdb164d29ceb8.png" alt="T_n = (I - n \otimes n)" style="vertical-align: -4px"/> および <img class="math" src="../_images/math/235bf7fc2cb38a4e8b8f74390516b54d0d21d42f.png" alt="q_{_T} = T_n q" style="vertical-align: -5px"/> のように表すことができます。</p>
+</div><p>ここで、 <img class="math" src="../images/math/57fb98d86400bf0e0957ab1014de4ab7ae1c2074.png" alt="(\cdot)_-" style="vertical-align: -4px"/> は負の部分 (<img class="math" src="../images/math/5e7ebea19f4e34189331db26b4e00a344bcee445.png" alt="(x)_- = (-x)_+" style="vertical-align: -5px"/>) です:math:<cite>f_1, f_2, f_3</cite> は摩擦係数3成分です。成分 <img class="math" src="../images/math/78cbfcd454793fccb7ee0d6d9fa85f0deb2f52b7.png" alt="f_2, f_3" style="vertical-align: -4px"/> はオプションであることに注意してください。仮想係数が（ <img class="math" src="../images/math/37a9e7fca70e2dce829d902af2088735306bc1a3.png" alt="f_1" style="vertical-align: -4px"/> のみ）与えられている場合、これは古典Coulomb摩擦則に相当します。 2つの成分（ <img class="math" src="../images/math/121ea8613f760042fc6049458012684a01846da0.png" alt="f_1, f_2" style="vertical-align: -4px"/> のみ）ベクトルが与えられている場合、これは与えられた閾値とのCoulomb摩擦に対応します。最後に、3つの成分からなるベクトルが与えられた場合、摩擦法則は、上で与えられた <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> の式に対応します。</p>
+<p>式 <img class="math" src="../images/math/7eb6e891b4058dcb1662907e766357f29330907c.png" alt="P_{B(n,\tau)}(q)" style="vertical-align: -6px"/> は半径 <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> の <img class="math" src="../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> に関して接線ボール上の直交射影（これはReturn Mapping法へのリンクです）を指します。</p>
+<p>微分は <img class="math" src="../images/math/69d5aa2c952834be9501bf251cffdb164d29ceb8.png" alt="T_n = (I - n \otimes n)" style="vertical-align: -4px"/> および <img class="math" src="../images/math/235bf7fc2cb38a4e8b8f74390516b54d0d21d42f.png" alt="q_{_T} = T_n q" style="vertical-align: -5px"/> のように表すことができます。</p>
 <div class="math">
-<p><img src="../_images/math/6762aa7e32e10100487b327d5ba97aba0f48c6f6.png" alt="\partial_q P_{B(n,\tau)}(q) =
+<p><img src="../images/math/6762aa7e32e10100487b327d5ba97aba0f48c6f6.png" alt="\partial_q P_{B(n,\tau)}(q) =
 \left\{\begin{array}{cl}
 0 &amp; \mbox{for } \tau \le 0 \\
 \mathbf{T}_n &amp; \mbox{for } \|q_{_T}\| \le \tau \\
@@ -298,7 +298,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -369,7 +369,7 @@
         <li class="right" >
           <a href="model_contact_friction.html" title="摩擦ブリック要素との微小すべり接触"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

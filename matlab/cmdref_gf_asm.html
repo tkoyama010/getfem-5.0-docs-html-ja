@@ -8,8 +8,8 @@
     
     <title>gf_asm &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_compute" href="cmdref_gf_compute.html" />
     <link rel="prev" title="Command reference" href="cmdref.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -162,14 +162,14 @@ gf_asm(&#x27;generic&#x27;, mim, 2, &#x27;A*Grad_Test2_u.Grad_Test_u&#x27;, -1, 
 <p><tt class="docutils literal"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">gf_asm('laplacian',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">a[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Laplacian problem.</p>
-<p><img class="math" src="../_images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
+<p><img class="math" src="../images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">Le</span> <span class="pre">=</span> <span class="pre">gf_asm('linear</span> <span class="pre">elasticity',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">lambda_d,</span> <span class="pre">vec</span> <span class="pre">mu_d[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembles of the matrix for the linear (isotropic) elasticity problem.</p>
-<p><img class="math" src="../_images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
-with <img class="math" src="../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
+<p><img class="math" src="../images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
+with <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">TRHS</span> <span class="pre">=</span> <span class="pre">gf_asm('nonlinear</span> <span class="pre">elasticity',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">vec</span> <span class="pre">U,</span> <span class="pre">string</span> <span class="pre">law,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">mat</span> <span class="pre">params,</span> <span class="pre">{'tangent</span> <span class="pre">matrix'|'rhs'|'incompressible</span> <span class="pre">tangent</span> <span class="pre">matrix',</span> <span class="pre">mesh_fem</span> <span class="pre">mf_p,</span> <span class="pre">vec</span> <span class="pre">P|'incompressible</span> <span class="pre">rhs',</span> <span class="pre">mesh_fem</span> <span class="pre">mf_p,</span> <span class="pre">vec</span> <span class="pre">P})</span></tt></p>
@@ -207,19 +207,19 @@ tuple of vec objects (incompressible right hand side).</p>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('helmholtz',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">k[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Helmholtz problem.</p>
-<p><img class="math" src="../_images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
+<p><img class="math" src="../images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('bilaplacian',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">a[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Bilaplacian problem.</p>
-<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">gf_asm('bilaplacian</span> <span class="pre">KL',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">a,</span> <span class="pre">vec</span> <span class="pre">nu[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
 <blockquote>
 <div><p>Assembly of the matrix for the Bilaplacian problem with Kirchhoff-Love formulation.</p>
-<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a spmat object.</p>
 </div></blockquote>
 <p><tt class="docutils literal"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">gf_asm('volumic</span> <span class="pre">source',</span> <span class="pre">mesh_im</span> <span class="pre">mim,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_u,</span> <span class="pre">mesh_fem</span> <span class="pre">mf_d,</span> <span class="pre">vec</span> <span class="pre">fd[,</span> <span class="pre">int</span> <span class="pre">region])</span></tt></p>
@@ -246,7 +246,7 @@ size is equal to the dimension of the unkown u. This matrix is
 stored in <cite>H</cite>, one column per dof in <cite>mf_d</cite>, each column containing
 the values of the matrix h stored in fortran order:</p>
 <div class="math">
-<p><img src="../_images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
+<p><img src="../images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
 </div><p>if u is a 2D vector field.</p>
 <p>Of course, if the unknown is a scalar field, you just have to set
 <cite>H = ones(1, N)</cite>, where N is the number of dof of <cite>mf_d</cite>.</p>
@@ -395,7 +395,7 @@ ones returned by the function ASSEMB from PDETOOL.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref.html"
@@ -452,7 +452,7 @@ ones returned by the function ASSEMB from PDETOOL.</p>
         <li class="right" >
           <a href="cmdref.html" title="Command reference"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
