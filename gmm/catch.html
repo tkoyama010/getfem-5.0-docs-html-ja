@@ -6,32 +6,32 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Catch errors &mdash; GetFEM++</title>
+    <title>キャッチエラー &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Gmm++ Library" href="index.html" />
-    <link rel="next" title="Interface with BLAS, LAPACK or ATLAS" href="blas_interface.html" />
+    <link rel="next" title="BLAS、LAPACKまたはATLASとのインターフェース" href="blas_interface.html" />
     <link rel="prev" title="Iterative solvers" href="iter.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -43,12 +43,12 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="blas_interface.html" title="Interface with BLAS, LAPACK or ATLAS"
+          <a href="blas_interface.html" title="BLAS、LAPACKまたはATLASとのインターフェース"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="iter.html" title="Iterative solvers"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,9 +62,9 @@
           <div class="body">
             
   <div class="section" id="catch-errors">
-<span id="gmm-catch"></span><h1>Catch errors<a class="headerlink" href="#catch-errors" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="gmm-catch"></span><h1>キャッチエラー<a class="headerlink" href="#catch-errors" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Errors used in <em>Gmm++</em> are defined in the file <tt class="docutils literal"><span class="pre">gmm/gmm\_except.h</span></tt>. In order to make easier  the error catching all errors derive from the type <tt class="docutils literal"><span class="pre">std::logic\_error</span></tt> defined in the file `` stdexcept`` of the S.T.L.</p>
-<p>A standard procedure, <tt class="docutils literal"><span class="pre">GMM\_STANDARD\_CATCH\_ERROR</span></tt>, is defined in <tt class="docutils literal"><span class="pre">gmm/gmm\_except.h</span></tt>. This procedure catches all errors and print the error message when an error occurs. It can be used in the main procedure of the program as follows:</p>
+<p>標準的な手続き `` GMM _STANDARD _CATCH _ERROR``は、 `` gmm / gmm _except.h``で定義されています。このプロシージャは、すべてのエラーをキャッチし、エラーが発生したときにエラー・メッセージを出力します。次のようにプログラムのメインプロシージャで使用できます:</p>
 <div class="highlight-c++"><pre>int main(void) \{
   try \{
     ... main program ...
@@ -72,7 +72,7 @@
    GMM\_STANDARD\_CATCH\_ERROR;
 \}</pre>
 </div>
-<p>It is highly recommended to catch the errors at least in the main function, because if you do not so, you will not be able to see error messages.</p>
+<p>少なくとも、main関数でエラーをキャッチすることを強くお勧めします。そうしないと、エラーメッセージが表示されない可能性があります。</p>
 </div>
 
 
@@ -82,14 +82,14 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="iter.html"
                         title="前の章へ">Iterative solvers</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="blas_interface.html"
-                        title="次の章へ">Interface with BLAS, LAPACK or ATLAS</a></p>            <h3>Download</h3>
+                        title="次の章へ">BLAS、LAPACKまたはATLASとのインターフェース</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -134,12 +134,12 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="blas_interface.html" title="Interface with BLAS, LAPACK or ATLAS"
+          <a href="blas_interface.html" title="BLAS、LAPACKまたはATLASとのインターフェース"
              >次へ</a> |</li>
         <li class="right" >
           <a href="iter.html" title="Iterative solvers"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -147,7 +147,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

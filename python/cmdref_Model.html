@@ -8,30 +8,30 @@
     
     <title>Model &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="Precond" href="cmdref_Precond.html" />
     <link rel="prev" title="MesherObject" href="cmdref_MesherObject.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref_MesherObject.html" title="MesherObject"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -178,7 +178,7 @@ Returns the brick index in the model.</p>
 <tt class="descname">add_Fourier_Robin_brick</tt><big>(</big><em>mim</em>, <em>varname</em>, <em>dataexpr</em>, <em>region</em><big>)</big><a class="headerlink" href="#getfem.Model.add_Fourier_Robin_brick" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a Fourier-Robin term to the model relatively to the variable
 <cite>varname</cite>. This corresponds to a weak term of the form
-<img class="math" src="../images/math/383635895c06366bb600ade9f4c7e60ffb4b392e.png" alt="\int (qu).v" style="vertical-align: -6px"/>. <cite>dataexpr</cite> is the parameter <img class="math" src="../images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q" style="vertical-align: -4px"/> of
+<img class="math" src="../_images/math/383635895c06366bb600ade9f4c7e60ffb4b392e.png" alt="\int (qu).v" style="vertical-align: -6px"/>. <cite>dataexpr</cite> is the parameter <img class="math" src="../_images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q" style="vertical-align: -4px"/> of
 the Fourier-Robin condition.  It can be an arbitrary valid expression
 of the high-level generic assembly language (except for the complex version
 for which it should be a data of the model). <cite>region</cite> is the mesh region
@@ -209,7 +209,7 @@ Return the brick index in the model.</p>
 <tt class="descname">add_Kirchhoff_Love_plate_brick</tt><big>(</big><em>mim</em>, <em>varname</em>, <em>dataname_D</em>, <em>dataname_nu</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.Model.add_Kirchhoff_Love_plate_brick" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a bilaplacian brick on the variable
 <cite>varname</cite> and on the mesh region <cite>region</cite>.
-This represent a term <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/> where <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/>
+This represent a term <img class="math" src="../_images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/> where <img class="math" src="../_images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/>
 is a the flexion modulus determined by <cite>dataname_D</cite>. The term is
 integrated by part following a Kirchhoff-Love plate model
 with <cite>dataname_nu</cite> the poisson ratio.
@@ -220,7 +220,7 @@ Return the brick index in the model.</p>
 <dt id="getfem.Model.add_Laplacian_brick">
 <tt class="descname">add_Laplacian_brick</tt><big>(</big><em>mim</em>, <em>varname</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.Model.add_Laplacian_brick" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a Laplacian term to the model relatively to the variable <cite>varname</cite>
-(in fact with a minus : <img class="math" src="../images/math/38ea220d9d3e17bd3673451421beba6e5c34b7a2.png" alt="-\text{div}(\nabla u)" style="vertical-align: -4px"/>).
+(in fact with a minus : <img class="math" src="../_images/math/38ea220d9d3e17bd3673451421beba6e5c34b7a2.png" alt="-\text{div}(\nabla u)" style="vertical-align: -4px"/>).
 If this is a vector valued variable, the Laplacian term is added
 componentwise. <cite>region</cite> is an optional mesh region on which the term
 is added. If it is not specified, it is added on the whole mesh. Return
@@ -385,11 +385,11 @@ If before = 0 (default), the assignement is done after the assembly terms.</p>
 If U is the vector
 of degrees of freedom on which the unilateral constraint is applied,
 the matrix <cite>BN</cite> have to be such that this constraint is defined by
-<img class="math" src="../images/math/361fde00fd044201671f74ac3588ea25b234ba3e.png" alt="B_N U \le 0" style="vertical-align: -3px"/>. A friction condition can be considered by adding
+<img class="math" src="../_images/math/361fde00fd044201671f74ac3588ea25b234ba3e.png" alt="B_N U \le 0" style="vertical-align: -3px"/>. A friction condition can be considered by adding
 the three parameters <cite>multname_t</cite>, <cite>BT</cite> and <cite>dataname_friction_coeff</cite>.
-In this case, the tangential displacement is <img class="math" src="../images/math/39353b525a768cd19e1233a61c4ae7e83791d598.png" alt="B_T U" style="vertical-align: -3px"/> and
+In this case, the tangential displacement is <img class="math" src="../_images/math/39353b525a768cd19e1233a61c4ae7e83791d598.png" alt="B_T U" style="vertical-align: -3px"/> and
 the matrix <cite>BT</cite> should have as many rows as <cite>BN</cite> multiplied by
-<img class="math" src="../images/math/6a9f2f925b6ad9c226b9ad118c60d88d4a8b6bd3.png" alt="d-1" style="vertical-align: -1px"/> where <img class="math" src="../images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d" style="vertical-align: 0px"/> is the domain dimension.
+<img class="math" src="../_images/math/6a9f2f925b6ad9c226b9ad118c60d88d4a8b6bd3.png" alt="d-1" style="vertical-align: -1px"/> where <img class="math" src="../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d" style="vertical-align: 0px"/> is the domain dimension.
 In this case also, <cite>dataname_friction_coeff</cite> is a data which represents
 the coefficient of friction. It can be a scalar or a vector representing a
 value on each contact condition.  The unilateral constraint is prescribed
@@ -441,10 +441,10 @@ method with augmented multiplier.</dd>
 <tt class="descname">add_bilaplacian_brick</tt><big>(</big><em>mim</em>, <em>varname</em>, <em>dataname</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.Model.add_bilaplacian_brick" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a bilaplacian brick on the variable
 <cite>varname</cite> and on the mesh region <cite>region</cite>.
-This represent a term <img class="math" src="../images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/>.
-where <img class="math" src="../images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/> is a coefficient determined by <cite>dataname</cite> which
+This represent a term <img class="math" src="../_images/math/94b9d02d6141ee22b8cdcdcc80d860600197d12e.png" alt="\Delta(D \Delta u)" style="vertical-align: -4px"/>.
+where <img class="math" src="../_images/math/8a2040e00c5533e3da9f83349e48b5fb00ef920a.png" alt="D(x)" style="vertical-align: -4px"/> is a coefficient determined by <cite>dataname</cite> which
 could be constant or described on a f.e.m. The corresponding weak form
-is <img class="math" src="../images/math/369464e75e59e5a1e16eabc2a3221bdc97acd76c.png" alt="\int D(x)\Delta u(x) \Delta v(x) dx" style="vertical-align: -6px"/>.
+is <img class="math" src="../_images/math/369464e75e59e5a1e16eabc2a3221bdc97acd76c.png" alt="\int D(x)\Delta u(x) \Delta v(x) dx" style="vertical-align: -6px"/>.
 Return the brick index in the model.</p>
 </dd></dl>
 
@@ -454,7 +454,7 @@ Return the brick index in the model.</p>
 <dd><p>Synopsis: ind = Model.add_constraint_with_multipliers(self, string varname, string multname, Spmat B, {vec L | string dataname})</p>
 <p>Add an additional explicit constraint on the variable <cite>varname</cite> thank to
 a multiplier <cite>multname</cite> peviously added to the model (should be a fixed
-size variable). The constraint is <img class="math" src="../images/math/4a8febb00c8eb93e2d6a9ac048a3ffd66ff91301.png" alt="BU=L" style="vertical-align: 0px"/>
+size variable). The constraint is <img class="math" src="../_images/math/4a8febb00c8eb93e2d6a9ac048a3ffd66ff91301.png" alt="BU=L" style="vertical-align: 0px"/>
 with <cite>B</cite> being a rectangular sparse matrix. It is possible to change
 the constraint at any time with the methods Model.set_private_matrix()
 and Model.set_private_rhs(). If <cite>dataname</cite> is specified instead of <cite>L</cite>,
@@ -712,7 +712,7 @@ or described on a scalar fem. Returns the brick index in the model.
 <tt class="descname">add_generalized_Dirichlet_condition_with_multipliers</tt><big>(</big><em>mim</em>, <em>varname</em>, <em>mult_description</em>, <em>region</em>, <em>dataname</em>, <em>Hname</em><big>)</big><a class="headerlink" href="#getfem.Model.add_generalized_Dirichlet_condition_with_multipliers" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a Dirichlet condition on the variable <cite>varname</cite> and the mesh
 region <cite>region</cite>.  This version is for vector field.
-It prescribes a condition <img class="math" src="../images/math/a334eafb8cd5c12626424244a2fb439a21d01884.png" alt="Hu = r" style="vertical-align: 0px"/>
+It prescribes a condition <img class="math" src="../_images/math/a334eafb8cd5c12626424244a2fb439a21d01884.png" alt="Hu = r" style="vertical-align: 0px"/>
 where <cite>H</cite> is a matrix field. The region should be a boundary. The Dirichlet
 condition is prescribed with a multiplier variable described by
 <cite>mult_description</cite>. If <cite>mult_description</cite> is a string this is assumed
@@ -737,7 +737,7 @@ Returns the brick index in the model.</p>
 <tt class="descname">add_generalized_Dirichlet_condition_with_penalization</tt><big>(</big><em>mim</em>, <em>varname</em>, <em>coeff</em>, <em>region</em>, <em>dataname</em>, <em>Hname</em>, <em>mf_mult=None</em><big>)</big><a class="headerlink" href="#getfem.Model.add_generalized_Dirichlet_condition_with_penalization" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a Dirichlet condition on the variable <cite>varname</cite> and the mesh
 region <cite>region</cite>. This version is for vector field.
-It prescribes a condition <img class="math" src="../images/math/a334eafb8cd5c12626424244a2fb439a21d01884.png" alt="Hu = r" style="vertical-align: 0px"/>
+It prescribes a condition <img class="math" src="../_images/math/a334eafb8cd5c12626424244a2fb439a21d01884.png" alt="Hu = r" style="vertical-align: 0px"/>
 where <cite>H</cite> is a matrix field.
 The region should be a boundary. The Dirichlet
 condition is prescribed with penalization. The penalization coefficient
@@ -759,8 +759,8 @@ Return the brick index in the model.</p>
 <dd><p>Add a generic elliptic term to the model relatively to the variable <cite>varname</cite>.
 The shape of the elliptic term depends both on the variable and the data.
 This corresponds to a term
-<img class="math" src="../images/math/6d8f1e0624044e8ab92537997b5dec93767bd764.png" alt="-\text{div}(a\nabla u)" style="vertical-align: -4px"/>
-where <img class="math" src="../images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a" style="vertical-align: 0px"/> is the data and <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> the variable. The data can be
+<img class="math" src="../_images/math/6d8f1e0624044e8ab92537997b5dec93767bd764.png" alt="-\text{div}(a\nabla u)" style="vertical-align: -4px"/>
+where <img class="math" src="../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a" style="vertical-align: 0px"/> is the data and <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> the variable. The data can be
 a scalar,
 a matrix or an order four tensor. The variable can be vector valued or
 not. If the data is a scalar or a matrix and the variable is vector
@@ -959,7 +959,7 @@ primal variable has to be satisfied. <cite>region</cite> is an optional mesh reg
 which the term is added. If it is not specified, it is added on the whole
 mesh. <cite>dataexpr_coeff</cite> is an optional penalization coefficient for nearly
 incompressible elasticity for instance. In this case, it is the inverse
-of the Lame coefficient <img class="math" src="../images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/>. Return the brick index in the
+of the Lame coefficient <img class="math" src="../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda" style="vertical-align: 0px"/>. Return the brick index in the
 model.</p>
 </dd></dl>
 
@@ -983,17 +983,6 @@ If you are not sure, the better is to declare the term not symmetric
 and not coercive. But some solvers (conjugate gradient for instance)
 are not allowed for non-coercive problems.
 <cite>brickname</cite> is an otpional name for the brick.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="getfem.Model.add_linear_twodomain_term">
-<tt class="descname">add_linear_twodomain_term</tt><big>(</big><em>mim</em>, <em>expression</em>, <em>region</em>, <em>secondary_domain</em>, <em>is_symmetric=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Model.add_linear_twodomain_term" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Synopsis: ind = Model.add_linear_twodomain_term(self, MeshIm mim, string expression, int region, string secondary_domain[, int is_symmetric[, int is_coercive]])</p>
-<p>Adds a linear term given by a weak form language expression like
-Model.add_linear_term() but for an integration on a direct
-product of two domains, a first specfied by <tt class="docutils literal"><span class="pre">mim</span></tt> and <tt class="docutils literal"><span class="pre">region</span></tt>
-and a second one by <tt class="docutils literal"><span class="pre">secondary_domain</span></tt> which has to be declared
-first into the model.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1115,14 +1104,14 @@ on the boundary corresponding to <cite>region</cite>. The rigid obstacle should
 be described with the string <cite>obstacle</cite> being a signed distance to
 the obstacle. This string should be an expression where the coordinates
 are &#8216;x&#8217;, &#8216;y&#8217; in 2D and &#8216;x&#8217;, &#8216;y&#8217;, &#8216;z&#8217; in 3D. For instance, if the rigid
-obstacle correspond to <img class="math" src="../images/math/2b07223c0a658743f3814bc594df03ba64566a8e.png" alt="z \le 0" style="vertical-align: -3px"/>, the corresponding signed distance
+obstacle correspond to <img class="math" src="../_images/math/2b07223c0a658743f3814bc594df03ba64566a8e.png" alt="z \le 0" style="vertical-align: -3px"/>, the corresponding signed distance
 will be simply &#8220;z&#8221;. <cite>multname_n</cite> should be a fixed size variable whose size
 is the number of degrees of freedom on boundary <cite>region</cite>. It represents the
 contact equivalent nodal forces. In order to add a friction condition
 one has to add the <cite>multname_t</cite> and <cite>dataname_friction_coeff</cite> parameters.
 <cite>multname_t</cite> should be a fixed size variable whose size is
 the number of degrees of freedom on boundary <cite>region</cite> multiplied by
-<img class="math" src="../images/math/6a9f2f925b6ad9c226b9ad118c60d88d4a8b6bd3.png" alt="d-1" style="vertical-align: -1px"/> where <img class="math" src="../images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d" style="vertical-align: 0px"/> is the domain dimension. It represents
+<img class="math" src="../_images/math/6a9f2f925b6ad9c226b9ad118c60d88d4a8b6bd3.png" alt="d-1" style="vertical-align: -1px"/> where <img class="math" src="../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d" style="vertical-align: 0px"/> is the domain dimension. It represents
 the friction equivalent nodal forces.
 The augmentation parameter <cite>r</cite> should be chosen in a
 range of acceptabe values (close to the Young modulus of the elastic
@@ -1197,17 +1186,6 @@ If you are not sure, the better is to declare the term not symmetric
 and not coercive. But some solvers (conjugate gradient for instance)
 are not allowed for non-coercive problems.
 <cite>brickname</cite> is an otpional name for the brick.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="getfem.Model.add_nonlinear_twodomain_term">
-<tt class="descname">add_nonlinear_twodomain_term</tt><big>(</big><em>mim</em>, <em>expression</em>, <em>region</em>, <em>secondary_domain</em>, <em>is_symmetric=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#getfem.Model.add_nonlinear_twodomain_term" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Synopsis: ind = Model.add_nonlinear_twodomain_term(self, MeshIm mim, string expression, int region, string secondary_domain[, int is_symmetric[, int is_coercive]])</p>
-<p>Adds a nonlinear term given by a weak form language expression like
-Model.add_nonlinear_term() but for an integration on a direct
-product of two domains, a first specfied by <tt class="docutils literal"><span class="pre">mim</span></tt> and <tt class="docutils literal"><span class="pre">region</span></tt>
-and a second one by <tt class="docutils literal"><span class="pre">secondary_domain</span></tt> which has to be declared
-first into the model.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1291,10 +1269,10 @@ Returns the brick index in the model.</p>
 <dd><p>Add a Dirichlet condition on the normal derivative of the variable
 <cite>varname</cite> and on the mesh region <cite>region</cite> (which should be a boundary.
 The general form is
-<img class="math" src="../images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/>
-where <img class="math" src="../images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> is
+<img class="math" src="../_images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/>
+where <img class="math" src="../_images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> is
 the right hand side for the Dirichlet condition (0 for
-homogeneous conditions) and <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is in a space of multipliers
+homogeneous conditions) and <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> is in a space of multipliers
 defined by <cite>mult_description</cite>.
 If <cite>mult_description</cite> is a string this is assumed
 to be the variable name corresponding to the multiplier (which should be
@@ -1318,8 +1296,8 @@ Return the brick index in the model.</p>
 <dd><p>Add a Dirichlet condition on the normal derivative of the variable
 <cite>varname</cite> and on the mesh region <cite>region</cite> (which should be a boundary.
 The general form is
-<img class="math" src="../images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/>
-where <img class="math" src="../images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> is
+<img class="math" src="../_images/math/6448a0b72f41f71c672eefe9acf6b6944c41e820.png" alt="\int \partial_n u(x)v(x) = \int r(x)v(x) \forall v" style="vertical-align: -6px"/>
+where <img class="math" src="../_images/math/c05cbeb1cf4b5153e365a9253baefde1c97135e8.png" alt="r(x)" style="vertical-align: -4px"/> is
 the right hand side for the Dirichlet condition (0 for
 homogeneous conditions).
 The penalization coefficient
@@ -1336,7 +1314,7 @@ Return the brick index in the model.</p>
 <dt id="getfem.Model.add_normal_derivative_source_term_brick">
 <tt class="descname">add_normal_derivative_source_term_brick</tt><big>(</big><em>mim</em>, <em>varname</em>, <em>dataname</em>, <em>region</em><big>)</big><a class="headerlink" href="#getfem.Model.add_normal_derivative_source_term_brick" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a normal derivative source term brick
-<img class="math" src="../images/math/4ade589871ce41d3b7211682dc6dc5349bdf6784.png" alt="F = \int b.\partial_n v" style="vertical-align: -6px"/> on the variable <cite>varname</cite> and the
+<img class="math" src="../_images/math/4ade589871ce41d3b7211682dc6dc5349bdf6784.png" alt="F = \int b.\partial_n v" style="vertical-align: -6px"/> on the variable <cite>varname</cite> and the
 mesh region <cite>region</cite>.</p>
 <p>Update the right hand side of the linear system.
 <cite>dataname</cite> represents <cite>b</cite> and <cite>varname</cite> represents <cite>v</cite>.
@@ -1670,14 +1648,6 @@ condition. Return the brick index in the model.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="getfem.Model.add_standard_secondary_domain">
-<tt class="descname">add_standard_secondary_domain</tt><big>(</big><em>name</em>, <em>mim</em>, <em>region=-1</em><big>)</big><a class="headerlink" href="#getfem.Model.add_standard_secondary_domain" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Add a secondary domain to the model which can be used in a weak-form language expression for integration on the product of two domains. <cite>name</cite> is the name
-of the secondary domain, <cite>mim</cite> is an integration method on this domain
-and <cite>region</cite> the region on which the integration is to be performed.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="getfem.Model.add_theta_method_for_first_order">
 <tt class="descname">add_theta_method_for_first_order</tt><big>(</big><em>varname</em>, <em>theta</em><big>)</big><a class="headerlink" href="#getfem.Model.add_theta_method_for_first_order" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Attach a theta method for the time discretization of the variable
@@ -1691,16 +1661,6 @@ of the variable.</p>
 <dd><p>Attach a theta method for the time discretization of the variable
 <cite>varname</cite>. Valid only if there is at most second order time derivative
 of the variable.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="getfem.Model.add_twodomain_source_term">
-<tt class="descname">add_twodomain_source_term</tt><big>(</big><em>mim</em>, <em>expression</em>, <em>region</em>, <em>secondary_domain</em><big>)</big><a class="headerlink" href="#getfem.Model.add_twodomain_source_term" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Adds a source term given by a weak form language expression like
-Model.add_source_term() but for an integration on a direct
-product of two domains, a first specfied by <tt class="docutils literal"><span class="pre">mim</span></tt> and <tt class="docutils literal"><span class="pre">region</span></tt>
-and a second one by <tt class="docutils literal"><span class="pre">secondary_domain</span></tt> which has to be declared
-first into the model.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2352,7 +2312,7 @@ sliding data for an existing large sliding contact brick.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_MesherObject.html"
@@ -2409,7 +2369,7 @@ sliding data for an existing large sliding contact brick.</p>
         <li class="right" >
           <a href="cmdref_MesherObject.html" title="MesherObject"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -2418,7 +2378,7 @@ sliding data for an existing large sliding contact brick.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

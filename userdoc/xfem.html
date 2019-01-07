@@ -8,30 +8,30 @@
     
     <title>レベル集合法、拡張有限要素法(Xfem)、仮想領域有限要素法、切断有限要素法 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="非適合メッシュ上の有限要素法の補間" href="interNMM.html" />
     <link rel="prev" title="GetFEM++ に新しい近似積分法を組み込む" href="iinteg.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="iinteg.html" title="GetFEM++ に新しい近似積分法を組み込む"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -79,7 +79,7 @@
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">level_set</span> <span class="n">ls</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">degree</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">with_secondary</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで、 <tt class="docutils literal"><span class="pre">mesh</span></tt> は有効な <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt> メッシュ型です、 <tt class="docutils literal"><span class="pre">degree</span></tt> は多項式の次数（1はデフォルト値）です、 また <tt class="docutils literal"><span class="pre">with_secondary</span></tt> はデフォルト値がfalseのブール値です。次レベル集合法が、降伏を表すために使用されます（ <img class="math" src="../images/math/2751d79d3bbfb34440d68c685fe6ba7414951749.png" alt="p(x)" style="vertical-align: -4px"/> がプライマリレベル集合法関数であり、 <img class="math" src="../images/math/9703e10f151c26e976f124951c28a2dac5f1884d.png" alt="s(x)" style="vertical-align: -4px"/> がセカンダリレベル集合法関数である場合、<img class="math" src="../images/math/127697818cf6924311e6c66824483814e2371986.png" alt="p(x) = 0" style="vertical-align: -4px"/> と <img class="math" src="../images/math/8bab1ded935b2f7819ec84828a0a424291292b05.png" alt="s(x) \leq 0" style="vertical-align: -4px"/> ：2次的役割はクラックを区切ることです。）</p>
+<p>ここで、 <tt class="docutils literal"><span class="pre">mesh</span></tt> は有効な <tt class="docutils literal"><span class="pre">getfem::mesh</span></tt> メッシュ型です、 <tt class="docutils literal"><span class="pre">degree</span></tt> は多項式の次数（1はデフォルト値）です、 また <tt class="docutils literal"><span class="pre">with_secondary</span></tt> はデフォルト値がfalseのブール値です。次レベル集合法が、降伏を表すために使用されます（ <img class="math" src="../_images/math/2751d79d3bbfb34440d68c685fe6ba7414951749.png" alt="p(x)" style="vertical-align: -4px"/> がプライマリレベル集合法関数であり、 <img class="math" src="../_images/math/9703e10f151c26e976f124951c28a2dac5f1884d.png" alt="s(x)" style="vertical-align: -4px"/> がセカンダリレベル集合法関数である場合、<img class="math" src="../_images/math/127697818cf6924311e6c66824483814e2371986.png" alt="p(x) = 0" style="vertical-align: -4px"/> と <img class="math" src="../_images/math/8bab1ded935b2f7819ec84828a0a424291292b05.png" alt="s(x) \leq 0" style="vertical-align: -4px"/> ：2次的役割はクラックを区切ることです。）</p>
 <p>各レベル集合法関数は、 <cite>mesh_fem</cite> <tt class="docutils literal"><span class="pre">mf</span></tt> とこれ以上の自由度値はベクトル内にあります。オブジェクト <tt class="docutils literal"><span class="pre">getfem::level_set</span></tt> は <cite>mesh_fem</cite> と対応する関数のための自由度のベクトルを含みます。 <tt class="docutils literal"><span class="pre">ls.value(0)</span></tt> メソッドは、プライマリレベル集合法関数の自由度のベクトルを返します。これにより、これらの値を設定することができます。 <tt class="docutils literal"><span class="pre">ls.value(1)</span></tt> メソッドは、セカンダリレベル集合法関数の自由度のベクトルを返します。メソッド <tt class="docutils literal"><span class="pre">ls.get_mesh_fem()</span></tt> は、 <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクトです。</p>
 <p>アプリケーションでは、（例えば、再初期化のため）Hamilton-Jacobi方程式により、レベル集合法関数がしばしば進展することに注意してください。 Hamilton-Jacobi方程式の近似に使用できる <a class="reference internal" href="convect.html#ud-convect"><em>純対流法</em></a> を参照してください。</p>
 </div>
@@ -101,13 +101,13 @@
 </div>
 <p>ここで、 <tt class="docutils literal"><span class="pre">mls</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_level_set</span></tt> 型のオブジェクトです、 <tt class="docutils literal"><span class="pre">where</span></tt> には以下の値が入力可能です。</p>
 <ul class="simple">
-<li><p class="first"><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_INSIDE</span></tt> （<img class="math" src="../images/math/1d5f1bf8b0957bad8f36357986123d5fb9ec18c3.png" alt="p(x)&lt;0" style="vertical-align: -4px"/> 上で積分）、</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_INSIDE</span></tt> （<img class="math" src="../_images/math/1d5f1bf8b0957bad8f36357986123d5fb9ec18c3.png" alt="p(x)&lt;0" style="vertical-align: -4px"/> 上で積分）、</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_OUTSIDE</span></tt> （<img class="math" src="../images/math/23032d8e77f22acd2f25c48537cd4862465f86f3.png" alt="p(x)&gt;0" style="vertical-align: -4px"/> 上で積分）、</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_OUTSIDE</span></tt> （<img class="math" src="../_images/math/23032d8e77f22acd2f25c48537cd4862465f86f3.png" alt="p(x)&gt;0" style="vertical-align: -4px"/> 上で積分）、</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_ALL</span></tt> 、</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_BOUNDARY</span></tt> （<img class="math" src="../images/math/43407f6a2b5d524f6e57c70c914ef7dca7d505b3.png" alt="p(x)=0" style="vertical-align: -4px"/> と <img class="math" src="../images/math/70869d2e94a911e3cb2c044071bd452005bfa39c.png" alt="s(x)\leq 0" style="vertical-align: -4px"/> 上で積分）</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">getfem::mesh_im_level_set::INTEGRATE_BOUNDARY</span></tt> （<img class="math" src="../_images/math/43407f6a2b5d524f6e57c70c914ef7dca7d505b3.png" alt="p(x)=0" style="vertical-align: -4px"/> と <img class="math" src="../_images/math/70869d2e94a911e3cb2c044071bd452005bfa39c.png" alt="s(x)\leq 0" style="vertical-align: -4px"/> 上で積分）</p>
 </li>
 </ul>
 <p>引数 <tt class="docutils literal"><span class="pre">regular_im</span></tt> は、 <tt class="docutils literal"><span class="pre">pintegration_method</span></tt> 型でなければなりません。また、 レベル集合法で切断された要素の複合積分の各サブシンプレックスに適用される積分法になります。オプションの <tt class="docutils literal"><span class="pre">singular_im</span></tt> は <tt class="docutils literal"><span class="pre">pintegration_method</span></tt> 型でなければならず、クラックの特異関数に使われます。クラックチップとの頂点を共有するサブシンプレックスに適用されます（特定の積分法 <tt class="docutils literal"><span class="pre">IM_QUASI_POLAR(..)</span></tt> がこの目的に適しています）。</p>
@@ -175,7 +175,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -246,7 +246,7 @@
         <li class="right" >
           <a href="iinteg.html" title="GetFEM++ に新しい近似積分法を組み込む"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -254,7 +254,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

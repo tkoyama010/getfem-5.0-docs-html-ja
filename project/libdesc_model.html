@@ -8,30 +8,30 @@
     
     <title>モデルモジュール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="継続モジュール" href="libdesc_cont.html" />
-    <link rel="prev" title="低レベルの汎用アセンブリモジュール | gf |" href="libdesc_low_gen_assemb.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="prev" title="GetFEM++ の低レベルの汎用アセンブリモジュール" href="libdesc_low_gen_assemb.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -46,9 +46,9 @@
           <a href="libdesc_cont.html" title="継続モジュール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_low_gen_assemb.html" title="低レベルの汎用アセンブリモジュール | gf |"
+          <a href="libdesc_low_gen_assemb.html" title="GetFEM++ の低レベルの汎用アセンブリモジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,7 +66,7 @@
 <span id="dp-libdesc-model"></span><h1>モデルモジュール<a class="headerlink" href="#model-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>モデル (変数をリンクする変数、データ、および数式の用語) について説明します。</p>
+<p>モデル (変数をリンクする変数、データ、および数式の項) について説明します。</p>
 </div>
 <div class="section" id="files">
 <h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -83,59 +83,58 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_models &#8216; と: ファイル: &#8216; getfem_models &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_models.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_models.cc</span></tt></p>
 </td>
-<td><p class="first last">オブジェクトモデル、内部および標準のレンガ (線形弾力性、汎用楕円煉瓦、ディリクレ境界条件) を定義します。</p>
+<td><p class="first last">オブジェクトモデル、内部および標準ブリック (線形弾力性、汎用楕円ブリック、ディリクレ境界条件) を定義します。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_model_solvers &#8216; と: ファイル: &#8216; getfem_model_solvers &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_model_solvers.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_model_solvers.cc</span></tt></p>
 </td>
 <td><p class="first last">モデルオブジェクトの標準ソルバーを定義します。</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_contact_and_friction_common &#8216; と: ファイル: &#8216; getfem_contact_and_friction_common &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_common.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_common.cc</span></tt></p>
 </td>
 <td><p class="first last">変形体の接触/摩擦条件のための共通アルゴリズム</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_contact_and_friction_integral &#8216; と: ファイル: &#8216; getfem_contact_and_friction_integral &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_integral.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_integral.cc</span></tt></p>
 </td>
-<td><p class="first last">小型摺動接点/一体型の摩擦レンガ。</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_contact_and_friction_large_sliding &#8216; と: ファイル: &#8216; getfem_contact_and_friction_large_sliding &#8216;</p>
-</td>
-<td><p class="first last">大型摺動接点/摩擦レンガ。</p>
+<td><p class="first last">小型摺動接点/一体型の摩擦ブリック。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_contact_and_friction_nodal &#8216; と: ファイル: &#8216; getfem_contact_and_friction_nodal &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_large_sliding.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_large_sliding.cc</span></tt></p>
 </td>
-<td><p class="first last">小摺動節接触/摩擦煉瓦。</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_Navier_Stokes &#8216;</p>
-</td>
-<td><p class="first last">ナビエ-ストークスレンガの試み。改善される。</p>
+<td><p class="first last">大型摺動接点/摩擦ブリック。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_fourth_order &#8216; と: ファイル: &#8216; getfem_fourth_order &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_nodal.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_contact_and_friction_nodal.cc</span></tt></p>
 </td>
-<td><p class="first last">Bilaplacian とキルヒホッフ-愛プレートレンガ</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_linearized_plates &#8216; と: ファイル: &#8216; getfem_linearized_plates &#8216;</p>
-</td>
-<td><p class="first last">Mindlin-ライスナープレートブリック</p>
+<td><p class="first last">小摺動節接触/摩擦ブリック。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_nonlinear_elasticity &#8216; と: ファイル: &#8216; getfem_nonlinear_elasticity &#8216;</p>
-</td>
-<td><p class="first last">大変形弾性煉瓦。</p>
+<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_Navier_Stokes.h</span></tt></td>
+<td><p class="first last">Navier-Stokesブリックの試み。改善される。</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_plasticity &#8216; と: ファイル: &#8216; getfem_plasticity &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_fourth_order.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_fourth_order.cc</span></tt></p>
 </td>
-<td><p class="first last">可塑性のレンガ。</p>
+<td><p class="first last">Bilaplacian と Kirchhoff-Love プレートレンガ</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_linearized_plates.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_linearized_plates.cc</span></tt></p>
+</td>
+<td><p class="first last">Mindlin-Reissner プレートブリック</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_nonlinear_elasticity.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_nonlinear_elasticity.cc</span></tt></p>
+</td>
+<td><p class="first last">大変形弾性ブリック。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_plasticity.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_plasticity.cc</span></tt></p>
+</td>
+<td><p class="first last">可塑性ブリック。</p>
 </td>
 </tr>
 </tbody>
@@ -146,8 +145,8 @@
 <p>一定の進化は、nex のモデルが含まれます。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>より多くの版、道および貝の煉瓦、大きい変形の可塑性、...</p>
+<h2>展望<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>より多くの板、荷重およびシェルブリック、大変形の可塑性、...</p>
 </div>
 </div>
 
@@ -158,7 +157,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -166,14 +165,14 @@
 <li><a class="reference internal" href="#description">説明</a></li>
 <li><a class="reference internal" href="#files">ファイル</a></li>
 <li><a class="reference internal" href="#state">状態</a></li>
-<li><a class="reference internal" href="#perspectives">視点</a></li>
+<li><a class="reference internal" href="#perspectives">展望</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="libdesc_low_gen_assemb.html"
-                        title="前の章へ">低レベルの汎用アセンブリモジュール | gf |</a></p>
+                        title="前の章へ"><em>GetFEM++</em> の低レベルの汎用アセンブリモジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_cont.html"
                         title="次の章へ">継続モジュール</a></p>            <h3>Download</h3>
@@ -224,9 +223,9 @@
           <a href="libdesc_cont.html" title="継続モジュール"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="libdesc_low_gen_assemb.html" title="低レベルの汎用アセンブリモジュール | gf |"
+          <a href="libdesc_low_gen_assemb.html" title="GetFEM++ の低レベルの汎用アセンブリモジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -235,7 +234,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,30 +8,30 @@
     
     <title>Helmholtzブリック要素 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="Fourier-Robin ブリック要素" href="model_fourier_robin.html" />
     <link rel="prev" title="他の “陽な”要素" href="model_explicit.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_explicit.html" title="他の “陽な”要素"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,8 +66,8 @@
 <span id="ud-model-helmholtz"></span><span id="index-0"></span><h1>Helmholtzブリック要素<a class="headerlink" href="#helmholtz-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>このブリック要素は複素数と実数のHelmholtz問題を表しています。</p>
 <div class="math">
-<p><img src="../images/math/98f1263a87879913934e1acfc913680baa8c9e63.png" alt="\Delta u + k^2 u = \ldots"/></p>
-</div><p>ここで波数 <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> は実数または複素数値です。複素数のバージョンでは、複素数モデルを使用する必要があります（ <tt class="file docutils literal"><span class="pre">tests/helmholtz.cc</span></tt> を参照）。</p>
+<p><img src="../_images/math/98f1263a87879913934e1acfc913680baa8c9e63.png" alt="\Delta u + k^2 u = \ldots"/></p>
+</div><p>ここで波数 <img class="math" src="../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> は実数または複素数値です。複素数のバージョンでは、複素数モデルを使用する必要があります（ <tt class="file docutils literal"><span class="pre">tests/helmholtz.cc</span></tt> を参照）。</p>
 <p>Helmholtzブリック要素をモデルに追加する関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">getfem</span><span class="o">::</span><span class="n">add_Helmholtz_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">dataexpr</span><span class="p">,</span> <span class="n">region</span><span class="p">);</span>
 </pre></div>
@@ -82,7 +82,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_explicit.html"
@@ -139,7 +139,7 @@
         <li class="right" >
           <a href="model_explicit.html" title="他の “陽な”要素"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -148,7 +148,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

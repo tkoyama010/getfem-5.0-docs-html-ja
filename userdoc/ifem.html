@@ -8,30 +8,30 @@
     
     <title>GetFEM++ に新しい有限要素法を組み込む &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="GetFEM++ に新しい近似積分法を組み込む" href="iinteg.html" />
     <link rel="prev" title="任意の量の補間" href="interMM.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="interMM.html" title="任意の量の補間"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -63,7 +63,7 @@
             
   <div class="section" id="incorporate-new-finite-element-methods-in-gf">
 <span id="ud-ifem"></span><h1><em>GetFEM++</em> に新しい有限要素法を組み込む<a class="headerlink" href="#incorporate-new-finite-element-methods-in-gf" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>基本的には、参照要素に要素を記述するだけで十分です。すなわち各自由度の各基底関数を記述するということです。本質的にベクトル要素がサポートされています（例えば、NedelecとRaviart-Thomas要素）。実要素に依存する自由度の追加の線形変換と等価ではない有限要素法（ベクター要素、Hermite要素などの... <em>GetFEM++</em> 専用の非 <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> 方程式）を記述する必要があります（例としてArgyris要素の実装を参照)。</p>
+<p>基本的には、参照要素に要素を記述するだけで十分です。すなわち各自由度の各基底関数を記述するということです。本質的にベクトル要素がサポートされています（例えば、NedelecとRaviart-Thomas要素）。実要素に依存する自由度の追加の線形変換と等価ではない有限要素法（ベクター要素、Hermite要素などの... <em>GetFEM++</em> 専用の非 <img class="math" src="../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau" style="vertical-align: 0px"/> 方程式）を記述する必要があります（例としてArgyris要素の実装を参照)。</p>
 <p>詳細は <a class="reference internal" href="../project/index.html#dp"><em>$B%W%m%8%&#8217;%/%H$N&#64;bL&#64;(B</em></a> を読んでください。実際の実装は <tt class="file docutils literal"><span class="pre">getfem/getfem_fem.h</span></tt> 、 <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> を参照してください。</p>
 </div>
 
@@ -74,7 +74,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="interMM.html"
@@ -131,7 +131,7 @@
         <li class="right" >
           <a href="interMM.html" title="任意の量の補間"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -139,7 +139,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

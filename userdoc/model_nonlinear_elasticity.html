@@ -8,30 +8,30 @@
     
     <title>有限歪弾性ブリック要素 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="微小ひずみの可塑性" href="model_plasticity_small_strain.html" />
     <link rel="prev" title="数値連続法と分岐" href="model_continuation.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_continuation.html" title="数値連続法と分岐"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,99 +66,99 @@
 <p>このブリック要素は、大きな変形弾性のためのいくつかの古典的な超弾性構成則を実装します。</p>
 <div class="section" id="some-recalls-on-finite-strain-elasticity">
 <h2>有限歪み弾性に関するいくつかの復習<a class="headerlink" href="#some-recalls-on-finite-strain-elasticity" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> を参照構成とし、 <img class="math" src="../images/math/f71d06d762a6c84475cc4a89a032b5f41fef60b1.png" alt="\Omega_t" style="vertical-align: -3px"/> を弾性体の変形構成とします。そして、 <img class="math" src="../images/math/c4a661b220602f094f97ce8a017bc5266343aded.png" alt="X \in \Omega" style="vertical-align: -1px"/> に対して次のように変形を表します <img class="math" src="../images/math/bc50f4941c3d98dedc27603538e97aa1f04cad7b.png" alt="\Phi(x) = u(X) + X" style="vertical-align: -4px"/> 。ベクトルフィールド <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は、初期位置に対する変位です。</p>
+<p><img class="math" src="../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> を参照構成とし、 <img class="math" src="../_images/math/f71d06d762a6c84475cc4a89a032b5f41fef60b1.png" alt="\Omega_t" style="vertical-align: -3px"/> を弾性体の変形構成とします。そして、 <img class="math" src="../_images/math/c4a661b220602f094f97ce8a017bc5266343aded.png" alt="X \in \Omega" style="vertical-align: -1px"/> に対して次のように変形を表します <img class="math" src="../_images/math/bc50f4941c3d98dedc27603538e97aa1f04cad7b.png" alt="\Phi(x) = u(X) + X" style="vertical-align: -4px"/> 。ベクトルフィールド <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は、初期位置に対する変位です。</p>
 <p>Cauchy-Greenテンソルは次のように定義されます。</p>
 <div class="math">
-<p><img src="../images/math/3f097bf02f102cfdc7665805e8c067f141fecb4b.png" alt="C = \nabla\Phi^T\nabla\Phi"/></p>
+<p><img src="../_images/math/3f097bf02f102cfdc7665805e8c067f141fecb4b.png" alt="C = \nabla\Phi^T\nabla\Phi"/></p>
 </div><p>変形勾配テンソル（Green-Lagrange）は次の通りです。</p>
 <div class="math">
-<p><img src="../images/math/1350f75f5189cf1f067d83b1898640804033f10d.png" alt="E = \frac{1}{2}\left(\nabla\Phi^T\nabla\Phi - I)\right)
+<p><img src="../_images/math/1350f75f5189cf1f067d83b1898640804033f10d.png" alt="E = \frac{1}{2}\left(\nabla\Phi^T\nabla\Phi - I)\right)
   = \frac{1}{2}\left({\nabla u^T}{\nabla u} + {\nabla u^T} + {\nabla u}\right)"/></p>
-</div><p>（線形弾性の場合、 <img class="math" src="../images/math/5c38d8777c50fa046c72bd2f55405b4bea4f5de0.png" alt="{\nabla u^T}{\nabla u}" style="vertical-align: -1px"/> は無視されます）。</p>
+</div><p>（線形弾性の場合、 <img class="math" src="../_images/math/5c38d8777c50fa046c72bd2f55405b4bea4f5de0.png" alt="{\nabla u^T}{\nabla u}" style="vertical-align: -1px"/> は無視されます）。</p>
 <p>ここで次の通りであり</p>
 <div class="math">
-<p><img src="../images/math/86e7f00b581b514aecfc2453353f10b361f08f65.png" alt="C = \nabla\Phi^T\nabla\Phi = 2 E + I."/></p>
-</div><p>2つのテンソル <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> と <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> は、有限ひずみ弾性構成則を記述するために使用されます。</p>
+<p><img src="../_images/math/86e7f00b581b514aecfc2453353f10b361f08f65.png" alt="C = \nabla\Phi^T\nabla\Phi = 2 E + I."/></p>
+</div><p>2つのテンソル <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> と <img class="math" src="../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> は、有限ひずみ弾性構成則を記述するために使用されます。</p>
 <div class="section" id="main-invariants-and-derivatives">
 <h3>主要な不変量および導関数<a class="headerlink" href="#main-invariants-and-derivatives" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>有限ひずみ弾性構成則の記述は、しばしば、変形テンソルの主要な不変量を必要とします。</p>
-<p><img class="math" src="../images/math/aad712550620d442cd1dba2000d7e26d96c25349.png" alt="i_1,i_2,i_3" style="vertical-align: -4px"/> は次数 <img class="math" src="../images/math/2d338f393d100febd19e4284537ac40517b48340.png" alt="1,2" style="vertical-align: -4px"/> と <img class="math" src="../images/math/7cde695f2e4542fd01f860a89189f47a27143b66.png" alt="3" style="vertical-align: 0px"/> の不変量です。</p>
+<p><img class="math" src="../_images/math/aad712550620d442cd1dba2000d7e26d96c25349.png" alt="i_1,i_2,i_3" style="vertical-align: -4px"/> は次数 <img class="math" src="../_images/math/2d338f393d100febd19e4284537ac40517b48340.png" alt="1,2" style="vertical-align: -4px"/> と <img class="math" src="../_images/math/7cde695f2e4542fd01f860a89189f47a27143b66.png" alt="3" style="vertical-align: 0px"/> の不変量です。</p>
 <div class="math">
-<p><img src="../images/math/46629e01039e03d9b3068e054eb59700b5a00de9.png" alt="i_1( E) = \mbox{tr } E \hspace{5cm} &amp;i_1( C) = 2\mbox{tr } E + 3\\
+<p><img src="../_images/math/46629e01039e03d9b3068e054eb59700b5a00de9.png" alt="i_1( E) = \mbox{tr } E \hspace{5cm} &amp;i_1( C) = 2\mbox{tr } E + 3\\
 i_2( E) = \frac{(\mbox{tr } E)^2 - \mbox{tr } E^2}{2}\quad\hspace{3cm}&amp; i_2( C)=4i_2( E)+4i_1( E)+3\\
 i_3( E) = \det E \hspace{5cm} &amp;i_3( C) = 8i_3( E) + 4i_2( E) + 2i_1( E) + 1"/></p>
-</div><p><img class="math" src="../images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> 方向のテンソル <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> の不変量の導関数 <img class="math" src="../images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> は次のとおりです。</p>
+</div><p><img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> 方向のテンソル <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> の不変量の導関数 <img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> は次のとおりです。</p>
 <div class="math">
-<p><img src="../images/math/89d6539bb463e455633ff222f5254e1d8f49c332.png" alt="&amp;\frac{\partial i_1}{\partial E}(E;H) = I:H = \mbox{tr } H\\
+<p><img src="../_images/math/89d6539bb463e455633ff222f5254e1d8f49c332.png" alt="&amp;\frac{\partial i_1}{\partial E}(E;H) = I:H = \mbox{tr } H\\
 &amp;\frac{\partial i_2}{\partial E}(E;H) = (i_1( E)I -  E^T):H = (\mbox{tr }  E)(\mbox{tr } H) -  E^T:H\\
 &amp;\frac{\partial i_3}{\partial E}(E;H) = i_3( E)(E^{-T}):H  = (i_2( E)I - i_1( E) E +  E^2):H \mbox{ in 3D}."/></p>
 </div><p>ゆえに</p>
 <div class="math">
-<p><img src="../images/math/30430968063e97d4f0db95d05d9111fac70306fa.png" alt="&amp;\frac{\partial i_1}{\partial E}(E) = I\\
+<p><img src="../_images/math/30430968063e97d4f0db95d05d9111fac70306fa.png" alt="&amp;\frac{\partial i_1}{\partial E}(E) = I\\
 &amp;\frac{\partial i_2}{\partial E}(E) = i_1( E)I -  E^T\\
 &amp;\frac{\partial i_3}{\partial E}(E) = i_3( E)E^{-T}."/></p>
 </div><p>また再喝すると</p>
 <div class="math">
-<p><img src="../images/math/b02b0b19fd103b8d4906b1ae44293ef4c69ece41.png" alt="\frac{\partial (M^{-1})}{\partial M}(M;H) = -M^{-1}HM^{-1}"/></p>
+<p><img src="../_images/math/b02b0b19fd103b8d4906b1ae44293ef4c69ece41.png" alt="\frac{\partial (M^{-1})}{\partial M}(M;H) = -M^{-1}HM^{-1}"/></p>
 </div><p>不変量の2次導関数は、次の式によって定義される4次テンソルとなります。</p>
 <div class="math">
-<p><img src="../images/math/aa064c692d8db6e8aeef9a155ba5a0ba35291220.png" alt="&amp;\frac{\partial^2 i_1}{\partial E^2}(E) = 0\\
+<p><img src="../_images/math/aa064c692d8db6e8aeef9a155ba5a0ba35291220.png" alt="&amp;\frac{\partial^2 i_1}{\partial E^2}(E) = 0\\
 &amp;\frac{\partial^2 i_2}{\partial E^2}(E)_{ijkl} = \delta_{ij}\delta_{kl} - \delta_{il}\delta_{jk} \\
 &amp;\frac{\partial^2 i_3}{\partial E^2}(E)_{ijkl} = i_3(E) (E^{-1}_{ji}E^{-1}_{lk} - E^{-1}_{jk}E^{-1}_{li})."/></p>
-</div><p>表記法 <img class="math" src="../images/math/0a04f4e905bfccb0efbe137bc83a2e29f1f4165c.png" alt="A:B" style="vertical-align: 0px"/> は Frobenius 積を表します。 この積 <img class="math" src="../images/math/7b9d8a57a295862c92d388eba4df2d4b63e3bbcb.png" alt="A:B = \displaystyle\sum_{ij}A_{ij}B_{ij}" style="vertical-align: -24px"/> には以下の特性があります。</p>
+</div><p>表記法 <img class="math" src="../_images/math/0a04f4e905bfccb0efbe137bc83a2e29f1f4165c.png" alt="A:B" style="vertical-align: 0px"/> は Frobenius 積を表します。 この積 <img class="math" src="../_images/math/7b9d8a57a295862c92d388eba4df2d4b63e3bbcb.png" alt="A:B = \displaystyle\sum_{ij}A_{ij}B_{ij}" style="vertical-align: -24px"/> には以下の特性があります。</p>
 <div class="math">
-<p><img src="../images/math/b401b6ff52234e6c878ab4e6e3129bfbf0beefec.png" alt="A:B &amp;= \mbox{tr }(A^TB) = \mbox{tr }(AB^T) = \mbox{tr }(BA^T) = \mbox{tr }(B^TA),\\
+<p><img src="../_images/math/b401b6ff52234e6c878ab4e6e3129bfbf0beefec.png" alt="A:B &amp;= \mbox{tr }(A^TB) = \mbox{tr }(AB^T) = \mbox{tr }(BA^T) = \mbox{tr }(B^TA),\\
 A:BC &amp;= B^TA:C,\\
 A:BC &amp;= AC^T:B,\\
 \mbox{tr }(ABC) &amp;= \mbox{tr }(B^TA^TC^T)"/></p>
 </div><p>また、</p>
 <div class="math">
-<p><img src="../images/math/8de5af15f838a02c278cea32ef6f4055a964f5e8.png" alt="\frac{\partial i_j}{\partial E}(C;H) = 2 \frac{\partial i_j}{\partial C}(C;H)."/></p>
+<p><img src="../_images/math/8de5af15f838a02c278cea32ef6f4055a964f5e8.png" alt="\frac{\partial i_j}{\partial E}(C;H) = 2 \frac{\partial i_j}{\partial C}(C;H)."/></p>
 </div><p>この性質により、Cauchy-Greenテンソル不変量の関数として、特に汎用化されたBlatz-Koひずみエネルギーの場合は、構成的規則を表現することが可能になります。</p>
 </div>
 <div class="section" id="potential-elastic-energy-and-its-derivative">
 <h3>弾性ポテンシャルエネルギーとその導関数<a class="headerlink" href="#potential-elastic-energy-and-its-derivative" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>基準構成における応力は、第2種Piola-Kirchhoff応力テンソル <img class="math" src="../images/math/325966eb469d7d35962cf32755f26b384aa77805.png" alt="{\hat{\hat{\sigma}}} = \nabla\Phi^{-1}\sigma\nabla\Phi^{-t}~\det \nabla\Phi" style="vertical-align: -1px"/> によって記述することができます。 ここで、<img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は、変形された構成 <img class="math" src="../images/math/f71d06d762a6c84475cc4a89a032b5f41fef60b1.png" alt="\Omega_t" style="vertical-align: -3px"/> のCauchy応力テンソルです。超弾性の構成則は次のように与えられます。</p>
+<p>基準構成における応力は、第2種Piola-Kirchhoff応力テンソル <img class="math" src="../_images/math/325966eb469d7d35962cf32755f26b384aa77805.png" alt="{\hat{\hat{\sigma}}} = \nabla\Phi^{-1}\sigma\nabla\Phi^{-t}~\det \nabla\Phi" style="vertical-align: -1px"/> によって記述することができます。 ここで、<img class="math" src="../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は、変形された構成 <img class="math" src="../_images/math/f71d06d762a6c84475cc4a89a032b5f41fef60b1.png" alt="\Omega_t" style="vertical-align: -3px"/> のCauchy応力テンソルです。超弾性の構成則は次のように与えられます。</p>
 <div class="math">
-<p><img src="../images/math/838b98cfa099f9fa8b28fb0a41e578eed41e501f.png" alt="{\hat{\hat{\sigma}}} &amp;= \frac{\partial}{\partial E} {W}(E) = 2\frac{\partial}{\partial C} {W}(C)"/></p>
-</div><p>ここで、 <img class="math" src="../images/math/f1d4712e95baabf79529ab6c25828dded7524f31.png" alt="{W}" style="vertical-align: 0px"/> は材料のひずみエネルギーの密度です。全ひずみエネルギーは次式となります。</p>
+<p><img src="../_images/math/838b98cfa099f9fa8b28fb0a41e578eed41e501f.png" alt="{\hat{\hat{\sigma}}} &amp;= \frac{\partial}{\partial E} {W}(E) = 2\frac{\partial}{\partial C} {W}(C)"/></p>
+</div><p>ここで、 <img class="math" src="../_images/math/f1d4712e95baabf79529ab6c25828dded7524f31.png" alt="{W}" style="vertical-align: 0px"/> は材料のひずみエネルギーの密度です。全ひずみエネルギーは次式となります。</p>
 <div class="math">
-<p><img src="../images/math/a90f58b87c61d67bc7ee9fe7ef6296d0fa42038b.png" alt="\mathcal{I}(u) = \int_{\Omega} W( E(u)) dX"/></p>
-</div><p>また、 <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> 方向のエネルギーの導関数は次のように書くことができます。</p>
+<p><img src="../_images/math/a90f58b87c61d67bc7ee9fe7ef6296d0fa42038b.png" alt="\mathcal{I}(u) = \int_{\Omega} W( E(u)) dX"/></p>
+</div><p>また、 <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> 方向のエネルギーの導関数は次のように書くことができます。</p>
 <div class="math">
-<p><img src="../images/math/04786515f54bcb24c08f407bc8aa9018b44bbf98.png" alt="D\mathcal{I}(u;v) = \int_{\Omega} \frac{\partial W}{\partial E}( E(u)):(I+{\nabla u^T}){\nabla v}  dX"/></p>
+<p><img src="../_images/math/04786515f54bcb24c08f407bc8aa9018b44bbf98.png" alt="D\mathcal{I}(u;v) = \int_{\Omega} \frac{\partial W}{\partial E}( E(u)):(I+{\nabla u^T}){\nabla v}  dX"/></p>
 </div><p>これは次式によります。</p>
 <div class="math">
-<p><img src="../images/math/fc64af0255f9b36b56fe49954a33650d7749a9c5.png" alt="D E(u;v) &amp;= \frac{1}{2}({\nabla u^T}{\nabla v} + {\nabla v^T}{\nabla u} + {\nabla v^T} + {\nabla v})\\
+<p><img src="../_images/math/fc64af0255f9b36b56fe49954a33650d7749a9c5.png" alt="D E(u;v) &amp;= \frac{1}{2}({\nabla u^T}{\nabla v} + {\nabla v^T}{\nabla u} + {\nabla v^T} + {\nabla v})\\
 &amp;= \frac{1}{2}({\nabla v^T}(I+{\nabla u}) + (I+{\nabla u^T}){\nabla v})"/></p>
-</div><p>Aが対称であるとき、 <img class="math" src="../images/math/9ea7c045c90139adf2d10941b0f58e55193b866c.png" alt="{\hat{\hat{\sigma}}}" style="vertical-align: 0px"/> の場合には、 <img class="math" src="../images/math/1fffd6303d8f516675b30d49b12eb1ab3a209f69.png" alt="A:B = A:(B+B^T)/2" style="vertical-align: -5px"/> となります。</p>
+</div><p>Aが対称であるとき、 <img class="math" src="../_images/math/9ea7c045c90139adf2d10941b0f58e55193b866c.png" alt="{\hat{\hat{\sigma}}}" style="vertical-align: 0px"/> の場合には、 <img class="math" src="../_images/math/1fffd6303d8f516675b30d49b12eb1ab3a209f69.png" alt="A:B = A:(B+B^T)/2" style="vertical-align: -5px"/> となります。</p>
 <p>別の方法として、静的平衡を考慮するものがあり、これは参照構成において以下のように書くことができます。</p>
 <div class="math">
-<p><img src="../images/math/6025090de515ab5b50b27e717a596005f9ed6205.png" alt="-\mbox{div } \left((I+{\nabla u}){\hat{\hat{\sigma}}}\right) = f."/></p>
+<p><img src="../_images/math/6025090de515ab5b50b27e717a596005f9ed6205.png" alt="-\mbox{div } \left((I+{\nabla u}){\hat{\hat{\sigma}}}\right) = f."/></p>
 </div><p>部分積分により、次のようになります。</p>
 <div class="math">
-<p><img src="../images/math/e71eccca569d449f056850d6d280caa9ecac4509.png" alt="\int_{\Omega}(I + {\nabla u}){\hat{\hat{\sigma}}} : {\nabla v}  dX = l(v)."/></p>
+<p><img src="../_images/math/e71eccca569d449f056850d6d280caa9ecac4509.png" alt="\int_{\Omega}(I + {\nabla u}){\hat{\hat{\sigma}}} : {\nabla v}  dX = l(v)."/></p>
 </div></div>
 <div class="section" id="tangent-matrix">
 <h3>接線行列<a class="headerlink" href="#tangent-matrix" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>変位 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は固定されています。接線行列を得るためには、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> を <img class="math" src="../images/math/857b17ce0c831ab583fbcf6dda773232000986b6.png" alt="u+h" style="vertical-align: -2px"/> に置き換えます。</p>
+<p>変位 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は固定されています。接線行列を得るためには、 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> を <img class="math" src="../_images/math/857b17ce0c831ab583fbcf6dda773232000986b6.png" alt="u+h" style="vertical-align: -2px"/> に置き換えます。</p>
 <div class="math">
-<p><img src="../images/math/9addac54712d7ef6d393471d3b367e01cb9e5424.png" alt="\int_\Omega(I + {\nabla u} + {\nabla h}){\hat{\hat{\sigma}}}( E(u)+ E(h) + \frac{1}{2}({\nabla h^T}{\nabla u}+{\nabla u^T}{\nabla h})) : {\nabla v}  dX = l(v)"/></p>
-</div><p>線形部分に関して <img class="math" src="../images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> を考慮します。ここで</p>
+<p><img src="../_images/math/9addac54712d7ef6d393471d3b367e01cb9e5424.png" alt="\int_\Omega(I + {\nabla u} + {\nabla h}){\hat{\hat{\sigma}}}( E(u)+ E(h) + \frac{1}{2}({\nabla h^T}{\nabla u}+{\nabla u^T}{\nabla h})) : {\nabla v}  dX = l(v)"/></p>
+</div><p>線形部分に関して <img class="math" src="../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> を考慮します。ここで</p>
 <div class="math">
-<p><img src="../images/math/67c667e30f3d5151403eef367841fe81a530b982.png" alt="\int_\Omega{\nabla h}~{\hat{\hat{\sigma}}}( E(u)) : {\nabla v}  dX +\\
+<p><img src="../_images/math/67c667e30f3d5151403eef367841fe81a530b982.png" alt="\int_\Omega{\nabla h}~{\hat{\hat{\sigma}}}( E(u)) : {\nabla v}  dX +\\
 \int_\Omega \frac{\partial^2 W}{\partial E^2}\left(\frac{{\nabla h}+{\nabla h^T}+{\nabla h^T}{\nabla u}+{\nabla u^T}{\nabla h}}{2}\right) : (I+{\nabla u}^T){\nabla v}  dX"/></p>
-</div><p>それは <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> と <img class="math" src="../images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> に関して対称であり。これは次のように書き換えることができます。</p>
+</div><p>それは <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> と <img class="math" src="../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> に関して対称であり。これは次のように書き換えることができます。</p>
 <div class="math">
-<p><img src="../images/math/c075b559d3b117c757002c24e0bee5bba7b01783.png" alt="\int_\Omega {\nabla h}~{\hat{\hat{\sigma}}}( E(u)) : {\nabla v}  + \mathcal{A}((I+{\nabla u^T}){\nabla h}):(I+{\nabla u}^T){\nabla v}~ dX"/></p>
-</div><p>ここで <img class="math" src="../images/math/0b7bf42db84e4d2dbb7bf55476c12bf9f6233bc5.png" alt="\mathcal{A}" style="vertical-align: -1px"/> は対称であり <img class="math" src="../images/math/f9d7366cd7c1954726cfc28fdd14cef3563b3736.png" alt="3\times3\times3\times3" style="vertical-align: 0px"/> テンソルは <img class="math" src="../images/math/e5031871a272a4d70352a868858a757d1a1b3774.png" alt="\mathcal{A}_{ijkl} = ((\frac{\partial^2 W}{\partial E^2})_{ijkl} + (\frac{\partial^2 W}{\partial E^2})_{ijlk})/2" style="vertical-align: -7px"/> により与えられます。</p>
+<p><img src="../_images/math/c075b559d3b117c757002c24e0bee5bba7b01783.png" alt="\int_\Omega {\nabla h}~{\hat{\hat{\sigma}}}( E(u)) : {\nabla v}  + \mathcal{A}((I+{\nabla u^T}){\nabla h}):(I+{\nabla u}^T){\nabla v}~ dX"/></p>
+</div><p>ここで <img class="math" src="../_images/math/0b7bf42db84e4d2dbb7bf55476c12bf9f6233bc5.png" alt="\mathcal{A}" style="vertical-align: -1px"/> は対称であり <img class="math" src="../_images/math/f9d7366cd7c1954726cfc28fdd14cef3563b3736.png" alt="3\times3\times3\times3" style="vertical-align: 0px"/> テンソルは <img class="math" src="../_images/math/e5031871a272a4d70352a868858a757d1a1b3774.png" alt="\mathcal{A}_{ijkl} = ((\frac{\partial^2 W}{\partial E^2})_{ijkl} + (\frac{\partial^2 W}{\partial E^2})_{ijlk})/2" style="vertical-align: -7px"/> により与えられます。</p>
 </div>
 <div class="section" id="some-classical-constitutive-laws">
 <h3>いくつかの古典的な構成則<a class="headerlink" href="#some-classical-constitutive-laws" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="linearized-saint-venant-kirchhoff-law-small-deformations">
 <h4><tt class="docutils literal"><span class="pre">線形化された：Saint-Venant</span> <span class="pre">Kirchhoff則（微小変形）</span></tt><a class="headerlink" href="#linearized-saint-venant-kirchhoff-law-small-deformations" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="math">
-<p><img src="../images/math/1316a38cbd7bff5fa65babea0033373d24b43088.png" alt="{W} &amp;= \frac{\lambda}{2}i_1( E)^2 + \mu i_1( E^2)\\
+<p><img src="../_images/math/1316a38cbd7bff5fa65babea0033373d24b43088.png" alt="{W} &amp;= \frac{\lambda}{2}i_1( E)^2 + \mu i_1( E^2)\\
 {\hat{\hat{\sigma}}}   &amp;= \lambda i_1( E)I + 2\mu E\\
 \mathcal{A} &amp;= \lambda i_1(H)I + \mu (H + H^T)"/></p>
 </div></div>
@@ -166,10 +166,10 @@ A:BC &amp;= AC^T:B,\\
 <h4><tt class="docutils literal"><span class="pre">3つのパラメータ</span> <span class="pre">Mooney-Rivlin法</span></tt><a class="headerlink" href="#three-parameters-mooney-rivlin-law" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>圧縮可能な材料です。</p>
 <div class="math">
-<p><img src="../images/math/9e074efd5abd45151d1c904fe5a81d8ed895a5c8.png" alt="{W} = c_1(j_1( C) - 3) + c_2(j_2( C)-3) + d_1(i_3( C)^{1/2}-1)^2"/></p>
-</div><p>ここで <img class="math" src="../images/math/00322295674c54c5413520f7493470ff32ae3cec.png" alt="c_1" style="vertical-align: -4px"/>, <img class="math" src="../images/math/a6d4142d351ef99cc26a94e44c1912d904dd4a0c.png" alt="c_2" style="vertical-align: -3px"/> と <img class="math" src="../images/math/44612d9d6ec37da7f4edd0f205d65cdac5954dc0.png" alt="d_1" style="vertical-align: -4px"/> は係数が与えられ、次の式になります。</p>
+<p><img src="../_images/math/9e074efd5abd45151d1c904fe5a81d8ed895a5c8.png" alt="{W} = c_1(j_1( C) - 3) + c_2(j_2( C)-3) + d_1(i_3( C)^{1/2}-1)^2"/></p>
+</div><p>ここで <img class="math" src="../_images/math/00322295674c54c5413520f7493470ff32ae3cec.png" alt="c_1" style="vertical-align: -4px"/>, <img class="math" src="../_images/math/a6d4142d351ef99cc26a94e44c1912d904dd4a0c.png" alt="c_2" style="vertical-align: -3px"/> と <img class="math" src="../_images/math/44612d9d6ec37da7f4edd0f205d65cdac5954dc0.png" alt="d_1" style="vertical-align: -4px"/> は係数が与えられ、次の式になります。</p>
 <div class="math">
-<p><img src="../images/math/e04b5f0d3d855be50038a34863899fb633323d54.png" alt="j_1(C) &amp;= i_1(C) i_3(C)^{-1/3}\\
+<p><img src="../_images/math/e04b5f0d3d855be50038a34863899fb633323d54.png" alt="j_1(C) &amp;= i_1(C) i_3(C)^{-1/3}\\
 j_2(C) &amp;= i_2(C) i_3(C)^{-2/3}\\
 \frac{\partial j_1}{\partial C}(C) &amp;= i_3(C)^{-1/3}\left(\frac{\partial i_1}{\partial C}(C) - \frac{i_1(C)}{3i_3(C)} \frac{\partial i_3}{\partial C}(C)\right)\\
 \frac{\partial j_2}{\partial C}(C) &amp;= i_3(C)^{-2/3}\left(\frac{\partial i_2}{\partial C}(C) - \frac{2i_2(C)}{3i_3(C)} \frac{\partial i_3}{\partial C}(C)\right)\\
@@ -179,21 +179,21 @@ j_2(C) &amp;= i_2(C) i_3(C)^{-2/3}\\
 &amp; ~~~~~~~~~~~~~~~~\left. - \frac{2}{3i_3(C)}(\frac{\partial i_3}{\partial C}(C) \otimes \frac{\partial i_2}{\partial C}(C) + \frac{\partial i_2}{\partial C}(C) \otimes \frac{\partial i_3}{\partial C}(C)) - \frac{2i_2(C)}{3i_3(C)} \frac{\partial^2 i_3}{\partial C^2}(C)\right)"/></p>
 </div><p>その後</p>
 <div class="math">
-<p><img src="../images/math/a68a68c9e3d7223a538d0368e81c1e29679f691c.png" alt="{\hat{\hat{\sigma}}}   &amp;= 2c_1 \frac{\partial j_1}{\partial C}(C) + 2c_2 \frac{\partial j_2}{\partial C}(C)  + 2d_1\left(1-i_3(C)^{-1/2}\right)\frac{\partial i_3}{\partial C}(C) \\
+<p><img src="../_images/math/a68a68c9e3d7223a538d0368e81c1e29679f691c.png" alt="{\hat{\hat{\sigma}}}   &amp;= 2c_1 \frac{\partial j_1}{\partial C}(C) + 2c_2 \frac{\partial j_2}{\partial C}(C)  + 2d_1\left(1-i_3(C)^{-1/2}\right)\frac{\partial i_3}{\partial C}(C) \\
 \mathcal{B} &amp;= 4 c_1 \frac{\partial^2 j_1}{\partial C^2}(C) + 4c_2 \frac{\partial^2 j_2}{\partial C^2}(C) + 4d_1\left(\left(1-i_3(C)^{-1/2}\right)\frac{\partial^2 i_3}{\partial C^2}(C) + \frac{1}{2}i_3(C)^{-3/2} \frac{\partial i_3}{\partial C}(C) \otimes \frac{\partial i_3}{\partial C}(C)\right) \\
 \mathcal{A}_{ijkl} &amp;= (\mathcal{B}_{ijkl} + \mathcal{B}_{jikl})/2"/></p>
 </div><p>非圧縮性の材料です。</p>
 <div class="math">
-<p><img src="../images/math/013a6d39743e220b23a00e7d1fb1c45d0521f1f5.png" alt="{d_1} = 0
+<p><img src="../_images/math/013a6d39743e220b23a00e7d1fb1c45d0521f1f5.png" alt="{d_1} = 0
 \intertext{with the additional constraint:}
 i_3( C) = 1"/></p>
-</div><p>非圧縮性制約 <img class="math" src="../images/math/efb51acbeaed0a754c9a157b060ddd1bfdd54776.png" alt="i_3( C) = 1" style="vertical-align: -4px"/> はLagrange乗数 <img class="math" src="../images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p" style="vertical-align: -4px"/> （圧力）で扱われます。</p>
-<p>拘束: <img class="math" src="../images/math/28da3b453bbd23dba9dd296e2a2e272981664d33.png" alt="\sigma = -pI \Rightarrow {\hat{\hat{\sigma}}} = -p\nabla\Phi\nabla\Phi^{-T}\det\nabla\Phi" style="vertical-align: -4px"/></p>
+</div><p>非圧縮性制約 <img class="math" src="../_images/math/efb51acbeaed0a754c9a157b060ddd1bfdd54776.png" alt="i_3( C) = 1" style="vertical-align: -4px"/> はLagrange乗数 <img class="math" src="../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p" style="vertical-align: -4px"/> （圧力）で扱われます。</p>
+<p>拘束: <img class="math" src="../_images/math/28da3b453bbd23dba9dd296e2a2e272981664d33.png" alt="\sigma = -pI \Rightarrow {\hat{\hat{\sigma}}} = -p\nabla\Phi\nabla\Phi^{-T}\det\nabla\Phi" style="vertical-align: -4px"/></p>
 <div class="math">
-<p><img src="../images/math/37d10e5b8554cbe036735f0de1b274381f90d92c.png" alt="1 - i_3(\nabla\Phi) &amp;= 0 \\
+<p><img src="../_images/math/37d10e5b8554cbe036735f0de1b274381f90d92c.png" alt="1 - i_3(\nabla\Phi) &amp;= 0 \\
 -\int_{\Omega_0} (\det\nabla\Phi  -1) q  dX &amp;= 0 ~~~ \forall q"/></p>
 </div><div class="math">
-<p><img src="../images/math/c9fc5b03d0f04f25e900b876da4b260472e58444.png" alt="B &amp;= -\int_{\Omega_0} p(\nabla\Phi)^{-T} \det \nabla\Phi : \nabla v  dX \\
+<p><img src="../_images/math/c9fc5b03d0f04f25e900b876da4b260472e58444.png" alt="B &amp;= -\int_{\Omega_0} p(\nabla\Phi)^{-T} \det \nabla\Phi : \nabla v  dX \\
 K &amp;= \int_{\Omega_0} \left( p(\nabla\Phi)^{-T}(\nabla h)^{T}(\nabla\Phi)^{-T}\det\nabla\Phi : \nabla v  dX -
 p(\nabla\Phi)^{-T}(\det \nabla\Phi(\nabla\Phi)^{-T}:\nabla h) : \nabla v \right)  dX\\
 &amp;= \int_{\Omega_0} p(\nabla h^T\nabla\Phi^{-T}):(\nabla\Phi^{-1}\nabla v)\det\nabla\Phi dX - \int_{\Omega_0} p(\nabla\Phi^{-T}:\nabla h)(\nabla\Phi^{-T}:\nabla v)\det\nabla\Phi dX"/></p>
@@ -201,16 +201,16 @@ p(\nabla\Phi)^{-T}(\det \nabla\Phi(\nabla\Phi)^{-T}:\nabla h) : \nabla v \right)
 <div class="section" id="ciarlet-geymonat-law">
 <h4><tt class="docutils literal"><span class="pre">Ciarlet-Geymonat</span> <span class="pre">法</span></tt><a class="headerlink" href="#ciarlet-geymonat-law" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="math">
-<p><img src="../images/math/9f9650bf4ccc720103064237e4999acdd4964997.png" alt="{W} &amp;= a\; i_1(C) + (\frac{\mu}{2} - a)i_2(C) + (\frac{\lambda}{4} - \frac{\mu}{2} + a)i_3(C) - (\frac{\mu}{2}+\frac{\lambda}{4})\log \det(C)"/></p>
-</div><p>Lame 係数 <img class="math" src="../images/math/9a15a07f3bbe7e6adf0fea5f58e4559bcfb45037.png" alt="\lambda, \mu" style="vertical-align: -4px"/> は <img class="math" src="../images/math/5aefc45b8e00aaef7009dcf5ac37a695af630d41.png" alt="\max(0,\frac{\mu}{2}-\frac{\lambda}{4})&lt;a&lt;\frac{\mu}{2}" style="vertical-align: -6px"/> のようになります。（<a class="reference internal" href="../biblio.html#ciarlet1988" id="id1">[ciarlet1988]</a> を参照してください）。</p>
+<p><img src="../_images/math/9f9650bf4ccc720103064237e4999acdd4964997.png" alt="{W} &amp;= a\; i_1(C) + (\frac{\mu}{2} - a)i_2(C) + (\frac{\lambda}{4} - \frac{\mu}{2} + a)i_3(C) - (\frac{\mu}{2}+\frac{\lambda}{4})\log \det(C)"/></p>
+</div><p>Lame 係数 <img class="math" src="../_images/math/9a15a07f3bbe7e6adf0fea5f58e4559bcfb45037.png" alt="\lambda, \mu" style="vertical-align: -4px"/> は <img class="math" src="../_images/math/5aefc45b8e00aaef7009dcf5ac37a695af630d41.png" alt="\max(0,\frac{\mu}{2}-\frac{\lambda}{4})&lt;a&lt;\frac{\mu}{2}" style="vertical-align: -6px"/> のようになります。（<a class="reference internal" href="../biblio.html#ciarlet1988" id="id1">[ciarlet1988]</a> を参照してください）。</p>
 </div>
 <div class="section" id="generalized-blatz-ko-law">
 <h4><tt class="docutils literal"><span class="pre">一般化されたBlatz-Ko法</span></tt><a class="headerlink" href="#generalized-blatz-ko-law" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="math">
-<p><img src="../images/math/8a1b81b17f5dc4f7e56ea02011550182b093174e.png" alt="{W} &amp;= (ai_1(C) + bi_3(C)^{1/2} + c\frac{\i_2(C)}{\i_3(C)} + d)^n"/></p>
-</div><p><img class="math" src="../images/math/bee0dacb55fc9d80d1dfea22f83dd99ba31608cd.png" alt="\frac{\partial}{\partial C} {W}(C) = \displaystyle\sum_{j}\frac{\partial W}{\partial i_j(C)} \frac{\partial i_j(C)}{\partial C}" style="vertical-align: -24px"/> と <img class="math" src="../images/math/f0d91edfeee06494e10802f14d001424ee9974f3.png" alt="\frac{\partial^2}{\partial C^2} {W}(C) = \displaystyle\sum_{j} \displaystyle\sum_{k} \frac{\partial^2 W}{\partial i_j(C) \partial i_k(C)} \frac{\partial i_k(C)}{\partial C} \otimes \frac{\partial i_j(C)}{\partial C} + \displaystyle\sum_{j} \frac{\partial W}{\partial i_j(C)} \frac{\partial^2 i_j(C)}{\partial C^2}" style="vertical-align: -24px"/> であるため、Cauchy-Greenテンソル不変量に対して歪エネルギー関数の導関数を計算しなければなりません（ <img class="math" src="../images/math/eda042c8c974ff5cb6dc9aa485f5734d9a0d91ea.png" alt="\frac{\partial i_j}{\partial E}(C;H) = 2 \frac{\partial i_j}{\partial C}(C;H)" style="vertical-align: -7px"/> であるため、以下の点 <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> に関して不変量導関数を計算する必要はありません。)</p>
+<p><img src="../_images/math/8a1b81b17f5dc4f7e56ea02011550182b093174e.png" alt="{W} &amp;= (ai_1(C) + bi_3(C)^{1/2} + c\frac{\i_2(C)}{\i_3(C)} + d)^n"/></p>
+</div><p><img class="math" src="../_images/math/bee0dacb55fc9d80d1dfea22f83dd99ba31608cd.png" alt="\frac{\partial}{\partial C} {W}(C) = \displaystyle\sum_{j}\frac{\partial W}{\partial i_j(C)} \frac{\partial i_j(C)}{\partial C}" style="vertical-align: -24px"/> と <img class="math" src="../_images/math/f0d91edfeee06494e10802f14d001424ee9974f3.png" alt="\frac{\partial^2}{\partial C^2} {W}(C) = \displaystyle\sum_{j} \displaystyle\sum_{k} \frac{\partial^2 W}{\partial i_j(C) \partial i_k(C)} \frac{\partial i_k(C)}{\partial C} \otimes \frac{\partial i_j(C)}{\partial C} + \displaystyle\sum_{j} \frac{\partial W}{\partial i_j(C)} \frac{\partial^2 i_j(C)}{\partial C^2}" style="vertical-align: -24px"/> であるため、Cauchy-Greenテンソル不変量に対して歪エネルギー関数の導関数を計算しなければなりません（ <img class="math" src="../_images/math/eda042c8c974ff5cb6dc9aa485f5734d9a0d91ea.png" alt="\frac{\partial i_j}{\partial E}(C;H) = 2 \frac{\partial i_j}{\partial C}(C;H)" style="vertical-align: -7px"/> であるため、以下の点 <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> に関して不変量導関数を計算する必要はありません。)</p>
 <div class="math">
-<p><img src="../images/math/283ec53b8252a302ed17e5f0cef05114c2ae675b.png" alt="\begin{array}{l}
+<p><img src="../_images/math/283ec53b8252a302ed17e5f0cef05114c2ae675b.png" alt="\begin{array}{l}
 \frac{\partial W}{\partial i_1(C)} = naZ^{n-1}
 ~~~~\mbox{with } Z = (ai_1(C) + bi_3(C)^{1/2} + c\frac{\i_2(C)}{\i_3(C)} + d)\\
 \frac{\partial W}{\partial i_2(C)} = n\frac{c}{i_3(C)}Z^{n-1}\\
@@ -225,7 +225,7 @@ p(\nabla\Phi)^{-T}(\det \nabla\Phi(\nabla\Phi)^{-T}:\nabla h) : \nabla v \right)
 </div></div>
 <div class="section" id="plane-strain-hyper-elasticity">
 <h4><tt class="docutils literal"><span class="pre">平面ひずみ超弾性</span></tt><a class="headerlink" href="#plane-strain-hyper-elasticity" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>以上のすべてのモデルは、ボリューム領域で有効です。対応する平面歪み2次元モデルは、応力テンソルと4次テンソル <img class="math" src="../images/math/0b7bf42db84e4d2dbb7bf55476c12bf9f6233bc5.png" alt="\mathcal{A}" style="vertical-align: -1px"/> をその平面成分に制限することで得られます。</p>
+<p>以上のすべてのモデルは、ボリューム領域で有効です。対応する平面歪み2次元モデルは、応力テンソルと4次テンソル <img class="math" src="../_images/math/0b7bf42db84e4d2dbb7bf55476c12bf9f6233bc5.png" alt="\mathcal{A}" style="vertical-align: -1px"/> をその平面成分に制限することで得られます。</p>
 </div>
 </div>
 </div>
@@ -244,8 +244,8 @@ p(\nabla\Phi)^{-T}(\det \nabla\Phi(\nabla\Phi)^{-T}:\nabla h) : \nabla v \right)
 <span class="n">getfem</span><span class="o">::</span><span class="n">generalized_Blatz_Ko_hyperelastic_law</span> <span class="n">AHL</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Saint-Venant Kirchhoff則は、2つのラメ係数で定義された線形化された法則であり、Ciarlet Geymonat則は2つのラメ係数と追加の係数（<img class="math" src="../images/math/303e84ba3b57e6db0c9e4f0425c695a8044763b1.png" alt="\lambda, \mu, a" style="vertical-align: -4px"/>）で定義されます。</p>
-<p>Mooney-Rivlin則は、2つのオプションのフラグを受け取ります。最初のものは、材料が圧縮可能かどうかを判定し（<img class="math" src="../images/math/93a57585da5a8f56fb4c1ca24557aef4251e0500.png" alt="d_1 \neq 0" style="vertical-align: -4px"/>）、2番目のフラグは材料がNeo-Hookean（<img class="math" src="../images/math/4d4d2a846997f0071179079867053aa8dfee5266.png" alt="c_2 = 0" style="vertical-align: -3px"/>）かどうかを判定します。これらのフラグに応じて、1〜3個の係数が必要な場合があります。デフォルトでは、それは非圧縮性かつNeo-Hookeanでないと定義されているため、2つの物質係数（<img class="math" src="../images/math/00322295674c54c5413520f7493470ff32ae3cec.png" alt="c_1" style="vertical-align: -4px"/>, <img class="math" src="../images/math/a6d4142d351ef99cc26a94e44c1912d904dd4a0c.png" alt="c_2" style="vertical-align: -3px"/>）が必要です。この場合、大きなひずみの非圧縮条件で使用する必要があります。</p>
+<p>Saint-Venant Kirchhoff則は、2つのラメ係数で定義された線形化された法則であり、Ciarlet Geymonat則は2つのラメ係数と追加の係数（<img class="math" src="../_images/math/303e84ba3b57e6db0c9e4f0425c695a8044763b1.png" alt="\lambda, \mu, a" style="vertical-align: -4px"/>）で定義されます。</p>
+<p>Mooney-Rivlin則は、2つのオプションのフラグを受け取ります。最初のものは、材料が圧縮可能かどうかを判定し（<img class="math" src="../_images/math/93a57585da5a8f56fb4c1ca24557aef4251e0500.png" alt="d_1 \neq 0" style="vertical-align: -4px"/>）、2番目のフラグは材料がNeo-Hookean（<img class="math" src="../_images/math/4d4d2a846997f0071179079867053aa8dfee5266.png" alt="c_2 = 0" style="vertical-align: -3px"/>）かどうかを判定します。これらのフラグに応じて、1〜3個の係数が必要な場合があります。デフォルトでは、それは非圧縮性かつNeo-Hookeanでないと定義されているため、2つの物質係数（<img class="math" src="../_images/math/00322295674c54c5413520f7493470ff32ae3cec.png" alt="c_1" style="vertical-align: -4px"/>, <img class="math" src="../_images/math/a6d4142d351ef99cc26a94e44c1912d904dd4a0c.png" alt="c_2" style="vertical-align: -3px"/>）が必要です。この場合、大きなひずみの非圧縮条件で使用する必要があります。</p>
 <p>平面ひずみ超弾性則は、パラメータとして超弾性則の指針をとり、2D平面ひずみ近似を実行します。</p>
 <p><tt class="docutils literal"><span class="pre">md</span></tt> はモデル変数、 <tt class="docutils literal"><span class="pre">mim</span></tt> は積分法、 <tt class="docutils literal"><span class="pre">varname</span></tt> は文字列に変数が追加される変数の名前、 <tt class="docutils literal"><span class="pre">dataname</span></tt> は法則の係数を表すモデル内のデータの名前です（定数または有限要素法を記述することができる）また <tt class="docutils literal"><span class="pre">region</span></tt> はその項が考慮される領域です（デフォルトではすべてのメッシュ）。</p>
 <p><tt class="file docutils literal"><span class="pre">tests</span></tt> ディレクトリ内のプログラム <tt class="file docutils literal"><span class="pre">nonlinear_elastostatic.cc</span></tt> と <tt class="file docutils literal"><span class="pre">interface/tests/matlab</span></tt> ディレクトリ内のプログラム <tt class="file docutils literal"><span class="pre">demo_nonlinear_elasticity.m</span></tt> はこの要素の非圧縮性条件での使用の例です。</p>
@@ -261,7 +261,7 @@ p(\nabla\Phi)^{-T}(\det \nabla\Phi(\nabla\Phi)^{-T}:\nabla h) : \nabla v \right)
 <h2>モデルに大ひずみの非圧縮性ブリック要素を追加する<a class="headerlink" href="#add-a-large-strain-incompressibility-brick-to-a-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>このブリック要素は、大きなひずみ問題で非圧縮性条件を追加します</p>
 <div class="math">
-<p><img src="../images/math/41006d6d245c49473e6e285cafeec7b1a59e9ee8.png" alt="\mbox{det}(I+\nabla u) = 1,"/></p>
+<p><img src="../_images/math/41006d6d245c49473e6e285cafeec7b1a59e9ee8.png" alt="\mbox{det}(I+\nabla u) = 1,"/></p>
 </div><p>圧力を表すLagrange乗数が混合式で導入されます。このブリック要素をモデルに追加する関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">ind</span> <span class="o">=</span> <span class="n">add_nonlinear_incompressibility_brick</span>
   <span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">multname</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -278,10 +278,10 @@ Trace(M)                              % trace of the matrix M
 Matrix_i2(M)                          % second invariant of M (in 3D): (sqr(Trace(m)) - Trace(m*m))/2
 Matrix_j1(M)                          % modified first invariant of M: Trace(m)pow(Det(m),-1/3).
 Matrix_j2(M)                          % modified second invariant of M: Matrix_I2(m)*pow(Det(m),-2/3).
-Right_Cauchy_Green(F)                 % F&#x27; * F
-Left_Cauchy_Green(F)                  % F * F&#x27;
-Green_Lagrangian(F)                   % (F&#x27;F - Id(meshdim))/2
-Cauchy_stress_from_PK2(sigma, Grad_u) % (Id+Grad_u)*sigma*(I+Grad_u&#x27;)/det(I+Grad_u)</pre>
+Right_Cauchy_Green(F)                 % F' * F
+Left_Cauchy_Green(F)                  % F * F'
+Green_Lagrangian(F)                   % (F'F - Id(meshdim))/2
+Cauchy_stress_from_PK2(sigma, Grad_u) % (Id+Grad_u)*sigma*(I+Grad_u')/det(I+Grad_u)</pre>
 </div>
 <p>ポテンシャルのリストです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">Saint_Venant_Kirchhoff_potential</span><span class="p">(</span><span class="n">Grad_u</span><span class="p">,</span> <span class="p">[</span><span class="n">lambda</span><span class="p">;</span> <span class="n">mu</span><span class="p">])</span>
@@ -359,7 +359,7 @@ Cauchy_stress_from_PK2(sigma, Grad_u) % (Id+Grad_u)*sigma*(I+Grad_u&#x27;)/det(I
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -440,7 +440,7 @@ Cauchy_stress_from_PK2(sigma, Grad_u) % (Id+Grad_u)*sigma*(I+Grad_u&#x27;)/det(I
         <li class="right" >
           <a href="model_continuation.html" title="数値連続法と分岐"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -448,7 +448,7 @@ Cauchy_stress_from_PK2(sigma, Grad_u) % (Id+Grad_u)*sigma*(I+Grad_u&#x27;)/det(I
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

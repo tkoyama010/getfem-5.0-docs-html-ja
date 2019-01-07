@@ -8,30 +8,30 @@
     
     <title>Fem モジュール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="Integ モジュール" href="libdesc_im.html" />
     <link rel="prev" title="メッシュモジュール" href="libdesc_mesh.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_mesh.html" title="メッシュモジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,7 +66,7 @@
 <span id="dp-libdesc-fem"></span><h1>Fem モジュール<a class="headerlink" href="#fem-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Fem モジュールは | gf <a href="#id1"><span class="problematic" id="id2">|</span></a>これは、要素レベルと自由度の有限要素を記述します。有限要素法は異なったタイプである場合もある。それらは幾何学的変形によってスカラーかベクトル、多項式、区分多項式または非多項式、同等であるかもしれない。また、自由度の記述は、一般的な方法で2つの隣接要素間の互換性のある自由度を収集することができるようにする必要があります (例えばLagrange2d 要素を別のLagrange1d 要素に接続する場合)。</p>
+<p>Fem モジュールは <em>GetFEM++</em> これは、要素レベルと自由度の有限要素を記述します。有限要素法は異なったタイプである場合もあります。それらは幾何学的変形によって同等であるスカラーかベクトル、多項式、区分多項式または非多項式となります。また、自由度の記述は、一般的な方法で2つの隣接要素間の互換性のある自由度を収集することができるようにする必要があります (例えばLagrange 2D 要素が別のLagrange 1D 要素に接続する場合)。</p>
 </div>
 <div class="section" id="files">
 <h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -83,29 +83,29 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; bgeot_poly &#8216; と: ファイル: &#8216; bgeot_poly_composite &#8216; と: ファイル: &#8216; bgeot_poly &#8216; と: ファイル: &#8216; bgeot_poly_composite. cc &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">bgeot_poly.h</span></tt> と <tt class="file docutils literal"><span class="pre">bgeot_poly_composite.h</span></tt> と <tt class="file docutils literal"><span class="pre">bgeot_poly.cc</span></tt> と <tt class="file docutils literal"><span class="pre">bgeot_poly_composite.cc</span></tt></p>
 </td>
-<td><p class="first last">いくつかのクラスは、参照要素の有限要素法の形状関数を記述するために、多項式と区分的な多項式を表現する。</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_fem &#8216; と: ファイル: &#8216; getfem_fem &#8216; と: ファイル: &#8216; getfem_fem_composite &#8216;</p>
-</td>
-<td><p class="first last">有限要素と自由度の記述子。多項式有限要素を定義する: ファイル: &#8216; getfem_fem &#8216; と区分多項式有限要素: ファイル: &#8216; getfem_fem_composite &#8216;</p>
+<td><p class="first last">いくつかのクラスは、参照要素の有限要素法の形状関数を記述するために、多項式と区分的な多項式を表現します。</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_fem_global_function &#8216; と: ファイル: &#8216; getfem_fem_global_function &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_fem.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_fem_composite.cc</span></tt></p>
 </td>
-<td><p class="first last">ユーザーが指定したグローバル関数として定義された基本関数を持つ fem を定義します。特異関数による濃縮やメッシュレスメソッドの実装に有用である.</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_projected_fem &#8216; と: ファイル: &#8216; getfem_projected_fem &#8216;</p>
-</td>
-<td><p class="first last">別のメッシュ上の有限要素空間 (mesh_fem で表される) の射影である fem を定義します。高ジェネリックアセンブリ言語では、補間変換によってこの機能も提供されていることに注意してください。</p>
+<td><p class="first last">有限要素と自由度の記述子。 <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> で定義される多項式有限要素と <tt class="file docutils literal"><span class="pre">getfem_fem_composite.cc</span></tt> の区分多項式有限要素</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_interpolated_fem &#8216; と: ファイル: &#8216; getfem_interpolated_fem &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_fem_global_function.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_fem_global_function.cc</span></tt></p>
 </td>
-<td><p class="first last">Dsfines は、別のメッシュ上の有限要素空間 (mesh_fem で表される) の補間である fem を構成します。高ジェネリックアセンブリ言語では、補間変換によってこの機能も提供されていることに注意してください。</p>
+<td><p class="first last">ユーザーが指定したグローバル関数として定義された基本関数を持つ有限要素法を定義します。特異関数による凝縮やメッシュレス法の実装に有用です。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_projected_fem.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_projected_fem.cc</span></tt></p>
+</td>
+<td><p class="first last">(mesh_fem で表される) 別のメッシュ上の有限要素空間の射影である有限要素法を定義します。高汎用アセンブリ言語では、補間変換によってこの機能も提供されていることに注意してください。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_interpolated_fem.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_interpolated_fem.cc</span></tt></p>
+</td>
+<td><p class="first last">別のメッシュ上の有限要素空間 (mesh_fem で表される) の補間である有限要素法を定義します。高ジェネリックアセンブリ言語では、補間変換によってこの機能も提供されていることに注意してください。</p>
 </td>
 </tr>
 </tbody>
@@ -113,14 +113,14 @@
 </div>
 <div class="section" id="state">
 <h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>2つのファイル: ファイル: &#8216; getfem_fem &#8216; と: ファイル: &#8216; getfem_fem_composite &#8216; は主に基本的な要素のすべての有限要素の説明が含まれています。定義された有限要素の完全なリストは、で与えられます: ref: &#8216; ud-appendixa &#8216;。</p>
-<p>いくつかの他のファイルのようないくつかの特定の有限要素を定義する: ファイル: &#8216; getfem_fem_level_set &#8216; は、&#8221;&#8221; 1 つまたは複数のレベルセットで既存の要素をカットすることができます複雑な構造です。</p>
-<p>自由度を記述する方法は、グローバルに必要とする (接続 dof 一般的な方法で別の要素から) が、少しあいまいで、あまりにも複雑です。</p>
-<p>逆に、補助行列 &#8216; is &#8216; &#8216; で非等価要素を表現する方法は、いくつかの要素 (Hermites 要素、Argyrisなど) でその効率を証明しています。</p>
+<p>2つのファイル <tt class="file docutils literal"><span class="pre">getfem_fem.cc</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_fem_composite.cc</span></tt> は主に基本的な要素のすべての有限要素の説明が含まれています。定義された有限要素の完全なリストは <a class="reference internal" href="../userdoc/appendixA.html#ud-appendixa"><em>付録A.有限要素法リスト</em></a> で与えられます。</p>
+<p>いくつかの他のファイルのようないくつかの特定の有限要素を定義する <tt class="file docutils literal"><span class="pre">getfem_fem_level_set.h</span></tt> は1 つまたは複数のレベルセットで既存の要素を &#8220;切断&#8221; することができる複雑な構造です。</p>
+<p>自由度を記述する方法は、グローバルに必要事項を満たしますが (一般的な方法で別の要素から接続された自由度) が、少しあいまいで、あまりにも複雑です。</p>
+<p>逆に、補助行列 <tt class="docutils literal"><span class="pre">M</span></tt> で非等価要素を表現する方法は、いくつかの要素 (Hermites 要素、Argyrisなど) でその効率性が証明されています。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>このモジュールの主な不満は、自由度の説明が完全に満足していないということです。自由度の記述が一時的であるために考案されたので、A から Z までの要素を構築する方法についての1つのドキュメンテーションが今のところ作られなかった主な理由です。設計の努力はこうして完全に自由度の記述に関してこのモジュールを主として安定させるために提供されるべきであるまた多分立体求積法に同様の方法で部分的に外部化であることができる有限要素の記述メソッドは、少なくとも最も単純な有限要素 (等価および多項式有限要素)。</p>
+<h2>展望<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このモジュールの主な不満は、自由度の説明について完全に満足していないということです。自由度の記述が一時的であるために考案されたので、A から Z までの要素を構築する方法についての1つのドキュメンテーションが今のところ作られなかった主な理由です。設計の努力はこうして完全に自由度の記述に関してこのモジュールを主として安定させるために提供されるべきであるまた多分立体求積法に同様の方法で部分的に外部化であることができる有限要素の記述メソッドは、少なくとも最も単純な有限要素(等価および多項式有限要素)です。</p>
 </div>
 </div>
 
@@ -131,7 +131,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -139,7 +139,7 @@
 <li><a class="reference internal" href="#description">説明</a></li>
 <li><a class="reference internal" href="#files">ファイル</a></li>
 <li><a class="reference internal" href="#state">状態</a></li>
-<li><a class="reference internal" href="#perspectives">視点</a></li>
+<li><a class="reference internal" href="#perspectives">展望</a></li>
 </ul>
 </li>
 </ul>
@@ -199,7 +199,7 @@
         <li class="right" >
           <a href="libdesc_mesh.html" title="メッシュモジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -208,7 +208,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

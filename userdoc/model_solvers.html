@@ -8,30 +8,30 @@
     
     <title>あらかじめ定義されたソルバー &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="Poisson問題の完全な例" href="model_poisson.html" />
     <link rel="prev" title="ソース項ブリック要素（およびNeumann条件）" href="model_source_term.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_source_term.html" title="ソース項ブリック要素（およびNeumann条件）"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -75,10 +75,10 @@
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">iteration</span> <span class="n">iter</span><span class="p">(</span><span class="mf">1E-7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで、 <tt class="docutils literal"><span class="pre">1E-7</span></tt> は停止基準の相対許容誤差であり、 <cite>1</cite> はノイズの多いオプションであり、 <cite>200</cite> は最大反復回数です。Newton法の停止基準は、以下のように構築されます。相対許容誤差の場合 <img class="math" src="../images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon" style="vertical-align: 0px"/> 、アルゴリズムは次のときに停止します。</p>
+<p>ここで、 <tt class="docutils literal"><span class="pre">1E-7</span></tt> は停止基準の相対許容誤差であり、 <cite>1</cite> はノイズの多いオプションであり、 <cite>200</cite> は最大反復回数です。Newton法の停止基準は、以下のように構築されます。相対許容誤差の場合 <img class="math" src="../_images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon" style="vertical-align: 0px"/> 、アルゴリズムは次のときに停止します。</p>
 <div class="math">
-<p><img src="../images/math/d92847c627f1992ec43f907f1ef7352d400804d2.png" alt="\min\left( \|F(u)\|_1 / \max(L, 10^{-25}) ~, ~~ \|h\|_1 / \max(\|u\|_1, 10^{-25})\right) &lt; \varepsilon"/></p>
-</div><p><img class="math" src="../images/math/9cb83f831c9b56316a378b15c856704c5e1e72b5.png" alt="F(u)" style="vertical-align: -4px"/> は残差ベクトルです。 <img class="math" src="../images/math/490fb5cca4567c947c42b1e3656e9cf0906cc593.png" alt="\|\cdot\|_1" style="vertical-align: -5px"/> は <img class="math" src="../images/math/5f1a7b76db27e141b76722911bbb568cb785751d.png" alt="\R^n" style="vertical-align: -1px"/> 内の古典的な1-ノルムです、 <img class="math" src="../images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> はNewton法によって与えられた探索方向です。<img class="math" src="../images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L" style="vertical-align: 0px"/> は推定された（ソース項およびDirichletブリック要素から来る）外部負荷のノルムであり、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は探索された変数の現在の状態です。最大値 <img class="math" src="../images/math/e73ee7accaee3634f8dacb219bde4d3d7438932d.png" alt="10^{-25}" style="vertical-align: -1px"/> は <img class="math" src="../images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L" style="vertical-align: 0px"/> と（または） <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> の値がない異常な場合を避けるためです。</p>
+<p><img src="../_images/math/d92847c627f1992ec43f907f1ef7352d400804d2.png" alt="\min\left( \|F(u)\|_1 / \max(L, 10^{-25}) ~, ~~ \|h\|_1 / \max(\|u\|_1, 10^{-25})\right) &lt; \varepsilon"/></p>
+</div><p><img class="math" src="../_images/math/9cb83f831c9b56316a378b15c856704c5e1e72b5.png" alt="F(u)" style="vertical-align: -4px"/> は残差ベクトルです。 <img class="math" src="../_images/math/490fb5cca4567c947c42b1e3656e9cf0906cc593.png" alt="\|\cdot\|_1" style="vertical-align: -5px"/> は <img class="math" src="../_images/math/5f1a7b76db27e141b76722911bbb568cb785751d.png" alt="\R^n" style="vertical-align: -1px"/> 内の古典的な1-ノルムです、 <img class="math" src="../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h" style="vertical-align: 0px"/> はNewton法によって与えられた探索方向です。<img class="math" src="../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L" style="vertical-align: 0px"/> は推定された（ソース項およびDirichletブリック要素から来る）外部負荷のノルムであり、 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は探索された変数の現在の状態です。最大値 <img class="math" src="../_images/math/e73ee7accaee3634f8dacb219bde4d3d7438932d.png" alt="10^{-25}" style="vertical-align: -1px"/> は <img class="math" src="../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L" style="vertical-align: 0px"/> と（または） <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> の値がない異常な場合を避けるためです。</p>
 </div>
 
 
@@ -88,7 +88,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_source_term.html"
@@ -145,7 +145,7 @@
         <li class="right" >
           <a href="model_source_term.html" title="ソース項ブリック要素（およびNeumann条件）"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -154,7 +154,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

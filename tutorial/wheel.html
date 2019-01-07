@@ -8,30 +8,30 @@
     
     <title>接触する車輪の例 (2つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用) &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="GetFEM++ の導入" href="index.html" />
     <link rel="next" title="$B%W%m%8%’%/%H$N@bL@(B" href="../project/index.html" />
     <link rel="prev" title="熱および電気弾性連成の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)" href="thermo_coupling.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="thermo_coupling.html" title="熱および電気弾性連成の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,7 +66,7 @@
 <p>この例では、変形可能な「車輪」が変形可能な基礎と接触します。ここでは python インターフェイスを使用しますが、別のインターフェイスまたは C++ にこのプログラムを翻訳するのは簡単です (前の例を参照)。完全なプログラム <cite>demo_wheel_contact.py</cite> は、ディレクトリ <cite>interface/tests/python</cite> にあります。</p>
 <div class="section" id="the-problem-setting">
 <h2>問題の設定<a class="headerlink" href="#the-problem-setting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><img class="math" src="../images/math/3bfd78daba9f047f58f0f71f26a56cb2f7d2e5a0.png" alt="\Omega^1 \subset \R^2" style="vertical-align: -1px"/> は2D車輪の参照設定であり、 <img class="math" src="../images/math/9fe9d6f3b185c77b35e589e7cbc34646d4e61092.png" alt="\Omega^2 \subset \R^2" style="vertical-align: -1px"/> は変形可能な基礎の参照設定です。これら2つの (線形化弾性) 物体の微小変形とそれらの間の接触を考慮します。また、車輪の周縁は剛であり、車輪に垂直方向の力を適用することを考慮します。</p>
+<p><img class="math" src="../_images/math/3bfd78daba9f047f58f0f71f26a56cb2f7d2e5a0.png" alt="\Omega^1 \subset \R^2" style="vertical-align: -1px"/> は2D車輪の参照設定であり、 <img class="math" src="../_images/math/9fe9d6f3b185c77b35e589e7cbc34646d4e61092.png" alt="\Omega^2 \subset \R^2" style="vertical-align: -1px"/> は変形可能な基礎の参照設定です。これら2つの (線形化弾性) 物体の微小変形とそれらの間の接触を考慮します。また、車輪の周縁は剛であり、車輪に垂直方向の力を適用することを考慮します。</p>
 </div>
 <div class="section" id="building-the-program">
 <h2>プログラムのビルド<a class="headerlink" href="#building-the-program" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -101,7 +101,7 @@
 </div>
 <p>結果は以下のとおりです</p>
 <div class="figure align-center" id="tut-fig-wheelmesh">
-<a class="reference internal image-reference" href="../images/wheel_mesh.png"><img alt="../images/wheel_mesh.png" src="../images/wheel_mesh.png" style="width: 596.0px; height: 611.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/wheel_mesh.png"><img alt="../_images/wheel_mesh.png" src="../_images/wheel_mesh.png" style="width: 596.0px; height: 611.0px;" /></a>
 </div>
 </div>
 <div class="section" id="boundary-selection">
@@ -173,17 +173,17 @@
 <p>微小変形接触では、1つの接触面の点の間の対応が参照設定に記述されており、進展していないため、もちろん単純ですが、近似値です。</p>
 <p>車輪の接触境界がスレーブ1であることを考慮し、車輪の接触境界から基礎の接触境界までの変換を記述しなければなりません。これは、基礎の接触境界が垂直座標の消去に対応するため非常に簡単です。そのため、変換を定義します。</p>
 <div class="math">
-<p><img src="../images/math/b4c1a3795452998894b77725782519dfee5bf1be.png" alt="X \longmapsto (X(1), 0)"/></p>
-</div><p>ここで <img class="math" src="../images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X" style="vertical-align: 0px"/> は点の座標のベクトルです。この変換をコマンドを使用してモデルに追加します。</p>
+<p><img src="../_images/math/b4c1a3795452998894b77725782519dfee5bf1be.png" alt="X \longmapsto (X(1), 0)"/></p>
+</div><p>ここで <img class="math" src="../_images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X" style="vertical-align: 0px"/> は点の座標のベクトルです。この変換をコマンドを使用してモデルに追加します。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_interpolate_transformation_from_expression</span><span class="p">(</span><span class="s">&#39;Proj1&#39;</span><span class="p">,</span> <span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="s">&#39;[X(1);0]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>その結果、車輪のメッシュから基礎のメッシュまで、この変換を弱形式の言語表現に使用することが可能になります。これは非常に単純な定数式であることに注意してください。データまたはモデルの変数に応じて、より複雑な式を使用できます。変換の式がモデルの変数に依存する場合、接線線形システムでは、この依存関係が自動的に考慮されます (詳細については、 <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high-transf"><em>補間変換</em></a> を参照してください)。また、大すべり接触に対応し、接触境界間の対応を自動的に検索する変換が <em>GetFEM++</em> に存在することにも注意してください。 ( <a class="reference internal" href="../userdoc/model_contact_friction_large_sliding.html#ud-model-contact-friction-large-hlgav"><em>レイトレース付き積分接触要素</em></a> を参照)。</p>
 <p>定義された変換を使用して、我々は、拡張 Lagrangian 式を使用して積分接触条件を記述することができます (詳細については <a class="reference internal" href="../userdoc/model_contact_friction.html#ud-model-contact-friction"><em>摩擦ブリック要素との微小すべり接触</em></a> を参照)。対応する項 (弱定式化の残りの部分に追加されます) は以下になります。</p>
 <div class="math">
-<p><img src="../images/math/7af5173b94667134d7e0464ec5a7fac31f0d0b80.png" alt="&amp; \cdots + \ds \int_{\Gamma_c} \lambda_N(X) (\delta_{u^1}(X)-\delta_{u^2}(\Pi(X)))\cdot n d\Gamma \\
+<p><img src="../_images/math/7af5173b94667134d7e0464ec5a7fac31f0d0b80.png" alt="&amp; \cdots + \ds \int_{\Gamma_c} \lambda_N(X) (\delta_{u^1}(X)-\delta_{u^2}(\Pi(X)))\cdot n d\Gamma \\
 &amp; -  \ds \int_{\Gamma_c} \left(\lambda_N(X) + \left(\lambda_N(X) + \Frac{1}{h_T\gamma_0}((X + u^1(X))\cdot n - (\Pi(X) - u^2(\Pi(X)))\cdot n\right)_-\right)\delta_{\lambda_N}(X) d\Gamma = 0 ~~~~ \forall \delta_{\lambda_N}, \forall \delta_{u^1}, \forall \delta_{u^2},"/></p>
-</div><p>ここで <img class="math" src="../images/math/2e78fb4781b2620fa10368d193dd418062230428.png" alt="\Gamma_c" style="vertical-align: -3px"/> はスレーブ接触境界であり、 <img class="math" src="../images/math/5b25ea40e7493b07f4e97bea02533a0c8861b07c.png" alt="\lambda_N" style="vertical-align: -3px"/> は接触乗数 (接触圧) であり、 <img class="math" src="../images/math/6d366326170663b7b7e8aee5db7aaf68a11e36b7.png" alt="h_T" style="vertical-align: -3px"/> は要素の半径であり、 <img class="math" src="../images/math/c3e77f8dac39bd44cff4ca15469c871bab27c02e.png" alt="\Pi" style="vertical-align: -1px"/> は変換であり、 <cite>n</cite> はマスター接触境界への外向きの法線ベクトルです(ここで <img class="math" src="../images/math/fc8152eaffd8411ddc69cc776c023d0a7443b17e.png" alt="n = (0,1)" style="vertical-align: -4px"/>) <img class="math" src="../images/math/cbe065ef1957f1cfa20281d4ea41ba2cbb716906.png" alt="\gamma_0" style="vertical-align: -4px"/> は拡張パラメータであり、 <img class="math" src="../images/math/6b12b1f2b6d6251fcd15bda6cf9e963617f8c737.png" alt="(\cdot)_-:I\hspace{-0.2em}R\rightarrow I\hspace{-0.2em}R_+" style="vertical-align: -5px"/> は負の部分であり、 <img class="math" src="../images/math/7ad7e323661545990d45d4a0063f49510b5c6816.png" alt="\delta_{\lambda_N}, \delta_{u^1}, \delta_{u^2}" style="vertical-align: -5px"/> はそれぞれ <img class="math" src="../images/math/92b8d17b712b84a0c5e9b13fe61da237803c5a3c.png" alt="\lambda_N, u^1, u^2" style="vertical-align: -4px"/> に対応する試行関数です。</p>
+</div><p>ここで <img class="math" src="../_images/math/2e78fb4781b2620fa10368d193dd418062230428.png" alt="\Gamma_c" style="vertical-align: -3px"/> はスレーブ接触境界であり、 <img class="math" src="../_images/math/5b25ea40e7493b07f4e97bea02533a0c8861b07c.png" alt="\lambda_N" style="vertical-align: -3px"/> は接触乗数 (接触圧) であり、 <img class="math" src="../_images/math/6d366326170663b7b7e8aee5db7aaf68a11e36b7.png" alt="h_T" style="vertical-align: -3px"/> は要素の半径であり、 <img class="math" src="../_images/math/c3e77f8dac39bd44cff4ca15469c871bab27c02e.png" alt="\Pi" style="vertical-align: -1px"/> は変換であり、 <cite>n</cite> はマスター接触境界への外向きの法線ベクトルです(ここで <img class="math" src="../_images/math/fc8152eaffd8411ddc69cc776c023d0a7443b17e.png" alt="n = (0,1)" style="vertical-align: -4px"/>) <img class="math" src="../_images/math/cbe065ef1957f1cfa20281d4ea41ba2cbb716906.png" alt="\gamma_0" style="vertical-align: -4px"/> は拡張パラメータであり、 <img class="math" src="../_images/math/6b12b1f2b6d6251fcd15bda6cf9e963617f8c737.png" alt="(\cdot)_-:I\hspace{-0.2em}R\rightarrow I\hspace{-0.2em}R_+" style="vertical-align: -5px"/> は負の部分であり、 <img class="math" src="../_images/math/7ad7e323661545990d45d4a0063f49510b5c6816.png" alt="\delta_{\lambda_N}, \delta_{u^1}, \delta_{u^2}" style="vertical-align: -5px"/> はそれぞれ <img class="math" src="../_images/math/92b8d17b712b84a0c5e9b13fe61da237803c5a3c.png" alt="\lambda_N, u^1, u^2" style="vertical-align: -4px"/> に対応する試行関数です。</p>
 <p>弱形式言語を使用すると、次の方法で接触条件を追加できます。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_initialized_data</span><span class="p">(</span><span class="s">&#39;gamma0&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">gamma0</span><span class="p">])</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_filtered_fem_variable</span><span class="p">(</span><span class="s">&#39;lambda1&#39;</span><span class="p">,</span> <span class="n">mflambda_C</span><span class="p">,</span> <span class="n">CONTACT_BOUND</span><span class="p">)</span>
@@ -205,10 +205,10 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_filtered_fem_variable</span><span class="p">(</span><span class="s">&#39;lambda_D&#39;</span><span class="p">,</span> <span class="n">mflambda</span><span class="p">,</span> <span class="n">HOLE_BOUND</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>この乗数は、垂直方向の変位 <img class="math" src="../images/math/fd9b547ff6c36bc3bb1bb62a0bad4a64d29a0539.png" alt="(0, -\alpha_D)" style="vertical-align: -4px"/> を規定するために必要な境界応力を表します。この乗数に適用する制約は、リム境界上の積分が、適用したい垂直方向の力であることです。弱定式の残りの部分に追加される対応する弱定式項を読み取ります。</p>
+<p>この乗数は、垂直方向の変位 <img class="math" src="../_images/math/fd9b547ff6c36bc3bb1bb62a0bad4a64d29a0539.png" alt="(0, -\alpha_D)" style="vertical-align: -4px"/> を規定するために必要な境界応力を表します。この乗数に適用する制約は、リム境界上の積分が、適用したい垂直方向の力であることです。弱定式の残りの部分に追加される対応する弱定式項を読み取ります。</p>
 <div class="math">
-<p><img src="../images/math/d55a1cd7ad378dd090cddf52338c8f064bde1350.png" alt="\cdots + \int_{\Gamma_D} -\lambda_D.\delta_{u^1} + ((0, \alpha_D) - u^1).\delta_{\lambda_D} + (\lambda_D.(0,1) + F)\delta_{\alpha_D} d\Gamma = 0,"/></p>
-</div><p>ここで <img class="math" src="../images/math/932d4407c87b1cb432a44ee87997e834b985003b.png" alt="\Gamma_D" style="vertical-align: -3px"/> はリムの境界であり、 <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> は適用された力の密度です。</p>
+<p><img src="../_images/math/d55a1cd7ad378dd090cddf52338c8f064bde1350.png" alt="\cdots + \int_{\Gamma_D} -\lambda_D.\delta_{u^1} + ((0, \alpha_D) - u^1).\delta_{\lambda_D} + (\lambda_D.(0,1) + F)\delta_{\alpha_D} d\Gamma = 0,"/></p>
+</div><p>ここで <img class="math" src="../_images/math/932d4407c87b1cb432a44ee87997e834b985003b.png" alt="\Gamma_D" style="vertical-align: -3px"/> はリムの境界であり、 <img class="math" src="../_images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> は適用された力の密度です。</p>
 <p>これは弱形式言語でモデルに追加することができます。</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_filtered_fem_variable</span><span class="p">(</span><span class="s">&#39;lambda_D&#39;</span><span class="p">,</span> <span class="n">mflambda</span><span class="p">,</span> <span class="n">HOLE_BOUND</span><span class="p">)</span>
 <span class="n">md</span><span class="o">.</span><span class="n">add_initialized_data</span><span class="p">(</span><span class="s">&#39;F&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">applied_force</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)])</span>
@@ -216,7 +216,7 @@
       <span class="s">&#39; + (lambda_D.[0;1]+F)*Test_alpha_D&#39;</span><span class="p">,</span> <span class="n">HOLE_BOUND</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>よりロバスト性を向上させるために <img class="math" src="../images/math/5287d7ee29e3bc0926c9ed7d41c85bdaf9689d88.png" alt="alpha_D" style="vertical-align: -4px"/> 上の小さなペナルティを追加することができます</p>
+<p>よりロバスト性を向上させるために <img class="math" src="../_images/math/5287d7ee29e3bc0926c9ed7d41c85bdaf9689d88.png" alt="alpha_D" style="vertical-align: -4px"/> 上の小さなペナルティを追加することができます</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">md</span><span class="o">.</span><span class="n">add_linear_term</span><span class="p">(</span><span class="n">mim1</span><span class="p">,</span> <span class="s">&#39;1E-6*alpha_D*Test_alpha_D&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -251,7 +251,7 @@
 </pre></div>
 </div>
 <div class="figure align-center" id="tut-fig-wheelsol">
-<a class="reference internal image-reference" href="../images/wheel.png"><img alt="../images/wheel.png" src="../images/wheel.png" style="width: 1028.0px; height: 795.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/wheel.png"><img alt="../_images/wheel.png" src="../_images/wheel.png" style="width: 1028.0px; height: 795.0px;" /></a>
 <p class="caption">解のプロット。</p>
 </div>
 </div>
@@ -265,7 +265,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -343,7 +343,7 @@
         <li class="right" >
           <a href="thermo_coupling.html" title="熱および電気弾性連成の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化)"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -351,7 +351,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

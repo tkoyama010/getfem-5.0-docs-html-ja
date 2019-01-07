@@ -8,30 +8,30 @@
     
     <title>MeshIm モジュール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="レベルセットモジュール" href="libdesc_levelset.html" />
     <link rel="prev" title="MeshFem モジュール" href="libdesc_meshfem.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_meshfem.html" title="MeshFem モジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,7 +66,7 @@
 <span id="dp-libdesc-mim"></span><h1>MeshIm モジュール<a class="headerlink" href="#meshim-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>メッシュ全体に統合メソッドを定義します。</p>
+<p>メッシュ全体に積分メソッドを定義します。</p>
 </div>
 <div class="section" id="files">
 <h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -83,14 +83,14 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_mesh_im &#8216; と: ファイル: &#8216; getfem_mesh_im &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_mesh_im.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_mesh_im.cc</span></tt></p>
 </td>
 <td><p class="first last">メッシュの各要素に対して積分法を定義するオブジェクト。メインメッシュの変更 (要素の追加または削除) に反応します。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_im_data &#8216; と: ファイル: &#8216; getfem_im_data &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_im_data.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_im_data.cc</span></tt></p>
 </td>
-<td><p class="first last">mesh_im オブジェクトの各ガウス点のスカラー、ベクトルまたはテンソルを表すオブジェクトを定義します。例えば可塑性の近似で使用される。弱い形式の言語のおかげで、任意の式の補間を行うことができます。</p>
+<td><p class="first last">mesh_im オブジェクトの各Gauss点のスカラー、ベクトルまたはテンソルを表すオブジェクトを定義します。例えば可塑性の近似で使用されます。弱形式言語のおかげで、任意の式の補間を行うことができます。</p>
 </td>
 </tr>
 </tbody>
@@ -101,7 +101,7 @@
 <p>安定して、そんなに進化していません。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>展望<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 </div>
 
@@ -112,7 +112,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -120,7 +120,7 @@
 <li><a class="reference internal" href="#description">説明</a></li>
 <li><a class="reference internal" href="#files">ファイル</a></li>
 <li><a class="reference internal" href="#state">状態</a></li>
-<li><a class="reference internal" href="#perspectives">視点</a></li>
+<li><a class="reference internal" href="#perspectives">展望</a></li>
 </ul>
 </li>
 </ul>
@@ -180,7 +180,7 @@
         <li class="right" >
           <a href="libdesc_meshfem.html" title="MeshFem モジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -189,7 +189,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

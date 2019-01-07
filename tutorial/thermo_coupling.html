@@ -8,30 +8,30 @@
     
     <title>熱および電気弾性連成の例 (単純な非線形結合問題、モデルオブジェクト、汎用アセンブリ、解析および可視化) &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="GetFEM++ の導入" href="index.html" />
-    <link rel="next" title="接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)" href="wheel.html" />
+    <link rel="next" title="接触する車輪の例 (2つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)" href="wheel.html" />
     <link rel="prev" title="GetFEM++ の基本的な使い方" href="basic_usage.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -43,12 +43,12 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="wheel.html" title="接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
+          <a href="wheel.html" title="接触する車輪の例 (2つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="basic_usage.html" title="GetFEM++ の基本的な使い方"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,73 +66,73 @@
 <p>この例では、変位フィールド、温度フィールド、および電位フィールドの非線形結合を持つマルチフィジックス問題の簡単な例を紹介します。また、C++ ライブラリと異なるインターフェイスの使用法を比較することも目的としています。対応するデモファイルは、 <em>GetFEM++</em> のテストディレクトリにあります( <cite>tests/</cite> 、 <cite>interface/tests/python</cite> 、 <cite>interface/scr/scilab/demos</cite> 、  <cite>interface/tests/matlab</cite> )。</p>
 <div class="section" id="the-problem-setting">
 <h2>問題の設定<a class="headerlink" href="#the-problem-setting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><img class="math" src="../images/math/34351db8edc91cfb50b5af8de09529d0749640b6.png" alt="\Omega \subset \R^2" style="vertical-align: -1px"/> は、2D プレートの参照構成です( <a class="reference internal" href="#tut-fig-meshthermo"><em>ここ</em></a> のジオメトリを参照してください)、ここで厚さ <img class="math" src="../images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon" style="vertical-align: 0px"/> は外部力、電位および加熱に寄与します。ここで、 <img class="math" src="../images/math/e12a8af9b8f2086ce34f3e02c89d08ada2196878.png" alt="\theta : \Omega \rightarrow \R" style="vertical-align: -1px"/> は( °C 内の)温度フィールド、 <img class="math" src="../images/math/0023b81a095415f3c7a3804f54889dd50c74d4cc.png" alt="V : \Omega \rightarrow \R" style="vertical-align: -1px"/> は電位フィールドです。また、 <img class="math" src="../images/math/2a5413a809159a22a4d5aee9cdfc6bb4183d57d2.png" alt="u : \Omega \rightarrow \R^2" style="vertical-align: -1px"/> は膜変位場です。</p>
+<p><img class="math" src="../_images/math/34351db8edc91cfb50b5af8de09529d0749640b6.png" alt="\Omega \subset \R^2" style="vertical-align: -1px"/> は、2D プレートの参照構成です( <a class="reference internal" href="#tut-fig-meshthermo"><em>ここ</em></a> のジオメトリを参照してください)、ここで厚さ <img class="math" src="../_images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon" style="vertical-align: 0px"/> は外部力、電位および加熱に寄与します。ここで、 <img class="math" src="../_images/math/e12a8af9b8f2086ce34f3e02c89d08ada2196878.png" alt="\theta : \Omega \rightarrow \R" style="vertical-align: -1px"/> は( °C 内の)温度フィールド、 <img class="math" src="../_images/math/0023b81a095415f3c7a3804f54889dd50c74d4cc.png" alt="V : \Omega \rightarrow \R" style="vertical-align: -1px"/> は電位フィールドです。また、 <img class="math" src="../_images/math/2a5413a809159a22a4d5aee9cdfc6bb4183d57d2.png" alt="u : \Omega \rightarrow \R^2" style="vertical-align: -1px"/> は膜変位場です。</p>
 <div class="section" id="thermal-problem">
 <h3>熱問題<a class="headerlink" href="#thermal-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>プレートの表裏面は、熱伝達係数 <img class="math" src="../images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D" style="vertical-align: 0px"/> の (20 °C である) 空気と熱交換しており、プレートの側面は断熱であると想定されています。</p>
-<p>熱方程式 <img class="math" src="../images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/> と境界条件は次のように書くことができます。</p>
+<p>プレートの表裏面は、熱伝達係数 <img class="math" src="../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D" style="vertical-align: 0px"/> の (20 °C である) 空気と熱交換しており、プレートの側面は断熱であると想定されています。</p>
+<p>熱方程式 <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta" style="vertical-align: 0px"/> と境界条件は次のように書くことができます。</p>
 <div class="math">
-<p><img src="../images/math/21f096380e3c73a1f4556157ed61ae2993aab0e4.png" alt="\left\{\begin{array}{l}
+<p><img src="../_images/math/21f096380e3c73a1f4556157ed61ae2993aab0e4.png" alt="\left\{\begin{array}{l}
 -\mbox{div}(\varepsilon\kappa(\nabla \theta)) + 2D(\theta - T_0) - \varepsilon\sigma|\nabla V|^2 = 0 ~~ \mbox{ in } \Omega, \\
 \kappa\nabla \theta \cdot n = 0 ~~ \mbox{ on } \partial \Omega,
 \end{array} \right."/></p>
-</div><p>熱伝導率は <img class="math" src="../images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa" style="vertical-align: 0px"/> により設計されています、 <img class="math" src="../images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> は空気の温度、 <img class="math" src="../images/math/8e8ad6e6563df57ba65066164700f8005af358ef.png" alt="\partial \Omega" style="vertical-align: -1px"/> は、領域 <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> の境界であり <img class="math" src="../images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> は <img class="math" src="../images/math/8e8ad6e6563df57ba65066164700f8005af358ef.png" alt="\partial \Omega" style="vertical-align: -1px"/> 上の <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> への外向きの単位法線ベクトルです。</p>
-<p>項 <img class="math" src="../images/math/6d2aa0f2f47ea4c258351586351607471876996f.png" alt="\sigma|\nabla V|^2" style="vertical-align: -5px"/> は、Joule加熱項に対応する非線形結合項であり、ここで <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は電気伝導率です。</p>
+</div><p>熱伝導率は <img class="math" src="../_images/math/da61bb0fa48fe71269aebf9c8e56b39275813994.png" alt="\kappa" style="vertical-align: 0px"/> により設計されています、 <img class="math" src="../_images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> は空気の温度、 <img class="math" src="../_images/math/8e8ad6e6563df57ba65066164700f8005af358ef.png" alt="\partial \Omega" style="vertical-align: -1px"/> は、領域 <img class="math" src="../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> の境界であり <img class="math" src="../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n" style="vertical-align: 0px"/> は <img class="math" src="../_images/math/8e8ad6e6563df57ba65066164700f8005af358ef.png" alt="\partial \Omega" style="vertical-align: -1px"/> 上の <img class="math" src="../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> への外向きの単位法線ベクトルです。</p>
+<p>項 <img class="math" src="../_images/math/6d2aa0f2f47ea4c258351586351607471876996f.png" alt="\sigma|\nabla V|^2" style="vertical-align: -5px"/> は、Joule加熱項に対応する非線形結合項であり、ここで <img class="math" src="../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は電気伝導率です。</p>
 </div>
 <div class="section" id="electric-potential-problem">
 <h3>電位問題<a class="headerlink" href="#electric-potential-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>私たちは、プレートの左右の側面の間の <img class="math" src="../images/math/21d4a8d43e8c83d941598c902f1d51a81558711d.png" alt="0.1V" style="vertical-align: -1px"/> の電位差を考慮します。他の面は電気的に絶縁されていると考えます。電位の方程式は次の通りです。</p>
+<p>私たちは、プレートの左右の側面の間の <img class="math" src="../_images/math/21d4a8d43e8c83d941598c902f1d51a81558711d.png" alt="0.1V" style="vertical-align: -1px"/> の電位差を考慮します。他の面は電気的に絶縁されていると考えます。電位の方程式は次の通りです。</p>
 <div class="math">
-<p><img src="../images/math/228d208aa67c1abbda089d030b386cfa28058a09.png" alt="\left\{\begin{array}{l}
+<p><img src="../_images/math/228d208aa67c1abbda089d030b386cfa28058a09.png" alt="\left\{\begin{array}{l}
 -\mbox{div}(\varepsilon\sigma(\nabla V)) = 0 ~~ \mbox{ in } \Omega, \\
 \sigma\nabla V \cdot n = 0 ~~ \mbox{ on the top an bottom lateral faces}, \\
 V = 0 ~~ \mbox{ on the right lateral face}, \\
 V = 0.1 ~~ \mbox{ on the left lateral face}, \\
 \end{array} \right."/></p>
-</div><p>ここで <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> はまだ電気伝導性です。さらに、 <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は、次のように温度に依存すると考えます。</p>
+</div><p>ここで <img class="math" src="../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> はまだ電気伝導性です。さらに、 <img class="math" src="../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> は、次のように温度に依存すると考えます。</p>
 <div class="math">
-<p><img src="../images/math/1fcd45830529fae6543dd7e3604b74c2e8355a99.png" alt="\sigma = \Frac{1}{\rho_0(1+\alpha(\theta - T_0))},"/></p>
-</div><p>ここで <img class="math" src="../images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> は参照温度 (ここでは空気温度) であり、 <img class="math" src="../images/math/10b071702fff383bdcbc7bbaee13f6beeae9fd7f.png" alt="\rho_0" style="vertical-align: -4px"/> は <img class="math" src="../images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> 上の抵抗温度係数であり、<img class="math" src="../images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha" style="vertical-align: 0px"/> は第2抵抗温度係数です。</p>
+<p><img src="../_images/math/1fcd45830529fae6543dd7e3604b74c2e8355a99.png" alt="\sigma = \Frac{1}{\rho_0(1+\alpha(\theta - T_0))},"/></p>
+</div><p>ここで <img class="math" src="../_images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> は参照温度 (ここでは空気温度) であり、 <img class="math" src="../_images/math/10b071702fff383bdcbc7bbaee13f6beeae9fd7f.png" alt="\rho_0" style="vertical-align: -4px"/> は <img class="math" src="../_images/math/6801c07694edb238c4a095956d8bf46ccdb38fcc.png" alt="T_0" style="vertical-align: -3px"/> 上の抵抗温度係数であり、<img class="math" src="../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha" style="vertical-align: 0px"/> は第2抵抗温度係数です。</p>
 </div>
 <div class="section" id="deformation-problem">
 <h3>変形問題<a class="headerlink" href="#deformation-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>右側面に加わる力の下でのプレートの微小変形を考慮し, プレートの加熱によって影響を受けるとします。変位 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は、次の(線形化された弾性)問題の解になります。</p>
+<p>右側面に加わる力の下でのプレートの微小変形を考慮し, プレートの加熱によって影響を受けるとします。変位 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は、次の(線形化された弾性)問題の解になります。</p>
 <div class="math">
-<p><img src="../images/math/6e21f54c88108e97c48123fa3e4a5694ac874395.png" alt="\left\{\begin{array}{l}
+<p><img src="../_images/math/6e21f54c88108e97c48123fa3e4a5694ac874395.png" alt="\left\{\begin{array}{l}
 -\mbox{div}(\bar{\sigma}(u)) = 0 ~~ \mbox{ in } \Omega, \\
 \bar{\sigma}\ n = 0 ~~ \mbox{ on the top an bottom lateral faces}, \\
 \bar{\sigma}\ n = F ~~ \mbox{ on the right lateral face}, \\
 u = 0 ~~ \mbox{ on the left lateral face},
 \end{array} \right."/></p>
-</div><p>ここで <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> は、右側横方向の境界に適用される力密度であり、 <img class="math" src="../images/math/12afdcbe343f8c19498315ecedfddf832ee97b4f.png" alt="\bar{\sigma}(u)" style="vertical-align: -4px"/> は、次のように定義されたCauchy応力テンソルです。</p>
+</div><p>ここで <img class="math" src="../_images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> は、右側横方向の境界に適用される力密度であり、 <img class="math" src="../_images/math/12afdcbe343f8c19498315ecedfddf832ee97b4f.png" alt="\bar{\sigma}(u)" style="vertical-align: -4px"/> は、次のように定義されたCauchy応力テンソルです。</p>
 <div class="math">
-<p><img src="../images/math/a7351de7f14eb96bd24887fefeafc27fcea4c1e5.png" alt="\bar{\sigma}(u) = \lambda^* \mbox{div}(u) I + 2\mu \bar{\varepsilon}(u) + \beta(T_0-\theta) I,"/></p>
-</div><p><img class="math" src="../images/math/7a31a024cda0a4fb9e32b880b9ef853f4b5251ff.png" alt="\bar{\varepsilon}(u) = (\nabla u + (\nabla u)^T)/2" style="vertical-align: -5px"/> は、線形化されたひずみテンソルであり、 <img class="math" src="../images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I" style="vertical-align: 0px"/> は2次単位テンソルで、 <img class="math" src="../images/math/928ed15c5cfb1301f19a695f24dcdd8d9e7bc84a.png" alt="\lambda^*, \mu" style="vertical-align: -4px"/> は、 Lamé 係数であり次のように定義されます。</p>
+<p><img src="../_images/math/a7351de7f14eb96bd24887fefeafc27fcea4c1e5.png" alt="\bar{\sigma}(u) = \lambda^* \mbox{div}(u) I + 2\mu \bar{\varepsilon}(u) + \beta(T_0-\theta) I,"/></p>
+</div><p><img class="math" src="../_images/math/7a31a024cda0a4fb9e32b880b9ef853f4b5251ff.png" alt="\bar{\varepsilon}(u) = (\nabla u + (\nabla u)^T)/2" style="vertical-align: -5px"/> は、線形化されたひずみテンソルであり、 <img class="math" src="../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I" style="vertical-align: 0px"/> は2次単位テンソルで、 <img class="math" src="../_images/math/928ed15c5cfb1301f19a695f24dcdd8d9e7bc84a.png" alt="\lambda^*, \mu" style="vertical-align: -4px"/> は、 Lamé 係数であり次のように定義されます。</p>
 <div class="math">
-<p><img src="../images/math/06d7859343b74ef363af001d62ccd17f7d7434e1.png" alt="&amp;\lambda = \Frac{E\nu}{(1+\nu)(1-2\nu)}, \\
+<p><img src="../_images/math/06d7859343b74ef363af001d62ccd17f7d7434e1.png" alt="&amp;\lambda = \Frac{E\nu}{(1+\nu)(1-2\nu)}, \\
 &amp;\mu = \Frac{E}{2(1+\nu)}, \\
 &amp;\lambda^* = \Frac{2\lambda\mu}{\lambda+2*\mu},"/></p>
-</div><p><img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> は材料のヤング係数であり <img class="math" src="../images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> はポアソン比です。</p>
-<p>項 <img class="math" src="../images/math/a91e01c92de562ecfc5d082c2d1334ea441aa25f.png" alt="\beta(T_0-\theta) I" style="vertical-align: -4px"/> は、熱膨張の項に対応しています。ここで <img class="math" src="../images/math/8ee78acaa7dcac5fbf8b981be39a4d79c05c3489.png" alt="\beta = \alpha_{th} E/(1-2\nu)" style="vertical-align: -5px"/> 、<img class="math" src="../images/math/2130776379db7207c8e6d93192affc75db35d635.png" alt="\alpha_{th}" style="vertical-align: -3px"/> は熱膨張係数です。</p>
+</div><p><img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> は材料のヤング係数であり <img class="math" src="../_images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu" style="vertical-align: 0px"/> はポアソン比です。</p>
+<p>項 <img class="math" src="../_images/math/a91e01c92de562ecfc5d082c2d1334ea441aa25f.png" alt="\beta(T_0-\theta) I" style="vertical-align: -4px"/> は、熱膨張の項に対応しています。ここで <img class="math" src="../_images/math/8ee78acaa7dcac5fbf8b981be39a4d79c05c3489.png" alt="\beta = \alpha_{th} E/(1-2\nu)" style="vertical-align: -5px"/> 、<img class="math" src="../_images/math/2130776379db7207c8e6d93192affc75db35d635.png" alt="\alpha_{th}" style="vertical-align: -3px"/> は熱膨張係数です。</p>
 </div>
 </div>
 <div class="section" id="the-weak-formulation">
 <h2>弱定式化<a class="headerlink" href="#the-weak-formulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>重要なステップは、方程式の結合系の弱定式化を得ることです。有限要素定式化は弱定式化 (Galerkin近似)に基づいており、弱定式化は追加される項の表現を与えることができる唯一のものであるため、これは重要なステップです。</p>
-<p>各偏微分方程式の弱定式化は、主な未知数はDirichlet条件を満たしている主な未知数のDirichlet条件に対応する試行関数を用いて式を乗算することにより得られ、その後領域 <img class="math" src="../images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> 上の積分と(Greenの式を使用した)部分の積分を実行します。偏微分方程式系の弱定式化は次の通りです。</p>
+<p>各偏微分方程式の弱定式化は、主な未知数はDirichlet条件を満たしている主な未知数のDirichlet条件に対応する試行関数を用いて式を乗算することにより得られ、その後領域 <img class="math" src="../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega" style="vertical-align: 0px"/> 上の積分と(Greenの式を使用した)部分の積分を実行します。偏微分方程式系の弱定式化は次の通りです。</p>
 <div class="math">
-<p><img src="../images/math/07635cc1ae68c52b7548f1a5508d9768c3c5b199.png" alt="&amp;\mbox{Find } \theta, V, u \mbox{ with } V = 0.1, u = 0 \mbox{ on the left face}, V = 0 \mbox{ on the right face}, \\
+<p><img src="../_images/math/07635cc1ae68c52b7548f1a5508d9768c3c5b199.png" alt="&amp;\mbox{Find } \theta, V, u \mbox{ with } V = 0.1, u = 0 \mbox{ on the left face}, V = 0 \mbox{ on the right face}, \\
 &amp;\ds \int_{\Omega} \varepsilon\kappa\nabla\theta\cdot\nabla\delta_{\theta} + 2D\theta\delta_{\theta}dx = \int_{\Omega} (2DT_0 + \varepsilon\sigma|\nabla V|^2)\delta_{\theta} dx ~~~\mbox{ for all } \delta_{\theta}, \\
 &amp;\ds \int_{\Omega} \varepsilon\sigma\nabla V\cdot\nabla\delta_V = 0 dx ~~~ \mbox{ for all } \delta_V \mbox{ satisfying } \delta_V = 0 \mbox{ on the left and right faces}, \\
 &amp;\ds \int_{\Omega} \bar{\sigma}(u):\bar{\varepsilon}(\delta_u)dx = \int_{\Gamma_N} F\cdot \delta_u d\Gamma ~~~ \mbox{ for all } \delta_{u} \mbox{ satisfying } \delta_u = 0 \mbox{ on the left face},"/></p>
-</div><p>ここで <img class="math" src="../images/math/6a322aecf0783913607e61d7554bb96705d13baf.png" alt="\delta_{\theta}, \delta_V, \delta_u" style="vertical-align: -4px"/> は、それぞれ、 <img class="math" src="../images/math/d16772d1c29fb5174dbc12259590b15ded8fabde.png" alt="\theta, V, u" style="vertical-align: -4px"/> に対応する試行関数です、 <img class="math" src="../images/math/0b983602095bda2a85dd1b0c177f154eaffbecbd.png" alt="\Gamma_N" style="vertical-align: -3px"/> は、力 <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> の密度が適用される右の境界を示します、そして <img class="math" src="../images/math/5abb503bf21fd3ce5ed2e4f936193c6304d5a024.png" alt="\bar{\sigma}:\bar{\varepsilon}" style="vertical-align: 0px"/> は、2次テンソル間のFrobeniusスカラー積です。</p>
+</div><p>ここで <img class="math" src="../_images/math/6a322aecf0783913607e61d7554bb96705d13baf.png" alt="\delta_{\theta}, \delta_V, \delta_u" style="vertical-align: -4px"/> は、それぞれ、 <img class="math" src="../_images/math/d16772d1c29fb5174dbc12259590b15ded8fabde.png" alt="\theta, V, u" style="vertical-align: -4px"/> に対応する試行関数です、 <img class="math" src="../_images/math/0b983602095bda2a85dd1b0c177f154eaffbecbd.png" alt="\Gamma_N" style="vertical-align: -3px"/> は、力 <img class="math" src="../_images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F" style="vertical-align: 0px"/> の密度が適用される右の境界を示します、そして <img class="math" src="../_images/math/5abb503bf21fd3ce5ed2e4f936193c6304d5a024.png" alt="\bar{\sigma}:\bar{\varepsilon}" style="vertical-align: 0px"/> は、2次テンソル間のFrobeniusスカラー積です。</p>
 </div>
 <div class="section" id="implementation-in-c-and-with-the-interface">
 <h2>C++ での実装とインターフェイス<a class="headerlink" href="#implementation-in-c-and-with-the-interface" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>次に、問題を近似する <em>GetFEM++</em> の使用法についての詳細なプレゼンテーションを行います。C++、Python、Scilab と Matlab プログラムを同時に構築します。Matlab および Scilab プログラムでは、オブジェクト指向コマンドを使用しません (使用する方法は <a class="reference internal" href="../matlab/oocmd.html#mlab-oocmd"><em>GetFEM++ OO-commands</em></a> を参照してください)</p>
 <div class="section" id="initialization">
 <h3>初期化<a class="headerlink" href="#initialization" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>まず、C++ では、モデルオブジェクト、ジェネリックアセンブリ、線形インターフェイス (Gmm++) 、実験用メッシュ、およびエクスポート機能に対して、特定の数のヘッダーを含めることができます。Python の場合、これは簡単です。 <em>GetFEM++</em> グローバルにインポートすることができます (numpy もインポートする必要があります)。Scilab の場合、ライブラリは Scilab コンソールに最初にロードされます (ここでは説明しません)、Matlab の場合、すべての <em>GetFEM++</em> 変数をクリアすることを可能にする <cite>gf_workspace(&#8216;clear all&#8217;)</cite> を除いて、何も必要ありません。</p>
+<p>まず、C++ では、モデルオブジェクト、ジェネリックアセンブリ、線形代数インターフェイス (Gmm++) 、実験用メッシュ、およびエクスポート機能に対して、特定の数のヘッダーを含めることができます。Python の場合、これは簡単です。 <em>GetFEM++</em> をグローバルにインポートすることができます (numpy もインポートする必要があります)。Scilab の場合、ライブラリは Scilab コンソールに最初にロードされます (ここでは説明しません)、Matlab の場合、すべての <em>GetFEM++</em> 変数をクリアする <cite>gf_workspace(&#8216;clear all&#8217;)</cite> を除けば、何も必要ありません。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="15%" />
@@ -295,7 +295,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </tbody>
 </table>
 <div class="figure align-center" id="tut-fig-meshthermo">
-<a class="reference internal image-reference" href="../images/mesh_thermo.png"><img alt="../images/mesh_thermo.png" src="../images/mesh_thermo.png" style="width: 975.0px; height: 344.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/mesh_thermo.png"><img alt="../_images/mesh_thermo.png" src="../_images/mesh_thermo.png" style="width: 975.0px; height: 344.0px;" /></a>
 <p class="caption">得られたメッシュ。</p>
 </div>
 </div>
@@ -587,11 +587,11 @@ u = 0 ~~ \mbox{ on the left lateral face},
 <h3>弾性膜変形問題<a class="headerlink" href="#membrane-elastic-deformation-problem" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ここでは、弾性変形問題から始めましょう。以下の <cite>add_isotropic_linearized_elasticity_brick</cite> によって追加されている定義済みのブリックを使用します。基本的には、それに対応する項</p>
 <div class="math">
-<p><img src="../images/math/b8a15b79aa8793124675da9b1c74bdb0a4191310.png" alt="\int_{\Omega} (\lambda^* \mbox{div}(u) I + 2\mu \bar{\varepsilon}(u)):\bar{\varepsilon}(\delta_u)dx,"/></p>
+<p><img src="../_images/math/b8a15b79aa8793124675da9b1c74bdb0a4191310.png" alt="\int_{\Omega} (\lambda^* \mbox{div}(u) I + 2\mu \bar{\varepsilon}(u)):\bar{\varepsilon}(\delta_u)dx,"/></p>
 </div><p>の追加を接線線形システムに対して行います。このモデルブリックを使用するために、対応するデータ Lamé 係数は、最初にモデルに追加する必要があります。ここでは、 Lamé 係数は、領域に対して一定です。ただし、一部の非定数データを定義することもできます。また、この定義済みのブリックを使用する代わりに、弱形式言語項 <cite>add_linear_term(md mim, &#8220;lambda*(Div_u*Div_Test_u) + mu*((Grad_u + Grad_u&#8217;):Grad_Test_u)&#8221;</cite> を等価に使用することができることに注意してください。</p>
 <p>結合項</p>
 <div class="math">
-<p><img src="../images/math/2562e1e538a37c6d30d57352772d9a0d13364e59.png" alt="\int_{\Omega} (\beta\theta I) :\bar{\varepsilon}(\delta_u)dx,"/></p>
+<p><img src="../_images/math/2562e1e538a37c6d30d57352772d9a0d13364e59.png" alt="\int_{\Omega} (\beta\theta I) :\bar{\varepsilon}(\delta_u)dx,"/></p>
 </div><p>は定義済みのブリックはなく、弱形式言語項 <cite>add_linear_term(md mim, &#8220;beta*theta*Div_Test_u)&#8221;</cite> を直接使用します。弱形式言語の詳細については、 <a class="reference internal" href="../userdoc/gasm_high.html#ud-gasm-high"><em>任意の項を計算する - 高水準の汎用的な構築手順 - 弱形式言語</em></a> を参照してください。基本的に、アセンブリ文字列は、各Gauss点で実行される最適化されたアセンブリ命令のリストに編集することが原則です。</p>
 <p>以下のプログラムは、全体の弾性変形方程式を考慮に入れることができます。左側の境界に Dirichlet 条件を規定するために、特定のブリックを使用することに注意してください。Dirichlet条件を規定するいくつかのオプションがあります( <a class="reference internal" href="../userdoc/model_dirichlet.html#ud-model-dirichlet"><em>Dirichlet条件ブリック要素</em></a> を参照)。</p>
 <table border="1" class="docutils">
@@ -678,7 +678,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </div>
 <div class="section" id="id1">
 <h3>電位問題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>同様に、以下のプログラムは、電位方程式を考慮しています。電気伝導率 <img class="math" src="../images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> と再度の弱形式言語用語の使用の定義に注意してください。</p>
+<p>同様に、以下のプログラムは、電位方程式を考慮しています。電気伝導率 <img class="math" src="../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma" style="vertical-align: 0px"/> と再度の弱形式言語用語の使用の定義に注意してください。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="8%" />
@@ -1041,7 +1041,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
 </tbody>
 </table>
 <div class="figure align-center" id="tut-fig-solthermo">
-<a class="reference internal image-reference" href="../images/solution_thermo.png"><img alt="../images/solution_thermo.png" src="../images/solution_thermo.png" style="width: 774.0px; height: 796.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/solution_thermo.png"><img alt="../_images/solution_thermo.png" src="../_images/solution_thermo.png" style="width: 774.0px; height: 796.0px;" /></a>
 <p class="caption">解のプロット。</p>
 </div>
 </div>
@@ -1055,7 +1055,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -1092,7 +1092,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
                         title="前の章へ"><em>GetFEM++</em> の基本的な使い方</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="wheel.html"
-                        title="次の章へ">接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)</a></p>            <h3>Download</h3>
+                        title="次の章へ">接触する車輪の例 (2つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -1137,12 +1137,12 @@ u = 0 ~~ \mbox{ on the left lateral face},
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="wheel.html" title="接触する車輪の例 (2 つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
+          <a href="wheel.html" title="接触する車輪の例 (2つのメッシュ間のアセンブリ、変換、固定サイズ変数の使用)"
              >次へ</a> |</li>
         <li class="right" >
           <a href="basic_usage.html" title="GetFEM++ の基本的な使い方"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -1150,7 +1150,7 @@ u = 0 ~~ \mbox{ on the left lateral face},
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

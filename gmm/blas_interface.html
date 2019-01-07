@@ -6,32 +6,32 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Interface with BLAS, LAPACK or ATLAS &mdash; GetFEM++</title>
+    <title>BLAS、LAPACKまたはATLASとのインターフェース &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Gmm++ Library" href="index.html" />
     <link rel="next" title="Interface with SuperLU" href="superlu.html" />
-    <link rel="prev" title="Catch errors" href="catch.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="prev" title="キャッチエラー" href="catch.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -46,9 +46,9 @@
           <a href="superlu.html" title="Interface with SuperLU"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="catch.html" title="Catch errors"
+          <a href="catch.html" title="キャッチエラー"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,25 +62,25 @@
           <div class="body">
             
   <div class="section" id="interface-with-blas-lapack-or-atlas">
-<span id="gmm-lapack"></span><h1>Interface with BLAS, LAPACK or ATLAS<a class="headerlink" href="#interface-with-blas-lapack-or-atlas" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>For better performance on dense matrices, it is possible to interface some operations of the type <tt class="docutils literal"><span class="pre">gmm::dense_matrix&lt;T&gt;</span></tt> with <tt class="docutils literal"><span class="pre">LAPACK</span></tt> (<a class="reference external" href="http://www.netlib.org/lapack/">http://www.netlib.org/lapack/</a>) or <tt class="docutils literal"><span class="pre">ATLAS</span></tt> (<a class="reference external" href="http://math-atlas.sourceforge.net/">http://math-atlas.sourceforge.net/</a>), for <tt class="docutils literal"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">float,</span> <span class="pre">double,</span> <span class="pre">std::complex&lt;float&gt;</span> <span class="pre">or</span> <span class="pre">std::complex&lt;double&gt;</span></tt>. In fact, concerning <tt class="docutils literal"><span class="pre">ATLAS</span></tt> no specific interface has been made untill now, so the fortran interface of <tt class="docutils literal"><span class="pre">ATLAS</span></tt> should be used.</p>
-<p>to use this interface you have first to define <tt class="docutils literal"><span class="pre">GMM_USES_LAPACK</span></tt> before including <em>Gmm++</em> files:</p>
+<span id="gmm-lapack"></span><h1>BLAS、LAPACKまたはATLASとのインターフェース<a class="headerlink" href="#interface-with-blas-lapack-or-atlas" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>密な行列のパフォーマンスを向上させるために、 `` gmm :: dense_matrix &lt;T&gt; <a href="#id1"><span class="problematic" id="id2">``</span></a>型のいくつかの演算を `` LAPACK``（<a class="reference external" href="http://www.netlib.org/lapack/">http://www.netlib.org/lapack/</a>）または ` `` T = float、double、std :: complex &lt;float&gt;またはstd :: complex &lt;double&gt; <a href="#id3"><span class="problematic" id="id4">``</span></a>に対して、 <a href="#id5"><span class="problematic" id="id6">`</span></a>ATLAS`（<a class="reference external" href="http://math-atlas.sourceforge.net/">http://math-atlas.sourceforge.net/</a>）実際、「ATLAS」に関しては、今までは特定のインターフェースは作られていないので、「ATLAS」のFortranインターフェースを使用すべきである。</p>
+<p>このインタフェースを使うには、最初に `` GMM_USES_LAPACK``を定義してから、| gmm | files</p>
 <div class="highlight-c++"><pre>\#define GMM_USES_LAPACK
 \#include &lt;gmm/gmm.h&gt;
 
 ... your code</pre>
 </div>
-<p>or specify -DGMM_USES_LAPACK on the command line of your compiler. Of course, you have also to link <tt class="docutils literal"><span class="pre">LAPACK</span></tt> or <tt class="docutils literal"><span class="pre">ATLAS</span></tt> libraries. For example on a standard linux configuration and g++ compiler the adding libraries to link <tt class="docutils literal"><span class="pre">LAPACK</span></tt> are:</p>
+<p>コンパイラーのコマンド行で-DGMM_USES_LAPACKを指定します。もちろん、 `` LAPACK``や `` ATLAS``ライブラリもリンクしなければなりません。例えば、標準的なlinux設定やg ++コンパイラでは、 `` LAPACK``をリンクするためのライブラリの追加は:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">g</span><span class="o">++</span> <span class="p">...</span>  <span class="o">-</span><span class="n">llapack</span> <span class="o">-</span><span class="n">lblas</span> <span class="o">-</span><span class="n">lgfortanbegin</span> <span class="o">-</span><span class="n">lgfortran</span>
 </pre></div>
 </div>
-<p>and to link  <tt class="docutils literal"><span class="pre">ATLAS</span></tt>:</p>
+<p>`` ATLAS``をリンクさせる:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">g</span><span class="o">++</span> <span class="p">...</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">atlas</span><span class="o">/</span><span class="n">liblapack</span><span class="p">.</span><span class="n">a</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">atlas</span><span class="o">/</span><span class="n">libblas</span><span class="p">.</span><span class="n">a</span> <span class="o">-</span><span class="n">latlas</span> <span class="o">-</span><span class="n">lgfortranbegin</span> <span class="o">-</span><span class="n">lgfortran</span>
 </pre></div>
 </div>
-<p>The library <tt class="docutils literal"><span class="pre">libgfortranbegin</span></tt> and <tt class="docutils literal"><span class="pre">libgfortran</span></tt> are specific to g++ compiler and may vary for other compilers.</p>
-<p>Ask your system administrator if this configuration does not work.</p>
-<p>The following operations are interfaced:</p>
+<p>ライブラリ `` libgfortranbegin``と `` libgfortran``はg ++コンパイラに固有であり、他のコンパイラでは異なるかもしれません。</p>
+<p>この設定が機能しないかシステム管理者に問い合わせてください。</p>
+<p>次の操作は、</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">vect_norm2</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span>
 
 <span class="n">vect_sp</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span>
@@ -174,9 +174,9 @@
                       <span class="n">dense_matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Of course, it is not difficult to interface another operation if needed.</p>
-<p>The following interface does not correspond to an algorithm existing in <em>Gmm++</em>:</p>
-<p>The interface to <tt class="docutils literal"><span class="pre">gesvd</span></tt> (singular value decomposition):</p>
+<p>もちろん、必要に応じて別の操作をインターフェースするのは難しくありません。</p>
+<p>次のインターフェースは、| gmm <a href="#id1"><span class="problematic" id="id2">|</span></a>に存在するアルゴリズムに対応していません。</p>
+<p>`` gesvd``へのインタフェース（特異値分解）:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">svd</span><span class="p">(</span><span class="n">dense_matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">X</span><span class="p">,</span> <span class="n">dense_matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">U</span><span class="p">,</span>
     <span class="n">dense_matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">Vt</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">sigma</span><span class="p">);</span>
 <span class="n">svd</span><span class="p">(</span><span class="n">dense_matrix</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">X</span><span class="p">,</span> <span class="n">dense_matrix</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">U</span><span class="p">,</span>
@@ -192,11 +192,11 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="catch.html"
-                        title="前の章へ">Catch errors</a></p>
+                        title="前の章へ">キャッチエラー</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="superlu.html"
                         title="次の章へ">Interface with SuperLU</a></p>            <h3>Download</h3>
@@ -247,9 +247,9 @@
           <a href="superlu.html" title="Interface with SuperLU"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="catch.html" title="Catch errors"
+          <a href="catch.html" title="キャッチエラー"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -257,7 +257,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

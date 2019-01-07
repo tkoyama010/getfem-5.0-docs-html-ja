@@ -8,30 +8,30 @@
     
     <title>gf_cont_struct_get &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_cvstruct_get" href="cmdref_gf_cvstruct_get.html" />
     <link rel="prev" title="gf_cont_struct" href="cmdref_gf_cont_struct.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref_gf_cont_struct.html" title="gf_cont_struct"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -65,19 +65,19 @@
   <div class="section" id="gf-cont-struct-get">
 <h1>gf_cont_struct_get<a class="headerlink" href="#gf-cont-struct-get" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>h = gf_cont_struct_get(cont_struct CS, &#x27;init step size&#x27;)
-h = gf_cont_struct_get(cont_struct CS, &#x27;min step size&#x27;)
-h = gf_cont_struct_get(cont_struct CS, &#x27;max step size&#x27;)
-h = gf_cont_struct_get(cont_struct CS, &#x27;step size decrement&#x27;)
-h = gf_cont_struct_get(cont_struct CS, &#x27;step size increment&#x27;)
-[vec tangent_sol, scalar tangent_par] = gf_cont_struct_get(cont_struct CS, &#x27;compute tangent&#x27;, vec solution, scalar parameter, vec tangent_sol, scalar tangent_par)
-E = gf_cont_struct_get(cont_struct CS, &#x27;init Moore-Penrose continuation&#x27;, vec solution, scalar parameter, scalar init_dir)
-E = gf_cont_struct_get(cont_struct CS, &#x27;Moore-Penrose continuation&#x27;, vec solution, scalar parameter, vec tangent_sol, scalar tangent_par, scalar h)
-t = gf_cont_struct_get(cont_struct CS, &#x27;non-smooth bifurcation test&#x27;, vec solution1, scalar parameter1, vec tangent_sol1, scalar tangent_par1, vec solution2, scalar parameter2, vec tangent_sol2, scalar tangent_par2)
-t = gf_cont_struct_get(cont_struct CS, &#x27;bifurcation test function&#x27;)
-{X, gamma, T_X, T_gamma} = gf_cont_struct_get(cont_struct CS, &#x27;sing_data&#x27;)
-s = gf_cont_struct_get(cont_struct CS, &#x27;char&#x27;)
-gf_cont_struct_get(cont_struct CS, &#x27;display&#x27;)</pre>
+<div class="highlight-python"><pre>h = gf_cont_struct_get(cont_struct CS, 'init step size')
+h = gf_cont_struct_get(cont_struct CS, 'min step size')
+h = gf_cont_struct_get(cont_struct CS, 'max step size')
+h = gf_cont_struct_get(cont_struct CS, 'step size decrement')
+h = gf_cont_struct_get(cont_struct CS, 'step size increment')
+[vec tangent_sol, scalar tangent_par] = gf_cont_struct_get(cont_struct CS, 'compute tangent', vec solution, scalar parameter, vec tangent_sol, scalar tangent_par)
+E = gf_cont_struct_get(cont_struct CS, 'init Moore-Penrose continuation', vec solution, scalar parameter, scalar init_dir)
+E = gf_cont_struct_get(cont_struct CS, 'Moore-Penrose continuation', vec solution, scalar parameter, vec tangent_sol, scalar tangent_par, scalar h)
+t = gf_cont_struct_get(cont_struct CS, 'non-smooth bifurcation test', vec solution1, scalar parameter1, vec tangent_sol1, scalar tangent_par1, vec solution2, scalar parameter2, vec tangent_sol2, scalar tangent_par2)
+t = gf_cont_struct_get(cont_struct CS, 'bifurcation test function')
+{X, gamma, T_X, T_gamma} = gf_cont_struct_get(cont_struct CS, 'sing_data')
+s = gf_cont_struct_get(cont_struct CS, 'char')
+gf_cont_struct_get(cont_struct CS, 'display')</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -156,7 +156,7 @@ This function is to be completed.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_cont_struct.html"
@@ -213,7 +213,7 @@ This function is to be completed.</p>
         <li class="right" >
           <a href="cmdref_gf_cont_struct.html" title="gf_cont_struct"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -222,7 +222,7 @@ This function is to be completed.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

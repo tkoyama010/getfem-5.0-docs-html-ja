@@ -8,30 +8,30 @@
     
     <title>過渡問題の積分のためのモデルツール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="摩擦ブリック要素との微小すべり接触" href="model_contact_friction.html" />
     <link rel="prev" title="Mindlin-Reissner板モデル" href="model_Mindlin_plate.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_Mindlin_plate.html" title="Mindlin-Reissner板モデル"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -78,7 +78,7 @@
 </li>
 <li><p class="first">各反復で解くべき問題は、速度と加速度が導入された中間変数によって表されるその自然（弱）定式化における過渡問題の定式化に対応します。例えば、問題</p>
 <div class="math">
-<p><img src="../images/math/d03a88c4039f01cbcef74da11bb8016c922b7a81.png" alt="\dot{u}(t,x) - \Delta u(t,x) = \sin(t)"/></p>
+<p><img src="../_images/math/d03a88c4039f01cbcef74da11bb8016c922b7a81.png" alt="\dot{u}(t,x) - \Delta u(t,x) = \sin(t)"/></p>
 </div><p>の弱形式言語による表現は以下のように記述することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">Dot_u</span><span class="o">*</span><span class="n">Test_u</span> <span class="o">+</span> <span class="n">Grad_u</span><span class="p">.</span><span class="n">Grad_Test_u</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">Test_u</span>
 </pre></div>
@@ -94,18 +94,18 @@
 <h2>一次問題の陰的Theta法<a class="headerlink" href="#the-implicit-theta-method-for-first-order-problems" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>次の問題を見てください。</p>
 <div class="math">
-<p><img src="../images/math/9816ecd4794bfd9bf675a6ba838aded52fc75c49.png" alt="M\dot{U} = F(U)"/></p>
-</div><p>ここで、 <cite>F(U)</cite> は非線形である可能性があります（結合問題の他の変数に依存するかもしれません） <img class="math" src="../images/math/3b43c3c537ab4ba51eebee44bac2476f4fd5474e.png" alt="dt" style="vertical-align: 0px"/> は時間ステップ、 <img class="math" src="../images/math/bf46a55ed6437e573c16498b16a01512d77ac97f.png" alt="V = \dot{U}" style="vertical-align: 0px"/> と <img class="math" src="../images/math/bac82b5a986bab239f01ed2a18817ce99f207a84.png" alt="U^n, V^n" style="vertical-align: -4px"/> は時刻 <img class="math" src="../images/math/e7e26ec665d056e87edf55caac2cf100b3c24efb.png" alt="ndt" style="vertical-align: 0px"/> における <img class="math" src="../images/math/34f52fe2209c745a05c1c6e8922aa00f850250d8.png" alt="U, V" style="vertical-align: -4px"/> の近似です。Theta法は次の式になります。</p>
+<p><img src="../_images/math/9816ecd4794bfd9bf675a6ba838aded52fc75c49.png" alt="M\dot{U} = F(U)"/></p>
+</div><p>ここで、 <cite>F(U)</cite> は非線形である可能性があります（結合問題の他の変数に依存するかもしれません） <img class="math" src="../_images/math/3b43c3c537ab4ba51eebee44bac2476f4fd5474e.png" alt="dt" style="vertical-align: 0px"/> は時間ステップ、 <img class="math" src="../_images/math/bf46a55ed6437e573c16498b16a01512d77ac97f.png" alt="V = \dot{U}" style="vertical-align: 0px"/> と <img class="math" src="../_images/math/bac82b5a986bab239f01ed2a18817ce99f207a84.png" alt="U^n, V^n" style="vertical-align: -4px"/> は時刻 <img class="math" src="../_images/math/e7e26ec665d056e87edf55caac2cf100b3c24efb.png" alt="ndt" style="vertical-align: 0px"/> における <img class="math" src="../_images/math/34f52fe2209c745a05c1c6e8922aa00f850250d8.png" alt="U, V" style="vertical-align: -4px"/> の近似です。Theta法は次の式になります。</p>
 <div class="math">
-<p><img src="../images/math/efe871010b5ae520474b6bb7d2f2981341e15aa4.png" alt="\left\{ \begin{array}{l}
+<p><img src="../_images/math/efe871010b5ae520474b6bb7d2f2981341e15aa4.png" alt="\left\{ \begin{array}{l}
 U^n = U^{n-1} + dt(\theta V^n + (1-\theta) V^{n-1}), \\
 MV^n = F(U^n),
 \end{array}\right."/></p>
-</div><p>Theta法のパラメータである <img class="math" src="../images/math/d9542ceaa01b0d7fb83027afa78dc8d4d07209ba.png" alt="\theta \in (0, 1]" style="vertical-align: -5px"/> （ <img class="math" src="../images/math/8656595bf44ec840dac700925abe3bcbccab0b46.png" alt="\theta = 0" style="vertical-align: 0px"/> 法は前方Euler法に対応し、陰解法ではありません）そして、 <img class="math" src="../images/math/e4ae1fff2d0846b302ac140b31de0fc00515ee29.png" alt="U^{n-1}, V^{n-1}" style="vertical-align: -4px"/> が与えられます。</p>
-<p>最初の時間ステップの前に <img class="math" src="../images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> を初期化する必要があります、しかし、 <img class="math" src="../images/math/590184fd3f8152c481b2abd2ce7c3a9219864038.png" alt="V^0" style="vertical-align: 0px"/> も必要です（ <img class="math" src="../images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> の場合を除く）。この例では、それは <img class="math" src="../images/math/5d6240925cfdd6b6e2d5d46122cddf0cff514270.png" alt="M^{-1}F(U^0)" style="vertical-align: -4px"/> に対応するはずです。汎用的な結合問題 <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> は特異であり、汎用的な事前計算 <img class="math" src="../images/math/590184fd3f8152c481b2abd2ce7c3a9219864038.png" alt="V^0" style="vertical-align: 0px"/> を得ることは困難です。したがって <img class="math" src="../images/math/590184fd3f8152c481b2abd2ce7c3a9219864038.png" alt="V^0" style="vertical-align: 0px"/> もまた準備しなければいけません。代替的に（以下を参照）、modelオブジェクト（および標準解）は（非常に）小さな時間ステップで Backward Euler 法を適用することによりそれらを評価するための平均値を計算します。</p>
+</div><p>Theta法のパラメータである <img class="math" src="../_images/math/d9542ceaa01b0d7fb83027afa78dc8d4d07209ba.png" alt="\theta \in (0, 1]" style="vertical-align: -5px"/> （ <img class="math" src="../_images/math/8656595bf44ec840dac700925abe3bcbccab0b46.png" alt="\theta = 0" style="vertical-align: 0px"/> 法は前方Euler法に対応し、陰解法ではありません）そして、 <img class="math" src="../_images/math/e4ae1fff2d0846b302ac140b31de0fc00515ee29.png" alt="U^{n-1}, V^{n-1}" style="vertical-align: -4px"/> が与えられます。</p>
+<p>最初の時間ステップの前に <img class="math" src="../_images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> を初期化する必要があります、しかし、 <img class="math" src="../_images/math/590184fd3f8152c481b2abd2ce7c3a9219864038.png" alt="V^0" style="vertical-align: 0px"/> も必要です（ <img class="math" src="../_images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> の場合を除く）。この例では、それは <img class="math" src="../_images/math/5d6240925cfdd6b6e2d5d46122cddf0cff514270.png" alt="M^{-1}F(U^0)" style="vertical-align: -4px"/> に対応するはずです。汎用的な結合問題 <img class="math" src="../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> は特異であり、汎用的な事前計算 <img class="math" src="../_images/math/590184fd3f8152c481b2abd2ce7c3a9219864038.png" alt="V^0" style="vertical-align: 0px"/> を得ることは困難です。したがって <img class="math" src="../_images/math/590184fd3f8152c481b2abd2ce7c3a9219864038.png" alt="V^0" style="vertical-align: 0px"/> もまた準備しなければいけません。代替的に（以下を参照）、modelオブジェクト（および標準解）は（非常に）小さな時間ステップで Backward Euler 法を適用することによりそれらを評価するための平均値を計算します。</p>
 <p>次の式は時間微分により導き出すことができます：</p>
 <div class="math">
-<p><img src="../images/math/0567964344a010d6460ba47fff3d9d8d902b538a.png" alt="V^n = \frac{U^n - U^{n-1}}{\theta dt} - \frac{1-\theta}{\theta}V^{n-1}"/></p>
+<p><img src="../_images/math/0567964344a010d6460ba47fff3d9d8d902b538a.png" alt="V^n = \frac{U^n - U^{n-1}}{\theta dt} - \frac{1-\theta}{\theta}V^{n-1}"/></p>
 </div><p>この方法をモデルの変数 &#8220;u&#8221; に適用すると、次の Affine 依存変数がモデルに追加されます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="s">&quot;Dot_u&quot;</span>
 </pre></div>
@@ -116,23 +116,23 @@ MV^n = F(U^n),
 </pre></div>
 </div>
 <p>これは前回の時間ステップにおける &#8220;u&#8221; と &#8220;Dot_u&#8221; の値に対応します。</p>
-<p>解く前にデータ &#8220;Previous_u&#8221; （例 <img class="math" src="../images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> を除く）を初期化する必要があります。ここでも、 &#8220;Previous_Dot_u&#8221; は、次のセクションで説明するように、初期化されるか事前計算される必要があります。したがって、 &#8220;Dot_u&#8221; のAffine依存性は、次のように与えられます。</p>
+<p>解く前にデータ &#8220;Previous_u&#8221; （例 <img class="math" src="../_images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> を除く）を初期化する必要があります。ここでも、 &#8220;Previous_Dot_u&#8221; は、次のセクションで説明するように、初期化されるか事前計算される必要があります。したがって、 &#8220;Dot_u&#8221; のAffine依存性は、次のように与えられます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">Dot_u</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">Previous_u</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">Previous_Dot_u</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span><span class="o">/</span><span class="n">theta</span>
 </pre></div>
 </div>
-<p>つまり、 &#8220;Dot_u&#8221; は構築時に &#8220;u&#8221; （ <img class="math" src="../images/math/5d0f4b6acd2372fe9a8396e70fd95c7436bc1fd6.png" alt="1/(\theta*dt)" style="vertical-align: -5px"/> を掛けたもの）と前の時間ステップに依存する残りの定数項による表現で置き換えられます。変数へのこの方法の追加は次のように行います。:</p>
+<p>つまり、 &#8220;Dot_u&#8221; は構築時に &#8220;u&#8221; （ <img class="math" src="../_images/math/5d0f4b6acd2372fe9a8396e70fd95c7436bc1fd6.png" alt="1/(\theta*dt)" style="vertical-align: -5px"/> を掛けたもの）と前の時間ステップに依存する残りの定数項による表現で置き換えられます。変数へのこの方法の追加は次のように行います。:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_theta_method_for_first_order</span><span class="p">(</span><span class="n">model</span> <span class="o">&amp;</span><span class="n">md</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">varname</span><span class="p">,</span> <span class="n">scalar_type</span> <span class="n">theta</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="precomputation-of-velocity-acceleration">
 <span id="precomp-time-der-section"></span><h2>速度/加速度の事前計算<a class="headerlink" href="#precomputation-of-velocity-acceleration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>大部分の時間積分法（例えば、後方Euler法を除く）は、最初の時間ステップの前に第1または第2の時間微分の事前計算を必要とします（例えば、1次元問題のためのTheta法、第2次問題のための <img class="math" src="../images/math/5d169d7327b5ffb476ced5cd415c41e21e121198.png" alt="A^0" style="vertical-align: 0px"/> ...）。</p>
+<p>大部分の時間積分法（例えば、後方Euler法を除く）は、最初の時間ステップの前に第1または第2の時間微分の事前計算を必要とします（例えば、1次元問題のためのTheta法、第2次問題のための <img class="math" src="../_images/math/5d169d7327b5ffb476ced5cd415c41e21e121198.png" alt="A^0" style="vertical-align: 0px"/> ...）。</p>
 <p>ユーザーはこれらの導関数を初期化するか、モデルに自動的に近似するよう依頼するか選択できます。</p>
 <p>補完的な導関数を近似するために（現時点で）使用されている方法は次の通りです。</p>
 <div class="math">
-<p><img src="../images/math/9816ecd4794bfd9bf675a6ba838aded52fc75c49.png" alt="M\dot{U} = F(U)"/></p>
-</div><p>Theta法（前のセクションを参照）を使用します。 <img class="math" src="../images/math/b4df5a1be0fe6fc35e2bcd0bf4b7e1733edcfd36.png" alt="V_0" style="vertical-align: -3px"/> を近似するために、Theta法は、非常に小さな時間ステップで、 <img class="math" src="../images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> （すなわち、後方Euler法）に適用されます。これは、後退Eulerが初期時間微分を必要としないので可能です。その後、非常に小さな時間ステップの終了時の後方Eulerのおかげで計算された時間微分は、単純に初期時間微分の近似値として使用されます。</p>
+<p><img src="../_images/math/9816ecd4794bfd9bf675a6ba838aded52fc75c49.png" alt="M\dot{U} = F(U)"/></p>
+</div><p>Theta法（前のセクションを参照）を使用します。 <img class="math" src="../_images/math/b4df5a1be0fe6fc35e2bcd0bf4b7e1733edcfd36.png" alt="V_0" style="vertical-align: -3px"/> を近似するために、Theta法は、非常に小さな時間ステップで、 <img class="math" src="../_images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> （すなわち、後方Euler法）に適用されます。これは、後退Eulerが初期時間微分を必要としないので可能です。その後、非常に小さな時間ステップの終了時の後方Eulerのおかげで計算された時間微分は、単純に初期時間微分の近似値として使用されます。</p>
 <p>モデル <cite>md</cite> について、以下の命令は</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">model</span><span class="p">.</span><span class="n">perform_init_time_derivative</span><span class="p">(</span><span class="n">ddt</span><span class="p">);</span>
 <span class="n">standard_solve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">iter</span><span class="p">);</span>
@@ -144,19 +144,19 @@ MV^n = F(U^n),
 <h2>2次問題の陰的Theta法<a class="headerlink" href="#the-implicit-theta-method-for-second-order-problems" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>次の問題を見てください。</p>
 <div class="math">
-<p><img src="../images/math/873a5f513053a4c9f887843d46a84d398a23664a.png" alt="M\ddot{U} = F(U)"/></p>
-</div><p><img class="math" src="../images/math/3b43c3c537ab4ba51eebee44bac2476f4fd5474e.png" alt="dt" style="vertical-align: 0px"/> は時間ステップ、 <img class="math" src="../images/math/bf46a55ed6437e573c16498b16a01512d77ac97f.png" alt="V = \dot{U}" style="vertical-align: 0px"/>, <img class="math" src="../images/math/133c6a5d85dcc6deae02e41852cb5f521ceb0d50.png" alt="A = \ddot{U}" style="vertical-align: 0px"/> と <img class="math" src="../images/math/ae3236fef4997d9befaf0b9e3ae48750ec8e095c.png" alt="U^n, V^n, A^n" style="vertical-align: -4px"/> は時刻 <img class="math" src="../images/math/e7e26ec665d056e87edf55caac2cf100b3c24efb.png" alt="ndt" style="vertical-align: 0px"/> における <img class="math" src="../images/math/50250aee75b00342640fb8c23a63f82af87d03c2.png" alt="U, V, A" style="vertical-align: -4px"/> のの近似です、Theta法は次の式になります。</p>
+<p><img src="../_images/math/873a5f513053a4c9f887843d46a84d398a23664a.png" alt="M\ddot{U} = F(U)"/></p>
+</div><p><img class="math" src="../_images/math/3b43c3c537ab4ba51eebee44bac2476f4fd5474e.png" alt="dt" style="vertical-align: 0px"/> は時間ステップ、 <img class="math" src="../_images/math/bf46a55ed6437e573c16498b16a01512d77ac97f.png" alt="V = \dot{U}" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/133c6a5d85dcc6deae02e41852cb5f521ceb0d50.png" alt="A = \ddot{U}" style="vertical-align: 0px"/> と <img class="math" src="../_images/math/ae3236fef4997d9befaf0b9e3ae48750ec8e095c.png" alt="U^n, V^n, A^n" style="vertical-align: -4px"/> は時刻 <img class="math" src="../_images/math/e7e26ec665d056e87edf55caac2cf100b3c24efb.png" alt="ndt" style="vertical-align: 0px"/> における <img class="math" src="../_images/math/50250aee75b00342640fb8c23a63f82af87d03c2.png" alt="U, V, A" style="vertical-align: -4px"/> のの近似です、Theta法は次の式になります。</p>
 <div class="math">
-<p><img src="../images/math/83ed895a1187b49d46a3ffef8edf0df5b4b6ab83.png" alt="\left\{ \begin{array}{l}
+<p><img src="../_images/math/83ed895a1187b49d46a3ffef8edf0df5b4b6ab83.png" alt="\left\{ \begin{array}{l}
 U^n = U^{n-1} + dt(\theta V^n + (1-\theta) V^{n-1}), \\
 V^n = V^{n-1} + dt(\theta A^n + (1-\theta) A^{n-1}), \\
 MA^n = F(U^n),
 \end{array}\right."/></p>
-</div><p>Theath法のパラメータは <img class="math" src="../images/math/d9542ceaa01b0d7fb83027afa78dc8d4d07209ba.png" alt="\theta \in (0, 1]" style="vertical-align: -5px"/> であり( <img class="math" src="../images/math/8656595bf44ec840dac700925abe3bcbccab0b46.png" alt="\theta = 0" style="vertical-align: 0px"/> 、計算法は前方Euler法に対応し、陰解法ではありません） <img class="math" src="../images/math/4a9b5873e10d628fa6345fa1b6b47271be3e7ed9.png" alt="U^{n-1}, V^{n-1}, A^{n-1}" style="vertical-align: -4px"/> が与えられています。</p>
-<p>最初のステップでは、 <img class="math" src="../images/math/003f409a156046ddce88f179f5f3017cf44b5916.png" alt="U^0, V^0" style="vertical-align: -4px"/> が与えられ、 <img class="math" src="../images/math/5d169d7327b5ffb476ced5cd415c41e21e121198.png" alt="A^0" style="vertical-align: 0px"/> が与えられるか、あらかじめ計算されている必要があります（ <img class="math" src="../images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> を除く）。</p>
+</div><p>Theath法のパラメータは <img class="math" src="../_images/math/d9542ceaa01b0d7fb83027afa78dc8d4d07209ba.png" alt="\theta \in (0, 1]" style="vertical-align: -5px"/> であり( <img class="math" src="../_images/math/8656595bf44ec840dac700925abe3bcbccab0b46.png" alt="\theta = 0" style="vertical-align: 0px"/> 、計算法は前方Euler法に対応し、陰解法ではありません） <img class="math" src="../_images/math/4a9b5873e10d628fa6345fa1b6b47271be3e7ed9.png" alt="U^{n-1}, V^{n-1}, A^{n-1}" style="vertical-align: -4px"/> が与えられています。</p>
+<p>最初のステップでは、 <img class="math" src="../_images/math/003f409a156046ddce88f179f5f3017cf44b5916.png" alt="U^0, V^0" style="vertical-align: -4px"/> が与えられ、 <img class="math" src="../_images/math/5d169d7327b5ffb476ced5cd415c41e21e121198.png" alt="A^0" style="vertical-align: 0px"/> が与えられるか、あらかじめ計算されている必要があります（ <img class="math" src="../_images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> を除く）。</p>
 <p>次の式は時間微分により導き出すことができます：</p>
 <div class="math">
-<p><img src="../images/math/e4f874d49d11e13b44bc16fe71cec9cfeaebf3f6.png" alt="V^n = \frac{U^n - U^{n-1}}{\theta dt} - \frac{1-\theta}{\theta}V^{n-1}
+<p><img src="../_images/math/e4f874d49d11e13b44bc16fe71cec9cfeaebf3f6.png" alt="V^n = \frac{U^n - U^{n-1}}{\theta dt} - \frac{1-\theta}{\theta}V^{n-1}
 
 A^n = \frac{U^n - U^{n-1}}{\theta^2 dt^2} - \frac{1}{\theta^2dt}V^{n-1} - \frac{1-\theta}{\theta}A^{n-1}"/></p>
 </div><p>この法をモデルの変数 &#8220;u&#8221;に適用すると、以下のAffine依存変数がモデルに追加されます:</p>
@@ -169,7 +169,7 @@ A^n = \frac{U^n - U^{n-1}}{\theta^2 dt^2} - \frac{1}{\theta^2dt}V^{n-1} - \frac{
 </pre></div>
 </div>
 <p>前回の時間ステップにおける &#8220;u&#8221;、 &#8220;Dot_u&#8221;、 &#8220;Dot2_u&#8221;の値に対応します。</p>
-<p>解く前に、データ &#8220;Previous_u&#8221;と &#8220;Previous_Dot_u&#8221;（例では <img class="math" src="../images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> ）を初期化し、&#8221; Previous_Dot2_u &#8220;を初期化または事前計算する必要があります <img class="math" src="../images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> ）。したがって、Affine依存性は次のように与えられます。</p>
+<p>解く前に、データ &#8220;Previous_u&#8221;と &#8220;Previous_Dot_u&#8221;（例では <img class="math" src="../_images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> ）を初期化し、&#8221; Previous_Dot2_u &#8220;を初期化または事前計算する必要があります <img class="math" src="../_images/math/72ad431cc263034d8221a41fe80cc1bcf0164959.png" alt="\theta = 1" style="vertical-align: -1px"/> ）。したがって、Affine依存性は次のように与えられます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">Dot_u</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">Previous_u</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">Previous_Dot_u</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span><span class="o">/</span><span class="n">theta</span>
 <span class="n">Dot2_u</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">Previous_u</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">theta</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">Previous_Dot_u</span><span class="o">/</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">theta</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span> <span class="o">-</span> <span class="n">Previous_Dot2_u</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span><span class="o">/</span><span class="n">theta</span>
 </pre></div>
@@ -184,19 +184,19 @@ A^n = \frac{U^n - U^{n-1}}{\theta^2 dt^2} - \frac{1}{\theta^2dt}V^{n-1} - \frac{
 <h2>2次問題の陰的Newmark法<a class="headerlink" href="#the-implicit-newmark-scheme-for-second-order-problems" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>次の問題を見てください。</p>
 <div class="math">
-<p><img src="../images/math/873a5f513053a4c9f887843d46a84d398a23664a.png" alt="M\ddot{U} = F(U)"/></p>
-</div><p><img class="math" src="../images/math/3b43c3c537ab4ba51eebee44bac2476f4fd5474e.png" alt="dt" style="vertical-align: 0px"/> は時間ステップ、 <img class="math" src="../images/math/bf46a55ed6437e573c16498b16a01512d77ac97f.png" alt="V = \dot{U}" style="vertical-align: 0px"/>, <img class="math" src="../images/math/133c6a5d85dcc6deae02e41852cb5f521ceb0d50.png" alt="A = \ddot{U}" style="vertical-align: 0px"/> と <img class="math" src="../images/math/ae3236fef4997d9befaf0b9e3ae48750ec8e095c.png" alt="U^n, V^n, A^n" style="vertical-align: -4px"/> は時刻 <img class="math" src="../images/math/e7e26ec665d056e87edf55caac2cf100b3c24efb.png" alt="ndt" style="vertical-align: 0px"/> における <img class="math" src="../images/math/50250aee75b00342640fb8c23a63f82af87d03c2.png" alt="U, V, A" style="vertical-align: -4px"/> のの近似です、Theta法は次の式になります。</p>
+<p><img src="../_images/math/873a5f513053a4c9f887843d46a84d398a23664a.png" alt="M\ddot{U} = F(U)"/></p>
+</div><p><img class="math" src="../_images/math/3b43c3c537ab4ba51eebee44bac2476f4fd5474e.png" alt="dt" style="vertical-align: 0px"/> は時間ステップ、 <img class="math" src="../_images/math/bf46a55ed6437e573c16498b16a01512d77ac97f.png" alt="V = \dot{U}" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/133c6a5d85dcc6deae02e41852cb5f521ceb0d50.png" alt="A = \ddot{U}" style="vertical-align: 0px"/> と <img class="math" src="../_images/math/ae3236fef4997d9befaf0b9e3ae48750ec8e095c.png" alt="U^n, V^n, A^n" style="vertical-align: -4px"/> は時刻 <img class="math" src="../_images/math/e7e26ec665d056e87edf55caac2cf100b3c24efb.png" alt="ndt" style="vertical-align: 0px"/> における <img class="math" src="../_images/math/50250aee75b00342640fb8c23a63f82af87d03c2.png" alt="U, V, A" style="vertical-align: -4px"/> のの近似です、Theta法は次の式になります。</p>
 <div class="math">
-<p><img src="../images/math/d9b35e353729bb6aa90de78fa1a65cc91972e870.png" alt="\left\{ \begin{array}{l}
+<p><img src="../_images/math/d9b35e353729bb6aa90de78fa1a65cc91972e870.png" alt="\left\{ \begin{array}{l}
 U^n = U^{n-1} + dtV^n + \frac{dt^2}{2}(2\beta V^n + (1-2\beta) V^{n-1}), \\
 V^n = V^{n-1} + dt(\gamma A^n + (1-\gamma) A^{n-1}), \\
 MA^n = F(U^n),
 \end{array}\right."/></p>
-</div><p><img class="math" src="../images/math/2af80465120c88fbac9dd602cc72bb51333557ef.png" alt="\beta \in (0, 1]" style="vertical-align: -5px"/>  と <img class="math" src="../images/math/917a3e8ae98af862591e4dc0b0ce5d3842b7bdfa.png" alt="\gamma \in [1/2, 1]" style="vertical-align: -5px"/> はNewmark法のパラメータであり、 <img class="math" src="../images/math/4a9b5873e10d628fa6345fa1b6b47271be3e7ed9.png" alt="U^{n-1}, V^{n-1}, A^{n-1}" style="vertical-align: -4px"/> が与えられています。</p>
-<p>最初のステップでは、 <img class="math" src="../images/math/003f409a156046ddce88f179f5f3017cf44b5916.png" alt="U^0, V^0" style="vertical-align: -4px"/> が与えられていなければいけません。そして <img class="math" src="../images/math/5d169d7327b5ffb476ced5cd415c41e21e121198.png" alt="A^0" style="vertical-align: 0px"/> が与えられているか事前計算されている必要があります( <img class="math" src="../images/math/474371ff930f64217b5cfcd60a955a374cd81c87.png" alt="\beta = 1/2, \gamma = 1" style="vertical-align: -5px"/> を除きます)。</p>
+</div><p><img class="math" src="../_images/math/2af80465120c88fbac9dd602cc72bb51333557ef.png" alt="\beta \in (0, 1]" style="vertical-align: -5px"/>  と <img class="math" src="../_images/math/917a3e8ae98af862591e4dc0b0ce5d3842b7bdfa.png" alt="\gamma \in [1/2, 1]" style="vertical-align: -5px"/> はNewmark法のパラメータであり、 <img class="math" src="../_images/math/4a9b5873e10d628fa6345fa1b6b47271be3e7ed9.png" alt="U^{n-1}, V^{n-1}, A^{n-1}" style="vertical-align: -4px"/> が与えられています。</p>
+<p>最初のステップでは、 <img class="math" src="../_images/math/003f409a156046ddce88f179f5f3017cf44b5916.png" alt="U^0, V^0" style="vertical-align: -4px"/> が与えられていなければいけません。そして <img class="math" src="../_images/math/5d169d7327b5ffb476ced5cd415c41e21e121198.png" alt="A^0" style="vertical-align: 0px"/> が与えられているか事前計算されている必要があります( <img class="math" src="../_images/math/474371ff930f64217b5cfcd60a955a374cd81c87.png" alt="\beta = 1/2, \gamma = 1" style="vertical-align: -5px"/> を除きます)。</p>
 <p>次の式は時間微分により導き出すことができます：</p>
 <div class="math">
-<p><img src="../images/math/fd370aff1206dcfaaae01aecac3f7cf6b9881144.png" alt="V^n = \frac{\gamma}{\beta dt}(U^n - U^{n-1}) + \frac{\beta-\gamma}{\beta}V^{n-1} + dt(1-\frac{\gamma}{2\beta})A^{n-1}
+<p><img src="../_images/math/fd370aff1206dcfaaae01aecac3f7cf6b9881144.png" alt="V^n = \frac{\gamma}{\beta dt}(U^n - U^{n-1}) + \frac{\beta-\gamma}{\beta}V^{n-1} + dt(1-\frac{\gamma}{2\beta})A^{n-1}
 
 A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)A^{n-1}"/></p>
 </div><p>この法をモデルの変数 &#8220;u&#8221;に適用すると、以下のAffine依存変数がモデルに追加されます:</p>
@@ -209,7 +209,7 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
 </pre></div>
 </div>
 <p>前回の時間ステップにおける &#8220;u&#8221;、 &#8220;Dot_u&#8221;、 &#8220;Dot2_u&#8221;の値に対応します。</p>
-<p>最初の球解の前に、データ &#8220;Previous_u&#8221;と &#8220;Previous_Dot_u&#8221; （この例では <img class="math" src="../images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> に対応）を初期化する必要があります。データ &#8220;Previous_Dot2_u&#8221; は与えられているか、事前計算されています（ <a class="reference internal" href="#precomp-time-der-section"><em>速度/加速度の事前計算</em></a> を参照してください  <img class="math" src="../images/math/474371ff930f64217b5cfcd60a955a374cd81c87.png" alt="\beta = 1/2, \gamma = 1" style="vertical-align: -5px"/> を除きます）。</p>
+<p>最初の球解の前に、データ &#8220;Previous_u&#8221;と &#8220;Previous_Dot_u&#8221; （この例では <img class="math" src="../_images/math/55fa712825183213d03d46db16f6655cbf459e34.png" alt="U^0" style="vertical-align: 0px"/> に対応）を初期化する必要があります。データ &#8220;Previous_Dot2_u&#8221; は与えられているか、事前計算されています（ <a class="reference internal" href="#precomp-time-der-section"><em>速度/加速度の事前計算</em></a> を参照してください  <img class="math" src="../_images/math/474371ff930f64217b5cfcd60a955a374cd81c87.png" alt="\beta = 1/2, \gamma = 1" style="vertical-align: -5px"/> を除きます）。</p>
 <p>変数へのこの計算法の追加は次のように行います。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_Newmark_scheme</span><span class="p">(</span><span class="n">model</span> <span class="o">&amp;</span><span class="n">md</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">varname</span><span class="p">,</span>
                    <span class="n">scalar_type</span> <span class="n">beta</span><span class="p">,</span> <span class="n">scalar_type</span> <span class="n">gamma</span><span class="p">);</span>
@@ -221,7 +221,7 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
 <p>これまでのセクションで説明したように、手法が適用される変数の時間微分を表すために、いくつかの中間変数がモデルに追加されています。再度、 &#8220;u&#8221; がそのような変数である場合、 &#8220;Dot_u&#8221; は、使用された法によって近似された &#8220;u&#8221; の時間微分を表します。</p>
 <p>これはまた、過渡項を表現するために &#8220;Dot_u&#8221; ( および2次の時間問題において &#8220;Dot2_u&#8221; ）を使用できることを意味します。弱形式言語では、</p>
 <div class="math">
-<p><img src="../images/math/320eba831d4a50912746187672a4f913b0c11365.png" alt="\int_{\Omega} \dot{u} v dx"/></p>
+<p><img src="../_images/math/320eba831d4a50912746187672a4f913b0c11365.png" alt="\int_{\Omega} \dot{u} v dx"/></p>
 </div><p>次のように単純に表現することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">Dot_u</span><span class="o">*</span><span class="n">Test_u</span>
 </pre></div>
@@ -339,7 +339,7 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -415,7 +415,7 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
         <li class="right" >
           <a href="model_Mindlin_plate.html" title="Mindlin-Reissner板モデル"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -424,7 +424,7 @@ A^n = \frac{U^n - U^{n-1}}{\beta dt^2} - \frac{1}{\beta dt}V^{n-1} - (1/2-\beta)
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

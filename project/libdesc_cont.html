@@ -8,30 +8,30 @@
     
     <title>継続モジュール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="スクリプト言語 (Python、Scilab、Matlab) とのインタフェース" href="libdesc_interface.html" />
     <link rel="prev" title="モデルモジュール" href="libdesc_model.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_model.html" title="モデルモジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,7 +66,7 @@
 <span id="dp-libdesc-cont"></span><h1>継続モジュール<a class="headerlink" href="#continuation-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>パラメータ (継続方法) に関してソリューションに従うことができ、分岐を検出して分岐を許可します。低い規則性問題 (リプシッツ規則性) のための仕事。適合したムーア-ペンの継続方法を使用します。</p>
+<p>パラメータ (継続方法) に関してソリューションに従うことができ、分岐を検出して分岐を許可します。低い規則性問題 (Lipschitz規則性) で実行されます。適合したMoore-Penroseの継続方法を使用します。</p>
 </div>
 <div class="section" id="files">
 <h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -83,7 +83,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_continuation &#8216; と: ファイル: &#8216; getfem_continuation &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_continuation.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_continuation.cc</span></tt></p>
 </td>
 <td><p class="first last">一般的な継続および分岐方法</p>
 </td>
@@ -93,11 +93,11 @@
 </div>
 <div class="section" id="state">
 <h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Have already generic and advanced functionalities.</p>
+<p>すでに一般的で高度な機能があります。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>まだ開発で。</p>
+<h2>展望<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>まだ開発です。</p>
 </div>
 </div>
 
@@ -108,7 +108,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -116,7 +116,7 @@
 <li><a class="reference internal" href="#description">説明</a></li>
 <li><a class="reference internal" href="#files">ファイル</a></li>
 <li><a class="reference internal" href="#state">状態</a></li>
-<li><a class="reference internal" href="#perspectives">視点</a></li>
+<li><a class="reference internal" href="#perspectives">展望</a></li>
 </ul>
 </li>
 </ul>
@@ -176,7 +176,7 @@
         <li class="right" >
           <a href="libdesc_model.html" title="モデルモジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -185,7 +185,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

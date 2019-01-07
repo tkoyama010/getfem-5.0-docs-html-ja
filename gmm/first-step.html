@@ -6,32 +6,32 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>First steps with Gmm++ &mdash; GetFEM++</title>
+    <title>Gmm++ の最初のステップ &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Gmm++ Library" href="index.html" />
     <link rel="next" title="Deeper inside Gmm++" href="inside.html" />
     <link rel="prev" title="How to use Gmm++ with QD type (double-double and quad-double)" href="qd.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="qd.html" title="How to use Gmm++ with QD type (double-double and quad-double)"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -62,10 +62,10 @@
           <div class="body">
             
   <div class="section" id="first-steps-with-gmm">
-<span id="gmm-first-step"></span><h1>First steps with <em>Gmm++</em><a class="headerlink" href="#first-steps-with-gmm" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="gmm-first-step"></span><h1><em>Gmm++</em> の最初のステップ<a class="headerlink" href="#first-steps-with-gmm" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="how-can-i-invert-a-matrix">
-<h2>How can I invert a matrix ?<a class="headerlink" href="#how-can-i-invert-a-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It is not possible in <em>Gmm++</em> to invert all kind of matrices. For the moment, the only mean to invert a matrix is to use the dense LU decomposition (thus, only for dense matrices). An example:</p>
+<h2>どのように行列を反転できますか？<a class="headerlink" href="#how-can-i-invert-a-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><em>Gmm++</em> では不可能です。すべての種類の行列を逆転させます。現時点では、マトリックスを反転する唯一の手段は、密なLU分解を使用することです（したがって、密行列の場合のみ）。例：：</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">dense_matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">M2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">M3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">gmm</span><span class="o">::</span><span class="n">identity_matrix</span><span class="p">(),</span> <span class="n">M</span><span class="p">);</span>  <span class="c1">// M = Id.</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">scale</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>                    <span class="c1">// M = 2 * Id.</span>
@@ -80,11 +80,11 @@
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">M</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; times &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">M2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; is equal to &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">M3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>see the section corresponding to dense LU decomposition for more details. The type <tt class="docutils literal"><span class="pre">gmm::dense_matrix&lt;double&gt;</span></tt> can be replaced by <tt class="docutils literal"><span class="pre">gmm::row_matrix&lt;</span> <span class="pre">std::vector&lt;double&gt;</span> <span class="pre">&gt;</span></tt> or <tt class="docutils literal"><span class="pre">gmm::col_matrix&lt;</span> <span class="pre">std::vector&lt;double&gt;</span> <span class="pre">&gt;</span></tt>.</p>
+<p>詳細については、密なLU分解に対応するセクションを参照してください。型 `` gmm :: dense_matrix &lt;double&gt; <a href="#id1"><span class="problematic" id="id2">``</span></a>は、 `` gmm :: row_matrix &lt;std :: vector &lt;double&gt;&gt; <a href="#id3"><span class="problematic" id="id4">``</span></a>または `` gmm :: col_matrix &lt;std :: vector &lt;double&gt; <a href="#id5"><span class="problematic" id="id6">``</span></a>。</p>
 </div>
 <div class="section" id="how-can-i-solve-a-linear-system">
-<h2>How can I solve a linear system ?<a class="headerlink" href="#how-can-i-solve-a-linear-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You have more than one possibility to solve a linear system. If you have a dense matrix, the best may be to use the LU decomposition. An example:</p>
+<h2>線形システムをどのように解決できますか？<a class="headerlink" href="#how-can-i-solve-a-linear-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>線形システムを解く複数の可能性があります。密集した行列がある場合は、LU分解を使用するのが最善の方法です。例：：</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">dense_matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">clear</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>                  <span class="c1">// M = 0.</span>
 <span class="n">M</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span> <span class="c1">// M = 2 * Id.</span>
@@ -100,7 +100,7 @@
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">M</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; times &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gmm</span><span class="o">::</span><span class="n">vref</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; is equal to &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">gmm</span><span class="o">::</span><span class="n">vref</span><span class="p">(</span><span class="n">Bagain</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>If, now, you have a sparse system coming for example from a pde discretization, you have various iterative solvers, with or without preconditioners. This is an example with a precontionned GMRES:</p>
+<p>今、pdeの離散化から来る疎なシステムを持っているなら、プレコンディショナーの有無にかかわらず、さまざまな反復ソルバーがあります。これは、事前にコミットされたGMRES</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="kt">int</span> <span class="n">nbdof</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// number of degrees of freedom.</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">row_matrix</span><span class="o">&lt;</span> <span class="n">gmm</span><span class="o">::</span><span class="n">rsvector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">M</span><span class="p">(</span><span class="n">nbdof</span><span class="p">,</span> <span class="n">nbdof</span><span class="p">);</span> <span class="c1">// a sparse matrix</span>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">X</span><span class="p">(</span><span class="n">nbdof</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="n">nbdof</span><span class="p">);</span> <span class="c1">// Unknown and left hand side.</span>
@@ -121,15 +121,15 @@
 </div>
 </div>
 <div class="section" id="how-can-i-transform-a-vector-into-a-matrix-and-reshape-it">
-<h2>How can I transform a vector into a matrix and reshape it ?<a class="headerlink" href="#how-can-i-transform-a-vector-into-a-matrix-and-reshape-it" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In <em>Gmm++</em>, a vector is not considered as a matrix. If you need to use a vector as a (1 by n) row matrix or (n by 1) column matrix in a computation, you have to use:</p>
+<h2>どのようにベクトルを行列に変換し、それを変形することができますか？<a class="headerlink" href="#how-can-i-transform-a-vector-into-a-matrix-and-reshape-it" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><em>Gmm++</em> では、ベクトルは行列とはみなされません。ベクトルを（1×n）行行列または（n×1）列行列として計算で使用する必要がある場合は、次のように使用する必要があります。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">row_vector</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="c1">// gives a reference on V considered as</span>
                    <span class="c1">// a (1 by n) row matrix</span>
 <span class="n">gmm</span><span class="o">::</span><span class="n">col_vector</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="c1">// gives a reference on V considered as</span>
                    <span class="c1">// a (n by 1) col matrix</span>
 </pre></div>
 </div>
-<p>for instance, you can transform a vector into a dense matrix with:</p>
+<p>たとえば、次のようにしてベクトルを密行列に変換できます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">V</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
 
 <span class="c1">// ... computation of V</span>
@@ -138,19 +138,19 @@
 <span class="n">gmm</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">gmm</span><span class="o">::</span><span class="n">row_vector</span><span class="p">(</span><span class="n">V</span><span class="p">),</span> <span class="n">M</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Then you can also reshape matrix <tt class="docutils literal"><span class="pre">M</span></tt> with:</p>
+<p>次に、 `` M``マトリックスを:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">reshape</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="what-is-the-better-way-to-resize-a-matrix">
-<h2>What is the better way to resize a matrix ?<a class="headerlink" href="#what-is-the-better-way-to-resize-a-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You can change the dimensions of a matrix, if it is not a reference, using:</p>
+<h2>マトリックスのサイズを変更するより良い方法は何ですか？<a class="headerlink" href="#what-is-the-better-way-to-resize-a-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>行列の大きさは、参照でない場合は::を使用して変更することができます</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">resize</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>This function respects the intersection between the original matrix and the resized matrix, and new components are set to zero. An important thing is that it is based on the resize method of <tt class="docutils literal"><span class="pre">std::vector</span></tt>, thus no memory free is done when the size of the new matrix is smaller than the original one.</p>
-<p>If you do not need to keep old values of the components, or if you want to really free the surplus of memory, you can resize a matrix using <tt class="docutils literal"><span class="pre">std::swap</span></tt> as follows:</p>
+<p>この関数は元の行列とサイズ変更された行列の交点を尊重し、新しい要素はゼロに設定されます。重要なことは、 `` std :: vector``のサイズ変更メソッドに基づいていることです。したがって、新しい行列のサイズが元のサイズよりも小さい場合、メモリフリーは行われません。</p>
+<p>コンポーネントの古い値を保持する必要がない場合、または余分なメモリを解放したい場合は、次のように `` std :: swap``を使って行列のサイズを変更できます:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">MATRIX_TYPE</span> <span class="nf">M</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">n1</span><span class="p">);</span>
 
 <span class="p">...</span> <span class="n">your</span> <span class="n">code</span>
@@ -158,7 +158,7 @@
 <span class="p">{</span> <span class="n">MATRIX_TYPE</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span> <span class="n">M2</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">M2</span><span class="p">);</span> <span class="p">}</span> <span class="c1">// resize matrix M.</span>
 </pre></div>
 </div>
-<p>Of course, this works also for a vector.</p>
+<p>もちろん、これはベクトルに対しても機能します。</p>
 </div>
 </div>
 
@@ -169,15 +169,15 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">First steps with <em>Gmm++</em></a><ul>
-<li><a class="reference internal" href="#how-can-i-invert-a-matrix">How can I invert a matrix ?</a></li>
-<li><a class="reference internal" href="#how-can-i-solve-a-linear-system">How can I solve a linear system ?</a></li>
-<li><a class="reference internal" href="#how-can-i-transform-a-vector-into-a-matrix-and-reshape-it">How can I transform a vector into a matrix and reshape it ?</a></li>
-<li><a class="reference internal" href="#what-is-the-better-way-to-resize-a-matrix">What is the better way to resize a matrix ?</a></li>
+<li><a class="reference internal" href="#"><em>Gmm++</em> の最初のステップ</a><ul>
+<li><a class="reference internal" href="#how-can-i-invert-a-matrix">どのように行列を反転できますか？</a></li>
+<li><a class="reference internal" href="#how-can-i-solve-a-linear-system">線形システムをどのように解決できますか？</a></li>
+<li><a class="reference internal" href="#how-can-i-transform-a-vector-into-a-matrix-and-reshape-it">どのようにベクトルを行列に変換し、それを変形することができますか？</a></li>
+<li><a class="reference internal" href="#what-is-the-better-way-to-resize-a-matrix">マトリックスのサイズを変更するより良い方法は何ですか？</a></li>
 </ul>
 </li>
 </ul>
@@ -237,7 +237,7 @@
         <li class="right" >
           <a href="qd.html" title="How to use Gmm++ with QD type (double-double and quad-double)"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -245,7 +245,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

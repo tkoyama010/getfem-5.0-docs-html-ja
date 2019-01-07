@@ -8,30 +8,30 @@
     
     <title>イベント管理 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="メッシュモジュール" href="libdesc_mesh.html" />
     <link rel="prev" title="その他のアルゴリズム" href="libdesc_misc.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_misc.html" title="その他のアルゴリズム"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,7 +66,7 @@
 <span id="dp-libdesc-event"></span><h1>イベント管理<a class="headerlink" href="#events-management" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>&#8216; &#8216; メッシュ &#8216; &#8216;, | mf <a href="#id1"><span class="problematic" id="id2">|, | mim |と | mo |説明は、それらの間にいくつかの依存関係があるという意味で linkedtogether です。たとえば、要素がメッシュに対して抑制されている場合、|</span></a> mf <a href="#id1"><span class="problematic" id="id2">|</span></a>オブジェクトは反応しなければなりません。</p>
+<p><tt class="docutils literal"><span class="pre">mesh</span></tt>, <cite>mesh_fem</cite>, <cite>mesh_im</cite> と <cite>model</cite> の説明は、それらの間にいくつかの依存関係があるという意味で つながっています。たとえば、要素がメッシュに対して禁じられている場合、 <cite>mesh_fem</cite> オブジェクトは反応しなければなりません。</p>
 </div>
 <div class="section" id="files">
 <h2>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -83,9 +83,9 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_context &#8216; と: ファイル: &#8216; getfem_context &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_context.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_context.cc</span></tt></p>
 </td>
-<td><p class="first last">イベントを管理するために、すべてのオブジェクトの派生元となるクラス &#8216; context_dependencies &#8216; を定義します。</p>
+<td><p class="first last">イベントを管理するために、すべてのオブジェクトの派生元となるクラス <cite>context_dependencies</cite> を定義します。</p>
 </td>
 </tr>
 </tbody>
@@ -93,11 +93,11 @@
 </div>
 <div class="section" id="state">
 <h2>状態<a class="headerlink" href="#state" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>オブジェクトの単純な依存性に対処するための主なツールは: ファイル: &#8216; getfem_context &#8216;。オブジェクト &#8216; &#8216; context_dependencies &#8216; &#8216; が定義されています。オブジェクトの依存関係を処理するために、オブジェクト &#8216; &#8216; context_dependencies &#8216; &#8216; はこのオブジェクトの親クラスである必要があります。オブジェクトに次のメソッドを追加します。</p>
+<p>オブジェクトの単純な依存性に対処するための主なツールは <tt class="file docutils literal"><span class="pre">getfem_context.h</span></tt> にあります。オブジェクト <tt class="docutils literal"><span class="pre">context_dependencies</span></tt> が定義されています。オブジェクトの依存関係を処理するために、オブジェクト <tt class="docutils literal"><span class="pre">context_dependencies</span></tt> はオブジェクトの親クラスである必要があります。オブジェクトに次のメソッドを追加します。</p>
 <dl class="function">
 <dt id="add_dependency">
 <tt class="descname">add_dependency</tt><big>(</big>ct<big>)</big><a class="headerlink" href="#add_dependency" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>オブジェクト (親クラスとして &#8216; &#8216; context_dependencies &#8216; &#8216; を持つ必要があります) を、現在のオブジェクトが依存するオブジェクトのリストに追加します。</p>
+<dd><p>オブジェクト (親クラスとして <tt class="docutils literal"><span class="pre">context_dependencies</span></tt> を持つ必要があります) を、現在のオブジェクトが依存するオブジェクトのリストに追加します。</p>
 </dd></dl>
 
 <dl class="function">
@@ -109,25 +109,25 @@
 <dl class="function">
 <dt id="context_check">
 <tt class="descname">context_check</tt><big>(</big><big>)</big><a class="headerlink" href="#context_check" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>オブジェクトを更新するかどうかを確認します。その場合は、最初に依存関係リストにチェックを行い、オブジェクトの update 関数を呼び出します。(依存関係の更新関数は、現在のオブジェクトの update 関数の前に呼び出されます)。</p>
+<dd><p>オブジェクトを更新するかどうかを確認します。更新する場合は、最初に依存関係リストにチェックを行い、オブジェクトの更新関数を呼び出します。(依存関係の更新関数は、現在のオブジェクトの更新関数の前に呼び出されます)。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="context_valid">
 <tt class="descname">context_valid</tt><big>(</big><big>)</big><a class="headerlink" href="#context_valid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>オブジェクトがまだ有効なコンテキストを持っているかどうか、つまり、依存関係リスト内のオブジェクトがまだ存在する場合を言います。</p>
+<dd><p>オブジェクトがまだ有効なコンテキストを持っているかどうか、つまり、依存関係リスト内のオブジェクトがまだ存在するか表示します。</p>
 </dd></dl>
 
-<p>さらに、オブジェクトはメソッドを定義しなければなりません:</p>
+<p>さらに、オブジェクトはメソッドを定義しなければなりません。</p>
 <div class="highlight-c++"><pre>``void update_from_context(void) const``</pre>
 </div>
-<p>コンテキストが変更された場合は &#8216; &#8216; context_check () &#8216; &#8216; の後に呼び出されます。</p>
-<p>オブジェクト | m | に追加のシステムが存在します。個々の要素には、オブジェクトの順序でバージョン番号があります | オス-メス <a href="#id1"><span class="problematic" id="id2">|</span></a>と | mim <a href="#id3"><span class="problematic" id="id4">|</span></a>2つの呼び出しの間で変更された要素を検出します。</p>
+<p>コンテキストが変更された場合は <tt class="docutils literal"><span class="pre">context_check()</span></tt> の後に呼び出されます。</p>
+<p>オブジェクト <cite>mesh</cite> に追加のシステムが存在します。個々の要素には、 <cite>mesh_fem</cite> と <cite>mesh_im</cite> の2つの呼び出しの間で変更された要素を検出するためにオブジェクトのバージョン番号があります。</p>
 </div>
 <div class="section" id="perspectives">
-<h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>いくつかのオブジェクトのイベント管理は、注意して分析する必要があります。これは、| mls <a href="#id3"><span class="problematic" id="id4">|、|</span></a> mfls <a href="#id5"><span class="problematic" id="id6">|、|</span></a> pmf | などのインスタンスの場合です。</p>
-<p>イベント管理は、まだ完全に反応するシステムであるために改善される必要があります。</p>
+<h2>展望<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>いくつかのオブジェクトのイベント管理は、注意して分析する必要があります。これは、 <cite>mesh_level_set</cite> 、 <cite>mesh_fem_level_set</cite> 、 <cite>partial_mesh_fem</cite> などのインスタンスの場合です。</p>
+<p>イベント管理は、完全に反応するシステムであるためにまだ改善される必要があります。</p>
 </div>
 </div>
 
@@ -138,7 +138,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -146,7 +146,7 @@
 <li><a class="reference internal" href="#description">説明</a></li>
 <li><a class="reference internal" href="#files">ファイル</a></li>
 <li><a class="reference internal" href="#state">状態</a></li>
-<li><a class="reference internal" href="#perspectives">視点</a></li>
+<li><a class="reference internal" href="#perspectives">展望</a></li>
 </ul>
 </li>
 </ul>
@@ -206,7 +206,7 @@
         <li class="right" >
           <a href="libdesc_misc.html" title="その他のアルゴリズム"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -215,7 +215,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

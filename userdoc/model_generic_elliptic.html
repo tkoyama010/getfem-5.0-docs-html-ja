@@ -8,30 +8,30 @@
     
     <title>汎用的な楕円ブリック要素 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="Dirichlet条件ブリック要素" href="model_dirichlet.html" />
     <link rel="prev" title="汎用的な構築ブリック要素" href="model_generic_assembly.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_generic_assembly.html" title="汎用的な構築ブリック要素"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,13 +66,13 @@
 <span id="ud-model-generic-elliptic"></span><span id="index-0"></span><h1>汎用的な楕円ブリック要素<a class="headerlink" href="#generic-elliptic-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>この要素は、モデルの変数に楕円形の項を追加します。楕円項の形状は、変数と与えられた係数の両方に依存します。これは次の項に対応します。</p>
 <div class="math">
-<p><img src="../images/math/494aaf177f610442cfa3676f66ce926798586e0f.png" alt="-\text{div}(a\nabla u),"/></p>
-</div><p>ここで、 <img class="math" src="../images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a" style="vertical-align: 0px"/> は係数であり、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は変数です。係数は、スカラー、行列またはテンソル4次のオーダです。変数はベクトル値でも、そうでなくてもかまいません。これは、ブリック要素がいくつかの異なる状況を扱うことを意味します。係数がスカラーまたは行列で、変数がベクトル値の場合、その項は成分ごとに加算されます。4つのテンソル係数はベクトル値の変数にのみ使用できます。係数は一定であってもFEMで記述されてもよいです。もちろん、係数が有限要素法（テンソル場）上に記述されたテンソルである場合、対応するデータは巨大ベクトルとなり得ます。行列/テンソルの成分は、係数（BLASとの適合性）に対応するデータベクトルにFortran次数（列方向）で格納しなければなりません。与えられた行列/テンソルの対称性と保磁力は検証されません（しかし仮定されます）。</p>
+<p><img src="../_images/math/494aaf177f610442cfa3676f66ce926798586e0f.png" alt="-\text{div}(a\nabla u),"/></p>
+</div><p>ここで、 <img class="math" src="../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a" style="vertical-align: 0px"/> は係数であり、 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> は変数です。係数は、スカラー、行列またはテンソル4次のオーダです。変数はベクトル値でも、そうでなくてもかまいません。これは、ブリック要素がいくつかの異なる状況を扱うことを意味します。係数がスカラーまたは行列で、変数がベクトル値の場合、その項は成分ごとに加算されます。4つのテンソル係数はベクトル値の変数にのみ使用できます。係数は一定であってもFEMで記述されてもよいです。もちろん、係数が有限要素法（テンソル場）上に記述されたテンソルである場合、対応するデータは巨大ベクトルとなり得ます。行列/テンソルの成分は、係数（BLASとの適合性）に対応するデータベクトルにFortran次数（列方向）で格納しなければなりません。与えられた行列/テンソルの対称性と保磁力は検証されません（しかし仮定されます）。</p>
 <p>この要素は、2つの関数によりモデル <tt class="docutils literal"><span class="pre">md</span></tt> に追加することができます。最初のものは次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">size_type</span> <span class="n">getfem</span><span class="o">::</span><span class="n">add_Laplacian_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>それは <img class="math" src="../images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> （Laplacian項）に等しい定数係数を持つモデルの変数 <tt class="docutils literal"><span class="pre">varname</span></tt> に対して相対的に楕円形の項を加えます。これは、Laplace演算子に対応します。 <tt class="docutils literal"><span class="pre">mim</span></tt> はその項を計算するために使用される積分法です。 <tt class="docutils literal"><span class="pre">region</span></tt> はオプションの領域番号です。省略されている場合、項はメッシュ全体で計算されるものとみなされます。関数の結果は、モデルのブリック要素のインデックスです。</p>
+<p>それは <img class="math" src="../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> （Laplacian項）に等しい定数係数を持つモデルの変数 <tt class="docutils literal"><span class="pre">varname</span></tt> に対して相対的に楕円形の項を加えます。これは、Laplace演算子に対応します。 <tt class="docutils literal"><span class="pre">mim</span></tt> はその項を計算するために使用される積分法です。 <tt class="docutils literal"><span class="pre">region</span></tt> はオプションの領域番号です。省略されている場合、項はメッシュ全体で計算されるものとみなされます。関数の結果は、モデルのブリック要素のインデックスです。</p>
 <p>2番目の関数は次の通りです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">size_type</span> <span class="n">getfem</span><span class="o">::</span><span class="n">add_generic_elliptic_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">dataexpr</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
@@ -80,8 +80,8 @@
 <p>モデル変数に依存したとしても(例えば &#8220;1&#8221;, &#8220;sin(X[0])&#8221; or &#8220;Norm(u)&#8221; のような)弱形式言語の正規表現でなければならない式 <tt class="docutils literal"><span class="pre">dataexpr</span></tt> によって与えられた任意の係数が加えられます。（モデルの宣言されたデータでなければならない複素数バージョンを除く）。</p>
 <p>このブリック要素では非常に汎用的な方程式が得られることに注意してください。例えば、テンソルデータを用いて線形異方性弾性を得ることができます。テンソル4次を使用する場合、対応する弱定式化項は次のようになります。</p>
 <div class="math">
-<p><img src="../images/math/c70c39c8c42f5321b7e50c9c139f7dd11b652f53.png" alt="\int_{\Omega} \sum_{i,j,k,l} a_{i,j,k,l}\partial_i u_j \partial_k v_l dx"/></p>
-</div><p>ここで、次のようになります。 <img class="math" src="../images/math/34a5ba912141171ad416444385a83fc912b4b6e1.png" alt="a_{i,j,k,l}" style="vertical-align: -6px"/> はテンソル4次の次数であり、未知数 <img class="math" src="../images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> の <img class="math" src="../images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/> 成分の <img class="math" src="../images/math/25ee658fc5ee9b34ede580b498f134be039ed723.png" alt="\partial_i u_j" style="vertical-align: -6px"/> は次の <img class="math" src="../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i" style="vertical-align: 0px"/> 次変数の偏微分です。  <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は試行関数です。しかし、線形等方性弾性の場合、より適合したブリック要素が利用可能です（下記参照）。</p>
+<p><img src="../_images/math/c70c39c8c42f5321b7e50c9c139f7dd11b652f53.png" alt="\int_{\Omega} \sum_{i,j,k,l} a_{i,j,k,l}\partial_i u_j \partial_k v_l dx"/></p>
+</div><p>ここで、次のようになります。 <img class="math" src="../_images/math/34a5ba912141171ad416444385a83fc912b4b6e1.png" alt="a_{i,j,k,l}" style="vertical-align: -6px"/> はテンソル4次の次数であり、未知数 <img class="math" src="../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k" style="vertical-align: 0px"/> の <img class="math" src="../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j" style="vertical-align: -4px"/> 成分の <img class="math" src="../_images/math/25ee658fc5ee9b34ede580b498f134be039ed723.png" alt="\partial_i u_j" style="vertical-align: -6px"/> は次の <img class="math" src="../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i" style="vertical-align: 0px"/> 次変数の偏微分です。  <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は試行関数です。しかし、線形等方性弾性の場合、より適合したブリック要素が利用可能です（下記参照）。</p>
 <p>ブリック要素は作業する複素数バージョンを持っています。</p>
 </div>
 
@@ -92,7 +92,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_generic_assembly.html"
@@ -149,7 +149,7 @@
         <li class="right" >
           <a href="model_generic_assembly.html" title="汎用的な構築ブリック要素"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -158,7 +158,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

@@ -8,30 +8,30 @@
     
     <title>メッシュモジュール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
     <link rel="next" title="Fem モジュール" href="libdesc_fem.html" />
     <link rel="prev" title="イベント管理" href="libdesc_event.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="libdesc_event.html" title="イベント管理"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -67,7 +67,7 @@
 <div class="section" id="description">
 <h2>説明<a class="headerlink" href="#description" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ライブラリのこの部分には、メッシュを格納および管理する役割があります (つまり、要素のコレクション (実際の要素) は、それぞれの面によって相互に接続されています。そのためには、要素の概念、参照の要素、メッシュの構造、節点の集合、幾何学的な変換、メッシュの境界またはサブゾーンの subpart を開発します。</p>
-<p><em>GetFEM++</em> では、現時点では実際に有効なメッシュ機能はありません。複雑なオブジェクトのメッシュは、&#8217; Gmsh&#8217;_ または &#8216; GiD&#8217;_ などの既存のメッシャーからインポートする必要があります。メッシュの一部のインポート機能が書き込まれ、他のフォーマットに対して簡単に拡張することができます。</p>
+<p><em>GetFEM++</em> では、現時点では実際に有効なメッシュ機能はありません。複雑なオブジェクトのメッシュは、 <a class="reference external" href="http://www.geuz.org/gmsh">Gmsh</a> または <a class="reference external" href="http://gid.cimne.upc.es">GiD</a> などの既存のメッシャーからインポートする必要があります。メッシュの一部のインポート機能が書き込まれ、他のフォーマットに対して簡単に拡張することができます。</p>
 <p><tt class="file docutils literal"><span class="pre">getfem_mesh.h</span></tt> ファイル内で宣言されているメッシュを表すオブジェクトで、メッシュの処理の基礎として <em>GetFEM++</em> メッシュ (MESHFEM および MESHIM モジュールを参照) に応じて構造体の可能性も管理し、メッシュの進化 (要素の追加または除去など) に対応します。</p>
 </div>
 <div class="section" id="files">
@@ -139,7 +139,8 @@
 </tr>
 <tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_mesher.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_mesher.cc</span></tt></p>
 </td>
-<td>An experimental mesher, in arbitrary dimension. To be used with care and  quite slow (because of node optimization). It meshes geometries defined by some level sets.</td>
+<td><p class="first last">実験的メッシャー、任意の次元で。 （ノード最適化のために）注意深くそして非常に遅く使用すること。いくつかのレベルセットによって定義されたジオメトリをメッシュします。</p>
+</td>
 </tr>
 <tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_import.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_import.cc</span></tt></p>
 </td>
@@ -175,8 +176,8 @@
 <p class="first admonition-title">ノート</p>
 <p class="last">ファイル <tt class="file docutils literal"><span class="pre">bgeot_mesh.h</span></tt> の名前を <tt class="file docutils literal"><span class="pre">getfem_basic_mesh.h</span></tt> に変更することができます。</p>
 </div>
-<p>A  bibliographical review on how to efficiently store a mesh and implement the main operations (add a node, an element, deal with faces, find the neighbour elements, the isolated faces ...) would be interesting to make the mesh structure evolve.</p>
-<p>感応アルゴリズムは、あまりにも多くのクローズ節点を識別する1つ (bgeot_node_tab) です。より多くの調査 (およびドキュメンテーション) がおそらく必要です。</p>
+<p>メッシュを効率的に保存し、主な操作（ノード、要素の追加、面の取り扱い、隣接する要素の検索、孤立した面など）を実装する方法に関する参考書によるレビューは、メッシュ構造を進化させるために興味深いでしょう。</p>
+<p>感応アルゴリズムは、あまりにも多くのクローズ節点を識別する1つ (in bgeot_node_tab.cc) です。より多くの調査 (およびドキュメンテーション) がおそらく必要です。</p>
 </div>
 </div>
 
@@ -187,7 +188,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -255,7 +256,7 @@
         <li class="right" >
           <a href="libdesc_event.html" title="イベント管理"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -264,7 +265,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

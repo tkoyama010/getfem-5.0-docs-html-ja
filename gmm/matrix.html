@@ -8,30 +8,30 @@
     
     <title>Matrix and Vector type provided by Gmm++ &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Gmm++ Library" href="index.html" />
-    <link rel="next" title="Input and output with Harwell-Boeing and Matrix Market formats" href="export.html" />
+    <link rel="next" title="Harwell-BoeingとMatrix Marketフォーマットによる入力と出力" href="export.html" />
     <link rel="prev" title="Installation" href="install.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -43,12 +43,12 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="export.html" title="Input and output with Harwell-Boeing and Matrix Market formats"
+          <a href="export.html" title="Harwell-BoeingとMatrix Marketフォーマットによる入力と出力"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="install.html" title="Installation"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -127,7 +127,7 @@ Those two type of matrices store an array of <tt class="docutils literal"><span 
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">dense_matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>to represent a dense matrix type because it is compatible with the Fortran format (column major) and some operations are interfaced with blas and Lapack (see section  <a class="reference internal" href="blas_interface.html#gmm-lapack"><em>Interface with BLAS, LAPACK or ATLAS</em></a>). It is considered as a column and row matrix (column preferred) which means that you can access both to the columns and rows.</p>
+<p>to represent a dense matrix type because it is compatible with the Fortran format (column major) and some operations are interfaced with blas and Lapack (see section  <a class="reference internal" href="blas_interface.html#gmm-lapack"><em>BLAS、LAPACKまたはATLASとのインターフェース</em></a>). It is considered as a column and row matrix (column preferred) which means that you can access both to the columns and rows.</p>
 <p>However, matrix types as <tt class="docutils literal"><span class="pre">gmm::row_matrix&lt;</span> <span class="pre">std::vector&lt;double&gt;</span> <span class="pre">&gt;</span></tt> or <tt class="docutils literal"><span class="pre">gmm::col_matrix&lt;</span> <span class="pre">std::vector&lt;double&gt;</span> <span class="pre">&gt;</span></tt> represent also some dense matrices.</p>
 </div>
 <div class="section" id="sparse-matrices">
@@ -165,7 +165,7 @@ Those two type of matrices store an array of <tt class="docutils literal"><span 
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -185,7 +185,7 @@ Those two type of matrices store an array of <tt class="docutils literal"><span 
                         title="前の章へ">Installation</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="export.html"
-                        title="次の章へ">Input and output with Harwell-Boeing and Matrix Market formats</a></p>            <h3>Download</h3>
+                        title="次の章へ">Harwell-BoeingとMatrix Marketフォーマットによる入力と出力</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -230,12 +230,12 @@ Those two type of matrices store an array of <tt class="docutils literal"><span 
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="export.html" title="Input and output with Harwell-Boeing and Matrix Market formats"
+          <a href="export.html" title="Harwell-BoeingとMatrix Marketフォーマットによる入力と出力"
              >次へ</a> |</li>
         <li class="right" >
           <a href="install.html" title="Installation"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -243,7 +243,7 @@ Those two type of matrices store an array of <tt class="docutils literal"><span 
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

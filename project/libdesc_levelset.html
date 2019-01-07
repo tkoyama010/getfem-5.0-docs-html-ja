@@ -8,30 +8,30 @@
     
     <title>レベルセットモジュール &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ライブラリのさまざまな部分の説明" href="libdesc.html" />
-    <link rel="next" title="The high-level generic assembly module in GetFEM++" href="libdesc_high_gen_assemb.html" />
+    <link rel="next" title="GetFEM++ の高レベルの汎用アセンブリモジュール" href="libdesc_high_gen_assemb.html" />
     <link rel="prev" title="MeshIm モジュール" href="libdesc_mim.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -43,12 +43,12 @@
           <a href="../genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="libdesc_high_gen_assemb.html" title="The high-level generic assembly module in GetFEM++"
+          <a href="libdesc_high_gen_assemb.html" title="GetFEM++ の高レベルの汎用アセンブリモジュール"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="libdesc_mim.html" title="MeshIm モジュール"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -83,39 +83,38 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_level_set &#8216; と: ファイル: &#8216; getfem_level_set &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_level_set.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_level_set.cc</span></tt></p>
 </td>
 <td><p class="first last">オプションの二次レベル設定関数を使用して、レベルセット関数 (Lagrange fem で定義されたスカラーフィールド) を定義します。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_mesh_level_set &#8216; と: ファイル: &#8216; getfem_mesh_level_set &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_mesh_level_set.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_mesh_level_set.cc</span></tt></p>
 </td>
 <td><p class="first last">1つまたは複数のレベルセットに対してメッシュをカットします。</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_fem_level_set &#8216; と: ファイル: &#8216; getfem_fem_level_set &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_fem_level_set.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_fem_level_set.cc</span></tt></p>
 </td>
 <td><p class="first last">要素に依存し、1つまたは複数のレベルセットによってカットされる特殊な有限要素メソッドを定義します。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_mesh_fem_level_set &#8216; と: ファイル: &#8216; getfem_mesh_fem_level_set &#8216;</p>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_mesh_fem_level_set.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_mesh_fem_level_set.cc</span></tt></p>
 </td>
-<td><p class="first last">1つまたは複数のレベルセットによってカットされたシェイプ関数を持つ mesh_fem オブジェクトを生成します。</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_mesh_im_level_set &#8216; と: ファイル: &#8216; getfem_mesh_im_level_set &#8216;</p>
-</td>
-<td><p class="first last">レベルセットによってカットされた intergation メソッドを表す mesh_im を生成し、レベルセット、oter 側、levelset 自体の両方またはのみの側にある。</p>
+<td><p class="first last">1つまたは複数のレベルセットによってカットされた形状関数を持つ mesh_fem オブジェクトを生成します。</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last">: ファイル: &#8216; getfem_level_set_contact &#8216; と: ファイル: &#8216; getfem_level_set_contact &#8216;</p>
+<tr class="row-even"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_mesh_im_level_set.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_mesh_im_level_set.cc</span></tt></p>
+</td>
+<td><p class="first last">レベルセットによってカットされた積分法を表す mesh_im を生成し、レベルセット、他方、レベルセット自体の両側または片側にあります。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><tt class="file docutils literal"><span class="pre">getfem_level_set_contact.h</span></tt> と <tt class="file docutils literal"><span class="pre">getfem_level_set_contact.cc</span></tt></p>
 </td>
 <td><p class="first last">インプラントの位置決めを簡単に解析するための、レベルセットベースの大型スライディングコンタクトアルゴリズム。</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last">: ファイル: &#8216; getfem_convect &#8216;</p>
-</td>
-<td><p class="first last">ベクトルフィールドに対する量の対流を計算します。たとえば、レベルセット関数の進化を computate するために使用されます。ガラーキン特性法</p>
+<tr class="row-even"><td><tt class="file docutils literal"><span class="pre">getfem_convect.h</span></tt></td>
+<td><p class="first last">ベクトルフィールドに対する量の対流を計算します。たとえば、レベルセット関数の進化を計算するために使用されます。Galerkin特性法</p>
 </td>
 </tr>
 </tbody>
@@ -127,7 +126,7 @@
 </div>
 <div class="section" id="perspectives">
 <h2>視点<a class="headerlink" href="#perspectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>異なるゾーンを計算する alorithm を明確にします。</p>
+<p>異なるゾーンを計算するアルゴリズムを明確にします。</p>
 </div>
 </div>
 
@@ -138,7 +137,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -156,7 +155,7 @@
                         title="前の章へ">MeshIm モジュール</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="libdesc_high_gen_assemb.html"
-                        title="次の章へ">The high-level generic assembly module in <em>GetFEM++</em></a></p>            <h3>Download</h3>
+                        title="次の章へ"><em>GetFEM++</em> の高レベルの汎用アセンブリモジュール</a></p>            <h3>Download</h3>
             <p><a href="../download.html">Download GetFEM++ </a></p>
 	    <h3>Main documentations</h3>
 	    <ul>
@@ -201,12 +200,12 @@
           <a href="../genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="libdesc_high_gen_assemb.html" title="The high-level generic assembly module in GetFEM++"
+          <a href="libdesc_high_gen_assemb.html" title="GetFEM++ の高レベルの汎用アセンブリモジュール"
              >次へ</a> |</li>
         <li class="right" >
           <a href="libdesc_mim.html" title="MeshIm モジュール"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -215,7 +214,7 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>

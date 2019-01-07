@@ -8,30 +8,30 @@
     
     <title>gf_compute &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.3',
+        VERSION:     '5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="../static/translations.js"></script>
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Command reference" href="cmdref.html" />
     <link rel="next" title="gf_cont_struct" href="cmdref_gf_cont_struct.html" />
     <link rel="prev" title="gf_asm" href="cmdref_gf_asm.html" />
-    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref_gf_asm.html" title="gf_asm"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -65,22 +65,22 @@
   <div class="section" id="gf-compute">
 <h1>gf_compute<a class="headerlink" href="#gf-compute" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>Synopsis</strong></p>
-<div class="highlight-python"><pre>n = gf_compute(mesh_fem MF, vec U, &#x27;L2 norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;L2 dist&#x27;, mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H1 semi norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H1 semi dist&#x27;, mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H1 norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H2 semi norm&#x27;, mesh_im mim[, mat CVids])
-n = gf_compute(mesh_fem MF, vec U, &#x27;H2 norm&#x27;, mesh_im mim[, mat CVids])
-DU = gf_compute(mesh_fem MF, vec U, &#x27;gradient&#x27;, mesh_fem mf_du)
-HU = gf_compute(mesh_fem MF, vec U, &#x27;hessian&#x27;, mesh_fem mf_h)
-UP = gf_compute(mesh_fem MF, vec U, &#x27;eval on triangulated surface&#x27;, int Nrefine, [vec CVLIST])
-Ui = gf_compute(mesh_fem MF, vec U, &#x27;interpolate on&#x27;, {mesh_fem mfi | slice sli | vec pts})
-Ue = gf_compute(mesh_fem MF, vec U, &#x27;extrapolate on&#x27;, mesh_fem mfe)
-E = gf_compute(mesh_fem MF, vec U, &#x27;error estimate&#x27;, mesh_im mim)
-E = gf_compute(mesh_fem MF, vec U, &#x27;error estimate nitsche&#x27;, mesh_im mim, int GAMMAC, int GAMMAN, scalar lambda_, scalar mu_, scalar gamma0, scalar f_coeff, scalar vertical_force)
-gf_compute(mesh_fem MF, vec U, &#x27;convect&#x27;, mesh_fem mf_v, vec V, scalar dt, int nt[, string option[, vec per_min, vec per_max]])
-[U2[,MF2,[,X[,Y[,Z]]]]] = gf_compute(mesh_fem MF, vec U, &#x27;interpolate on Q1 grid&#x27;, {&#x27;regular h&#x27;, hxyz | &#x27;regular N&#x27;, Nxyz | X[,Y[,Z]]})</pre>
+<div class="highlight-python"><pre>n = gf_compute(mesh_fem MF, vec U, 'L2 norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'L2 dist', mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H1 semi norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H1 semi dist', mesh_im mim, mesh_fem mf2, vec U2[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H1 norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H2 semi norm', mesh_im mim[, mat CVids])
+n = gf_compute(mesh_fem MF, vec U, 'H2 norm', mesh_im mim[, mat CVids])
+DU = gf_compute(mesh_fem MF, vec U, 'gradient', mesh_fem mf_du)
+HU = gf_compute(mesh_fem MF, vec U, 'hessian', mesh_fem mf_h)
+UP = gf_compute(mesh_fem MF, vec U, 'eval on triangulated surface', int Nrefine, [vec CVLIST])
+Ui = gf_compute(mesh_fem MF, vec U, 'interpolate on', {mesh_fem mfi | slice sli | vec pts})
+Ue = gf_compute(mesh_fem MF, vec U, 'extrapolate on', mesh_fem mfe)
+E = gf_compute(mesh_fem MF, vec U, 'error estimate', mesh_im mim)
+E = gf_compute(mesh_fem MF, vec U, 'error estimate nitsche', mesh_im mim, int GAMMAC, int GAMMAN, scalar lambda_, scalar mu_, scalar gamma0, scalar f_coeff, scalar vertical_force)
+gf_compute(mesh_fem MF, vec U, 'convect', mesh_fem mf_v, vec V, scalar dt, int nt[, string option[, vec per_min, vec per_max]])
+[U2[,MF2,[,X[,Y[,Z]]]]] = gf_compute(mesh_fem MF, vec U, 'interpolate on Q1 grid', {'regular h', hxyz | 'regular N', Nxyz | X[,Y[,Z]]})</pre>
 </div>
 <p><strong>Description :</strong></p>
 <blockquote>
@@ -248,7 +248,7 @@ MF (i.e.  1 if U is a scalar field)</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_gf_asm.html"
@@ -305,7 +305,7 @@ MF (i.e.  1 if U is a scalar field)</p>
         <li class="right" >
           <a href="cmdref_gf_asm.html" title="gf_asm"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -314,7 +314,7 @@ MF (i.e.  1 if U is a scalar field)</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; <a href="../copyright.html">Copyright</a> 2004-2018 GetFEM++ project.
+      &copy; <a href="../copyright.html">Copyright</a> 2004-2017 GetFEM++ project.
     </div>
   </body>
 </html>
