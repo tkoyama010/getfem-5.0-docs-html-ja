@@ -8,8 +8,8 @@
     
     <title>純対流法 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="prev" title="解の出力と表示" href="export.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="export.html" title="解の出力と表示"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -70,14 +70,14 @@
 <p>ここで <tt class="docutils literal"><span class="pre">mf</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 型の変数です、 <tt class="docutils literal"><span class="pre">U</span></tt> は対流するフィールドを表すベクトル、 <tt class="docutils literal"><span class="pre">mf_v</span></tt> は <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> 速度場の場合、 <tt class="docutils literal"><span class="pre">V</span></tt> は速度場の自由度ベクトルであり、 <tt class="docutils literal"><span class="pre">dt</span></tt> は対流の擬似時間であり、 <tt class="docutils literal"><span class="pre">nt</span></tt> は特性計算のための反復回数です。 <tt class="docutils literal"><span class="pre">option</span></tt> は境界条件が再流対流である場合のオプションです。可能なものは <tt class="docutils literal"><span class="pre">getfem::CONVECT_EXTRAPOLATION</span></tt>  （最も近い要素のフィールドの外挿）または <tt class="docutils literal"><span class="pre">getfem::CONVECT_UNCHANGED</span></tt> （境界の値の変更なし）です。</p>
 <p>この方法は、偏微分方程式</p>
 <div class="math">
-<p><img src="../_images/math/b1e5586a7056d427af93deb939f00e55926e9dd9.png" alt="\frac{\partial U}{\partial t} + V\cdot\nabla U = 0,"/></p>
-</div><p>の時間間隔 <img class="math" src="../_images/math/97a1183ef32dc07a42581fac5a589501e460853a.png" alt="[0, dt]" style="vertical-align: -5px"/> を積分します。</p>
+<p><img src="../images/math/b1e5586a7056d427af93deb939f00e55926e9dd9.png" alt="\frac{\partial U}{\partial t} + V\cdot\nabla U = 0,"/></p>
+</div><p>の時間間隔 <img class="math" src="../images/math/97a1183ef32dc07a42581fac5a589501e460853a.png" alt="[0, dt]" style="vertical-align: -5px"/> を積分します。</p>
 <p>使用される方法はGalerkin-Characteristicのものです。この方法は無条件に安定しているものの、散逸的で非常に簡単なバージョンです。 <a class="reference internal" href="../biblio.html#zt1989" id="id1">[ZT1989]</a> およびconvectコマンドに関するFreefem ++のドキュメントを参照してください。</p>
 <p>定義されたメソッドは <tt class="docutils literal"><span class="pre">mf</span></tt> がその時点の純粋なLagrange有限要素法である場合にのみ機能します。原理は常微分方程式を解くことによって有限要素節点を逆方向に対流させることです。</p>
 <div class="math">
-<p><img src="../_images/math/e7af5e15b652726cb52549a2c078075fab265d56.png" alt="\frac{d X}{d t} = -V(X),"/></p>
+<p><img src="../images/math/e7af5e15b652726cb52549a2c078075fab265d56.png" alt="\frac{d X}{d t} = -V(X),"/></p>
 </div><p>各節点に対応する初期条件を有します。この対流は <tt class="docutils literal"><span class="pre">nt</span></tt> ステップで行われます。次に、対流節点上で解を補間します。</p>
-<p>外挿をそれほど高コストにしないために、積 <img class="math" src="../_images/math/7a49ec2a64db75bcd60d90ecc4c7caac92e99308.png" alt="dt\times V" style="vertical-align: 0px"/> は大きすぎてはいけません。</p>
+<p>外挿をそれほど高コストにしないために、積 <img class="math" src="../images/math/7a49ec2a64db75bcd60d90ecc4c7caac92e99308.png" alt="dt\times V" style="vertical-align: 0px"/> は大きすぎてはいけません。</p>
 <p>この方法は分割スキームと結合する対流優位問題を解決するために使用することができることに留意してください。</p>
 </div>
 
@@ -88,7 +88,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="export.html"
@@ -145,7 +145,7 @@
         <li class="right" >
           <a href="export.html" title="解の出力と表示"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

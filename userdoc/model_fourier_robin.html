@@ -8,8 +8,8 @@
     
     <title>Fourier-Robin ブリック要素 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="等方性線形弾性ブリック要素" href="model_linear_elasticity.html" />
     <link rel="prev" title="Helmholtzブリック要素" href="model_helmholtz.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_helmholtz.html" title="Helmholtzブリック要素"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,16 +66,16 @@
 <span id="ud-model-fourier-robin"></span><span id="index-0"></span><h1>Fourier-Robin ブリック要素<a class="headerlink" href="#fourier-robin-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>この要素はFourier-Robinタイプの境界条件を追加するために使用できます。</p>
 <div class="math">
-<p><img src="../_images/math/0e0a9bbc3fb0d2ad98b86e9f0b06b25d41797ab1.png" alt="\frac{\partial u}{\partial \nu} = Qu"/></p>
+<p><img src="../images/math/0e0a9bbc3fb0d2ad98b86e9f0b06b25d41797ab1.png" alt="\frac{\partial u}{\partial \nu} = Qu"/></p>
 </div><p>または、スカラー問題の場合</p>
 <div class="math">
-<p><img src="../_images/math/6eed5b58f1ea8d0f8eec7fdb5afd5f130f0cdcb7.png" alt="\sigma\cdot \nu = Qu"/></p>
+<p><img src="../images/math/6eed5b58f1ea8d0f8eec7fdb5afd5f130f0cdcb7.png" alt="\sigma\cdot \nu = Qu"/></p>
 </div><p>線形弾性問題のために。 <tt class="docutils literal"><span class="pre">Q</span></tt> はスカラーの場合のスカラーフィールドまたはベクトルの場合のマトリックスフィールドです。この要素は、スカラーまたはベクトル問題の実数または複素数の両方に使用できます。</p>
 <p>このブリック要素をモデルに追加する関数は</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_Fourier_Robin_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">dataexpr</span><span class="p">,</span> <span class="n">region</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ここで <tt class="docutils literal"><span class="pre">dataexpr</span></tt> は係数を表すモデルのデータです <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> 。これは、弱形式言語の任意の有効な式（モデルのデータでなければならない複素数バージョンを除く）です。</p>
+<p>ここで <tt class="docutils literal"><span class="pre">dataexpr</span></tt> は係数を表すモデルのデータです <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> 。これは、弱形式言語の任意の有効な式（モデルのデータでなければならない複素数バージョンを除く）です。</p>
 <p>追加の右側にソース項ブリック要素を追加することができます。</p>
 </div>
 
@@ -86,7 +86,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_helmholtz.html"
@@ -143,7 +143,7 @@
         <li class="right" >
           <a href="model_helmholtz.html" title="Helmholtzブリック要素"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

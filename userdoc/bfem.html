@@ -8,8 +8,8 @@
     
     <title>メッシュ上に有限要素法を構築します &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="ユーザドキュメント" href="index.html" />
     <link rel="next" title="積分法の選択" href="binteg.html" />
     <link rel="prev" title="メッシュ生成" href="bmesh.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="bmesh.html" title="メッシュ生成"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -106,15 +106,15 @@
 </div>
 <p>有限要素法の非網羅的リスト( <a class="reference internal" href="appendixA.html#ud-appendixa"><em>付録A.有限要素法リスト</em></a> または <tt class="file docutils literal"><span class="pre">getfem/getfem_fem.h</span></tt> を参照)は次のように与えられます:</p>
 <ul class="simple">
-<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_PK(n,k)&quot;</span></tt> : 次数 <tt class="docutils literal"><span class="pre">k</span></tt> の多項式を用いた次元 <tt class="docutils literal"><span class="pre">n</span></tt> の古典的なシンプレックスの <img class="math" src="../_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> 法</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_PK(n,k)&quot;</span></tt> : 次数 <tt class="docutils literal"><span class="pre">k</span></tt> の多項式を用いた次元 <tt class="docutils literal"><span class="pre">n</span></tt> の古典的なシンプレックスの <img class="math" src="../images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> 法</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_QK(n,k)&quot;</span></tt>: 次元nの平行6面体上の古典的 <img class="math" src="../_images/math/4ca81821dd88dc67ea4df97840e93fa7710af178.png" alt="Q_K" style="vertical-align: -4px"/> 法。セグメント上の次数 <tt class="docutils literal"><span class="pre">k</span></tt> の <img class="math" src="../_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> 法のテンソルによる生成物。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_QK(n,k)&quot;</span></tt>: 次元nの平行6面体上の古典的 <img class="math" src="../images/math/4ca81821dd88dc67ea4df97840e93fa7710af178.png" alt="Q_K" style="vertical-align: -4px"/> 法。セグメント上の次数 <tt class="docutils literal"><span class="pre">k</span></tt> の <img class="math" src="../images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> 法のテンソルによる生成物。</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_PK_PRISM(n,k)&quot;</span></tt>: 次元 <tt class="docutils literal"><span class="pre">n</span></tt> のプリズムに関する古典的な方法。 2次の <tt class="docutils literal"><span class="pre">k</span></tt> の <img class="math" src="../_images/math/b58cc35c374e6b9557a7481a21513bcb4f48e373.png" alt="|P_K|" style="vertical-align: -5px"/> 法のテンソル積。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_PK_PRISM(n,k)&quot;</span></tt>: 次元 <tt class="docutils literal"><span class="pre">n</span></tt> のプリズムに関する古典的な方法。 2次の <tt class="docutils literal"><span class="pre">k</span></tt> の <img class="math" src="../images/math/b58cc35c374e6b9557a7481a21513bcb4f48e373.png" alt="|P_K|" style="vertical-align: -5px"/> 法のテンソル積。</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_PRODUCT(a,b)&quot;</span></tt>: 2つの多項式有限要素法 <tt class="docutils literal"><span class="pre">a</span></tt> と <tt class="docutils literal"><span class="pre">b</span></tt> のテンソル積。</p>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_PK_DISCONTINUOUS(n,k)&quot;</span></tt>: 次数 <tt class="docutils literal"><span class="pre">k</span></tt> の多項式を持つ次元 <tt class="docutils literal"><span class="pre">n</span></tt> のシンプレックスに関する不連続 <img class="math" src="../_images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> 法。</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">&quot;FEM_PK_DISCONTINUOUS(n,k)&quot;</span></tt>: 次数 <tt class="docutils literal"><span class="pre">k</span></tt> の多項式を持つ次元 <tt class="docutils literal"><span class="pre">n</span></tt> のシンプレックスに関する不連続 <img class="math" src="../images/math/e162923f93315ac368d1fdf32c621cb03fbe4f0e.png" alt="P_K" style="vertical-align: -3px"/> 法。</p>
 </li>
 </ul>
 <p>与えられた幾何学変換に適したLagrange多項式の有限要素法を得る別の方法は:</p>
@@ -161,7 +161,7 @@
 </div>
 <div class="section" id="examples">
 <h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>例えば、3角形上に <img class="math" src="../_images/math/a5b0256a78d58b6d5f7a53400b19e7747d2983fa.png" alt="P_1" style="vertical-align: -4px"/> 有限要素法の記述が必要な場合、それを設定する方法は:</p>
+<p>例えば、3角形上に <img class="math" src="../images/math/a5b0256a78d58b6d5f7a53400b19e7747d2983fa.png" alt="P_1" style="vertical-align: -4px"/> 有限要素法の記述が必要な場合、それを設定する方法は:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mf</span><span class="p">.</span><span class="n">set_finite_element</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">getfem</span><span class="o">::</span><span class="n">fem_descriptor</span><span class="p">(</span><span class="s">&quot;FEM_PK(2, 1)&quot;</span><span class="p">));</span>
 </pre></div>
 </div>
@@ -174,17 +174,17 @@
 </div>
 <div class="section" id="second-level-the-optional-vectorization-tensorization">
 <h2>第2レベル：オプションである「ベクトル化/テンソル化」<a class="headerlink" href="#second-level-the-optional-vectorization-tensorization" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>有限要素がベクトルフィールドである未知数を表す場合、メソッド <tt class="docutils literal"><span class="pre">mf.set_qdim(Q)</span></tt> は、ターゲットディメンション <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> が定義しているターゲットディメンションを設定します。</p>
-<p>対象の次元Qが <img class="math" src="../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> 以外の値に設定されている場合、スカラFEM（ <img class="math" src="../_images/math/76ebaba4ae3d5c911d6e31ad855d502ad88d48a6.png" alt="P_k" style="vertical-align: -3px"/> 有限要素法など）は <cite>mesh_fem</cite> オブジェクトの観点から自動的に「ベクトル化」されます。つまり、各スカラー自由度はベクトル場の <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> 成分を表現するため <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> 回表示されます。本質的にベクトル要素が使用される場合、 <tt class="docutils literal"><span class="pre">有限要素法</span></tt> のターゲットディメンションと <cite>mesh_fem</cite> オブジェクトのターゲットディメンションが一致しなければなりません。要約すると、</p>
+<p>有限要素がベクトルフィールドである未知数を表す場合、メソッド <tt class="docutils literal"><span class="pre">mf.set_qdim(Q)</span></tt> は、ターゲットディメンション <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> が定義しているターゲットディメンションを設定します。</p>
+<p>対象の次元Qが <img class="math" src="../images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> 以外の値に設定されている場合、スカラFEM（ <img class="math" src="../images/math/76ebaba4ae3d5c911d6e31ad855d502ad88d48a6.png" alt="P_k" style="vertical-align: -3px"/> 有限要素法など）は <cite>mesh_fem</cite> オブジェクトの観点から自動的に「ベクトル化」されます。つまり、各スカラー自由度はベクトル場の <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> 成分を表現するため <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> 回表示されます。本質的にベクトル要素が使用される場合、 <tt class="docutils literal"><span class="pre">有限要素法</span></tt> のターゲットディメンションと <cite>mesh_fem</cite> オブジェクトのターゲットディメンションが一致しなければなりません。要約すると、</p>
 <ul>
-<li><p class="first"><img class="math" src="../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i" style="vertical-align: 0px"/> の要素の有限要素法が本質的にベクトルFEMである場合:</p>
+<li><p class="first"><img class="math" src="../images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i" style="vertical-align: 0px"/> の要素の有限要素法が本質的にベクトルFEMである場合:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mf</span><span class="p">.</span><span class="n">get_qdim</span><span class="p">()</span> <span class="o">==</span> <span class="n">mf</span><span class="p">.</span><span class="n">fem_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">target_dim</span><span class="p">()</span>
 <span class="o">&amp;&amp;</span>
 <span class="n">mf</span><span class="p">.</span><span class="n">nb_dof_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">mf</span><span class="p">.</span><span class="n">fem_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">nb_dof</span><span class="p">()</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">もしFEMが <img class="math" src="../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> に等しい <tt class="docutils literal"><span class="pre">target_dim</span></tt> を持つならば:</p>
+<li><p class="first">もしFEMが <img class="math" src="../images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1" style="vertical-align: -1px"/> に等しい <tt class="docutils literal"><span class="pre">target_dim</span></tt> を持つならば:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">mf</span><span class="p">.</span><span class="n">nb_dof_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">mf</span><span class="p">.</span><span class="n">get_qdim</span><span class="p">()</span><span class="o">*</span><span class="n">mf</span><span class="p">.</span><span class="n">fem_of_element</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">nb_dof</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -261,8 +261,8 @@
 </div>
 <div class="section" id="third-level-the-optional-linear-transformation-or-reduction">
 <h2>第3レベル：オプションである線形（または縮小）変換<a class="headerlink" href="#third-level-the-optional-linear-transformation-or-reduction" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>上述のように、自由度の線形変換を記述する2つの行列、縮小行列 <img class="math" src="../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/> および拡張行列 <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> が提供されています。 <img class="math" src="../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V" style="vertical-align: 0px"/> が基本自由度のベクトルである場合、 <img class="math" src="../_images/math/3197502f6ef4e156633670cbaee70126f5583377.png" alt="U=RV" style="vertical-align: 0px"/> は上述のように減少した自由度のベクトルとなります。逆に、減少した自由度のベクトル <img class="math" src="../_images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> が与えられると、 <img class="math" src="../_images/math/8134be80f5a2d7944e4e2e3acb9d86d00978e4b2.png" alt="V=EU" style="vertical-align: 0px"/> は元の自由度のベクトルとなります。単純な場合、Eは単にRの転置になります。拡張行列のすべての行は疎でなければなりません。これに注意しないと、各マトリックスの構築は難しくなります！</p>
-<p>自然条件は <img class="math" src="../_images/math/13214624f5d40113208f77bbd9eebeefc1933aab.png" alt="RE = I" style="vertical-align: 0px"/> であり <img class="math" src="../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I" style="vertical-align: 0px"/> は単位行列です。</p>
+<p>上述のように、自由度の線形変換を記述する2つの行列、縮小行列 <img class="math" src="../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/> および拡張行列 <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> が提供されています。 <img class="math" src="../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V" style="vertical-align: 0px"/> が基本自由度のベクトルである場合、 <img class="math" src="../images/math/3197502f6ef4e156633670cbaee70126f5583377.png" alt="U=RV" style="vertical-align: 0px"/> は上述のように減少した自由度のベクトルとなります。逆に、減少した自由度のベクトル <img class="math" src="../images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U" style="vertical-align: 0px"/> が与えられると、 <img class="math" src="../images/math/8134be80f5a2d7944e4e2e3acb9d86d00978e4b2.png" alt="V=EU" style="vertical-align: 0px"/> は元の自由度のベクトルとなります。単純な場合、Eは単にRの転置になります。拡張行列のすべての行は疎でなければなりません。これに注意しないと、各マトリックスの構築は難しくなります！</p>
+<p>自然条件は <img class="math" src="../images/math/13214624f5d40113208f77bbd9eebeefc1933aab.png" alt="RE = I" style="vertical-align: 0px"/> であり <img class="math" src="../images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I" style="vertical-align: 0px"/> は単位行列です。</p>
 <dl class="function">
 <dt id="mf.nb_dof">
 <tt class="descclassname">mf.</tt><tt class="descname">nb_dof</tt><big>(</big><big>)</big><a class="headerlink" href="#mf.nb_dof" title="この定義へのパーマリンク">¶</a></dt>
@@ -278,13 +278,13 @@
 <dl class="function">
 <dt id="mf.reduction_matrix">
 <tt class="descclassname">mf.</tt><tt class="descname">reduction_matrix</tt><big>(</big><big>)</big><a class="headerlink" href="#mf.reduction_matrix" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>縮小行列 <img class="math" src="../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/> にconst参照を返します。</p>
+<dd><p>縮小行列 <img class="math" src="../images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R" style="vertical-align: 0px"/> にconst参照を返します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="mf.extension_matrix">
 <tt class="descclassname">mf.</tt><tt class="descname">extension_matrix</tt><big>(</big><big>)</big><a class="headerlink" href="#mf.extension_matrix" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>縮小行列 <img class="math" src="../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> にconst参照を返す。</p>
+<dd><p>縮小行列 <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E" style="vertical-align: 0px"/> にconst参照を返す。</p>
 </dd></dl>
 
 <dl class="function">
@@ -296,7 +296,7 @@
 <dl class="function">
 <dt id="mf.set_reduction">
 <tt class="descclassname">mf.</tt><tt class="descname">set_reduction</tt><big>(</big><em>b</em><big>)</big><a class="headerlink" href="#mf.set_reduction" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p><img class="math" src="../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> はブール値です。 <img class="math" src="../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> が偽であれば削減を取り消し、 <img class="math" src="../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> が真であれば削除を検証します。 <img class="math" src="../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> が真の場合は、事前に拡張行列と縮約行列を設定している必要があります。</p>
+<dd><p><img class="math" src="../images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> はブール値です。 <img class="math" src="../images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> が偽であれば削減を取り消し、 <img class="math" src="../images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> が真であれば削除を検証します。 <img class="math" src="../images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b" style="vertical-align: 0px"/> が真の場合は、事前に拡張行列と縮約行列を設定している必要があります。</p>
 </dd></dl>
 
 <dl class="function">
@@ -312,7 +312,7 @@
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">const</span> <span class="n">mesh_fem</span> <span class="o">&amp;</span><span class="n">getfem</span><span class="o">::</span><span class="n">classical_mesh_fem</span><span class="p">(</span><span class="k">const</span> <span class="n">getfem</span><span class="o">::</span><span class="n">mesh</span> <span class="o">&amp;</span><span class="n">mymesh</span><span class="p">,</span> <span class="n">dim_type</span> <span class="n">K</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>与えられた <tt class="docutils literal"><span class="pre">mymesh</span></tt> 上で次数 <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K" style="vertical-align: 0px"/> の古典的多項式 <cite>mesh_fem</cite> を得ることができます。 <cite>mesh_fem</cite> はリンクされたメッシュが破棄されると自動的に破棄されます。この関数によって構築されたすべての <cite>mesh_fem</cite> はキャッシュに格納されます。つまり、この関数を同じ引数で2回呼び出すと、同じ <cite>mesh_fem</cite> オブジェクトが返されます。ゆえに、決してこの <cite>mesh_fem</cite> を修正してはいけません！</p>
+<p>与えられた <tt class="docutils literal"><span class="pre">mymesh</span></tt> 上で次数 <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K" style="vertical-align: 0px"/> の古典的多項式 <cite>mesh_fem</cite> を得ることができます。 <cite>mesh_fem</cite> はリンクされたメッシュが破棄されると自動的に破棄されます。この関数によって構築されたすべての <cite>mesh_fem</cite> はキャッシュに格納されます。つまり、この関数を同じ引数で2回呼び出すと、同じ <cite>mesh_fem</cite> オブジェクトが返されます。ゆえに、決してこの <cite>mesh_fem</cite> を修正してはいけません！</p>
 </div>
 <div class="section" id="the-partial-mesh-fem-object">
 <h2>partial_mesh_femオブジェクト<a class="headerlink" href="#the-partial-mesh-fem-object" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -336,7 +336,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -406,7 +406,7 @@
         <li class="right" >
           <a href="bmesh.html" title="メッシュ生成"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

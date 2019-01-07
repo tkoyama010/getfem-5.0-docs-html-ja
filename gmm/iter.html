@@ -8,8 +8,8 @@
     
     <title>Iterative solvers &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="Gmm++ Library" href="index.html" />
     <link rel="next" title="キャッチエラー" href="catch.html" />
     <link rel="prev" title="高密度QR分解、固有値および固有ベクトル" href="denseqr.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="denseqr.html" title="高密度QR分解、固有値および固有ベクトル"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -158,7 +158,7 @@ Some possibilities:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">gmm</span><span class="o">::</span><span class="n">sequential_additive_schwarz</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">vB</span><span class="p">,</span> <span class="n">iter</span><span class="p">,</span> <span class="n">local_solver</span><span class="p">,</span> <span class="n">global_solver</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">A</span></tt> is the matrix of the linear system. <tt class="docutils literal"><span class="pre">u</span></tt> is the unknown vector. <tt class="docutils literal"><span class="pre">f</span></tt> is the right hand side. <tt class="docutils literal"><span class="pre">P</span></tt> is an eventual preconditioner for the local solver. <tt class="docutils literal"><span class="pre">vB</span></tt> is a vector of rectangular sparse matrices (<tt class="docutils literal"><span class="pre">of</span> <span class="pre">type</span> <span class="pre">const</span> <span class="pre">std::vector&lt;vBMatrix&gt;</span></tt>, where <tt class="docutils literal"><span class="pre">vBMatrix</span></tt> is a sparse matrix type), each of these matrices is of size <img class="math" src="../_images/math/2e87e7dc7593eb6e6cc606baa1d9c6cd90cb9508.png" alt="N \times N_i" style="vertical-align: -3px"/> where <img class="math" src="../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> is the size of <tt class="docutils literal"><span class="pre">A</span></tt> and <img class="math" src="../_images/math/9f09d622cd7ebd49e20b2e20717869bf2ee2aa5a.png" alt="N_i" style="vertical-align: -3px"/> the number of variables in the <img class="math" src="../_images/math/ffbd55597272a9914166c5dd1e71a5d23d842ddd.png" alt="i^{th}" style="vertical-align: 0px"/> sub-domain ; each column of the matrix is a base vector of the sub-space representing the <img class="math" src="../_images/math/ffbd55597272a9914166c5dd1e71a5d23d842ddd.png" alt="i^{th}" style="vertical-align: 0px"/> sub-domain. <tt class="docutils literal"><span class="pre">iter</span></tt> is an iteration object. <tt class="docutils literal"><span class="pre">local_solver</span></tt> has to be chosen in the list <tt class="docutils literal"><span class="pre">gmm::using_gmres(),</span> <span class="pre">gmm::using_bicgstab(),</span> <span class="pre">gmm::using_cg(),</span> <span class="pre">gmm::using_qmr()</span></tt> and  <tt class="docutils literal"><span class="pre">gmm::using_superlu()</span></tt> if SuperLu is installed. <tt class="docutils literal"><span class="pre">global_solver</span></tt> has to be chosen in the list <tt class="docutils literal"><span class="pre">gmm::using_gmres(),</span> <span class="pre">gmm::using_bicgstab(),</span> <span class="pre">gmm::using_cg(),</span> <span class="pre">gmm::using_qmr()</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">A</span></tt> is the matrix of the linear system. <tt class="docutils literal"><span class="pre">u</span></tt> is the unknown vector. <tt class="docutils literal"><span class="pre">f</span></tt> is the right hand side. <tt class="docutils literal"><span class="pre">P</span></tt> is an eventual preconditioner for the local solver. <tt class="docutils literal"><span class="pre">vB</span></tt> is a vector of rectangular sparse matrices (<tt class="docutils literal"><span class="pre">of</span> <span class="pre">type</span> <span class="pre">const</span> <span class="pre">std::vector&lt;vBMatrix&gt;</span></tt>, where <tt class="docutils literal"><span class="pre">vBMatrix</span></tt> is a sparse matrix type), each of these matrices is of size <img class="math" src="../images/math/2e87e7dc7593eb6e6cc606baa1d9c6cd90cb9508.png" alt="N \times N_i" style="vertical-align: -3px"/> where <img class="math" src="../images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> is the size of <tt class="docutils literal"><span class="pre">A</span></tt> and <img class="math" src="../images/math/9f09d622cd7ebd49e20b2e20717869bf2ee2aa5a.png" alt="N_i" style="vertical-align: -3px"/> the number of variables in the <img class="math" src="../images/math/ffbd55597272a9914166c5dd1e71a5d23d842ddd.png" alt="i^{th}" style="vertical-align: 0px"/> sub-domain ; each column of the matrix is a base vector of the sub-space representing the <img class="math" src="../images/math/ffbd55597272a9914166c5dd1e71a5d23d842ddd.png" alt="i^{th}" style="vertical-align: 0px"/> sub-domain. <tt class="docutils literal"><span class="pre">iter</span></tt> is an iteration object. <tt class="docutils literal"><span class="pre">local_solver</span></tt> has to be chosen in the list <tt class="docutils literal"><span class="pre">gmm::using_gmres(),</span> <span class="pre">gmm::using_bicgstab(),</span> <span class="pre">gmm::using_cg(),</span> <span class="pre">gmm::using_qmr()</span></tt> and  <tt class="docutils literal"><span class="pre">gmm::using_superlu()</span></tt> if SuperLu is installed. <tt class="docutils literal"><span class="pre">global_solver</span></tt> has to be chosen in the list <tt class="docutils literal"><span class="pre">gmm::using_gmres(),</span> <span class="pre">gmm::using_bicgstab(),</span> <span class="pre">gmm::using_cg(),</span> <span class="pre">gmm::using_qmr()</span></tt>.</p>
 <p>The test program <tt class="docutils literal"><span class="pre">schwarz_additive.C</span></tt> is the directory <tt class="docutils literal"><span class="pre">tests</span></tt> of GetFEM++ is an example of the resolution with the additive Schwarz method of an elastostatic problem with the use of coarse mesh to make a better preconditioning (i.e. one of the sub-domains represents in fact a coarser mesh).</p>
 <p>In the case of multiple solves with the same linear system, it is possible to store the preconditioners or the LU factorisations to save computation time.</p>
 <p>A (too) simple program in <tt class="docutils literal"><span class="pre">gmm/gmm_domain_decomp.h</span></tt> allows to build a regular domain decomposition with a certain ratio of overlap. It directly produces the vector of matrices <tt class="docutils literal"><span class="pre">vB</span></tt> for the additive Schwarz method.</p>
@@ -192,7 +192,7 @@ iteration.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -261,7 +261,7 @@ iteration.</p>
         <li class="right" >
           <a href="denseqr.html" title="高密度QR分解、固有値および固有ベクトル"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

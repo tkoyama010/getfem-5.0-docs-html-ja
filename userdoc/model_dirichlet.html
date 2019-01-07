@@ -8,8 +8,8 @@
     
     <title>Dirichlet条件ブリック要素 &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="ソース項ブリック要素（およびNeumann条件）" href="model_source_term.html" />
     <link rel="prev" title="汎用的な楕円ブリック要素" href="model_generic_elliptic.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_generic_elliptic.html" title="汎用的な楕円ブリック要素"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -66,9 +66,9 @@
 <span id="ud-model-dirichlet"></span><span id="index-0"></span><h1>Dirichlet条件ブリック要素<a class="headerlink" href="#dirichlet-condition-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Dirichlet条件ブリック要素の目的は、モデル変数のために領域の境界の一部にDirichlet条件を規定することです。これは、この変数の値が境界で規定されていることを意味します。このブリック要素は3つのバージョンがあります（ <a class="reference internal" href="model_Nitsche.html#ud-model-nitsche"><em>Dirichletおよび接触境界条件に対するNitsche法</em></a> の節も参照してください）。最初のバージョンはDirichlet乗数を定めます。関連する弱形式の項は次のとおりです。</p>
 <div class="math">
-<p><img src="../_images/math/a682345cc0b58573c0f9b92f2bc2a819c3405c2c.png" alt="\int_{\Gamma} u \mu d\Gamma = \int_{\Gamma} u_D \mu d\Gamma, \forall \mu \in M."/></p>
-</div><p>where <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is the variable, <img class="math" src="../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> is the space of multipliers, <img class="math" src="../_images/math/64f650be582a1056128d1394c1bc9141f7e2d839.png" alt="u_D" style="vertical-align: -3px"/>
-is the variable and <img class="math" src="../_images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/> the Dirichlet boundary. For this version, an
+<p><img src="../images/math/a682345cc0b58573c0f9b92f2bc2a819c3405c2c.png" alt="\int_{\Gamma} u \mu d\Gamma = \int_{\Gamma} u_D \mu d\Gamma, \forall \mu \in M."/></p>
+</div><p>where <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> is the variable, <img class="math" src="../images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M" style="vertical-align: 0px"/> is the space of multipliers, <img class="math" src="../images/math/64f650be582a1056128d1394c1bc9141f7e2d839.png" alt="u_D" style="vertical-align: -3px"/>
+is the variable and <img class="math" src="../images/math/913e49ea63c6c130bb8d9d1c3556b052ecc404f8.png" alt="\Gamma" style="vertical-align: -1px"/> the Dirichlet boundary. For this version, an
 additional variable have to be added to represent the multiplier. It can be done
 directly to the model or thanks to the functions below. There are three functions
 allowing to add a Dirichlet condition prescribed with a multiplier. The first one
@@ -104,7 +104,7 @@ is:</p>
                                           <span class="o">*</span><span class="n">mf_mult</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>ペナルティは変数の質量行列を計算し、ペナルティ係数を掛けたものに剛性行列を加算します。パラメータ <cite>mf_mult</cite> （ <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクトへのポインタ）はオプションです。 ロッキングした場合に、Dirichlet条件を弱めることもできます。この場合、ペナルティ行列は <img class="math" src="../_images/math/f12318131384e419e4faa0e96884f46f560d223f.png" alt="B^TB" style="vertical-align: 0px"/> のような形式になります。ここで、 <img class="math" src="../_images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> は、変数 <cite>varname</cite> の試行関数と乗数空間ペナルティ係数はモデルのデータとして追加され、次の関数によって変更することができます。</p>
+<p>ペナルティは変数の質量行列を計算し、ペナルティ係数を掛けたものに剛性行列を加算します。パラメータ <cite>mf_mult</cite> （ <tt class="docutils literal"><span class="pre">getfem::mesh_fem</span></tt> オブジェクトへのポインタ）はオプションです。 ロッキングした場合に、Dirichlet条件を弱めることもできます。この場合、ペナルティ行列は <img class="math" src="../images/math/f12318131384e419e4faa0e96884f46f560d223f.png" alt="B^TB" style="vertical-align: 0px"/> のような形式になります。ここで、 <img class="math" src="../images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B" style="vertical-align: 0px"/> は、変数 <cite>varname</cite> の試行関数と乗数空間ペナルティ係数はモデルのデータとして追加され、次の関数によって変更することができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">change_penalization_coeff</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">ind_brick</span><span class="p">,</span> <span class="n">penalisation_coeff</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -119,8 +119,8 @@ is:</p>
 <h1>一般化Dirichlet状態ブリック要素<a class="headerlink" href="#generalized-dirichlet-condition-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>一般化されたDirichlet条件は、タイプのベクトル場uの境界条件です。</p>
 <div class="math">
-<p><img src="../_images/math/52fc3a3d0694bdf8543b25692039776640241732.png" alt="H u  = r"/></p>
-</div><p>ここで、 <img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> は行列フィールドです。対応するブリック要素を追加する関数は、標準的なDirichlet条件のものと似ていますが、補足パラメータ <cite>Hname</cite> を必要とします。これは、 <img class="math" src="../_images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> に対応するデータの名前を与えます。このデータは、スカラーの有限要素法または定数行列に記述された行列フィールドにすることができます。</p>
+<p><img src="../images/math/52fc3a3d0694bdf8543b25692039776640241732.png" alt="H u  = r"/></p>
+</div><p>ここで、 <img class="math" src="../images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> は行列フィールドです。対応するブリック要素を追加する関数は、標準的なDirichlet条件のものと似ていますが、補足パラメータ <cite>Hname</cite> を必要とします。これは、 <img class="math" src="../images/math/b1902d279ba37d60bdce4e0e987b7cd19d48974e.png" alt="H" style="vertical-align: 0px"/> に対応するデータの名前を与えます。このデータは、スカラーの有限要素法または定数行列に記述された行列フィールドにすることができます。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_generalized_Dirichlet_condition_with_multipliers</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span>
                                          <span class="n">multname</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span>
                                          <span class="n">dataname</span><span class="p">,</span> <span class="n">Hname</span><span class="p">);</span>
@@ -144,14 +144,14 @@ is:</p>
 <div class="section" id="pointwise-constraints-brick">
 <h1>点列制約ブリック要素<a class="headerlink" href="#pointwise-constraints-brick" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>点列制約ブリック要素は、ブリック要素のようなDirichlet条件であり、領域の所与の点に未知の値を処方することを可能にします。これらの点は、必ずしもメッシュの頂点である必要はなく、未知数が記述されている有限要素法の自由度に対応する点列である必要もありません。</p>
-<p>スカラー場変数については、 <img class="math" src="../_images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点  <img class="math" src="../_images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられ、ブリック要素にこれらの点で変数の値を指定すると、次のようになります。</p>
+<p>スカラー場変数については、 <img class="math" src="../images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点  <img class="math" src="../images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられ、ブリック要素にこれらの点で変数の値を指定すると、次のようになります。</p>
 <div class="math">
-<p><img src="../_images/math/303d5e3444f4395156921283bff8ec371b20d261.png" alt="u(x_i) = l_i, ~~~ i = 1\cdots N_p,"/></p>
-</div><p>ここで、 <img class="math" src="../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> はスカラーフィールドで、 <img class="math" src="../_images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> はポイント <img class="math" src="../_images/math/67bc6daa9d6b964201d6cef60cbeb1ac5fd26ead.png" alt="x_i" style="vertical-align: -3px"/> に指定する値です。</p>
-<p>ベクトルフィールド変数の場合、 <img class="math" src="../_images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点数 <img class="math" src="../_images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられた場合、ブリック要素は変数の1つのブリック要素の値をこれらの点で処理することを可能にします、すなわち、条件を強制します。</p>
+<p><img src="../images/math/303d5e3444f4395156921283bff8ec371b20d261.png" alt="u(x_i) = l_i, ~~~ i = 1\cdots N_p,"/></p>
+</div><p>ここで、 <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u" style="vertical-align: 0px"/> はスカラーフィールドで、 <img class="math" src="../images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> はポイント <img class="math" src="../images/math/67bc6daa9d6b964201d6cef60cbeb1ac5fd26ead.png" alt="x_i" style="vertical-align: -3px"/> に指定する値です。</p>
+<p>ベクトルフィールド変数の場合、 <img class="math" src="../images/math/16fcf7439937e47fa713af1a39074565ad5ca41a.png" alt="N_p" style="vertical-align: -6px"/> 点数 <img class="math" src="../images/math/b4bfb18aa5d3c10ab21b8af967b73db0072a1035.png" alt="x_i, i = 1\cdots N_p" style="vertical-align: -6px"/> の集合が与えられた場合、ブリック要素は変数の1つのブリック要素の値をこれらの点で処理することを可能にします、すなわち、条件を強制します。</p>
 <div class="math">
-<p><img src="../_images/math/584d5c2ad6bc3ca6d614597d285ad5b5b7871ea1.png" alt="u(x_i)\cdot n_i = l_i, ~~~ i = 1\cdots N_p,"/></p>
-</div><p>ここで、 <img class="math" src="../_images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> は次のようなベクトルです。例えば <img class="math" src="../_images/math/bc4c151f6cc152fa191ba93834871785ac7e5f1a.png" alt="u(x_i)\cdot n_i" style="vertical-align: -4px"/> は指定する成分を表します。</p>
+<p><img src="../images/math/584d5c2ad6bc3ca6d614597d285ad5b5b7871ea1.png" alt="u(x_i)\cdot n_i = l_i, ~~~ i = 1\cdots N_p,"/></p>
+</div><p>ここで、 <img class="math" src="../images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> は次のようなベクトルです。例えば <img class="math" src="../images/math/bc4c151f6cc152fa191ba93834871785ac7e5f1a.png" alt="u(x_i)\cdot n_i" style="vertical-align: -4px"/> は指定する成分を表します。</p>
 <p>ブリック要素には2つのバージョンがあります: ペナルティバージョンと乗算機能付きバージョンです。呼び出しは次のとおりです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_pointwise_constraints_with_penalization</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">penalisation_coeff</span><span class="p">,</span>
               <span class="n">dataname_pt</span><span class="p">,</span> <span class="n">dataname_unitv</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(),</span>
@@ -165,7 +165,7 @@ is:</p>
               <span class="n">dataname_unitv</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(),</span> <span class="n">dataname_val</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>与えられた乗数固定サイズの変数を持つものと、適切なサイズの乗数変数をモデルに自動的に追加するものとの2種類があります。データ <cite>dataname_pt</cite> 、<cite>dataname_unitv</cite> 、 <cite>dataname_val</cite> は最初にmodelに追加する必要があります。 <cite>dataname_pt</cite> は、変数 <cite>varname</cite> の値を規定する点の座標を含むベクトルでなければなりません。したがって、サイズ <img class="math" src="../_images/math/fd4ab8e19d42532d8c1a9b63793562866ffc3f35.png" alt="N N_p" style="vertical-align: -6px"/> です。ここで、 <img class="math" src="../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> はメッシュの次元です。 <cite>dataname_unitv</cite> はスカラフィールド変数では無視されます。ベクトルフィールド変数の場合はベクトル <img class="math" src="../_images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> を含むはずです。その場合、サイズは次のように <img class="math" src="../_images/math/2ae997804992dee689ce6e1b35f0f88db3fb7459.png" alt="Q N_p" style="vertical-align: -6px"/> である必要があります。ここで、 <img class="math" src="../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> はベクトルフィールドの次元です。 <cite>dataname_val</cite> はオプションで右辺を表します。これは、 <img class="math" src="../_images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> という成分を含んでいなければなりません。 <img class="math" src="../_images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> のデフォルト値は0です。</p>
+<p>与えられた乗数固定サイズの変数を持つものと、適切なサイズの乗数変数をモデルに自動的に追加するものとの2種類があります。データ <cite>dataname_pt</cite> 、<cite>dataname_unitv</cite> 、 <cite>dataname_val</cite> は最初にmodelに追加する必要があります。 <cite>dataname_pt</cite> は、変数 <cite>varname</cite> の値を規定する点の座標を含むベクトルでなければなりません。したがって、サイズ <img class="math" src="../images/math/fd4ab8e19d42532d8c1a9b63793562866ffc3f35.png" alt="N N_p" style="vertical-align: -6px"/> です。ここで、 <img class="math" src="../images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N" style="vertical-align: 0px"/> はメッシュの次元です。 <cite>dataname_unitv</cite> はスカラフィールド変数では無視されます。ベクトルフィールド変数の場合はベクトル <img class="math" src="../images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i" style="vertical-align: -3px"/> を含むはずです。その場合、サイズは次のように <img class="math" src="../images/math/2ae997804992dee689ce6e1b35f0f88db3fb7459.png" alt="Q N_p" style="vertical-align: -6px"/> である必要があります。ここで、 <img class="math" src="../images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q" style="vertical-align: -4px"/> はベクトルフィールドの次元です。 <cite>dataname_val</cite> はオプションで右辺を表します。これは、 <img class="math" src="../images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> という成分を含んでいなければなりません。 <img class="math" src="../images/math/74949574eb3bb72bd595192b9685db088e6a44bd.png" alt="l_i" style="vertical-align: -3px"/> のデフォルト値は0です。</p>
 <p>このブリック要素は主に、純粋なNeumann問題の剛性変位を処理するように設計されています。</p>
 </div>
 
@@ -176,7 +176,7 @@ is:</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h3><a href="../contents.html">目次</a></h3>
   <ul>
@@ -240,7 +240,7 @@ is:</p>
         <li class="right" >
           <a href="model_generic_elliptic.html" title="汎用的な楕円ブリック要素"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

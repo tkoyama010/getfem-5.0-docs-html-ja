@@ -8,8 +8,8 @@
     
     <title>Module asm &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="API reference" href="cmdref.html" />
     <link rel="next" title="Module compute" href="cmdref_Module compute.html" />
     <link rel="prev" title="Spmat" href="cmdref_Spmat.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="cmdref_Spmat.html" title="Spmat"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -120,7 +120,7 @@ gf_asm('generic', mim, 2, 'A*Grad_Test2_u.Grad_Test_u', -1, 'u', 1, mf, U, 'A', 
 <dt id="getfem.asm_laplacian">
 <tt class="descname">asm_laplacian</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>a</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_laplacian" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Laplacian problem.</p>
-<p><img class="math" src="../_images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
+<p><img class="math" src="../images/math/b5f2cbe198c2cbd39f0bcb7ca3d610065c57565d.png" alt="\nabla\cdot(a(x)\nabla u)" style="vertical-align: -4px"/>  with <cite>a</cite> a scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -128,8 +128,8 @@ gf_asm('generic', mim, 2, 'A*Grad_Test2_u.Grad_Test_u', -1, 'u', 1, mf, U, 'A', 
 <dt id="getfem.asm_linear_elasticity">
 <tt class="descname">asm_linear_elasticity</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>lambda_d</em>, <em>mu_d</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_linear_elasticity" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembles of the matrix for the linear (isotropic) elasticity problem.</p>
-<p><img class="math" src="../_images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
-with <img class="math" src="../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
+<p><img class="math" src="../images/math/b40e879a34af1f500e7ee30da40d5c1533716e3b.png" alt="\nabla\cdot(C(x):\nabla u)" style="vertical-align: -4px"/>
+with <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C" style="vertical-align: 0px"/> defined via <cite>lambda_d</cite> and <cite>mu_d</cite>.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -172,7 +172,7 @@ tuple of vec objects (incompressible right hand side).</p>
 <dt id="getfem.asm_helmholtz">
 <tt class="descname">asm_helmholtz</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>k</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_helmholtz" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Helmholtz problem.</p>
-<p><img class="math" src="../_images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
+<p><img class="math" src="../images/math/a176210d2b2d9faefa1c60db7a9b47904487fc58.png" alt="\Delta u + k^2 u" style="vertical-align: -2px"/> = 0,  with <cite>k</cite> complex scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -180,7 +180,7 @@ tuple of vec objects (incompressible right hand side).</p>
 <dt id="getfem.asm_bilaplacian">
 <tt class="descname">asm_bilaplacian</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>a</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_bilaplacian" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Bilaplacian problem.</p>
-<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -188,7 +188,7 @@ tuple of vec objects (incompressible right hand side).</p>
 <dt id="getfem.asm_bilaplacian_KL">
 <tt class="descname">asm_bilaplacian_KL</tt><big>(</big><em>mim</em>, <em>mf_u</em>, <em>mf_d</em>, <em>a</em>, <em>nu</em>, <em>region=None</em><big>)</big><a class="headerlink" href="#getfem.asm_bilaplacian_KL" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Assembly of the matrix for the Bilaplacian problem with Kirchhoff-Love formulation.</p>
-<p><img class="math" src="../_images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
+<p><img class="math" src="../images/math/91ef8f562d808b007c74b534e7cbece491400cac.png" alt="\Delta(a(x)\Delta u) = 0" style="vertical-align: -4px"/>   with <cite>a</cite> scalar.</p>
 <p>Return a SpMat object.</p>
 </dd></dl>
 
@@ -221,7 +221,7 @@ size is equal to the dimension of the unkown u. This matrix is
 stored in <cite>H</cite>, one column per dof in <cite>mf_d</cite>, each column containing
 the values of the matrix h stored in fortran order:</p>
 <div class="math">
-<p><img src="../_images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
+<p><img src="../images/math/4b318d684994e7bb9054f42749587e69e757851c.png" alt="`H(:,j) = [h11(x_j) h21(x_j) h12(x_j) h22(x_j)]`"/></p>
 </div><p>if u is a 2D vector field.</p>
 <p>Of course, if the unknown is a scalar field, you just have to set
 <cite>H = ones(1, N)</cite>, where N is the number of dof of <cite>mf_d</cite>.</p>
@@ -405,7 +405,7 @@ field defined on <cite>mf_u</cite> on the boundary <cite>bnum</cite>.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cmdref_Spmat.html"
@@ -462,7 +462,7 @@ field defined on <cite>mf_u</cite> on the boundary <cite>bnum</cite>.</p>
         <li class="right" >
           <a href="cmdref_Spmat.html" title="Spmat"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 

@@ -8,8 +8,8 @@
     
     <title>ソース項ブリック要素（およびNeumann条件） &mdash; GetFEM++</title>
     
-    <link rel="stylesheet" href="../_static/getfem.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/getfem.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -20,18 +20,18 @@
         HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../static/translations.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="top" title="GetFEM++" href="../index.html" />
     <link rel="up" title="モデル記述と基本モデルブリック要素" href="model.html" />
     <link rel="next" title="あらかじめ定義されたソルバー" href="model_solvers.html" />
     <link rel="prev" title="Dirichlet条件ブリック要素" href="model_dirichlet.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/icon.png" />
  
 
   </head>
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="model_dirichlet.html" title="Dirichlet条件ブリック要素"
              accesskey="P">前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
@@ -64,10 +64,10 @@
             
   <div class="section" id="source-term-bricks-and-neumann-condition">
 <span id="ud-model-source-term"></span><span id="index-0"></span><h1>ソース項ブリック要素（およびNeumann条件）<a class="headerlink" href="#source-term-bricks-and-neumann-condition" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>このブリック要素は、ソース項、すなわちモデル線形（接線）システム構築の右辺にのみ生じる項を追加します。もし <img class="math" src="../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f" style="vertical-align: -4px"/> はソース項の値を表すなら、そのような項の弱形式は次のようになります。</p>
+<p>このブリック要素は、ソース項、すなわちモデル線形（接線）システム構築の右辺にのみ生じる項を追加します。もし <img class="math" src="../images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f" style="vertical-align: -4px"/> はソース項の値を表すなら、そのような項の弱形式は次のようになります。</p>
 <div class="math">
-<p><img src="../_images/math/5030a099b6b39b056d520c057235da02cab7c0fd.png" alt="\int_{\Omega} f v\ dx"/></p>
-</div><p>ここで、 <img class="math" src="../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は試行関数です。値 <img class="math" src="../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f" style="vertical-align: -4px"/> は、定数であっても有限要素法で記述されてもよいものです。</p>
+<p><img src="../images/math/5030a099b6b39b056d520c057235da02cab7c0fd.png" alt="\int_{\Omega} f v\ dx"/></p>
+</div><p>ここで、 <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v" style="vertical-align: 0px"/> は試行関数です。値 <img class="math" src="../images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f" style="vertical-align: -4px"/> は、定数であっても有限要素法で記述されてもよいものです。</p>
 <p>また、領域の境界に適用される場合、Neumann条件を表すこともできます。</p>
 <p>モデルにソース項を追加する関数は次のとおりです。</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">add_source_term_brick</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">mim</span><span class="p">,</span>
@@ -92,7 +92,7 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <p class="logo"><a href="../index.html">
-    <img class="logo" src="../_static/logo_getfem_small.png" alt="Logo"/>
+    <img class="logo" src="../static/logo_getfem_small.png" alt="Logo"/>
   </a></p>
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="model_dirichlet.html"
@@ -149,7 +149,7 @@
         <li class="right" >
           <a href="model_dirichlet.html" title="Dirichlet条件ブリック要素"
              >前へ</a> |</li>
-        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../_static/icon.png" alt=""
+        <li><a href="https://savannah.nongnu.org/projects/getfem" <img src="../static/icon.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li></a>
         <li><a href="../index.html">GetFEM++</a> &raquo;</li>
 
